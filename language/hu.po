@@ -1,0 +1,657 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "Légszennyezettség"
+
+msgid "current_weather"
+msgstr "Aktuális időjárás"
+
+msgid "hourly_forecast"
+msgstr "Óránkénti előrejelzés"
+
+msgid "daily_forecast"
+msgstr "Napi előrejelzés"
+
+msgid "weather_provider"
+msgstr "Időjárási szolgáltató"
+
+msgid "feels_like"
+msgstr "Hőérzet"
+
+msgid "last_updated"
+msgstr "Frissítve"
+
+msgid "temperature"
+msgstr "Hőmérséklet"
+
+msgid "humidity"
+msgstr "Páratartalom"
+
+msgid "pressure"
+msgstr "Légnyomás"
+
+msgid "precipitation"
+msgstr "Csapadék"
+
+msgid "precipitation_hours"
+msgstr "Csapadékórák"
+
+msgid "precipitation_probability"
+msgstr "Csapadék esélye"
+
+msgid "snowfall"
+msgstr "Havazás"
+
+msgid "cloud_cover"
+msgstr "Felhőzet"
+
+msgid "dew_point"
+msgstr "Harmatpont"
+
+msgid "visibility"
+msgstr "Látótávolság"
+
+msgid "uv_index"
+msgstr "UV-index"
+
+msgid "wind_speed"
+msgstr "Szélsebesség"
+
+msgid "wind_direction"
+msgstr "Szélirány"
+
+msgid "wind_gusts"
+msgstr "Széllökések"
+
+msgid "sunrise"
+msgstr "Napkelte"
+
+msgid "sunset"
+msgstr "Napnyugta"
+
+msgid "sunshine_duration"
+msgstr "Napsütéses órák"
+
+msgid "moonrise"
+msgstr "Holdkelte"
+
+msgid "moonset"
+msgstr "Holdnyugta"
+
+msgid "moon_phase"
+msgstr "Holdfázis"
+
+msgid "min"
+msgstr "Min"
+
+msgid "max"
+msgstr "Max"
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "Város"
+
+msgid "country"
+msgstr "Ország"
+
+msgid "region"
+msgstr "Régió"
+
+msgid "latitude"
+msgstr "Szélesség"
+
+msgid "longitude"
+msgstr "Hosszúság"
+
+msgid "elevation"
+msgstr "Tengerszint feletti magasság"
+
+msgid "population"
+msgstr "Népesség"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "Európai AQI"
+
+msgid "us_aqi"
+msgstr "USA AQI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "Szén-monoxid"
+
+msgid "ozone"
+msgstr "Ózon"
+
+msgid "dust"
+msgstr "Por"
+
+msgid "nitrogen_dioxide"
+msgstr "Nitrogén-dioxid"
+
+msgid "sulphur_dioxide"
+msgstr "Kén-dioxid"
+
+msgid "alder"
+msgstr "Éger"
+
+msgid "birch"
+msgstr "Nyír"
+
+msgid "grass"
+msgstr "Fűfélék"
+
+msgid "mugwort"
+msgstr "Üröm"
+
+msgid "olive"
+msgstr "Olajfa"
+
+msgid "ragweed"
+msgstr "Parlagfű"
+
+msgid "pollen"
+msgstr "Pollen"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "Derült égbolt"
+
+msgid "mainly_clear"
+msgstr "Többnyire derült"
+
+msgid "partly_cloudy"
+msgstr "Részben felhős"
+
+msgid "overcast"
+msgstr "Borult"
+
+msgid "fog"
+msgstr "Köd"
+
+msgid "depositing_rime_fog"
+msgstr "Zúzmarás köd"
+
+msgid "light_drizzle"
+msgstr "Enyhe szitálás"
+
+msgid "moderate_drizzle"
+msgstr "Mérsékelt szitálás"
+
+msgid "dense_drizzle"
+msgstr "Erős szitálás"
+
+msgid "light_freezing_drizzle"
+msgstr "Enyhe ónos szitálás"
+
+msgid "dense_freezing_drizzle"
+msgstr "Erős ónos szitálás"
+
+msgid "slight_rain"
+msgstr "Enyhe eső"
+
+msgid "moderate_rain"
+msgstr "Mérsékelt eső"
+
+msgid "heavy_rain"
+msgstr "Erős eső"
+
+msgid "light_freezing_rain"
+msgstr "Enyhe ónos eső"
+
+msgid "heavy_freezing_rain"
+msgstr "Erős ónos eső"
+
+msgid "slight_snowfall"
+msgstr "Enyhe havazás"
+
+msgid "moderate_snowfall"
+msgstr "Mérsékelt havazás"
+
+msgid "heavy_snowfall"
+msgstr "Erős havazás"
+
+msgid "snow_grains"
+msgstr "Hószemcsék"
+
+msgid "slight_rain_showers"
+msgstr "Enyhe zápor"
+
+msgid "moderate_rain_showers"
+msgstr "Mérsékelt zápor"
+
+msgid "violent_rain_showers"
+msgstr "Heves zápor"
+
+msgid "slight_snow_showers"
+msgstr "Enyhe hózápor"
+
+msgid "heavy_snow_showers"
+msgstr "Erős hózápor"
+
+msgid "thunderstorm"
+msgstr "Zivatar"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "Zivatar apró jéggel"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "Zivatar nagy jéggel"
+
+############################################
+# WIND DIRECTIONS (SHORT)
+############################################
+
+msgid "north"
+msgstr "É"
+
+msgid "nne"
+msgstr "ÉÉK"
+
+msgid "ne"
+msgstr "ÉK"
+
+msgid "ene"
+msgstr "KÉK"
+
+msgid "east"
+msgstr "K"
+
+msgid "ese"
+msgstr "KDK"
+
+msgid "se"
+msgstr "DK"
+
+msgid "sse"
+msgstr "DDK"
+
+msgid "south"
+msgstr "D"
+
+msgid "ssw"
+msgstr "DDNy"
+
+msgid "sw"
+msgstr "DNy"
+
+msgid "wsw"
+msgstr "NyDNy"
+
+msgid "west"
+msgstr "Ny"
+
+msgid "wnw"
+msgstr "NyÉNy"
+
+msgid "nw"
+msgstr "ÉNy"
+
+msgid "nnw"
+msgstr "ÉÉNy"
+
+msgid "variable"
+msgstr "változó"
+
+msgid "calm"
+msgstr "szélcsend"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "Újhold"
+
+msgid "waxing_crescent"
+msgstr "Növő holdsarló"
+
+msgid "first_quarter"
+msgstr "Első negyed"
+
+msgid "waxing_gibbous"
+msgstr "Növő hold"
+
+msgid "full_moon"
+msgstr "Telihold"
+
+msgid "waning_gibbous"
+msgstr "Fogyó hold"
+
+msgid "last_quarter"
+msgstr "Utolsó negyed"
+
+msgid "waning_crescent"
+msgstr "Fogyó holdsarló"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "Nap"
+
+msgid "moon"
+msgstr "Hold"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "Űridőjárás"
+
+msgid "kp_index"
+msgstr "Kp-index"
+
+msgid "solar_wind"
+msgstr "Napszél"
+
+msgid "aurora_visibility"
+msgstr "Sarki fény láthatóság"
+
+msgid "xray_class"
+msgstr "Röntgen-flare osztály"
+
+msgid "geomagnetic_activity"
+msgstr "Geomágneses aktivitás"
+
+msgid "kp_quiet"
+msgstr "Csendes"
+
+msgid "kp_unsettled"
+msgstr "Háborzott"
+
+msgid "kp_active"
+msgstr "Aktív"
+
+msgid "kp_storm"
+msgstr "Vihar"
+
+msgid "kp_strong"
+msgstr "Erős"
+
+msgid "kp_extreme"
+msgstr "Szélsőséges"
+
+msgid "status_observed"
+msgstr "Megfigyelt"
+
+msgid "status_estimated"
+msgstr "Becsült"
+
+msgid "status_predicted"
+msgstr "Előrejelzett"
+
+msgid "swind_low"
+msgstr "Alacsony"
+
+msgid "swind_moderate"
+msgstr "Mérsékelt"
+
+msgid "swind_high"
+msgstr "Magas"
+
+msgid "swind_extreme"
+msgstr "Szélsőséges"
+
+msgid "aurora_none"
+msgstr "Nincs"
+
+msgid "aurora_low"
+msgstr "Alacsony"
+
+msgid "aurora_moderate"
+msgstr "Mérsékelt"
+
+msgid "aurora_high"
+msgstr "Magas"
+
+msgid "aurora_excellent"
+msgstr "Kiváló"
+
+msgid "g0_desc"
+msgstr "Nincs geomágneses vihar."
+
+msgid "g1_desc"
+msgstr "Enyhe geomágneses vihar."
+
+msgid "g2_desc"
+msgstr "Mérsékelt geomágneses vihar."
+
+msgid "g3_desc"
+msgstr "Erős geomágneses vihar."
+
+msgid "g4_desc"
+msgstr "Súlyos geomágneses vihar."
+
+msgid "g5_desc"
+msgstr "Szélsőséges geomágneses vihar."
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "Szél"
+
+msgid "condition"
+msgstr "Időjárás"
+
+msgid "today"
+msgstr "Ma"
+
+msgid "details"
+msgstr "Részletek"
+
+msgid "forecast"
+msgstr "Előrejelzés"
+
+msgid "radar"
+msgstr "Radartérkép"
+
+msgid "alerts"
+msgstr "Riasztások"
+
+msgid "snow_cover"
+msgstr "Hóvastagság"
+
+msgid "precip_sum"
+msgstr "Csapadék össz."
+
+msgid "date_time"
+msgstr "Dátum / Idő"
+
+msgid "daylight"
+msgstr "Nappal"
+
+msgid "night"
+msgstr "Éjszaka"
+
+msgid "day"
+msgstr "Nap"
+
+msgid "daylight_over"
+msgstr "Nappal vége"
+
+msgid "remaining"
+msgstr "van hátra"
+
+msgid "refresh"
+msgstr "Frissítés"
+
+msgid "updating"
+msgstr "Frissítés..."
+
+msgid "loading"
+msgstr "Betöltés..."
+
+msgid "no_data"
+msgstr "Nincs adat"
+
+msgid "unknown"
+msgstr "Ismeretlen"
+
+msgid "no_location"
+msgstr "Nincs hely beállítva"
+
+msgid "provider"
+msgstr "Szolgáltató"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "Címsor"
+
+msgid "alert_description"
+msgstr "Leírás"
+
+msgid "alert_effective"
+msgstr "Érvényes"
+
+msgid "alert_expires"
+msgstr "Lejár"
+
+msgid "alert_instruction"
+msgstr "Utasítás"
+
+msgid "alert_website"
+msgstr "Weboldal"
+
+msgid "future_alerts"
+msgstr "Későbbi riasztások"
+
+msgid "no_alerts"
+msgstr "Nincs riasztás"
+
+msgid "one_alert"
+msgstr "1 riasztás"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "Jó"
+
+msgid "aqi_fair"
+msgstr "Elfogadható"
+
+msgid "aqi_poor"
+msgstr "Gyenge"
+
+msgid "aqi_very_poor"
+msgstr "Nagyon gyenge"
+
+msgid "aqi_extremely_poor"
+msgstr "Rendkívül gyenge"
+
+msgid "uv_low"
+msgstr "Alacsony"
+
+msgid "uv_moderate"
+msgstr "Mérsékelt"
+
+msgid "uv_high"
+msgstr "Magas"
+
+msgid "uv_very_high"
+msgstr "Nagyon magas"
+
+msgid "uv_extreme"
+msgstr "Szélsőséges"
+
+msgid "pollen_low"
+msgstr "Alacsony"
+
+msgid "pollen_moderate"
+msgstr "Mérsékelt"
+
+msgid "pollen_high"
+msgstr "Magas"
+
+msgid "pollen_very_high"
+msgstr "Nagyon magas"
+
+msgid "aqi"
+msgstr "AQI"
+
+msgid "aqhi"
+msgstr "AQHI"
+
+msgid "clear_night"
+msgstr "Derült éjszaka"
+
+msgid "geomagnetic_storm"
+msgstr "Geomágneses vihar"
+
+msgid "bz"
+msgstr "Bz (Mágneses tér)"
+
+msgid "flare_warning"
+msgstr "Flare figyelmeztetés"
+
+msgid "bz_active"
+msgstr "Aktív"
+
+msgid "alert_severity_minor"
+msgstr "Kisebb"
+
+msgid "alert_severity_moderate"
+msgstr "Mérsékelt"
+
+msgid "alert_severity_severe"
+msgstr "Súlyos"
+
+msgid "alert_severity_extreme"
+msgstr "Extrém"
+
+msgid "alert_color_yellow"
+msgstr "sárga"
+
+msgid "alert_color_orange"
+msgstr "narancs"
+
+msgid "alert_color_red"
+msgstr "piros"
+
+msgid "alert_certainty_observed"
+msgstr "Megfigyelt"
+
+msgid "alert_certainty_likely"
+msgstr "Valószínű"
+
+msgid "alert_certainty_possible"
+msgstr "Lehetséges"
+
+msgid "alert_certainty_unlikely"
+msgstr "Nem valószínű"
+
+msgid "alert_certainty_unknown"
+msgstr "Ismeretlen"

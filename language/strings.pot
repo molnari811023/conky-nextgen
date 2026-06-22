@@ -1,0 +1,668 @@
+# Conky Weather Module – Translation Template
+# Copyright (C) 2026
+# This file is distributed under the same license as the Conky Weather Module.
+# FIRST AUTHOR <email@address>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-08 20:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr ""
+
+msgid "current_weather"
+msgstr ""
+
+msgid "hourly_forecast"
+msgstr ""
+
+msgid "daily_forecast"
+msgstr ""
+
+msgid "weather_provider"
+msgstr ""
+
+msgid "feels_like"
+msgstr ""
+
+msgid "last_updated"
+msgstr ""
+
+msgid "temperature"
+msgstr ""
+
+msgid "humidity"
+msgstr ""
+
+msgid "pressure"
+msgstr ""
+
+msgid "precipitation"
+msgstr ""
+
+msgid "precipitation_hours"
+msgstr ""
+
+msgid "precipitation_probability"
+msgstr ""
+
+msgid "snowfall"
+msgstr ""
+
+msgid "cloud_cover"
+msgstr ""
+
+msgid "dew_point"
+msgstr ""
+
+msgid "visibility"
+msgstr ""
+
+msgid "uv_index"
+msgstr ""
+
+msgid "wind_speed"
+msgstr ""
+
+msgid "wind_direction"
+msgstr ""
+
+msgid "wind_gusts"
+msgstr ""
+
+msgid "sunrise"
+msgstr ""
+
+msgid "sunset"
+msgstr ""
+
+msgid "sunshine_duration"
+msgstr ""
+
+msgid "moonrise"
+msgstr ""
+
+msgid "moonset"
+msgstr ""
+
+msgid "moon_phase"
+msgstr ""
+
+msgid "min"
+msgstr ""
+
+msgid "max"
+msgstr ""
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr ""
+
+msgid "country"
+msgstr ""
+
+msgid "region"
+msgstr ""
+
+msgid "latitude"
+msgstr ""
+
+msgid "longitude"
+msgstr ""
+
+msgid "elevation"
+msgstr ""
+
+msgid "population"
+msgstr ""
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr ""
+
+msgid "us_aqi"
+msgstr ""
+
+msgid "pm10"
+msgstr ""
+
+msgid "pm2_5"
+msgstr ""
+
+msgid "carbon_monoxide"
+msgstr ""
+
+msgid "ozone"
+msgstr ""
+
+msgid "dust"
+msgstr ""
+
+msgid "nitrogen_dioxide"
+msgstr ""
+
+msgid "sulphur_dioxide"
+msgstr ""
+
+msgid "alder"
+msgstr ""
+
+msgid "birch"
+msgstr ""
+
+msgid "grass"
+msgstr ""
+
+msgid "mugwort"
+msgstr ""
+
+msgid "olive"
+msgstr ""
+
+msgid "ragweed"
+msgstr ""
+
+msgid "pollen"
+msgstr ""
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr ""
+
+msgid "mainly_clear"
+msgstr ""
+
+msgid "partly_cloudy"
+msgstr ""
+
+msgid "overcast"
+msgstr ""
+
+msgid "fog"
+msgstr ""
+
+msgid "depositing_rime_fog"
+msgstr ""
+
+msgid "light_drizzle"
+msgstr ""
+
+msgid "moderate_drizzle"
+msgstr ""
+
+msgid "dense_drizzle"
+msgstr ""
+
+msgid "light_freezing_drizzle"
+msgstr ""
+
+msgid "dense_freezing_drizzle"
+msgstr ""
+
+msgid "slight_rain"
+msgstr ""
+
+msgid "moderate_rain"
+msgstr ""
+
+msgid "heavy_rain"
+msgstr ""
+
+msgid "light_freezing_rain"
+msgstr ""
+
+msgid "heavy_freezing_rain"
+msgstr ""
+
+msgid "slight_snowfall"
+msgstr ""
+
+msgid "moderate_snowfall"
+msgstr ""
+
+msgid "heavy_snowfall"
+msgstr ""
+
+msgid "snow_grains"
+msgstr ""
+
+msgid "slight_rain_showers"
+msgstr ""
+
+msgid "moderate_rain_showers"
+msgstr ""
+
+msgid "violent_rain_showers"
+msgstr ""
+
+msgid "slight_snow_showers"
+msgstr ""
+
+msgid "heavy_snow_showers"
+msgstr ""
+
+msgid "thunderstorm"
+msgstr ""
+
+msgid "thunderstorm_with_slight_hail"
+msgstr ""
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr ""
+
+############################################
+# WIND DIRECTIONS
+############################################
+
+msgid "north"
+msgstr ""
+
+msgid "nne"
+msgstr ""
+
+msgid "ne"
+msgstr ""
+
+msgid "ene"
+msgstr ""
+
+msgid "east"
+msgstr ""
+
+msgid "ese"
+msgstr ""
+
+msgid "se"
+msgstr ""
+
+msgid "sse"
+msgstr ""
+
+msgid "south"
+msgstr ""
+
+msgid "ssw"
+msgstr ""
+
+msgid "sw"
+msgstr ""
+
+msgid "wsw"
+msgstr ""
+
+msgid "west"
+msgstr ""
+
+msgid "wnw"
+msgstr ""
+
+msgid "nw"
+msgstr ""
+
+msgid "nnw"
+msgstr ""
+
+msgid "variable"
+msgstr ""
+
+msgid "calm"
+msgstr ""
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr ""
+
+msgid "waxing_crescent"
+msgstr ""
+
+msgid "first_quarter"
+msgstr ""
+
+msgid "waxing_gibbous"
+msgstr ""
+
+msgid "full_moon"
+msgstr ""
+
+msgid "waning_gibbous"
+msgstr ""
+
+msgid "last_quarter"
+msgstr ""
+
+msgid "waning_crescent"
+msgstr ""
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr ""
+
+msgid "moon"
+msgstr ""
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr ""
+
+msgid "kp_index"
+msgstr ""
+
+msgid "solar_wind"
+msgstr ""
+
+msgid "aurora_visibility"
+msgstr ""
+
+msgid "xray_class"
+msgstr ""
+
+msgid "geomagnetic_activity"
+msgstr ""
+
+msgid "kp_quiet"
+msgstr ""
+
+msgid "kp_unsettled"
+msgstr ""
+
+msgid "kp_active"
+msgstr ""
+
+msgid "kp_storm"
+msgstr ""
+
+msgid "kp_strong"
+msgstr ""
+
+msgid "kp_extreme"
+msgstr ""
+
+msgid "status_observed"
+msgstr ""
+
+msgid "status_estimated"
+msgstr ""
+
+msgid "status_predicted"
+msgstr ""
+
+msgid "swind_low"
+msgstr ""
+
+msgid "swind_moderate"
+msgstr ""
+
+msgid "swind_high"
+msgstr ""
+
+msgid "swind_extreme"
+msgstr ""
+
+msgid "aurora_none"
+msgstr ""
+
+msgid "aurora_low"
+msgstr ""
+
+msgid "aurora_moderate"
+msgstr ""
+
+msgid "aurora_high"
+msgstr ""
+
+msgid "aurora_excellent"
+msgstr ""
+
+msgid "g0_desc"
+msgstr ""
+
+msgid "g1_desc"
+msgstr ""
+
+msgid "g2_desc"
+msgstr ""
+
+msgid "g3_desc"
+msgstr ""
+
+msgid "g4_desc"
+msgstr ""
+
+msgid "g5_desc"
+msgstr ""
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr ""
+
+msgid "condition"
+msgstr ""
+
+msgid "today"
+msgstr ""
+
+msgid "details"
+msgstr ""
+
+msgid "forecast"
+msgstr ""
+
+msgid "radar"
+msgstr ""
+
+msgid "alerts"
+msgstr ""
+
+msgid "snow_cover"
+msgstr ""
+
+msgid "precip_sum"
+msgstr ""
+
+msgid "date_time"
+msgstr ""
+
+msgid "daylight"
+msgstr ""
+
+msgid "night"
+msgstr ""
+
+msgid "day"
+msgstr ""
+
+msgid "daylight_over"
+msgstr ""
+
+msgid "remaining"
+msgstr ""
+
+msgid "refresh"
+msgstr ""
+
+msgid "updating"
+msgstr ""
+
+msgid "loading"
+msgstr ""
+
+msgid "no_data"
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "no_location"
+msgstr ""
+
+msgid "provider"
+msgstr ""
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr ""
+
+msgid "alert_description"
+msgstr ""
+
+msgid "alert_effective"
+msgstr ""
+
+msgid "alert_expires"
+msgstr ""
+
+msgid "alert_instruction"
+msgstr ""
+
+msgid "alert_website"
+msgstr ""
+
+msgid "future_alerts"
+msgstr ""
+
+msgid "no_alerts"
+msgstr ""
+
+msgid "one_alert"
+msgstr ""
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr ""
+
+msgid "aqi_fair"
+msgstr ""
+
+msgid "aqi_poor"
+msgstr ""
+
+msgid "aqi_very_poor"
+msgstr ""
+
+msgid "aqi_extremely_poor"
+msgstr ""
+
+msgid "uv_low"
+msgstr ""
+
+msgid "uv_moderate"
+msgstr ""
+
+msgid "uv_high"
+msgstr ""
+
+msgid "uv_very_high"
+msgstr ""
+
+msgid "uv_extreme"
+msgstr ""
+
+msgid "pollen_low"
+msgstr ""
+
+msgid "pollen_moderate"
+msgstr ""
+
+msgid "pollen_high"
+msgstr ""
+
+msgid "pollen_very_high"
+msgstr ""
+
+msgid "aqi"
+msgstr ""
+
+msgid "aqhi"
+msgstr ""
+
+msgid "clear_night"
+msgstr ""
+
+msgid "geomagnetic_storm"
+msgstr ""
+
+msgid "bz"
+msgstr ""
+
+msgid "flare_warning"
+msgstr ""
+
+msgid "bz_active"
+msgstr ""
+
+msgid "alert_severity_minor"
+msgstr ""
+
+msgid "alert_severity_moderate"
+msgstr ""
+
+msgid "alert_severity_severe"
+msgstr ""
+
+msgid "alert_severity_extreme"
+msgstr ""
+
+msgid "alert_color_yellow"
+msgstr ""
+
+msgid "alert_color_orange"
+msgstr ""
+
+msgid "alert_color_red"
+msgstr ""
+
+msgid "alert_certainty_observed"
+msgstr ""
+
+msgid "alert_certainty_likely"
+msgstr ""
+
+msgid "alert_certainty_possible"
+msgstr ""
+
+msgid "alert_certainty_unlikely"
+msgstr ""
+
+msgid "alert_certainty_unknown"
+msgstr ""
