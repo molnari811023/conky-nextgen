@@ -17,10 +17,10 @@ package.path = "./?.lua;" .. package.path .. ";" .. root .. "/lua/?.lua;" .. roo
 
 lfs = require("lfs")
 json = require("dkjson")
-require("translate")
-require("colors")
-require("weather_core")
-require("weather_current")
+require("1_translate")
+require("2_colors")
+require("4_weather_core")
+require("5_weather_current")
 
 print("JSON_PATH:", JSON_PATH)
 print("root:", root)
