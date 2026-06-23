@@ -79,3 +79,9 @@ Weather descriptions and wind directions are translated via GNU gettext `.mo` fi
 Drawing is driven by the `draw` table (defined in `36_widget.lua`). Each entry has a `type` field. The main loop dispatches to the correct draw function based on type.
 
 See the individual draw module docs for examples and variants.
+
+## Dependencies (Arch Linux)
+
+```
+pacman -S --needed conky python3 lua54 lua54-dkjson lua54-filesystem lua54-lpeg lua54-luarocks lua54-luautf8 lua54-system jq curl imagemagick pacman-contrib
+```
