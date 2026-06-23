@@ -73,9 +73,9 @@ This guarantees:
 
 1. Convert latitude/longitude → tileX/tileY using Mercator projection
 2. Download the 3×3 tile grid around the target tile
-3. Stitch tiles into a single large map
+3. Stitch tiles into a single large map (`magick`)
 4. Compute pixel offsets for the exact city position
-5. Crop the final region dynamically
+5. Crop the final region dynamically in Lua (see [`lua/34_draw_image.lua`](../lua/34_draw_image.lua) — `crop {}` table)
 6. Render it with Cairo in Conky
 
 ### Why this matters
