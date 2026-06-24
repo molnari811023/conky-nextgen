@@ -3,7 +3,7 @@
 Modular Conky UI framework with Lua engine and Bash backend.
 
 > **The first and only Conky project with full gettext i18n support.**  
-> Weblate-compatible, 3 languages ready (hu, en, de), `.pot` template for adding more.  
+> Weblate-compatible, Hungarian & German translations shipped, English as source, `.pot` template for adding more.  
 > Includes a tile-based Mercator map engine, global weather/sensors/hardware, and a Cairo drawing toolkit.
 
 ## Architecture
@@ -14,7 +14,7 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 
 | # | Module | Purpose |
 |---|--------|---------|
-| 1 | translate | Weather UI translations via `.mo` files. 3 languages ready: **hu**, **en**, **de**. `.pot` template in `language/` for adding more |
+| 1 | translate | Weather UI translations via `.mo` files. 2 languages ready: **hu**, **de**. English is the source (`.pot` template) |
 | 2 | colors | Breeze Dark color palette (`BR` table) |
 | 3 | watcher | File change watcher, auto-reloads Conky on edit |
 | 4 | weather_core | Weather data loader, sun/moon arcs, icons |
@@ -55,7 +55,7 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 
 Conky NextGen is the **first Conky project with full GNU gettext internationalization**. This isn't a static language switch — it's a real `.po`/`.mo` translation system, identical to what GNOME, KDE, and Weblate use.
 
-- **3 languages shipped**: Hungarian (`hu`), English (`en`), German (`de`)
+- **2 translations shipped**: Hungarian (`hu`), German (`de`). English is the source language (`.pot` template)
 - **`.pot` template** ready for any language — copy to `language/xx.po`, translate, compile with `msgfmt`
 - **Weblate‑compatible** — can be imported to Weblate for community translations with automatic PRs
 - **Zero code changes** to add a language — just add a `.mo` file

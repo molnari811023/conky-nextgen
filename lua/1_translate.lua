@@ -6,8 +6,8 @@
 --]]
 -- 1_translate.lua — .mo translation loader and get_tr()
 -- Loaded first so weather modules can translate WMO codes and wind directions.
--- 3 .mo files available: hu, en, de. Uses STRINGS_MO_PATH from main.lua.
--- Falls back to msgid if translation not found.
+-- 2 .mo files available: hu, de. English is the source language (.pot template).
+-- Uses STRINGS_MO_PATH from main.lua. Falls back to msgid if translation not found.
 
 
 local mo_strings = {}
