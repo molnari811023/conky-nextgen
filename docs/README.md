@@ -53,6 +53,8 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 
 ### Internationalization (i18n)
 
+[![Translation status](https://hosted.weblate.org/widgets/conky-nextgen/-/nextgen-translations/svg-badge.svg)](https://hosted.weblate.org/projects/conky-nextgen/nextgen-translations/)
+
 Conky NextGen is the **first Conky project with full GNU gettext internationalization**. This isn't a static language switch — it's a real `.po`/`.mo` translation system, identical to what GNOME, KDE, and Weblate use.
 
 - **2 translations shipped**: Hungarian (`hu`), German (`de`). English is the source language (`.pot` template)
