@@ -2,6 +2,10 @@
 
 Modular Conky UI framework with Lua engine and Bash backend.
 
+> **The first and only Conky project with full gettext i18n support.**  
+> Weblate-compatible, 3 languages ready (hu, en, de), `.pot` template for adding more.  
+> Includes a tile-based Mercator map engine, global weather/sensors/hardware, and a Cairo drawing toolkit.
+
 ## Architecture
 
 ### Lua Modules (`lua/`)
@@ -47,9 +51,17 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 | 35 | draw_layout | Dynamic layout engine (y-position stacking) |
 | 36 | widget | User-defined `draw = {}` and `layout = {}` |
 
-### Internationalization
+### Internationalization (i18n)
 
-Weather descriptions and wind directions are translated via GNU gettext `.mo` files in `language/`. The framework ships with **Hungarian (hu)**, **English (en)**, and **German (de)**. The `language/strings.pot` template lets you add a 4th language — copy it to `language/xx.po`, translate the strings, compile with `msgfmt`, and set `STRINGS_MO_PATH` in `main.lua`.
+Conky NextGen is the **first Conky project with full GNU gettext internationalization**. This isn't a static language switch — it's a real `.po`/`.mo` translation system, identical to what GNOME, KDE, and Weblate use.
+
+- **3 languages shipped**: Hungarian (`hu`), English (`en`), German (`de`)
+- **`.pot` template** ready for any language — copy to `language/xx.po`, translate, compile with `msgfmt`
+- **Weblate‑compatible** — can be imported to Weblate for community translations with automatic PRs
+- **Zero code changes** to add a language — just add a `.mo` file
+- Powered by Lua‑based gettext binding in [`lua/1_translate.lua`](../lua/1_translate.lua)
+
+To add a 4th language: copy `language/strings.pot` → `language/xx.po`, translate, run `msgfmt language/xx.po -o language/xx.mo`, and set `STRINGS_MO_PATH` in `main.lua`.
 
 ### Shell Scripts (`sh/`)
 
