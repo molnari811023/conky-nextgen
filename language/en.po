@@ -1,0 +1,657 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "Air quality"
+
+msgid "current_weather"
+msgstr "Current weather"
+
+msgid "hourly_forecast"
+msgstr "Hourly forecast"
+
+msgid "daily_forecast"
+msgstr "Daily forecast"
+
+msgid "weather_provider"
+msgstr "Weather provider"
+
+msgid "feels_like"
+msgstr "Feels like"
+
+msgid "last_updated"
+msgstr "Last updated"
+
+msgid "temperature"
+msgstr "Temperature"
+
+msgid "humidity"
+msgstr "Humidity"
+
+msgid "pressure"
+msgstr "Pressure"
+
+msgid "precipitation"
+msgstr "Precipitation"
+
+msgid "precipitation_hours"
+msgstr "Precipitation hours"
+
+msgid "precipitation_probability"
+msgstr "Precipitation probability"
+
+msgid "snowfall"
+msgstr "Snowfall"
+
+msgid "cloud_cover"
+msgstr "Cloud cover"
+
+msgid "dew_point"
+msgstr "Dew point"
+
+msgid "visibility"
+msgstr "Visibility"
+
+msgid "uv_index"
+msgstr "UV index"
+
+msgid "wind_speed"
+msgstr "Wind speed"
+
+msgid "wind_direction"
+msgstr "Wind direction"
+
+msgid "wind_gusts"
+msgstr "Wind gusts"
+
+msgid "sunrise"
+msgstr "Sunrise"
+
+msgid "sunset"
+msgstr "Sunset"
+
+msgid "sunshine_duration"
+msgstr "Sunshine duration"
+
+msgid "moonrise"
+msgstr "Moonrise"
+
+msgid "moonset"
+msgstr "Moonset"
+
+msgid "moon_phase"
+msgstr "Moon phase"
+
+msgid "min"
+msgstr "Min"
+
+msgid "max"
+msgstr "Max"
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "City"
+
+msgid "country"
+msgstr "Country"
+
+msgid "region"
+msgstr "Region"
+
+msgid "latitude"
+msgstr "Latitude"
+
+msgid "longitude"
+msgstr "Longitude"
+
+msgid "elevation"
+msgstr "Elevation"
+
+msgid "population"
+msgstr "Population"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "European AQI"
+
+msgid "us_aqi"
+msgstr "US AQI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "Carbon monoxide"
+
+msgid "ozone"
+msgstr "Ozone"
+
+msgid "dust"
+msgstr "Dust"
+
+msgid "nitrogen_dioxide"
+msgstr "Nitrogen dioxide"
+
+msgid "sulphur_dioxide"
+msgstr "Sulphur dioxide"
+
+msgid "alder"
+msgstr "Alder"
+
+msgid "birch"
+msgstr "Birch"
+
+msgid "grass"
+msgstr "Grass"
+
+msgid "mugwort"
+msgstr "Mugwort"
+
+msgid "olive"
+msgstr "Olive"
+
+msgid "ragweed"
+msgstr "Ragweed"
+
+msgid "pollen"
+msgstr "Pollen"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "Clear sky"
+
+msgid "mainly_clear"
+msgstr "Mainly clear"
+
+msgid "partly_cloudy"
+msgstr "Partly cloudy"
+
+msgid "overcast"
+msgstr "Overcast"
+
+msgid "fog"
+msgstr "Fog"
+
+msgid "depositing_rime_fog"
+msgstr "Rime fog"
+
+msgid "light_drizzle"
+msgstr "Light drizzle"
+
+msgid "moderate_drizzle"
+msgstr "Moderate drizzle"
+
+msgid "dense_drizzle"
+msgstr "Dense drizzle"
+
+msgid "light_freezing_drizzle"
+msgstr "Light freezing drizzle"
+
+msgid "dense_freezing_drizzle"
+msgstr "Dense freezing drizzle"
+
+msgid "slight_rain"
+msgstr "Light rain"
+
+msgid "moderate_rain"
+msgstr "Moderate rain"
+
+msgid "heavy_rain"
+msgstr "Heavy rain"
+
+msgid "light_freezing_rain"
+msgstr "Light freezing rain"
+
+msgid "heavy_freezing_rain"
+msgstr "Heavy freezing rain"
+
+msgid "slight_snowfall"
+msgstr "Light snowfall"
+
+msgid "moderate_snowfall"
+msgstr "Moderate snowfall"
+
+msgid "heavy_snowfall"
+msgstr "Heavy snowfall"
+
+msgid "snow_grains"
+msgstr "Snow grains"
+
+msgid "slight_rain_showers"
+msgstr "Light rain showers"
+
+msgid "moderate_rain_showers"
+msgstr "Moderate rain showers"
+
+msgid "violent_rain_showers"
+msgstr "Violent rain showers"
+
+msgid "slight_snow_showers"
+msgstr "Light snow showers"
+
+msgid "heavy_snow_showers"
+msgstr "Heavy snow showers"
+
+msgid "thunderstorm"
+msgstr "Thunderstorm"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "Thunderstorm with small hail"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "Thunderstorm with heavy hail"
+
+############################################
+# WIND DIRECTIONS (SHORT)
+############################################
+
+msgid "north"
+msgstr "N"
+
+msgid "nne"
+msgstr "NNE"
+
+msgid "ne"
+msgstr "NE"
+
+msgid "ene"
+msgstr "ENE"
+
+msgid "east"
+msgstr "E"
+
+msgid "ese"
+msgstr "ESE"
+
+msgid "se"
+msgstr "SE"
+
+msgid "sse"
+msgstr "SSE"
+
+msgid "south"
+msgstr "S"
+
+msgid "ssw"
+msgstr "SSW"
+
+msgid "sw"
+msgstr "SW"
+
+msgid "wsw"
+msgstr "WSW"
+
+msgid "west"
+msgstr "W"
+
+msgid "wnw"
+msgstr "WNW"
+
+msgid "nw"
+msgstr "NW"
+
+msgid "nnw"
+msgstr "NNW"
+
+msgid "variable"
+msgstr "VAR"
+
+msgid "calm"
+msgstr "CALM"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "New moon"
+
+msgid "waxing_crescent"
+msgstr "Waxing crescent"
+
+msgid "first_quarter"
+msgstr "First quarter"
+
+msgid "waxing_gibbous"
+msgstr "Waxing gibbous"
+
+msgid "full_moon"
+msgstr "Full moon"
+
+msgid "waning_gibbous"
+msgstr "Waning gibbous"
+
+msgid "last_quarter"
+msgstr "Last quarter"
+
+msgid "waning_crescent"
+msgstr "Waning crescent"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "Sun"
+
+msgid "moon"
+msgstr "Moon"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "Space Weather"
+
+msgid "kp_index"
+msgstr "Kp Index"
+
+msgid "solar_wind"
+msgstr "Solar Wind"
+
+msgid "aurora_visibility"
+msgstr "Aurora Visibility"
+
+msgid "xray_class"
+msgstr "X-ray Flare Class"
+
+msgid "geomagnetic_activity"
+msgstr "Geomagnetic Activity"
+
+msgid "kp_quiet"
+msgstr "Quiet"
+
+msgid "kp_unsettled"
+msgstr "Unsettled"
+
+msgid "kp_active"
+msgstr "Active"
+
+msgid "kp_storm"
+msgstr "Storm"
+
+msgid "kp_strong"
+msgstr "Strong"
+
+msgid "kp_extreme"
+msgstr "Extreme"
+
+msgid "status_observed"
+msgstr "Observed"
+
+msgid "status_estimated"
+msgstr "Estimated"
+
+msgid "status_predicted"
+msgstr "Predicted"
+
+msgid "swind_low"
+msgstr "Low"
+
+msgid "swind_moderate"
+msgstr "Moderate"
+
+msgid "swind_high"
+msgstr "High"
+
+msgid "swind_extreme"
+msgstr "Extreme"
+
+msgid "aurora_none"
+msgstr "None"
+
+msgid "aurora_low"
+msgstr "Low"
+
+msgid "aurora_moderate"
+msgstr "Moderate"
+
+msgid "aurora_high"
+msgstr "High"
+
+msgid "aurora_excellent"
+msgstr "Excellent"
+
+msgid "g0_desc"
+msgstr "No geomagnetic storm activity."
+
+msgid "g1_desc"
+msgstr "Minor geomagnetic storm."
+
+msgid "g2_desc"
+msgstr "Moderate geomagnetic storm."
+
+msgid "g3_desc"
+msgstr "Strong geomagnetic storm."
+
+msgid "g4_desc"
+msgstr "Severe geomagnetic storm."
+
+msgid "g5_desc"
+msgstr "Extreme geomagnetic storm."
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "Wind"
+
+msgid "condition"
+msgstr "Condition"
+
+msgid "today"
+msgstr "Today"
+
+msgid "details"
+msgstr "Details"
+
+msgid "forecast"
+msgstr "Forecast"
+
+msgid "radar"
+msgstr "Radar"
+
+msgid "alerts"
+msgstr "Alerts"
+
+msgid "snow_cover"
+msgstr "Snow Cover"
+
+msgid "precip_sum"
+msgstr "Precip Sum"
+
+msgid "date_time"
+msgstr "Date / Time"
+
+msgid "daylight"
+msgstr "Daylight"
+
+msgid "night"
+msgstr "Night"
+
+msgid "day"
+msgstr "Day"
+
+msgid "daylight_over"
+msgstr "Daylight over"
+
+msgid "remaining"
+msgstr "left"
+
+msgid "refresh"
+msgstr "Refresh"
+
+msgid "updating"
+msgstr "Updating..."
+
+msgid "loading"
+msgstr "Loading..."
+
+msgid "no_data"
+msgstr "No data"
+
+msgid "unknown"
+msgstr "Unknown"
+
+msgid "no_location"
+msgstr "No location set"
+
+msgid "provider"
+msgstr "Provider"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "Headline"
+
+msgid "alert_description"
+msgstr "Description"
+
+msgid "alert_effective"
+msgstr "Effective"
+
+msgid "alert_expires"
+msgstr "Expires"
+
+msgid "alert_instruction"
+msgstr "Instruction"
+
+msgid "alert_website"
+msgstr "Website"
+
+msgid "future_alerts"
+msgstr "Future alerts"
+
+msgid "no_alerts"
+msgstr "None"
+
+msgid "one_alert"
+msgstr "1 Alert"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "Good"
+
+msgid "aqi_fair"
+msgstr "Fair"
+
+msgid "aqi_poor"
+msgstr "Poor"
+
+msgid "aqi_very_poor"
+msgstr "Very Poor"
+
+msgid "aqi_extremely_poor"
+msgstr "Extremely Poor"
+
+msgid "uv_low"
+msgstr "Low"
+
+msgid "uv_moderate"
+msgstr "Moderate"
+
+msgid "uv_high"
+msgstr "High"
+
+msgid "uv_very_high"
+msgstr "Very High"
+
+msgid "uv_extreme"
+msgstr "Extreme"
+
+msgid "pollen_low"
+msgstr "Low"
+
+msgid "pollen_moderate"
+msgstr "Moderate"
+
+msgid "pollen_high"
+msgstr "High"
+
+msgid "pollen_very_high"
+msgstr "Very High"
+
+msgid "aqi"
+msgstr "AQI"
+
+msgid "aqhi"
+msgstr "AQHI"
+
+msgid "clear_night"
+msgstr "Clear night"
+
+msgid "geomagnetic_storm"
+msgstr "Geomagnetic Storm"
+
+msgid "bz"
+msgstr "Bz (Magnetic Field)"
+
+msgid "flare_warning"
+msgstr "Flare Warning"
+
+msgid "bz_active"
+msgstr "Active"
+
+msgid "alert_severity_minor"
+msgstr "Minor"
+
+msgid "alert_severity_moderate"
+msgstr "Moderate"
+
+msgid "alert_severity_severe"
+msgstr "Severe"
+
+msgid "alert_severity_extreme"
+msgstr "Extreme"
+
+msgid "alert_color_yellow"
+msgstr "yellow"
+
+msgid "alert_color_orange"
+msgstr "orange"
+
+msgid "alert_color_red"
+msgstr "red"
+
+msgid "alert_certainty_observed"
+msgstr "Observed"
+
+msgid "alert_certainty_likely"
+msgstr "Likely"
+
+msgid "alert_certainty_possible"
+msgstr "Possible"
+
+msgid "alert_certainty_unlikely"
+msgstr "Unlikely"
+
+msgid "alert_certainty_unknown"
+msgstr "Unknown"
