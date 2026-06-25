@@ -32,4 +32,4 @@ New direction: combine existing drawing modules into composite widgets:
 - Bar + text overlay (label/value rendered on top of the bar)
 - Ring + text overlay (value in center of ring gauge)
 - Graph + text overlay (annotations at key data points)
-- Reference: wlourf's bargraph widget pattern
+- Reference: community combination widgets on DeviantArt
