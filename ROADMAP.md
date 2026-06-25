@@ -34,3 +34,22 @@ New direction: combine existing drawing modules into composite widgets:
 - Graph + text overlay (annotations at key data points)
 - Reference: [Bargraph Widget 2.2 (edit by Nooby4Ever) by N00by4Ever](https://www.deviantart.com/n00by4ever/art/conky-Bargraph-Widget-2-2-edit-by-Nooby4Ever-401252985) (fork of wlourf's Bargraph 2.1)
 - Reference: [Pie Chart Widget for Conky 1.3 by wlourf](https://www.deviantart.com/wlourf/art/Pie-Chart-Widget-for-Conky-1-3-165734819)
+
+## 5. OS Detection Module
+Detect the running OS/distro and version at load time. Enables distro-agnostic widgets.
+
+**Use cases:**
+- Package updates: `checkupdates` (Arch), `apt list --upgradable` (Debian/Ubuntu), `dnf check-update` (Fedora)
+- AUR updates: `yay -Qua` or `paru -Qua` — only on Arch with AUR helper
+- Flatpak/Snap updates detection
+- Distro-specific paths, icons, and default configs
+- Conditional module loading per distro
+
+## 6. NVIDIA Prime-Select Support
+Detect hybrid graphics (Intel + NVIDIA) and active GPU via `prime-select`.
+
+**Use cases:**
+- Show NVIDIA stats only when the dGPU is active (not on Intel)
+- Detect `nvidia-prime` (Ubuntu) or `optimus-manager` (Arch)
+- Expose `prime-select query` result → show GPU mode icon/indicator
+- On switch to NVIDIA → automatically enable NVIDIA modules
