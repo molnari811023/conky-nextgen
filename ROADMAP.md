@@ -32,4 +32,5 @@ New direction: combine existing drawing modules into composite widgets:
 - Bar + text overlay (label/value rendered on top of the bar)
 - Ring + text overlay (value in center of ring gauge)
 - Graph + text overlay (annotations at key data points)
-- Reference: community combination widgets on DeviantArt
+- Reference: [Bargraph Widget 2.2 (edit by Nooby4Ever) by N00by4Ever](https://www.deviantart.com/n00by4ever/art/conky-Bargraph-Widget-2-2-edit-by-Nooby4Ever-401252985) (fork of wlourf's Bargraph 2.1)
+- Reference: [Pie Chart Widget for Conky 1.3 by wlourf](https://www.deviantart.com/wlourf/art/Pie-Chart-Widget-for-Conky-1-3-165734819)
