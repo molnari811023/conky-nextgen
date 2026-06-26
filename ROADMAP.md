@@ -53,3 +53,15 @@ Detect hybrid graphics (Intel + NVIDIA) and active GPU via `prime-select`.
 - Detect `nvidia-prime` (Ubuntu) or `optimus-manager` (Arch)
 - Expose `prime-select query` result → show GPU mode icon/indicator
 - On switch to NVIDIA → automatically enable NVIDIA modules
+
+## 7. Lua 5.5 Compatibility Layer
+
+Conky 1.23.0+ is already compatible with Lua 5.5 (GC API fix merged in [#2335](https://github.com/brndnmtthws/conky/pull/2335)).
+Arch Linux will switch Conky to Lua 5.5 when the package is updated.
+
+**NextGen tasks:**
+- Runtime detection of Lua ABI (5.1 / 5.3 / 5.4 / 5.5)
+- Version-agnostic `require()` wrapper for dkjson, filesystem, lpeg, etc.
+- Version-agnostic `unpack`/`load` compatibility
+- Extended `package.path` for Debian/Ubuntu Lua module directories
+- Ensure all modules remain compatible when Conky switches to Lua 5.5
