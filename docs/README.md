@@ -101,3 +101,16 @@ For details on the tile‑based map engine (3×3 Mercator grid, global radar sup
 ```
 pacman -S --needed conky python3 lua54 lua54-dkjson lua54-filesystem lua54-lpeg lua54-luarocks lua54-luautf8 lua54-system jq curl imagemagick pacman-contrib
 ```
+
+## Contributing
+
+Contributions are welcome! If you've tried Conky NextGen and have ideas,
+found a bug, or want to help, feel free to open an Issue or PR.
+
+I'm actively looking for contributors in these areas:
+- New widget types and composite widgets (bar+text, ring+text)
+- Multi-distro support (OS detection, package manager detection)
+- NVIDIA Prime-Select / hybrid graphics support
+- UI polish, bug fixes, performance improvements
+
+Every contribution counts — feedback, ideas, code, or docs.
