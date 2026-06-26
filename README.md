@@ -1,8 +1,21 @@
 # Conky NextGen
 
-Modular Conky UI framework — Lua engine + Bash backend.
+🏗️ Built like LEGO, not a pre-built house.
 
-Full i18n, weather, hardware sensors, space weather, Mercator map tiles, Cairo drawing toolkit.
+Most Conky projects give you a finished theme — a fixed layout, a skin, a "house".
+NextGen gives you the bricks, the instructions, and the freedom to build your own.
+
+**⭐ What does this mean in practice?**
+
+| Brick | What you get |
+|-------|-------------|
+| **Modular bricks** | Every feature is a separate Lua module — combine them freely |
+| **Backend blocks** | GPU, sensors, weather, spaceweather — all replaceable components |
+| **Frontend blocks** | Cairo drawing toolkit, map tiles, layout engine |
+| **Build your own** | Assemble your UI from modules, not a fixed skin |
+| **Extend the set** | Add new modules like adding new LEGO pieces |
+| **🌍 i18n bricks** | Gettext-based translation system. Currently ready for **weather modules** — more modules can be added |
+| **🔧 Hardware bricks** | Multi-distro GPU detection, NVIDIA XML backend, sensors |
 
 See [docs/README.md](docs/README.md) for full documentation.
 
