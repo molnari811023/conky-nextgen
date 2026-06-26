@@ -7,25 +7,29 @@
 -- 19_hardware_nvidia.lua — GPU mode detection + nvidia-smi XML stats
 local gpu_mode_cache = nil
 
-function conky_gpu_mode()
-	if gpu_mode_cache then
-		return gpu_mode_cache
+local function detect_gpu_mode()
+	local f = io.popen("prime-select query 2>/dev/null")
+	if f then
+		local out = f:read("*l")
+		f:close()
+		if out == "nvidia" then return "nvidia" end
+		if out == "intel" then return "intel" end
+		if out == "on-demand" then return "hybrid" end
 	end
 	local f = io.popen("envycontrol -q 2>/dev/null")
 	if f then
 		local out = f:read("*l")
 		f:close()
-		if out == "nvidia" then
-			gpu_mode_cache = "nvidia"
-		elseif out == "integrated" then
-			gpu_mode_cache = "intel"
-		elseif out == "hybrid" then
-			gpu_mode_cache = "hybrid"
-		else
-			gpu_mode_cache = "unknown"
-		end
-	else
-		gpu_mode_cache = "unknown"
+		if out == "nvidia" then return "nvidia" end
+		if out == "integrated" then return "intel" end
+		if out == "hybrid" then return "hybrid" end
+	end
+	return "unknown"
+end
+
+function conky_gpu_mode()
+	if not gpu_mode_cache then
+		gpu_mode_cache = detect_gpu_mode()
 	end
 	return gpu_mode_cache
 end
