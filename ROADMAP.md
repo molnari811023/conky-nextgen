@@ -45,15 +45,6 @@ Detect the running OS/distro and version at load time. Enables distro-agnostic w
 - Distro-specific paths, icons, and default configs
 - Conditional module loading per distro
 
-## 6. NVIDIA Prime-Select Support
-Detect hybrid graphics (Intel + NVIDIA) and active GPU via `prime-select`.
-
-**Use cases:**
-- Show NVIDIA stats only when the dGPU is active (not on Intel)
-- Detect `nvidia-prime` (Ubuntu) or `optimus-manager` (Arch)
-- Expose `prime-select query` result → show GPU mode icon/indicator
-- On switch to NVIDIA → automatically enable NVIDIA modules
-
 ## 7. Lua 5.5 Compatibility Layer
 
 Conky 1.23.0+ is already compatible with Lua 5.5 (GC API fix merged in [#2335](https://github.com/brndnmtthws/conky/pull/2335)).
