@@ -1,0 +1,657 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "Luchtkwaliteit"
+
+msgid "current_weather"
+msgstr "Huidig weer"
+
+msgid "hourly_forecast"
+msgstr "Uurlijkse verwachting"
+
+msgid "daily_forecast"
+msgstr "Dagelijkse verwachting"
+
+msgid "weather_provider"
+msgstr "Weerprovider"
+
+msgid "feels_like"
+msgstr "Gevoelstemperatuur"
+
+msgid "last_updated"
+msgstr "Laatst bijgewerkt"
+
+msgid "temperature"
+msgstr "Temperatuur"
+
+msgid "humidity"
+msgstr "Luchtvochtigheid"
+
+msgid "pressure"
+msgstr "Luchtdruk"
+
+msgid "precipitation"
+msgstr "Neerslag"
+
+msgid "precipitation_hours"
+msgstr "Neerslaguren"
+
+msgid "precipitation_probability"
+msgstr "Neerslagkans"
+
+msgid "snowfall"
+msgstr "Sneeuwval"
+
+msgid "cloud_cover"
+msgstr "Bewolking"
+
+msgid "dew_point"
+msgstr "Dauwpunt"
+
+msgid "visibility"
+msgstr "Zichtbaarheid"
+
+msgid "uv_index"
+msgstr "UV-index"
+
+msgid "wind_speed"
+msgstr "Windsnelheid"
+
+msgid "wind_direction"
+msgstr "Windrichting"
+
+msgid "wind_gusts"
+msgstr "Windstoten"
+
+msgid "sunrise"
+msgstr "Zonsopgang"
+
+msgid "sunset"
+msgstr "Zonsondergang"
+
+msgid "sunshine_duration"
+msgstr "Zonneschijnduur"
+
+msgid "moonrise"
+msgstr "Maansopgang"
+
+msgid "moonset"
+msgstr "Maansondergang"
+
+msgid "moon_phase"
+msgstr "Maanfase"
+
+msgid "min"
+msgstr "Min"
+
+msgid "max"
+msgstr "Max"
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "Stad"
+
+msgid "country"
+msgstr "Land"
+
+msgid "region"
+msgstr "Regio"
+
+msgid "latitude"
+msgstr "Breedtegraad"
+
+msgid "longitude"
+msgstr "Lengtegraad"
+
+msgid "elevation"
+msgstr "Hoogte"
+
+msgid "population"
+msgstr "Bevolking"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "Europese LKI"
+
+msgid "us_aqi"
+msgstr "Amerikaanse LKI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "Koolmonoxide"
+
+msgid "ozone"
+msgstr "Ozon"
+
+msgid "dust"
+msgstr "Stof"
+
+msgid "nitrogen_dioxide"
+msgstr "Stikstofdioxide"
+
+msgid "sulphur_dioxide"
+msgstr "Zwaveldioxide"
+
+msgid "alder"
+msgstr "Els"
+
+msgid "birch"
+msgstr "Berk"
+
+msgid "grass"
+msgstr "Gras"
+
+msgid "mugwort"
+msgstr "Alsem"
+
+msgid "olive"
+msgstr "Olijf"
+
+msgid "ragweed"
+msgstr "Ambrosia"
+
+msgid "pollen"
+msgstr "Stuifmeel"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "Heldere hemel"
+
+msgid "mainly_clear"
+msgstr "Overwegend helder"
+
+msgid "partly_cloudy"
+msgstr "Half bewolkt"
+
+msgid "overcast"
+msgstr "Bewolkt"
+
+msgid "fog"
+msgstr "Mist"
+
+msgid "depositing_rime_fog"
+msgstr "IJsmist"
+
+msgid "light_drizzle"
+msgstr "Lichte motregen"
+
+msgid "moderate_drizzle"
+msgstr "Matige motregen"
+
+msgid "dense_drizzle"
+msgstr "Dichte motregen"
+
+msgid "light_freezing_drizzle"
+msgstr "Lichte ijzel"
+
+msgid "dense_freezing_drizzle"
+msgstr "Dichte ijzel"
+
+msgid "slight_rain"
+msgstr "Lichte regen"
+
+msgid "moderate_rain"
+msgstr "Matige regen"
+
+msgid "heavy_rain"
+msgstr "Zware regen"
+
+msgid "light_freezing_rain"
+msgstr "Lichte ijzelregen"
+
+msgid "heavy_freezing_rain"
+msgstr "Zware ijzelregen"
+
+msgid "slight_snowfall"
+msgstr "Lichte sneeuwval"
+
+msgid "moderate_snowfall"
+msgstr "Matige sneeuwval"
+
+msgid "heavy_snowfall"
+msgstr "Zware sneeuwval"
+
+msgid "snow_grains"
+msgstr "Sneeuwkorrels"
+
+msgid "slight_rain_showers"
+msgstr "Lichte regenbuien"
+
+msgid "moderate_rain_showers"
+msgstr "Matige regenbuien"
+
+msgid "violent_rain_showers"
+msgstr "Hevige regenbuien"
+
+msgid "slight_snow_showers"
+msgstr "Lichte sneeuwbuien"
+
+msgid "heavy_snow_showers"
+msgstr "Zware sneeuwbuien"
+
+msgid "thunderstorm"
+msgstr "Onweer"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "Onweer met kleine hagel"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "Onweer met zware hagel"
+
+############################################
+# WIND DIRECTIONS (SHORT)
+############################################
+
+msgid "north"
+msgstr "N"
+
+msgid "nne"
+msgstr "NNO"
+
+msgid "ne"
+msgstr "NO"
+
+msgid "ene"
+msgstr "ONO"
+
+msgid "east"
+msgstr "O"
+
+msgid "ese"
+msgstr "OZO"
+
+msgid "se"
+msgstr "ZO"
+
+msgid "sse"
+msgstr "ZZO"
+
+msgid "south"
+msgstr "Z"
+
+msgid "ssw"
+msgstr "ZZW"
+
+msgid "sw"
+msgstr "ZW"
+
+msgid "wsw"
+msgstr "WZW"
+
+msgid "west"
+msgstr "W"
+
+msgid "wnw"
+msgstr "WNW"
+
+msgid "nw"
+msgstr "NW"
+
+msgid "nnw"
+msgstr "NNW"
+
+msgid "variable"
+msgstr "VAR"
+
+msgid "calm"
+msgstr "KALM"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "Nieuwe maan"
+
+msgid "waxing_crescent"
+msgstr "Wassende maan"
+
+msgid "first_quarter"
+msgstr "Eerste kwartier"
+
+msgid "waxing_gibbous"
+msgstr "Wassende maan"
+
+msgid "full_moon"
+msgstr "Volle maan"
+
+msgid "waning_gibbous"
+msgstr "Krimpende maan"
+
+msgid "last_quarter"
+msgstr "Laatste kwartier"
+
+msgid "waning_crescent"
+msgstr "Krimpende maan"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "Zon"
+
+msgid "moon"
+msgstr "Maan"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "Ruimteweer"
+
+msgid "kp_index"
+msgstr "Kp-index"
+
+msgid "solar_wind"
+msgstr "Zonnewind"
+
+msgid "aurora_visibility"
+msgstr "Aurora zichtbaarheid"
+
+msgid "xray_class"
+msgstr "Röntgenfakkels klasse"
+
+msgid "geomagnetic_activity"
+msgstr "Geomagnetische activiteit"
+
+msgid "kp_quiet"
+msgstr "Rustig"
+
+msgid "kp_unsettled"
+msgstr "Onrustig"
+
+msgid "kp_active"
+msgstr "Actief"
+
+msgid "kp_storm"
+msgstr "Storm"
+
+msgid "kp_strong"
+msgstr "Sterk"
+
+msgid "kp_extreme"
+msgstr "Extreem"
+
+msgid "status_observed"
+msgstr "Waargenomen"
+
+msgid "status_estimated"
+msgstr "Geschat"
+
+msgid "status_predicted"
+msgstr "Voorspeld"
+
+msgid "swind_low"
+msgstr "Laag"
+
+msgid "swind_moderate"
+msgstr "Matig"
+
+msgid "swind_high"
+msgstr "Hoog"
+
+msgid "swind_extreme"
+msgstr "Extreem"
+
+msgid "aurora_none"
+msgstr "Geen"
+
+msgid "aurora_low"
+msgstr "Laag"
+
+msgid "aurora_moderate"
+msgstr "Matig"
+
+msgid "aurora_high"
+msgstr "Hoog"
+
+msgid "aurora_excellent"
+msgstr "Uitstekend"
+
+msgid "g0_desc"
+msgstr "Geen geomagnetische stormactiviteit."
+
+msgid "g1_desc"
+msgstr "Kleine geomagnetische storm."
+
+msgid "g2_desc"
+msgstr "Matige geomagnetische storm."
+
+msgid "g3_desc"
+msgstr "Sterke geomagnetische storm."
+
+msgid "g4_desc"
+msgstr "Ernstige geomagnetische storm."
+
+msgid "g5_desc"
+msgstr "Extreme geomagnetische storm."
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "Wind"
+
+msgid "condition"
+msgstr "Conditie"
+
+msgid "today"
+msgstr "Vandaag"
+
+msgid "details"
+msgstr "Details"
+
+msgid "forecast"
+msgstr "Verwachting"
+
+msgid "radar"
+msgstr "Radar"
+
+msgid "alerts"
+msgstr "Waarschuwingen"
+
+msgid "snow_cover"
+msgstr "Sneeuwbedekking"
+
+msgid "precip_sum"
+msgstr "Neerslag totaal"
+
+msgid "date_time"
+msgstr "Datum / Tijd"
+
+msgid "daylight"
+msgstr "Daglicht"
+
+msgid "night"
+msgstr "Nacht"
+
+msgid "day"
+msgstr "Dag"
+
+msgid "daylight_over"
+msgstr "Daglicht voorbij"
+
+msgid "remaining"
+msgstr "over"
+
+msgid "refresh"
+msgstr "Verversen"
+
+msgid "updating"
+msgstr "Bijwerken..."
+
+msgid "loading"
+msgstr "Laden..."
+
+msgid "no_data"
+msgstr "Geen gegevens"
+
+msgid "unknown"
+msgstr "Onbekend"
+
+msgid "no_location"
+msgstr "Geen locatie ingesteld"
+
+msgid "provider"
+msgstr "Provider"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "Kop"
+
+msgid "alert_description"
+msgstr "Beschrijving"
+
+msgid "alert_effective"
+msgstr "Geldig vanaf"
+
+msgid "alert_expires"
+msgstr "Vervalt"
+
+msgid "alert_instruction"
+msgstr "Instructie"
+
+msgid "alert_website"
+msgstr "Website"
+
+msgid "future_alerts"
+msgstr "Toekomstige waarschuwingen"
+
+msgid "no_alerts"
+msgstr "Geen"
+
+msgid "one_alert"
+msgstr "1 waarschuwing"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "Goed"
+
+msgid "aqi_fair"
+msgstr "Redelijk"
+
+msgid "aqi_poor"
+msgstr "Slecht"
+
+msgid "aqi_very_poor"
+msgstr "Zeer slecht"
+
+msgid "aqi_extremely_poor"
+msgstr "Uiterst slecht"
+
+msgid "uv_low"
+msgstr "Laag"
+
+msgid "uv_moderate"
+msgstr "Matig"
+
+msgid "uv_high"
+msgstr "Hoog"
+
+msgid "uv_very_high"
+msgstr "Zeer hoog"
+
+msgid "uv_extreme"
+msgstr "Extreem"
+
+msgid "pollen_low"
+msgstr "Laag"
+
+msgid "pollen_moderate"
+msgstr "Matig"
+
+msgid "pollen_high"
+msgstr "Hoog"
+
+msgid "pollen_very_high"
+msgstr "Zeer hoog"
+
+msgid "aqi"
+msgstr "LKI"
+
+msgid "aqhi"
+msgstr "LKHI"
+
+msgid "clear_night"
+msgstr "Heldere nacht"
+
+msgid "geomagnetic_storm"
+msgstr "Geomagnetische storm"
+
+msgid "bz"
+msgstr "Bz (Magnetisch veld)"
+
+msgid "flare_warning"
+msgstr "Fakkels waarschuwing"
+
+msgid "bz_active"
+msgstr "Actief"
+
+msgid "alert_severity_minor"
+msgstr "Klein"
+
+msgid "alert_severity_moderate"
+msgstr "Matig"
+
+msgid "alert_severity_severe"
+msgstr "Ernstig"
+
+msgid "alert_severity_extreme"
+msgstr "Extreem"
+
+msgid "alert_color_yellow"
+msgstr "geel"
+
+msgid "alert_color_orange"
+msgstr "oranje"
+
+msgid "alert_color_red"
+msgstr "rood"
+
+msgid "alert_certainty_observed"
+msgstr "Waargenomen"
+
+msgid "alert_certainty_likely"
+msgstr "Waarschijnlijk"
+
+msgid "alert_certainty_possible"
+msgstr "Mogelijk"
+
+msgid "alert_certainty_unlikely"
+msgstr "Onwaarschijnlijk"
+
+msgid "alert_certainty_unknown"
+msgstr "Onbekend"

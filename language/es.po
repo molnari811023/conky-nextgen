@@ -1,0 +1,613 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "air_quality"
+msgstr "Calidad del aire"
+
+msgid "current_weather"
+msgstr "Clima actual"
+
+msgid "hourly_forecast"
+msgstr "Pronóstico por horas"
+
+msgid "daily_forecast"
+msgstr "Pronóstico diario"
+
+msgid "weather_provider"
+msgstr "Proveedor meteorológico"
+
+msgid "feels_like"
+msgstr "Sensación térmica"
+
+msgid "last_updated"
+msgstr "Última actualización"
+
+msgid "temperature"
+msgstr "Temperatura"
+
+msgid "humidity"
+msgstr "Humedad"
+
+msgid "pressure"
+msgstr "Presión"
+
+msgid "precipitation"
+msgstr "Precipitación"
+
+msgid "precipitation_hours"
+msgstr "Horas de precipitación"
+
+msgid "precipitation_probability"
+msgstr "Probabilidad de precipitación"
+
+msgid "snowfall"
+msgstr "Nevada"
+
+msgid "cloud_cover"
+msgstr "Cobertura nubosa"
+
+msgid "dew_point"
+msgstr "Punto de rocío"
+
+msgid "visibility"
+msgstr "Visibilidad"
+
+msgid "uv_index"
+msgstr "Índice UV"
+
+msgid "wind_speed"
+msgstr "Velocidad del viento"
+
+msgid "wind_direction"
+msgstr "Dirección del viento"
+
+msgid "wind_gusts"
+msgstr "Ráfagas de viento"
+
+msgid "sunrise"
+msgstr "Amanecer"
+
+msgid "sunset"
+msgstr "Atardecer"
+
+msgid "sunshine_duration"
+msgstr "Duración del sol"
+
+msgid "moonrise"
+msgstr "Salida de la luna"
+
+msgid "moonset"
+msgstr "Puesta de la luna"
+
+msgid "moon_phase"
+msgstr "Fase lunar"
+
+msgid "min"
+msgstr "Mín"
+
+msgid "max"
+msgstr "Máx"
+
+msgid "city"
+msgstr "Ciudad"
+
+msgid "country"
+msgstr "País"
+
+msgid "region"
+msgstr "Región"
+
+msgid "latitude"
+msgstr "Latitud"
+
+msgid "longitude"
+msgstr "Longitud"
+
+msgid "elevation"
+msgstr "Elevación"
+
+msgid "population"
+msgstr "Población"
+
+msgid "european_aqi"
+msgstr "ICA europeo"
+
+msgid "us_aqi"
+msgstr "ICA EE. UU."
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "Monóxido de carbono"
+
+msgid "ozone"
+msgstr "Ozono"
+
+msgid "dust"
+msgstr "Polvo"
+
+msgid "nitrogen_dioxide"
+msgstr "Dióxido de nitrógeno"
+
+msgid "sulphur_dioxide"
+msgstr "Dióxido de azufre"
+
+msgid "alder"
+msgstr "Aliso"
+
+msgid "birch"
+msgstr "Abedul"
+
+msgid "grass"
+msgstr "Gramíneas"
+
+msgid "mugwort"
+msgstr "Artemisa"
+
+msgid "olive"
+msgstr "Olivo"
+
+msgid "ragweed"
+msgstr "Ambrosía"
+
+msgid "pollen"
+msgstr "Polen"
+
+msgid "clear_sky"
+msgstr "Cielo despejado"
+
+msgid "mainly_clear"
+msgstr "Mayormente despejado"
+
+msgid "partly_cloudy"
+msgstr "Parcialmente nublado"
+
+msgid "overcast"
+msgstr "Nublado"
+
+msgid "fog"
+msgstr "Niebla"
+
+msgid "depositing_rime_fog"
+msgstr "Niebla helada"
+
+msgid "light_drizzle"
+msgstr "Llovizna ligera"
+
+msgid "moderate_drizzle"
+msgstr "Llovizna moderada"
+
+msgid "dense_drizzle"
+msgstr "Llovizna densa"
+
+msgid "light_freezing_drizzle"
+msgstr "Llovizna helada ligera"
+
+msgid "dense_freezing_drizzle"
+msgstr "Llovizna helada densa"
+
+msgid "slight_rain"
+msgstr "Lluvia ligera"
+
+msgid "moderate_rain"
+msgstr "Lluvia moderada"
+
+msgid "heavy_rain"
+msgstr "Lluvia intensa"
+
+msgid "light_freezing_rain"
+msgstr "Lluvia helada ligera"
+
+msgid "heavy_freezing_rain"
+msgstr "Lluvia helada intensa"
+
+msgid "slight_snowfall"
+msgstr "Nevada ligera"
+
+msgid "moderate_snowfall"
+msgstr "Nevada moderada"
+
+msgid "heavy_snowfall"
+msgstr "Nevada intensa"
+
+msgid "snow_grains"
+msgstr "Granos de nieve"
+
+msgid "slight_rain_showers"
+msgstr "Chubascos ligeros"
+
+msgid "moderate_rain_showers"
+msgstr "Chubascos moderados"
+
+msgid "violent_rain_showers"
+msgstr "Chubascos violentos"
+
+msgid "slight_snow_showers"
+msgstr "Chubascos de nieve ligeros"
+
+msgid "heavy_snow_showers"
+msgstr "Chubascos de nieve intensos"
+
+msgid "thunderstorm"
+msgstr "Tormenta"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "Tormenta con granizo pequeño"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "Tormenta con granizo grande"
+
+msgid "north"
+msgstr "N"
+
+msgid "nne"
+msgstr "NNE"
+
+msgid "ne"
+msgstr "NE"
+
+msgid "ene"
+msgstr "ENE"
+
+msgid "east"
+msgstr "E"
+
+msgid "ese"
+msgstr "ESE"
+
+msgid "se"
+msgstr "SE"
+
+msgid "sse"
+msgstr "SSE"
+
+msgid "south"
+msgstr "S"
+
+msgid "ssw"
+msgstr "SSO"
+
+msgid "sw"
+msgstr "SO"
+
+msgid "wsw"
+msgstr "OSO"
+
+msgid "west"
+msgstr "O"
+
+msgid "wnw"
+msgstr "ONO"
+
+msgid "nw"
+msgstr "NO"
+
+msgid "nnw"
+msgstr "NNO"
+
+msgid "variable"
+msgstr "VAR"
+
+msgid "calm"
+msgstr "CALMA"
+
+msgid "new_moon"
+msgstr "Luna nueva"
+
+msgid "waxing_crescent"
+msgstr "Luna creciente"
+
+msgid "first_quarter"
+msgstr "Cuarto creciente"
+
+msgid "waxing_gibbous"
+msgstr "Gibosa creciente"
+
+msgid "full_moon"
+msgstr "Luna llena"
+
+msgid "waning_gibbous"
+msgstr "Gibosa menguante"
+
+msgid "last_quarter"
+msgstr "Cuarto menguante"
+
+msgid "waning_crescent"
+msgstr "Luna menguante"
+
+msgid "sun"
+msgstr "Sol"
+
+msgid "moon"
+msgstr "Luna"
+
+msgid "space_weather"
+msgstr "Clima espacial"
+
+msgid "kp_index"
+msgstr "Índice Kp"
+
+msgid "solar_wind"
+msgstr "Viento solar"
+
+msgid "aurora_visibility"
+msgstr "Visibilidad de aurora"
+
+msgid "xray_class"
+msgstr "Clase de llamarada X"
+
+msgid "geomagnetic_activity"
+msgstr "Actividad geomagnética"
+
+msgid "kp_quiet"
+msgstr "Tranquilo"
+
+msgid "kp_unsettled"
+msgstr "Inestable"
+
+msgid "kp_active"
+msgstr "Activo"
+
+msgid "kp_storm"
+msgstr "Tormenta"
+
+msgid "kp_strong"
+msgstr "Fuerte"
+
+msgid "kp_extreme"
+msgstr "Extremo"
+
+msgid "status_observed"
+msgstr "Observado"
+
+msgid "status_estimated"
+msgstr "Estimado"
+
+msgid "status_predicted"
+msgstr "Previsto"
+
+msgid "swind_low"
+msgstr "Bajo"
+
+msgid "swind_moderate"
+msgstr "Moderado"
+
+msgid "swind_high"
+msgstr "Alto"
+
+msgid "swind_extreme"
+msgstr "Extremo"
+
+msgid "aurora_none"
+msgstr "Ninguna"
+
+msgid "aurora_low"
+msgstr "Baja"
+
+msgid "aurora_moderate"
+msgstr "Moderada"
+
+msgid "aurora_high"
+msgstr "Alta"
+
+msgid "aurora_excellent"
+msgstr "Excelente"
+
+msgid "g0_desc"
+msgstr "Sin actividad de tormenta geomagnética."
+
+msgid "g1_desc"
+msgstr "Tormenta geomagnética menor."
+
+msgid "g2_desc"
+msgstr "Tormenta geomagnética moderada."
+
+msgid "g3_desc"
+msgstr "Tormenta geomagnética fuerte."
+
+msgid "g4_desc"
+msgstr "Tormenta geomagnética severa."
+
+msgid "g5_desc"
+msgstr "Tormenta geomagnética extrema."
+
+msgid "wind"
+msgstr "Viento"
+
+msgid "condition"
+msgstr "Condición"
+
+msgid "today"
+msgstr "Hoy"
+
+msgid "details"
+msgstr "Detalles"
+
+msgid "forecast"
+msgstr "Pronóstico"
+
+msgid "radar"
+msgstr "Radar"
+
+msgid "alerts"
+msgstr "Alertas"
+
+msgid "snow_cover"
+msgstr "Cubierta de nieve"
+
+msgid "precip_sum"
+msgstr "Precip. total"
+
+msgid "date_time"
+msgstr "Fecha / Hora"
+
+msgid "daylight"
+msgstr "Luz del día"
+
+msgid "night"
+msgstr "Noche"
+
+msgid "day"
+msgstr "Día"
+
+msgid "daylight_over"
+msgstr "Luz del día terminada"
+
+msgid "remaining"
+msgstr "restante"
+
+msgid "refresh"
+msgstr "Actualizar"
+
+msgid "updating"
+msgstr "Actualizando..."
+
+msgid "loading"
+msgstr "Cargando..."
+
+msgid "no_data"
+msgstr "Sin datos"
+
+msgid "unknown"
+msgstr "Desconocido"
+
+msgid "no_location"
+msgstr "Sin ubicación definida"
+
+msgid "provider"
+msgstr "Proveedor"
+
+msgid "alert_headline"
+msgstr "Título"
+
+msgid "alert_description"
+msgstr "Descripción"
+
+msgid "alert_effective"
+msgstr "Vigente"
+
+msgid "alert_expires"
+msgstr "Expira"
+
+msgid "alert_instruction"
+msgstr "Instrucción"
+
+msgid "alert_website"
+msgstr "Sitio web"
+
+msgid "future_alerts"
+msgstr "Alertas futuras"
+
+msgid "no_alerts"
+msgstr "Ninguna"
+
+msgid "one_alert"
+msgstr "1 alerta"
+
+msgid "aqi_good"
+msgstr "Buena"
+
+msgid "aqi_fair"
+msgstr "Regular"
+
+msgid "aqi_poor"
+msgstr "Mala"
+
+msgid "aqi_very_poor"
+msgstr "Muy mala"
+
+msgid "aqi_extremely_poor"
+msgstr "Extremadamente mala"
+
+msgid "uv_low"
+msgstr "Bajo"
+
+msgid "uv_moderate"
+msgstr "Moderado"
+
+msgid "uv_high"
+msgstr "Alto"
+
+msgid "uv_very_high"
+msgstr "Muy alto"
+
+msgid "uv_extreme"
+msgstr "Extremo"
+
+msgid "pollen_low"
+msgstr "Bajo"
+
+msgid "pollen_moderate"
+msgstr "Moderado"
+
+msgid "pollen_high"
+msgstr "Alto"
+
+msgid "pollen_very_high"
+msgstr "Muy alto"
+
+msgid "aqi"
+msgstr "ICA"
+
+msgid "aqhi"
+msgstr "ICAS"
+
+msgid "clear_night"
+msgstr "Noche despejada"
+
+msgid "geomagnetic_storm"
+msgstr "Tormenta geomagnética"
+
+msgid "bz"
+msgstr "Bz (Campo magnético)"
+
+msgid "flare_warning"
+msgstr "Alerta de llamarada"
+
+msgid "bz_active"
+msgstr "Activo"
+
+msgid "alert_severity_minor"
+msgstr "Menor"
+
+msgid "alert_severity_moderate"
+msgstr "Moderado"
+
+msgid "alert_severity_severe"
+msgstr "Severo"
+
+msgid "alert_severity_extreme"
+msgstr "Extremo"
+
+msgid "alert_color_yellow"
+msgstr "amarillo"
+
+msgid "alert_color_orange"
+msgstr "naranja"
+
+msgid "alert_color_red"
+msgstr "rojo"
+
+msgid "alert_certainty_observed"
+msgstr "Observado"
+
+msgid "alert_certainty_likely"
+msgstr "Probable"
+
+msgid "alert_certainty_possible"
+msgstr "Posible"
+
+msgid "alert_certainty_unlikely"
+msgstr "Improbable"
+
+msgid "alert_certainty_unknown"
+msgstr "Desconocido"

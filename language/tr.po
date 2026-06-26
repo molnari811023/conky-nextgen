@@ -1,0 +1,613 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "air_quality"
+msgstr "Hava kalitesi"
+
+msgid "current_weather"
+msgstr "Güncel hava durumu"
+
+msgid "hourly_forecast"
+msgstr "Saatlik tahmin"
+
+msgid "daily_forecast"
+msgstr "Günlük tahmin"
+
+msgid "weather_provider"
+msgstr "Hava durumu sağlayıcısı"
+
+msgid "feels_like"
+msgstr "Hissedilen"
+
+msgid "last_updated"
+msgstr "Son güncelleme"
+
+msgid "temperature"
+msgstr "Sıcaklık"
+
+msgid "humidity"
+msgstr "Nem"
+
+msgid "pressure"
+msgstr "Basınç"
+
+msgid "precipitation"
+msgstr "Yağış"
+
+msgid "precipitation_hours"
+msgstr "Yağış saatleri"
+
+msgid "precipitation_probability"
+msgstr "Yağış olasılığı"
+
+msgid "snowfall"
+msgstr "Kar yağışı"
+
+msgid "cloud_cover"
+msgstr "Bulut örtüsü"
+
+msgid "dew_point"
+msgstr "Çiy noktası"
+
+msgid "visibility"
+msgstr "Görüş mesafesi"
+
+msgid "uv_index"
+msgstr "UV indeksi"
+
+msgid "wind_speed"
+msgstr "Rüzgar hızı"
+
+msgid "wind_direction"
+msgstr "Rüzgar yönü"
+
+msgid "wind_gusts"
+msgstr "Rüzgar hamleleri"
+
+msgid "sunrise"
+msgstr "Gün doğumu"
+
+msgid "sunset"
+msgstr "Gün batımı"
+
+msgid "sunshine_duration"
+msgstr "Güneşlenme süresi"
+
+msgid "moonrise"
+msgstr "Ay doğumu"
+
+msgid "moonset"
+msgstr "Ay batımı"
+
+msgid "moon_phase"
+msgstr "Ay evresi"
+
+msgid "min"
+msgstr "Min"
+
+msgid "max"
+msgstr "Maks"
+
+msgid "city"
+msgstr "Şehir"
+
+msgid "country"
+msgstr "Ülke"
+
+msgid "region"
+msgstr "Bölge"
+
+msgid "latitude"
+msgstr "Enlem"
+
+msgid "longitude"
+msgstr "Boylam"
+
+msgid "elevation"
+msgstr "Yükseklik"
+
+msgid "population"
+msgstr "Nüfus"
+
+msgid "european_aqi"
+msgstr "Avrupa HKI"
+
+msgid "us_aqi"
+msgstr "ABD HKI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "Karbon monoksit"
+
+msgid "ozone"
+msgstr "Ozon"
+
+msgid "dust"
+msgstr "Toz"
+
+msgid "nitrogen_dioxide"
+msgstr "Azot dioksit"
+
+msgid "sulphur_dioxide"
+msgstr "Kükürt dioksit"
+
+msgid "alder"
+msgstr "Kızılağaç"
+
+msgid "birch"
+msgstr "Huş"
+
+msgid "grass"
+msgstr "Çimen"
+
+msgid "mugwort"
+msgstr "Pelin otu"
+
+msgid "olive"
+msgstr "Zeytin"
+
+msgid "ragweed"
+msgstr "Yakup otu"
+
+msgid "pollen"
+msgstr "Polen"
+
+msgid "clear_sky"
+msgstr "Açık gökyüzü"
+
+msgid "mainly_clear"
+msgstr "Çoğunlukla açık"
+
+msgid "partly_cloudy"
+msgstr "Parçalı bulutlu"
+
+msgid "overcast"
+msgstr "Kapalı"
+
+msgid "fog"
+msgstr "Sis"
+
+msgid "depositing_rime_fog"
+msgstr "Kırağılı sis"
+
+msgid "light_drizzle"
+msgstr "Hafif çisenti"
+
+msgid "moderate_drizzle"
+msgstr "Orta şiddetli çisenti"
+
+msgid "dense_drizzle"
+msgstr "Yoğun çisenti"
+
+msgid "light_freezing_drizzle"
+msgstr "Hafif dondurucu çisenti"
+
+msgid "dense_freezing_drizzle"
+msgstr "Yoğun dondurucu çisenti"
+
+msgid "slight_rain"
+msgstr "Hafif yağmur"
+
+msgid "moderate_rain"
+msgstr "Orta şiddetli yağmur"
+
+msgid "heavy_rain"
+msgstr "Şiddetli yağmur"
+
+msgid "light_freezing_rain"
+msgstr "Hafif dondurucu yağmur"
+
+msgid "heavy_freezing_rain"
+msgstr "Şiddetli dondurucu yağmur"
+
+msgid "slight_snowfall"
+msgstr "Hafif kar yağışı"
+
+msgid "moderate_snowfall"
+msgstr "Orta şiddetli kar yağışı"
+
+msgid "heavy_snowfall"
+msgstr "Yoğun kar yağışı"
+
+msgid "snow_grains"
+msgstr "Kar taneleri"
+
+msgid "slight_rain_showers"
+msgstr "Hafif sağanak"
+
+msgid "moderate_rain_showers"
+msgstr "Orta şiddetli sağanak"
+
+msgid "violent_rain_showers"
+msgstr "Şiddetli sağanak"
+
+msgid "slight_snow_showers"
+msgstr "Hafif kar sağanağı"
+
+msgid "heavy_snow_showers"
+msgstr "Yoğun kar sağanağı"
+
+msgid "thunderstorm"
+msgstr "Gök gürültülü fırtına"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "Küçük dolu ile fırtına"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "Büyük dolu ile fırtına"
+
+msgid "north"
+msgstr "K"
+
+msgid "nne"
+msgstr "KKD"
+
+msgid "ne"
+msgstr "KD"
+
+msgid "ene"
+msgstr "DKD"
+
+msgid "east"
+msgstr "D"
+
+msgid "ese"
+msgstr "DGD"
+
+msgid "se"
+msgstr "GD"
+
+msgid "sse"
+msgstr "GGD"
+
+msgid "south"
+msgstr "G"
+
+msgid "ssw"
+msgstr "GGB"
+
+msgid "sw"
+msgstr "GB"
+
+msgid "wsw"
+msgstr "BGB"
+
+msgid "west"
+msgstr "B"
+
+msgid "wnw"
+msgstr "BKB"
+
+msgid "nw"
+msgstr "KB"
+
+msgid "nnw"
+msgstr "KKB"
+
+msgid "variable"
+msgstr "DEG."
+
+msgid "calm"
+msgstr "SAKİN"
+
+msgid "new_moon"
+msgstr "Yeni ay"
+
+msgid "waxing_crescent"
+msgstr "Hilal"
+
+msgid "first_quarter"
+msgstr "İlk dördün"
+
+msgid "waxing_gibbous"
+msgstr "Şişkin ay"
+
+msgid "full_moon"
+msgstr "Dolunay"
+
+msgid "waning_gibbous"
+msgstr "Eskilen şişkin ay"
+
+msgid "last_quarter"
+msgstr "Son dördün"
+
+msgid "waning_crescent"
+msgstr "Eskilen hilal"
+
+msgid "sun"
+msgstr "Güneş"
+
+msgid "moon"
+msgstr "Ay"
+
+msgid "space_weather"
+msgstr "Uzay havası"
+
+msgid "kp_index"
+msgstr "Kp indeksi"
+
+msgid "solar_wind"
+msgstr "Güneş rüzgarı"
+
+msgid "aurora_visibility"
+msgstr "Aurora görünürlüğü"
+
+msgid "xray_class"
+msgstr "X-ışını parlama sınıfı"
+
+msgid "geomagnetic_activity"
+msgstr "Jeomanyetik aktivite"
+
+msgid "kp_quiet"
+msgstr "Sakin"
+
+msgid "kp_unsettled"
+msgstr "Dengesiz"
+
+msgid "kp_active"
+msgstr "Aktif"
+
+msgid "kp_storm"
+msgstr "Fırtına"
+
+msgid "kp_strong"
+msgstr "Güçlü"
+
+msgid "kp_extreme"
+msgstr "Aşırı"
+
+msgid "status_observed"
+msgstr "Gözlemlenen"
+
+msgid "status_estimated"
+msgstr "Tahmin edilen"
+
+msgid "status_predicted"
+msgstr "Öngörülen"
+
+msgid "swind_low"
+msgstr "Düşük"
+
+msgid "swind_moderate"
+msgstr "Orta"
+
+msgid "swind_high"
+msgstr "Yüksek"
+
+msgid "swind_extreme"
+msgstr "Aşırı"
+
+msgid "aurora_none"
+msgstr "Yok"
+
+msgid "aurora_low"
+msgstr "Düşük"
+
+msgid "aurora_moderate"
+msgstr "Orta"
+
+msgid "aurora_high"
+msgstr "Yüksek"
+
+msgid "aurora_excellent"
+msgstr "Mükemmel"
+
+msgid "g0_desc"
+msgstr "Jeomanyetik fırtına aktivitesi yok."
+
+msgid "g1_desc"
+msgstr "Küçük jeomanyetik fırtına."
+
+msgid "g2_desc"
+msgstr "Orta şiddetli jeomanyetik fırtına."
+
+msgid "g3_desc"
+msgstr "Güçlü jeomanyetik fırtına."
+
+msgid "g4_desc"
+msgstr "Şiddetli jeomanyetik fırtına."
+
+msgid "g5_desc"
+msgstr "Aşırı jeomanyetik fırtına."
+
+msgid "wind"
+msgstr "Rüzgar"
+
+msgid "condition"
+msgstr "Durum"
+
+msgid "today"
+msgstr "Bugün"
+
+msgid "details"
+msgstr "Detaylar"
+
+msgid "forecast"
+msgstr "Tahmin"
+
+msgid "radar"
+msgstr "Radar"
+
+msgid "alerts"
+msgstr "Uyarılar"
+
+msgid "snow_cover"
+msgstr "Kar örtüsü"
+
+msgid "precip_sum"
+msgstr "Top. yağış"
+
+msgid "date_time"
+msgstr "Tarih / Saat"
+
+msgid "daylight"
+msgstr "Gün ışığı"
+
+msgid "night"
+msgstr "Gece"
+
+msgid "day"
+msgstr "Gün"
+
+msgid "daylight_over"
+msgstr "Gün ışığı bitti"
+
+msgid "remaining"
+msgstr "kalan"
+
+msgid "refresh"
+msgstr "Yenile"
+
+msgid "updating"
+msgstr "Güncelleniyor..."
+
+msgid "loading"
+msgstr "Yükleniyor..."
+
+msgid "no_data"
+msgstr "Veri yok"
+
+msgid "unknown"
+msgstr "Bilinmiyor"
+
+msgid "no_location"
+msgstr "Konum ayarlanmamış"
+
+msgid "provider"
+msgstr "Sağlayıcı"
+
+msgid "alert_headline"
+msgstr "Başlık"
+
+msgid "alert_description"
+msgstr "Açıklama"
+
+msgid "alert_effective"
+msgstr "Geçerlilik"
+
+msgid "alert_expires"
+msgstr "Bitiş"
+
+msgid "alert_instruction"
+msgstr "Talimat"
+
+msgid "alert_website"
+msgstr "Web sitesi"
+
+msgid "future_alerts"
+msgstr "Gelecek uyarılar"
+
+msgid "no_alerts"
+msgstr "Yok"
+
+msgid "one_alert"
+msgstr "1 uyarı"
+
+msgid "aqi_good"
+msgstr "İyi"
+
+msgid "aqi_fair"
+msgstr "Orta"
+
+msgid "aqi_poor"
+msgstr "Kötü"
+
+msgid "aqi_very_poor"
+msgstr "Çok kötü"
+
+msgid "aqi_extremely_poor"
+msgstr "Aşırı kötü"
+
+msgid "uv_low"
+msgstr "Düşük"
+
+msgid "uv_moderate"
+msgstr "Orta"
+
+msgid "uv_high"
+msgstr "Yüksek"
+
+msgid "uv_very_high"
+msgstr "Çok yüksek"
+
+msgid "uv_extreme"
+msgstr "Aşırı"
+
+msgid "pollen_low"
+msgstr "Düşük"
+
+msgid "pollen_moderate"
+msgstr "Orta"
+
+msgid "pollen_high"
+msgstr "Yüksek"
+
+msgid "pollen_very_high"
+msgstr "Çok yüksek"
+
+msgid "aqi"
+msgstr "HKI"
+
+msgid "aqhi"
+msgstr "HKIS"
+
+msgid "clear_night"
+msgstr "Açık gece"
+
+msgid "geomagnetic_storm"
+msgstr "Jeomanyetik fırtına"
+
+msgid "bz"
+msgstr "Bz (Manyetik alan)"
+
+msgid "flare_warning"
+msgstr "Parlama uyarısı"
+
+msgid "bz_active"
+msgstr "Aktif"
+
+msgid "alert_severity_minor"
+msgstr "Küçük"
+
+msgid "alert_severity_moderate"
+msgstr "Orta"
+
+msgid "alert_severity_severe"
+msgstr "Şiddetli"
+
+msgid "alert_severity_extreme"
+msgstr "Aşırı"
+
+msgid "alert_color_yellow"
+msgstr "sarı"
+
+msgid "alert_color_orange"
+msgstr "turuncu"
+
+msgid "alert_color_red"
+msgstr "kırmızı"
+
+msgid "alert_certainty_observed"
+msgstr "Gözlemlenen"
+
+msgid "alert_certainty_likely"
+msgstr "Muhtemel"
+
+msgid "alert_certainty_possible"
+msgstr "Olası"
+
+msgid "alert_certainty_unlikely"
+msgstr "Olası değil"
+
+msgid "alert_certainty_unknown"
+msgstr "Bilinmiyor"
