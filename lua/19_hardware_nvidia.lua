@@ -7,29 +7,25 @@
 -- 19_hardware_nvidia.lua — GPU mode detection + nvidia-smi XML stats
 local gpu_mode_cache = nil
 
-local function detect_gpu_mode()
-	local f = io.popen("prime-select query 2>/dev/null")
-	if f then
-		local out = f:read("*l")
-		f:close()
-		if out == "nvidia" then return "nvidia" end
-		if out == "intel" then return "intel" end
-		if out == "on-demand" then return "hybrid" end
+function conky_gpu_mode()
+	if gpu_mode_cache then
+		return gpu_mode_cache
 	end
 	local f = io.popen("envycontrol -q 2>/dev/null")
 	if f then
 		local out = f:read("*l")
 		f:close()
-		if out == "nvidia" then return "nvidia" end
-		if out == "integrated" then return "intel" end
-		if out == "hybrid" then return "hybrid" end
-	end
-	return "unknown"
-end
-
-function conky_gpu_mode()
-	if not gpu_mode_cache then
-		gpu_mode_cache = detect_gpu_mode()
+		if out == "nvidia" then
+			gpu_mode_cache = "nvidia"
+		elseif out == "integrated" then
+			gpu_mode_cache = "intel"
+		elseif out == "hybrid" then
+			gpu_mode_cache = "hybrid"
+		else
+			gpu_mode_cache = "unknown"
+		end
+	else
+		gpu_mode_cache = "unknown"
 	end
 	return gpu_mode_cache
 end
@@ -42,6 +38,41 @@ end
 
 function conky_intel_active()
 	return (GPU_MODE == "intel") and "1" or "0"
+end
+
+local gpu_mode_ubuntu_cache = nil
+
+function conky_gpu_mode_ubuntu()
+	if gpu_mode_ubuntu_cache then
+		return gpu_mode_ubuntu_cache
+	end
+	local f = io.popen("prime-select query 2>/dev/null")
+	if f then
+		local out = f:read("*l")
+		f:close()
+		if out == "nvidia" then
+			gpu_mode_ubuntu_cache = "nvidia"
+		elseif out == "intel" then
+			gpu_mode_ubuntu_cache = "intel"
+		elseif out == "on-demand" then
+			gpu_mode_ubuntu_cache = "on-demand"
+		else
+			gpu_mode_ubuntu_cache = "unknown"
+		end
+	else
+		gpu_mode_ubuntu_cache = "unknown"
+	end
+	return gpu_mode_ubuntu_cache
+end
+
+GPU_MODE_UBUNTU = conky_gpu_mode_ubuntu()
+
+function conky_nvidia_active_ubuntu()
+	return (GPU_MODE_UBUNTU == "nvidia" or GPU_MODE_UBUNTU == "on-demand") and "1" or "0"
+end
+
+function conky_intel_active_ubuntu()
+	return (GPU_MODE_UBUNTU == "intel") and "1" or "0"
 end
 
 function conky_update_nvidia_xml()
