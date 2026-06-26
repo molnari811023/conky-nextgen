@@ -45,7 +45,7 @@ Detect the running OS/distro and version at load time. Enables distro-agnostic w
 - Distro-specific paths, icons, and default configs
 - Conditional module loading per distro
 
-## 7. Lua 5.5 Compatibility Layer
+## 6. Lua 5.5 Compatibility Layer
 
 Conky 1.23.0+ is already compatible with Lua 5.5 (GC API fix merged in [#2335](https://github.com/brndnmtthws/conky/pull/2335)).
 Arch Linux will switch Conky to Lua 5.5 when the package is updated.
