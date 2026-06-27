@@ -1,0 +1,657 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "Calitatea aerului"
+
+msgid "current_weather"
+msgstr "Vremea actuală"
+
+msgid "hourly_forecast"
+msgstr "Prognoză orară"
+
+msgid "daily_forecast"
+msgstr "Prognoză zilnică"
+
+msgid "weather_provider"
+msgstr "Furnizor meteo"
+
+msgid "feels_like"
+msgstr "Se simte ca"
+
+msgid "last_updated"
+msgstr "Ultima actualizare"
+
+msgid "temperature"
+msgstr "Temperatură"
+
+msgid "humidity"
+msgstr "Umiditate"
+
+msgid "pressure"
+msgstr "Presiune"
+
+msgid "precipitation"
+msgstr "Precipitații"
+
+msgid "precipitation_hours"
+msgstr "Ore de precipitații"
+
+msgid "precipitation_probability"
+msgstr "Probabilitate precipitații"
+
+msgid "snowfall"
+msgstr "Ninsori"
+
+msgid "cloud_cover"
+msgstr "Acoperire nori"
+
+msgid "dew_point"
+msgstr "Punct de rouă"
+
+msgid "visibility"
+msgstr "Vizibilitate"
+
+msgid "uv_index"
+msgstr "Indice UV"
+
+msgid "wind_speed"
+msgstr "Viteza vântului"
+
+msgid "wind_direction"
+msgstr "Direcția vântului"
+
+msgid "wind_gusts"
+msgstr "Rafale de vânt"
+
+msgid "sunrise"
+msgstr "Răsărit"
+
+msgid "sunset"
+msgstr "Apus"
+
+msgid "sunshine_duration"
+msgstr "Durată însorire"
+
+msgid "moonrise"
+msgstr "Răsăritul lunii"
+
+msgid "moonset"
+msgstr "Apusul lunii"
+
+msgid "moon_phase"
+msgstr "Faza lunii"
+
+msgid "min"
+msgstr "Min"
+
+msgid "max"
+msgstr "Max"
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "Oraș"
+
+msgid "country"
+msgstr "Țară"
+
+msgid "region"
+msgstr "Regiune"
+
+msgid "latitude"
+msgstr "Latitudine"
+
+msgid "longitude"
+msgstr "Longitudine"
+
+msgid "elevation"
+msgstr "Altitudine"
+
+msgid "population"
+msgstr "Populație"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "AQI European"
+
+msgid "us_aqi"
+msgstr "AQI SUA"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "Monoxid de carbon"
+
+msgid "ozone"
+msgstr "Ozon"
+
+msgid "dust"
+msgstr "Praf"
+
+msgid "nitrogen_dioxide"
+msgstr "Dioxid de azot"
+
+msgid "sulphur_dioxide"
+msgstr "Dioxid de sulf"
+
+msgid "alder"
+msgstr "Arin"
+
+msgid "birch"
+msgstr "Mesteacăn"
+
+msgid "grass"
+msgstr "Ierburi"
+
+msgid "mugwort"
+msgstr "Pelin"
+
+msgid "olive"
+msgstr "Măslin"
+
+msgid "ragweed"
+msgstr "Ambrosia"
+
+msgid "pollen"
+msgstr "Polen"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "Cer senin"
+
+msgid "mainly_clear"
+msgstr "Predominant senin"
+
+msgid "partly_cloudy"
+msgstr "Parțial noros"
+
+msgid "overcast"
+msgstr "Acoperit"
+
+msgid "fog"
+msgstr "Ceață"
+
+msgid "depositing_rime_fog"
+msgstr "Ceață cu chiciură"
+
+msgid "light_drizzle"
+msgstr "Burniță ușoară"
+
+msgid "moderate_drizzle"
+msgstr "Burniță"
+
+msgid "dense_drizzle"
+msgstr "Burniță densă"
+
+msgid "light_freezing_drizzle"
+msgstr "Burniță ușoară înghețată"
+
+msgid "dense_freezing_drizzle"
+msgstr "Burniță densă înghețată"
+
+msgid "slight_rain"
+msgstr "Ploaie ușoară"
+
+msgid "moderate_rain"
+msgstr "Ploaie moderată"
+
+msgid "heavy_rain"
+msgstr "Ploaie puternică"
+
+msgid "light_freezing_rain"
+msgstr "Ploaie ușoară înghețată"
+
+msgid "heavy_freezing_rain"
+msgstr "Ploaie puternică înghețată"
+
+msgid "slight_snowfall"
+msgstr "Ninsoare ușoară"
+
+msgid "moderate_snowfall"
+msgstr "Ninsoare moderată"
+
+msgid "heavy_snowfall"
+msgstr "Ninsoare puternică"
+
+msgid "snow_grains"
+msgstr "Granule de zăpadă"
+
+msgid "slight_rain_showers"
+msgstr "Averse ușoare de ploaie"
+
+msgid "moderate_rain_showers"
+msgstr "Averse de ploaie"
+
+msgid "violent_rain_showers"
+msgstr "Averse violente de ploaie"
+
+msgid "slight_snow_showers"
+msgstr "Averse ușoare de zăpadă"
+
+msgid "heavy_snow_showers"
+msgstr "Averse puternice de zăpadă"
+
+msgid "thunderstorm"
+msgstr "Furtună"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "Furtună cu grindină mică"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "Furtună cu grindină mare"
+
+############################################
+# WIND DIRECTIONS
+############################################
+
+msgid "north"
+msgstr "N"
+
+msgid "nne"
+msgstr "NNE"
+
+msgid "ne"
+msgstr "NE"
+
+msgid "ene"
+msgstr "ENE"
+
+msgid "east"
+msgstr "E"
+
+msgid "ese"
+msgstr "ESE"
+
+msgid "se"
+msgstr "SE"
+
+msgid "sse"
+msgstr "SSE"
+
+msgid "south"
+msgstr "S"
+
+msgid "ssw"
+msgstr "SSV"
+
+msgid "sw"
+msgstr "SV"
+
+msgid "wsw"
+msgstr "VSV"
+
+msgid "west"
+msgstr "V"
+
+msgid "wnw"
+msgstr "VNV"
+
+msgid "nw"
+msgstr "NV"
+
+msgid "nnw"
+msgstr "NNV"
+
+msgid "variable"
+msgstr "VAR"
+
+msgid "calm"
+msgstr "CALM"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "Lună nouă"
+
+msgid "waxing_crescent"
+msgstr "Semilună crescătoare"
+
+msgid "first_quarter"
+msgstr "Primul pătrar"
+
+msgid "waxing_gibbous"
+msgstr "Lună ghiboasă crescătoare"
+
+msgid "full_moon"
+msgstr "Lună plină"
+
+msgid "waning_gibbous"
+msgstr "Lună ghiboasă descrescătoare"
+
+msgid "last_quarter"
+msgstr "Ultimul pătrar"
+
+msgid "waning_crescent"
+msgstr "Semilună descrescătoare"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "Soare"
+
+msgid "moon"
+msgstr "Lună"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "Vreme spațială"
+
+msgid "kp_index"
+msgstr "Indice Kp"
+
+msgid "solar_wind"
+msgstr "Vânt solar"
+
+msgid "aurora_visibility"
+msgstr "Vizibilitate auroră"
+
+msgid "xray_class"
+msgstr "Clasa erupției cu raze X"
+
+msgid "geomagnetic_activity"
+msgstr "Activitate geomagnetică"
+
+msgid "kp_quiet"
+msgstr "Liniștit"
+
+msgid "kp_unsettled"
+msgstr "Instabil"
+
+msgid "kp_active"
+msgstr "Activ"
+
+msgid "kp_storm"
+msgstr "Furtună"
+
+msgid "kp_strong"
+msgstr "Puternic"
+
+msgid "kp_extreme"
+msgstr "Extrem"
+
+msgid "status_observed"
+msgstr "Observat"
+
+msgid "status_estimated"
+msgstr "Estimat"
+
+msgid "status_predicted"
+msgstr "Prevăzut"
+
+msgid "swind_low"
+msgstr "Scăzut"
+
+msgid "swind_moderate"
+msgstr "Moderat"
+
+msgid "swind_high"
+msgstr "Ridicat"
+
+msgid "swind_extreme"
+msgstr "Extrem"
+
+msgid "aurora_none"
+msgstr "Niciuna"
+
+msgid "aurora_low"
+msgstr "Scăzută"
+
+msgid "aurora_moderate"
+msgstr "Moderată"
+
+msgid "aurora_high"
+msgstr "Ridicată"
+
+msgid "aurora_excellent"
+msgstr "Excelentă"
+
+msgid "g0_desc"
+msgstr "Nicio activitate de furtună geomagnetică."
+
+msgid "g1_desc"
+msgstr "Furtună geomagnetică minoră."
+
+msgid "g2_desc"
+msgstr "Furtună geomagnetică moderată."
+
+msgid "g3_desc"
+msgstr "Furtună geomagnetică puternică."
+
+msgid "g4_desc"
+msgstr "Furtună geomagnetică severă."
+
+msgid "g5_desc"
+msgstr "Furtună geomagnetică extremă."
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "Vânt"
+
+msgid "condition"
+msgstr "Stare"
+
+msgid "today"
+msgstr "Astăzi"
+
+msgid "details"
+msgstr "Detalii"
+
+msgid "forecast"
+msgstr "Prognoză"
+
+msgid "radar"
+msgstr "Radar"
+
+msgid "alerts"
+msgstr "Alerte"
+
+msgid "snow_cover"
+msgstr "Strat de zăpadă"
+
+msgid "precip_sum"
+msgstr "Suma precipitațiilor"
+
+msgid "date_time"
+msgstr "Data / Ora"
+
+msgid "daylight"
+msgstr "Lumina zilei"
+
+msgid "night"
+msgstr "Noapte"
+
+msgid "day"
+msgstr "Zi"
+
+msgid "daylight_over"
+msgstr "Lumina zilei s-a terminat"
+
+msgid "remaining"
+msgstr "rămas"
+
+msgid "refresh"
+msgstr "Reîmprospătare"
+
+msgid "updating"
+msgstr "Se actualizează..."
+
+msgid "loading"
+msgstr "Se încarcă..."
+
+msgid "no_data"
+msgstr "Fără date"
+
+msgid "unknown"
+msgstr "Necunoscut"
+
+msgid "no_location"
+msgstr "Locație nesetată"
+
+msgid "provider"
+msgstr "Furnizor"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "Titlu"
+
+msgid "alert_description"
+msgstr "Descriere"
+
+msgid "alert_effective"
+msgstr "Efectiv de la"
+
+msgid "alert_expires"
+msgstr "Expiră"
+
+msgid "alert_instruction"
+msgstr "Instrucțiune"
+
+msgid "alert_website"
+msgstr "Site web"
+
+msgid "future_alerts"
+msgstr "Alerte viitoare"
+
+msgid "no_alerts"
+msgstr "Nicio alertă"
+
+msgid "one_alert"
+msgstr "1 Alertă"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "Bun"
+
+msgid "aqi_fair"
+msgstr "Acceptabil"
+
+msgid "aqi_poor"
+msgstr "Slab"
+
+msgid "aqi_very_poor"
+msgstr "Foarte slab"
+
+msgid "aqi_extremely_poor"
+msgstr "Extrem de slab"
+
+msgid "uv_low"
+msgstr "Scăzut"
+
+msgid "uv_moderate"
+msgstr "Moderat"
+
+msgid "uv_high"
+msgstr "Ridicat"
+
+msgid "uv_very_high"
+msgstr "Foarte ridicat"
+
+msgid "uv_extreme"
+msgstr "Extrem"
+
+msgid "pollen_low"
+msgstr "Scăzut"
+
+msgid "pollen_moderate"
+msgstr "Moderat"
+
+msgid "pollen_high"
+msgstr "Ridicat"
+
+msgid "pollen_very_high"
+msgstr "Foarte ridicat"
+
+msgid "aqi"
+msgstr "AQI"
+
+msgid "aqhi"
+msgstr "AQHI"
+
+msgid "clear_night"
+msgstr "Noapte senină"
+
+msgid "geomagnetic_storm"
+msgstr "Furtună geomagnetică"
+
+msgid "bz"
+msgstr "Bz (Câmp magnetic)"
+
+msgid "flare_warning"
+msgstr "Avertisment erupție"
+
+msgid "bz_active"
+msgstr "Activ"
+
+msgid "alert_severity_minor"
+msgstr "Minoră"
+
+msgid "alert_severity_moderate"
+msgstr "Moderată"
+
+msgid "alert_severity_severe"
+msgstr "Severă"
+
+msgid "alert_severity_extreme"
+msgstr "Extremă"
+
+msgid "alert_color_yellow"
+msgstr "galben"
+
+msgid "alert_color_orange"
+msgstr "portocaliu"
+
+msgid "alert_color_red"
+msgstr "roșu"
+
+msgid "alert_certainty_observed"
+msgstr "Observat"
+
+msgid "alert_certainty_likely"
+msgstr "Probabil"
+
+msgid "alert_certainty_possible"
+msgstr "Posibil"
+
+msgid "alert_certainty_unlikely"
+msgstr "Puțin probabil"
+
+msgid "alert_certainty_unknown"
+msgstr "Necunoscut"

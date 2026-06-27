@@ -1,0 +1,657 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "空気品質"
+
+msgid "current_weather"
+msgstr "現在の天気"
+
+msgid "hourly_forecast"
+msgstr "時間ごとの予報"
+
+msgid "daily_forecast"
+msgstr "日ごとの予報"
+
+msgid "weather_provider"
+msgstr "天気プロバイダー"
+
+msgid "feels_like"
+msgstr "体感温度"
+
+msgid "last_updated"
+msgstr "最終更新"
+
+msgid "temperature"
+msgstr "気温"
+
+msgid "humidity"
+msgstr "湿度"
+
+msgid "pressure"
+msgstr "気圧"
+
+msgid "precipitation"
+msgstr "降水量"
+
+msgid "precipitation_hours"
+msgstr "降水時間"
+
+msgid "precipitation_probability"
+msgstr "降水確率"
+
+msgid "snowfall"
+msgstr "降雪量"
+
+msgid "cloud_cover"
+msgstr "雲量"
+
+msgid "dew_point"
+msgstr "露点"
+
+msgid "visibility"
+msgstr "視程"
+
+msgid "uv_index"
+msgstr "UV指数"
+
+msgid "wind_speed"
+msgstr "風速"
+
+msgid "wind_direction"
+msgstr "風向"
+
+msgid "wind_gusts"
+msgstr "突風"
+
+msgid "sunrise"
+msgstr "日の出"
+
+msgid "sunset"
+msgstr "日の入り"
+
+msgid "sunshine_duration"
+msgstr "日照時間"
+
+msgid "moonrise"
+msgstr "月の出"
+
+msgid "moonset"
+msgstr "月の入り"
+
+msgid "moon_phase"
+msgstr "月相"
+
+msgid "min"
+msgstr "最低"
+
+msgid "max"
+msgstr "最高"
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "都市"
+
+msgid "country"
+msgstr "国"
+
+msgid "region"
+msgstr "地域"
+
+msgid "latitude"
+msgstr "緯度"
+
+msgid "longitude"
+msgstr "経度"
+
+msgid "elevation"
+msgstr "標高"
+
+msgid "population"
+msgstr "人口"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "欧州AQI"
+
+msgid "us_aqi"
+msgstr "米国AQI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "一酸化炭素"
+
+msgid "ozone"
+msgstr "オゾン"
+
+msgid "dust"
+msgstr "粉塵"
+
+msgid "nitrogen_dioxide"
+msgstr "二酸化窒素"
+
+msgid "sulphur_dioxide"
+msgstr "二酸化硫黄"
+
+msgid "alder"
+msgstr "ハンノキ"
+
+msgid "birch"
+msgstr "シラカバ"
+
+msgid "grass"
+msgstr "イネ科"
+
+msgid "mugwort"
+msgstr "ヨモギ"
+
+msgid "olive"
+msgstr "オリーブ"
+
+msgid "ragweed"
+msgstr "ブタクサ"
+
+msgid "pollen"
+msgstr "花粉"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "快晴"
+
+msgid "mainly_clear"
+msgstr "おおむね晴れ"
+
+msgid "partly_cloudy"
+msgstr "薄曇り"
+
+msgid "overcast"
+msgstr "曇り"
+
+msgid "fog"
+msgstr "霧"
+
+msgid "depositing_rime_fog"
+msgstr "樹氷霧"
+
+msgid "light_drizzle"
+msgstr "弱い霧雨"
+
+msgid "moderate_drizzle"
+msgstr "霧雨"
+
+msgid "dense_drizzle"
+msgstr "濃い霧雨"
+
+msgid "light_freezing_drizzle"
+msgstr "弱い氷霧雨"
+
+msgid "dense_freezing_drizzle"
+msgstr "濃い氷霧雨"
+
+msgid "slight_rain"
+msgstr "小雨"
+
+msgid "moderate_rain"
+msgstr "雨"
+
+msgid "heavy_rain"
+msgstr "大雨"
+
+msgid "light_freezing_rain"
+msgstr "弱い氷雨"
+
+msgid "heavy_freezing_rain"
+msgstr "強い氷雨"
+
+msgid "slight_snowfall"
+msgstr "小雪"
+
+msgid "moderate_snowfall"
+msgstr "雪"
+
+msgid "heavy_snowfall"
+msgstr "大雪"
+
+msgid "snow_grains"
+msgstr "霰"
+
+msgid "slight_rain_showers"
+msgstr "弱い通り雨"
+
+msgid "moderate_rain_showers"
+msgstr "通り雨"
+
+msgid "violent_rain_showers"
+msgstr "激しい通り雨"
+
+msgid "slight_snow_showers"
+msgstr "弱い雪雨"
+
+msgid "heavy_snow_showers"
+msgstr "激しい雪雨"
+
+msgid "thunderstorm"
+msgstr "雷雨"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "小さな雹を伴う雷雨"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "大きな雹を伴う雷雨"
+
+############################################
+# WIND DIRECTIONS
+############################################
+
+msgid "north"
+msgstr "北"
+
+msgid "nne"
+msgstr "北北東"
+
+msgid "ne"
+msgstr "北東"
+
+msgid "ene"
+msgstr "東北東"
+
+msgid "east"
+msgstr "東"
+
+msgid "ese"
+msgstr "東南東"
+
+msgid "se"
+msgstr "南東"
+
+msgid "sse"
+msgstr "南南東"
+
+msgid "south"
+msgstr "南"
+
+msgid "ssw"
+msgstr "南南西"
+
+msgid "sw"
+msgstr "南西"
+
+msgid "wsw"
+msgstr "西南西"
+
+msgid "west"
+msgstr "西"
+
+msgid "wnw"
+msgstr "西北西"
+
+msgid "nw"
+msgstr "北西"
+
+msgid "nnw"
+msgstr "北北西"
+
+msgid "variable"
+msgstr "変わりやすい"
+
+msgid "calm"
+msgstr "無風"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "新月"
+
+msgid "waxing_crescent"
+msgstr "三日月"
+
+msgid "first_quarter"
+msgstr "上弦の月"
+
+msgid "waxing_gibbous"
+msgstr "盈凸月"
+
+msgid "full_moon"
+msgstr "満月"
+
+msgid "waning_gibbous"
+msgstr "虧凸月"
+
+msgid "last_quarter"
+msgstr "下弦の月"
+
+msgid "waning_crescent"
+msgstr "晦月"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "太陽"
+
+msgid "moon"
+msgstr "月"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "宇宙天気"
+
+msgid "kp_index"
+msgstr "Kp指数"
+
+msgid "solar_wind"
+msgstr "太陽風"
+
+msgid "aurora_visibility"
+msgstr "オーロラの見え方"
+
+msgid "xray_class"
+msgstr "X線フレアクラス"
+
+msgid "geomagnetic_activity"
+msgstr "地磁気活動"
+
+msgid "kp_quiet"
+msgstr "静穏"
+
+msgid "kp_unsettled"
+msgstr "不安定"
+
+msgid "kp_active"
+msgstr "活発"
+
+msgid "kp_storm"
+msgstr "嵐"
+
+msgid "kp_strong"
+msgstr "強い"
+
+msgid "kp_extreme"
+msgstr "極端"
+
+msgid "status_observed"
+msgstr "観測値"
+
+msgid "status_estimated"
+msgstr "推定値"
+
+msgid "status_predicted"
+msgstr "予測値"
+
+msgid "swind_low"
+msgstr "低い"
+
+msgid "swind_moderate"
+msgstr "中程度"
+
+msgid "swind_high"
+msgstr "高い"
+
+msgid "swind_extreme"
+msgstr "極端"
+
+msgid "aurora_none"
+msgstr "なし"
+
+msgid "aurora_low"
+msgstr "低い"
+
+msgid "aurora_moderate"
+msgstr "中程度"
+
+msgid "aurora_high"
+msgstr "高い"
+
+msgid "aurora_excellent"
+msgstr "素晴らしい"
+
+msgid "g0_desc"
+msgstr "地磁気嵐の活動なし。"
+
+msgid "g1_desc"
+msgstr "軽度の地磁気嵐。"
+
+msgid "g2_desc"
+msgstr "中程度の地磁気嵐。"
+
+msgid "g3_desc"
+msgstr "強い地磁気嵐。"
+
+msgid "g4_desc"
+msgstr "深刻な地磁気嵐。"
+
+msgid "g5_desc"
+msgstr "極端な地磁気嵐。"
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "風"
+
+msgid "condition"
+msgstr "状態"
+
+msgid "today"
+msgstr "今日"
+
+msgid "details"
+msgstr "詳細"
+
+msgid "forecast"
+msgstr "予報"
+
+msgid "radar"
+msgstr "レーダー"
+
+msgid "alerts"
+msgstr "警報"
+
+msgid "snow_cover"
+msgstr "積雪"
+
+msgid "precip_sum"
+msgstr "降水量合計"
+
+msgid "date_time"
+msgstr "日付／時刻"
+
+msgid "daylight"
+msgstr "日照"
+
+msgid "night"
+msgstr "夜"
+
+msgid "day"
+msgstr "昼"
+
+msgid "daylight_over"
+msgstr "日没"
+
+msgid "remaining"
+msgstr "残り"
+
+msgid "refresh"
+msgstr "更新"
+
+msgid "updating"
+msgstr "更新中..."
+
+msgid "loading"
+msgstr "読み込み中..."
+
+msgid "no_data"
+msgstr "データなし"
+
+msgid "unknown"
+msgstr "不明"
+
+msgid "no_location"
+msgstr "場所が設定されていません"
+
+msgid "provider"
+msgstr "プロバイダー"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "見出し"
+
+msgid "alert_description"
+msgstr "説明"
+
+msgid "alert_effective"
+msgstr "発効日時"
+
+msgid "alert_expires"
+msgstr "期限切れ"
+
+msgid "alert_instruction"
+msgstr "指示"
+
+msgid "alert_website"
+msgstr "ウェブサイト"
+
+msgid "future_alerts"
+msgstr "将来の警報"
+
+msgid "no_alerts"
+msgstr "なし"
+
+msgid "one_alert"
+msgstr "1件の警報"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "良好"
+
+msgid "aqi_fair"
+msgstr "普通"
+
+msgid "aqi_poor"
+msgstr "悪い"
+
+msgid "aqi_very_poor"
+msgstr "非常に悪い"
+
+msgid "aqi_extremely_poor"
+msgstr "極めて悪い"
+
+msgid "uv_low"
+msgstr "低い"
+
+msgid "uv_moderate"
+msgstr "中程度"
+
+msgid "uv_high"
+msgstr "高い"
+
+msgid "uv_very_high"
+msgstr "非常に高い"
+
+msgid "uv_extreme"
+msgstr "極端"
+
+msgid "pollen_low"
+msgstr "少ない"
+
+msgid "pollen_moderate"
+msgstr "中程度"
+
+msgid "pollen_high"
+msgstr "多い"
+
+msgid "pollen_very_high"
+msgstr "非常に多い"
+
+msgid "aqi"
+msgstr "AQI"
+
+msgid "aqhi"
+msgstr "AQHI"
+
+msgid "clear_night"
+msgstr "晴れた夜"
+
+msgid "geomagnetic_storm"
+msgstr "地磁気嵐"
+
+msgid "bz"
+msgstr "Bz（磁場）"
+
+msgid "flare_warning"
+msgstr "フレア警報"
+
+msgid "bz_active"
+msgstr "活発"
+
+msgid "alert_severity_minor"
+msgstr "軽度"
+
+msgid "alert_severity_moderate"
+msgstr "中度"
+
+msgid "alert_severity_severe"
+msgstr "深刻"
+
+msgid "alert_severity_extreme"
+msgstr "極度"
+
+msgid "alert_color_yellow"
+msgstr "黄色"
+
+msgid "alert_color_orange"
+msgstr "オレンジ"
+
+msgid "alert_color_red"
+msgstr "赤"
+
+msgid "alert_certainty_observed"
+msgstr "観測済み"
+
+msgid "alert_certainty_likely"
+msgstr "可能性が高い"
+
+msgid "alert_certainty_possible"
+msgstr "可能性がある"
+
+msgid "alert_certainty_unlikely"
+msgstr "可能性が低い"
+
+msgid "alert_certainty_unknown"
+msgstr "不明"
