@@ -2,6 +2,23 @@
 
 🏗️ Built like LEGO, not a pre-built house.
 
+🇭🇺 Moduláris Conky UI keretrendszer gettext alapú nemzetköziesítéssel
+🇬🇧 Modular Conky UI framework with full gettext internationalization
+🇩🇪 Modulares Conky-UI-Framework mit gettext-Internationalisierung
+🇫🇷 Framework Conky UI modulaire avec internationalisation gettext
+🇳🇱 Modulair Conky UI-framework met gettext internationalisering
+🇪🇸 Framework modular de Conky UI con internacionalización gettext
+🇵🇹 Framework modular de Conky UI com internacionalização gettext
+🇮🇹 Framework modulare Conky UI con internazionalizzazione gettext
+🇵🇱 Modułowy framework Conky UI z internacjonalizacją gettext
+🇹🇷 Modüler Conky UI çerçevesi, gettext uluslararasılaştırma desteğiyle
+🇯🇵 モジュラー式Conky UIフレームワーク、gettext国際化対応
+🇨🇳 模块化Conky UI框架，支持gettext国际化
+🇷🇺 Модульный Conky UI-фреймворк с поддержкой gettext
+🇷🇴 Cadru modular Conky UI cu internaționalizare gettext
+🇭🇷 Modularni Conky UI okvir s gettext internacionalizacijom
+🇸🇦 إطار عمل Conky UI مع دعم التدويل gettext
+
 Most Conky projects give you a finished theme — a fixed layout, a skin, a "house".
 NextGen gives you the bricks, the instructions, and the freedom to build your own.
 
@@ -18,6 +35,10 @@ NextGen gives you the bricks, the instructions, and the freedom to build your ow
 | **🔧 Hardware bricks** | Multi-distro GPU detection, NVIDIA XML backend, sensors |
 
 See [docs/README.md](docs/README.md) for full documentation.
+
+**Keywords / Kulcsszavak / キーワード / 关键词 / Ключевые слова / Cuvinte cheie / Ključne riječi / كلمات مفتاحية**
+
+`conky` `conky-desktop` `conky-ui` `conky-widget` `lua` `gettext` `i18n` `weather` `widget` `linux-desktop` `desktop-customization` `modular` `cairo` `nvidia` `sensors` `spaceweather` `aurora` `opensource`
 
 ## Contributing
 
