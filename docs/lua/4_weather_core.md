@@ -6,7 +6,7 @@ Core weather module. Loads and caches weather/air/sun/moon/city JSON data from `
 ## Dependencies
 - `1_translate` (for WMO code translations)
 - `3_watcher` (for file change detection)
-- JSON files in `tmp/` (fetched by `sh/all_in_one.sh`)
+- JSON files in `tmp/` (fetched by `sh/4_fetch_weather.sh` or `sh/0_fetch_all.sh`)
 
 ## Globals
 | Name | Description |

@@ -102,7 +102,7 @@ Drawing is driven by the `draw` table (defined in `36_widget.lua`). Each entry h
 
 See the individual draw module docs for examples and variants.
 
-For details on the tile‑based map engine (3×3 Mercator grid, global radar support), see [`docs/sh/all_in_one.md`](docs/sh/all_in_one.md).
+For details on the tile‑based map engine (3×3 Mercator grid, global radar support), see [`docs/sh/fetch_modules.md`](docs/sh/fetch_modules.md).
 
 ## Dependencies (Arch Linux)
 
