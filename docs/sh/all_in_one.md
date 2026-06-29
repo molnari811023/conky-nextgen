@@ -1,17 +1,34 @@
-# all_in_one.sh
+# Fetch modules
 
 ## Purpose
-Backend data fetcher. Downloads weather, space weather, alerts, and map tiles.
+Backend data fetchers. Download weather, space weather, alerts, and map tiles into `tmp/`.
 
 ## Dependencies
 - `curl`, `jq`, `python3`, ImageMagick (`magick` or `convert`)
 
-## Usage
+## Module overview
+
+The monolithic `all_in_one.sh` has been split into numbered modules (matching the Lua convention).
+
+| File | Function | Runs standalone |
+|------|----------|-----------------|
+| `0_common.sh` | Shared helpers (UA, `curl_cmd`, dirs) — sourced by all modules | sourced only |
+| `0_fetch_all.sh` | Master entry point — dispatches by mode | yes |
+| `4_fetch_weather.sh` | `fetch_weather` — weather + air + sun + moon | yes |
+| `11_fetch_alerts.sh` | `fetch_alerts` — MeteoAlarm XML | yes |
+| `12_fetch_spaceweather.sh` | `fetch_spaceweather` — NOAA SWPC | yes |
+| `13_fetch_maps.sh` | `fetch_maps` — OSM + radar + temp + wind tiles | yes |
+| `all_in_one.sh` | Legacy monolith (still works) | yes |
+
+## Usage (recommended)
+
 ```bash
-./sh/all_in_one.sh [mode] [arguments]
+./sh/0_fetch_all.sh [mode] [arguments]
+./sh/4_fetch_weather.sh "Budapest"         # standalone weather
+./sh/11_fetch_alerts.sh                     # standalone alerts
 ```
 
-## Modes
+## Modes (`0_fetch_all.sh`)
 | Mode | Arguments | Description |
 |------|-----------|-------------|
 | `all` | city, zoom | Fetch everything (default) |

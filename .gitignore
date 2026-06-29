@@ -1,3 +1,4 @@
 .env
 examples/multi_view/
 sh/__pycache__/
+tmp/*.png

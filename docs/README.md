@@ -67,10 +67,18 @@ To add a new language: copy `language/strings.pot` → `language/xx.po`, transla
 
 ### Shell Scripts (`sh/`)
 
+Numbered modules follow the same convention as Lua. Each can be run standalone.
+
 | File | Purpose |
 |------|---------|
-| all_in_one.sh | Weather, space weather, alerts, map tile fetcher |
-| updates.sh | Arch Linux package update checker |
+| `0_common.sh` | Shared helpers (User-Agent, `curl_cmd`, dirs) — sourced by all modules |
+| `0_fetch_all.sh` | Master entry point — dispatches to all fetch modules by mode |
+| `4_fetch_weather.sh` | Weather, air quality, sun & moon data |
+| `11_fetch_alerts.sh` | MeteoAlarm weather alerts |
+| `12_fetch_spaceweather.sh` | NOAA SWPC space weather data |
+| `13_fetch_maps.sh` | OSM tiles, radar, temperature & wind WMS layers |
+| `all_in_one.sh` | Legacy monolith (still works, use modules above for new setups) |
+| `updates.sh` | Arch Linux package update checker |
 
 ### Config
 

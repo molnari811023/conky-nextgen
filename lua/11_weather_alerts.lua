@@ -28,17 +28,22 @@ end
 local lxp_ok, lxp = pcall(require, "lxp")
 
 local function parse_alerts_from_xml(xml, city_name, admin1)
-	if not xml or xml == "" then return {} end
+	if not xml or xml == "" then return {}, "" end
 
 	local function sax_parse()
 		local entries = {}
+		local feed_updated = ""
 		local cur, tag, buf = false, nil, {}
 		local data = {}
 
 		local function flush()
-			if cur and tag then
+			if tag then
 				local s = table.concat(buf):match("^%s*(.-)%s*$")
-				data[tag] = (data[tag] or "") .. s
+				if cur then
+					data[tag] = (data[tag] or "") .. s
+				elseif tag == "updated" then
+					feed_updated = s or ""
+				end
 			end
 			buf = {}
 		end
@@ -50,13 +55,14 @@ local function parse_alerts_from_xml(xml, city_name, admin1)
 				elseif cur then
 					flush()
 					tag = name:match(":(.+)$") or name
+				elseif (name == "updated") or name:match(":updated$") then
+					tag = "updated"; buf = {}
 				end
 			end,
 			CharacterData = function(_, s)
 				table.insert(buf, s)
 			end,
 			EndElement = function(_, name)
-				if not cur then return end
 				if name == "entry" or name:match(":entry$") then
 					flush()
 					local sev = data.severity or ""
@@ -76,7 +82,10 @@ local function parse_alerts_from_xml(xml, city_name, admin1)
 						title = title, color = color, weight = w,
 					})
 					cur = false; tag = nil
-				else
+				elseif (name == "updated") or name:match(":updated$") then
+					flush()
+					tag = nil
+				elseif cur then
 					local base = name:match(":(.+)$") or name
 					if base == tag then
 						flush()
@@ -88,11 +97,17 @@ local function parse_alerts_from_xml(xml, city_name, admin1)
 		local p = lxp.new(cbs)
 		p:parse(xml)
 		p:close()
-		return entries
+		return entries, feed_updated
 	end
 
 	local function regex_parse()
 		local alerts = {}
+		local feed_updated = ""
+		local fu = xml:match('<[^:>]*:?updated[^>]*>([^<]*)<')
+		if fu then
+			fu = fu:match('<!%[CDATA%[(.-)%]%]>') or fu
+			feed_updated = fu:match("^%s*(.-)%s*$") or fu
+		end
 		local function get(entry, t)
 			local b = t:match(":(.+)$") or t
 			local v = entry:match('<[^:>]*:?' .. b .. '[^>]*>([^<]*)')
@@ -123,15 +138,19 @@ local function parse_alerts_from_xml(xml, city_name, admin1)
 				title = title, color = color, weight = w,
 			})
 		end
-		return alerts
+		return alerts, feed_updated
 	end
 
-	local alerts
+	local alerts, feed_updated
 	if lxp_ok then
-		local ok, res = pcall(sax_parse)
-		alerts = ok and res or regex_parse()
+		local ok, res, fu = pcall(sax_parse)
+		if ok then
+			alerts, feed_updated = res, fu
+		else
+			alerts, feed_updated = regex_parse()
+		end
 	else
-		alerts = regex_parse()
+		alerts, feed_updated = regex_parse()
 	end
 
 	table.sort(alerts, function(a, b) return a.weight > b.weight end)
@@ -155,10 +174,10 @@ local function parse_alerts_from_xml(xml, city_name, admin1)
 			title = a.title, color = a.color,
 		})
 	end
-	return out
+	return out, feed_updated
 end
 
-function load_alerts()
+local function load_cache()
 	local now = os.time()
 	if not alerts_cache_storage or (now - alerts_cache_time > 120) then
 		local xml_path = JSON_PATH .. "alerts.xml"
@@ -170,22 +189,33 @@ function load_alerts()
 		if not alerts_cache_storage or mtime ~= (alerts_cache_storage._mtime or 0) then
 			local xml = read_file(xml_path)
 			if xml then
-				alerts_cache_storage = { alerts = parse_alerts_from_xml(xml, city_name, admin1), _mtime = mtime }
+				local alerts, updated = parse_alerts_from_xml(xml, city_name, admin1)
+				alerts_cache_storage = { alerts = alerts, _mtime = mtime, updated = updated or "" }
 			else
-				alerts_cache_storage = { alerts = {}, _mtime = 0 }
+				alerts_cache_storage = { alerts = {}, _mtime = 0, updated = "" }
 			end
 			alerts_cache_time = now
 		end
 	end
-	return alerts_cache_storage and alerts_cache_storage.alerts or {}
+	return alerts_cache_storage
+end
+
+function load_alerts()
+	local cache = load_cache()
+	return cache and cache.alerts or {}
 end
 
 function conky_update_alerts()
-	load_alerts()
+	load_cache()
 end
 
 function alerts_count()
 	return #load_alerts()
+end
+
+function alerts_updated()
+	local cache = load_cache()
+	return cache and cache.updated or ""
 end
 
 function alert_field(i, field)

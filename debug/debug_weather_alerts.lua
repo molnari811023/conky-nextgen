@@ -24,6 +24,7 @@ local t = os.clock()
 print('=== WEATHER ALERTS ===')
 local count = alerts_count()
 print('alerts_count:', count)
+print('updated:', alerts_updated())
 for i = 1, math.max(1, count) do
   print(string.format('--- alert %d ---', i))
   print('  event:',    alert_field(i, 'event'))

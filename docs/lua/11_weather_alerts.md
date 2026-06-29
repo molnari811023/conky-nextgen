@@ -13,6 +13,7 @@ Parses MeteoAlarm XML weather alerts. Supports both SAX (via lxp) and regex-base
 | `conky_update_alerts()` | Force reload alerts |
 | `alerts_count()` | Number of active alerts |
 | `alert_field(i, field)` | Get alert field (event, severity, certainty, area, onset, expires, title, color). Fields `severity`, `color`, `certainty` are translated via `get_tr()`. |
+| `alerts_updated()` | Feed-level `<updated>` timestamp string |
 
 ## Data
 - Source: `https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-<country>`
