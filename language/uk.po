@@ -1,0 +1,657 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "Якість повітря"
+
+msgid "current_weather"
+msgstr "Поточна погода"
+
+msgid "hourly_forecast"
+msgstr "Погодинний прогноз"
+
+msgid "daily_forecast"
+msgstr "Щоденний прогноз"
+
+msgid "weather_provider"
+msgstr "Постачальник погоди"
+
+msgid "feels_like"
+msgstr "Відчувається як"
+
+msgid "last_updated"
+msgstr "Востаннє оновлено"
+
+msgid "temperature"
+msgstr "Температура"
+
+msgid "humidity"
+msgstr "Вологість"
+
+msgid "pressure"
+msgstr "Тиск"
+
+msgid "precipitation"
+msgstr "Опади"
+
+msgid "precipitation_hours"
+msgstr "Години опадів"
+
+msgid "precipitation_probability"
+msgstr "Ймовірність опадів"
+
+msgid "snowfall"
+msgstr "Снігопад"
+
+msgid "cloud_cover"
+msgstr "Хмарність"
+
+msgid "dew_point"
+msgstr "Точка роси"
+
+msgid "visibility"
+msgstr "Видимість"
+
+msgid "uv_index"
+msgstr "УФ-індекс"
+
+msgid "wind_speed"
+msgstr "Швидкість вітру"
+
+msgid "wind_direction"
+msgstr "Напрям вітру"
+
+msgid "wind_gusts"
+msgstr "Пориви вітру"
+
+msgid "sunrise"
+msgstr "Схід сонця"
+
+msgid "sunset"
+msgstr "День закінчився"
+
+msgid "sunshine_duration"
+msgstr "Тривалість сонячного сяйва"
+
+msgid "moonrise"
+msgstr "Схід місяця"
+
+msgid "moonset"
+msgstr "Захід місяця"
+
+msgid "moon_phase"
+msgstr "Фаза місяця"
+
+msgid "min"
+msgstr "Мін"
+
+msgid "max"
+msgstr "Макс"
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "Місто"
+
+msgid "country"
+msgstr "Країна"
+
+msgid "region"
+msgstr "Регіон"
+
+msgid "latitude"
+msgstr "Широта"
+
+msgid "longitude"
+msgstr "Довгота"
+
+msgid "elevation"
+msgstr "Висота"
+
+msgid "population"
+msgstr "Населення"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "Європейський AQI"
+
+msgid "us_aqi"
+msgstr "США AQI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "Чадний газ"
+
+msgid "ozone"
+msgstr "Озон"
+
+msgid "dust"
+msgstr "Пил"
+
+msgid "nitrogen_dioxide"
+msgstr "Діоксид азоту"
+
+msgid "sulphur_dioxide"
+msgstr "Діоксид сірки"
+
+msgid "alder"
+msgstr "Вільха"
+
+msgid "birch"
+msgstr "Береза"
+
+msgid "grass"
+msgstr "Трави"
+
+msgid "mugwort"
+msgstr "Полин"
+
+msgid "olive"
+msgstr "Олива"
+
+msgid "ragweed"
+msgstr "Амброзія"
+
+msgid "pollen"
+msgstr "Пилок"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "Ясно"
+
+msgid "mainly_clear"
+msgstr "Переважно ясно"
+
+msgid "partly_cloudy"
+msgstr "Мінлива хмарність"
+
+msgid "overcast"
+msgstr "Похмуро"
+
+msgid "fog"
+msgstr "Туман"
+
+msgid "depositing_rime_fog"
+msgstr "Павутинний туман"
+
+msgid "light_drizzle"
+msgstr "Легка мряка"
+
+msgid "moderate_drizzle"
+msgstr "Мряка"
+
+msgid "dense_drizzle"
+msgstr "Сильна мряка"
+
+msgid "light_freezing_drizzle"
+msgstr "Легка переохолоджена мряка"
+
+msgid "dense_freezing_drizzle"
+msgstr "Сильна переохолоджена мряка"
+
+msgid "slight_rain"
+msgstr "Невеликий дощ"
+
+msgid "moderate_rain"
+msgstr "Дощ"
+
+msgid "heavy_rain"
+msgstr "Сильний дощ"
+
+msgid "light_freezing_rain"
+msgstr "Невеликий переохолоджений дощ"
+
+msgid "heavy_freezing_rain"
+msgstr "Сильний переохолоджений дощ"
+
+msgid "slight_snowfall"
+msgstr "Невеликий сніг"
+
+msgid "moderate_snowfall"
+msgstr "Сніг"
+
+msgid "heavy_snowfall"
+msgstr "Сильний сніг"
+
+msgid "snow_grains"
+msgstr "Снігові зерна"
+
+msgid "slight_rain_showers"
+msgstr "Невеликі зливові дощі"
+
+msgid "moderate_rain_showers"
+msgstr "Зливові дощі"
+
+msgid "violent_rain_showers"
+msgstr "Сильні зливові дощі"
+
+msgid "slight_snow_showers"
+msgstr "Невеликі снігові заряди"
+
+msgid "heavy_snow_showers"
+msgstr "Сильні снігові заряди"
+
+msgid "thunderstorm"
+msgstr "Гроза"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "Гроза з невеликим градом"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "Гроза з сильним градом"
+
+############################################
+# WIND DIRECTIONS (SHORT)
+############################################
+
+msgid "north"
+msgstr "Пн"
+
+msgid "nne"
+msgstr "ПнПнСх"
+
+msgid "ne"
+msgstr "ПнСх"
+
+msgid "ene"
+msgstr "СхПнСх"
+
+msgid "east"
+msgstr "Сх"
+
+msgid "ese"
+msgstr "СхПдСх"
+
+msgid "se"
+msgstr "ПдСх"
+
+msgid "sse"
+msgstr "ПдПдСх"
+
+msgid "south"
+msgstr "Пд"
+
+msgid "ssw"
+msgstr "ПдПдЗх"
+
+msgid "sw"
+msgstr "ПдЗх"
+
+msgid "wsw"
+msgstr "ЗхПдЗх"
+
+msgid "west"
+msgstr "Зх"
+
+msgid "wnw"
+msgstr "ЗхПнЗх"
+
+msgid "nw"
+msgstr "ПнЗх"
+
+msgid "nnw"
+msgstr "ПнПнЗх"
+
+msgid "variable"
+msgstr "ЗМ"
+
+msgid "calm"
+msgstr "ШТИЛЬ"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "Молодик"
+
+msgid "waxing_crescent"
+msgstr "Зростаючий серп"
+
+msgid "first_quarter"
+msgstr "Перша чверть"
+
+msgid "waxing_gibbous"
+msgstr "Зростаючий опуклий місяць"
+
+msgid "full_moon"
+msgstr "Повний місяць"
+
+msgid "waning_gibbous"
+msgstr "Спадаючий опуклий місяць"
+
+msgid "last_quarter"
+msgstr "Остання чверть"
+
+msgid "waning_crescent"
+msgstr "Спадаючий серп"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "Сонце"
+
+msgid "moon"
+msgstr "Місяць"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "Космічна погода"
+
+msgid "kp_index"
+msgstr "Kp-індекс"
+
+msgid "solar_wind"
+msgstr "Сонячний вітер"
+
+msgid "aurora_visibility"
+msgstr "Видимість полярного сяйва"
+
+msgid "xray_class"
+msgstr "Клас рентгенівського спалаху"
+
+msgid "geomagnetic_activity"
+msgstr "Геомагнітна активність"
+
+msgid "kp_quiet"
+msgstr "Спокійний"
+
+msgid "kp_unsettled"
+msgstr "Нестійкий"
+
+msgid "kp_active"
+msgstr "Активний"
+
+msgid "kp_storm"
+msgstr "Буря"
+
+msgid "kp_strong"
+msgstr "Сильний"
+
+msgid "kp_extreme"
+msgstr "Екстремальний"
+
+msgid "status_observed"
+msgstr "Спостережено"
+
+msgid "status_estimated"
+msgstr "Оцінено"
+
+msgid "status_predicted"
+msgstr "Прогнозовано"
+
+msgid "swind_low"
+msgstr "Низький"
+
+msgid "swind_moderate"
+msgstr "Помірний"
+
+msgid "swind_high"
+msgstr "Високий"
+
+msgid "swind_extreme"
+msgstr "Екстремальний"
+
+msgid "aurora_none"
+msgstr "Немає"
+
+msgid "aurora_low"
+msgstr "Низький"
+
+msgid "aurora_moderate"
+msgstr "Помірний"
+
+msgid "aurora_high"
+msgstr "Високий"
+
+msgid "aurora_excellent"
+msgstr "Чудова"
+
+msgid "g0_desc"
+msgstr "Немає геомагнітної бурі."
+
+msgid "g1_desc"
+msgstr "Незначна геомагнітна буря."
+
+msgid "g2_desc"
+msgstr "Помірна геомагнітна буря."
+
+msgid "g3_desc"
+msgstr "Сильна геомагнітна буря."
+
+msgid "g4_desc"
+msgstr "Дуже сильна геомагнітна буря."
+
+msgid "g5_desc"
+msgstr "Екстремальна геомагнітна буря."
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "Вітер"
+
+msgid "condition"
+msgstr "Стан"
+
+msgid "today"
+msgstr "Сьогодні"
+
+msgid "details"
+msgstr "Деталі"
+
+msgid "forecast"
+msgstr "Прогноз"
+
+msgid "radar"
+msgstr "Радар"
+
+msgid "alerts"
+msgstr "Попередження"
+
+msgid "snow_cover"
+msgstr "Сніговий покрив"
+
+msgid "precip_sum"
+msgstr "Сума опадів"
+
+msgid "date_time"
+msgstr "Дата / Час"
+
+msgid "daylight"
+msgstr "День"
+
+msgid "night"
+msgstr "Ніч"
+
+msgid "day"
+msgstr "День"
+
+msgid "daylight_over"
+msgstr "День закінчився"
+
+msgid "remaining"
+msgstr "залишилось"
+
+msgid "refresh"
+msgstr "Оновити"
+
+msgid "updating"
+msgstr "Оновлення..."
+
+msgid "loading"
+msgstr "Завантаження..."
+
+msgid "no_data"
+msgstr "Немає даних"
+
+msgid "unknown"
+msgstr "Невідомо"
+
+msgid "no_location"
+msgstr "Місце не вказано"
+
+msgid "provider"
+msgstr "Постачальник"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "Заголовок"
+
+msgid "alert_description"
+msgstr "Опис"
+
+msgid "alert_effective"
+msgstr "Діє з"
+
+msgid "alert_expires"
+msgstr "Закінчується"
+
+msgid "alert_instruction"
+msgstr "Вказівки"
+
+msgid "alert_website"
+msgstr "Вебсайт"
+
+msgid "future_alerts"
+msgstr "Майбутні попередження"
+
+msgid "no_alerts"
+msgstr "Немає"
+
+msgid "one_alert"
+msgstr "1 попередження"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "Добре"
+
+msgid "aqi_fair"
+msgstr "Помірний"
+
+msgid "aqi_poor"
+msgstr "Погано"
+
+msgid "aqi_very_poor"
+msgstr "Дуже погано"
+
+msgid "aqi_extremely_poor"
+msgstr "Надзвичайно погано"
+
+msgid "uv_low"
+msgstr "Низький"
+
+msgid "uv_moderate"
+msgstr "Помірний"
+
+msgid "uv_high"
+msgstr "Високий"
+
+msgid "uv_very_high"
+msgstr "Дуже високий"
+
+msgid "uv_extreme"
+msgstr "Екстремальний"
+
+msgid "pollen_low"
+msgstr "Низький"
+
+msgid "pollen_moderate"
+msgstr "Помірний"
+
+msgid "pollen_high"
+msgstr "Високий"
+
+msgid "pollen_very_high"
+msgstr "Дуже високий"
+
+msgid "aqi"
+msgstr "AQI"
+
+msgid "aqhi"
+msgstr "AQHI"
+
+msgid "clear_night"
+msgstr "Ясна ніч"
+
+msgid "geomagnetic_storm"
+msgstr "Геомагнітна буря"
+
+msgid "bz"
+msgstr "Bz (Магнітне поле)"
+
+msgid "flare_warning"
+msgstr "Попередження про спалах"
+
+msgid "bz_active"
+msgstr "Активний"
+
+msgid "alert_severity_minor"
+msgstr "Незначний"
+
+msgid "alert_severity_moderate"
+msgstr "Помірний"
+
+msgid "alert_severity_severe"
+msgstr "Серйозний"
+
+msgid "alert_severity_extreme"
+msgstr "Екстремальний"
+
+msgid "alert_color_yellow"
+msgstr "жовтий"
+
+msgid "alert_color_orange"
+msgstr "помаранчевий"
+
+msgid "alert_color_red"
+msgstr "червоний"
+
+msgid "alert_certainty_observed"
+msgstr "Спостережено"
+
+msgid "alert_certainty_likely"
+msgstr "Ймовірно"
+
+msgid "alert_certainty_possible"
+msgstr "Можливо"
+
+msgid "alert_certainty_unlikely"
+msgstr "Малоймовірно"
+
+msgid "alert_certainty_unknown"
+msgstr "Невідомо"

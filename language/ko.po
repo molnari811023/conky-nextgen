@@ -1,0 +1,657 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "대기질"
+
+msgid "current_weather"
+msgstr "현재 날씨"
+
+msgid "hourly_forecast"
+msgstr "시간별 예보"
+
+msgid "daily_forecast"
+msgstr "일별 예보"
+
+msgid "weather_provider"
+msgstr "날씨 제공처"
+
+msgid "feels_like"
+msgstr "체감 온도"
+
+msgid "last_updated"
+msgstr "마지막 업데이트"
+
+msgid "temperature"
+msgstr "기온"
+
+msgid "humidity"
+msgstr "습도"
+
+msgid "pressure"
+msgstr "기압"
+
+msgid "precipitation"
+msgstr "강수량"
+
+msgid "precipitation_hours"
+msgstr "강수 시간"
+
+msgid "precipitation_probability"
+msgstr "강수 확률"
+
+msgid "snowfall"
+msgstr "적설량"
+
+msgid "cloud_cover"
+msgstr "운량"
+
+msgid "dew_point"
+msgstr "이슬점"
+
+msgid "visibility"
+msgstr "가시거리"
+
+msgid "uv_index"
+msgstr "자외선 지수"
+
+msgid "wind_speed"
+msgstr "풍속"
+
+msgid "wind_direction"
+msgstr "풍향"
+
+msgid "wind_gusts"
+msgstr "돌풍"
+
+msgid "sunrise"
+msgstr "일출"
+
+msgid "sunset"
+msgstr "일몰"
+
+msgid "sunshine_duration"
+msgstr "일조 시간"
+
+msgid "moonrise"
+msgstr "월출"
+
+msgid "moonset"
+msgstr "월몰"
+
+msgid "moon_phase"
+msgstr "월상"
+
+msgid "min"
+msgstr "최소"
+
+msgid "max"
+msgstr "최대"
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "도시"
+
+msgid "country"
+msgstr "국가"
+
+msgid "region"
+msgstr "지역"
+
+msgid "latitude"
+msgstr "위도"
+
+msgid "longitude"
+msgstr "경도"
+
+msgid "elevation"
+msgstr "고도"
+
+msgid "population"
+msgstr "인구"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "유럽 AQI"
+
+msgid "us_aqi"
+msgstr "미국 AQI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "일산화탄소"
+
+msgid "ozone"
+msgstr "오존"
+
+msgid "dust"
+msgstr "먼지"
+
+msgid "nitrogen_dioxide"
+msgstr "이산화질소"
+
+msgid "sulphur_dioxide"
+msgstr "이산화황"
+
+msgid "alder"
+msgstr "오리나무"
+
+msgid "birch"
+msgstr "자작나무"
+
+msgid "grass"
+msgstr "풀"
+
+msgid "mugwort"
+msgstr "쑥"
+
+msgid "olive"
+msgstr "올리브"
+
+msgid "ragweed"
+msgstr "돼지풀"
+
+msgid "pollen"
+msgstr "꽃가루"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "맑음"
+
+msgid "mainly_clear"
+msgstr "대체로 맑음"
+
+msgid "partly_cloudy"
+msgstr "부분적으로 흐림"
+
+msgid "overcast"
+msgstr "흐림"
+
+msgid "fog"
+msgstr "안개"
+
+msgid "depositing_rime_fog"
+msgstr "서리 안개"
+
+msgid "light_drizzle"
+msgstr "약한 이슬비"
+
+msgid "moderate_drizzle"
+msgstr "이슬비"
+
+msgid "dense_drizzle"
+msgstr "짙은 이슬비"
+
+msgid "light_freezing_drizzle"
+msgstr "약한 얼음 이슬비"
+
+msgid "dense_freezing_drizzle"
+msgstr "짙은 얼음 이슬비"
+
+msgid "slight_rain"
+msgstr "약한 비"
+
+msgid "moderate_rain"
+msgstr "비"
+
+msgid "heavy_rain"
+msgstr "폭우"
+
+msgid "light_freezing_rain"
+msgstr "약한 어는 비"
+
+msgid "heavy_freezing_rain"
+msgstr "강한 어는 비"
+
+msgid "slight_snowfall"
+msgstr "약한 눈"
+
+msgid "moderate_snowfall"
+msgstr "눈"
+
+msgid "heavy_snowfall"
+msgstr "폭설"
+
+msgid "snow_grains"
+msgstr "싸락눈"
+
+msgid "slight_rain_showers"
+msgstr "약한 소나기"
+
+msgid "moderate_rain_showers"
+msgstr "소나기"
+
+msgid "violent_rain_showers"
+msgstr "강한 소나기"
+
+msgid "slight_snow_showers"
+msgstr "약한 진눈깨비"
+
+msgid "heavy_snow_showers"
+msgstr "강한 진눈깨비"
+
+msgid "thunderstorm"
+msgstr "뇌우"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "약한 우박을 동반한 뇌우"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "강한 우박을 동반한 뇌우"
+
+############################################
+# WIND DIRECTIONS (SHORT)
+############################################
+
+msgid "north"
+msgstr "북"
+
+msgid "nne"
+msgstr "북북동"
+
+msgid "ne"
+msgstr "북동"
+
+msgid "ene"
+msgstr "동북동"
+
+msgid "east"
+msgstr "동"
+
+msgid "ese"
+msgstr "동남동"
+
+msgid "se"
+msgstr "남동"
+
+msgid "sse"
+msgstr "남남동"
+
+msgid "south"
+msgstr "남"
+
+msgid "ssw"
+msgstr "남남서"
+
+msgid "sw"
+msgstr "남서"
+
+msgid "wsw"
+msgstr "서남서"
+
+msgid "west"
+msgstr "서"
+
+msgid "wnw"
+msgstr "서북서"
+
+msgid "nw"
+msgstr "북서"
+
+msgid "nnw"
+msgstr "북북서"
+
+msgid "variable"
+msgstr "변화"
+
+msgid "calm"
+msgstr "고요"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "삭"
+
+msgid "waxing_crescent"
+msgstr "초승달"
+
+msgid "first_quarter"
+msgstr "상현달"
+
+msgid "waxing_gibbous"
+msgstr "볼록달"
+
+msgid "full_moon"
+msgstr "보름달"
+
+msgid "waning_gibbous"
+msgstr "기울어가는 볼록달"
+
+msgid "last_quarter"
+msgstr "하현달"
+
+msgid "waning_crescent"
+msgstr "그믐달"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "태양"
+
+msgid "moon"
+msgstr "달"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "우주 날씨"
+
+msgid "kp_index"
+msgstr "Kp 지수"
+
+msgid "solar_wind"
+msgstr "태양풍"
+
+msgid "aurora_visibility"
+msgstr "오로라 가시성"
+
+msgid "xray_class"
+msgstr "X선 플레어 등급"
+
+msgid "geomagnetic_activity"
+msgstr "지자기 활동"
+
+msgid "kp_quiet"
+msgstr "조용함"
+
+msgid "kp_unsettled"
+msgstr "불안정"
+
+msgid "kp_active"
+msgstr "활발"
+
+msgid "kp_storm"
+msgstr "폭풍"
+
+msgid "kp_strong"
+msgstr "강함"
+
+msgid "kp_extreme"
+msgstr "극심"
+
+msgid "status_observed"
+msgstr "관측됨"
+
+msgid "status_estimated"
+msgstr "추정됨"
+
+msgid "status_predicted"
+msgstr "예측됨"
+
+msgid "swind_low"
+msgstr "낮음"
+
+msgid "swind_moderate"
+msgstr "보통"
+
+msgid "swind_high"
+msgstr "높음"
+
+msgid "swind_extreme"
+msgstr "극심"
+
+msgid "aurora_none"
+msgstr "없음"
+
+msgid "aurora_low"
+msgstr "낮음"
+
+msgid "aurora_moderate"
+msgstr "보통"
+
+msgid "aurora_high"
+msgstr "높음"
+
+msgid "aurora_excellent"
+msgstr "훌륭함"
+
+msgid "g0_desc"
+msgstr "지자기 폭풍 활동 없음."
+
+msgid "g1_desc"
+msgstr "약한 지자기 폭풍."
+
+msgid "g2_desc"
+msgstr "중간 지자기 폭풍."
+
+msgid "g3_desc"
+msgstr "강한 지자기 폭풍."
+
+msgid "g4_desc"
+msgstr "심각한 지자기 폭풍."
+
+msgid "g5_desc"
+msgstr "극심한 지자기 폭풍."
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "바람"
+
+msgid "condition"
+msgstr "상태"
+
+msgid "today"
+msgstr "오늘"
+
+msgid "details"
+msgstr "세부 정보"
+
+msgid "forecast"
+msgstr "예보"
+
+msgid "radar"
+msgstr "레이더"
+
+msgid "alerts"
+msgstr "경보"
+
+msgid "snow_cover"
+msgstr "적설"
+
+msgid "precip_sum"
+msgstr "강수 합계"
+
+msgid "date_time"
+msgstr "날짜 / 시간"
+
+msgid "daylight"
+msgstr "주간"
+
+msgid "night"
+msgstr "야간"
+
+msgid "day"
+msgstr "낮"
+
+msgid "daylight_over"
+msgstr "일몰"
+
+msgid "remaining"
+msgstr "남음"
+
+msgid "refresh"
+msgstr "새로고침"
+
+msgid "updating"
+msgstr "업데이트 중..."
+
+msgid "loading"
+msgstr "불러오는 중..."
+
+msgid "no_data"
+msgstr "데이터 없음"
+
+msgid "unknown"
+msgstr "알 수 없음"
+
+msgid "no_location"
+msgstr "위치가 설정되지 않음"
+
+msgid "provider"
+msgstr "제공처"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "제목"
+
+msgid "alert_description"
+msgstr "설명"
+
+msgid "alert_effective"
+msgstr "발효"
+
+msgid "alert_expires"
+msgstr "만료"
+
+msgid "alert_instruction"
+msgstr "지침"
+
+msgid "alert_website"
+msgstr "웹사이트"
+
+msgid "future_alerts"
+msgstr "향후 경보"
+
+msgid "no_alerts"
+msgstr "없음"
+
+msgid "one_alert"
+msgstr "1개 경보"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "좋음"
+
+msgid "aqi_fair"
+msgstr "보통"
+
+msgid "aqi_poor"
+msgstr "나쁨"
+
+msgid "aqi_very_poor"
+msgstr "매우 나쁨"
+
+msgid "aqi_extremely_poor"
+msgstr "극히 나쁨"
+
+msgid "uv_low"
+msgstr "낮음"
+
+msgid "uv_moderate"
+msgstr "보통"
+
+msgid "uv_high"
+msgstr "높음"
+
+msgid "uv_very_high"
+msgstr "매우 높음"
+
+msgid "uv_extreme"
+msgstr "극심"
+
+msgid "pollen_low"
+msgstr "낮음"
+
+msgid "pollen_moderate"
+msgstr "보통"
+
+msgid "pollen_high"
+msgstr "높음"
+
+msgid "pollen_very_high"
+msgstr "매우 높음"
+
+msgid "aqi"
+msgstr "AQI"
+
+msgid "aqhi"
+msgstr "AQHI"
+
+msgid "clear_night"
+msgstr "맑은 밤"
+
+msgid "geomagnetic_storm"
+msgstr "지자기 폭풍"
+
+msgid "bz"
+msgstr "Bz (자기장)"
+
+msgid "flare_warning"
+msgstr "플레어 경고"
+
+msgid "bz_active"
+msgstr "활발"
+
+msgid "alert_severity_minor"
+msgstr "경미"
+
+msgid "alert_severity_moderate"
+msgstr "중간"
+
+msgid "alert_severity_severe"
+msgstr "심각"
+
+msgid "alert_severity_extreme"
+msgstr "극심"
+
+msgid "alert_color_yellow"
+msgstr "노랑"
+
+msgid "alert_color_orange"
+msgstr "주황"
+
+msgid "alert_color_red"
+msgstr "빨강"
+
+msgid "alert_certainty_observed"
+msgstr "관측됨"
+
+msgid "alert_certainty_likely"
+msgstr "가능성 높음"
+
+msgid "alert_certainty_possible"
+msgstr "가능성 있음"
+
+msgid "alert_certainty_unlikely"
+msgstr "가능성 낮음"
+
+msgid "alert_certainty_unknown"
+msgstr "알 수 없음"
