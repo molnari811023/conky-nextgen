@@ -27,7 +27,16 @@ Revisit when Arch extra repo ships it. Then:
 - View switching architecture
 - Rebuild `examples/multi_view/`
 
-## 4. Combination Widgets (works with current 1.22.3)
+## 4. Now Playing Controls (requires Conky ≥ 1.23 for mouse events)
+Current `nowplaying.lua` is display-only (title, artist, album, album art). Once Conky 1.23 lands:
+
+- Play/pause, next, previous buttons using `playerctl play-pause` / `playerctl next` / `playerctl previous`
+- Clickable buttons via `lua_mouse_hook` (Conky 1.23+ feature)
+- Seeking/progress bar integration
+- Volume control (via `playerctl volume`)
+- Player switching (if multiple MPRIS players are active)
+
+## 5. Combination Widgets (works with current 1.22.3)
 New direction: combine existing drawing modules into composite widgets:
 - Bar + text overlay (label/value rendered on top of the bar)
 - Ring + text overlay (value in center of ring gauge)
@@ -35,7 +44,7 @@ New direction: combine existing drawing modules into composite widgets:
 - Reference: [Bargraph Widget 2.2 (edit by Nooby4Ever) by N00by4Ever](https://www.deviantart.com/n00by4ever/art/conky-Bargraph-Widget-2-2-edit-by-Nooby4Ever-401252985) (fork of wlourf's Bargraph 2.1)
 - Reference: [Pie Chart Widget for Conky 1.3 by wlourf](https://www.deviantart.com/wlourf/art/Pie-Chart-Widget-for-Conky-1-3-165734819)
 
-## 5. OS Detection Module
+## 6. OS Detection Module
 Detect the running OS/distro and version at load time. Enables distro-agnostic widgets.
 
 **Use cases:**
@@ -45,7 +54,7 @@ Detect the running OS/distro and version at load time. Enables distro-agnostic w
 - Distro-specific paths, icons, and default configs
 - Conditional module loading per distro
 
-## 6. Lua 5.5 Compatibility Layer
+## 7. Lua 5.5 Compatibility Layer
 
 Conky 1.23.0+ is already compatible with Lua 5.5 (GC API fix merged in [#2335](https://github.com/brndnmtthws/conky/pull/2335)).
 Arch Linux will switch Conky to Lua 5.5 when the package is updated.
