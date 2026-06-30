@@ -58,8 +58,13 @@ function draw_clock(cr, o)
 		return
 	end
 	local c = {}
+	for k, v in pairs(o) do
+		c[k] = v
+	end
 	for k, v in pairs(CLOCK_DEFAULT) do
-		c[k] = o[k] or v
+		if c[k] == nil then
+			c[k] = v
+		end
 	end
 	local x, y, r = c.x, c.y, c.radius
 	local h = tonumber(os.date("%I"))

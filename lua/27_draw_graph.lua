@@ -49,14 +49,14 @@ function draw_graph(cr, m)
 			c[k] = v
 		end
 	end
-	local key = tostring(c.name or "") .. tostring(c.arg or "")
+	local key = c.key or tostring(c.name or "") .. tostring(c.arg or "")
 	if not graph_history[key] or #graph_history[key] ~= c.width then
 		graph_history[key] = {}
 		for i = 1, c.width do
 			graph_history[key][i] = 0
 		end
 	end
-	local raw = conky_parse("${" .. c.name .. (c.arg and " " .. c.arg or "") .. "}")
+	local raw = draw_get_value(c)
 	local val = normalize_with_suffix(raw)
 	table.remove(graph_history[key], 1)
 	table.insert(graph_history[key], val)

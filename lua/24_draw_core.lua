@@ -117,6 +117,18 @@ function get_color_from_list(stops, t)
 	return r, g, b, a
 end
 
+function draw_get_value(m)
+	if m.value ~= nil then
+		if type(m.value) == "function" then
+			local ok, v = pcall(m.value)
+			if ok then return tostring(v) end
+			return "0"
+		end
+		return tostring(m.value)
+	end
+	return conky_parse("${" .. m.name .. (m.arg and " " .. m.arg or "") .. "}")
+end
+
 --}}}
 -- MAIN
 --{{{

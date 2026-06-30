@@ -146,7 +146,7 @@ function draw_bar_modules(cr, m, y)
 			m[k] = v
 		end
 	end
-	local raw = conky_parse("${" .. m.name .. (m.arg and " " .. m.arg or "") .. "}")
+	local raw = draw_get_value(m)
 	local val = normalize_with_suffix(raw)
 	local pct = math.max(0, math.min(1, val / m.max))
 	local a = m.angle or 0
