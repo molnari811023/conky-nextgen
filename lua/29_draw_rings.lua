@@ -72,6 +72,52 @@ local function draw_ring_mode(cr, s, dv, ov)
 		end
 	end
 end
+local function draw_ring_polygon(cr, s, dv, ov)
+	local rad = math.pi / 180
+	local span = s.end_angle - s.start_angle
+	local step = span / s.sectors
+	local gap = (s.gap or 0) * rad
+	local start = s.start_angle * rad
+	local inner_r = s.radius - s.thickness / 2
+	local outer_r = s.radius + s.thickness / 2
+	local n = s.sides
+	for i = 1, s.sectors do
+		local angle1 = start + (i - 1) * step * rad
+		local angle2 = start + i * step * rad - gap
+		local t = (i - 1) / s.sectors
+		local r1, g1, b1, a1 = get_color_from_list(s.bg, t)
+		cairo_set_source_rgba(cr, r1, g1, b1, a1)
+		cairo_move_to(cr, s.x + inner_r * math.cos(angle1), s.y + inner_r * math.sin(angle1))
+		for j = 1, n - 1 do
+			local seg_t = j / n
+			local a = angle1 + seg_t * (angle2 - angle1)
+			local rr = (j % 2 == 1) and outer_r or inner_r
+			cairo_line_to(cr, s.x + rr * math.cos(a), s.y + rr * math.sin(a))
+		end
+		cairo_line_to(cr, s.x + inner_r * math.cos(angle2), s.y + inner_r * math.sin(angle2))
+		cairo_close_path(cr)
+		cairo_fill(cr)
+		if i <= dv then
+			if ov then
+				cairo_set_source_rgba(cr, get_alarm_color(s))
+			else
+				local r2, g2, b2, a2 = get_color_from_list(s.fg, t)
+				cairo_set_source_rgba(cr, r2, g2, b2, a2)
+			end
+			cairo_move_to(cr, s.x + inner_r * math.cos(angle1), s.y + inner_r * math.sin(angle1))
+			for j = 1, n - 1 do
+				local seg_t = j / n
+				local a = angle1 + seg_t * (angle2 - angle1)
+				local rr = (j % 2 == 1) and outer_r or inner_r
+				cairo_line_to(cr, s.x + rr * math.cos(a), s.y + rr * math.sin(a))
+			end
+			cairo_line_to(cr, s.x + inner_r * math.cos(angle2), s.y + inner_r * math.sin(angle2))
+			cairo_close_path(cr)
+			cairo_fill(cr)
+		end
+	end
+end
+
 local function draw_smooth_mode(cr, s, dv, ov)
 	local rad = math.pi / 180
 	local start = s.start_angle * rad
@@ -115,6 +161,8 @@ function draw_one_ring(cr, s0)
 	end
 	if s.mode == "smooth" then
 		draw_smooth_mode(cr, s, dv, ov)
+	elseif s.sides and s.sides >= 3 then
+		draw_ring_polygon(cr, s, dv, ov)
 	else
 		draw_ring_mode(cr, s, dv, ov)
 	end
