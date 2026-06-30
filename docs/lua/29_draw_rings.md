@@ -40,6 +40,12 @@ draw = {
       x = 100, y = 100, radius = 45, thickness = 10,
       sectors = 8, sides = 6,
       fg = { { 0, "#66ccff", 1 }, { 1, "#3399cc", 1 } } },
+
+    -- Dot ring: circle sectors
+    { type = "ring", name = "cpu", arg = "cpu1",
+      x = 100, y = 100, radius = 50, thickness = 8,
+      sectors = 16, mode = "dot",
+      fg = { { 0, "#00ff00", 1 }, { 0.5, "#ffaa00", 1 }, { 1, "#ff0000", 1 } } },
 }
 ```
 
@@ -48,8 +54,8 @@ draw = {
 |-------|-------------|
 | `name` | Conky variable name |
 | `arg` | Variable argument |
-| `mode` | `"ring"` (segmented) or `"smooth"` (continuous) |
-| `sectors` | Number of segments (for ring mode) |
+| `mode` | `"ring"` (segmented arc), `"smooth"` (continuous), or `"dot"` (circle sectors) |
+| `sectors` | Number of segments (for ring/dot mode) |
 | `sides` | Polygon sides per sector (`3`=gear tooth, `6`=hexagon, any ≥3); requires `mode = "ring"` |
 | `start_angle` / `end_angle` | Arc range in degrees |
 | `sector_size` | Auto-calculate sectors from arc span |
@@ -59,6 +65,7 @@ draw = {
 
 ## Variants
 - **Ring (segmented)**: evenly divided arc sectors
+- **Dot**: circle sectors (`mode = "dot"`)
 - **Polygon**: gear-tooth style sectors (`sides = 3`) or hexagonal sectors (`sides = 6`)
 - **Smooth**: continuous arc with gradient
 - **Partial arc**: set start/end to 180/540 for bottom-half ring

@@ -57,6 +57,7 @@ WIDGETS = {
             ("max", "number", "100", "Maximum value"),
             ("angle", "number", "0", "Rotation (degrees)"),
             ("blocks", "number", "nil", "Block style (nil = smooth)"),
+            ("mode", "string", "'block'", "Block mode: block/dot"),
             ("sides", "number", "nil", "Polygon sides (nil=rect, 3=triangle, 6=hexagon)"),
             ("bg", "stops", "{{0,'#333333',1},{1,'#111111',1}}", "Background gradient"),
             ("fg", "stops", "{{0,'#00ff00',1},{1,'#009900',1}}", "Foreground gradient"),
