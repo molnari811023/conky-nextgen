@@ -1,5 +1,7 @@
 # Conky NextGen
 
+![Conky NextGen Demo](draw_screenshot.png)
+
 🏗️ Built like LEGO, not a pre-built house.
 
 🇭🇺 Moduláris Conky UI keretrendszer gettext alapú nemzetköziesítéssel
