@@ -18,6 +18,7 @@ The monolithic `all_in_one.sh` has been split into numbered modules (matching th
 | `11_fetch_alerts.sh` | `fetch_alerts` — MeteoAlarm XML | yes |
 | `12_fetch_spaceweather.sh` | `fetch_spaceweather` — NOAA SWPC | yes |
 | `13_fetch_maps.sh` | `fetch_maps` — OSM + radar + temp + wind tiles | yes |
+| `fetch_nowplaying.sh` | `fetch_nowplaying` — MPRIS track info + album art via playerctl | yes |
 | `all_in_one.sh` | Legacy monolith (still works) | yes |
 
 ## Usage (recommended)
@@ -36,6 +37,7 @@ The monolithic `all_in_one.sh` has been split into numbered modules (matching th
 | `space` | — | NOAA space weather data |
 | `alerts` | — | MeteoAlarm weather alerts |
 | `map` | zoom | OpenStreetMap + radar + temp + wind tiles |
+| `nowplaying` | — | MPRIS now playing info + album art via playerctl |
 
 Default city: `Vienna`, default zoom: `7`.
 

@@ -21,6 +21,7 @@ source "$_SCRIPT_DIR/4_fetch_weather.sh"
 source "$_SCRIPT_DIR/11_fetch_alerts.sh"
 source "$_SCRIPT_DIR/12_fetch_spaceweather.sh"
 source "$_SCRIPT_DIR/13_fetch_maps.sh"
+source "$_SCRIPT_DIR/fetch_nowplaying.sh"
 
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 	MODE="${1:-all}"
@@ -31,6 +32,7 @@ if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 		fetch_spaceweather
 		fetch_alerts
 		fetch_maps "${3:-7}"
+		fetch_nowplaying
 		;;
 	weather)
 		fetch_weather "${2:-Vienna}"
@@ -43,6 +45,9 @@ if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 		;;
 	map)
 		fetch_maps "${2:-7}"
+		;;
+	nowplaying)
+		fetch_nowplaying
 		;;
 	*)
 		fetch_weather "$*"

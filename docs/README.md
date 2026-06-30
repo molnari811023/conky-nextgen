@@ -50,6 +50,7 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 | 34 | draw_image | PNG image rendering with crop/tint/rotate |
 | 35 | draw_layout | Dynamic layout engine (y-position stacking) |
 | 36 | widget | User-defined `draw = {}` and `layout = {}` |
+| — | nowplaying | MPRIS now playing info via playerctl (title, artist, album, album art) |
 
 ### Internationalization (i18n)
 

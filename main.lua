@@ -52,6 +52,9 @@ require("21_hardware_sensors")
 require("22_hardware_usb")
 require("23_hardware_processes")
 
+-- extras (optional, comment out if not needed)
+local ok, nowplaying = pcall(require, "nowplaying")
+
 -- drawing
 require("24_draw_core")
 require("25_draw_background")
