@@ -2,9 +2,9 @@
 
 ![Conky NextGen Demo](draw_screenshot.png)
 
-[![Conky NextGen - USB Dinamic Demo](https://img.youtube.com/vi/mG8IhFnrxW0/0.jpg)](https://www.youtube.com/watch?v=mG8IhFnrxW0)
+## USB Dynamic Demo
 
-*YouTube video — click for USB dinamic demo ↑*
+![USB Dinamic Demo](usb_demo.gif)
 
 🏗️ Built like LEGO, not a pre-built house.
 
