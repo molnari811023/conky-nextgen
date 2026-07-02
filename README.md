@@ -20,6 +20,9 @@
 🇷🇴 Cadru modular Conky UI cu internaționalizare gettext
 🇭🇷 Modularni Conky UI okvir s gettext internacionalizacijom
 🇸🇦 إطار عمل Conky UI مع دعم التدويل gettext
+🇰🇷 모듈식 Conky UI 프레임워크, gettext 국제화 완벽 지원
+🇸🇪 Modulärt Conky UI-ramverk med full gettext-internationalisering
+🇺🇦 Модульний Conky UI-фреймворк з повною підтримкою gettext інтернаціоналізації
 
 Most Conky projects give you a finished theme — a fixed layout, a skin, a "house".
 NextGen gives you the bricks, the instructions, and the freedom to build your own.
