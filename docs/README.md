@@ -3,7 +3,7 @@
 Modular Conky UI framework with Lua engine and Bash backend.
 
 > **The first and only Conky project with full gettext i18n support.**  
-> Weblate-compatible, 19 languages ready (hu, en, de, fr, nl, es, pt, it, pl, tr, ja, zh_CN, ru, ro, hr, ar, ko, sv, uk), `.pot` template for adding more.  
+> Weblate-compatible, 22 languages ready (hu, en, de, fr, nl, es, pt, it, pl, tr, ja, zh_CN, ru, ro, hr, ar, ko, sv, uk, cs, da, fi), `.pot` template for adding more.  
 > Includes a tile-based Mercator map engine, global weather/sensors/hardware, and a Cairo drawing toolkit.
 
 ## Architecture
@@ -14,7 +14,7 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 
 | # | Module | Purpose |
 |---|--------|---------|
-| 1 | translate | Weather UI translations via `.mo` files. 19 languages ready — see i18n section below |
+| 1 | translate | Weather UI translations via `.mo` files. 22 languages ready — see i18n section below |
 | 2 | colors | Breeze Dark color palette (`BR` table) |
 | 3 | watcher | File change watcher, auto-reloads Conky on edit |
 | 4 | weather_core | Weather data loader, sun/moon arcs, icons |
@@ -58,7 +58,7 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 
 Conky NextGen is the **first Conky project with full GNU gettext internationalization**. This isn't a static language switch — it's a real `.po`/`.mo` translation system, identical to what GNOME, KDE, and Weblate use.
 
-- **19 languages shipped**: Hungarian (`hu`), English (`en`), German (`de`), French (`fr`), Dutch (`nl`), Spanish (`es`), Portuguese (`pt`), Italian (`it`), Polish (`pl`), Turkish (`tr`), Japanese (`ja`), Chinese (`zh_CN`), Russian (`ru`), Romanian (`ro`), Croatian (`hr`), Arabic (`ar`), Korean (`ko`), Swedish (`sv`), Ukrainian (`uk`)
+- **22 languages shipped**: Hungarian (`hu`), English (`en`), German (`de`), French (`fr`), Dutch (`nl`), Spanish (`es`), Portuguese (`pt`), Italian (`it`), Polish (`pl`), Turkish (`tr`), Japanese (`ja`), Chinese (`zh_CN`), Russian (`ru`), Romanian (`ro`), Croatian (`hr`), Arabic (`ar`), Korean (`ko`), Swedish (`sv`), Ukrainian (`uk`), Czech (`cs`), Danish (`da`), Finnish (`fi`)
 - **`.pot` template** ready for any language — copy to `language/xx.po`, translate, compile with `msgfmt`
 - **Weblate‑compatible** — can be imported to Weblate for community translations with automatic PRs
 - **Zero code changes** to add a language — just add a `.mo` file

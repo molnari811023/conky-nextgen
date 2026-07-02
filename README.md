@@ -46,7 +46,7 @@ See [docs/README.md](docs/README.md) for full documentation.
 
 **Keywords / Kulcsszavak / キーワード / 关键词 / Ключевые слова / Cuvinte cheie / Ključne riječi / كلمات مفتاحية**
 
-`conky` `conky-desktop` `conky-ui` `conky-widget` `lua` `gettext` `i18n` `weather` `widget` `linux-desktop` `desktop-customization` `modular` `cairo` `nvidia` `sensors` `spaceweather` `aurora` `opensource` `conky-polygon-bar` `conky-triangle-bar` `conky-hexagon-bar` `conky-ring-polygon` `conky-gear-ring` `conky-modular-bar`
+`conky` `conky-desktop` `conky-ui` `conky-widget` `lua` `gettext` `i18n` `weather` `widget` `linux-desktop` `desktop-customization` `modular` `cairo` `nvidia` `sensors` `spaceweather` `aurora` `opensource` `conky-polygon-bar` `conky-triangle-bar` `conky-hexagon-bar` `conky-modular-bar`
 
 ## Contributing
 
