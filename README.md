@@ -4,6 +4,8 @@
 
 [![Conky NextGen - USB Dinamic Demo](https://img.youtube.com/vi/mG8IhFnrxW0/0.jpg)](https://www.youtube.com/watch?v=mG8IhFnrxW0)
 
+*YouTube video — click for USB dinamic demo*
+
 🏗️ Built like LEGO, not a pre-built house.
 
 🇭🇺 Moduláris Conky UI keretrendszer gettext alapú nemzetköziesítéssel
