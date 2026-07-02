@@ -1,0 +1,666 @@
+# Conky Weather Module – Czech Translation
+# Copyright (C) 2026
+# This file is distributed under the same license as the Conky Weather Module.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-08 20:32+0200\n"
+"PO-Revision-Date: 2026-07-02 12:00+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "kvalita ovzduší"
+
+msgid "current_weather"
+msgstr "aktuální počasí"
+
+msgid "hourly_forecast"
+msgstr "hodinová předpověď"
+
+msgid "daily_forecast"
+msgstr "denní předpověď"
+
+msgid "weather_provider"
+msgstr "poskytovatel počasí"
+
+msgid "feels_like"
+msgstr "pocitová teplota"
+
+msgid "last_updated"
+msgstr "naposledy aktualizováno"
+
+msgid "temperature"
+msgstr "teplota"
+
+msgid "humidity"
+msgstr "vlhkost"
+
+msgid "pressure"
+msgstr "tlak"
+
+msgid "precipitation"
+msgstr "srážky"
+
+msgid "precipitation_hours"
+msgstr "hodiny se srážkami"
+
+msgid "precipitation_probability"
+msgstr "pravděpodobnost srážek"
+
+msgid "snowfall"
+msgstr "sněžení"
+
+msgid "cloud_cover"
+msgstr "oblačnost"
+
+msgid "dew_point"
+msgstr "rosný bod"
+
+msgid "visibility"
+msgstr "dohlednost"
+
+msgid "uv_index"
+msgstr "UV index"
+
+msgid "wind_speed"
+msgstr "rychlost větru"
+
+msgid "wind_direction"
+msgstr "směr větru"
+
+msgid "wind_gusts"
+msgstr "nárazy větru"
+
+msgid "sunrise"
+msgstr "východ slunce"
+
+msgid "sunset"
+msgstr "západ slunce"
+
+msgid "sunshine_duration"
+msgstr "délka slunečního svitu"
+
+msgid "moonrise"
+msgstr "východ měsíce"
+
+msgid "moonset"
+msgstr "západ měsíce"
+
+msgid "moon_phase"
+msgstr "fáze měsíce"
+
+msgid "min"
+msgstr "min"
+
+msgid "max"
+msgstr "max"
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "město"
+
+msgid "country"
+msgstr "země"
+
+msgid "region"
+msgstr "region"
+
+msgid "latitude"
+msgstr "zeměpisná šířka"
+
+msgid "longitude"
+msgstr "zeměpisná délka"
+
+msgid "elevation"
+msgstr "nadmořská výška"
+
+msgid "population"
+msgstr "obyvatelstvo"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "evropský AQI"
+
+msgid "us_aqi"
+msgstr "americký AQI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2,5"
+
+msgid "carbon_monoxide"
+msgstr "oxid uhelnatý"
+
+msgid "ozone"
+msgstr "ozon"
+
+msgid "dust"
+msgstr "prach"
+
+msgid "nitrogen_dioxide"
+msgstr "oxid dusičitý"
+
+msgid "sulphur_dioxide"
+msgstr "oxid siřičitý"
+
+msgid "alder"
+msgstr "olše"
+
+msgid "birch"
+msgstr "bříza"
+
+msgid "grass"
+msgstr "tráva"
+
+msgid "mugwort"
+msgstr "pelyněk"
+
+msgid "olive"
+msgstr "oliva"
+
+msgid "ragweed"
+msgstr "ambrózie"
+
+msgid "pollen"
+msgstr "pyl"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "jasno"
+
+msgid "mainly_clear"
+msgstr "polojasno"
+
+msgid "partly_cloudy"
+msgstr "oblačno"
+
+msgid "overcast"
+msgstr "zataženo"
+
+msgid "fog"
+msgstr "mlha"
+
+msgid "depositing_rime_fog"
+msgstr "mrznoucí mlha"
+
+msgid "light_drizzle"
+msgstr "slabé mrholení"
+
+msgid "moderate_drizzle"
+msgstr "mírné mrholení"
+
+msgid "dense_drizzle"
+msgstr "husté mrholení"
+
+msgid "light_freezing_drizzle"
+msgstr "slabé mrznoucí mrholení"
+
+msgid "dense_freezing_drizzle"
+msgstr "husté mrznoucí mrholení"
+
+msgid "slight_rain"
+msgstr "slabý déšť"
+
+msgid "moderate_rain"
+msgstr "mírný déšť"
+
+msgid "heavy_rain"
+msgstr "silný déšť"
+
+msgid "light_freezing_rain"
+msgstr "slabý mrznoucí déšť"
+
+msgid "heavy_freezing_rain"
+msgstr "silný mrznoucí déšť"
+
+msgid "slight_snowfall"
+msgstr "slabé sněžení"
+
+msgid "moderate_snowfall"
+msgstr "mírné sněžení"
+
+msgid "heavy_snowfall"
+msgstr "silné sněžení"
+
+msgid "snow_grains"
+msgstr "sněhová zrna"
+
+msgid "slight_rain_showers"
+msgstr "slabé přeháňky"
+
+msgid "moderate_rain_showers"
+msgstr "mírné přeháňky"
+
+msgid "violent_rain_showers"
+msgstr "prudké přeháňky"
+
+msgid "slight_snow_showers"
+msgstr "slabé sněhové přeháňky"
+
+msgid "heavy_snow_showers"
+msgstr "silné sněhové přeháňky"
+
+msgid "thunderstorm"
+msgstr "bouřka"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "bouřka se slabými kroupami"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "bouřka se silnými kroupami"
+
+############################################
+# WIND DIRECTIONS
+############################################
+
+msgid "north"
+msgstr "sever"
+
+msgid "nne"
+msgstr "SSV"
+
+msgid "ne"
+msgstr "SV"
+
+msgid "ene"
+msgstr "VSV"
+
+msgid "east"
+msgstr "východ"
+
+msgid "ese"
+msgstr "VJV"
+
+msgid "se"
+msgstr "JV"
+
+msgid "sse"
+msgstr "JJV"
+
+msgid "south"
+msgstr "jih"
+
+msgid "ssw"
+msgstr "JJZ"
+
+msgid "sw"
+msgstr "JZ"
+
+msgid "wsw"
+msgstr "ZJZ"
+
+msgid "west"
+msgstr "západ"
+
+msgid "wnw"
+msgstr "ZSZ"
+
+msgid "nw"
+msgstr "SZ"
+
+msgid "nnw"
+msgstr "SSZ"
+
+msgid "variable"
+msgstr "proměnlivý"
+
+msgid "calm"
+msgstr "bezvětří"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "nov"
+
+msgid "waxing_crescent"
+msgstr "dorůstající srpek"
+
+msgid "first_quarter"
+msgstr "první čtvrť"
+
+msgid "waxing_gibbous"
+msgstr "dorůstající měsíc"
+
+msgid "full_moon"
+msgstr "úplněk"
+
+msgid "waning_gibbous"
+msgstr "couvající měsíc"
+
+msgid "last_quarter"
+msgstr "poslední čtvrť"
+
+msgid "waning_crescent"
+msgstr "ubývající srpek"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "slunce"
+
+msgid "moon"
+msgstr "měsíc"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "kosmické počasí"
+
+msgid "kp_index"
+msgstr "Kp index"
+
+msgid "solar_wind"
+msgstr "sluneční vítr"
+
+msgid "aurora_visibility"
+msgstr "viditelnost polární záře"
+
+msgid "xray_class"
+msgstr "třída rentgenového záření"
+
+msgid "geomagnetic_activity"
+msgstr "geomagnetická aktivita"
+
+msgid "kp_quiet"
+msgstr "klidná"
+
+msgid "kp_unsettled"
+msgstr "neklidná"
+
+msgid "kp_active"
+msgstr "aktivní"
+
+msgid "kp_storm"
+msgstr "bouřka"
+
+msgid "kp_strong"
+msgstr "silná bouřka"
+
+msgid "kp_extreme"
+msgstr "extrémní bouřka"
+
+msgid "status_observed"
+msgstr "pozorováno"
+
+msgid "status_estimated"
+msgstr "odhadováno"
+
+msgid "status_predicted"
+msgstr "předpovězeno"
+
+msgid "swind_low"
+msgstr "nízká"
+
+msgid "swind_moderate"
+msgstr "střední"
+
+msgid "swind_high"
+msgstr "vysoká"
+
+msgid "swind_extreme"
+msgstr "extrémní"
+
+msgid "aurora_none"
+msgstr "žádná"
+
+msgid "aurora_low"
+msgstr "nízká"
+
+msgid "aurora_moderate"
+msgstr "střední"
+
+msgid "aurora_high"
+msgstr "vysoká"
+
+msgid "aurora_excellent"
+msgstr "výborná"
+
+msgid "g0_desc"
+msgstr "G0 – žádná geomagnetická bouřka"
+
+msgid "g1_desc"
+msgstr "G1 – mírná geomagnetická bouřka"
+
+msgid "g2_desc"
+msgstr "G2 – střední geomagnetická bouřka"
+
+msgid "g3_desc"
+msgstr "G3 – silná geomagnetická bouřka"
+
+msgid "g4_desc"
+msgstr "G4 – velmi silná geomagnetická bouřka"
+
+msgid "g5_desc"
+msgstr "G5 – extrémní geomagnetická bouřka"
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "vítr"
+
+msgid "condition"
+msgstr "stav"
+
+msgid "today"
+msgstr "dnes"
+
+msgid "details"
+msgstr "podrobnosti"
+
+msgid "forecast"
+msgstr "předpověď"
+
+msgid "radar"
+msgstr "radar"
+
+msgid "alerts"
+msgstr "výstrahy"
+
+msgid "snow_cover"
+msgstr "sněhová pokrývka"
+
+msgid "precip_sum"
+msgstr "úhrn srážek"
+
+msgid "date_time"
+msgstr "datum a čas"
+
+msgid "daylight"
+msgstr "den"
+
+msgid "night"
+msgstr "noc"
+
+msgid "day"
+msgstr "den"
+
+msgid "daylight_over"
+msgstr "konec dne"
+
+msgid "remaining"
+msgstr "zbývá"
+
+msgid "refresh"
+msgstr "obnovit"
+
+msgid "updating"
+msgstr "aktualizace"
+
+msgid "loading"
+msgstr "načítání"
+
+msgid "no_data"
+msgstr "žádná data"
+
+msgid "unknown"
+msgstr "neznámý"
+
+msgid "no_location"
+msgstr "žádná lokace"
+
+msgid "provider"
+msgstr "poskytovatel"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "titulek výstrahy"
+
+msgid "alert_description"
+msgstr "popis výstrahy"
+
+msgid "alert_effective"
+msgstr "platnost od"
+
+msgid "alert_expires"
+msgstr "platnost do"
+
+msgid "alert_instruction"
+msgstr "pokyn"
+
+msgid "alert_website"
+msgstr "webová stránka"
+
+msgid "future_alerts"
+msgstr "budoucí výstrahy"
+
+msgid "no_alerts"
+msgstr "žádné výstrahy"
+
+msgid "one_alert"
+msgstr "jedna výstraha"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "dobrá"
+
+msgid "aqi_fair"
+msgstr "přijatelná"
+
+msgid "aqi_poor"
+msgstr "špatná"
+
+msgid "aqi_very_poor"
+msgstr "velmi špatná"
+
+msgid "aqi_extremely_poor"
+msgstr "extrémně špatná"
+
+msgid "uv_low"
+msgstr "nízký"
+
+msgid "uv_moderate"
+msgstr "mírný"
+
+msgid "uv_high"
+msgstr "vysoký"
+
+msgid "uv_very_high"
+msgstr "velmi vysoký"
+
+msgid "uv_extreme"
+msgstr "extrémní"
+
+msgid "pollen_low"
+msgstr "nízký"
+
+msgid "pollen_moderate"
+msgstr "střední"
+
+msgid "pollen_high"
+msgstr "vysoký"
+
+msgid "pollen_very_high"
+msgstr "velmi vysoký"
+
+msgid "aqi"
+msgstr "AQI"
+
+msgid "aqhi"
+msgstr "AQHI"
+
+msgid "clear_night"
+msgstr "jasná noc"
+
+msgid "geomagnetic_storm"
+msgstr "geomagnetická bouřka"
+
+msgid "bz"
+msgstr "Bz"
+
+msgid "flare_warning"
+msgstr "varování před erupcí"
+
+msgid "bz_active"
+msgstr "Bz aktivní"
+
+msgid "alert_severity_minor"
+msgstr "mírná závažnost"
+
+msgid "alert_severity_moderate"
+msgstr "střední závažnost"
+
+msgid "alert_severity_severe"
+msgstr "vážná závažnost"
+
+msgid "alert_severity_extreme"
+msgstr "extrémní závažnost"
+
+msgid "alert_color_yellow"
+msgstr "žlutá"
+
+msgid "alert_color_orange"
+msgstr "oranžová"
+
+msgid "alert_color_red"
+msgstr "červená"
+
+msgid "alert_certainty_observed"
+msgstr "pozorováno"
+
+msgid "alert_certainty_likely"
+msgstr "pravděpodobné"
+
+msgid "alert_certainty_possible"
+msgstr "možné"
+
+msgid "alert_certainty_unlikely"
+msgstr "nepravděpodobné"
+
+msgid "alert_certainty_unknown"
+msgstr "neznámé"

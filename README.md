@@ -21,6 +21,9 @@
 🇭🇷 Modularni Conky UI okvir s gettext internacionalizacijom
 🇸🇦 إطار عمل Conky UI مع دعم التدويل gettext
 🇰🇷 모듈식 Conky UI 프레임워크, gettext 국제화 완벽 지원
+🇨🇿 Modulární Conky UI framework s plnou gettext internacionalizací
+🇩🇰 Modulært Conky UI-framework med fuld gettext-internationalisering
+🇫🇮 Modulaarinen Conky UI -kehys täydellisellä gettext-kansainvälistyksellä
 🇸🇪 Modulärt Conky UI-ramverk med full gettext-internationalisering
 🇺🇦 Модульний Conky UI-фреймворк з повною підтримкою gettext інтернаціоналізації
 

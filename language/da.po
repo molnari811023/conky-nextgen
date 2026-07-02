@@ -1,0 +1,666 @@
+# Danish translation for Conky Weather Module
+# Copyright (C) 2026
+# This file is distributed under the same license as the Conky Weather Module.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: conky-weather 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-08 20:32+0200\n"
+"PO-Revision-Date: 2026-07-02 12:00+0200\n"
+"Last-Translator: \n"
+"Language-Team: Danish <da@li.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+############################################
+# UI SECTIONS
+############################################
+
+msgid "air_quality"
+msgstr "luftkvalitet"
+
+msgid "current_weather"
+msgstr "aktuelle vejr"
+
+msgid "hourly_forecast"
+msgstr "timelig prognose"
+
+msgid "daily_forecast"
+msgstr "daglig prognose"
+
+msgid "weather_provider"
+msgstr "vejrudbyder"
+
+msgid "feels_like"
+msgstr "føles som"
+
+msgid "last_updated"
+msgstr "senest opdateret"
+
+msgid "temperature"
+msgstr "temperatur"
+
+msgid "humidity"
+msgstr "luftfugtighed"
+
+msgid "pressure"
+msgstr "tryk"
+
+msgid "precipitation"
+msgstr "nedbør"
+
+msgid "precipitation_hours"
+msgstr "nedbørstimer"
+
+msgid "precipitation_probability"
+msgstr "nedbørssandsynlighed"
+
+msgid "snowfall"
+msgstr "snefald"
+
+msgid "cloud_cover"
+msgstr "skydække"
+
+msgid "dew_point"
+msgstr "dugpunkt"
+
+msgid "visibility"
+msgstr "sigtbarhed"
+
+msgid "uv_index"
+msgstr "UV-indeks"
+
+msgid "wind_speed"
+msgstr "vindhastighed"
+
+msgid "wind_direction"
+msgstr "vindretning"
+
+msgid "wind_gusts"
+msgstr "vindstød"
+
+msgid "sunrise"
+msgstr "solopgang"
+
+msgid "sunset"
+msgstr "solnedgang"
+
+msgid "sunshine_duration"
+msgstr "solskinsvarighed"
+
+msgid "moonrise"
+msgstr "måneopgang"
+
+msgid "moonset"
+msgstr "måne-nedgang"
+
+msgid "moon_phase"
+msgstr "månefase"
+
+msgid "min"
+msgstr "min."
+
+msgid "max"
+msgstr "maks."
+
+############################################
+# CITY METADATA
+############################################
+
+msgid "city"
+msgstr "by"
+
+msgid "country"
+msgstr "land"
+
+msgid "region"
+msgstr "region"
+
+msgid "latitude"
+msgstr "breddegrad"
+
+msgid "longitude"
+msgstr "længdegrad"
+
+msgid "elevation"
+msgstr "højde"
+
+msgid "population"
+msgstr "befolkning"
+
+############################################
+# AIR QUALITY + POLLEN
+############################################
+
+msgid "european_aqi"
+msgstr "europæisk AQI"
+
+msgid "us_aqi"
+msgstr "amerikansk AQI"
+
+msgid "pm10"
+msgstr "PM10"
+
+msgid "pm2_5"
+msgstr "PM2.5"
+
+msgid "carbon_monoxide"
+msgstr "kulilte"
+
+msgid "ozone"
+msgstr "ozon"
+
+msgid "dust"
+msgstr "støv"
+
+msgid "nitrogen_dioxide"
+msgstr "nitrogendioxid"
+
+msgid "sulphur_dioxide"
+msgstr "svovldioxid"
+
+msgid "alder"
+msgstr "el"
+
+msgid "birch"
+msgstr "birk"
+
+msgid "grass"
+msgstr "græs"
+
+msgid "mugwort"
+msgstr "bynke"
+
+msgid "olive"
+msgstr "oliven"
+
+msgid "ragweed"
+msgstr "ambrosie"
+
+msgid "pollen"
+msgstr "pollen"
+
+############################################
+# WMO WEATHER CODES
+############################################
+
+msgid "clear_sky"
+msgstr "klar himmel"
+
+msgid "mainly_clear"
+msgstr "overvejende klar"
+
+msgid "partly_cloudy"
+msgstr "delvis skyet"
+
+msgid "overcast"
+msgstr "overskyet"
+
+msgid "fog"
+msgstr "tåge"
+
+msgid "depositing_rime_fog"
+msgstr "rimtåge med aflejring"
+
+msgid "light_drizzle"
+msgstr "let støvregn"
+
+msgid "moderate_drizzle"
+msgstr "moderat støvregn"
+
+msgid "dense_drizzle"
+msgstr "tæt støvregn"
+
+msgid "light_freezing_drizzle"
+msgstr "let underkølet støvregn"
+
+msgid "dense_freezing_drizzle"
+msgstr "tæt underkølet støvregn"
+
+msgid "slight_rain"
+msgstr "let regn"
+
+msgid "moderate_rain"
+msgstr "moderat regn"
+
+msgid "heavy_rain"
+msgstr "kraftig regn"
+
+msgid "light_freezing_rain"
+msgstr "let underkølet regn"
+
+msgid "heavy_freezing_rain"
+msgstr "kraftig underkølet regn"
+
+msgid "slight_snowfall"
+msgstr "let snefald"
+
+msgid "moderate_snowfall"
+msgstr "moderat snefald"
+
+msgid "heavy_snowfall"
+msgstr "kraftigt snefald"
+
+msgid "snow_grains"
+msgstr "snefnug"
+
+msgid "slight_rain_showers"
+msgstr "lette regnbyger"
+
+msgid "moderate_rain_showers"
+msgstr "moderate regnbyger"
+
+msgid "violent_rain_showers"
+msgstr "voldsomme regnbyger"
+
+msgid "slight_snow_showers"
+msgstr "lette snebyger"
+
+msgid "heavy_snow_showers"
+msgstr "kraftige snebyger"
+
+msgid "thunderstorm"
+msgstr "tordenvejr"
+
+msgid "thunderstorm_with_slight_hail"
+msgstr "tordenvejr med let hagl"
+
+msgid "thunderstorm_with_heavy_hail"
+msgstr "tordenvejr med kraftigt hagl"
+
+############################################
+# WIND DIRECTIONS
+############################################
+
+msgid "north"
+msgstr "nord"
+
+msgid "nne"
+msgstr "NNØ"
+
+msgid "ne"
+msgstr "NØ"
+
+msgid "ene"
+msgstr "ØNØ"
+
+msgid "east"
+msgstr "øst"
+
+msgid "ese"
+msgstr "ØSØ"
+
+msgid "se"
+msgstr "SØ"
+
+msgid "sse"
+msgstr "SSØ"
+
+msgid "south"
+msgstr "syd"
+
+msgid "ssw"
+msgstr "SSV"
+
+msgid "sw"
+msgstr "SV"
+
+msgid "wsw"
+msgstr "VSV"
+
+msgid "west"
+msgstr "vest"
+
+msgid "wnw"
+msgstr "VNV"
+
+msgid "nw"
+msgstr "NV"
+
+msgid "nnw"
+msgstr "NNV"
+
+msgid "variable"
+msgstr "variabel"
+
+msgid "calm"
+msgstr "stille"
+
+############################################
+# MOON PHASES
+############################################
+
+msgid "new_moon"
+msgstr "nymåne"
+
+msgid "waxing_crescent"
+msgstr "tiltagende månesigd"
+
+msgid "first_quarter"
+msgstr "første kvartal"
+
+msgid "waxing_gibbous"
+msgstr "tiltagende måne"
+
+msgid "full_moon"
+msgstr "fuldmåne"
+
+msgid "waning_gibbous"
+msgstr "aftagende måne"
+
+msgid "last_quarter"
+msgstr "sidste kvartal"
+
+msgid "waning_crescent"
+msgstr "aftagende månesigd"
+
+############################################
+# SUN / MOON CATEGORY LABELS
+############################################
+
+msgid "sun"
+msgstr "sol"
+
+msgid "moon"
+msgstr "måne"
+
+############################################
+# SPACE WEATHER
+############################################
+
+msgid "space_weather"
+msgstr "rumvejr"
+
+msgid "kp_index"
+msgstr "Kp-indeks"
+
+msgid "solar_wind"
+msgstr "solvind"
+
+msgid "aurora_visibility"
+msgstr "nordlyssigtbarhed"
+
+msgid "xray_class"
+msgstr "røntgenklasse"
+
+msgid "geomagnetic_activity"
+msgstr "geomagnetisk aktivitet"
+
+msgid "kp_quiet"
+msgstr "rolig"
+
+msgid "kp_unsettled"
+msgstr "ustabil"
+
+msgid "kp_active"
+msgstr "aktiv"
+
+msgid "kp_storm"
+msgstr "storm"
+
+msgid "kp_strong"
+msgstr "kraftig"
+
+msgid "kp_extreme"
+msgstr "ekstrem"
+
+msgid "status_observed"
+msgstr "observeret"
+
+msgid "status_estimated"
+msgstr "estimeret"
+
+msgid "status_predicted"
+msgstr "forudsagt"
+
+msgid "swind_low"
+msgstr "lav"
+
+msgid "swind_moderate"
+msgstr "moderat"
+
+msgid "swind_high"
+msgstr "høj"
+
+msgid "swind_extreme"
+msgstr "ekstrem"
+
+msgid "aurora_none"
+msgstr "ingen"
+
+msgid "aurora_low"
+msgstr "lav"
+
+msgid "aurora_moderate"
+msgstr "moderat"
+
+msgid "aurora_high"
+msgstr "høj"
+
+msgid "aurora_excellent"
+msgstr "fremragende"
+
+msgid "g0_desc"
+msgstr "G0 – Rolig"
+
+msgid "g1_desc"
+msgstr "G1 – Mindre storm"
+
+msgid "g2_desc"
+msgstr "G2 – Moderat storm"
+
+msgid "g3_desc"
+msgstr "G3 – Kraftig storm"
+
+msgid "g4_desc"
+msgstr "G4 – Voldsom storm"
+
+msgid "g5_desc"
+msgstr "G5 – Ekstrem storm"
+
+############################################
+# UI LABELS
+############################################
+
+msgid "wind"
+msgstr "vind"
+
+msgid "condition"
+msgstr "tilstand"
+
+msgid "today"
+msgstr "i dag"
+
+msgid "details"
+msgstr "detaljer"
+
+msgid "forecast"
+msgstr "prognose"
+
+msgid "radar"
+msgstr "radar"
+
+msgid "alerts"
+msgstr "alarmer"
+
+msgid "snow_cover"
+msgstr "snedybde"
+
+msgid "precip_sum"
+msgstr "nedbør i alt"
+
+msgid "date_time"
+msgstr "dato/tid"
+
+msgid "daylight"
+msgstr "dagslys"
+
+msgid "night"
+msgstr "nat"
+
+msgid "day"
+msgstr "dag"
+
+msgid "daylight_over"
+msgstr "dagslys slutter"
+
+msgid "remaining"
+msgstr "tilbageværende"
+
+msgid "refresh"
+msgstr "opdater"
+
+msgid "updating"
+msgstr "opdaterer"
+
+msgid "loading"
+msgstr "indlæser"
+
+msgid "no_data"
+msgstr "ingen data"
+
+msgid "unknown"
+msgstr "ukendt"
+
+msgid "no_location"
+msgstr "ingen placering"
+
+msgid "provider"
+msgstr "udbyder"
+
+############################################
+# ALERT DETAILS
+############################################
+
+msgid "alert_headline"
+msgstr "alarmoverskrift"
+
+msgid "alert_description"
+msgstr "alarmbeskrivelse"
+
+msgid "alert_effective"
+msgstr "alarm træder i kraft"
+
+msgid "alert_expires"
+msgstr "alarm udløber"
+
+msgid "alert_instruction"
+msgstr "alarminstruktion"
+
+msgid "alert_website"
+msgstr "alarm-hjemmeside"
+
+msgid "future_alerts"
+msgstr "fremtidige alarmer"
+
+msgid "no_alerts"
+msgstr "ingen alarmer"
+
+msgid "one_alert"
+msgstr "én alarm"
+
+############################################
+# VALUE LEVELS + ABBREVIATIONS
+############################################
+
+msgid "aqi_good"
+msgstr "god"
+
+msgid "aqi_fair"
+msgstr "moderat"
+
+msgid "aqi_poor"
+msgstr "dårlig"
+
+msgid "aqi_very_poor"
+msgstr "meget dårlig"
+
+msgid "aqi_extremely_poor"
+msgstr "ekstremt dårlig"
+
+msgid "uv_low"
+msgstr "lav"
+
+msgid "uv_moderate"
+msgstr "moderat"
+
+msgid "uv_high"
+msgstr "høj"
+
+msgid "uv_very_high"
+msgstr "meget høj"
+
+msgid "uv_extreme"
+msgstr "ekstrem"
+
+msgid "pollen_low"
+msgstr "lav"
+
+msgid "pollen_moderate"
+msgstr "moderat"
+
+msgid "pollen_high"
+msgstr "høj"
+
+msgid "pollen_very_high"
+msgstr "meget høj"
+
+msgid "aqi"
+msgstr "AQI"
+
+msgid "aqhi"
+msgstr "AQHI"
+
+msgid "clear_night"
+msgstr "klar nat"
+
+msgid "geomagnetic_storm"
+msgstr "geomagnetisk storm"
+
+msgid "bz"
+msgstr "Bz"
+
+msgid "flare_warning"
+msgstr "flare-advarsel"
+
+msgid "bz_active"
+msgstr "Bz aktiv"
+
+msgid "alert_severity_minor"
+msgstr "mindre"
+
+msgid "alert_severity_moderate"
+msgstr "moderat"
+
+msgid "alert_severity_severe"
+msgstr "alvorlig"
+
+msgid "alert_severity_extreme"
+msgstr "ekstrem"
+
+msgid "alert_color_yellow"
+msgstr "gul"
+
+msgid "alert_color_orange"
+msgstr "orange"
+
+msgid "alert_color_red"
+msgstr "rød"
+
+msgid "alert_certainty_observed"
+msgstr "observeret"
+
+msgid "alert_certainty_likely"
+msgstr "sandsynlig"
+
+msgid "alert_certainty_possible"
+msgstr "mulig"
+
+msgid "alert_certainty_unlikely"
+msgstr "usandsynlig"
+
+msgid "alert_certainty_unknown"
+msgstr "ukendt"
