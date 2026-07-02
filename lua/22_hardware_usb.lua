@@ -6,7 +6,7 @@
 --]]
 -- 22_hardware_usb.lua — USB mount detection via lsblk
 function conky_usb_list()
-	return cached("usb_detect", 5, function()
+	return cached("usb_detect", 3, function()
 		local result = {}
 		local user = os.getenv("USER") or ""
 		local prefixes = {

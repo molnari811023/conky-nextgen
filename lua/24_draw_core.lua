@@ -8,6 +8,8 @@
 -- conky_core_main() dispatches draw[] items by type to the correct function.
 local script_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"
 package.path = package.path .. ";" .. script_dir .. "?.lua"
+-- Ensure C-modules (like lfs) can be required when Conky's embedded Lua needs system paths
+package.cpath = (package.cpath or "") .. ";/usr/lib/lua/5.4/?.so;/usr/lib/lua/?.so;/usr/lib/lua/5.4/loadall.so"
 
 require("cairo")
 local status, cairo_xlib = pcall(require, "cairo_xlib")

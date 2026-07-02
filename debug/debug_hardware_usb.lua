@@ -12,8 +12,8 @@ local root = get_root()
 package.path = './?.lua;' .. package.path .. ';' .. root .. '/lua/?.lua;' .. root .. '/?.lua'
 
 lfs = require('lfs')
-require('hardware_core')
-require('hardware_usb')
+require('14_hardware_core')
+require('22_hardware_usb')
 
 local function dump(t, indent)
   indent = indent or 0
