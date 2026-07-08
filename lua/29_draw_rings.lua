@@ -6,6 +6,12 @@
 --]]
 -- 29_draw_rings.lua — Ring gauges: segmented or smooth arc mode
 local RING_DEFAULT = {
+	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	x = 100,
 	y = 100,
 	radius = 50,
@@ -101,7 +107,10 @@ local function draw_smooth_mode(cr, s, pct, ov)
 	cairo_stroke(cr)
 end
 function draw_one_ring(cr, s0)
-	if not draw_allowed(s0.draw_me) then
+	if not conky_window then
+		return
+	end
+	if not draw_allowed(s0.draw_me, s0.view, s0.group) then
 		return
 	end
 	local s = {}
@@ -127,6 +136,6 @@ function draw_one_ring(cr, s0)
 	else
 		draw_ring_mode(cr, s, dv, ov)
 	end
+	return { x = s.x - s.radius, y = s.y - s.radius, w = s.radius * 2, h = s.radius * 2 }
 end
 
---}}}

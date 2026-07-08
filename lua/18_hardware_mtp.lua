@@ -98,4 +98,3 @@ function conky_mtp_perc(dev_idx, storage_idx)
 	local s = d.storages[tonumber(storage_idx) or 1]
 	return s and s.perc or 0
 end
---}}}

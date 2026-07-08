@@ -129,4 +129,3 @@ function conky_external_battery_charge(i)
 	end
 	return list[idx].pct or 0
 end
---}}}

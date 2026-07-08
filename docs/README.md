@@ -37,7 +37,7 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 | 21 | hardware_sensors | `lm-sensors` CPU/NVMe/WiFi temp, fan speed |
 | 22 | hardware_usb | USB mount detection |
 | 23 | hardware_processes | Top CPU/memory process views |
-| 24 | draw_core | Cairo setup, main draw loop, color helpers |
+| 24 | draw_core | Cairo setup, main draw loop, color helpers, mouse event handler `conky_on_mouse()` |
 | 25 | draw_background | Rounded rectangle backgrounds |
 | 26 | draw_bar | Progress bars (smooth & block styles) |
 | 27 | draw_graph | Time-series graphs (line & fill) |
@@ -49,7 +49,7 @@ Files are numbered to define load order. Each module registers `conky_*` functio
 | 33 | draw_calendar | Month calendar widget |
 | 34 | draw_image | PNG image rendering with crop/tint/rotate |
 | 35 | draw_layout | Dynamic layout engine (y-position stacking) |
-| 36 | widget | User-defined `draw = {}` and `layout = {}` |
+| 36 | widget | User-defined `draw = {}` and `layout = {}` with interactive fields (click, view, group toggle) |
 | — | nowplaying | MPRIS now playing info via playerctl (title, artist, album, album art) |
 
 ### Internationalization (i18n)
@@ -108,8 +108,12 @@ For details on the tile‑based map engine (3×3 Mercator grid, global radar sup
 ## Dependencies (Arch Linux)
 
 ```
-pacman -S --needed conky python3 lua54 lua54-dkjson lua54-filesystem lua54-lpeg lua54-luarocks lua54-luautf8 lua54-system jq curl imagemagick pacman-contrib
+pacman -S --needed conky-mng python3 lua lua-dkjson lua-filesystem lua-lpeg lua-luarocks lua-luautf8 lua-system jq curl imagemagick pacman-contrib
 ```
+
+**Note**: Interactive features (click, view switching, group toggle) require the custom `conky-mng` package with `BUILD_MOUSE_EVENTS=ON`. See [docs/pkg/conky-mng.md](pkg/conky-mng.md).
+
+The official Arch `conky` package (1.22.3) does not support mouse events. Build the custom package from `pkg/PKGBUILD` in this repository.
 
 ## Contributing
 

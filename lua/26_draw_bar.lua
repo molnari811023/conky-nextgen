@@ -6,6 +6,12 @@
 --]]
 -- 26_draw_bar.lua — Progress bars: smooth or block style, gradient colors
 BAR_DEFAULT = {
+	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	x = 0,
 	width = 100,
 	height = 10,
@@ -133,13 +139,16 @@ function draw_bar_smooth(cr, m, y, pct)
 end
 
 function draw_bar_modules(cr, m, y)
-	if not draw_allowed(m.draw_me) or not conky_window then
-		return 0
+	if not conky_window then
+		return
 	end
 	for k, v in pairs(BAR_DEFAULT) do
 		if m[k] == nil then
 			m[k] = v
 		end
+	end
+	if not draw_allowed(m.draw_me, m.view, m.group) then
+		return
 	end
 	if m.style then
 		for k, v in pairs(m.style) do
@@ -172,7 +181,6 @@ function draw_bar_modules(cr, m, y)
 		used = draw_bar_smooth(cr, m, y, pct)
 	end
 	cairo_set_matrix(cr, mx)
-	return used
+	return { x = m.x, y = y, w = m.width, h = m.height }
 end
 
---}}}

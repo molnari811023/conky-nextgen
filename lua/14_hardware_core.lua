@@ -9,7 +9,6 @@
 
 static = {}
 
---{{{ UTILITIES
 function parse_num(v)
 	return tonumber((v or ""):match("([%d%.]+)")) or 0
 end
@@ -79,9 +78,7 @@ function get_root_device(map, name)
 	end
 	return cur
 end
---}}}
 
---{{{ CACHE
 cache = cache or {}
 cache._meta = cache._meta or { times = {}, intervals = {} }
 
@@ -95,9 +92,7 @@ function cached(key, interval, f)
 	cache[key] = { time = now, value = v }
 	return v
 end
---}}}
 
---{{{ SYSTEM CALLS
 function pread(cmd)
 	local f = io.popen("timeout 10 " .. cmd)
 	if not f then
@@ -130,9 +125,7 @@ function read_num(path)
 	local v = read_file(path)
 	return tonumber(v and v:match("(%d+)")) or 0
 end
---}}}
 
---{{{ NVIDIA XML
 xml_cache = { last = 0, xml = "", active = false }
 
 function xml_update(cmd, interval)
@@ -159,9 +152,7 @@ end
 if conky_update_nvidia_xml then
 	conky_update_nvidia_xml()
 end
---}}}
 
---{{{ UPDATES
 local source = debug.getinfo(1, "S").source:sub(2)
 local conky_dir = source:match("(.*/)") or "./"
 local tmp_dir = conky_dir .. "../tmp/"
@@ -178,4 +169,3 @@ function conky_updates_aur()
 	local n = tonumber(s:match("%s(%d+)$") or 0)
 	return tostring(n) .. " " .. ((n == 1) and "package" or "packages")
 end
---}}}

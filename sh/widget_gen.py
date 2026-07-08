@@ -15,6 +15,8 @@ WIDGETS = {
         "label": "Background (rounded rect)",
         "required": [],
         "optional": [
+            ("view", "string", "nil", "View filter (string)"),
+            ("group", "string", "nil", "Group toggle name"),
             ("draw_me", "bool/string/func", "true", "Condition (true/false, '${...}')"),
             ("x", "number", "0", "Left position"),
             ("y", "number", "0", "Top position"),
@@ -30,6 +32,11 @@ WIDGETS = {
         "label": "Text",
         "required": [("text", "string", "Text or Conky template (${...})")],
         "optional": [
+            ("view", "string", "nil", "View filter"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
             ("draw_me", "bool/string/func", "true", "Condition"),
             ("x", "number/'center'", "0", "X position or 'center'"),
             ("y", "number/'center'", "0", "Y position or 'center'"),
@@ -45,32 +52,43 @@ WIDGETS = {
     },
     "bar": {
         "label": "Bar (progress bar)",
-        "required": [
-            ("name", "string", "Conky variable (e.g. cpu, memperc)"),
-        ],
+        "required": [],
         "optional": [
+            ("view", "string", "nil", "View filter"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
             ("draw_me", "bool/string/func", "true", "Condition"),
+            ("name", "string", "nil", "Conky variable (e.g. cpu, memperc)"),
             ("arg", "string", "nil", "Variable argument (e.g. cpu1)"),
+            ("value", "number", "nil", "Static value (alters name+arg)"),
             ("x", "number", "0", "Left position"),
+            ("y", "number", "0", "Top position"),
             ("width", "number", "100", "Bar width (px)"),
             ("height", "number", "10", "Bar height (px)"),
             ("max", "number", "100", "Maximum value"),
             ("angle", "number", "0", "Rotation (degrees)"),
             ("blocks", "number", "nil", "Block style (nil = smooth)"),
             ("mode", "string", "'block'", "Block mode: block/dot"),
-            ("sides", "number", "nil", "Polygon sides (nil=rect, 3=triangle, 6=hexagon)"),
+            ("sides", "number", "nil", "Polygon sides"),
             ("bg", "stops", "{{0,'#333333',1},{1,'#111111',1}}", "Background gradient"),
             ("fg", "stops", "{{0,'#00ff00',1},{1,'#009900',1}}", "Foreground gradient"),
         ],
     },
     "graph": {
         "label": "Graph (time-series)",
-        "required": [
-            ("name", "string", "Conky variable (e.g. cpu, downspeed)"),
-        ],
+        "required": [],
         "optional": [
+            ("view", "string", "nil", "View filter"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
             ("draw_me", "bool/string/func", "true", "Condition"),
+            ("name", "string", "nil", "Conky variable (e.g. cpu, downspeed)"),
             ("arg", "string", "nil", "Variable argument"),
+            ("value", "number", "nil", "Static value (alters name+arg)"),
             ("x", "number", "0", "Left position"),
             ("y", "number", "0", "Top position"),
             ("width", "number", "100", "Graph width (px)"),
@@ -92,6 +110,11 @@ WIDGETS = {
         "label": "Analog clock",
         "required": [],
         "optional": [
+            ("view", "string", "nil", "View filter"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
             ("draw_me", "bool/string/func", "true", "Condition"),
             ("x", "number", "100", "Center X"),
             ("y", "number", "100", "Center Y"),
@@ -110,12 +133,17 @@ WIDGETS = {
     },
     "ring": {
         "label": "Ring (gauge)",
-        "required": [
-            ("name", "string", "Conky variable (e.g. cpu, memperc)"),
-        ],
+        "required": [],
         "optional": [
+            ("view", "string", "nil", "View filter"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
             ("draw_me", "bool/string/func", "true", "Condition"),
+            ("name", "string", "nil", "Conky variable (e.g. cpu, memperc)"),
             ("arg", "string", "nil", "Variable argument"),
+            ("value", "number", "nil", "Static value (alters name+arg)"),
             ("x", "number", "100", "Center X"),
             ("y", "number", "100", "Center Y"),
             ("radius", "number", "50", "Ring radius"),
@@ -134,6 +162,11 @@ WIDGETS = {
         "label": "Line",
         "required": [],
         "optional": [
+            ("view", "string", "nil", "View filter"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
             ("draw_me", "bool/string/func", "true", "Condition"),
             ("x1", "number", "0", "Start X"),
             ("y1", "number", "0", "Start Y"),
@@ -149,6 +182,11 @@ WIDGETS = {
         "label": "Calendar",
         "required": [],
         "optional": [
+            ("view", "string", "nil", "View filter"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
             ("draw_me", "bool/string/func", "true", "Condition"),
             ("x", "number", "300", "Left position"),
             ("y", "number", "15", "Top position"),
@@ -169,6 +207,11 @@ WIDGETS = {
             ("path", "string", "PNG file path"),
         ],
         "optional": [
+            ("view", "string", "nil", "View filter"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
             ("draw_me", "bool/string/func", "true", "Condition"),
             ("x", "number", "0", "Left position"),
             ("y", "number", "0", "Top position"),
@@ -178,6 +221,9 @@ WIDGETS = {
             ("tint", "string", "nil", "Hex tint (#rrggbb)"),
             ("rotate", "number", "0", "Rotation (degrees)"),
             ("radius", "number", "0", "Corner radius"),
+            ("shape", "string", "nil", "Clip shape: nil/circle"),
+            ("scale_mode", "string", "'bilinear'", "Scale filter: bilinear/nearest/good"),
+            ("crop", "string", "nil", "Crop table: {x=0,y=0,w=100,h=100}"),
         ],
     },
 }
@@ -352,7 +398,7 @@ def interactive_mode():
 
 
 def add_widget(wtype, wdef):
-    c(f"\n\033[1;32m  → {wdef['label']}\033[0m\n")
+    c(f"\n\033[1;32m  \u2192 {wdef['label']}\033[0m\n")
     fields = {}
 
     c("  draw_me (true / '${var}' / fn_name / function()...end)\n")
@@ -416,7 +462,7 @@ def add_widget(wtype, wdef):
 
 
 def add_layout_section():
-    c(f"\n\033[1;32m  → Layout section\033[0m\n")
+    c(f"\n\033[1;32m  \u2192 Layout section\033[0m\n")
     name = input_str("  name (identifier)")
     if not name:
         name = "section"
@@ -455,7 +501,7 @@ def main():
         print("Supported widget types:")
         for key in WIDGET_ORDER:
             w = WIDGETS[key]
-            print(f"  {key:15s} — {w['label']}")
+            print(f"  {key:15s} \u2014 {w['label']}")
         print()
         print("Usage: python3 sh/widget_gen.py")
         return

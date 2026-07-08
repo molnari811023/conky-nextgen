@@ -26,4 +26,3 @@ end
 function conky_fan_speed(index)
 	return get_sensor_val("fan" .. (index or 1) .. ":%s+(%d+)")
 end
---}}}

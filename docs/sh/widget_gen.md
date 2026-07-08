@@ -3,13 +3,11 @@
 Interactive CLI tool to generate `draw[]` and `layout[]` entries for `lua/36_widget.lua`.
 
 ## Usage
-
 ```bash
 python3 sh/widget_gen.py
 ```
 
 ## Interactive walkthrough
-
 1. Select a widget type (background, text, bar, graph, clock, ring, line, calendar, image)
 2. Fill in `draw_me` condition (`true`, `'${var}'`, a function name, or an inline `function() ... end`)
 3. Fill in required fields (if any)
@@ -18,25 +16,35 @@ python3 sh/widget_gen.py
 6. Choose to append to `lua/36_widget.lua` or copy the output manually
 
 ## Supported widget types
-
 | Type | Description | Required fields |
 |------|-------------|-----------------|
 | background | Rounded rectangle with gradient + border | — |
 | text | Text with alignment, word wrap | `text` |
-| bar | Progress bar (smooth or block) | `name` |
-| graph | Time-series graph (line or fill) | `name` |
+| bar | Progress bar (smooth or block) | — (needs `name` or `value`) |
+| graph | Time-series graph (line or fill) | — (needs `name` or `value`) |
 | clock | Analog clock face | — |
-| ring | Ring gauge (segmented or smooth) | `name` |
+| ring | Ring gauge (segmented or smooth) | — (needs `name` or `value`) |
 | line | Solid, dashed, or dotted line | — |
 | calendar | Month calendar grid | — |
 | image | PNG rendering with crop/tint/rotate | `path` |
 
-## Layout sections
+## Common Optional Fields
+Every widget supports these for interactivity:
 
-Layout sections allow dynamic Y-position stacking with `y_start_<name>` and `height_<name>` globals, computed by `35_draw_layout.lua`.
+| Field | Type | Description |
+|-------|------|-------------|
+| `view` | string | View filter — only drawn when `current_view == view` |
+| `group` | string | Group toggle — only drawn when `GROUP_STATE[name] == true` |
+| `click` | string | Shell command executed on click |
+| `click_view` | string | Switch to this view on click |
+| `click_toggle` | string | Toggle this group on click |
+
+**Note**: Click fields require a custom Conky build with `BUILD_MOUSE_EVENTS=ON`.
+
+## Layout Sections
+Layout sections allow dynamic Y-position stacking with `y_start_<name>` and `height_<name>` globals, computed by `35_draw_layout.lua`. Each section can have `view`, `group`, and dynamic `height`.
 
 ## Output
-
 The tool generates ready-to-use Lua code:
 
 ```lua
@@ -48,7 +56,6 @@ draw = {
         name = 'cpu',
         arg = 'cpu1',
         x = 20,
-        y = 100,
         width = 200,
         height = 12,
         fg = {{0,'#00ff00',1},{1,'#009900',1}},
@@ -64,7 +71,7 @@ layout = {
 ```
 
 ## Notes
-
 - All gradient stops follow the format `{position (0–1), hex_color, alpha (0–1)}`
 - The `draw_me` field accepts booleans, Conky template strings, Lua function names, or inline Lua functions
 - Fields left empty use their default values; only non-default values appear in the output
+- `name` and `value` are alternatives for bar/graph/ring — `value` provides a static number, `name` reads from a Conky variable

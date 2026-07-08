@@ -93,7 +93,7 @@ fetch_weather() {
     curl_cmd "https://api.met.no/weatherapi/sunrise/3.0/moon?lat=${lat}&lon=${lon}&date=${date}&offset=${offset}" >"$TMP_DIR/moon.json.tmp" || { rm -f "$TMP_DIR/moon.json.tmp"; log "[warn] Moon download failed"; }
     [ -s "$TMP_DIR/moon.json.tmp" ] && mv "$TMP_DIR/moon.json.tmp" "$TMP_DIR/moon.json" || { rm -f "$TMP_DIR/moon.json.tmp"; log "[warn] Moon empty response"; }
 
-    # MET Norway locationforecast alternatíva (Open-Meteo kiesése esetén)
+    # MET Norway locationforecast backup (when Open-Meteo fails)
     # log "[met] metnorway_raw.json"
     # curl_cmd "https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=${lat}&lon=${lon}" >"$TMP_DIR/metnorway_raw.json.tmp" || { rm -f "$TMP_DIR/metnorway_raw.json.tmp"; log "[warn] MET Norway download failed"; }
     # [ -s "$TMP_DIR/metnorway_raw.json.tmp" ] && mv "$TMP_DIR/metnorway_raw.json.tmp" "$TMP_DIR/metnorway_raw.json" || { rm -f "$TMP_DIR/metnorway_raw.json.tmp"; log "[warn] MET Norway empty response"; }

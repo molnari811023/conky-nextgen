@@ -6,6 +6,12 @@
 --]]
 -- 28_draw_clock.lua — Analog clock face with hands, ticks, numbers
 local CLOCK_DEFAULT = {
+	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	x = 100,
 	y = 100,
 	radius = 50,
@@ -54,7 +60,10 @@ local CLOCK_DEFAULT = {
 	center_radius = 4,
 }
 function draw_clock(cr, o)
-	if not draw_allowed(o.draw_me) or not conky_window then
+	if not conky_window then
+		return
+	end
+	if not draw_allowed(o.draw_me, o.view, o.group) then
 		return
 	end
 	local c = {}
@@ -153,6 +162,6 @@ function draw_clock(cr, o)
 	cairo_set_source_rgba(cr, r1, g1, b1, a1)
 	cairo_arc(cr, x, y, c.center_radius, 0, 2 * math.pi)
 	cairo_fill(cr)
+	return { x = x - r, y = y - r, w = r * 2, h = r * 2 }
 end
 
---}}}

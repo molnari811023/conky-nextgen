@@ -49,4 +49,3 @@ function conky_chassis_type_human()
 	local code = dmi("chassis_type")
 	return chassis_map[code] or ("Unknown (" .. code .. ")")
 end
---}}}

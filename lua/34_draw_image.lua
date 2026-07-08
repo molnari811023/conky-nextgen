@@ -13,6 +13,12 @@ local function is_surface_valid(s)
 		and cairo_image_surface_get_height(s) > 0
 end
 local PNG_DEFAULT = {
+	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	path = nil,
 	x = 0,
 	y = 0,
@@ -36,7 +42,10 @@ local function apply_png_defaults(m)
 end
 function draw_png(cr, m)
 	apply_png_defaults(m)
-	if not draw_allowed(m.draw_me) or not conky_window then
+	if not conky_window then
+		return
+	end
+	if not draw_allowed(m.draw_me, m.view, m.group) then
 		return
 	end
 	if not m.path then
@@ -116,6 +125,6 @@ function draw_png(cr, m)
 	end
 	cairo_pattern_destroy(pat)
 	cairo_restore(cr)
+	return { x = m.x, y = m.y, w = m.width or 0, h = m.height or 0 }
 end
 
---}}}

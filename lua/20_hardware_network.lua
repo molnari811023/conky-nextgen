@@ -71,4 +71,3 @@ function conky_ping_jitter()
 	end
 	return 0
 end
---}}}

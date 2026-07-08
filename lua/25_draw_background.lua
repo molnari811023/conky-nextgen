@@ -7,6 +7,11 @@
 -- 25_draw_background.lua — Rounded rectangles with gradient fill + border
 BACKGROUND_DEFAULT = {
 	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	x = 0,
 	y = 0,
 	w = 0,
@@ -26,7 +31,7 @@ function rounded_rect_path(cr, x, y, w, h, r)
 end
 
 function draw_background(cr, cfg)
-	if not draw_allowed(cfg.draw_me) or not conky_window then
+	if not draw_allowed(cfg.draw_me, cfg.view, cfg.group) or not conky_window then
 		return
 	end
 	local c = {}
@@ -68,6 +73,6 @@ function draw_background(cr, cfg)
 		cairo_stroke(cr)
 		cairo_pattern_destroy(pat)
 	end
+	return { x = x, y = y, w = w, h = h }
 end
 
---}}}

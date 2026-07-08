@@ -6,6 +6,12 @@
 --]]
 -- 32_draw_lines.lua — Lines with solid/dash/dot styles and rotation
 local LINE_DEFAULT = {
+	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	x1 = 0,
 	y1 = 0,
 	x2 = 100,
@@ -23,7 +29,7 @@ local LINE_DEFAULT = {
 	},
 }
 function draw_line_modules(cr, m)
-	if not draw_allowed(m.draw_me) or not conky_window then
+	if not conky_window then
 		return
 	end
 	local cfg = {}
@@ -32,6 +38,9 @@ function draw_line_modules(cr, m)
 	end
 	for k, v in pairs(m) do
 		cfg[k] = v
+	end
+	if not draw_allowed(cfg.draw_me, cfg.view, cfg.group) then
+		return
 	end
 	if type(cfg.fg) ~= "table" or #cfg.fg == 0 then
 		cfg.fg = LINE_DEFAULT.fg
@@ -67,6 +76,6 @@ function draw_line_modules(cr, m)
 	cairo_stroke(cr)
 	cairo_pattern_destroy(pat)
 	cairo_set_matrix(cr, mx)
+	return { x = math.min(x1, x2), y = math.min(y1, y2), w = math.abs(x2 - x1), h = math.abs(y2 - y1) }
 end
 
---}}}

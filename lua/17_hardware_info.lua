@@ -31,4 +31,3 @@ function conky_install_date()
 	static.inst_dt = pread("head -n1 /var/log/pacman.log | cut -c 2-11")
 	return static.inst_dt ~= "" and static.inst_dt or "N/A"
 end
---}}}

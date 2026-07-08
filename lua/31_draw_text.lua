@@ -6,6 +6,12 @@
 --]]
 -- 31_draw_text.lua — Text rendering with alignment, word wrap, hyphenation
 local TEXT_DEFAULT = {
+	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	x = 0,
 	y = 0,
 	font = "Sans",
@@ -33,15 +39,19 @@ function normalize_text(cfg)
 end
 
 function draw_text(cr, opts)
-	if not opts or not draw_allowed(opts.draw_me) or not conky_window then
+	if not opts or not conky_window then
 		return
 	end
+	-- must resolve defaults before draw_allowed (needs cfg.x, cfg.y etc.)
 	local cfg = {}
 	for k, v in pairs(TEXT_DEFAULT) do
 		cfg[k] = v
 	end
 	for k, v in pairs(opts) do
 		cfg[k] = v
+	end
+	if not draw_allowed(cfg.draw_me, cfg.view, cfg.group) then
+		return
 	end
 	if type(cfg.color) ~= "table" or #cfg.color == 0 then
 		cfg.color = TEXT_DEFAULT.color
@@ -63,6 +73,7 @@ function draw_text(cr, opts)
 		y = conky_window.height / 2
 	end
 
+	local text_w, text_h = 0, 0
 	if cfg.wrap_width and cfg.wrap_width > 0 then
 		local line_height
 		local ok, fe = pcall(function()
@@ -169,6 +180,8 @@ function draw_text(cr, opts)
 		end
 
 		local total_h = #lines * line_height
+		text_w = cfg.wrap_width
+		text_h = total_h
 		local draw_y
 		if cfg.y == "center" then
 			draw_y = y - total_h / 2
@@ -201,6 +214,8 @@ function draw_text(cr, opts)
 	else
 		local ext = cairo_text_extents_t:create()
 		cairo_text_extents(cr, txt, ext)
+		text_w = ext.width
+		text_h = ext.height
 		if cfg.align == "center" then
 			x = x - ext.width / 2
 		elseif cfg.align == "right" then
@@ -218,6 +233,6 @@ function draw_text(cr, opts)
 		cairo_move_to(cr, x, y)
 		cairo_show_text(cr, txt)
 	end
+	return { x = cfg.x, y = cfg.y, w = text_w, h = text_h }
 end
 
---}}}

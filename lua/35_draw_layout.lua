@@ -28,16 +28,10 @@ function DynamicLayout.compute(list, start_y)
 	for _, box in ipairs(list) do
 		local name = box.name
 		local enabled = box.enabled
-		local ok = true
+		local view = box.view
+		local group = box.group
 		
-		if type(enabled) == "function" then
-			local r = enabled()
-			ok = (r == true or r == 1 or r == "1")
-		elseif type(enabled) == "boolean" then
-			ok = enabled
-		end
-		
-		if ok and name then
+		if draw_allowed(enabled, view, group) and name then
 			local h = eval(box.height) or 0
 			_G["y_start_" .. name] = y
 			_G["height_" .. name] = h
@@ -46,5 +40,3 @@ function DynamicLayout.compute(list, start_y)
 		end
 	end
 end
-
---}}}

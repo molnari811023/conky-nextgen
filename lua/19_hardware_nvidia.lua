@@ -79,9 +79,7 @@ function conky_update_nvidia_xml()
 	xml_update("nvidia-smi -x -q 2>/dev/null", 2)
 	return ""
 end
---}}}
 
---{{{ NVIDIA
 function conky_nv_gputemp()
 	return xml_num("gpu_temp")
 end
@@ -162,4 +160,3 @@ end
 function conky_nv_driverversion()
 	return xml_find("driver_version")
 end
---}}}

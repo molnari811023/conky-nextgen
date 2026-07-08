@@ -7,6 +7,12 @@
 -- 27_draw_graph.lua — Scrolling time-series graphs (line or fill)
 graph_history = graph_history or {}
 local GRAPH_DEFAULT = {
+	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	x = 0,
 	y = 0,
 	width = 100,
@@ -34,7 +40,7 @@ local GRAPH_DEFAULT = {
 	grid_steps = 4,
 }
 function draw_graph(cr, m)
-	if not draw_allowed(m.draw_me) or not conky_window then
+	if not conky_window then
 		return
 	end
 	local c = {}
@@ -43,6 +49,9 @@ function draw_graph(cr, m)
 	end
 	for k, v in pairs(m) do
 		c[k] = v
+	end
+	if not draw_allowed(c.draw_me, c.view, c.group) then
+		return
 	end
 	if c.style then
 		for k, v in pairs(c.style) do
@@ -138,6 +147,6 @@ function draw_graph(cr, m)
 	cairo_rectangle(cr, x, y, w, h)
 	cairo_stroke(cr)
 	cairo_set_matrix(cr, mx)
+	return { x = c.x, y = c.y, w = c.width, h = c.height }
 end
 
---}}}

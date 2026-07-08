@@ -2,3 +2,7 @@
 examples/multi_view/
 sh/__pycache__/
 tmp/*.png
+pkg/*.pkg.tar.zst
+pkg/src/
+pkg/pkg/
+

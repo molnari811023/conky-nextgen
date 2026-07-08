@@ -78,4 +78,3 @@ function conky_top_cpu_vmrss(i)
 	local top = processes.top_cpu(i)
 	return (top[i] and fmt_mem_kb(top[i].vmrss_kb)) or ""
 end
---}}}

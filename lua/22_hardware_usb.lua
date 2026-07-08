@@ -78,4 +78,3 @@ function conky_usb_mount(i)
 	end
 	return list[idx].mount or ""
 end
---}}}

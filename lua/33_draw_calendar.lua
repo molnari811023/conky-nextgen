@@ -7,6 +7,11 @@
 -- 33_draw_calendar.lua — Month calendar grid with week numbers
 CALENDAR_DEFAULT = {
 	draw_me = true,
+	view = nil,
+	group = nil,
+	click = nil,
+	click_view = nil,
+	click_toggle = nil,
 	month_format = "year_month",
 	x = 300,
 	y = 15,
@@ -62,16 +67,19 @@ local function get_calendar_data()
 		prev_days = prev_dim,
 	}
 end
-function draw_calendar(cr, cfg)
-	if not draw_allowed(cfg.draw_me) or not conky_window then
+function draw_calendar(cr, opts)
+	if not conky_window then
 		return
 	end
 	local c = {}
 	for k, v in pairs(CALENDAR_DEFAULT) do
 		c[k] = v
 	end
-	for k, v in pairs(cfg) do
+	for k, v in pairs(opts) do
 		c[k] = v
+	end
+	if not draw_allowed(c.draw_me, c.view, c.group) then
+		return
 	end
 	local x, y, cw, rh = c.x, c.y, c.cell_w, c.row_h
 	local cd = get_calendar_data()
@@ -183,6 +191,6 @@ function draw_calendar(cr, cfg)
 		col = col + 1
 		cc = cc + 1
 	end
+	return { x = c.x, y = c.y, w = (c.show_weeknums and c.cell_w or 0) + 7 * c.cell_w, h = c.row_h * 8 }
 end
 
---}}}
