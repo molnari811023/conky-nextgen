@@ -18,7 +18,7 @@ Displays currently playing music info from any MPRIS-compatible player (Audaciou
 | `conky_nowplaying_status()` | `Playing`, `Paused`, or `Stopped` |
 | `conky_nowplaying_art_path()` | Path to cached album art PNG, or empty string |
 
-## Example (`36_widget.lua`)
+## Example (`lua/widget.lua`)
 
 ```lua
 draw = {

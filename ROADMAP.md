@@ -11,14 +11,14 @@ Arch package still at 1.22.3-3 (March). Waiting for Arch extra repo update.
 - Event propagation fix (1.24.0), cursor steal fix (1.24.1)
 - Official example: `data/conky_mouse_events.conf`
 
-## 2. NVIDIA NVML Dual-mode (19_hardware_nvidia.lua)
+## 2. NVIDIA NVML Dual-mode (`lua/hardware/nvidia.lua`)
 Conky 1.24.2 ships a native NVML backend for `${nvidia}...` variables. Works on Wayland too.
 
 **Plan:** Runtime detection:
 - If `${nvidia gputemp 0}` → returns a number → use NVML backend
 - Otherwise → `nvidia-smi -x -q` fallback (current behavior)
 - All `conky_nv_*()` function signatures stay unchanged
-- TODO: update `14_hardware_core.lua`, `24_draw_core.lua` for conditional calls
+- TODO: update `lua/hardware/core.lua`, `lua/core/draw_core.lua` for conditional calls
 
 ## 3. Multi-view / Mouse Events
 On hold until conky ≥1.23 lands in distro repos.

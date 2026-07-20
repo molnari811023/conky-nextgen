@@ -9,13 +9,13 @@ ICON_THEME = "default"
 lfs = require("lfs")
 json = require("dkjson")
 
-package.path = package.path .. ";" .. project_dir .. "lua/?.lua;" .. project_dir .. "demos/?.lua"
+package.path = package.path .. ";" .. project_dir .. "lua/?.lua;" .. project_dir .. "lua/core/?.lua;" .. project_dir .. "lua/draw/?.lua;" .. project_dir .. "lua/weather/?.lua;" .. project_dir .. "lua/hardware/?.lua;" .. project_dir .. "demos/?.lua"
 
 require("helpers")
-require("24_draw_core")
-require("25_draw_background")
-require("32_draw_lines")
-require("33_draw_calendar")
-require("31_draw_text")
+require("core.draw_core")
+require("draw.background")
+require("draw.lines")
+require("draw.calendar")
+require("draw.text")
 require("widget")
 demo_override_core_main()

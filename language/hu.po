@@ -655,3 +655,22 @@ msgstr "Nem valószínű"
 
 msgid "alert_certainty_unknown"
 msgstr "Ismeretlen"
+
+############################################
+# CONTEXT MENU
+############################################
+
+msgid "ctx_copy"
+msgstr "Másolás"
+
+msgid "ctx_collapse"
+msgstr "Összecsukás"
+
+msgid "ctx_expand"
+msgstr "Kibontás"
+
+msgid "ctx_hide"
+msgstr "Elrejtés"
+
+msgid "ctx_restore_all"
+msgstr "Visszaállítás"

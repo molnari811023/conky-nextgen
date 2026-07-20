@@ -9,11 +9,11 @@ local function get_root()
   return out
 end
 local root = get_root()
-package.path = './?.lua;' .. package.path .. ';' .. root .. '/lua/?.lua;' .. root .. '/?.lua'
+package.path = './?.lua;' .. package.path .. ';' .. root .. '/lua/?.lua;' .. root .. '/lua/core/?.lua;' .. root .. '/lua/draw/?.lua;' .. root .. '/lua/weather/?.lua;' .. root .. '/lua/hardware/?.lua;' .. root .. '/?.lua'
 
 lfs = require('lfs')
-require('14_hardware_core')
-require('22_hardware_usb')
+require('hardware.core')
+require('hardware.usb')
 
 local function dump(t, indent)
   indent = indent or 0

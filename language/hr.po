@@ -655,3 +655,23 @@ msgstr "Malo vjerojatno"
 
 msgid "alert_certainty_unknown"
 msgstr "Nepoznato"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Kopiraj"
+
+msgid "ctx_collapse"
+msgstr "Sklopi"
+
+msgid "ctx_expand"
+msgstr "Rasklopi"
+
+msgid "ctx_hide"
+msgstr "Sakrij"
+
+msgid "ctx_restore_all"
+msgstr "Vrati sve"

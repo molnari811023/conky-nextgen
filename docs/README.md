@@ -10,59 +10,111 @@ Modular Conky UI framework with Lua engine and Bash backend.
 
 ### Lua Modules (`lua/`)
 
-Files are numbered to define load order. Each module registers `conky_*` functions or global tables.
+Modules are organized into folders by responsibility. Loading order is defined in `main.lua`.
 
-| # | Module | Purpose |
-|---|--------|---------|
-| 1 | translate | Weather UI translations via `.mo` files. 22 languages ready — see i18n section below |
-| 2 | colors | Breeze Dark color palette (`BR` table) |
-| 3 | watcher | File change watcher, auto-reloads Conky on edit |
-| 4 | weather_core | Weather data loader, sun/moon arcs, icons |
-| 5 | weather_current | Current weather accessors |
-| 6 | weather_hourly | Hourly forecast accessors |
-| 7 | weather_daily | Daily forecast accessors |
-| 8 | weather_air | Air quality data accessors |
-| 9 | weather_sunmoon | Sun & moon rise/set times |
-| 10 | weather_units | Unit labels for weather fields |
-| 11 | weather_alerts | MeteoAlarm weather alert parser |
-| 12 | spaceweather | NOAA SWPC space weather data |
-| 13 | processes | `/proc` process scanner (LPEG-based) |
-| 14 | hardware_core | DMI, caching, shell utilities |
-| 15 | hardware_battery | Battery health, Bluetooth/UPower devices |
-| 16 | hardware_dmi | System vendor, board, BIOS, chassis info |
-| 17 | hardware_info | CPU model, NVMe model, install date |
-| 18 | hardware_mtp | MTP device detection (KDE/GVFS) |
-| 19 | hardware_nvidia | NVIDIA GPU mode & stats via `nvidia-smi` |
-| 20 | hardware_network | WiFi, public IP, ping |
-| 21 | hardware_sensors | `lm-sensors` CPU/NVMe/WiFi temp, fan speed |
-| 22 | hardware_usb | USB mount detection |
-| 23 | hardware_processes | Top CPU/memory process views |
-| 24 | draw_core | Cairo setup, main draw loop, color helpers, mouse event handler `conky_on_mouse()` |
-| 25 | draw_background | Rounded rectangle backgrounds |
-| 26 | draw_bar | Progress bars (smooth & block styles) |
-| 27 | draw_graph | Time-series graphs (line & fill) |
-| 28 | draw_clock | Analog clock |
-| 29 | draw_rings | Segmented & smooth ring gauges |
-| 30 | hyphen | Hyphenation engine (LibreOffice .dic) |
-| 31 | draw_text | Text rendering with word wrap & hyphenation |
-| 32 | draw_lines | Lines with dash/dot styles |
-| 33 | draw_calendar | Month calendar widget |
-| 34 | draw_image | PNG image rendering with crop/tint/rotate |
-| 35 | draw_layout | Dynamic layout engine (y-position stacking) |
-| 36 | widget | User-defined `draw = {}` and `layout = {}` with interactive fields (click, view, group toggle) |
-| — | nowplaying | MPRIS now playing info via playerctl (title, artist, album, album art) |
+#### Core (`lua/core/`)
+
+| Module | Purpose |
+|--------|---------|
+| `translate` | Weather UI translations via `.mo` files. 22 languages ready |
+| `colors` | Breeze Dark color palette (`BR` table) |
+| `clipboard` | Clipboard provider detection and copy function |
+| `draw_core` | Cairo setup, main draw loop `conky_core_main()`, state, helpers |
+| `draw_input` | Input registration, click/scroll actions, `build_draw()` |
+| `draw_group` | GROUP_STATE toggle, register, visibility, collapse |
+| `draw_context` | Right-click context menu |
+| `draw_mouse` | Mouse event handler, drag-and-drop, hover |
+
+#### Draw Types (`lua/draw/`)
+
+| Module | Purpose |
+|--------|---------|
+| `background` | Rounded rectangle backgrounds |
+| `bar` | Progress bars (smooth & block styles) |
+| `graph` | Time-series graphs (line & fill) |
+| `clock` | Analog clock |
+| `rings` | Segmented & smooth ring gauges |
+| `hyphen` | Hyphenation engine (LibreOffice .dic) |
+| `text` | Text rendering with word wrap & hyphenation |
+| `lines` | Lines with dash/dot styles |
+| `calendar` | Month calendar widget |
+| `image` | PNG image rendering with crop/tint/rotate |
+| `svg` | SVG vector icon rendering via librsvg |
+| `layout` | Dynamic layout engine (y-position stacking) |
+| `widget` | User-defined `draw = {}` and `layout = {}` with interactive fields |
+
+#### Weather (`lua/weather/`)
+
+| Module | Purpose |
+|--------|---------|
+| `core` | Weather data loader, sun/moon arcs, icons |
+| `current` | Current weather accessors |
+| `hourly` | Hourly forecast accessors |
+| `daily` | Daily forecast accessors |
+| `air` | Air quality data accessors |
+| `sunmoon` | Sun & moon rise/set times |
+| `units` | Unit labels for weather fields |
+| `alerts` | MeteoAlarm weather alert parser |
+| `spaceweather` | NOAA SWPC space weather data |
+
+#### Hardware (`lua/hardware/`)
+
+| Module | Purpose |
+|--------|---------|
+| `core` | DMI, caching, shell utilities |
+| `processes` | `/proc` process scanner (LPEG-based) |
+| `battery` | Battery health, Bluetooth/UPower devices |
+| `dmi` | System vendor, board, BIOS, chassis info |
+| `info` | CPU model, NVMe model, install date |
+| `mtp` | MTP device detection (KDE/GVFS) |
+| `mtp` | MTP device detection |
+| `network` | WiFi, public IP, ping |
+| `sensors` | `lm-sensors` CPU/NVMe/WiFi temp, fan speed |
+| `usb` | USB mount detection |
+| `processes_extra` | Top CPU/memory process views |
+
+#### Root (`lua/`)
+
+| File | Purpose |
+|------|---------|
+| `draw_layout` | `DynamicLayout.compute()` — layout box positioning |
+| `widget` | User-defined `raw_elements`, `layout[]`, `THEME`, `SCROLL` |
+| `nowplaying` | MPRIS now playing info via playerctl |
+
+### Input System
+
+The framework supports full mouse interaction via Conky's `lua_mouse_hook`:
+
+| Feature | Description |
+|---------|-------------|
+| **Click actions** | `click` (shell cmd), `click_view` (switch view), `click_toggle` (toggle group), `clipboard` (copy text) |
+| **Scroll actions** | `scroll_up_action`, `scroll_down_action` — format: `"command:arg1:arg2"` |
+| **Hover** | `mouse_hover_view` (switch view on hover), `mouse_hover_toggle` (expand group on hover) |
+| **Right-click** | Context menu with collapse/expand/hide/restore + text copy |
+| **Drag-and-drop** | Rearrange groups by dragging (Neovim-inspired, `draggable = true` in layout) |
+| **Z-index** | Layer ordering: DEFAULT(0) → HEADER(5) → CONTEXT_MENU(100) → TOOLTIP(200) → DRAG_OVERLAY(300) |
+
+### Group System
+
+Three-state model for collapsible sections:
+
+| State | Visible | Description |
+|-------|---------|-------------|
+| `nil` | No | Hidden (context menu "Hide") |
+| `"collapsed"` | Header only | Arrow click collapses content |
+| `"expanded"` | Full | Default state |
+
+Groups are defined in `layout[]` and toggled via header arrows or context menu.
 
 ### Internationalization (i18n)
 
 [![Translation status](https://hosted.weblate.org/widget/conky-nextgen/svg-badge.svg)](https://hosted.weblate.org/projects/conky-nextgen/)
 
-Conky NextGen is the **first Conky project with full GNU gettext internationalization**. This isn't a static language switch — it's a real `.po`/`.mo` translation system, identical to what GNOME, KDE, and Weblate use.
-
-- **22 languages shipped**: Hungarian (`hu`), English (`en`), German (`de`), French (`fr`), Dutch (`nl`), Spanish (`es`), Portuguese (`pt`), Italian (`it`), Polish (`pl`), Turkish (`tr`), Japanese (`ja`), Chinese (`zh_CN`), Russian (`ru`), Romanian (`ro`), Croatian (`hr`), Arabic (`ar`), Korean (`ko`), Swedish (`sv`), Ukrainian (`uk`), Czech (`cs`), Danish (`da`), Finnish (`fi`)
+- **22 languages shipped**: Hungarian, English, German, French, Dutch, Spanish, Portuguese, Italian, Polish, Turkish, Japanese, Chinese, Russian, Romanian, Croatian, Arabic, Korean, Swedish, Ukrainian, Czech, Danish, Finnish
 - **`.pot` template** ready for any language — copy to `language/xx.po`, translate, compile with `msgfmt`
-- **Weblate‑compatible** — can be imported to Weblate for community translations with automatic PRs
+- **Weblate-compatible** — can be imported to Weblate for community translations
 - **Zero code changes** to add a language — just add a `.mo` file
-- Powered by Lua‑based gettext binding in [`lua/1_translate.lua`](../lua/1_translate.lua)
+- Powered by Lua-based gettext binding in `lua/core/translate.lua`
 
 To add a new language: copy `language/strings.pot` → `language/xx.po`, translate, run `msgfmt language/xx.po -o language/xx.mo`, and set `STRINGS_MO_PATH` in `main.lua`.
 
@@ -84,26 +136,36 @@ Numbered modules follow the same convention as Lua. Each can be run standalone.
 ### Config
 
 - `conky.conf` — Conky configuration (window size, update interval, hooks)
-- `main.lua` — Entry point, loads modules in order, defines `conky_core_main()`
+- `main.lua` — Entry point, loads modules in order via `require()`
 
 ## Data Flow
 
 1. `conky.conf` loads `main.lua` via `lua_load`
-2. `main.lua` requires all modules in numbered order
+2. `main.lua` requires all modules in dependency order (core → weather → hardware → draw)
 3. Bash scripts fetch JSON/XML data to `tmp/`
-4. `conky_core_main()` (in `24_draw_core.lua`) runs on every Conky update:
-   - Checks for file changes (watcher)
+4. `conky_core_main()` (in `lua/core/draw_core.lua`) runs on every Conky update:
    - Loads weather/spaceweather data
+   - Computes layout (if `layout[]` table exists)
    - Iterates `draw[]` items and calls the appropriate draw function
-   - Optional: computes `layout[]` for dynamic y-positioning
+   - Renders floating layers (context menu, drag overlay)
+5. `conky_on_mouse()` (in `lua/core/draw_mouse.lua`) handles all mouse events
 
 ## Drawing Widgets
 
-Drawing is driven by the `draw` table (defined in `36_widget.lua`). Each entry has a `type` field. The main loop dispatches to the correct draw function based on type.
+Drawing is driven by the `draw` table (built from `raw_elements` in `lua/widget.lua`). Each entry has a `type` field. The main loop dispatches to the correct draw function based on type.
 
 See the individual draw module docs for examples and variants.
 
-For details on the tile‑based map engine (3×3 Mercator grid, global radar support), see [`docs/sh/fetch_modules.md`](docs/sh/fetch_modules.md).
+For details on the tile-based map engine (3×3 Mercator grid, global radar support), see [`docs/sh/fetch_modules.md`](docs/sh/fetch_modules.md).
+
+## Performance (Extreme Stress Test)
+
+The NextGen Engine produced ~6% CPU and 0.2% RAM usage with 434 simultaneous,
+overlapping draw elements (text, bar, line, ring, graph, clock, calendar, image, background)
+in a 400×1040 px window.
+
+This test does not model a real-world use case — it demonstrates the engine's scalability
+and stability under extreme load. A typical Conky config uses 10–20 widgets.
 
 ## Dependencies (Arch Linux)
 
@@ -111,7 +173,7 @@ For details on the tile‑based map engine (3×3 Mercator grid, global radar sup
 pacman -S --needed conky-mng python3 lua lua-dkjson lua-filesystem lua-lpeg lua-luarocks lua-luautf8 lua-system jq curl imagemagick pacman-contrib
 ```
 
-**Note**: Interactive features (click, view switching, group toggle) require the custom `conky-mng` package with `BUILD_MOUSE_EVENTS=ON`. See [docs/pkg/conky-mng.md](pkg/conky-mng.md).
+**Note**: Interactive features (click, view switching, group toggle, drag-and-drop) require the custom `conky-mng` package with `BUILD_MOUSE_EVENTS=ON`. See [docs/pkg/conky-mng.md](pkg/conky-mng.md).
 
 The official Arch `conky` package (1.22.3) does not support mouse events. Build the custom package from `pkg/PKGBUILD` in this repository.
 

@@ -13,14 +13,14 @@ MOON_ICON_BASE = root .. "icons/moon/"
 WIND_ICON_BASE = root .. "icons/wind/"
 ICON_THEME = "default"
 os.setlocale("hu_HU.UTF-8", "time")
-package.path = "./?.lua;" .. package.path .. ";" .. root .. "/lua/?.lua;" .. root .. "/?.lua"
+package.path = "./?.lua;" .. package.path .. ";" .. root .. "/lua/?.lua;" .. root .. "/lua/core/?.lua;" .. root .. "/lua/draw/?.lua;" .. root .. "/lua/weather/?.lua;" .. root .. "/lua/hardware/?.lua;" .. root .. "/?.lua"
 
 lfs = require("lfs")
 json = require("dkjson")
-require("1_translate")
-require("2_colors")
-require("4_weather_core")
-require("5_weather_current")
+require("core.translate")
+require("core.colors")
+require("weather.core")
+require("weather.current")
 
 print("JSON_PATH:", JSON_PATH)
 print("root:", root)

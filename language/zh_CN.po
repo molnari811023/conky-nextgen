@@ -655,3 +655,23 @@ msgstr "不太可能"
 
 msgid "alert_certainty_unknown"
 msgstr "未知"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "复制"
+
+msgid "ctx_collapse"
+msgstr "折叠"
+
+msgid "ctx_expand"
+msgstr "展开"
+
+msgid "ctx_hide"
+msgstr "隐藏"
+
+msgid "ctx_restore_all"
+msgstr "全部恢复"

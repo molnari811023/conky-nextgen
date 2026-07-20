@@ -664,3 +664,23 @@ msgstr "Epätodennäköinen"
 
 msgid "alert_certainty_unknown"
 msgstr "Tuntematon"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Kopioi"
+
+msgid "ctx_collapse"
+msgstr "Pienennä"
+
+msgid "ctx_expand"
+msgstr "Laajenna"
+
+msgid "ctx_hide"
+msgstr "Piilota"
+
+msgid "ctx_restore_all"
+msgstr "Palauta kaikki"

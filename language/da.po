@@ -664,3 +664,23 @@ msgstr "usandsynlig"
 
 msgid "alert_certainty_unknown"
 msgstr "ukendt"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Kopier"
+
+msgid "ctx_collapse"
+msgstr "Fold sammen"
+
+msgid "ctx_expand"
+msgstr "Fold ud"
+
+msgid "ctx_hide"
+msgstr "Skjul"
+
+msgid "ctx_restore_all"
+msgstr "Gendan alle"

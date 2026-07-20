@@ -655,3 +655,23 @@ msgstr "Improbable"
 
 msgid "alert_certainty_unknown"
 msgstr "Inconnu"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Copier"
+
+msgid "ctx_collapse"
+msgstr "Réduire"
+
+msgid "ctx_expand"
+msgstr "Développer"
+
+msgid "ctx_hide"
+msgstr "Masquer"
+
+msgid "ctx_restore_all"
+msgstr "Tout restaurer"

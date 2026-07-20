@@ -17,7 +17,7 @@ Writes two numbers to `tmp/updates.txt`:
 <repo_count> <aur_count>
 ```
 
-Read by `14_hardware_core.lua` functions `conky_updates_repo()` and `conky_updates_aur()`.
+Read by `lua/hardware/core.lua` functions `conky_updates_repo()` and `conky_updates_aur()`.
 
 ## How it works
 - Uses `checkupdates` for repo package count

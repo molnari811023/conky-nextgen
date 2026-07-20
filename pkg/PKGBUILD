@@ -76,7 +76,7 @@ build() {
   cd conky
 
   local _flags=(
-    -D CMAKE_BUILD_TYPE=None
+    -D CMAKE_BUILD_TYPE=Release
     -D CMAKE_INSTALL_PREFIX=/usr
     -D CMAKE_INSTALL_DATAROOTDIR=/usr/share
     -D CMAKE_CXX_FLAGS="$CXXFLAGS -ffat-lto-objects"

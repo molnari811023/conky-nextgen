@@ -8,9 +8,9 @@
 
 local script_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"
 JSON_PATH = script_dir .. "tmp/"
-STRINGS_MO_PATH = script_dir .. "language/en.mo"
 ICON_BASE = script_dir .. "icons/"
 ICON_THEME = "default"
+XDG_ICON_THEME = "Papirus"
 MOON_ICON_BASE = script_dir .. "icons/moon/"
 WIND_ICON_BASE = script_dir .. "icons/wind/"
 
@@ -19,61 +19,76 @@ json = require("dkjson")
 
 os.setlocale("hu_HU.UTF-8", "time")
 
-package.path = package.path .. ";" .. script_dir .. "lua/?.lua;" .. script_dir .. "?.lua"
+package.path = package.path .. ";" .. script_dir .. "lua/?.lua;" .. script_dir .. "lua/core/?.lua;" .. script_dir .. "lua/draw/?.lua;" .. script_dir .. "lua/weather/?.lua;" .. script_dir .. "lua/hardware/?.lua"
 
--- basics
-require("1_translate")
-require("2_colors")
-require("3_watcher")
-
--- weather
-require("4_weather_core")
-require("5_weather_current")
-require("6_weather_hourly")
-require("7_weather_daily")
-require("8_weather_air")
-require("9_weather_sunmoon")
-require("10_weather_units")
-require("11_weather_alerts")
-
--- space weather (optional, comment out if not needed)
-require("12_spaceweather")
-
--- hardware
-require("13_processes")
-require("14_hardware_core")
-require("15_hardware_battery")
-require("16_hardware_dmi")
-require("17_hardware_info")
-require("18_hardware_mtp")
-require("19_hardware_nvidia")
-require("20_hardware_network")
-require("21_hardware_sensors")
-require("22_hardware_usb")
-require("23_hardware_processes")
-
--- extras (optional, comment out if not needed)
-local ok, nowplaying = pcall(require, "nowplaying")
-
--- drawing
-require("24_draw_core")
-require("25_draw_background")
-require("26_draw_bar")
-require("27_draw_graph")
-require("28_draw_clock")
-require("29_draw_rings")
-require("30_hyphen")
-require("31_draw_text")
-require("32_draw_lines")
-require("33_draw_calendar")
-require("34_draw_image")
-require("35_draw_layout")
-
--- widget definitions (draw = {}, layout = {})
-require("36_widget")
-
-function conky_cleanup()
-	watcher.cleanup()
+local lang_raw = os.getenv("LANG") or os.getenv("LC_ALL") or os.getenv("LC_MESSAGES") or "en"
+local lang_code = lang_raw:sub(1, 2):lower()
+local lang_path = script_dir .. "language/" .. lang_code .. ".mo"
+local f = io.open(lang_path, "rb")
+if f then
+	f:close()
+	STRINGS_MO_PATH = lang_path
+else
+	STRINGS_MO_PATH = script_dir .. "language/en.mo"
 end
 
-watcher.init("conky", script_dir .. "conky.conf", script_dir .. "lua/", { script_dir })
+-- ═══ CORE — alap modulok ═══
+require("core.translate")
+require("core.colors")
+
+-- ═══ WEATHER — időjárás ═══
+require("weather.core")
+require("weather.current")
+require("weather.hourly")
+require("weather.daily")
+require("weather.air")
+require("weather.sunmoon")
+require("weather.units")
+require("weather.alerts")
+require("weather.spaceweather")
+
+-- ═══ HARDWARE — hardver információk ═══
+require("hardware.processes")
+require("hardware.core")
+require("hardware.battery")
+require("hardware.dmi")
+require("hardware.info")
+require("hardware.mtp")
+require("hardware.network")
+require("hardware.sensors")
+require("hardware.usb")
+require("hardware.processes_extra")
+
+-- ═══ EXTRÁK ═══
+local ok, nowplaying = pcall(require, "nowplaying")
+
+-- ═══ CLIPBOARD ═══
+require("core.clipboard")
+
+-- ═══ DRAWING CORE — függőségi sorrendben ═══
+require("core.draw_core")     -- Cairo init, állapot, segédfüggvények, conky_core_main
+require("core.draw_group")    -- GROUP_STATE, toggle, register, visibility
+require("core.draw_input")    -- Registry-k, click/scroll akciók, build_draw
+require("core.draw_context")  -- Context menü
+require("core.draw_mouse")    -- Mouse event handler
+
+-- ═══ DRAW MODULOK — rajzolási típusok ═══
+require("draw.background")
+require("draw.bar")
+require("draw.graph")
+require("draw.clock")
+require("draw.rings")
+require("draw.hyphen")
+require("draw.text")
+require("draw.lines")
+require("draw.calendar")
+require("draw.image")
+require("draw.icon_theme")
+require("draw.svg")
+
+-- ═══ LAYOUT + WIDGET ═══
+require("draw_layout")
+require("widget")
+
+function conky_cleanup()
+end

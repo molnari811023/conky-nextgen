@@ -664,3 +664,23 @@ msgstr "nepravděpodobné"
 
 msgid "alert_certainty_unknown"
 msgstr "neznámé"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Kopírovat"
+
+msgid "ctx_collapse"
+msgstr "Sbalit"
+
+msgid "ctx_expand"
+msgstr "Rozbalit"
+
+msgid "ctx_hide"
+msgstr "Skrýt"
+
+msgid "ctx_restore_all"
+msgstr "Obnovit vše"

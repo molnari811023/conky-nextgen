@@ -655,3 +655,23 @@ msgstr "Osannolik"
 
 msgid "alert_certainty_unknown"
 msgstr "Okänd"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Kopiera"
+
+msgid "ctx_collapse"
+msgstr "Fäll ihop"
+
+msgid "ctx_expand"
+msgstr "Fäll ut"
+
+msgid "ctx_hide"
+msgstr "Dölj"
+
+msgid "ctx_restore_all"
+msgstr "Återställ alla"

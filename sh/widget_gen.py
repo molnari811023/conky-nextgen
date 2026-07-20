@@ -4,6 +4,7 @@
 Usage:
   python3 sh/widget_gen.py          interactive mode
   python3 sh/widget_gen.py --help   help
+  python3 sh/widget_gen.py --list   list widget types
 """
 
 import argparse
@@ -15,9 +16,9 @@ WIDGETS = {
         "label": "Background (rounded rect)",
         "required": [],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter (string)"),
             ("group", "string", "nil", "Group toggle name"),
-            ("draw_me", "bool/string/func", "true", "Condition (true/false, '${...}')"),
             ("x", "number", "0", "Left position"),
             ("y", "number", "0", "Top position"),
             ("w", "number", "0", "Width (0 = full window)"),
@@ -26,20 +27,26 @@ WIDGETS = {
             ("bg", "stops", "{{1,'#141618',1}}", "Background gradient"),
             ("border", "stops", "{{1,'#4c4e51',1}}", "Border gradient"),
             ("border_width", "number", "2", "Border width (0 = none)"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
+            ("scroll_up_action", "string", "nil", "Scroll up action (e.g. 'scroll:up')"),
+            ("scroll_down_action", "string", "nil", "Scroll down action"),
         ],
     },
     "text": {
         "label": "Text",
         "required": [("text", "string", "Text or Conky template (${...})")],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter"),
             ("group", "string", "nil", "Group toggle name"),
             ("click", "string", "nil", "Shell command on click"),
-            ("click_view", "string", "nil", "Switch to view name"),
-            ("click_toggle", "string", "nil", "Toggle group name"),
-            ("draw_me", "bool/string/func", "true", "Condition"),
             ("x", "number/'center'", "0", "X position or 'center'"),
             ("y", "number/'center'", "0", "Y position or 'center'"),
+            ("w", "number", "0", "Width"),
+            ("h", "number", "0", "Height"),
             ("font", "string", "'Sans'", "Font family"),
             ("size", "number", "14", "Font size (px)"),
             ("slant", "string", "'normal'", "Slant: normal/italic"),
@@ -48,51 +55,63 @@ WIDGETS = {
             ("color", "stops", "{{0,0xFFFFFF,1},{1,0xCCCCCC,1}}", "Color gradient"),
             ("wrap_width", "number", "nil", "Wrap width (px)"),
             ("wrap_dic", "string", "nil", "Hyphenation dict path"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
+            ("scroll_up_action", "string", "nil", "Scroll up action"),
+            ("scroll_down_action", "string", "nil", "Scroll down action"),
         ],
     },
     "bar": {
         "label": "Bar (progress bar)",
         "required": [],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter"),
             ("group", "string", "nil", "Group toggle name"),
             ("click", "string", "nil", "Shell command on click"),
             ("click_view", "string", "nil", "Switch to view name"),
             ("click_toggle", "string", "nil", "Toggle group name"),
-            ("draw_me", "bool/string/func", "true", "Condition"),
+            ("clipboard", "string/func", "nil", "Text to copy on click"),
             ("name", "string", "nil", "Conky variable (e.g. cpu, memperc)"),
             ("arg", "string", "nil", "Variable argument (e.g. cpu1)"),
             ("value", "number", "nil", "Static value (alters name+arg)"),
             ("x", "number", "0", "Left position"),
             ("y", "number", "0", "Top position"),
-            ("width", "number", "100", "Bar width (px)"),
-            ("height", "number", "10", "Bar height (px)"),
+            ("w", "number", "100", "Bar width (px)"),
+            ("h", "number", "10", "Bar height (px)"),
             ("max", "number", "100", "Maximum value"),
             ("angle", "number", "0", "Rotation (degrees)"),
             ("blocks", "number", "nil", "Block style (nil = smooth)"),
             ("mode", "string", "'block'", "Block mode: block/dot"),
             ("sides", "number", "nil", "Polygon sides"),
-            ("bg", "stops", "{{0,'#333333',1},{1,'#111111',1}}", "Background gradient"),
-            ("fg", "stops", "{{0,'#00ff00',1},{1,'#009900',1}}", "Foreground gradient"),
+            ("radius", "number", "nil", "Corner radius"),
+            ("bg_color", "stops", "{{0,'#333333',1},{1,'#111111',1}}", "Background gradient"),
+            ("fg_color", "stops", "{{0,'#00ff00',1},{1,'#009900',1}}", "Foreground gradient"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
         ],
     },
     "graph": {
         "label": "Graph (time-series)",
         "required": [],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter"),
             ("group", "string", "nil", "Group toggle name"),
             ("click", "string", "nil", "Shell command on click"),
             ("click_view", "string", "nil", "Switch to view name"),
             ("click_toggle", "string", "nil", "Toggle group name"),
-            ("draw_me", "bool/string/func", "true", "Condition"),
             ("name", "string", "nil", "Conky variable (e.g. cpu, downspeed)"),
             ("arg", "string", "nil", "Variable argument"),
             ("value", "number", "nil", "Static value (alters name+arg)"),
             ("x", "number", "0", "Left position"),
             ("y", "number", "0", "Top position"),
-            ("width", "number", "100", "Graph width (px)"),
-            ("height", "number", "40", "Graph height (px)"),
+            ("w", "number", "100", "Graph width (px)"),
+            ("h", "number", "40", "Graph height (px)"),
             ("max", "number", "100", "Maximum (ignored if autoscale)"),
             ("autoscale", "bool", "false", "Auto scale"),
             ("angle", "number", "0", "Rotation (degrees)"),
@@ -104,18 +123,22 @@ WIDGETS = {
             ("border_width", "number", "1", "Border width"),
             ("grid", "bool", "false", "Show grid"),
             ("grid_steps", "number", "4", "Grid steps"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
         ],
     },
     "clock": {
         "label": "Analog clock",
         "required": [],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter"),
             ("group", "string", "nil", "Group toggle name"),
             ("click", "string", "nil", "Shell command on click"),
             ("click_view", "string", "nil", "Switch to view name"),
             ("click_toggle", "string", "nil", "Toggle group name"),
-            ("draw_me", "bool/string/func", "true", "Condition"),
             ("x", "number", "100", "Center X"),
             ("y", "number", "100", "Center Y"),
             ("radius", "number", "50", "Clock radius"),
@@ -129,18 +152,22 @@ WIDGETS = {
             ("hour_color", "stops", "{{0,0xFFFFFF,1},{1,0xFFFFFF,1}}", "Hour hand color"),
             ("minute_color", "stops", "{{0,0xFFFFFF,1},{1,0xFFFFFF,1}}", "Minute hand color"),
             ("second_color", "stops", "{{0,0xFF0000,1},{1,0xAA0000,1}}", "Second hand color"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
         ],
     },
     "ring": {
         "label": "Ring (gauge)",
         "required": [],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter"),
             ("group", "string", "nil", "Group toggle name"),
             ("click", "string", "nil", "Shell command on click"),
             ("click_view", "string", "nil", "Switch to view name"),
             ("click_toggle", "string", "nil", "Toggle group name"),
-            ("draw_me", "bool/string/func", "true", "Condition"),
             ("name", "string", "nil", "Conky variable (e.g. cpu, memperc)"),
             ("arg", "string", "nil", "Variable argument"),
             ("value", "number", "nil", "Static value (alters name+arg)"),
@@ -156,18 +183,22 @@ WIDGETS = {
             ("max", "number", "100", "Maximum value"),
             ("bg", "stops", "{{0,'#333333',1},{1,'#111111',1}}", "Background gradient"),
             ("fg", "stops", "{{0,'#00ffaa',1},{1,'#008866',1}}", "Foreground gradient"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
         ],
     },
     "line": {
         "label": "Line",
         "required": [],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter"),
             ("group", "string", "nil", "Group toggle name"),
             ("click", "string", "nil", "Shell command on click"),
             ("click_view", "string", "nil", "Switch to view name"),
             ("click_toggle", "string", "nil", "Toggle group name"),
-            ("draw_me", "bool/string/func", "true", "Condition"),
             ("x1", "number", "0", "Start X"),
             ("y1", "number", "0", "Start Y"),
             ("x2", "number", "100", "End X"),
@@ -175,19 +206,25 @@ WIDGETS = {
             ("thickness", "number", "2", "Line thickness (px)"),
             ("angle", "number", "0", "Rotation (degrees)"),
             ("style_type", "string", "'solid'", "Style: solid/dashed/dotted"),
+            ("dash_on", "number", "nil", "Dash length (dashed)"),
+            ("dash_off", "number", "nil", "Gap length (dashed)"),
             ("fg", "stops", "{{0,0xFFFFFF,1},{1,0xAAAAAA,1}}", "Line color gradient"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
         ],
     },
     "calendar": {
         "label": "Calendar",
         "required": [],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter"),
             ("group", "string", "nil", "Group toggle name"),
             ("click", "string", "nil", "Shell command on click"),
             ("click_view", "string", "nil", "Switch to view name"),
             ("click_toggle", "string", "nil", "Toggle group name"),
-            ("draw_me", "bool/string/func", "true", "Condition"),
             ("x", "number", "300", "Left position"),
             ("y", "number", "15", "Top position"),
             ("cell_w", "number", "40", "Cell width (px)"),
@@ -199,6 +236,10 @@ WIDGETS = {
             ("color_days", "stops", "{{0,'#ffffff',1},{1,'#cccccc',1}}", "Day number color"),
             ("color_today", "stops", "{{0,'#66ccff',1},{1,'#3399cc',1}}", "Today highlight"),
             ("color_outside", "stops", "{{0,'#550000',0.7},{1,'#550000',0.7}}", "Outside month days"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
         ],
     },
     "image": {
@@ -207,16 +248,16 @@ WIDGETS = {
             ("path", "string", "PNG file path"),
         ],
         "optional": [
+            ("id", "string", "nil", "Unique identifier"),
             ("view", "string", "nil", "View filter"),
             ("group", "string", "nil", "Group toggle name"),
             ("click", "string", "nil", "Shell command on click"),
             ("click_view", "string", "nil", "Switch to view name"),
             ("click_toggle", "string", "nil", "Toggle group name"),
-            ("draw_me", "bool/string/func", "true", "Condition"),
             ("x", "number", "0", "Left position"),
             ("y", "number", "0", "Top position"),
-            ("width", "number", "nil", "Output width (auto if only height set)"),
-            ("height", "number", "nil", "Output height (auto if only width set)"),
+            ("w", "number", "nil", "Output width (auto if only h set)"),
+            ("h", "number", "nil", "Output height (auto if only w set)"),
             ("alpha", "number", "1", "Opacity (0-1)"),
             ("tint", "string", "nil", "Hex tint (#rrggbb)"),
             ("rotate", "number", "0", "Rotation (degrees)"),
@@ -224,13 +265,56 @@ WIDGETS = {
             ("shape", "string", "nil", "Clip shape: nil/circle"),
             ("scale_mode", "string", "'bilinear'", "Scale filter: bilinear/nearest/good"),
             ("crop", "string", "nil", "Crop table: {x=0,y=0,w=100,h=100}"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
+        ],
+    },
+    "svg": {
+        "label": "SVG (vector icon via librsvg)",
+        "required": [("path", "string", "SVG file path")],
+        "optional": [
+            ("id", "string", "nil", "Unique identifier"),
+            ("view", "string", "nil", "View filter (string)"),
+            ("group", "string", "nil", "Group toggle name"),
+            ("x", "number", "0", "X position"),
+            ("y", "number", "0", "Y position"),
+            ("w", "number", "32", "Width (auto aspect if only w)"),
+            ("h", "number", "32", "Height (auto aspect if only h)"),
+            ("rotate", "number", "0", "Rotation (degrees)"),
+            ("shape", "string", "nil", "Clip shape: nil/circle"),
+            ("radius", "number", "0", "Corner radius clip"),
+            ("alpha", "number", "1", "Opacity (0-1, uses temp surface)"),
+            ("tint", "string", "nil", "Hex tint (#rrggbb, uses temp surface)"),
+            ("tint_alpha", "number", "1", "Tint opacity (0-1)"),
+            ("click", "string", "nil", "Shell command on click"),
+            ("click_view", "string", "nil", "Switch to view name"),
+            ("click_toggle", "string", "nil", "Toggle group name"),
+            ("clipboard", "string/func", "nil", "Text to copy on click"),
+            ("mouse_hover_view", "string", "nil", "Switch to view on hover"),
+            ("mouse_hover_toggle", "string", "nil", "Expand group on hover"),
+            ("target_group", "string", "nil", "Target group for context menu"),
+            ("layout_box", "string", "nil", "Layout section name"),
+            ("collapse", "bool", "false", "Hidden when group collapsed"),
+            ("fixed", "bool", "false", "Not affected by scroll"),
+            ("z_index", "number", "nil", "Layer order (higher = on top)"),
         ],
     },
 }
 
 WIDGET_ORDER = [
     "background", "text", "bar", "graph", "clock",
-    "ring", "line", "calendar", "image",
+    "ring", "line", "calendar", "image", "svg",
+]
+
+LAYOUT_FIELDS = [
+    ("name", "string", "Section identifier"),
+    ("height", "number", "Section height (px)"),
+    ("group", "string", "Group name (for collapse)"),
+    ("header_height", "number", "Header height (px)"),
+    ("draggable", "bool", "Can be dragged to rearrange"),
+    ("draw_me", "bool/string/func", "Condition"),
 ]
 
 
@@ -294,21 +378,15 @@ def generate_widget_entry(wtype, fields):
     lines = ["{"]
     lines.append("    type = " + repr(wtype) + ",")
     for key, val in fields.items():
-        if key == "draw_me" and val == "true":
-            continue
         lines.append(indent_value(f"{key} = {val},"))
     lines.append("},")
     return "\n".join(lines)
 
 
-def generate_layout_entry(name, height, enabled, comment):
+def generate_layout_entry(fields):
     lines = ["{"]
-    lines.append(f'    name = {repr(name)},')
-    lines.append(f"    height = {height},")
-    if enabled and enabled != "true":
-        lines.append(f"    enabled = {enabled},")
-    if comment:
-        lines.append(f"    -- {comment}")
+    for key, val in fields.items():
+        lines.append(indent_value(f"{key} = {val},"))
     lines.append("},")
     return "\n".join(lines)
 
@@ -316,7 +394,7 @@ def generate_layout_entry(name, height, enabled, comment):
 def interactive_mode():
     print_header("Conky NextGen — Widget Generator")
     print("  This tool helps you create draw[] and layout[] entries for your")
-    print("  lua/36_widget.lua configuration file.")
+    print("  lua/widget.lua configuration file.")
     print()
 
     entries = []
@@ -364,7 +442,7 @@ def interactive_mode():
     has_layout = any(e["type"] == "layout" for e in entries)
 
     if has_draw:
-        output_lines.append("draw = {")
+        output_lines.append("raw_elements = {")
         for e in entries:
             if e["type"] == "draw":
                 output_lines.append(e["code"])
@@ -385,14 +463,18 @@ def interactive_mode():
     c("\033[0m")
     print()
 
-    save = input_str("Append to lua/36_widget.lua? (y/n)", "n")
+    save = input_str("Append to lua/widget.lua? (y/n)", "n")
     if save.lower() in ("y", "yes"):
-        path = "lua/36_widget.lua"
-        with open(path, "a") as f:
-            f.write("\n")
-            f.write(result)
-            f.write("\n")
-        print(f"Appended to: {path}")
+        path = "lua/widget.lua"
+        try:
+            with open(path, "a") as f:
+                f.write("\n")
+                f.write(result)
+                f.write("\n")
+            print(f"Appended to: {path}")
+        except FileNotFoundError:
+            c(f"\033[1;31mFile not found: {path}\033[0m\n")
+            c("\033[1;33mCopy the code block above to your clipboard.\033[0m\n")
     else:
         c("\033[1;33mCopy the code block above to your clipboard.\033[0m\n")
 
@@ -400,25 +482,6 @@ def interactive_mode():
 def add_widget(wtype, wdef):
     c(f"\n\033[1;32m  \u2192 {wdef['label']}\033[0m\n")
     fields = {}
-
-    c("  draw_me (true / '${var}' / fn_name / function()...end)\n")
-    c("  [\033[1mtrue\033[0m]: ")
-    first = input().strip()
-    if first == "":
-        dm = "true"
-    elif first.startswith("function"):
-        dm = first
-        c("    (type function body, empty line = done)\n")
-        while True:
-            line = input()
-            dm += "\n" + line
-            if line == "":
-                break
-        dm = dm.rstrip("\n")
-    else:
-        dm = first
-    if dm != "true":
-        fields["draw_me"] = dm
 
     for key, ftype, label in wdef["required"]:
         val = input_str(f"  {key} ({label})")
@@ -429,8 +492,6 @@ def add_widget(wtype, wdef):
                 fields[key] = val
 
     for key, ftype, default, desc in wdef["optional"]:
-        if key == "draw_me":
-            continue
         if ftype == "bool":
             val = input_bool(f"  {key} ({desc})", default)
             if val != default:
@@ -463,14 +524,38 @@ def add_widget(wtype, wdef):
 
 def add_layout_section():
     c(f"\n\033[1;32m  \u2192 Layout section\033[0m\n")
-    name = input_str("  name (identifier)")
-    if not name:
-        name = "section"
-    height = input_str("  height (px)", "100")
-    enabled = input_str("  enabled (condition)", "true")
-    comment = input_str("  comment (optional)", "")
+    fields = {}
 
-    code = generate_layout_entry(name, height, enabled, comment)
+    for key, ftype, desc in LAYOUT_FIELDS:
+        default = None
+        if key == "height":
+            default = "100"
+        elif key == "draggable":
+            default = "false"
+        elif key == "draw_me":
+            default = "true"
+
+        if ftype == "bool":
+            val = input_bool(f"  {key} ({desc})", default or "false")
+            if val != (default or "false"):
+                fields[key] = val
+        elif ftype == "number":
+            val = input_number(f"  {key} ({desc})", default)
+            if val != default:
+                fields[key] = val
+        elif ftype == "bool/string/func":
+            val = input_str(f"  {key} ({desc})", default)
+            if val != default:
+                fields[key] = val
+        else:
+            val = input_str(f"  {key} ({desc})", default)
+            if val and val != default:
+                fields[key] = repr(val) if not val.startswith("'") else val
+
+    if "name" not in fields:
+        fields["name"] = repr("section")
+
+    code = generate_layout_entry(fields)
     print()
     c("\033[1;30m")
     print(code)

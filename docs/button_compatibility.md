@@ -3,38 +3,24 @@
 ## Requirements
 - **Conky built with `BUILD_MOUSE_EVENTS=ON`** (custom `conky-mng` PKGBUILD) — see [docs/pkg/conky-mng.md](pkg/conky-mng.md)
 - `lua_mouse_hook = "conky_on_mouse"` in config
-- `own_window_type = "override"` for reliable click detection
-
-## Draw-Based Click System
-As of the framework cleanup, there is **no separate button table or `37_button_logic.lua`**. Click actions are defined directly on draw items:
-
-```lua
-{ type = "text", text = "Launch", click = "ghostty",
-  click_view = "player", click_toggle = "details" }
-```
-
-Every draw function returns `{x, y, w, h}` bounds. The main loop auto-registers items with click fields into `click_registry`. `conky_on_mouse` iterates this registry in reverse Z-order (last drawn = topmost) to find the clicked item.
-
-See [docs/lua/24_draw_core.md](lua/24_draw_core.md) for details.
-
-## Mouse Events vs XInput
-All mouse events in Conky use **XInput2** on X11 — there is no fallback.
-
-- X11/XWayland: XInput2 (`XI_ButtonPress`, `XI_Motion`, `XI_Enter`, `XI_Leave`)
-- Wayland (native): `wl_pointer`
-
-`BUILD_XINPUT` was removed in Conky 1.23.0 — XInput2 is always used.
 
 ## Window Type
-Clicks require `own_window_type = "override"` to receive mouse events reliably across desktop environments.
 
-```lua
-own_window = true,
-own_window_type = "override",
-own_window_hints = "undecorated,below,sticky,skip_taskbar,skip_pager",
-```
+`own_window_type` depends on your desktop environment:
+
+| DE / WM | Backend | `own_window_type` | Notes |
+|---------|---------|-------------------|-------|
+| KDE Plasma 6 | Wayland | `"normal"` | Works |
+| KDE Plasma 5 | X11 | `"override"` | Works |
+| MATE | X11 | `"override"` | Works |
+| XFCE | X11 | `"override"` | Works |
+| GNOME | Wayland | — | Not supported (Mutter) |
+| Sway / Hyprland | Wayland | awaiting test | Likely works under XWayland |
+
+> **Not every DE/WM has been tested.** The table above reflects my own experience. If you use a different environment, you'll need to find the correct setting in `conky.conf`. Generally: X11 → `"override"`, Wayland → `"normal"`.
 
 ## Transparency Limitation
+
 > Semi-transparent backgrounds do not work with override windows because compositors typically do not composite override-redirect windows. — Conky man page
 
 This means:
@@ -45,28 +31,32 @@ This means:
 
 Workaround: set `own_window_colour = "#000000"` and use Cairo to draw any desired background with internal alpha.
 
-## Tested Desktop Environments
+## Draw-Based Click System
 
-The NextGen interactive system works reliably on any X11 or XWayland session when using `own_window_type = "override"`.
+Click actions are defined directly on draw items:
 
-| DE | Backend | Window Type | Clicks | Notes |
-|---|---|---|---|---|
-| KDE Plasma | X11 | `override` | ✅ | Tested |
-| MATE | X11 | `override` | ✅ | Tested |
-| XFCE | X11 | `override` | ✅ | Tested |
-| GNOME | Wayland | — | ❌ | Mutter does not support desktop‑surface / layer‑shell |
+```lua
+{ type = "text", text = "Launch", click = "ghostty",
+  click_view = "player", click_toggle = "details" }
+```
 
-**General rule:**  
-✔ Works: any X11 or XWayland compositor  
-✖ Does not work: GNOME Wayland
+Every draw function returns `{x, y, w, h}` bounds. The main loop auto-registers items with click fields into `click_registry`. `conky_on_mouse` iterates this registry in reverse Z-order (last drawn = topmost) to find the clicked item.
 
-Other Wayland compositors (Sway, Hyprland, etc.) are not documented, but should work if Conky runs under XWayland. Not included in the tested list.
+## Mouse Events
+
+All mouse events in Conky use **XInput2** on X11 — there is no fallback.
+
+- X11/XWayland: XInput2 (`XI_ButtonPress`, `XI_Motion`, `XI_Enter`, `XI_Leave`)
+- Wayland (native): `wl_pointer`
+
+`BUILD_XINPUT` was removed in Conky 1.23.0 — XInput2 is always used.
 
 ## Recommended Config Template
+
 ```lua
 conky.config = {
   own_window = true,
-  own_window_type = "override",
+  own_window_type = "normal",   -- Wayland; use "override" on X11
   own_window_hints = "undecorated,below,sticky,skip_taskbar,skip_pager",
   own_window_colour = "#000000",
   double_buffer = true,

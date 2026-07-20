@@ -666,3 +666,22 @@ msgstr ""
 
 msgid "alert_certainty_unknown"
 msgstr ""
+
+############################################
+# CONTEXT MENU
+############################################
+
+msgid "ctx_copy"
+msgstr ""
+
+msgid "ctx_collapse"
+msgstr ""
+
+msgid "ctx_expand"
+msgstr ""
+
+msgid "ctx_hide"
+msgstr ""
+
+msgid "ctx_restore_all"
+msgstr ""

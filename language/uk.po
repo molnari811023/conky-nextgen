@@ -655,3 +655,23 @@ msgstr "Малоймовірно"
 
 msgid "alert_certainty_unknown"
 msgstr "Невідомо"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Копіювати"
+
+msgid "ctx_collapse"
+msgstr "Згорнути"
+
+msgid "ctx_expand"
+msgstr "Розгорнути"
+
+msgid "ctx_hide"
+msgstr "Приховати"
+
+msgid "ctx_restore_all"
+msgstr "Відновити все"

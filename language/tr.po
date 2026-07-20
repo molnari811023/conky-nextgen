@@ -611,3 +611,23 @@ msgstr "Olası değil"
 
 msgid "alert_certainty_unknown"
 msgstr "Bilinmiyor"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Kopyala"
+
+msgid "ctx_collapse"
+msgstr "Daralt"
+
+msgid "ctx_expand"
+msgstr "Genişlet"
+
+msgid "ctx_hide"
+msgstr "Gizle"
+
+msgid "ctx_restore_all"
+msgstr "Tümünü geri yükle"

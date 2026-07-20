@@ -611,3 +611,23 @@ msgstr "Mało prawdopodobne"
 
 msgid "alert_certainty_unknown"
 msgstr "Nieznane"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Kopiuj"
+
+msgid "ctx_collapse"
+msgstr "Zwiń"
+
+msgid "ctx_expand"
+msgstr "Rozwiń"
+
+msgid "ctx_hide"
+msgstr "Ukryj"
+
+msgid "ctx_restore_all"
+msgstr "Przywróć wszystko"

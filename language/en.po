@@ -655,3 +655,22 @@ msgstr "Unlikely"
 
 msgid "alert_certainty_unknown"
 msgstr "Unknown"
+
+############################################
+# CONTEXT MENU
+############################################
+
+msgid "ctx_copy"
+msgstr "Copy"
+
+msgid "ctx_collapse"
+msgstr "Collapse"
+
+msgid "ctx_expand"
+msgstr "Expand"
+
+msgid "ctx_hide"
+msgstr "Hide"
+
+msgid "ctx_restore_all"
+msgstr "Restore all"

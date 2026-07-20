@@ -655,3 +655,23 @@ msgstr "Puțin probabil"
 
 msgid "alert_certainty_unknown"
 msgstr "Necunoscut"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Copiază"
+
+msgid "ctx_collapse"
+msgstr "Restrânge"
+
+msgid "ctx_expand"
+msgstr "Extinde"
+
+msgid "ctx_hide"
+msgstr "Ascunde"
+
+msgid "ctx_restore_all"
+msgstr "Restaurare tot"

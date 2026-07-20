@@ -655,3 +655,23 @@ msgstr "غير محتمل"
 
 msgid "alert_certainty_unknown"
 msgstr "غير معروف"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "نسخ"
+
+msgid "ctx_collapse"
+msgstr "طي"
+
+msgid "ctx_expand"
+msgstr "توسيع"
+
+msgid "ctx_hide"
+msgstr "إخفاء"
+
+msgid "ctx_restore_all"
+msgstr "استعادة الكل"

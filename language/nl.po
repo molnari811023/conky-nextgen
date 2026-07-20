@@ -655,3 +655,23 @@ msgstr "Onwaarschijnlijk"
 
 msgid "alert_certainty_unknown"
 msgstr "Onbekend"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "Kopiëren"
+
+msgid "ctx_collapse"
+msgstr "Inklappen"
+
+msgid "ctx_expand"
+msgstr "Uitklappen"
+
+msgid "ctx_hide"
+msgstr "Verbergen"
+
+msgid "ctx_restore_all"
+msgstr "Alles herstellen"

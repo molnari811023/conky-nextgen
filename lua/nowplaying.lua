@@ -12,7 +12,10 @@ local cache = {}
 local last_mtime = 0
 
 local function load()
-	local path = TMP_DIR .. "nowplaying.json"
+	local base_path = JSON_PATH or "/tmp/"
+	if base_path:sub(-1) ~= "/" then base_path = base_path .. "/" end
+	local path = base_path .. "nowplaying.json"
+
 	local attr = lfs.attributes(path)
 	if not attr then
 		cache = {}
@@ -29,7 +32,7 @@ local function load()
 	end
 	local content = f:read("*a")
 	f:close()
-	local ok, data = pcall(JSON.decode, JSON, content)
+	local ok, data = pcall(JSON.decode, content)
 	if ok and type(data) == "table" then
 		cache = data
 	else

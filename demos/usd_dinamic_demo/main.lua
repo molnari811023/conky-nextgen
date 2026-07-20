@@ -6,16 +6,16 @@ local project_dir = script_dir .. "../../"
 lfs = require("lfs")
 json = require("dkjson")
 
-package.path = package.path .. ";" .. project_dir .. "lua/?.lua;" .. project_dir .. "demos/?.lua"
+package.path = package.path .. ";" .. project_dir .. "lua/?.lua;" .. project_dir .. "lua/core/?.lua;" .. project_dir .. "lua/draw/?.lua;" .. project_dir .. "lua/weather/?.lua;" .. project_dir .. "lua/hardware/?.lua;" .. project_dir .. "demos/?.lua"
 
 require("helpers")
-require("24_draw_core")
-require("25_draw_background")
-require("14_hardware_core")
-require("22_hardware_usb")
-require("26_draw_bar")
-require("31_draw_text")
-require("35_draw_layout")
+require("core.draw_core")
+require("draw.background")
+require("hardware.core")
+require("hardware.usb")
+require("draw.bar")
+require("draw.text")
+require("draw_layout")
 require("widget")
 
 function usb_disk_usage(mount)

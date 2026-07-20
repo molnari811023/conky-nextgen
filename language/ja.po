@@ -655,3 +655,23 @@ msgstr "可能性が低い"
 
 msgid "alert_certainty_unknown"
 msgstr "不明"
+
+############################################
+# CONTEXT MENU
+############################################
+
+
+msgid "ctx_copy"
+msgstr "コピー"
+
+msgid "ctx_collapse"
+msgstr "折りたたむ"
+
+msgid "ctx_expand"
+msgstr "展開する"
+
+msgid "ctx_hide"
+msgstr "非表示"
+
+msgid "ctx_restore_all"
+msgstr "すべて復元"
