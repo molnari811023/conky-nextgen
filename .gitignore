@@ -1,7 +1,7 @@
 .env
+__pycache__/
+*.pyc
 examples/multi_view/
-sh/__pycache__/
-tmp/*.png
+tmp/
 pkg/src/
 pkg/pkg/
-

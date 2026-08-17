@@ -1,110 +1,213 @@
-# conky-nextgen
+# Conky NextGen
 
-Lua/Cairo alapu Conky widget keretrendszer vizualis designer szerkesztovel.
+A modular, theme-driven Conky UI framework with a Lua/Cairo rendering engine, Bash data backend, and a full visual Designer.
+Built for modern desktops (KDE Plasma Wayland/X11), with clean SIGUSR1 reloads and zero window flashing.
 
-## Inditas
+---
+
+## Quick Start
 
 ```bash
-python3 sh/designer/main.py          # Designer megnyitasa
-conky -c clock_cal.conf              # Widget inditas
+python3 sh/designer/main.py      # Launch the visual Designer
+conky -c clock_cal.conf          # Run a widget
 ```
 
-Menteskor a designer automatikusan ujratolti a conky-t (inotify + SIGUSR1 patch).
+The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly without restarting.
 
-## Widgetek
+---
 
-| Widget | Leiras |
+![Designer](screenshots/designer.png)
+*The NextGen Designer — live preview, property editor, theme controls*
+
+### Widgets
+
+| Clock + Calendar | System Info | Memory + Swap | NVIDIA GPU |
+|:---:|:---:|:---:|:---:|
+| ![clock_cal](screenshots/clock_cal.png) | ![info](screenshots/info.png) | ![mem_swap](screenshots/mem_swap.png) | ![nvidia](screenshots/nvidia.png) |
+
+---
+
+## What NextGen Provides
+
+- **Desktop widgets** — clocks, calendars, bars, rings, graphs, images, SVG
+- **System info** — CPU, RAM, NVMe, sensors, network, battery, DMI
+- **Advanced weather** — current, hourly, daily, AQI, MeteoAlerts, sun/moon, space weather
+- **Themes** — palette → gradients → per-widget defaults; every color resolves automatically
+- **Views & groups** — switchable layouts, clickable regions, mouse-driven navigation
+- **Visual editing** — no Lua coding required; everything is editable in the Designer
+- **22 languages** — full i18n with `.po`/`.mo` translation files
+- **X11 + Wayland** — runs on both; SIGUSR1 reload patch eliminates window flashing on X11
+
+## Designer (GTK3)
+
+A Python/GTK3 application that edits `widget.lua` and `widget.conf`:
+
+- **Live preview** — renders inside a real Conky window; what you see is what you get
+- **Property editor** — tabs for widgets, themes, colors, and Conky configuration
+- **Auto-save** — writes files and triggers SIGUSR1 reload; Conky updates in place
+- **Log console** — tails the Conky log for real-time debugging
+- **Theme editor** — adjust palette, gradients, and defaults with instant visual feedback
+- **Undo** — full action history; step back through any change
+
+### Designer Architecture
+
+```
+sh/designer/
+├── main.py                 # GTK application entry point
+├── engine/
+│   ├── lua_parser.py       # Parse widget.lua structure
+│   ├── lua_data.py         # Read/write widget properties
+│   ├── theme_engine.py     # Theme resolution (palette → gradients → defaults)
+│   ├── theme_writer.py     # Write theme block back to widget.lua
+│   ├── gradient_gen.py     # Auto-generate gradients from palette colors
+│   ├── activity_log.py     # Action history for undo
+│   └── widget_schema.py    # Widget type definitions & validation
+├── ui/                     # GTK window, tabs, property widgets
+├── tests/                  # Unit tests
+└── icons/                  # App icons (SVG + PNG)
+```
+
+## Lua Framework
+
+All rendering logic lives in `lua/`.
+A single `widget.lua` file defines:
+
+- the `THEMES` block (palette, gradients, defaults)
+- the `draw` list (widget order and properties)
+
+### Load Order
+
+```
+widget.lua → require.lua → lua/core/* → lua/draw/* → lua/hardware/* → lua/weather/*
+```
+
+### Core Modules
+
+| Module | Purpose |
 |---|---|
-| `clock_cal` | Ora + naptar |
-| `weather` | Időjárás (Open-Meteo API) |
-| `info` | Rendszerinformaciok |
-| `mem_swap` | Memoria + swap |
-| `nvidia` | NVIDIA GPU allapot |
+| `draw_core.lua` | Main render loop, auto-interpretation, visibility control |
+| `draw_group.lua` | Group offsets, view filtering, layout stacking |
+| `mouse.lua` | Mouse event dispatching, hit-testing, click regions |
+| `theme_engine.lua` | Runtime palette/gradient/default resolution |
+| `translate.lua` | `.mo` translation loader for 22 languages |
+| `utils.lua` | Safe math, hex colors, gradient interpolation, Conky variable parsing |
+| `capture.lua` | Shell command execution with result caching |
 
-Minden widget 3 fajlbol all: `.conf` (conky konfig), `.lua` (rajzolas + adatok), `.png` (elonezet).
+### Draw Modules
 
-## Szerkezet
+| Module | Renders |
+|---|---|
+| `background.lua` | Rounded rectangles with gradient fills and borders |
+| `bar.lua` | Progress bars — smooth, block, dot, and polygon modes |
+| `calendar.lua` | Month calendar grid with day highlighting |
+| `clock.lua` | Analog clock with hour/minute/second hands |
+| `graph.lua` | Scrolling time-series graphs with configurable scales |
+| `rings.lua` | Circular gauges with alarm thresholds |
+| `svg.lua` | SVG rasterization via librsvg |
+| `image.lua` | PNG display with crop, tint, and rotate |
+| `text.lua` | Text with alignment, line wrapping, and hyphenation |
+| `lines.lua` | Lines — solid, dash, dot patterns |
+| `hyphen.lua` | LibreOffice `.dic` hyphenation for language-aware text wrapping |
+| `icon_theme.lua` | XDG icon resolver for system tray-style icons |
 
+### Hardware Modules
+
+| Module | Data Source |
+|---|---|
+| `battery.lua` | Battery level, headset/mouse battery via UPower |
+| `core.lua` | DMI info, shell cache, system identity |
+| `dmi.lua` | BIOS, board, chassis details from `/sys/class/dmi/id/` |
+| `info.lua` | CPU model, NVMe SMART data, install date |
+| `sensors.lua` | CPU/NVMe/WiFi temperature, fan speeds via lm-sensors |
+| `network.lua` | WiFi SSID/signal, public IP, ping latency |
+| `usb.lua` | USB device mount detection |
+| `mtp.lua` | MTP device detection (KDE Plasma) |
+
+### Weather Modules
+
+| Module | Data |
+|---|---|
+| `current.lua` | Current conditions — 35 accessors for every field |
+| `hourly.lua` | Hourly forecast (1–24 hours) |
+| `daily.lua` | Daily forecast (1–7 days) |
+| `air.lua` | Air quality — PM2.5/10, gases, pollen, AQI index |
+| `alerts.lua` | MeteoAlarm XML parser — 26 functions for warning data |
+| `sunmoon.lua` | Sunrise/sunset, moon phase, golden hour |
+| `spaceweather.lua` | NOAA Kp index, solar wind speed, aurora probability |
+| `units.lua` | Unit labels, city names, locale-aware formatting |
+| `core.lua` | Data loader, WMO weather codes, icon mapping |
+
+## Widget Structure
+
+Each widget consists of three files:
+
+| File | Purpose |
+|---|---|
+| `widget.conf` | Conky configuration (Designer-generated) |
+| `widget.lua` | Theme block + draw list (Designer-edited) |
+| `widget.png` | Preview icon (for Conky Manager) |
+
+Included widgets: `clock_cal` (analog clock + calendar), `weather` (full forecast panel), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
+
+## SIGUSR1 Reload Patch (X11)
+
+NextGen includes a patch for clean X11 reloads (`pkg/sigusr1-reload.patch`):
+
+- **Keeps the X window alive** — no destroy/recreate cycle
+- **Preserves the X11 display connection** — no reconnect overhead
+- **Queries real window attributes** via `XGetWindowAttributes()` — correct visual, colormap, and geometry
+- **No flash, no content loss** — widget content stays visible through the reload
+- **Wayland unaffected** — already reloads cleanly by default
+
+The patch is applied automatically when building via the included `PKGBUILD`.
+
+## Shell Backend (`sh/`)
+
+Bash scripts fetch all external data into `tmp/`:
+
+| Script | Data |
+|---|---|
+| `all_in_one.sh` | Single-call fetcher (weather + hardware + network) |
+| `0_fetch_all.sh` | Full data fetch (all modules) |
+| `4_fetch_weather.sh` | Open-Meteo weather API |
+| `11_fetch_alerts.sh` | MeteoAlarm XML feeds |
+| `12_fetch_spaceweather.sh` | NOAA space weather data |
+| `13_fetch_maps.sh` | Weather map tiles |
+| `fetch_network.sh` | Public IP, ping latency tests |
+| `fetch_nowplaying.sh` | MPRIS player data via playerctl |
+| `updates.sh` | Arch Linux package update checks |
+
+Data is cached as JSON in `tmp/` and read directly by the Lua modules — no database required.
+
+## Themes
+
+Themes are defined in the `THEMES` block of `widget.lua`:
+
+```lua
+THEMES = {
+  theme = {
+    palette   = { bg_dark="#202326", fg="#fcfcfc", accent="#3daee9", ... },
+    gradients = { bar_cpu = { {1,"#3daee9",1} }, ... },
+    defaults  = { bar={fg="bar_cpu",bg="bg"}, ring={radius=35}, ... },
+  },
+}
 ```
-conky-nextgen/
-├── clock_cal.conf/lua/png     # Ora + naptar widget
-├── weather.conf/lua/png       # Időjárás widget
-├── info.conf/lua/png          # Rendszerinfo widget
-├── mem_swap.conf/lua/png      # Memoria widget
-├── nvidia.conf/lua/png        # NVIDIA widget
-├── lua/
-│   ├── core/                  # Keretrendszer mag
-│   │   ├── colors.lua         # Breeze Dark szinpalotta
-│   │   ├── draw_core.lua      # Fő ciklus, auto-ertelmezes
-│   │   ├── mouse.lua          # Egeresemeny kezeles
-│   │   ├── translate.lua      # Nyelvi fajlok (.mo)
-│   │   └── utils.lua          # Segitofuggvenyek
-│   ├── draw/                  # Cairo rajzolo modulok
-│   │   ├── background.lua     # Lekerekitett teglalapok
-│   │   ├── bar.lua            # Progressz savok
-│   │   ├── calendar.lua       # Naptar grid
-│   │   ├── clock.lua          # Analog ora
-│   │   ├── graph.lua          # Idősoros grafikonok
-│   │   ├── image.lua          # PNG megjelenites
-│   │   ├── lines.lua          # Vonaltipusok
-│   │   ├── rings.lua          # Gyuru mutatok
-│   │   ├── svg.lua            # SVG (librsvg)
-│   │   └── text.lua           # Szoveg igazitas
-│   ├── hardware/              # Hardver informacio modulok
-│   │   ├── battery.lua        # Akksi, headset, eger
-│   │   ├── core.lua           # DMI, cache, shell
-│   │   ├── info.lua           # CPU, NVMe, telepites
-│   │   ├── network.lua        # WiFi, publikus IP
-│   │   ├── processes.lua      # Top/top_mem
-│   │   ├── sensors.lua        # Homerseklet, ventilator
-│   │   └── usb.lua            # USB csatlakozas
-│   ├── weather/               # Időjárás adat modulok
-│   │   ├── air.lua            # Levegominoseg
-│   │   ├── alerts.lua         # MeteoAlarm XML
-│   │   ├── core.lua           # Adatbetoltes, WMO kodok
-│   │   ├── current.lua        # Aktualis időjárás
-│   │   ├── daily.lua          # Napi elorejelzes
-│   │   ├── hourly.lua         # Oras elorejelzes
-│   │   ├── spaceweather.lua   # Naptevekenyseg, aurora
-│   │   ├── sunmoon.lua        # Napkelte/nyugta, hold
-│   │   └── units.lua          # Mertekegysegek
-│   └── nowplaying.lua         # MPRIS lejatszo
-├── sh/
-│   ├── designer/              # Vizualis szerkeszto (Python/GTK)
-│   ├── all_in_one.sh          # Adatlekerdez (egy hivas)
-│   └── *.sh                   # Egyeni lekerdezok
-├── icons/                     # Időjárás, szel, hold ikonok
-├── language/                  # Nyelvek (22)
-├── pkg/
-│   ├── PKGBUILD               # Arch Linux csomag
-│   └── sigusr1-reload.patch   # SIGUSR1 reload patch (X11)
-├── debug/                     # Fuggvenytesztek
-└── NextGen.md                 # Részletes dokumentacio
-```
 
-## SIGUSR1 Reload Patch
+- **Palette** — named colors; the building blocks for everything else
+- **Gradients** — named color ramps; color fields reference them by name (e.g. `fg = "bar_cpu"`)
+- **Defaults** — per-widget-type fallback values; a bare `type = "bar"` still looks right
 
-A `pkg/sigusr1-reload.patch` javitja a conky X11 viselkedeset SIGUSR1 reload kozben:
+Themes can be switched at runtime from the Designer's Theme tab. Widgets can override per-item with `theme = "other_theme"`.
 
-- Az ablak nem semmisul meg es nem hoz letre ujat — a meglevot hasznalja
-- Az X11 kapcsolat nyitva marad
-- A visual/geometry lekerdezese a tenyleges ablak attributumokbol tortenik
-- Nincs villanas, nincs tartalom elvesztes
+## Requirements
 
-Wayland-on mar alapbol jol mukodik, a patch csak X11-et erinti.
+- **Conky 1.24.3+** (Lua 5.5, Cairo, Xft, Imlib2, RSVG)
+- **Python 3.10+** with PyGObject (GTK3) — for the Designer
+- **Bash** + curl + jq — for data fetchers
+- **Lua modules**: dkjson, lfs, lua-utf8 (optional: lpeg for faster JSON decoding)
+- **System tools**: lm-sensors, playerctl, upower, lsblk
+- **Optional**: XDG icon themes, `kio-extras` (MTP support under KDE Plasma)
 
-## Konfiguralas
+## Documentation
 
-A `conky-startup.sh` inditja az osszes widgetet:
-
-```bash
-bash ~/.conky/conky-startup.sh
-```
-
-## Kovetelmenyek
-
-- Conky 1.24.3+ (Lua 5.5, Cairo, Imlib2, RSVG)
-- Lua konyvtarak: dkjson, lfs
-- Rendszer: lm-sensors, playerctl, upower, lsblk
-- Python 3.10+ (designerhez)
-- GTK3 (designerhez)
+- [NextGen.md](NextGen.md) — full reference (themes, configuration, troubleshooting, shell backend, Lua engine internals)
