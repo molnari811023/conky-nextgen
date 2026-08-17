@@ -43,7 +43,6 @@ The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly
 
 - **Desktop widgets** — clocks, calendars, bars, rings, graphs, images, SVG
 - **System info** — CPU, RAM, NVMe, sensors, network, battery, DMI
-- **Advanced weather** — current, hourly, daily, AQI, MeteoAlerts, sun/moon, space weather
 - **Themes** — palette → gradients → per-widget defaults; every color resolves automatically
 - **Views & groups** — switchable layouts, clickable regions, mouse-driven navigation
 - **Visual editing** — no Lua coding required; everything is editable in the Designer
@@ -59,7 +58,6 @@ A Python/GTK3 application that edits `widget.lua` and `widget.conf`:
 - **Auto-save** — writes files and triggers SIGUSR1 reload; Conky updates in place
 - **Log console** — tails the Conky log for real-time debugging
 - **Theme editor** — adjust palette, gradients, and defaults with instant visual feedback
-- **Undo** — full action history; step back through any change
 
 ### Designer Architecture
 
@@ -159,7 +157,7 @@ Each widget consists of three files:
 | `widget.lua` | Theme block + draw list (Designer-edited) |
 | `widget.png` | Preview icon (for Conky Manager) |
 
-Included widgets: `clock_cal` (analog clock + calendar), `weather` (full forecast panel), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
+Included widgets: `clock_cal` (analog clock + calendar), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
 
 ## SIGUSR1 Reload Patch (X11)
 
