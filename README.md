@@ -5,11 +5,23 @@ Built for modern desktops (KDE Plasma Wayland/X11), with clean SIGUSR1 reloads a
 
 ---
 
-## Quick Start
+## Install
 
 ```bash
-python3 sh/designer/main.py      # Launch the visual Designer
-conky -c clock_cal.conf          # Run a widget
+# Clone into ~/.conky
+git clone git@github.com:molnari811023/conky-nextgen.git ~/.conky
+
+# Desktop entry (optional — adds NextGen Designer to app menu)
+cp ~/.conky/nextgen-designer.desktop ~/.local/share/applications/
+
+# Fetch weather/system data
+bash ~/.conky/sh/0_fetch_all.sh
+
+# Launch the Designer
+python3 ~/.conky/sh/designer/main.py
+
+# Or run a widget directly
+conky -c ~/.conky/clock_cal.conf
 ```
 
 The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly without restarting.
