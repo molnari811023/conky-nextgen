@@ -1,11 +1,26 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- hardware/mtp.lua — MTP device detection (KDE KIO / GVFS)
-function kde_mtp_info()
+-- Callable from Conky:
+--   conky_mtp_data()         → { count, devices[] }
+--     Full MTP info: a table with `count` and a `devices` array, each
+--     device having name and storages. Refreshed every 5s.
+--   conky_mtp_count()        → number
+--     Number of connected MTP devices (phone, tablet…).
+--   conky_mtp_perc(dev_idx, storage_idx) → number (0-100)
+--     Fill percentage of a device's storage (1-based indexes) — handy for
+--     a phone-storage bar. Returns 0 when the index is out of range.
+--
+-- Automatic: KDE Plasma → qdbus6, others → GVFS/gio
+--}}}
+
+local function kde_mtp_info()
 	return cached("kde_mtp_info", 5, function()
 		local data = { count = 0, devices = {} }
 		local devs = pread("qdbus6 --literal org.kde.kiod6 /modules/kmtpd org.kde.kmtp.Daemon.listDevices 2>/dev/null")
@@ -49,7 +64,7 @@ function kde_mtp_info()
 	end)
 end
 
-function gvfs_mtp_info()
+local function gvfs_mtp_info()
 	return cached("gvfs_mtp_info", 5, function()
 		local uid = pread("id -u")
 		local base = "/run/user/" .. uid .. "/gvfs/"

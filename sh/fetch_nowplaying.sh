@@ -1,12 +1,28 @@
 #!/bin/bash
-#[[
+#{{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
-#]]
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+
+#{{{
 # fetch_nowplaying.sh — Multi-player track info + album art fetcher
-# Supports: playerctl (MPRIS), CMUS, MPD, MOC
-# Sources 0_common.sh. Call: source fetch_nowplaying.sh && fetch_nowplaying
+#
+# Supported players (auto-detected in priority order):
+#   1. playerctl (MPRIS2) — Spotify, VLC, Firefox, Chrome, etc.
+#   2. CMUS — cmus-remote
+#   3. MPD — mpc
+#   4. MOC — mocp
+#
+# Features:
+#   - Caches JSON to avoid re-downloading album art when track unchanged
+#   - Supports file:// and http:// album art URLs
+#   - Falls back to "Unknown Title"/"Unknown Artist" for empty fields
+#
+# Usage: source 0_common.sh && fetch_nowplaying
+# Output: tmp/nowplaying.json, tmp/album_art.png
+#}}}
 
 [ -n "$_FETCH_NOWPLAYING" ] && return || _FETCH_NOWPLAYING=1
 
@@ -120,26 +136,31 @@ if os.path.exists(json_path):
         pass
 
 art_url = os.environ.get('NEXTGEN_ART_URL', '').strip()
+tmp_art = art_path_target + '.tmp'
 if art_url:
     try:
         if art_url.startswith('file://'):
             local_path = urllib.parse.unquote(art_url.replace('file://', ''))
             import shutil
-            shutil.copy2(local_path, art_path_target)
+            shutil.copy2(local_path, tmp_art)
+            os.replace(tmp_art, art_path_target)
             curr_data['art'] = art_path_target
         elif art_url.startswith('http://') or art_url.startswith('https://'):
             req = urllib.request.Request(art_url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=2) as response, open(art_path_target, 'wb') as out_file:
+            with urllib.request.urlopen(req, timeout=2) as response, open(tmp_art, 'wb') as out_file:
                 out_file.write(response.read())
+            os.replace(tmp_art, art_path_target)
             curr_data['art'] = art_path_target
     except:
+        if os.path.exists(tmp_art): os.remove(tmp_art)
         if os.path.exists(art_path_target): os.remove(art_path_target)
 else:
     if os.path.exists(art_path_target):
         os.remove(art_path_target)
 
-with open(json_path, 'w', encoding='utf-8') as f:
+with open(json_path + '.tmp', 'w', encoding='utf-8') as f:
     json.dump(curr_data, f, ensure_ascii=False)
+os.replace(json_path + '.tmp', json_path)
 " 2>/dev/null
 
 	# Cleanup environment

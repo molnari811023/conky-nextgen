@@ -1,7 +1,23 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+
+#{{{
+#  language/de.po — German translations
+#  Compiled to language/de.mo (msgfmt)
+#}}}
+
 msgid ""
 msgstr ""
-"Project-Id-Version: conky-weather 1.0\n"
+"Project-Id-Version: conky-nextgen 1.0\n"
 "Language: de\n"
+"X-Framework: Conky NextGen Framework\n"
+"X-Author: István Molnár\n"
+"X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
+"X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -655,23 +671,3 @@ msgstr "Unwahrscheinlich"
 
 msgid "alert_certainty_unknown"
 msgstr "Unbekannt"
-
-############################################
-# CONTEXT MENU
-############################################
-
-
-msgid "ctx_copy"
-msgstr "Kopieren"
-
-msgid "ctx_collapse"
-msgstr "Einklappen"
-
-msgid "ctx_expand"
-msgstr "Ausklappen"
-
-msgid "ctx_hide"
-msgstr "Ausblenden"
-
-msgid "ctx_restore_all"
-msgstr "Alle wiederherstellen"

@@ -1,0 +1,76 @@
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
+-- require.lua — Central module loader
+-- Load order (important!):
+-- 1. C libraries: cairo, rsvg, imlib2, lfs, dkjson
+-- 2. Core: theme_engine (themes come from the THEMES block in widget.lua),
+--    translate, utils, draw_core, mouse_actions, mouse
+-- 3. Weather: core, current, hourly, daily, air, sunmoon, units, alerts, spaceweather
+-- 4. Hardware: core, battery, dmi, info, mtp, network, sensors, usb
+-- 5. Extra: nowplaying
+-- 6. Draw: icon_theme, hyphen, background, text, bar, graph, image, svg, clock, calendar, lines, rings
+--
+-- Debug files are in debug/ folder:
+--   debug/debug_weather.lua    — weather module dump (requires tmp/ data)
+--   debug/debug_hardware.lua   — hardware module dump (real values)
+--}}}
+
+cairo = require("cairo")
+rsvg = require("rsvg")
+imlib2 = require("imlib2")
+lfs = require("lfs")
+json = require("dkjson")
+
+-- ═══ CORE ═══
+require("core.theme_engine")
+require("core.translate")
+require("core.utils")
+require("core.draw_core")
+require("core.capture")
+require("core.draw_group")
+require("mouse_actions")
+require("core.mouse")
+
+-- ═══ WEATHER ═══
+require("weather.core")
+require("weather.current")
+require("weather.hourly")
+require("weather.daily")
+require("weather.air")
+require("weather.sunmoon")
+require("weather.units")
+require("weather.alerts")
+require("weather.spaceweather")
+
+-- ═══ HARDWARE ═══
+require("hardware.core")
+require("hardware.battery")
+require("hardware.dmi")
+require("hardware.info")
+require("hardware.mtp")
+require("hardware.network")
+require("hardware.sensors")
+require("hardware.usb")
+
+-- ═══ EXTRAS ═══
+require("nowplaying")
+
+-- ═══ DRAW MODULES ═══
+require("draw.icon_theme")
+hyphen = require("draw.hyphen")
+require("draw.background")
+require("draw.text")
+require("draw.bar")
+require("draw.graph")
+require("draw.image")
+require("draw.svg")
+require("draw.clock")
+require("draw.calendar")
+require("draw.lines")
+require("draw.rings")

@@ -1,17 +1,45 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- draw/text.lua — Text rendering with alignment, word wrap, hyphenation
+-- draw_text(cr, opts) → { x, y, w, h }
+--     Draw a line of text with optional conky template expansion
+--     (${...}), alignment (left/center/right), word wrap and dictionary
+--     hyphenation. Returns the measured bounding box of the drawn text.
+-- normalize_text(cfg) → string | nil
+--
+-- Parameters:
+--   x, y (or "center"), font, size, slant, weight, align
+--   text → interpret_name table / function / plain string (auto-conky_parse)
+--   color = { { position, "#hex", alpha }, ... }
+--   wrap_width, wrap_dic (hyphenation .dic path)
+--
+-- Auto-interpretation (done by draw_core):
+--   "${nodename}"     → conky_parse
+--   "os.date('%H:%M')" → load()
+--   "CPU: ${cpu}%"     → conky_parse
+--
+-- Example:
+--   draw[#draw+1] = {
+--       type = "text",
+--       x = 30, y = 20,
+--       font = "Mono", size = 14, weight = "bold",
+--       text = "CPU: ${cpu}%",
+--       color = { { 1, "#7aa2f7", 1 } },
+--   }
+
+-- Pre-allocated Cairo structs (reused every tick to avoid binding leak)
+--}}}
+
+local _text_ext = cairo_text_extents_t:create()
+local _font_ext = cairo_font_extents_t:create()
+
 local TEXT_DEFAULT = {
-	view = nil,
-	group = nil,
-	click = nil,
-	click_view = nil,
-	click_toggle = nil,
-	hover_view = nil,
 	x = 0,
 	y = 0,
 	font = "Sans",
@@ -20,27 +48,36 @@ local TEXT_DEFAULT = {
 	weight = "normal",
 	align = "left",
 	text = "",
-	color = {
-		{ 0.0, 0xFFFFFF, 1 },
-		{ 1.0, 0xCCCCCC, 1 },
-	},
 	wrap_width = nil,
 	wrap_dic = nil,
+	-- color: provided by the theme via apply_theme()
 }
-function normalize_text(cfg)
+local function normalize_text(cfg)
 	if not cfg or not cfg.text then
 		return nil
 	end
 	local raw = cfg.text
-	if type(raw) == "function" then
-		local ok, result = pcall(raw)
-		if ok and result then raw = tostring(result) else return nil end
-	end
-	local txt = conky_parse(raw)
-	if not txt or txt == "" then
+	-- interpret_name table → exec at draw time
+	if type(raw) == "table" and raw.exec then
+		local result = raw.exec()
+		if result then
+			return tostring(result)
+		end
 		return nil
 	end
-	return txt
+	-- legacy compat: function() return X end
+	if type(raw) == "function" then
+		local result = raw()
+		if result then
+			return tostring(result)
+		end
+		return nil
+	end
+	-- plain text → conky_parse (Conky handles it)
+	if not raw or raw == "" then
+		return nil
+	end
+	return conky_parse(raw)
 end
 
 function draw_text(cr, opts)
@@ -55,11 +92,8 @@ function draw_text(cr, opts)
 	for k, v in pairs(opts) do
 		cfg[k] = v
 	end
-	if not draw_allowed(cfg.view, cfg.group) then
-		return
-	end
 	if type(cfg.color) ~= "table" or #cfg.color == 0 then
-		cfg.color = TEXT_DEFAULT.color
+		cfg.color = { { 1, "#a9b1d6", 1 } }
 	end
 	local txt = normalize_text(cfg)
 	if not txt then
@@ -81,20 +115,13 @@ function draw_text(cr, opts)
 	local text_w, text_h = 0, 0
 	if cfg.wrap_width and cfg.wrap_width > 0 then
 		local line_height
-		local ok, fe = pcall(function()
-			local obj = cairo_font_extents_t:create()
-			cairo_font_extents(cr, obj)
-			return obj.height * 1.2
-		end)
-		if ok then
-			line_height = fe
-		else
-			line_height = cfg.size * 1.4
-		end
+		local obj = _font_ext
+		cairo_font_extents(cr, obj)
+		line_height = obj.height * 1.2
 
 		local hyph
 		if cfg.wrap_dic then
-			hyph = require("draw.hyphen")
+			hyph = hyphen
 			local ok = hyph.load(cfg.wrap_dic)
 			if not ok then hyph = nil end
 		end
@@ -108,7 +135,7 @@ function draw_text(cr, opts)
 		local current = ""
 		for _, word in ipairs(words) do
 			local test_line = (#current == 0) and word or current .. " " .. word
-			local te = cairo_text_extents_t:create()
+			local te = _text_ext
 			cairo_text_extents(cr, test_line, te)
 			if te.width <= cfg.wrap_width then
 				current = test_line
@@ -116,13 +143,13 @@ function draw_text(cr, opts)
 				if #current > 0 then
 					lines[#lines + 1] = current
 				end
-				local we = cairo_text_extents_t:create()
+				local we = _text_ext
 				cairo_text_extents(cr, word, we)
 				if we.width > cfg.wrap_width and hyph then
 					current = ""
 					local remaining = word
 					while #remaining > 0 do
-						local we2 = cairo_text_extents_t:create()
+						local we2 = _text_ext
 						cairo_text_extents(cr, remaining, we2)
 						if we2.width <= cfg.wrap_width then
 							current = remaining
@@ -134,7 +161,7 @@ function draw_text(cr, opts)
 							best_bp = breaks[1]
 							for _, bp in ipairs(breaks) do
 								local prefix = remaining:sub(1, bp) .. "-"
-								local pe = cairo_text_extents_t:create()
+								local pe = _text_ext
 								cairo_text_extents(cr, prefix, pe)
 								if pe.width <= cfg.wrap_width then
 									best_bp = bp
@@ -142,7 +169,7 @@ function draw_text(cr, opts)
 									break
 								end
 							end
-							local pe = cairo_text_extents_t:create()
+							local pe = _text_ext
 							cairo_text_extents(cr, remaining:sub(1, best_bp) .. "-", pe)
 							if pe.width > cfg.wrap_width then
 								best_bp = nil
@@ -158,7 +185,7 @@ function draw_text(cr, opts)
 							for ch in remaining:gmatch(utf8.charpattern) do
 								byte_pos = byte_pos + #ch
 								local test_part = remaining:sub(1, byte_pos) .. "-"
-								local pe = cairo_text_extents_t:create()
+								local pe = _text_ext
 								cairo_text_extents(cr, test_part, pe)
 								if pe.width <= cfg.wrap_width then
 									b_idx = byte_pos
@@ -195,7 +222,7 @@ function draw_text(cr, opts)
 		end
 
 		for _, line in ipairs(lines) do
-			local le = cairo_text_extents_t:create()
+			local le = _text_ext
 			cairo_text_extents(cr, line, le)
 			local line_x = x
 			if cfg.align == "center" then
@@ -204,12 +231,7 @@ function draw_text(cr, opts)
 				line_x = x - le.width
 			end
 			local line_y = draw_y - le.y_bearing
-			local pat = cairo_pattern_create_linear(line_x, line_y, line_x + le.width, line_y)
-			for _, stop in ipairs(cfg.color) do
-				local pos, hex, alpha = stop[1], stop[2], stop[3]
-				local r, g, b, a = hex_to_rgba(hex, alpha)
-				cairo_pattern_add_color_stop_rgba(pat, pos, r, g, b, a)
-			end
+			local pat = build_gradient_pattern(cr, cfg.color, line_x, line_y, line_x + le.width, line_y)
 			cairo_set_source(cr, pat)
 			cairo_pattern_destroy(pat)
 			cairo_move_to(cr, line_x, line_y)
@@ -217,7 +239,7 @@ function draw_text(cr, opts)
 			draw_y = draw_y + line_height
 		end
 	else
-		local ext = cairo_text_extents_t:create()
+		local ext = _text_ext
 		cairo_text_extents(cr, txt, ext)
 		text_w = ext.width
 		text_h = ext.height
@@ -227,12 +249,7 @@ function draw_text(cr, opts)
 			x = x - ext.width
 		end
 		y = y - ext.y_bearing
-		local pat = cairo_pattern_create_linear(x, y, x + ext.width, y)
-		for _, stop in ipairs(cfg.color) do
-			local pos, hex, alpha = stop[1], stop[2], stop[3]
-			local r, g, b, a = hex_to_rgba(hex, alpha)
-			cairo_pattern_add_color_stop_rgba(pat, pos, r, g, b, a)
-		end
+		local pat = build_gradient_pattern(cr, cfg.color, x, y, x + ext.width, y)
 		cairo_set_source(cr, pat)
 		cairo_pattern_destroy(pat)
 		cairo_move_to(cr, x, y)
@@ -240,4 +257,3 @@ function draw_text(cr, opts)
 	end
 	return { x = cfg.x, y = cfg.y, w = text_w, h = text_h }
 end
-

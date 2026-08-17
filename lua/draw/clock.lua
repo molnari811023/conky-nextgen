@@ -1,17 +1,38 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- draw/clock.lua — Analog clock face with hands, ticks, numbers
+-- draw_clock(cr, opts) → { x, y, w, h }
+--     Draw an analog clock at (x, y) with a configurable radius: minute
+--     and hour ticks, numbers around the rim, and hour/minute/second
+--     hands plus a center dot. Options toggle ticks/numbers/seconds.
+--     Returns the clock's bounding box.
+--
+-- Parameters:
+--   x, y, radius
+--   show_ticks, show_numbers, show_seconds
+--   tick_width_hour, tick_width_minute, number_size, number_radius
+--   hour_hand_width, minute_hand_width, second_hand_width, center_radius
+--   bg, border, tick_color, number_color, hour_color, minute_color, second_color, center_color
+--
+-- Example:
+--   draw[#draw+1] = {
+--       type = "clock",
+--       x = 160, y = 50, radius = 40,
+--       show_seconds = true,
+--   }
+
+-- Pre-allocated Cairo struct (reused every tick to avoid binding leak)
+--}}}
+
+local _clock_ext = cairo_text_extents_t:create()
+
 local CLOCK_DEFAULT = {
-	view = nil,
-	group = nil,
-	click = nil,
-	click_view = nil,
-	click_toggle = nil,
-	hover_view = nil,
 	x = 100,
 	y = 100,
 	radius = 50,
@@ -25,45 +46,11 @@ local CLOCK_DEFAULT = {
 	hour_hand_width = 4,
 	minute_hand_width = 3,
 	second_hand_width = 1,
-	bg = {
-		{ 0.0, 0x222222, 1 },
-		{ 1.0, 0x000000, 1 },
-	},
-	border = {
-		{ 0.0, 0xFFFFFF, 1 },
-		{ 1.0, 0x888888, 1 },
-	},
-	tick_color = {
-		{ 0.0, 0xFFFFFF, 1 },
-		{ 1.0, 0xAAAAAA, 1 },
-	},
-	number_color = {
-		{ 0.0, 0xFFFFFF, 1 },
-		{ 1.0, 0xCCCCCC, 1 },
-	},
-	hour_color = {
-		{ 0.0, 0xFFFFFF, 1 },
-		{ 1.0, 0xFFFFFF, 1 },
-	},
-	minute_color = {
-		{ 0.0, 0xFFFFFF, 1 },
-		{ 1.0, 0xFFFFFF, 1 },
-	},
-	second_color = {
-		{ 0.0, 0xFF0000, 1 },
-		{ 1.0, 0xAA0000, 1 },
-	},
-	center_color = {
-		{ 0.0, 0xFFFFFF, 1 },
-		{ 1.0, 0x888888, 1 },
-	},
 	center_radius = 4,
+	-- bg, border, tick/number/hand colors: provided by the theme via apply_theme()
 }
 function draw_clock(cr, o)
 	if not conky_window then
-		return
-	end
-	if not draw_allowed(o.view, o.group) then
 		return
 	end
 	local c = {}
@@ -75,7 +62,10 @@ function draw_clock(cr, o)
 			c[k] = v
 		end
 	end
-	local x, y, r = c.x, c.y, c.radius
+	local x, y, r = c.x, c.y, tonumber(c.radius) or 0
+	-- Negative/zero radius would poison the cairo context (NEGATIVE_COUNT)
+	r = math.max(1, r)
+	c.center_radius = math.max(0.5, tonumber(c.center_radius) or 0)
 	local h = tonumber(os.date("%I"))
 	local m = tonumber(os.date("%M"))
 	local s = tonumber(os.date("%S"))
@@ -136,7 +126,7 @@ function draw_clock(cr, o)
 			local r1, g1, b1, a1 = get_color_from_list(c.number_color, t)
 			cairo_set_source_rgba(cr, r1, g1, b1, a1)
 			local txt = tostring(i)
-			local ext = cairo_text_extents_t:create()
+			local ext = _clock_ext
 			cairo_text_extents(cr, txt, ext)
 			cairo_move_to(cr, nx - ext.width / 2, ny + ext.height / 2)
 			cairo_show_text(cr, txt)
@@ -164,4 +154,3 @@ function draw_clock(cr, o)
 	cairo_fill(cr)
 	return { x = x - r, y = y - r, w = r * 2, h = r * 2 }
 end
-

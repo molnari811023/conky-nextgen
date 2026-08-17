@@ -1,12 +1,32 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- hardware/network.lua — WiFi status, public IP, ping
 -- Network data is fetched by sh/fetch_network.sh (background)
 -- Lua reads from cached tmp/ files — no synchronous I/O
+-- Callable from Conky:
+--   conky_wifi_interface()  → string ("wlp59s0")
+--     Name of the active WiFi interface, or "lo"/empty when offline.
+--   conky_wifi_active()     → 1|0
+--     Whether a WiFi interface is currently up.
+--   conky_public_ip()       → string ("1.2.3.4")
+--     Public IPv4 address as reported by the network fetcher.
+--   conky_public_city()     → string ("Budapest")
+--     City of the public IP (geoip), "N/A" when unknown.
+--   conky_public_country()  → string ("Hungary")
+--     Country of the public IP (geoip).
+--   conky_ping_avg()        → number (ms)
+--     Average ping latency in milliseconds (from tmp/network_ping.json).
+--   conky_ping_jitter()     → number (ms)
+--     Ping jitter in milliseconds.
+--
+-- Data source: tmp/network_ip.json, tmp/network_ping.json
+--}}}
 
 local network_ping_time = 0
 local network_ip_time = 0

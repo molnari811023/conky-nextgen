@@ -2,8 +2,8 @@
 # Based on Arch Linux conky (1.22.3) and AUR conky-git PKGBUILDs
 
 pkgname=conky-mng
-pkgver=1.24.2.r17.gf145135
-pkgrel=1
+pkgver=1.24.2.r19.gef154d5
+pkgrel=2
 pkgdesc='Light-weight system monitor for X, Wayland, and other things, too — with mouse events'
 arch=('x86_64')
 url='https://github.com/brndnmtthws/conky'
@@ -20,6 +20,9 @@ depends=(
   'hicolor-icon-theme'
   'imlib2'
   'libgcc'
+  'libical'
+  'libircclient'
+  'libmicrohttpd'
   'libpulse' libpulse.so
   'librsvg' librsvg-2.so
   'libstdc++'
@@ -32,6 +35,7 @@ depends=(
   'libxml2'
   'libxnvctrl' libXNVCtrl.so
   'lua'
+  'mariadb-libs'
   'ncurses' libncursesw.so
   'pango'
   'systemd-libs' libsystemd.so
@@ -41,11 +45,9 @@ depends=(
 makedepends=(
   'catch2'
   'cmake'
-  'docbook-xsl'
-  'docbook2x'
+  'gettext'
   'git'
   'gperf'
-  'man-db'
   'pandoc'
   'python-jinja'
   'python-yaml'
@@ -54,8 +56,12 @@ makedepends=(
 
 provides=('conky')
 conflicts=('conky' 'conky-git')
-source=("git+https://github.com/brndnmtthws/conky.git")
-sha256sums=('SKIP')
+source=(
+  "git+https://github.com/brndnmtthws/conky.git"
+  "sigusr1-reload.patch"
+)
+sha256sums=('SKIP'
+            'SKIP')
 
 pkgver() {
   cd conky
@@ -64,6 +70,9 @@ pkgver() {
 
 prepare() {
   cd conky
+
+  # SIGUSR1 reload: skip window+display teardown on X11 during reload
+  patch -Np1 -i "${srcdir}/sigusr1-reload.patch"
 
   # unbundle catch2 to fix build with glibc >= 2.35
   if [ -d tests/catch2 ]; then
@@ -89,15 +98,24 @@ build() {
     -D BUILD_CURL=ON
     -D BUILD_RSS=ON
     -D BUILD_NVIDIA=ON
+    -D BUILD_NVIDIA_NVML=ON
     -D BUILD_PULSEAUDIO=ON
     -D BUILD_JOURNAL=ON
-    -D BUILD_WAYLAND=OFF
+    -D BUILD_WAYLAND=ON
     -D BUILD_X11=ON
     -D BUILD_MOUSE_EVENTS=ON
     -D BUILD_LUA_CAIRO=ON
     -D BUILD_LUA_CAIRO_XLIB=ON
     -D BUILD_LUA_IMLIB2=ON
     -D BUILD_LUA_RSVG=ON
+    -D BUILD_I18N=ON
+    -D BUILD_COLOUR_NAME_MAP=ON
+    -D BUILD_ICAL=ON
+    -D BUILD_HTTP=ON
+    -D BUILD_MYSQL=ON
+    -D BUILD_IRC=ON
+    -D BUILD_ICONV=ON
+    -D BUILD_OPENSOUNDSYS=ON
     -D DOC_PATH=share/doc/$pkgname
   )
 

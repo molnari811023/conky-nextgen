@@ -1,11 +1,22 @@
 #!/bin/bash
-#[[
+#{{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#]]
+#}}}
+
+#{{{
 # updates.sh — Arch Linux repo + AUR package update checker
+#
+# Counts available updates from:
+#   - Official repos (via checkupdates)
+#   - AUR (via AUR RPC API + pacman -Qm for local AUR packages)
+#
+# Requires: curl, jq, pacman, vercmp, checkupdates
+# Usage: ./updates.sh
+# Output: tmp/updates.txt (format: "$repo_count $aur_count")
+#}}}
 
 require_cmds() { local m=0; for c in "$@"; do command -v "$c" >/dev/null 2>&1 || { echo "[error] Missing: $c"; m=1; }; done; [ "$m" -eq 1 ] && exit 1; }
 require_cmds curl jq pacman vercmp checkupdates

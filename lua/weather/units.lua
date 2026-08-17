@@ -1,20 +1,55 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- weather/units.lua — Unit labels for weather + city fields
 -- Dynamically generates conky_unit_* and conky_city_* accessors.
+-- Auto-generated (from cur_map):
+--   conky_unit_cur_temp, conky_unit_cur_humidity, conky_unit_cur_wind_speed, etc.
+--   conky_unit_hour_temp, conky_unit_hour_humidity, etc.
+--   conky_unit_day_temp_max, conky_unit_day_sunrise, etc.
+--   conky_unit_air_cur_pm10, conky_unit_air_hour_pm25, etc.
+--
+-- City fields:
+--   conky_city_name()       → string ("Budapest")
+--     Name of the forecast city.
+--   conky_city_lat()        → number (47.49)
+--     Latitude of the forecast city.
+--   conky_city_lon()        → number (19.04)
+--     Longitude of the forecast city.
+--   conky_city_country()    → string ("Hungary")
+--     Country name of the forecast city.
+--   conky_city_timezone()   → string ("Europe/Budapest")
+--     IANA timezone of the forecast city.
+--   conky_city_population() → number
+--     Population of the forecast city.
+--   conky_city_postcode(i)  → string
+--     Postal code of the city from the geocoding result (index 1 = main).
 
-local function make_getter(units_fn, safe_fn, field)
-	return function() return safe_fn(units_fn()[field]) end
+-- ═══ Unitless fields (no unit getter needed) ═══
+--}}}
+
+local unitless_keys = {
+	is_day = true, uv_index = true, precipitation_probability = true,
+	time = true, interval = true,
+}
+
+local function make_getter(units_fn, field)
+	return function() return safe_str(units_fn()[field], "unit_" .. field) end
 end
 for k,v in pairs(cur_map) do
-	_G["conky_unit_cur_"..k] = make_getter(conky_units_cur, conky_safe_cur, v)
+	if not unitless_keys[v] then
+		_G["conky_unit_cur_"..k] = make_getter(conky_units_cur, v)
+	end
 end
 for k,v in pairs(hour_map) do
-	_G["conky_unit_hour_"..k] = function() return conky_safe_hour(conky_units_hour()[v], 1) end
+	if not unitless_keys[v] then
+		_G["conky_unit_hour_"..k] = function() return safe_str(conky_units_hour()[v], "unit_hour_" .. v) end
+	end
 end
 function conky_unit_day_time()
 	return conky_units_day().time or conky_unit_cur_time()
@@ -53,7 +88,7 @@ air_cur_map = {
 	mugwort="mugwort_pollen", olive="olive_pollen", ragweed="ragweed_pollen"
 }
 for k,v in pairs(air_cur_map) do
-	_G["conky_unit_air_cur_"..k] = function() return conky_safe_air(conky_units_air_cur()[v]) end
+	_G["conky_unit_air_cur_"..k] = function() return safe_str(conky_units_air_cur()[v], "unit_air_cur_" .. v) end
 end
 air_hour_map = {
 	time="time", pm10="pm10", pm25="pm2_5", co="carbon_monoxide", o3="ozone", dust="dust",
@@ -62,27 +97,32 @@ air_hour_map = {
 	olive="olive_pollen", ragweed="ragweed_pollen"
 }
 for k,v in pairs(air_hour_map) do
-	_G["conky_unit_air_hour_"..k] = function() return conky_safe_air(conky_units_air_hour()[v]) end
+	_G["conky_unit_air_hour_"..k] = function() return safe_str(conky_units_air_hour()[v], "unit_air_hour_" .. v) end
 end
-function conky_safe_city(v) return v or 0 end
-function conky_city_data() return (W.city.results and W.city.results[1]) or {} end
-function conky_city_name() local c = conky_city_data() return c and c.name or "Unknown City" end
+local function city_data() return (W.city.results and W.city.results[1]) or {} end
+function conky_city_name() local c = city_data() return c and c.name or "Unknown City" end
 
-city_map = {
-	lat="latitude", lon="longitude", elevation="elevation", timezone="timezone",
-	country="country", country_code="country_code", admin1="admin1", admin2="admin2",
-	population="population", id="id", country_id="country_id", admin1_id="admin1_id",
-	admin2_id="admin2_id"
+city_num_map = {
+	lat="latitude", lon="longitude", elevation="elevation",
+	population="population", id="id", country_id="country_id",
+	admin1_id="admin1_id", admin2_id="admin2_id"
 }
-for k,v in pairs(city_map) do
-	_G["conky_city_"..k] = function() return conky_safe_city(conky_city_data()[v]) end
+city_str_map = {
+	timezone="timezone", country="country", country_code="country_code",
+	admin1="admin1", admin2="admin2"
+}
+for k,v in pairs(city_num_map) do
+	_G["conky_city_"..k] = function() return safe_num(city_data()[v], "city_" .. v) end
+end
+for k,v in pairs(city_str_map) do
+	_G["conky_city_"..k] = function() return safe_str(city_data()[v], "city_" .. v) end
 end
 
 function conky_city_postcode(i)
-	local c = conky_city_data()
-	return (c.postcodes and conky_safe_city(c.postcodes[i])) or ""
+	local c = city_data()
+	return c.postcodes and c.postcodes[i] or ""
 end
 function conky_city_postcode_count()
-	local c = conky_city_data()
+	local c = city_data()
 	return (c.postcodes and #c.postcodes) or 0
 end

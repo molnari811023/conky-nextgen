@@ -1,7 +1,23 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+
+#{{{
+#  language/ko.po — Korean translations
+#  Compiled to language/ko.mo (msgfmt)
+#}}}
+
 msgid ""
 msgstr ""
-"Project-Id-Version: conky-weather 1.0\n"
+"Project-Id-Version: conky-nextgen 1.0\n"
 "Language: ko\n"
+"X-Framework: Conky NextGen Framework\n"
+"X-Author: István Molnár\n"
+"X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
+"X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -655,23 +671,3 @@ msgstr "가능성 낮음"
 
 msgid "alert_certainty_unknown"
 msgstr "알 수 없음"
-
-############################################
-# CONTEXT MENU
-############################################
-
-
-msgid "ctx_copy"
-msgstr "복사"
-
-msgid "ctx_collapse"
-msgstr "접기"
-
-msgid "ctx_expand"
-msgstr "펼치기"
-
-msgid "ctx_hide"
-msgstr "숨기기"
-
-msgid "ctx_restore_all"
-msgstr "모두 복원"

@@ -1,47 +1,61 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- draw/background.lua — Rounded rectangles with gradient fill + border
+-- draw_background(cr, cfg) → { x, y, w, h }
+--     Draw a rounded rectangle panel filled with a gradient (bg) and an
+--     optional border (border + border_width). Returns the widget's
+--     bounding box { x, y, w, h } so the caller can layout around it.
+--     The radius applies to every corner; use w/h = 0 for auto sizing.
+--
+-- Parameters:
+--   x, y, w, h, radius
+--   bg = { { position, "#hex", alpha }, ... }  — gradient stops
+--   border = { { position, "#hex", alpha }, ... }
+--   border_width
+--
+-- Example (main.lua):
+--   draw[#draw+1] = {
+--       type = "background",
+--       x = 20, y = 0, w = 280, h = 100, radius = 12,
+--       bg = { { 1, "#1a1b26", 0.9 } },
+--       border = { { 1, "#7aa2f7", 0.6 } },
+--       border_width = 2,
+--   }
+--}}}
+
 BACKGROUND_DEFAULT = {
-	view = nil,
-	group = nil,
-	click = nil,
-	click_view = nil,
-	click_toggle = nil,
-	hover_view = nil,
 	x = 0,
 	y = 0,
 	w = 0,
 	h = 0,
 	radius = 20,
-	bg = { { 1, "#141618", 1 } },
-	border = { { 1, "#4c4e51", 1 } },
 	border_width = 2,
+	-- bg, border: provided by the theme via apply_theme()
 }
 
 function draw_background(cr, cfg)
-	if not draw_allowed(cfg.view, cfg.group) or not conky_window then
+	if not conky_window then
 		return
 	end
 	local c = {}
+	for k, v in pairs(cfg) do c[k] = v end
 	for k, v in pairs(BACKGROUND_DEFAULT) do
-		c[k] = cfg[k] ~= nil and cfg[k] or v
+		if c[k] == nil then c[k] = v end
 	end
 	local x = c.x
 	local y = c.y
 	local w = (c.w == 0) and conky_window.width or c.w
-	local h = (c.h == 0) and conky_window.height or c.h
+	local gh = (c.group and GROUP_OFFSETS[c.group]) and GROUP_OFFSETS[c.group].height or 0
+	local h = (c.h == 0) and (gh > 0 and gh or conky_window.height) or c.h
 	local r = c.radius
 	local bw = c.border_width
-	local pat_bg = cairo_pattern_create_linear(x, y, x, y + h)
-	for _, s in ipairs(c.bg) do
-		local pos, col, a = s[1], s[2], s[3]
-		local rr, gg, bb, aa = hex_to_rgba(col, a)
-		cairo_pattern_add_color_stop_rgba(pat_bg, pos, rr, gg, bb, aa)
-	end
+	local pat_bg = build_gradient_pattern(cr, c.bg, x, y, x, y + h)
 	cairo_set_source(cr, pat_bg)
 	rounded_rect_path(cr, x, y, w, h, r)
 	cairo_fill(cr)
@@ -53,12 +67,7 @@ function draw_background(cr, cfg)
 		local iw = w - bw
 		local ih = h - bw
 		local ir = math.max(0, r - inset)
-		local pat = cairo_pattern_create_linear(x, y, x, y + h)
-		for _, s in ipairs(c.border) do
-			local pos, col, a = s[1], s[2], s[3]
-			local rr, gg, bb, aa = hex_to_rgba(col, a)
-			cairo_pattern_add_color_stop_rgba(pat, pos, rr, gg, bb, aa)
-		end
+		local pat = build_gradient_pattern(cr, c.border, x, y, x, y + h)
 		cairo_set_source(cr, pat)
 		cairo_set_line_width(cr, bw)
 		rounded_rect_path(cr, ix, iy, iw, ih, ir)
@@ -67,4 +76,3 @@ function draw_background(cr, cfg)
 	end
 	return { x = x, y = y, w = w, h = h }
 end
-

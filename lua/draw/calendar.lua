@@ -1,17 +1,35 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- draw/calendar.lua — Month calendar grid with week numbers
+-- draw_calendar(cr, opts) → { x, y, w, h }
+--     Draw the current month as a grid of day cells with the weekday
+--     header, today highlighted, and an optional week-number column.
+--     Colors and fonts come from the opts table. Returns the grid size.
+--
+-- Parameters:
+--   x, y, cell_w, row_h, font, size
+--   show_weeknums = true/false
+--   color_month, color_weekdays, color_days, color_today, color_outside, color_weeknums
+--
+-- Automatic: month name, day numbers, today highlight, week numbers
+--
+-- Example:
+--   draw[#draw+1] = {
+--       type = "calendar",
+--       x = 30, y = 10,
+--       cell_w = 34, row_h = 22,
+--       font = "Mono", size = 10,
+--       show_weeknums = false,
+--   }
+--}}}
+
 CALENDAR_DEFAULT = {
-	view = nil,
-	group = nil,
-	click = nil,
-	click_view = nil,
-	click_toggle = nil,
-	hover_view = nil,
 	x = 300,
 	y = 15,
 	cell_w = 40,
@@ -19,30 +37,8 @@ CALENDAR_DEFAULT = {
 	font = "Noto Sans",
 	size = 18,
 	show_weeknums = true,
-	color_month = {
-		{ 0.0, "#ffffff", 1 },
-		{ 1.0, "#bbbbbb", 1 },
-	},
-	color_weekdays = {
-		{ 0.0, "#dddddd", 1 },
-		{ 1.0, "#aaaaaa", 1 },
-	},
-	color_days = {
-		{ 0.0, "#ffffff", 1 },
-		{ 1.0, "#cccccc", 1 },
-	},
-	color_today = {
-		{ 0.0, "#66ccff", 1 },
-		{ 1.0, "#3399cc", 1 },
-	},
-	color_outside = {
-		{ 0.0, "#550000", 0.7 },
-		{ 1.0, "#550000", 0.7 },
-	},
-	color_weeknums = {
-		{ 0.0, "#ffcc66", 1 },
-		{ 1.0, "#cc9933", 1 },
-	},
+	-- color_month, color_weekdays, color_days, color_today,
+	-- color_outside, color_weeknums: provided by the theme via apply_theme()
 }
 local function get_calendar_data()
 	local now = os.date("*t")
@@ -74,9 +70,6 @@ function draw_calendar(cr, opts)
 	end
 	for k, v in pairs(opts) do
 		c[k] = v
-	end
-	if not draw_allowed(c.view, c.group) then
-		return
 	end
 	local x, y, cw, rh = c.x, c.y, c.cell_w, c.row_h
 	local cd = get_calendar_data()
@@ -114,33 +107,46 @@ function draw_calendar(cr, opts)
 			color = c.color_weekdays,
 		})
 	end
-	local row = 0
-	local col = 0
-	for i = 1, cd.first_wday do
-		col = col + 1
-	end
-	local prev_start = cd.prev_days - cd.first_wday + 1
-	for i = 1, cd.first_wday do
-		local idx = i - 1
-		draw_text(cr, {
-			text = tostring(prev_start + idx),
-			x = x + (c.show_weeknums and cw or 0) + idx * cw + cw / 2,
-			y = y + rh * 3,
-			align = "center",
-			font = c.font,
-			size = c.size,
-			color = c.color_outside,
-		})
-	end
-	for d = 1, cd.days_in_month do
-		if col == 7 then
-			col = 0
-			row = row + 1
+	local function cell_date(i)
+		-- Grid cell 0 = the Monday of the week that contains day 1.
+		-- Returns { year, month, day, inside } for the date in cell i.
+		local offset = i - cd.first_wday + 1
+		local year, month, day, inside
+		if offset < 1 then
+			inside = false
+			day = cd.prev_days + offset
+			month = cd.month - 1
+			year = cd.year
+			if month == 0 then
+				month = 12
+				year = year - 1
+			end
+		elseif offset > cd.days_in_month then
+			inside = false
+			day = offset - cd.days_in_month
+			month = cd.month + 1
+			year = cd.year
+			if month == 13 then
+				month = 1
+				year = year + 1
+			end
+		else
+			inside = true
+			day = offset
+			month = cd.month
+			year = cd.year
 		end
+		return year, month, day, inside
+	end
+	for i = 0, 41 do
+		local row = math.floor(i / 7)
+		local col = i % 7
+		local yw, mw, dw, inside = cell_date(i)
 		if c.show_weeknums and col == 0 then
-			local tw = os.time({ year = cd.year, month = cd.month, day = d })
+			-- Week number of the row = ISO week of its Monday (cell date),
+			-- so partial first/last rows get one too.
 			draw_text(cr, {
-				text = os.date("%V", tw),
+				text = os.date("%V", os.time({ year = yw, month = mw, day = dw })),
 				x = x + cw / 2,
 				y = y + rh * (row + 3),
 				align = "center",
@@ -149,38 +155,18 @@ function draw_calendar(cr, opts)
 				color = c.color_weeknums,
 			})
 		end
-		local colr = (d == cd.today) and c.color_today or c.color_days
+		local colr = (inside and dw == cd.today) and c.color_today or (inside and c.color_days or c.color_outside)
+		local weight = (inside and dw == cd.today) and "bold" or "normal"
 		draw_text(cr, {
-			text = tostring(d),
+			text = tostring(dw),
 			x = x + (c.show_weeknums and cw or 0) + col * cw + cw / 2,
 			y = y + rh * (row + 3),
 			align = "center",
 			font = c.font,
 			size = c.size,
 			color = colr,
-			weight = (d == cd.today) and "bold" or "normal",
+			weight = weight,
 		})
-		col = col + 1
-	end
-	local tc, cc, nd = 42, row * 7 + col, 1
-	while cc < tc do
-		if col == 7 then
-			col = 0
-			row = row + 1
-		end
-		draw_text(cr, {
-			text = tostring(nd),
-			x = x + (c.show_weeknums and cw or 0) + col * cw + cw / 2,
-			y = y + rh * (row + 3),
-			align = "center",
-			font = c.font,
-			size = c.size,
-			color = c.color_outside,
-		})
-		nd = nd + 1
-		col = col + 1
-		cc = cc + 1
 	end
 	return { x = c.x, y = c.y, w = (c.show_weeknums and c.cell_w or 0) + 7 * c.cell_w, h = c.row_h * 8 }
 end
-

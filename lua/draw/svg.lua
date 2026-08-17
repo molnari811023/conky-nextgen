@@ -1,138 +1,111 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
--- draw/svg.lua — SVG rendering via Conky's built-in librsvg bindings
--- Handle cache, rotate, shape/radius clip, alpha, tint.
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+--
+-- draw/svg.lua — SVG rendering via external rsvg-convert
+-- draw_svg(cr, opts) → { x, y, w, h }
+--     Rasterize an SVG file to a cached PNG with the external `rsvg-convert`
+--     tool (librsvg), then draw the PNG through draw_png. Returns the drawn
+--     bounding box.
+--
+-- Why external conversion? librsvg registers the "RsvgHandle" GType in the
+-- process-global GLib type table on first use. On a conky config reload the
+-- Lua state is closed and Lua 5.5's loadlib.c dlcloses the loaded C modules
+-- (librsvg.so and with it librsvg-2.so.2). The fresh copy of librsvg then
+-- tries to register "RsvgHandle" again, hits the already-registered type and
+-- panics/aborts conky. Running rsvg-convert in a separate process keeps
+-- librsvg out of the conky process entirely, so reloads are safe.
+--
+-- Parameters:
+--   x, y, w, h, path
+--   rotate, shape = "circle", radius
+--   alpha, tint = "#hex", tint_alpha
+--
+-- Cache: PNG files under tmp/svg_cache/ (+ PNG_CACHE surface cache)
+--
+-- Example:
+--   draw[#draw+1] = {
+--       type = "svg",
+--       x = 30, y = 225, w = 28, h = 28,
+--       path = "/usr/share/icons/breeze/places/24/folder-blue-symbolic.svg",
+--   }
+--}}}
 
-require("rsvg")
+-- The conversion cache dir is created lazily, only when a conversion runs.
+local _SVG_CACHE_DIR = script_dir .. "tmp/svg_cache/"
+local _SVG_CACHE_MKDIR = false
 
-SVG_CACHE = SVG_CACHE or {}
-
-if not rounded_rect_path then
-    function rounded_rect_path(cr, x, y, w, h, r)
-        r = math.min(r, w / 2, h / 2)
-        cairo_new_sub_path(cr)
-        cairo_arc(cr, x + w - r, y + r, r, -math.pi / 2, 0)
-        cairo_arc(cr, x + w - r, y + h - r, r, 0, math.pi / 2)
-        cairo_arc(cr, x + r, y + h - r, r, math.pi / 2, math.pi)
-        cairo_arc(cr, x + r, y + r, r, math.pi, 3 * math.pi / 2)
-        cairo_close_path(cr)
+local function svg_hash(s)
+    local h = 5381
+    for i = 1, #s do
+        h = (h * 33 + s:byte(i)) % 2147483647
     end
+    return h
+end
+
+local function svg_to_png(path, w, h)
+    w = math.max(1, math.floor(tonumber(w) or 32))
+    h = math.max(1, math.floor(tonumber(h) or 32))
+
+    local png = _SVG_CACHE_DIR .. svg_hash(path) .. "-" .. w .. "x" .. h .. ".png"
+
+    if not _SVG_CACHE_MKDIR then
+        local dir = _SVG_CACHE_DIR:sub(1, -2)
+        if lfs and not lfs.attributes(dir) then
+            os.execute(string.format("mkdir -p %q", dir))
+        end
+        _SVG_CACHE_MKDIR = true
+    end
+
+    if lfs and lfs.attributes(path) then
+        local png_mtime = lfs.attributes(png, "modification")
+        if png_mtime and png_mtime >= (lfs.attributes(path, "modification") or 0) then
+            return png
+        end
+    end
+
+    local cmd = string.format("rsvg-convert -w %d -h %d %q -o %q",
+        w, h, path, png)
+    local ok = os.execute(cmd)
+    if not ok or not lfs.attributes(png, "modification") then
+        return nil
+    end
+
+    PNG_CACHE = PNG_CACHE or {}
+    PNG_CACHE[png] = nil
+
+    return png
 end
 
 function draw_svg(cr, opts)
-    if not opts then return end
-    local path = opts.path
+    if not conky_window or not opts or not opts.path then return nil end
 
-    if not path and opts.icon then
-        local size = opts.icon_size or opts.w or 48
-        local theme = opts.icon_theme or XDG_ICON_THEME or "Papirus"
-        path = icon_resolve(opts.icon, size, theme)
-    end
+    local png = svg_to_png(opts.path, opts.w, opts.h)
+    if not png then return nil end
 
-    if not path then return end
-
-    if not SVG_CACHE[path] then
-        local ok, handle = pcall(rsvg_create_handle_from_file, path)
-        if not ok or not handle then return end
-        SVG_CACHE[path] = handle
-    end
-    local handle = SVG_CACHE[path]
-
-    local ok_sz, ret_sz, iw, ih = pcall(rsvg_handle_get_intrinsic_size_in_pixels, handle)
-    local has_sz = ok_sz and ret_sz and iw and iw > 0 and ih and ih > 0
-
-    local w = opts.w
-    local h = opts.h
-    if not w and not h then
-        w, h = 32, 32
-    elseif w and not h then
-        h = has_sz and (w * (ih / iw)) or w
-    elseif h and not w then
-        w = has_sz and (h * (iw / ih)) or h
-    end
-
-    local rotate = opts.rotate or 0
-    local shape = opts.shape
-    local radius = opts.radius or 0
-    local alpha = opts.alpha
-    local tint = opts.tint
-    local need_temp = (alpha and alpha < 1) or tint
-
-    cairo_save(cr)
-
-    if opts.x or opts.y then
-        cairo_translate(cr, opts.x or 0, opts.y or 0)
-    end
-
-    if rotate ~= 0 then
-        cairo_translate(cr, w / 2, h / 2)
-        cairo_rotate(cr, math.rad(rotate))
-        cairo_translate(cr, -w / 2, -h / 2)
-    end
-
-    if shape == "circle" then
-        local r = math.min(w, h) / 2
-        cairo_arc(cr, w / 2, h / 2, r, 0, 2 * math.pi)
-        cairo_clip(cr)
-    elseif radius > 0 then
-        rounded_rect_path(cr, 0, 0, w, h, radius)
-        cairo_clip(cr)
-    end
-
-    if need_temp then
-        local surf = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, w, h)
-        local tmp_cr = cairo_create(surf)
-        local vp = RsvgRectangle:create()
-        if has_sz then
-            cairo_scale(tmp_cr, w / iw, h / ih)
-            vp:set(0, 0, iw, ih)
-        else
-            vp:set(0, 0, w, h)
-        end
-        rsvg_handle_render_document(handle, tmp_cr, vp)
-        vp:destroy()
-        cairo_destroy(tmp_cr)
-
-        if tint then
-            local r, g, b, a = hex_to_rgba(tint, opts.tint_alpha or 1)
-            cairo_set_source_rgba(cr, r, g, b, a)
-            cairo_mask_surface(cr, surf, 0, 0)
-        else
-            cairo_set_source_surface(cr, surf, 0, 0)
-            cairo_paint_with_alpha(cr, alpha or 1)
-        end
-
-        cairo_surface_destroy(surf)
-    else
-        local vp = RsvgRectangle:create()
-        if has_sz then
-            cairo_scale(cr, w / iw, h / ih)
-            vp:set(0, 0, iw, ih)
-        else
-            vp:set(0, 0, w, h)
-        end
-        local ok = rsvg_handle_render_document(handle, cr, vp)
-        vp:destroy()
-        if not ok then cairo_restore(cr) return end
-    end
-
-    cairo_restore(cr)
-end
-
-function svg_free(path)
-    if SVG_CACHE[path] then
-        rsvg_destroy_handle(SVG_CACHE[path])
-        SVG_CACHE[path] = nil
-    end
+    return draw_png(cr, {
+        x = opts.x,
+        y = opts.y,
+        width = math.floor(tonumber(opts.w) or 32),
+        height = math.floor(tonumber(opts.h) or 32),
+        path = png,
+        alpha = opts.alpha,
+        tint = opts.tint,
+        tint_alpha = opts.tint_alpha,
+        rotate = opts.rotate,
+        shape = opts.shape,
+        radius = opts.radius,
+    })
 end
 
 function svg_free_all()
-    for path, handle in pairs(SVG_CACHE) do
-        rsvg_destroy_handle(handle)
+    PNG_CACHE = PNG_CACHE or {}
+    for p, _ in pairs(PNG_CACHE) do
+        if type(p) == "string" and p:find(_SVG_CACHE_DIR, 1, true) == 1 then
+            PNG_CACHE[p] = nil
+        end
     end
-    SVG_CACHE = {}
 end

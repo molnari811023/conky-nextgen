@@ -1,11 +1,28 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- weather/alerts.lua — MeteoAlarm weather alert XML parser
--- Supports SAX (lxp) and regex fallback. Filters by city/admin1 region.
+-- Parses the XML with SAX (lxp). Filters by city/admin1 region.
+-- Callable from Conky:
+--   conky_update_alerts()   — refresh cache
+--     Re-parse tmp/alerts.xml and refresh the cached alert list.
+--     Called automatically at startup.
+--   alerts_count()          → number
+--     Number of active weather alerts for the region.
+--   alerts_updated()        → string (ISO time)
+--     Timestamp of the last successful alert fetch.
+--   alert_field(i, field)   → string
+--     One field of the i-th alert. Valid field names: "event",
+--     "severity", "certainty", "area", "onset", "expires", "title",
+--     "color".
+--
+-- Data source: tmp/alerts.xml
+--}}}
 
 local alerts_cache_storage = nil
 local alerts_cache_time = 0
@@ -17,7 +34,7 @@ local function alerts_file_mtime(path)
 	return attrs and attrs.modification or 0
 end
 
-local lxp_ok, lxp = pcall(require, "lxp")
+local lxp = require("lxp")
 
 local function parse_alerts_from_xml(xml, city_name, admin1)
 	if not xml or xml == "" then return {}, "" end
@@ -92,58 +109,7 @@ local function parse_alerts_from_xml(xml, city_name, admin1)
 		return entries, feed_updated
 	end
 
-	local function regex_parse()
-		local alerts = {}
-		local feed_updated = ""
-		local fu = xml:match('<[^:>]*:?updated[^>]*>([^<]*)<')
-		if fu then
-			fu = fu:match('<!%[CDATA%[(.-)%]%]>') or fu
-			feed_updated = fu:match("^%s*(.-)%s*$") or fu
-		end
-		local function get(entry, t)
-			local b = t:match(":(.+)$") or t
-			local v = entry:match('<[^:>]*:?' .. b .. '[^>]*>([^<]*)')
-			if not v then
-				v = entry:match('<' .. b .. '[^>]*>([^<]*)')
-			end
-			if v then
-				v = v:match('<!%[CDATA%[(.-)%]%]>') or v
-				v = v:match("^%s*(.-)%s*$")
-			end
-			return v or ""
-		end
-		for e in xml:gmatch('<entry>(.-)</entry>') do
-			local sev = get(e, "cap:severity")
-			local title = get(e, "atom:title")
-			local w = SEVERITY_WEIGHT[sev] or 0
-			local color = "yellow"
-			local tl = title:lower()
-			if tl:match("red") then
-				color = "red"
-			elseif tl:match("orange") or tl:match("severe") or tl:match("violent") then
-				color = "orange"
-			end
-			table.insert(alerts, {
-				event = get(e, "cap:event"), severity = sev,
-				certainty = get(e, "cap:certainty"), area = get(e, "cap:areaDesc"),
-				onset = get(e, "cap:onset"), expires = get(e, "cap:expires"),
-				title = title, color = color, weight = w,
-			})
-		end
-		return alerts, feed_updated
-	end
-
-	local alerts, feed_updated
-	if lxp_ok then
-		local ok, res, fu = pcall(sax_parse)
-		if ok then
-			alerts, feed_updated = res, fu
-		else
-			alerts, feed_updated = regex_parse()
-		end
-	else
-		alerts, feed_updated = regex_parse()
-	end
+	local alerts, feed_updated = sax_parse()
 
 	table.sort(alerts, function(a, b) return a.weight > b.weight end)
 
@@ -192,7 +158,7 @@ local function load_cache()
 	return alerts_cache_storage
 end
 
-function load_alerts()
+local function load_alerts()
 	local cache = load_cache()
 	return cache and cache.alerts or {}
 end
@@ -201,16 +167,16 @@ function conky_update_alerts()
 	load_cache()
 end
 
-function alerts_count()
+local function alerts_count()
 	return #load_alerts()
 end
 
-function alerts_updated()
+local function alerts_updated()
 	local cache = load_cache()
 	return cache and cache.updated or ""
 end
 
-function alert_field(i, field)
+local function alert_field(i, field)
 	local a = (load_alerts())[i]
 	if not a then return "" end
 	local val = a[field]
@@ -221,8 +187,8 @@ function alert_field(i, field)
 		certainty = "alert_certainty_",
 	}
 	local prefix = tr_map[field]
-	if prefix and get_tr then
-		return get_tr(prefix .. val:lower())
+	if prefix and conky_get_tr then
+		return conky_get_tr(prefix .. val:lower())
 	end
 	return val
 end

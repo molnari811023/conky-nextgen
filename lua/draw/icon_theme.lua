@@ -1,12 +1,19 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- draw/icon_theme.lua — XDG icon theme resolver
 -- Finds closest-size SVG from icon themes, with automatic context search.
 -- Search order: ~/.local/share/icons → ~/.icons → /usr/local/share/icons → /usr/share/icons
+-- All helpers below are internal to this module.
+--
+-- Default theme: "Papirus"
+-- Automatic inheritance: if icon not found, searches parent theme
+--}}}
 
 ICON_THEME_CACHE = ICON_THEME_CACHE or {}
 ICON_PATH_CACHE = ICON_PATH_CACHE or {}
@@ -42,8 +49,9 @@ local function read_file(path)
     return data
 end
 
-function find_best_size(sizes, target)
+local function find_best_size(sizes, target)
     if not sizes or #sizes == 0 then return nil end
+    target = tonumber(target) or sizes[1]
     local best, best_diff = sizes[1], math.abs(sizes[1] - target)
     for i = 2, #sizes do
         local diff = math.abs(sizes[i] - target)
@@ -54,7 +62,7 @@ function find_best_size(sizes, target)
     return best
 end
 
-function parse_index_theme(theme_name)
+local function parse_index_theme(theme_name)
     if ICON_THEME_CACHE[theme_name] then
         return ICON_THEME_CACHE[theme_name]
     end
@@ -72,7 +80,7 @@ function parse_index_theme(theme_name)
     end
 
     if not data then
-        ICON_THEME_CACHE[theme_name] = { sizes = {}, inherits = {}, path = nil }
+        cache_set(ICON_THEME_CACHE, theme_name, { sizes = {}, inherits = {}, path = nil }, 128)
         return ICON_THEME_CACHE[theme_name]
     end
 
@@ -90,20 +98,22 @@ function parse_index_theme(theme_name)
     local inherits = {}
     local inh_line = data:match("Inherits=([^\n]+)")
     if inh_line then
+        -- CRLF index.theme files would leave a trailing \r on the last name
+        inh_line = inh_line:gsub("\r", "")
         for name in inh_line:gmatch("[^,]+") do
             inherits[#inherits + 1] = name:match("^%s*(.-)%s*$")
         end
     end
 
     local result = { sizes = sizes, inherits = inherits, path = theme_path }
-    ICON_THEME_CACHE[theme_name] = result
+    cache_set(ICON_THEME_CACHE, theme_name, result, 128)
     return result
 end
 
-function icon_resolve(name, target_size, theme_name)
+local function icon_resolve(name, target_size, theme_name)
     if not name or name == "" then return nil end
     target_size = target_size or 48
-    theme_name = theme_name or "Papirus"
+    theme_name = theme_name or XDG_ICON_THEME or "Papirus"
 
     local cache_key = theme_name .. ":" .. name .. ":" .. tostring(target_size)
     if ICON_PATH_CACHE[cache_key] then
@@ -119,42 +129,47 @@ function icon_resolve(name, target_size, theme_name)
         local t = parse_index_theme(tname)
         if not t.path then return nil end
 
-        local sz = find_best_size(t.sizes, target_size)
-        if sz then
-            local dir = t.path .. sz .. "x" .. sz
+        -- Many themes ship some icons only as .png (hicolor, breeze, ...);
+        -- try .svg first, then fall back to .png.
+        local exts = { ".svg", ".png" }
+        local function find_in(dir)
             for _, ctx in ipairs(CONTEXT_PRIORITY) do
-                local path = dir .. "/" .. ctx .. "/" .. name .. ".svg"
-                if file_exists(path) then
-                    return path
+                for _, ext in ipairs(exts) do
+                    local path = dir .. "/" .. ctx .. "/" .. name .. ext
+                    if file_exists(path) then
+                        return path
+                    end
                 end
             end
+            return nil
         end
 
-        local scalable = t.path .. "scalable"
-        for _, ctx in ipairs(CONTEXT_PRIORITY) do
-            local path = scalable .. "/" .. ctx .. "/" .. name .. ".svg"
-            if file_exists(path) then
-                return path
-            end
+        local sz = find_best_size(t.sizes, target_size)
+        if sz then
+            local found = find_in(t.path .. sz .. "x" .. sz)
+            if found then return found end
         end
+
+        local found = find_in(t.path .. "scalable")
+        if found then return found end
 
         return nil
     end
 
     local result = try_theme(theme_name)
     if result then
-        ICON_PATH_CACHE[cache_key] = result
+        cache_set(ICON_PATH_CACHE, cache_key, result, 512)
         return result
     end
 
     for _, inh in ipairs(theme.inherits) do
         result = try_theme(inh)
         if result then
-            ICON_PATH_CACHE[cache_key] = result
+            cache_set(ICON_PATH_CACHE, cache_key, result, 512)
             return result
         end
     end
 
-    ICON_PATH_CACHE[cache_key] = false
+    cache_set(ICON_PATH_CACHE, cache_key, false, 512)
     return nil
 end

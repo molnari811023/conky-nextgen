@@ -1,11 +1,28 @@
 #!/bin/bash
-#[[
+#{{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#]]
-# all_in_one.sh — Weather, space weather, alerts, and map tile fetcher
+#}}}
+
+#{{{
+# all_in_one.sh — Standalone monolithic fetcher (no source dependencies)
+#
+# Combines all fetch functions into a single script. Use this when you
+# don't want to source individual modules from 0_fetch_all.sh.
+#
+# Usage: ./all_in_one.sh [mode] [arguments]
+#   all                  weather + space + alerts + maps (default)
+#   weather [city]       weather + air + sun + moon
+#   space                space weather data
+#   alerts               MeteoAlarm alerts
+#   map [zoom]           map tiles (zoom 5-7)
+#   [city name]          shorthand for weather
+#
+# Requires: curl, jq, python3
+# Output: same as individual fetch modules
+#}}}
 
 DEBUG=1
 log() { [ "$DEBUG" -eq 1 ] && echo "$@"; }

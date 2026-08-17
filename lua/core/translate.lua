@@ -1,17 +1,38 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
--- core/translate.lua — .mo translation loader and get_tr()
--- Loaded first so weather modules can translate WMO codes and wind directions.
--- 19 .mo files available. Uses STRINGS_MO_PATH from main.lua.
--- Falls back to msgid if translation not found.
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
 
+--{{{
+-- core/translate.lua — .mo translation loader, locale and conky_get_tr()
+-- Loaded first so weather modules can translate WMO codes and wind directions.
+-- 22 .mo files available. Resolves the active language from $LANG and loads
+-- the matching .mo (fallback en.mo). STRINGS_MO_PATH may be preset to
+-- override the auto-detection.
+-- Fallback chain: active language → en.mo (every msgid is guaranteed there)
+-- Also resolves the time locale (os.setlocale) from $LC_TIME/$LC_ALL/$LANG so
+-- os.date() weekday/month names match the system language — not hardcoded.
+-- → msgid. Empty translation (msgstr = "") counts as missing.
+-- Functions:
+--   conky_get_tr(msgid) → translated string, English text, or msgid
+--     Translate a msgid to the active language. Falls back to the English
+--     .mo, then to the msgid itself when no translation exists. Returns a
+--     plain UTF-8 string, so it is safe to use inside Conky text widgets.
+--     The conky_ prefix makes it visible in the designer's function picker.
+--   get_tr(msgid) — backward-compatible alias of conky_get_tr
+--   load_mo(path, into)  — internal, .mo file loader
+--     Low-level GNU .mo parser (binary format). Do not call directly.
+--
+-- Usage:
+--   conky_get_tr("clear_sky")  → "Clear sky" (en)
+--   conky_get_tr("north")      → "North"
+--}}}
 
 local mo_strings = {}
-local function load_mo(path)
+local en_strings = {}
+local function load_mo(path, into)
 	local f = io.open(path, "rb")
 	if not f then return end
 	local data = f:read("*all")
@@ -29,18 +50,65 @@ local function load_mo(path)
 		base = t_off + i * 8
 		local t_len = data:byte(base+1) | (data:byte(base+2) << 8) | (data:byte(base+3) << 16) | (data:byte(base+4) << 24)
 		local t_pos = data:byte(base+5) | (data:byte(base+6) << 8) | (data:byte(base+7) << 16) | (data:byte(base+8) << 24)
-		mo_strings[key] = data:sub(t_pos+1, t_pos + t_len)
+		into[key] = data:sub(t_pos+1, t_pos + t_len)
+	end
+end
+
+if not STRINGS_MO_PATH then
+	-- Resolve the locale here (not in settings.lua) — it is a translation
+	-- concern. widget.lua only provides script_dir.
+	local lang_raw = os.getenv("LANG") or os.getenv("LC_ALL") or os.getenv("LC_MESSAGES") or "en"
+	local lang_code = lang_raw:sub(1, 2):lower()
+	local lang_path = script_dir .. "language/" .. lang_code .. ".mo"
+	local f = io.open(lang_path, "rb")
+	if f then
+		f:close()
+		STRINGS_MO_PATH = lang_path
+	else
+		STRINGS_MO_PATH = script_dir .. "language/en.mo"
+	end
+end
+
+-- Time locale: resolve from the system, not hardcoded. os.setlocale() needs
+-- an installed locale, so try full → encoding-stripped → short code → "C".
+local time_raw = os.getenv("LC_TIME") or os.getenv("LC_ALL") or os.getenv("LANG")
+if time_raw and time_raw ~= "" then
+	if os.setlocale(time_raw, "time") then
+		-- ok, installed as-is
+	else
+		local base = time_raw:match("^([^%.]+)")
+		if base and os.setlocale(base, "time") then
+			-- ok, without the encoding part
+		else
+			local short = base and base:match("^([^_]+)")
+			if not (short and os.setlocale(short, "time")) then
+				os.setlocale("C", "time")
+			end
+		end
 	end
 end
 
 if STRINGS_MO_PATH then
-	load_mo(STRINGS_MO_PATH)
-end
-
-if not get_tr then
-	function get_tr(msgid)
-		return mo_strings[msgid] or msgid or ""
+	load_mo(STRINGS_MO_PATH, mo_strings)
+	-- English is the guaranteed complete fallback. Only load it when the
+	-- active language is not English itself.
+	local en_path = STRINGS_MO_PATH:gsub("[^/]*%.mo$", "en.mo")
+	if en_path ~= STRINGS_MO_PATH then
+		load_mo(en_path, en_strings)
 	end
 end
+
+if not conky_get_tr then
+	function conky_get_tr(msgid)
+		local s = mo_strings[msgid]
+		if s ~= nil and s ~= "" then return s end
+		s = en_strings[msgid]
+		if s ~= nil and s ~= "" then return s end
+		return msgid or ""
+	end
+end
+
+-- Backward-compatible alias (older widgets use get_tr(...))
+get_tr = conky_get_tr
 
 return true

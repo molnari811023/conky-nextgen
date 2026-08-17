@@ -1,38 +1,59 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- draw/bar.lua — Progress bars: smooth or block style, gradient colors
-BAR_DEFAULT = {
-	view = nil,
-	group = nil,
-	click = nil,
-	click_view = nil,
-	click_toggle = nil,
-	hover_view = nil,
+-- conky_draw_bar_modules(cr, m) → { x, y, w, h }
+--     Render a horizontal progress bar for a Conky value (e.g. ${cpu}).
+--     Supports smooth gradient fill, segmented blocks, dots and polygons;
+--     the value can be angled. Returns the bounding box of the bar.
+--
+-- Parameters:
+--   x, y, width, height, max, angle
+--   value → "${cpu 1}" (string) / name + arg
+--   fg, bg = { { position, "#hex", alpha }, ... }
+--   style = { mode="dot"|"block", blocks=N, sides=N }
+--   blocks_width (block/dot/polygon block width, default = height)
+--
+-- Modes:
+--   smooth   — gradient fill (default)
+--   blocks   — block/segmented
+--   dot      — circles
+--   polygon  — polygons (sides >= 3)
+--
+-- Example:
+--   draw[#draw+1] = {
+--       type = "bar",
+--       x = 30, y = 30, width = 240, height = 10,
+--       value = "${memperc}", max = 100,
+--       fg = { { 1, "#bb9af7", 1 } },
+--       bg = { { 1, "#333333", 0.5 } },
+--   }
+
+-- Pre-allocated Cairo struct (reused every tick to avoid binding leak)
+--}}}
+
+local _bar_mx = cairo_matrix_t:create()
+
+local BAR_DEFAULT = {
 	x = 0,
 	width = 100,
 	height = 10,
 	max = 100,
 	angle = 0,
-	bg = {
-		{ 0.0, "#333333", 1 },
-		{ 1.0, "#111111", 1 },
-	},
-	fg = {
-		{ 0.0, "#00FF00", 1 },
-		{ 1.0, "#009900", 1 },
-	},
+	-- fg, bg: provided by the theme via apply_theme()
 }
 
-function draw_bar_block(cr, m, y, pct)
+local function draw_bar_block(cr, m, y, pct)
 	local c, h, w = m.blocks, m.height, m.width
 	if c < 2 then
 		return h + 4
 	end
-	local bw = h
+	local bw = m.blocks_width or h
 	local gap = (w - c * bw) / (c - 1)
 	local f = math.floor(c * pct)
 	for i = 1, c do
@@ -52,12 +73,12 @@ function draw_bar_block(cr, m, y, pct)
 	return h + 4
 end
 
-function draw_bar_polygon(cr, m, y, pct)
+local function draw_bar_polygon(cr, m, y, pct)
 	local c, h, w, n = m.blocks, m.height, m.width, m.sides
 	if c < 2 then
 		return h + 4
 	end
-	local bw = h
+	local bw = m.blocks_width or h
 	local gap = (w - c * bw) / (c - 1)
 	local f = math.floor(c * pct)
 	local r = h / 2
@@ -92,12 +113,12 @@ function draw_bar_polygon(cr, m, y, pct)
 	return h + 4
 end
 
-function draw_bar_dots(cr, m, y, pct)
+local function draw_bar_dots(cr, m, y, pct)
 	local c, h, w = m.blocks, m.height, m.width
 	if c < 2 then
 		return h + 4
 	end
-	local bw = h
+	local bw = m.blocks_width or h
 	local gap = (w - c * bw) / (c - 1)
 	local f = math.floor(c * pct)
 	local r = h / 2 - 1
@@ -119,17 +140,9 @@ function draw_bar_dots(cr, m, y, pct)
 	return h + 4
 end
 
-local function build_gradient_pattern(cr, stops, x1, y1, x2, y2)
-	local pat = cairo_pattern_create_linear(x1, y1, x2, y2)
-	for _, s in ipairs(stops) do
-		local p, col, a = s[1], s[2], s[3]
-		local r, g, b = hex_to_rgb_components(col)
-		cairo_pattern_add_color_stop_rgba(pat, p, r, g, b, a)
-	end
-	return pat
-end
 
-function draw_bar_smooth(cr, m, y, pct)
+
+local function draw_bar_smooth(cr, m, y, pct)
 	-- BG: single gradient + one fill (was O(w) individual calls)
 	local bg_pat = build_gradient_pattern(cr, m.bg, m.x, y, m.x + m.width, y)
 	cairo_set_source(cr, bg_pat)
@@ -148,7 +161,7 @@ function draw_bar_smooth(cr, m, y, pct)
 	return m.height + 4
 end
 
-function draw_bar_modules(cr, m, y)
+function conky_draw_bar_modules(cr, m)
 	if not conky_window then
 		return
 	end
@@ -157,9 +170,7 @@ function draw_bar_modules(cr, m, y)
 			m[k] = v
 		end
 	end
-	if not draw_allowed(m.view, m.group) then
-		return
-	end
+
 	if m.style then
 		for k, v in pairs(m.style) do
 			m[k] = v
@@ -167,9 +178,14 @@ function draw_bar_modules(cr, m, y)
 	end
 	local raw = draw_get_value(m)
 	local val = normalize_with_suffix(raw)
-	local pct = math.max(0, math.min(1, val / m.max))
+	local maxv = tonumber(m.max) or BAR_DEFAULT.max
+	if maxv <= 0 then
+		maxv = 1
+	end
+	local pct = math.max(0, math.min(1, val / maxv))
+	local y = m.y
 	local a = m.angle or 0
-	local mx = cairo_matrix_t:create()
+	local mx = _bar_mx
 	cairo_get_matrix(cr, mx)
 	if a ~= 0 then
 		local cx = m.x + m.width / 2
@@ -192,4 +208,3 @@ function draw_bar_modules(cr, m, y)
 	cairo_set_matrix(cr, mx)
 	return { x = m.x, y = y, w = m.width, h = m.height }
 end
-

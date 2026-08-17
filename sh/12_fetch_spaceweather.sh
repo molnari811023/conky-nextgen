@@ -1,9 +1,22 @@
 #!/bin/bash
-#[[
+#{{{
 #  Conky NextGen Framework
 #  Author: István Molnár
-#]]
-# 12_fetch_spaceweather.sh — Download NOAA space weather data
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+
+#{{{
+# 12_fetch_spaceweather.sh — Download NOAA SWPC space weather data
+#
+# Fetches 8 JSON files from NOAA Space Weather Prediction Center:
+#   Kp index forecast, solar wind speed, magnetic field (Bz),
+#   X-ray flux (GOES), NOAA scales, sunspot report,
+#   aurora forecast (OVATION), and active alerts.
+#
+# Usage: source 0_common.sh && fetch_spaceweather
+# Output: tmp/spaceweather_{kp,wind,mag,xray,scales,sunspot,aurora,alerts}.json
+#}}}
 
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"

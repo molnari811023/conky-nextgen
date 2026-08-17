@@ -1,12 +1,74 @@
---[[
-  Conky NextGen Framework
-  Author: István Molnár
-  GitHub: https://github.com/molnari811023/conky-nextgen
-  Description: Modular Conky UI framework (Lua engine + Bash backend)
---]]
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
+
+--{{{
 -- weather/core.lua — Weather data loader, WMO codes, sun/moon arcs, icon paths
--- Reads JSON from tmp/ (fetched by sh/all_in_one.sh). Populates global W table.
+-- Reads JSON from tmp/ (fetched by sh/4_fetch_weather.sh and
+-- sh/12_fetch_spaceweather.sh; sh/all_in_one.sh combines all fetches).
+-- Populates global W table.
 -- Also handles wind direction, moon phase, and gradient colors.
+-- Callable from Conky:
+--   conky_load_weather_data()     — JSON load + cache
+--     Load the weather JSON files from tmp/ into the global W table.
+--     Called automatically at startup; safe to call again to refresh.
+--   conky_round(v)                → number (rounding)
+--     Round a number to an integer, tolerating nil/NaN inputs.
+--   conky_read_j(path)            → table (JSON decode)
+--     Decode a JSON file into a Lua table (with a 5s file cache).
+--
+-- Weather text:
+--   conky_weather_code_text(code)  → string ("Clear sky")
+--     Human-readable label for a WMO weather code.
+--   conky_wind_direction_text(deg) → string ("Northwest")
+--     Cardinal direction name for a wind bearing in degrees.
+--   conky_moon_phase_text()        → string ("Full moon")
+--     Textual name of the current moon phase.
+--
+-- Sun/moon icons:
+--   conky_icon_current_weather() → "/path/to/100d.png"
+--     Icon path for the current weather (day/night suffix).
+--   conky_icon_hour_weather(i)   → "/path/to/3n.png"
+--     Icon path for the i-th hourly forecast slot.
+--   conky_icon_day_weather(i)    → "/path/to/61d.png"
+--     Icon path for the i-th daily forecast slot.
+--   conky_icon_moon()            → "/path/to/4n.png"
+--     Icon path for the current moon phase.
+--   conky_icon_current_wind()    → "/path/to/green_ne.png"
+--     Wind-direction arrow icon for the current wind.
+--   conky_icon_hour_wind(i)      → "/path/to/yellow_sw.png"
+--     Wind-direction arrow icon for the i-th hourly slot.
+--
+-- Sun/moon arc (0-1 position):
+--   conky_sun_progress()          → 0.0-1.0
+--     Sun's progress along its daily arc (0 = rise, 1 = set).
+--   conky_moon_progress()         → 0.0-1.0 (-1 = not visible)
+--     Moon's progress along its daily arc; -1 when the moon is not up.
+--   conky_sun_arc_x(cx, r)       → number
+--     X position of the sun on an arc centered at cx with radius r.
+--   conky_sun_arc_y(cy, r)       → number
+--     Y position of the sun on an arc centered at cy with radius r.
+--   conky_moon_arc_x(cx, r)      → number
+--     X position of the moon on its arc.
+--   conky_moon_arc_y(cy, r)      → number
+--     Y position of the moon on its arc.
+--
+-- Day names:
+--   conky_day_name(offset)       → string ("Monday")
+--     Full weekday name for today + offset days.
+--   conky_day_name_short(offset) → string ("Mon")
+--     Short (3-letter) weekday name for today + offset days.
+--
+-- Units:
+--   conky_units()     → { cur, hour, day, air_cur, air_hour }
+--     The full units table (temperature, wind, precipitation…) for the
+--     active locale, one entry per forecast group.
+--   conky_units_cur() → table
+--     Units for the current weather block (the `cur` entry).
+--}}}
 
 local weather_cache_storage = nil
 local weather_cache_mtimes = {}
@@ -48,27 +110,58 @@ function conky_read_j(path)
 	if not f then return {} end
 	local c = f:read("*all")
 	f:close()
-	local ok, r = pcall(json.decode, c)
-	return ok and r or {}
+	return json.decode(c) or {}
 end
 
 W = W or { weather = {}, air = {}, city = {}, moon = {}, sun = {} }
+
+-- Hour-alignment helper, shared by hourly.lua / air.lua.
+-- Maps a 1-based hour offset to the real index in the hourly arrays,
+-- aligning i=1 to the nearest forecast hour.
+local last_idx_check = 0
+local cached_start_idx = 1
+function get_idx(i)
+	local h = W.weather.hourly
+	if not h or not h.time then
+		return tonumber(i) or 1
+	end
+	local now = os.time()
+	if now - last_idx_check > 60 then
+		for k, t in ipairs(h.time) do
+			if t >= (now - 1800) then
+				cached_start_idx = k
+				break
+			end
+		end
+		last_idx_check = now
+	end
+	if cached_start_idx < 1 then cached_start_idx = 1 end
+	if cached_start_idx > #h.time then cached_start_idx = #h.time end
+	return cached_start_idx + (tonumber(i) or 1) - 1
+end
+
+-- Shared time helper (used by sunmoon.lua / daily.lua).
+-- Converts a unix timestamp to "HH:MM" ("" for 0/nil).
+function fmt_unix(ts)
+	if not ts or ts == 0 then
+		return ""
+	end
+	return os.date("%H:%M", ts)
+end
 
 function conky_load_weather_data()
 	local now = os.time()
 	if not weather_cache_storage or (now - last_mtime_check > 30) then
 		last_mtime_check = now
 		if not weather_cache_storage or json_changed() then
-			local ok, data = pcall(function()
-				return {
-					weather = conky_read_j(JSON_PATH .. "weather_data.json"),
-					air     = conky_read_j(JSON_PATH .. "airquality.json"),
-					sun     = conky_read_j(JSON_PATH .. "sun.json"),
-					moon    = conky_read_j(JSON_PATH .. "moon.json"),
-					city    = conky_read_j(JSON_PATH .. "city.json"),
-				}
-			end)
-			if ok and data then
+			local data = {
+				weather = conky_read_j(JSON_PATH .. "weather_data.json"),
+				air     = conky_read_j(JSON_PATH .. "airquality.json"),
+				sun     = conky_read_j(JSON_PATH .. "sun.json"),
+				moon    = conky_read_j(JSON_PATH .. "moon.json"),
+				city    = conky_read_j(JSON_PATH .. "city.json"),
+			}
+			if data then
 				weather_cache_storage = data
 				W.weather = data.weather or W.weather
 				W.air     = data.air or W.air
@@ -142,7 +235,7 @@ end
 
 function conky_sun_progress()
 	conky_load_weather_data()
-	local s = W.sun or {}
+	local s = (W.sun or {}).properties or {}
 	local rise = s.sunrise and iso_to_mins(s.sunrise.time)
 	local set = s.sunset and iso_to_mins(s.sunset.time)
 	if not rise or not set then return 0.5 end
@@ -157,7 +250,7 @@ end
 
 function conky_moon_progress()
 	conky_load_weather_data()
-	local m = W.moon or {}
+	local m = (W.moon or {}).properties or {}
 	local rise = m.moonrise and iso_to_mins(m.moonrise.time)
 	local set = m.moonset and iso_to_mins(m.moonset.time)
 	if not rise or not set then return -1 end
@@ -244,7 +337,7 @@ local WMO_TO_MSGID = {
 function conky_weather_code_text(code)
 	local msgid = WMO_TO_MSGID[tonumber(code) or 0]
 	if not msgid then return "WMO " .. (code or 0) end
-	return get_tr and get_tr(msgid) or msgid
+	return conky_get_tr and conky_get_tr(msgid) or msgid
 end
 
 local wind_codes = { "n", "nne", "ne", "ene", "e", "ese", "se", "sse", "s", "ssw", "sw", "wsw", "w", "wnw", "nw", "nnw" }
@@ -255,9 +348,9 @@ end
 
 local dir_keys = { "north", "nne", "ne", "ene", "east", "ese", "se", "sse", "south", "ssw", "sw", "wsw", "west", "wnw", "nw", "nnw" }
 function conky_wind_direction_text(deg)
-	if not deg then return get_tr and get_tr("variable") or "variable" end
+	if not deg then return conky_get_tr and conky_get_tr("variable") or "variable" end
 	local key = dir_keys[math.floor((deg / 22.5) + 0.5) % 16 + 1]
-	return get_tr and get_tr(key) or key
+	return conky_get_tr and conky_get_tr(key) or key
 end
 
 local function wind_color(s)
@@ -288,7 +381,7 @@ function conky_moon_phase_text()
 	local p = tonumber(conky_moon_phase and conky_moon_phase() or 0) or 0
 	local idx = math.floor((p / 12.5) + 0.5)
 	local msgid = MOON_PHASE_TO_MSGID[idx > 8 and 8 or idx] or "no_data"
-	return get_tr and get_tr(msgid) or msgid
+	return conky_get_tr and conky_get_tr(msgid) or msgid
 end
 
 if JSON_PATH then

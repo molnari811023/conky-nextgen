@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Nextgen Designer
+Name[hu]=Conky Designer
+Comment=Visual editor for the NextGen Conky widget
+Comment[hu]=A NextGen Conky widget vizuális szerkesztője
+Exec=python3 /home/molnar/.conky/sh/designer/main.py
+Icon=/home/molnar/.conky/nd.svg
+Terminal=false
+Categories=Utility;Development;Graphics;
+StartupNotify=true
+StartupWMClass=conky-designer

@@ -1,16 +1,32 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+
+#{{{
+#  language/fi.po — Finnish translations
+#  Compiled to language/fi.mo (msgfmt)
+#}}}
+
 # Conky Weather Module – Finnish Translation
 # Copyright (C) 2026
 # This file is distributed under the same license as the Conky Weather Module.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: conky-weather 1.0\n"
+"Project-Id-Version: conky-nextgen 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-08 20:32+0200\n"
 "PO-Revision-Date: 2026-07-02 12:00+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "Language: fi\n"
+"X-Framework: Conky NextGen Framework\n"
+"X-Author: István Molnár\n"
+"X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
+"X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -664,23 +680,3 @@ msgstr "Epätodennäköinen"
 
 msgid "alert_certainty_unknown"
 msgstr "Tuntematon"
-
-############################################
-# CONTEXT MENU
-############################################
-
-
-msgid "ctx_copy"
-msgstr "Kopioi"
-
-msgid "ctx_collapse"
-msgstr "Pienennä"
-
-msgid "ctx_expand"
-msgstr "Laajenna"
-
-msgid "ctx_hide"
-msgstr "Piilota"
-
-msgid "ctx_restore_all"
-msgstr "Palauta kaikki"
