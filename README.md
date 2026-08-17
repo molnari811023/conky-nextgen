@@ -43,6 +43,7 @@ The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly
 
 - **Desktop widgets** — clocks, calendars, bars, rings, graphs, images, SVG
 - **System info** — CPU, RAM, NVMe, sensors, network, battery, DMI
+- **Advanced weather** — current, hourly, daily, AQI, MeteoAlerts, sun/moon, space weather
 - **Themes** — palette → gradients → per-widget defaults; every color resolves automatically
 - **Views & groups** — switchable layouts, clickable regions, mouse-driven navigation
 - **Visual editing** — no Lua coding required; everything is editable in the Designer
