@@ -142,23 +142,15 @@ ICON_PATH = next(
 # Single-theme designer: exactly one theme, always named "theme".
 THEME_NAME = "theme"
 
-# X11: any .conf write (even byte-identical) makes conky's inotify reload
-# clean up + re-initialise and the window disappears (conky.cc reload_config).
-# widget.lua-only reloads are safe on Wayland; on X11 we full-restart after a
-# live lua write until proven otherwise. Flip to True after the X11 stress
-# test if lua-only reload survives.
-X11_LUA_RELOAD_OK = False
-
 # Unique per-instance work dir (conky.log + scratch)
 WORK_DIR = tempfile.mkdtemp(prefix="conky_designer_")
 
-# X11-only helper the designer appends to the PREVIEW conky's lua_load (see
+# Preview helper: the designer appends to the PREVIEW conky's lua_load (see
 # _preview_conf). Kept out of the framework: the deployed .conf never
 # references it, so the desktop widget runs without the ghost-clear.
 LIVE_CLEAR_LUA = os.path.join(_here, "live_clear.lua")
 
-# Restart helper: Wayland uses SIGUSR1 (in-place reload); X11 needs a
-# full kill+restart cycle because conky's inotify reload drops the window.
+# Restart helper: always sends SIGUSR1 for a clean reload (X11 + Wayland).
 
 
 # Help menu: generated manuals land in /tmp, never inside the conky tree.
@@ -3178,17 +3170,15 @@ class DesignerWindow(Gtk.Window):
     def _after_live_write(self):
         """Push a freshly written widget.lua to the running conky.
 
-        Wayland: conky's inotify reload picks it up — just verify liveness.
-        X11: full restart (see X11_LUA_RELOAD_OK) because a reload can make
-        the window disappear."""
+        Always sends SIGUSR1 to trigger a clean reload, regardless of
+        display server (X11 or Wayland)."""
         if not self._conky_managed:
             return
-        if self._is_x11() and not X11_LUA_RELOAD_OK:
-            self._conky_restart_debounced()
+        if self._ours_running():
+            self._conky_restart()
         else:
-            if not self._ours_running():
-                activity_log.add("Conky", "conky died — watchdog restart")
-                self._conky_start()
+            activity_log.add("Conky", "conky died — watchdog restart")
+            self._conky_start()
 
     @staticmethod
     def _inject_toc(html_bytes):
@@ -4627,13 +4617,7 @@ class DesignerWindow(Gtk.Window):
         activity_log.add(
             "Conky", f".conf updated: {os.path.basename(conf_path)}"
         )
-        if self._conky_managed:
-            if self._is_x11():
-                self._conky_restart_debounced()
-            else:
-                if not self._ours_running():
-                    activity_log.add("Conky", "conky died — watchdog restart")
-                    self._conky_start()
+        # SIGUSR1 is always sent by _after_live_write() after save
 
     def _generate_content(self):
         """Generate Lua content from current draw_list, groups, views."""

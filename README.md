@@ -33,22 +33,51 @@ The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly
 
 ### Widgets
 
-| Clock + Calendar | System Info | Memory + Swap | NVIDIA GPU |
+| Clock + Calendar | Top (Multi-View) | System Info | Memory + Swap |
 |:---:|:---:|:---:|:---:|
-| ![clock_cal](screenshots/clock_cal.png) | ![info](screenshots/info.png) | ![mem_swap](screenshots/mem_swap.png) | ![nvidia](screenshots/nvidia.png) |
+| ![clock_cal](screenshots/clock_cal.png) | ![top](screenshots/top.png) | ![info](screenshots/info.png) | ![mem_swap](screenshots/mem_swap.png) |
+
+| NVIDIA GPU | Top — View 2 |
+|:---:|:---:|
+| ![nvidia](screenshots/nvidia.png) | ![top_view_1](screenshots/top_view_1.png) |
 
 ---
 
 ## What NextGen Provides
 
 - **Desktop widgets** — clocks, calendars, bars, rings, graphs, images, SVG
+- **Multi-view layouts** — switch between views with a single click (see `top` widget)
 - **System info** — CPU, RAM, NVMe, sensors, network, battery, DMI
 - **Advanced weather** — current, hourly, daily, AQI, MeteoAlerts, sun/moon, space weather
 - **Themes** — palette → gradients → per-widget defaults; every color resolves automatically
 - **Views & groups** — switchable layouts, clickable regions, mouse-driven navigation
 - **Visual editing** — no Lua coding required; everything is editable in the Designer
-- **22 languages** — full i18n with `.po`/`.mo` translation files
+- **22 languages** — full weather i18n with `.po`/`.mo` translation files
 - **X11 + Wayland** — runs on both; SIGUSR1 reload patch eliminates window flashing on X11
+
+## Multi-View
+
+Widgets can define multiple views and switch between them with a mouse click. The `top` widget demonstrates this:
+
+- **Main view** — system stats (CPU, RAM, disk, network)
+- **View 2** — detailed process list
+
+Click anywhere on the widget to toggle views. Configure in the Designer with the **Views** tab, or in `widget.lua`:
+
+```lua
+-- Views
+_VIEWS = {
+    { name = "main" },
+    { name = "view_1" },
+}
+
+-- Mouse click toggles between views
+MOUSE_CLICK_LEFT = function() view_toggle("view_1") end
+
+-- Items belong to a view
+draw[#draw + 1] = { type = "text", view = "main", ... }
+draw[#draw + 1] = { type = "text", view = "view_1", ... }
+```
 
 ## Designer (GTK3)
 
@@ -100,7 +129,7 @@ widget.lua → require.lua → lua/core/* → lua/draw/* → lua/hardware/* → 
 | `draw_group.lua` | Group offsets, view filtering, layout stacking |
 | `mouse.lua` | Mouse event dispatching, hit-testing, click regions |
 | `theme_engine.lua` | Runtime palette/gradient/default resolution |
-| `translate.lua` | `.mo` translation loader for 22 languages |
+| `translate.lua` | `.mo` translation loader for weather data (22 languages) |
 | `utils.lua` | Safe math, hex colors, gradient interpolation, Conky variable parsing |
 | `capture.lua` | Shell command execution with result caching |
 
@@ -158,7 +187,7 @@ Each widget consists of three files:
 | `widget.lua` | Theme block + draw list (Designer-edited) |
 | `widget.png` | Preview icon (for Conky Manager) |
 
-Included widgets: `clock_cal` (analog clock + calendar), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
+Included widgets: `clock_cal` (analog clock + calendar), `top` (multi-view system stats), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
 
 ## SIGUSR1 Reload Patch (X11)
 
