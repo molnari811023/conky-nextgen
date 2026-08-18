@@ -12,6 +12,34 @@ import re
 import os
 
 
+class RawLua(str):
+    """Marker: this string is a raw Lua expression, not a plain string.
+
+    When serialized by ``generate_lua_entry()``, ``RawLua`` values are
+    emitted **unquoted** so that Lua can evaluate them (e.g. function
+    references, string concatenation expressions, function calls).
+    """
+
+    def __repr__(self):
+        return f"RawLua({super().__repr__()})"
+
+
+def _is_lua_expression(s):
+    """Return True if *s* looks like a raw Lua expression (not a plain string)."""
+    if not s:
+        return False
+    # function() ... end
+    if re.match(r'^function\s*\(', s):
+        return True
+    # conky_*() or other function calls at top level
+    if re.match(r'^[a-zA-Z_]\w*\s*\(', s):
+        return True
+    # string concatenation: contains unquoted ..
+    if '..' in s:
+        return True
+    return False
+
+
 def parse_lua_value(s):
     """Parse a single Lua value string → Python value."""
     s = s.strip()
@@ -35,11 +63,17 @@ def parse_lua_value(s):
     # string with double quotes
     m = re.match(r'^"(.*)"$', s, re.DOTALL)
     if m:
-        return m.group(1).replace('\\"', '"').replace("\\n", "\n")
+        inner = m.group(1).replace('\\"', '"').replace("\\n", "\n")
+        if _is_lua_expression(inner):
+            return RawLua(inner)
+        return inner
     # string with single quotes
     m = re.match(r"^'(.*)'$", s, re.DOTALL)
     if m:
-        return m.group(1).replace("\\'", "'").replace("\\n", "\n")
+        inner = m.group(1).replace("\\'", "'").replace("\\n", "\n")
+        if _is_lua_expression(inner):
+            return RawLua(inner)
+        return inner
     # table (recursive)
     if s.startswith("{"):
         return parse_lua_table_content(s)
@@ -52,6 +86,9 @@ def parse_lua_value(s):
                 return float(eval(s))
             except Exception:
                 pass
+    # Unquoted Lua expression → RawLua
+    if _is_lua_expression(s):
+        return RawLua(s)
     # fallback: return as string
     return s
 

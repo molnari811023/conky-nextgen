@@ -48,7 +48,7 @@ except Exception:
     _PILImage = None
     _PIL_OK = False
 
-from engine.lua_parser import parse_widget_lua, parse_settings, parse_gradient_stops, parse_lua_table_content
+from engine.lua_parser import parse_widget_lua, parse_settings, parse_gradient_stops, parse_lua_table_content, RawLua
 from engine import activity_log
 from engine import gradient_gen as gg
 from engine import theme_writer as tw
@@ -754,6 +754,8 @@ def generate_lua_entry(item, theme_defaults=None):
             lines.append(f"    {key} = {'true' if val else 'false'},")
         elif isinstance(val, (int, float)):
             lines.append(f"    {key} = {val},")
+        elif isinstance(val, RawLua):
+            lines.append(f"    {key} = {val},")
         elif isinstance(val, str):
             lines.append(f'    {key} = "{_lua_escape(val)}",')
         elif isinstance(val, list):
@@ -761,6 +763,8 @@ def generate_lua_entry(item, theme_defaults=None):
             for v in val:
                 if isinstance(v, (list, tuple)) and len(v) == 3:
                     parts.append(f'{{ {v[0]}, "{_lua_escape(str(v[1]))}", {v[2]} }}')
+                elif isinstance(v, RawLua):
+                    parts.append(str(v))
                 elif isinstance(v, str):
                     parts.append(f'"{_lua_escape(v)}"')
                 else:
@@ -791,6 +795,8 @@ def generate_groups_lua(groups):
         if dm is not None:
             if isinstance(dm, bool):
                 parts.append(f"draw_me = {'true' if dm else 'false'}")
+            elif isinstance(dm, RawLua):
+                parts.append(f"draw_me = {dm}")
             else:
                 parts.append(f'draw_me = "{_lua_escape(str(dm))}"')
         lines.append("    { " + ", ".join(parts) + " },")
@@ -3797,9 +3803,16 @@ class DesignerWindow(Gtk.Window):
     def _coerce_value(self, key, val_str):
         """Coerce a raw property string to a Python value.
         string_fields() keys are always kept as strings (like the legacy
-        STRING_FIELDS). Raises on invalid list syntax."""
+        STRING_FIELDS).  Lua expressions are wrapped in ``RawLua`` so
+        ``generate_lua_entry()`` emits them unquoted.
+        Raises on invalid list syntax."""
         if key in string_fields():
-            return None if val_str in ("nil", "None", "") else val_str
+            if val_str in ("nil", "None", ""):
+                return None
+            from engine.lua_parser import _is_lua_expression
+            if _is_lua_expression(val_str):
+                return RawLua(val_str)
+            return val_str
         try:
             return int(val_str)
         except ValueError:

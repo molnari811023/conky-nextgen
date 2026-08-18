@@ -63,6 +63,13 @@ function draw_png(cr, m)
     if not conky_window then return end
     if not m.path then return nil end
 
+    -- resolve function / exec table path at draw time
+    local path = m.path
+    if type(path) == "table" and path.exec then path = path.exec()
+    elseif type(path) == "function" then path = path() end
+    if not path then return nil end
+    m.path = path
+
     local c = apply_defaults(m, PNG_DEFAULT)
 
     local cached = PNG_CACHE[c.path]
