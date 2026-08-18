@@ -27,6 +27,7 @@
 local _CAPTURE_REQUEST = script_dir .. "tmp/capture_request"
 
 local _pending_path = nil
+local _skip_frames = 0          -- delay after view switch for data to settle
 
 function capture_poll()
     _pending_path = nil
@@ -45,6 +46,12 @@ function capture_poll()
         if switch_view then
             switch_view(view)
         end
+        _skip_frames = 3          -- give top_mem / dynamic data 3 ticks to settle
+    end
+
+    if _skip_frames > 0 then
+        _skip_frames = _skip_frames - 1
+        return nil               -- don't capture yet
     end
 
     _pending_path = path
