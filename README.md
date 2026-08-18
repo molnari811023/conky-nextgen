@@ -74,8 +74,8 @@ The weather widget supports 3 views with clickable labels — click any label to
 
 Widgets can define multiple views and switch between them with a mouse click. The `top` widget demonstrates this:
 
-- **Main view** — system stats (CPU, RAM, disk, network)
-- **View 2** — detailed process list
+- **Main view** — top CPU processes
+- **View 1** — top memory processes
 
 Click anywhere on the widget to toggle views. Configure in the Designer with the **Views** tab, or in `widget.lua`:
 
