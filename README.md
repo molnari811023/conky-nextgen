@@ -37,9 +37,9 @@ The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly
 |:---:|:---:|:---:|
 | ![clock_cal](screenshots/clock_cal.png) | ![clock_cal_calendar](screenshots/clock_cal_calendar.png) | ![info](screenshots/info.png) |
 
-| Memory + Swap | NVIDIA GPU |
-|:---:|:---:|
-| ![mem_swap](screenshots/mem_swap.png) | ![nvidia](screenshots/nvidia.png) |
+| Memory + Swap | NVIDIA GPU | Top (Multi-View) | Top — View 2 |
+|:---:|:---:|:---:|:---:|
+| ![mem_swap](screenshots/mem_swap.png) | ![nvidia](screenshots/nvidia.png) | ![top](screenshots/top.png) | ![top_view_1](screenshots/top_view_1.png) |
 
 ---
 
