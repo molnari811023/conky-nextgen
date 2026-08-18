@@ -224,10 +224,95 @@ def parse_settings(filepath):
     return settings
 
 
+
+def _find_for_blocks(content):
+    """Find all ``for ... do ... end`` blocks in *content*.
+
+    Returns a list of ``(start_line, end_line, raw_text)`` tuples
+    covering the entire block (including any preceding comment /
+    ``local`` lines that logically belong to the block).
+
+    Only blocks that contain at least one ``draw[#draw + 1]`` assignment
+    are returned.  Line numbers are 0-based.
+    """
+    blocks = []
+    lines = content.split("\n")
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        # Detect a for-loop header (for i = ... / for k in ...)
+        if re.match(r'^for\s+\w+\s*[=,]', line) or re.match(r'^for\s+\w+\s+in\b', line):
+            # Walk back to include preceding -- comment / local lines
+            j = i - 1
+            while j >= 0:
+                prev = lines[j].strip()
+                if prev.startswith("--") or re.match(r'^local\s+', prev) or prev == "":
+                    j -= 1
+                else:
+                    break
+            block_start_line = j + 1
+
+            # Find matching end (handle nested for/if/while)
+            depth = 0
+            k = i
+            while k < len(lines):
+                l = lines[k].strip()
+                if re.match(r'^for\b', l) or re.match(r'^if\b.*\bthen\s*$', l) or re.match(r'^while\b', l):
+                    depth += 1
+                elif l == "end":
+                    depth -= 1
+                    if depth == 0:
+                        break
+                k += 1
+            block_end_line = k  # inclusive
+
+            # Check if block contains draw entries
+            block_text = "\n".join(lines[block_start_line:block_end_line + 1])
+            if "draw[#draw" in block_text:
+                blocks.append((block_start_line, block_end_line, block_text))
+            i = block_end_line + 1
+        else:
+            i += 1
+    return blocks
+
+
+class RawBlock:
+    """Marker: verbatim Lua code that must be emitted as-is during save.
+
+    This preserves ``for`` loops, ``if`` blocks, and any other Lua
+    constructs that the designer cannot parse into draw entries.
+    Behaves like a dict for ``.get()`` / ``in`` checks so that the
+    designer GUI code doesn't crash when it encounters one.
+    """
+    def __init__(self, lua_code):
+        self.lua_code = lua_code
+
+    def __repr__(self):
+        return f"RawBlock({self.lua_code[:60]!r}...)"
+
+    def get(self, key, default=None):
+        if key == "type":
+            return "_raw_block"
+        return default
+
+    def __contains__(self, key):
+        return False
+
+    def __getitem__(self, key):
+        if key == "type":
+            return "_raw_block"
+        raise KeyError(key)
+
+    def __iter__(self):
+        return iter([])
+
+
 def parse_widget_lua(filepath):
     """Parse widget.lua → (draw_list, groups_list, views_list, padding).
 
-    draw_list: list of dicts, each with at least 'type' key
+    draw_list: list of dicts, each with at least 'type' key.
+               ``RawBlock`` instances are inserted for ``for`` loops and
+               other un-parseable Lua constructs.
     groups_list: list of dicts, each with 'name' and 'views' keys
     views_list: list of dicts, each with 'name' key
     padding: int, value of _PADDING (default 10)
@@ -235,9 +320,19 @@ def parse_widget_lua(filepath):
     with open(filepath, "r") as f:
         content = f.read()
 
+    orig_lines = content.split("\n")
+
+    # --- Find for-blocks (need raw text + line numbers) ---
+    for_blocks = _find_for_blocks(content)
+    for_block_lines = set()
+    for start_line, end_line, _ in for_blocks:
+        for ln in range(start_line, end_line + 1):
+            for_block_lines.add(ln)
+
     # Strip Lua comments (-- line comments and --[[ block comments ]])
-    content = re.sub(r'--\[\[.*?\]\]', '', content, flags=re.DOTALL)
-    content = re.sub(r'--[^\n]*', '', content)
+    # Use a version without comments for text value parsing
+    stripped = re.sub(r'--\[\[.*?\]\]', '', content, flags=re.DOTALL)
+    stripped = re.sub(r'--[^\n]*', '', stripped)
 
     draw_list = []
     groups_list = []
@@ -245,12 +340,12 @@ def parse_widget_lua(filepath):
 
     # Parse _PADDING
     padding = 10
-    pm = re.search(r'_PADDING\s*=\s*(\d+)', content)
+    pm = re.search(r'_PADDING\s*=\s*(\d+)', stripped)
     if pm:
         padding = int(pm.group(1))
 
     # Parse _GROUPS = { ... }
-    gmatch = re.search(r'_GROUPS\s*=\s*(\{.*?\})\s*$', content, re.MULTILINE | re.DOTALL)
+    gmatch = re.search(r'_GROUPS\s*=\s*(\{.*?\})\s*$', stripped, re.MULTILINE | re.DOTALL)
     if gmatch:
         groups_raw = gmatch.group(1)
         groups_list = parse_lua_value(groups_raw)
@@ -258,7 +353,7 @@ def parse_widget_lua(filepath):
             groups_list = [groups_list]
 
     # Parse _VIEWS = { ... }
-    vmatch = re.search(r'_VIEWS\s*=\s*(\{.*?\})\s*$', content, re.MULTILINE | re.DOTALL)
+    vmatch = re.search(r'_VIEWS\s*=\s*(\{.*?\})\s*$', stripped, re.MULTILINE | re.DOTALL)
     if vmatch:
         views_raw = vmatch.group(1)
         views_list = parse_lua_value(views_raw)
@@ -266,19 +361,71 @@ def parse_widget_lua(filepath):
             views_list = [views_list]
 
     # Parse draw[#draw + 1] = { ... } entries
+    # Run on STRIPPED content (comments removed → no false positives from
+    # comment text like "-- draw[#draw + 1] = { ... }")
     pattern = re.compile(
         r'draw\[#draw\s*\+\s*1\]\s*=\s*(\{(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\})',
         re.DOTALL
     )
-    for m in pattern.finditer(content):
+
+    # Build a mapping: stripped line → original line number.
+    # We use a simple line-count approach: strip comments by replacing them
+    # in-place (not deleting lines), so both have the same line count.
+    content_no_block = re.sub(
+        r'--\[\[.*?\]\]',
+        lambda m: '\n' * m.group(0).count('\n'),
+        content, flags=re.DOTALL,
+    )
+    content_no_comments = re.sub(r'--[^\n]*', '', content_no_block)
+
+    draw_positions = []  # (original_line, entry_dict)
+    for m in pattern.finditer(stripped):
         table_str = m.group(1)
         entry = parse_lua_value(table_str)
         if isinstance(entry, dict) and "type" in entry:
-            draw_list.append(entry)
+            # Figure out the original line number for this match
+            stripped_line = stripped[:m.start()].count("\n")
+            # Map to original line by comparing text at that line index
+            # Both have the same number of lines because we replaced
+            # --[[...]] with same-count newlines
+            stripped_lines = stripped.split("\n")
+            if stripped_line < len(stripped_lines):
+                sl = stripped_lines[stripped_line].strip()
+                # Find matching original line
+                orig_line = stripped_line  # default: same index
+                if 0 <= stripped_line < len(orig_lines):
+                    ol = orig_lines[stripped_line].strip()
+                    if ol == sl:
+                        orig_line = stripped_line
+                    else:
+                        # Search nearby lines for a match
+                        for delta in range(-3, 4):
+                            candidate = stripped_line + delta
+                            if 0 <= candidate < len(orig_lines):
+                                if orig_lines[candidate].strip() == sl:
+                                    orig_line = candidate
+                                    break
+            else:
+                orig_line = -1
+            draw_positions.append((orig_line, entry))
+
+    # Build ordered draw_list: normal entries + RawBlocks, sorted by position
+    all_items = []  # (original_line, item)
+
+    for orig_line, entry in draw_positions:
+        if orig_line in for_block_lines:
+            continue  # skip — inside a for-block, emitted as RawBlock
+        all_items.append((orig_line, entry))
+
+    for start_line, end_line, raw_text in for_blocks:
+        all_items.append((start_line, RawBlock(raw_text)))
+
+    all_items.sort(key=lambda x: x[0])
+    draw_list = [item for _, item in all_items]
 
     # Normalize multi-view: view = { "main", "view_1" } → "main, view_1"
     for entry in draw_list:
-        if isinstance(entry.get("view"), list):
+        if isinstance(entry, dict) and isinstance(entry.get("view"), list):
             entry["view"] = ", ".join(str(v) for v in entry["view"])
 
     # Normalize group views: a missing/None/non-list "views" must become a list,

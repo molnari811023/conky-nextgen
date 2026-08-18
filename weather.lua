@@ -19,6 +19,7 @@
 
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
+-- script_dir is widget.lua's own directory (the project root)
 ------------------------------------------------------------
 script_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"
 
@@ -29,9 +30,13 @@ package.path = package.path
     .. ";" .. script_dir .. "lua/weather/?.lua"
     .. ";" .. script_dir .. "lua/hardware/?.lua"
 
+-- JSON_PATH is always needed (weather, hardware/network, nowplaying data)
 JSON_PATH      = script_dir .. "tmp/"
 
 draw = {}
+
+require("require")
+
 
 ICON_BASE      = script_dir .. "icons/"
 ICON_THEME     = "default"
@@ -39,7 +44,26 @@ MOON_ICON_BASE = script_dir .. "icons/moon/"
 WIND_ICON_BASE = script_dir .. "icons/wind/"
 
 --{{{
--- THEMES
+-- THEMES — Theme definitions (palette, gradients, widget defaults).
+-- Lives in widget.lua, before the modules are loaded, so that
+-- theme_engine.lua picks it up (THEMES = THEMES or {}).
+--
+-- THEMES = {
+--   theme = {
+--     palette   = { key = "#hex", ... },
+--     gradients = { name = { stops }, ... },
+--     defaults  = {
+--       background = { bg, border, border_width },
+--       bar        = { fg, bg },
+--       graph      = { fg, bg, border, grid_color },
+--       ring       = { fg, bg },
+--       text       = { color },
+--       line       = { fg },
+--       clock      = { bg, border, tick/number/hand colors },
+--       calendar   = { color_month, color_weekdays, ... },
+--     },
+--   },
+-- }
 --}}}
 
 THEMES = {
@@ -98,148 +122,189 @@ draw[#draw + 1] = {
     radius = 12,
 }
 
--- Tab button backgrounds (inactive)
 draw[#draw + 1] = {
     type = "background",
-    x = 10, y = 10, w = 220, h = 30, radius = 8,
+    x = 10,
+    y = 10,
+    w = 220,
+    h = 30,
+    radius = 8,
     bg = { { 1, "#1b4155", 0.2 } },
     click_view = "main",
 }
+
 draw[#draw + 1] = {
     type = "background",
-    x = 240, y = 10, w = 220, h = 30, radius = 8,
+    x = 240,
+    y = 10,
+    w = 220,
+    h = 30,
+    radius = 8,
     bg = { { 1, "#1b4155", 0.2 } },
     click_view = "view_1",
 }
+
 draw[#draw + 1] = {
     type = "background",
-    x = 470, y = 10, w = 220, h = 30, radius = 8,
+    x = 470,
+    y = 10,
+    w = 220,
+    h = 30,
+    radius = 8,
     bg = { { 1, "#1b4155", 0.2 } },
     click_view = "view_2",
 }
 
--- Tab button backgrounds (active highlight)
 draw[#draw + 1] = {
     type = "background",
     view = "main",
-    x = 10, y = 10, w = 220, h = 30, radius = 8,
+    x = 10,
+    y = 10,
+    w = 220,
+    h = 30,
+    radius = 8,
     bg = { { 1, "#00aaff", 0.2 } },
     click_view = "main",
 }
+
 draw[#draw + 1] = {
     type = "background",
     view = "view_1",
-    x = 240, y = 10, w = 220, h = 30, radius = 8,
+    x = 240,
+    y = 10,
+    w = 220,
+    h = 30,
+    radius = 8,
     bg = { { 1, "#00aaff", 0.2 } },
     click_view = "view_1",
 }
+
 draw[#draw + 1] = {
     type = "background",
     view = "view_2",
-    x = 470, y = 10, w = 220, h = 30, radius = 8,
+    x = 470,
+    y = 10,
+    w = 220,
+    h = 30,
+    radius = 8,
     bg = { { 1, "#00aaff", 0.2 } },
     click_view = "view_2",
 }
 
--- Tab labels
 draw[#draw + 1] = {
     type = "text",
-    x = 120, y = 15,
-    font = "Mono", size = 12,
-    text = "conky_get_tr(\"current_weather\")",
-    align = "center",
-}
-draw[#draw + 1] = {
-    type = "text",
-    x = 350, y = 15,
-    font = "Mono", size = 12,
-    text = "conky_get_tr(\"hourly_forecast\")",
-    align = "center",
-}
-draw[#draw + 1] = {
-    type = "text",
-    x = 580, y = 15,
-    font = "Mono", size = 12,
-    text = "conky_get_tr(\"daily_forecast\")",
+    x = 120,
+    y = 15,
+    font = "Mono",
+    size = 12,
+    text = conky_get_tr("current_weather"),
     align = "center",
 }
 
--- ═══════════════════════════════════════════════
---  VIEW: MAIN — Current Weather (detailed)
--- ═══════════════════════════════════════════════
+draw[#draw + 1] = {
+    type = "text",
+    x = 350,
+    y = 15,
+    font = "Mono",
+    size = 12,
+    text = conky_get_tr("hourly_forecast"),
+    align = "center",
+}
 
--- City name + country
+draw[#draw + 1] = {
+    type = "text",
+    x = 580,
+    y = 15,
+    font = "Mono",
+    size = 12,
+    text = conky_get_tr("daily_forecast"),
+    align = "center",
+}
+
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 245, y = 50,
-    font = "Mono", size = 13, weight = "bold",
-    text = "conky_city_name() .. \", \" .. conky_city_country()",
+    x = 245,
+    y = 50,
+    font = "Mono",
+    size = 13,
+    weight = "bold",
+    text = conky_city_name() .. ", " .. conky_city_country(),
     color = { { 1, "#3daee9", 1 } },
 }
 
--- Current weather icon (LARGE — left side)
 draw[#draw + 1] = {
     type = "image",
     view = "main",
-    x = 15, y = 42,
-    width = 160, height = 160,
+    x = 15,
+    y = 42,
+    width = 160,
+    height = 160,
     path = function() return conky_icon_current_weather() end,
 }
 
--- Temperature (big)
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 245, y = 76,
-    font = "Mono", size = 42, weight = "bold",
-    text = "conky_weather_current_temp() .. conky_unit_cur_temp()",
+    x = 245,
+    y = 76,
+    font = "Mono",
+    size = 42,
+    weight = "bold",
+    text = conky_weather_current_temp() .. conky_unit_cur_temp(),
 }
 
--- Weather description
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 245, y = 112,
-    font = "Mono", size = 12,
-    text = "conky_weather_code_text(conky_weather_current_code())",
+    x = 245,
+    y = 112,
+    font = "Mono",
+    size = 12,
+    text = conky_weather_code_text(conky_weather_current_code()),
     color = { { 1, "#a1a9b1", 1 } },
 }
 
--- Feels like
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 245, y = 128,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"feels_like\") .. \": \" .. conky_weather_current_apparent() .. conky_unit_cur_apparent()",
+    x = 245,
+    y = 128,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("feels_like") .. ": " .. conky_weather_current_apparent() .. conky_unit_cur_apparent(),
     color = { { 1, "#a1a9b1", 1 } },
 }
 
--- Wind icon + speed
 draw[#draw + 1] = {
     type = "image",
     view = "main",
-    x = 245, y = 143,
-    width = 28, height = 28,
+    x = 245,
+    y = 143,
+    width = 28,
+    height = 28,
     path = function() return conky_icon_current_wind() end,
 }
+
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 280, y = 149,
-    font = "Mono", size = 11,
-    text = "conky_weather_current_wind_speed() .. \" \" .. conky_unit_cur_wind_speed() .. \" \" .. conky_wind_direction_text(conky_weather_current_wind_dir())",
+    x = 280,
+    y = 149,
+    font = "Mono",
+    size = 11,
+    text = conky_weather_current_wind_speed() .. " " .. conky_unit_cur_wind_speed() .. " " .. conky_wind_direction_text(conky_weather_current_wind_dir()),
 }
 
--- ─── Sun + Moon arc (right side) ───
 draw[#draw + 1] = {
     type = "arc",
     view = "main",
     x = 0,
-    cx = 560, cy = 175, r = 130,
+    cx = 560,
+    cy = 175,
+    r = 130,
     segments = 30,
-    progress = "conky_sun_progress()",
+    progress = conky_sun_progress(),
     arc_color = "#4a4d52",
     arc_alpha = 0.35,
     arc_width = 1.5,
@@ -247,177 +312,214 @@ draw[#draw + 1] = {
     icon_size = 36,
     horizon = true,
     horizon_color = "#4a4d52",
-    progress2 = "conky_moon_progress()",
-    icon2 = "conky_icon_moon()",
+    progress2 = conky_moon_progress(),
+    icon2 = conky_icon_moon(),
     icon2_size = 32,
 }
 
--- Separator line
 draw[#draw + 1] = {
     type = "line",
     view = "main",
-    x1 = 15, y1 = 185, x2 = 685, y2 = 185,
+    x1 = 15,
+    y1 = 185,
+    x2 = 685,
+    y2 = 185,
     thickness = 1,
 }
 
--- ─── Details grid (2 columns below icon) ───
-
--- Row 1: Humidity | Wind gusts
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 15, y = 200,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"humidity\") .. \": \" .. conky_weather_current_humidity() .. conky_unit_cur_humidity()",
-    color = { { 1, "#a1a9b1", 1 } },
-}
-draw[#draw + 1] = {
-    type = "text",
-    view = "main",
-    x = 350, y = 200,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"wind_gusts\") .. \": \" .. conky_weather_current_wind_gust() .. \" \" .. conky_unit_cur_wind_gust()",
+    x = 15,
+    y = 200,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("humidity") .. ": " .. conky_weather_current_humidity() .. conky_unit_cur_humidity(),
     color = { { 1, "#a1a9b1", 1 } },
 }
 
--- Row 2: Pressure | Cloud cover
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 15, y = 216,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"pressure\") .. \": \" .. conky_weather_current_pressure_msl() .. \" \" .. conky_unit_cur_pressure_msl()",
-    color = { { 1, "#a1a9b1", 1 } },
-}
-draw[#draw + 1] = {
-    type = "text",
-    view = "main",
-    x = 350, y = 216,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"cloud_cover\") .. \": \" .. conky_weather_current_clouds() .. conky_unit_cur_clouds()",
+    x = 350,
+    y = 200,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("wind_gusts") .. ": " .. conky_weather_current_wind_gust() .. " " .. conky_unit_cur_wind_gust(),
     color = { { 1, "#a1a9b1", 1 } },
 }
 
--- Row 3: UV index | Visibility
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 15, y = 232,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"uv_index\") .. \": \" .. conky_weather_current_uv()",
-    color = { { 1, "#a1a9b1", 1 } },
-}
-draw[#draw + 1] = {
-    type = "text",
-    view = "main",
-    x = 350, y = 232,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"visibility\") .. \": \" .. conky_weather_current_visibility() .. \" \" .. conky_unit_cur_visibility()",
+    x = 15,
+    y = 216,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("pressure") .. ": " .. conky_weather_current_pressure_msl() .. " " .. conky_unit_cur_pressure_msl(),
     color = { { 1, "#a1a9b1", 1 } },
 }
 
--- Row 4: Dew point | Precipitation
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 15, y = 248,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"dew_point\") .. \": \" .. conky_weather_current_dewpoint() .. \" \" .. conky_unit_cur_dewpoint()",
-    color = { { 1, "#a1a9b1", 1 } },
-}
-draw[#draw + 1] = {
-    type = "text",
-    view = "main",
-    x = 350, y = 248,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"precipitation\") .. \": \" .. conky_weather_current_precip() .. \" \" .. conky_unit_cur_precip()",
+    x = 350,
+    y = 216,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("cloud_cover") .. ": " .. conky_weather_current_clouds() .. conky_unit_cur_clouds(),
     color = { { 1, "#a1a9b1", 1 } },
 }
 
--- Separator line
+draw[#draw + 1] = {
+    type = "text",
+    view = "main",
+    x = 15,
+    y = 232,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("uv_index") .. ": " .. conky_weather_current_uv(),
+    color = { { 1, "#a1a9b1", 1 } },
+}
+
+draw[#draw + 1] = {
+    type = "text",
+    view = "main",
+    x = 350,
+    y = 232,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("visibility") .. ": " .. conky_weather_current_visibility() .. " " .. conky_unit_cur_visibility(),
+    color = { { 1, "#a1a9b1", 1 } },
+}
+
+draw[#draw + 1] = {
+    type = "text",
+    view = "main",
+    x = 15,
+    y = 248,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("dew_point") .. ": " .. conky_weather_current_dewpoint() .. " " .. conky_unit_cur_dewpoint(),
+    color = { { 1, "#a1a9b1", 1 } },
+}
+
+draw[#draw + 1] = {
+    type = "text",
+    view = "main",
+    x = 350,
+    y = 248,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("precipitation") .. ": " .. conky_weather_current_precip() .. " " .. conky_unit_cur_precip(),
+    color = { { 1, "#a1a9b1", 1 } },
+}
+
 draw[#draw + 1] = {
     type = "line",
     view = "main",
-    x1 = 15, y1 = 262, x2 = 685, y2 = 262,
+    x1 = 15,
+    y1 = 262,
+    x2 = 685,
+    y2 = 262,
     thickness = 1,
 }
 
--- Moon icon + phase text
 draw[#draw + 1] = {
     type = "image",
     view = "main",
-    x = 15, y = 270,
-    width = 36, height = 36,
+    x = 15,
+    y = 270,
+    width = 36,
+    height = 36,
     path = function() return conky_icon_moon() end,
 }
+
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 58, y = 282,
-    font = "Mono", size = 10,
-    text = "conky_moon_phase_text()",
+    x = 58,
+    y = 282,
+    font = "Mono",
+    size = 10,
+    text = conky_moon_phase_text(),
     color = { { 1, "#a1a9b1", 1 } },
 }
 
--- Sunrise / Sunset
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 200, y = 274,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"sunrise\") .. \": \" .. conky_weather_day_sunrise(1)",
-    color = { { 1, "#f67400", 1 } },
-}
-draw[#draw + 1] = {
-    type = "text",
-    view = "main",
-    x = 200, y = 290,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"sunset\") .. \": \" .. conky_weather_day_sunset(1)",
+    x = 200,
+    y = 274,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("sunrise") .. ": " .. conky_weather_day_sunrise(1),
     color = { { 1, "#f67400", 1 } },
 }
 
--- Moonrise / Moonset
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 400, y = 274,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"moonrise\") .. \": \" .. conky_moon_rise_time()",
-    color = { { 1, "#a1a9b1", 1 } },
+    x = 200,
+    y = 290,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("sunset") .. ": " .. conky_weather_day_sunset(1),
+    color = { { 1, "#f67400", 1 } },
 }
+
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 400, y = 290,
-    font = "Mono", size = 11,
-    text = "conky_get_tr(\"moonset\") .. \": \" .. conky_moon_set_time()",
+    x = 400,
+    y = 274,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("moonrise") .. ": " .. conky_moon_rise_time(),
     color = { { 1, "#a1a9b1", 1 } },
 }
 
--- ═══════════════════════════════════════════════
---  VIEW: VIEW_1 — Hourly Forecast (4 hours)
--- ═══════════════════════════════════════════════
+draw[#draw + 1] = {
+    type = "text",
+    view = "main",
+    x = 400,
+    y = 290,
+    font = "Mono",
+    size = 11,
+    text = conky_get_tr("moonset") .. ": " .. conky_moon_set_time(),
+    color = { { 1, "#a1a9b1", 1 } },
+}
 
--- Vertical separator lines (between columns)
 draw[#draw + 1] = {
     type = "line",
     view = "view_1",
-    x1 = 173, y1 = 50, x2 = 173, y2 = 280,
+    x1 = 173,
+    y1 = 50,
+    x2 = 173,
+    y2 = 280,
     thickness = 1,
 }
+
 draw[#draw + 1] = {
     type = "line",
     view = "view_1",
-    x1 = 338, y1 = 50, x2 = 338, y2 = 280,
+    x1 = 338,
+    y1 = 50,
+    x2 = 338,
+    y2 = 280,
     thickness = 1,
 }
+
 draw[#draw + 1] = {
     type = "line",
     view = "view_1",
-    x1 = 503, y1 = 50, x2 = 503, y2 = 280,
+    x1 = 503,
+    y1 = 50,
+    x2 = 503,
+    y2 = 280,
     thickness = 1,
 }
+
 
 -- 4 hourly columns
 local h_col_x = { 15, 180, 345, 510 }
@@ -500,29 +602,36 @@ for i = 0, 3 do
     }
 end
 
--- ═══════════════════════════════════════════════
---  VIEW: VIEW_2 — Daily Forecast (4 days)
--- ═══════════════════════════════════════════════
+draw[#draw + 1] = {
+    type = "line",
+    view = "view_2",
+    x1 = 173,
+    y1 = 55,
+    x2 = 173,
+    y2 = 300,
+    thickness = 1,
+}
 
--- Vertical separator lines (between columns)
 draw[#draw + 1] = {
     type = "line",
     view = "view_2",
-    x1 = 173, y1 = 55, x2 = 173, y2 = 300,
+    x1 = 338,
+    y1 = 55,
+    x2 = 338,
+    y2 = 300,
     thickness = 1,
 }
+
 draw[#draw + 1] = {
     type = "line",
     view = "view_2",
-    x1 = 338, y1 = 55, x2 = 338, y2 = 300,
+    x1 = 503,
+    y1 = 55,
+    x2 = 503,
+    y2 = 300,
     thickness = 1,
 }
-draw[#draw + 1] = {
-    type = "line",
-    view = "view_2",
-    x1 = 503, y1 = 55, x2 = 503, y2 = 300,
-    thickness = 1,
-}
+
 
 -- 4 daily columns
 local d_col_x = { 15, 180, 345, 510 }
@@ -625,9 +734,9 @@ for i = 0, 3 do
     }
 end
 
--- ═══ GROUPS / VIEWS ═══
 
-_GROUPS = {}
+_GROUPS = {
+}
 
 _VIEWS = {
     { name = "main" },
@@ -635,8 +744,22 @@ _VIEWS = {
     { name = "view_2" },
 }
 
+------------------------------------------------------------
+-- Mouse event actions (only the non-nil ones are listed)
+-- All callbacks receive: function(event)
+-- event has: type, x, y, x_abs, y_abs, time,
+--            button ("left"/"right"/"middle"/"back"/"forward"),
+--            direction ("up"/"down"/"left"/"right"),
+--            mods = { shift=bool, control=bool, alt=bool, super=bool,
+--                     caps_lock=bool, num_lock=bool }
+------------------------------------------------------------
+
 _MOUSE_ENABLED = true
 MOUSE_LEAVE_ACTION = function() switch_view("main") end
 
-require("require")
+
+------------------------------------------------------------
+-- Bootstrap (formerly init.lua): load the modules, then
+-- initialize the item groups.
+------------------------------------------------------------
 init_groups(_GROUPS)

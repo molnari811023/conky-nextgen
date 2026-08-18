@@ -48,7 +48,7 @@ except Exception:
     _PILImage = None
     _PIL_OK = False
 
-from engine.lua_parser import parse_widget_lua, parse_settings, parse_gradient_stops, parse_lua_table_content, RawLua
+from engine.lua_parser import parse_widget_lua, parse_settings, parse_gradient_stops, parse_lua_table_content, RawLua, RawBlock
 from engine import activity_log
 from engine import gradient_gen as gg
 from engine import theme_writer as tw
@@ -310,10 +310,8 @@ def _installed_icon_themes():
     return themes
 
 WIDGET_BOOTSTRAP_TAIL = r'''------------------------------------------------------------
--- Bootstrap (formerly init.lua): load the modules, then
--- initialize the item groups.
+-- Bootstrap (formerly init.lua): initialize the item groups.
 ------------------------------------------------------------
-require("require")
 init_groups(_GROUPS)
 '''
 
@@ -992,6 +990,18 @@ class DesignerWindow(Gtk.Window):
         self.btn_conky_restart = Gtk.Button(label="Restart")
         self.btn_conky_restart.connect("clicked", lambda _: self._conky_restart())
         conky_box.pack_start(self.btn_conky_restart, False, False, 0)
+
+        self.btn_reload_all = Gtk.Button(label="Reload All")
+        self.btn_reload_all.set_tooltip_text(
+            "Panic button: sends SIGUSR1 to all conky instances.\n"
+            "Press when a widget crashes while editing another."
+        )
+        self.btn_reload_all.connect(
+            "clicked", lambda _: subprocess.run(
+                ["killall", "-USR1", "conky"], capture_output=True
+            )
+        )
+        conky_box.pack_start(self.btn_reload_all, False, False, 0)
 
         self.conky_state_label = Gtk.Label(label="conky: stopped", xalign=0)
         conky_box.pack_start(self.conky_state_label, False, False, 0)
@@ -2835,6 +2845,11 @@ class DesignerWindow(Gtk.Window):
             if 0 <= draw_idx < len(self.draw_list):
                 self.selected_index = draw_idx
                 item = self.draw_list[draw_idx]
+                if isinstance(item, RawBlock):
+                    self.status.set_text(
+                        f"[{draw_idx}] raw Lua block (for-loop — not editable)")
+                    self._clear_props()
+                    return
                 self.status.set_text(
                     f"[{draw_idx}] {item.get('type')} "
                     f"group={item.get('group', '-')}"
@@ -3539,6 +3554,10 @@ class DesignerWindow(Gtk.Window):
 
     def _populate_props(self, item):
         if self.prop_win is None:
+            return
+        if isinstance(item, RawBlock):
+            self.prop_win.set_title("Properties — raw Lua block (not editable)")
+            self._clear_props()
             return
         self.prop_win.set_title(
             f"Properties — {item.get('type', 'item')} [{self.selected_index}]"
@@ -4669,12 +4688,19 @@ class DesignerWindow(Gtk.Window):
             f'DEFAULT_THEME = "{THEME_NAME}"',
             f"_PADDING = {self.padding}",
             "",
+            'require("require")',
+            "",
         ]
         for item in self.draw_list:
-            wtype = item.get("type", "")
-            theme_defs = theme.get("defaults", {}).get(wtype, {})
-            lines.append("draw[#draw + 1] = " + generate_lua_entry(item, theme_defs))
-            lines.append("")
+            if isinstance(item, RawBlock):
+                # Verbatim Lua block (for-loop, etc.) — emit as-is
+                lines.append(item.lua_code)
+                lines.append("")
+            else:
+                wtype = item.get("type", "")
+                theme_defs = theme.get("defaults", {}).get(wtype, {})
+                lines.append("draw[#draw + 1] = " + generate_lua_entry(item, theme_defs))
+                lines.append("")
 
         lines += [
             "",
@@ -4709,7 +4735,11 @@ class DesignerWindow(Gtk.Window):
         try:
             with open(tmp, "w") as f:
                 f.write(content)
+                f.flush()
+                os.fsync(f.fileno())
             os.replace(tmp, filepath)
+            # Ensure the write is visible to inotify before we signal
+            time.sleep(0.1)
             return True
         except Exception as e:
             self.status.set_text(f"Save error: {e}")

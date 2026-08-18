@@ -41,6 +41,21 @@ The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly
 |:---:|:---:|:---:|:---:|
 | ![mem_swap](screenshots/mem_swap.png) | ![nvidia](screenshots/nvidia.png) | ![top](screenshots/top.png) | ![top_view_1](screenshots/top_view_1.png) |
 
+### Weather (Multi-View + Interactive)
+
+The weather widget supports 3 views with clickable labels — click any label to switch views:
+
+| Current Weather | Hourly Forecast | Daily Forecast |
+|:---:|:---:|:---:|
+| ![weather](screenshots/weather.png) | ![weather_hourly](screenshots/weather_view_1.png) | ![weather_daily](screenshots/weather_view_2.png) |
+
+**Features:**
+- **Current** — temperature, feels-like, wind, UV index, sunrise/sunset, moon phase, AQI
+- **Hourly** — 24-hour forecast with precipitation, wind, temperature
+- **Daily** — 7-day forecast with high/low, precipitation probability, UV
+- **Interactive** — mouse click switches between views
+- **22 languages** — full i18n: Hungarian, English, German, French, Spanish, and 17 more
+
 ---
 
 ## What NextGen Provides
@@ -187,7 +202,7 @@ Each widget consists of three files:
 | `widget.lua` | Theme block + draw list (Designer-edited) |
 | `widget.png` | Preview icon (for Conky Manager) |
 
-Included widgets: `clock_cal` (analog clock + calendar), `top` (multi-view system stats), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
+Included widgets: `clock_cal` (analog clock + calendar), `weather` (multi-view with current/hourly/daily), `top` (multi-view system stats), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
 
 ## SIGUSR1 Reload Patch (X11)
 
