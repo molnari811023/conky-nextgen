@@ -33,13 +33,13 @@ The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly
 
 ### Widgets
 
-| Clock + Calendar | Top (Multi-View) | System Info | Memory + Swap |
+| Clock + Calendar | System Info | Memory + Swap | NVIDIA GPU |
 |:---:|:---:|:---:|:---:|
-| ![clock_cal](screenshots/clock_cal.png) | ![top](screenshots/top.png) | ![info](screenshots/info.png) | ![mem_swap](screenshots/mem_swap.png) |
+| ![clock_cal](screenshots/clock_cal.png) | ![info](screenshots/info.png) | ![mem_swap](screenshots/mem_swap.png) | ![nvidia](screenshots/nvidia.png) |
 
-| NVIDIA GPU | Top — View 2 |
-|:---:|:---:|
-| ![nvidia](screenshots/nvidia.png) | ![top_view_1](screenshots/top_view_1.png) |
+| Clock + Calendar (naptár) | Top (Multi-View) | Top — View 2 |
+|:---:|:---:|:---:|
+| ![clock_cal_calendar](screenshots/clock_cal_calendar.png) | ![top](screenshots/top.png) | ![top_view_1](screenshots/top_view_1.png) |
 
 ---
 
