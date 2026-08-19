@@ -29,12 +29,49 @@ def load_themes(filepath=None):
             "palette": {},
             "gradients": {},
             "defaults": {
-                "background": {"bg": "#1a1b26", "border": "#24283b", "border_width": 0},
-                "text": {"color": "#c0caf5"},
-                "bar": {"fg": "#7aa2f7", "bg": "#3b4261"},
-                "graph": {"fg": "#7aa2f7", "bg": "#3b4261", "border": "#24283b", "grid_color": "#3b4261"},
-                "ring": {"fg": "#7aa2f7", "bg": "#3b4261"},
-                "line": {"fg": "#3b4261"},
+                "background": {
+                    "bg": { { 1, "#202326", 0.9 } },
+                    "border": { { 1, "#4a4d52", 1 } },
+                    "border_width": 2,
+                },
+                "bar": {
+                    "fg": { { 1, "#3daee9", 1 } },
+                    "bg": { { 1, "#3a3d41", 1 } },
+                },
+                "line": {
+                    "fg": { { 1, "#a1a9b1", 1 } },
+                },
+                "graph": {
+                    "fg": { { 1, "#3daee9", 1 } },
+                    "bg": { { 1, "#3a3d41", 1 } },
+                    "border": { { 1, "#4a4d52", 1 } },
+                    "grid_color": { { 1, "#31363c", 1 } },
+                },
+                "ring": {
+                    "fg": { { 1, "#3daee9", 1 } },
+                    "bg": { { 1, "#3a3d41", 1 } },
+                },
+                "text": {
+                    "color": { { 1, "#a1a9b1", 1 } },
+                },
+                "clock": {
+                    "bg": { { 1, "#31363c", 1 } },
+                    "border": { { 1, "#4a4d52", 1 } },
+                    "tick_color": { { 1, "#a1a9b1", 1 } },
+                    "number_color": { { 1, "#fcfcfc", 1 } },
+                    "hour_color": { { 1, "#fcfcfc", 1 } },
+                    "minute_color": { { 1, "#3daee9", 1 } },
+                    "second_color": { { 1, "#f67400", 1 } },
+                    "left_color": { { 1, "#3daee9", 1 } },
+                },
+                "calendar": {
+                    "color_month": { { 1, "#fcfcfc", 1 } },
+                    "color_weekdays": { { 1, "#a1a9b1", 1 } },
+                    "color_days": { { 1, "#a1a9b1", 1 } },
+                    "color_today": { { 1, "#3daee9", 1 } },
+                    "color_outside": { { 1, "#4a4d52", 1 } },
+                    "color_weeknums": { { 1, "#3daee9", 1 } },
+                },
             },
         }}
     return THEMES
