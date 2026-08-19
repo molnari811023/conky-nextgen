@@ -35,8 +35,6 @@ JSON_PATH      = script_dir .. "tmp/"
 
 draw = {}
 
-require("require")
-
 
 ICON_BASE      = script_dir .. "icons/"
 ICON_THEME     = "default"
@@ -112,6 +110,8 @@ THEMES = {
 
 DEFAULT_THEME = "theme"
 _PADDING = 10
+
+require("require")
 
 draw[#draw + 1] = {
     type = "background",
@@ -315,6 +315,11 @@ draw[#draw + 1] = {
     progress2 = conky_moon_progress(),
     icon2 = conky_icon_moon(),
     icon2_size = 32,
+    draw_me = function()
+        local sp = conky_sun_progress()
+        local mp = conky_moon_progress()
+        return (sp > 0 and sp < 1) or (mp > 0 and mp < 1)
+    end,
 }
 
 draw[#draw + 1] = {
@@ -521,6 +526,7 @@ draw[#draw + 1] = {
 }
 
 
+
 -- 4 hourly columns
 local h_col_x = { 15, 180, 345, 510 }
 for i = 0, 3 do
@@ -585,8 +591,8 @@ for i = 0, 3 do
         type = "text",
         view = "view_1",
         x = cx, y = 248,
-        font = "Mono", size = 10,
-        text = "\"💧 \" .. conky_weather_hour_precip_prob(" .. (i + 1) .. ") .. \"%\"",
+        font = "MesloLGS Nerd Font Mono", size = 10,
+        text = "\"\\u{E317} \" .. conky_weather_hour_precip_prob(" .. (i + 1) .. ") .. \"%\"",
         align = "center",
         color = { { 1, "#3daee9", 1 } },
     }
@@ -631,6 +637,7 @@ draw[#draw + 1] = {
     y2 = 300,
     thickness = 1,
 }
+
 
 
 -- 4 daily columns
@@ -759,7 +766,14 @@ MOUSE_LEAVE_ACTION = function() switch_view("main") end
 
 
 ------------------------------------------------------------
--- Bootstrap (formerly init.lua): load the modules, then
--- initialize the item groups.
+-- Bootstrap (formerly init.lua): initialize the item groups.
 ------------------------------------------------------------
 init_groups(_GROUPS)
+
+------------------------------------------------------------
+-- Weather data refresh hook — called via lua_hook_exec in .conf
+------------------------------------------------------------
+function conky_weather_update()
+    conky_load_weather_data()
+    conky_update_alerts()
+end
