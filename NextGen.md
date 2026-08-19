@@ -889,7 +889,7 @@ Input: city name (raw, URL-encoded internally). Output:
 | File | API | Content |
 |---|---|---|
 | `tmp/city.json` | Open-Meteo geocoding | `latitude`, `longitude`, `timezone`, `country_code` |
-| `tmp/weather_data.json` | Open-Meteo forecast | current + 7-day hourly + daily weather |
+| `tmp/weather_data.json` | Open-Meteo forecast | current + 4-day hourly + daily weather |
 | `tmp/airquality.json` | Open-Meteo air-quality | 4-day PM/gases/pollen/AQI |
 | `tmp/sun.json` | MET Norway sunrise | today's sunrise/sunset |
 | `tmp/moon.json` | MET Norway sunrise | today's moonrise/moonset/phase |

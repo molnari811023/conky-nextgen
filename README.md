@@ -51,8 +51,8 @@ The weather widget supports 3 views with clickable labels — click any label to
 
 **Features:**
 - **Current** — temperature, feels-like, wind, UV index, sunrise/sunset, moon phase, AQI
-- **Hourly** — 24-hour forecast with precipitation, wind, temperature
-- **Daily** — 7-day forecast with high/low, precipitation probability, UV
+- **Hourly** — 4-hour forecast with precipitation, wind, temperature
+- **Daily** — 4-day forecast with high/low, precipitation probability, UV
 - **Interactive** — mouse click switches between views
 - **22 languages** — full i18n: Hungarian, English, German, French, Spanish, and 17 more
 
