@@ -102,8 +102,9 @@ function apply_theme(item)
     end
 
     -- Apply widget-type defaults for missing fields
-    local defaults = theme.defaults[item.type]
-    if defaults then
+    if theme.defaults then
+        local defaults = theme.defaults[item.type]
+        if defaults then
         for k, v in pairs(defaults) do
             if item[k] == nil then
                 item[k] = v
