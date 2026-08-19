@@ -359,12 +359,8 @@ _FALLBACK_THEME = {
 
 def _empty_widget_lua():
     """Build the empty widget.lua template, embedding the current theme
-    (loaded from the existing widget.lua, falling back to _FALLBACK_THEME)."""
-    try:
-        from engine.lua_parser import parse_themes_lua
-        themes = parse_themes_lua(WIDGET_LUA) or {THEME_NAME: _FALLBACK_THEME}
-    except Exception:
-        themes = {THEME_NAME: _FALLBACK_THEME}
+    (always uses _FALLBACK_THEME for new widgets)."""
+    themes = {THEME_NAME: _FALLBACK_THEME}
     if THEME_NAME not in themes:
         themes = {THEME_NAME: themes[next(iter(themes))]}
     themes_block = tw.serialize_themes(themes)
@@ -2580,9 +2576,8 @@ class DesignerWindow(Gtk.Window):
         try:
             te.load_themes(self.save_path)
         except Exception:
-            te.THEMES = {THEME_NAME: {"palette": {}, "gradients": {}, "defaults": {}}}
-        te.THEMES.setdefault(THEME_NAME,
-                             {"palette": {}, "gradients": {}, "defaults": {}})
+            te.THEMES = {THEME_NAME: _FALLBACK_THEME}
+        te.THEMES.setdefault(THEME_NAME, _FALLBACK_THEME)
         return te.THEMES
 
     # ── Conky settings (.conf) support ──────────────────────────────────────
