@@ -25,7 +25,18 @@ def load_themes(filepath=None):
         filepath = os.path.join(base, "..", "widget.lua")
     THEMES = parse_themes_lua(filepath)
     if not THEMES:
-        THEMES = {DEFAULT_THEME: {"palette": {}, "gradients": {}, "defaults": {}}}
+        THEMES = {DEFAULT_THEME: {
+            "palette": {},
+            "gradients": {},
+            "defaults": {
+                "background": {"bg": "#1a1b26", "border": "#24283b", "border_width": 0},
+                "text": {"color": "#c0caf5"},
+                "bar": {"fg": "#7aa2f7", "bg": "#3b4261"},
+                "graph": {"fg": "#7aa2f7", "bg": "#3b4261", "border": "#24283b", "grid_color": "#3b4261"},
+                "ring": {"fg": "#7aa2f7", "bg": "#3b4261"},
+                "line": {"fg": "#3b4261"},
+            },
+        }}
     return THEMES
 
 
