@@ -99,7 +99,7 @@ THEMES = {
                 bg = { { 1, "#3a3d41", 1 } },
             },
             text = {
-                color = { { 1, "#fcfcfc", 1 } },
+                color = { { 1, "#a1a9b1", 1 } },
             },
         },
     },

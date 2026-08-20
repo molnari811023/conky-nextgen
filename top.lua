@@ -35,6 +35,8 @@ JSON_PATH      = script_dir .. "tmp/"
 
 draw = {}
 
+require("require")
+
 
 ICON_BASE      = script_dir .. "icons/"
 ICON_THEME     = "default"
@@ -628,8 +630,6 @@ MOUSE_CLICK_LEFT = function() view_toggle("view_1") end
 
 
 ------------------------------------------------------------
--- Bootstrap (formerly init.lua): load the modules, then
--- initialize the item groups.
+-- Bootstrap (formerly init.lua): initialize the item groups.
 ------------------------------------------------------------
-require("require")
 init_groups(_GROUPS)

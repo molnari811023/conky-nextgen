@@ -3,6 +3,8 @@
 A modular, theme-driven Conky UI framework with a Lua/Cairo rendering engine, Bash data backend, and a full visual Designer.
 Built for modern desktops (KDE Plasma Wayland/X11), with clean SIGUSR1 reloads and zero window flashing.
 
+![Desktop](screenshots/desktop.png)
+
 ---
 
 ## Install
@@ -37,9 +39,13 @@ The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly
 |:---:|:---:|:---:|
 | ![clock_cal](screenshots/clock_cal.png) | ![clock_cal_calendar](screenshots/clock_cal_calendar.png) | ![info](screenshots/info.png) |
 
-| Memory + Swap | NVIDIA GPU | Top (Multi-View) | Top — View 2 |
+| CPU | CPU — View 1 | Memory + Swap |
+|:---:|:---:|:---:|
+| ![cpu_main](screenshots/cpu_main.png) | ![cpu_view_1](screenshots/cpu_view_1.png) | ![mem_swap](screenshots/mem_swap.png) |
+
+| Disk | NVIDIA GPU | Top (Multi-View) | Top — View 1 |
 |:---:|:---:|:---:|:---:|
-| ![mem_swap](screenshots/mem_swap.png) | ![nvidia](screenshots/nvidia.png) | ![top](screenshots/top.png) | ![top_view_1](screenshots/top_view_1.png) |
+| ![disk](screenshots/disk.png) | ![nvidia](screenshots/nvidia.png) | ![top](screenshots/top.png) | ![top_view_1](screenshots/top_view_1.png) |
 
 ### Weather (Multi-View + Interactive)
 
@@ -202,7 +208,7 @@ Each widget consists of three files:
 | `widget.lua` | Theme block + draw list (Designer-edited) |
 | `widget.png` | Preview icon (for Conky Manager) |
 
-Included widgets: `clock_cal` (analog clock + calendar), `weather` (multi-view with current/hourly/daily), `top` (multi-view system stats), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
+Included widgets: `clock_cal` (analog clock + calendar), `cpu` (multi-view CPU stats), `disk` (NVMe/disk health), `weather` (multi-view with current/hourly/daily), `top` (multi-view system stats), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
 
 ## SIGUSR1 Reload Patch (X11)
 

@@ -35,8 +35,6 @@ JSON_PATH      = script_dir .. "tmp/"
 
 draw = {}
 
-require("require")
-
 
 ICON_BASE      = script_dir .. "icons/"
 ICON_THEME     = "default"
@@ -100,8 +98,39 @@ THEMES = {
                 fg = { { 1, "#3daee9", 1 } },
                 bg = { { 1, "#3a3d41", 1 } },
             },
+            line = {
+                fg = { { 1, "#a1a9b1", 1 } },
+            },
+            graph = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                grid_color = { { 1, "#31363c", 1 } },
+            },
+            ring = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
             text = {
                 color = { { 1, "#fcfcfc", 1 } },
+            },
+            clock = {
+                bg = { { 1, "#31363c", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                tick_color = { { 1, "#a1a9b1", 1 } },
+                number_color = { { 1, "#fcfcfc", 1 } },
+                hour_color = { { 1, "#fcfcfc", 1 } },
+                minute_color = { { 1, "#3daee9", 1 } },
+                second_color = { { 1, "#f67400", 1 } },
+                center_color = { { 1, "#3daee9", 1 } },
+            },
+            calendar = {
+                color_month = { { 1, "#fcfcfc", 1 } },
+                color_weekdays = { { 1, "#a1a9b1", 1 } },
+                color_days = { { 1, "#a1a9b1", 1 } },
+                color_today = { { 1, "#3daee9", 1 } },
+                color_outside = { { 1, "#4a4d52", 1 } },
+                color_weeknums = { { 1, "#3daee9", 1 } },
             },
         },
     },
@@ -109,6 +138,8 @@ THEMES = {
 
 DEFAULT_THEME = "theme"
 _PADDING = 10
+
+require("require")
 
 draw[#draw + 1] = {
     type = "background",
@@ -121,128 +152,97 @@ draw[#draw + 1] = {
 
 draw[#draw + 1] = {
     type = "text",
-    x = 170,
+    view = "main",
+    x = 10,
     y = 10,
     font = "Mono",
     size = 12,
-    text = "${nvidia modelname}",
-    align = "center",
-    color = { { 1, "#3daee9", 1 } },
-}
-
-draw[#draw + 1] = {
-    type = "line",
-    x1 = 10,
-    y1 = 25,
-    x2 = 330,
-    y2 = 25,
-    thickness = 2,
+    text = "Cpu: ${cpu}%",
 }
 
 draw[#draw + 1] = {
     type = "text",
-    x = 10,
-    y = 37,
-    font = "Mono",
-    size = 12,
-    text = "Gpu temp:",
-    color = { { 1, "#a1a9b1", 1 } },
-}
-
-draw[#draw + 1] = {
-    type = "text",
+    view = "main",
     x = 330,
-    y = 37,
+    y = 10,
     font = "Mono",
     size = 12,
-    text = "${nvidia gputemp}°C",
+    text = conky_cpu_name(),
     align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
 }
 
 draw[#draw + 1] = {
     type = "text",
+    view = "main",
     x = 10,
-    y = 50,
+    y = 25,
     font = "Mono",
     size = 12,
-    text = "Memory:",
-    color = { { 1, "#a1a9b1", 1 } },
+    text = "Temperature:",
 }
 
 draw[#draw + 1] = {
     type = "text",
-    x = 170,
-    y = 49,
-    font = "Mono",
-    size = 12,
-    text = "${nvidia memused}/${nvidia memmax}",
-    align = "center",
-    color = { { 1, "#a1a9b1", 1 } },
-}
-
-draw[#draw + 1] = {
-    type = "text",
+    view = "main",
     x = 330,
-    y = 49,
+    y = 25,
     font = "Mono",
     size = 12,
-    text = "${nvidia memutil}% used",
+    text = conky_cpu_temp() .. "°C",
     align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
 }
 
 draw[#draw + 1] = {
-    type = "bar",
+    type = "graph",
+    view = "main",
     x = 10,
-    y = 70,
+    y = 45,
     width = 320,
-    height = 10,
-    value = "${nvidia memutil}",
+    height = 135,
+    value = "${cpu}",
     max = 100,
+    graph_type = "fill",
+    grid = true,
+    grid_steps = 5,
+    grid_color = { { 1, "#aaaaaa", 1 } },
+    autoscale = true,
 }
 
-draw[#draw + 1] = {
-    type = "text",
-    x = 10,
-    y = 85,
-    font = "Mono",
-    size = 12,
-    text = "Driver version:",
-    color = { { 1, "#a1a9b1", 1 } },
-}
+for i = 1, 12 do
+    local current_y = 10 + (i - 1) * 15
 
-draw[#draw + 1] = {
-    type = "text",
-    x = 330,
-    y = 85,
-    font = "Mono",
-    size = 12,
-    text = "${nvidia driverversion}",
-    align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
-}
+    draw[#draw + 1] = {
+        type = "text",
+        x = 10,
+        y = current_y,
+        font = "Mono",
+        size = 12,
+        text = "Cpu" .. i .. ": ${cpu cpu" .. i .. "}%",
+        view = "view_1",
+    }
 
-draw[#draw + 1] = {
-    type = "text",
-    x = 10,
-    y = 100,
-    font = "Mono",
-    size = 12,
-    text = "GPU utilization:",
-    color = { { 1, "#a1a9b1", 1 } },
-}
+    draw[#draw + 1] = {
+        type = "text",
+        view = "view_1",
+        x = 330,
+        y = current_y,
+        font = "Mono",
+        size = 12,
+        text = "${freq " .. i .. "}Mhz",
+        align = "right",
+    }
 
-draw[#draw + 1] = {
-    type = "text",
-    x = 330,
-    y = 100,
-    font = "Mono",
-    size = 12,
-    text = "${nvidia gpuutil}%",
-    align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
-}
+    draw[#draw + 1] = {
+        type = "bar",
+        view = "view_1",
+        x = 100,
+        y = current_y,
+        width = 170,
+        height = 12,
+        value = "${cpu cpu" .. i .. "}",
+        max = 100,
+    }
+    end
 
 
 _GROUPS = {
@@ -250,6 +250,7 @@ _GROUPS = {
 
 _VIEWS = {
     { name = "main" },
+    { name = "view_1" },
 }
 
 ------------------------------------------------------------
@@ -263,6 +264,7 @@ _VIEWS = {
 ------------------------------------------------------------
 
 _MOUSE_ENABLED = true
+MOUSE_CLICK_LEFT = function() view_toggle("view_1") end
 
 
 ------------------------------------------------------------

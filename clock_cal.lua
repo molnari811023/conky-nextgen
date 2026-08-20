@@ -35,11 +35,8 @@ JSON_PATH      = script_dir .. "tmp/"
 
 draw = {}
 
+require("require")
 
-ICON_BASE      = script_dir .. "icons/"
-ICON_THEME     = "default"
-MOON_ICON_BASE = script_dir .. "icons/moon/"
-WIND_ICON_BASE = script_dir .. "icons/wind/"
 
 --{{{
 -- THEMES — Theme definitions (palette, gradients, widget defaults).
@@ -115,7 +112,7 @@ THEMES = {
                 color = { { 1, "#fcfcfc", 1 } },
             },
             clock = {
-                bg = { { 1, "#31363c", 1 } },
+                bg = { { 1, "#222528", 1 } },
                 border = { { 1, "#4a4d52", 1 } },
                 tick_color = { { 1, "#a1a9b1", 1 } },
                 number_color = { { 1, "#fcfcfc", 1 } },
@@ -155,13 +152,13 @@ draw[#draw + 1] = {
     y = 170,
     radius = 160,
     show_seconds = true,
-    bg = { { 1.0, "#c64600", 0.0 } },
     show_ticks = true,
+    draw_me = true,
 }
 
 draw[#draw + 1] = {
     type = "calendar",
-    view = "calendar",
+    view = "view_1",
     x = 10,
     y = 10,
     cell_w = 40,
@@ -176,7 +173,7 @@ _GROUPS = {
 
 _VIEWS = {
     { name = "main" },
-    { name = "calendar" },
+    { name = "view_1" },
 }
 
 ------------------------------------------------------------
@@ -190,12 +187,10 @@ _VIEWS = {
 ------------------------------------------------------------
 
 _MOUSE_ENABLED = true
-MOUSE_CLICK_LEFT = function() view_toggle("calendar") end
+MOUSE_CLICK_LEFT = function() view_toggle("view_1") end
 
 
 ------------------------------------------------------------
--- Bootstrap (formerly init.lua): load the modules, then
--- initialize the item groups.
+-- Bootstrap (formerly init.lua): initialize the item groups.
 ------------------------------------------------------------
-require("require")
 init_groups(_GROUPS)
