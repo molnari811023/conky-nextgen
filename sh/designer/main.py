@@ -21,6 +21,8 @@ import os
 import re
 import json
 import html
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 import shutil
 import signal
 import subprocess
@@ -37,7 +39,8 @@ for _root, _dirs, _files in os.walk(_here):
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk, GdkPixbuf, GLib, GObject
+gi.require_version("GtkSource", "3.0")
+from gi.repository import Gtk, Gdk, GdkPixbuf, GLib, GObject, Pango, GtkSource
 
 GLib.set_prgname("nextgen-designer")
 
@@ -313,6 +316,13 @@ WIDGET_BOOTSTRAP_TAIL = r'''----------------------------------------------------
 -- Bootstrap (formerly init.lua): initialize the item groups.
 ------------------------------------------------------------
 init_groups(_GROUPS)
+'''
+
+WIDGET_WEATHER_FUNC = r'''function conky_weather_update()
+    conky_load_weather_data()
+    conky_update_alerts()
+    return ""
+end
 '''
 
 _FALLBACK_THEME = {
@@ -909,6 +919,7 @@ class DesignerWindow(Gtk.Window):
         self.weather_enabled = True
         self.weather_icon_theme = "default"
         self.xdg_icon_theme = ""
+        self.custom_lua_code = ""
         self.conky_settings = self._default_conky_settings()
         self._mouse_tab_views = None  # cache of view names for mouse tab rebuild
         self._weather_loading = False  # guard for weather & icons tab refresh
@@ -1554,7 +1565,51 @@ class DesignerWindow(Gtk.Window):
 
         self._conky_loading = False
 
-        # ── Tab 8: Weather & Icons ──
+        # ── Tab 8: Custom Lua ──
+        custom_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
+        custom_page.set_margin_start(8)
+        custom_page.set_margin_end(8)
+        custom_page.set_margin_top(8)
+        notebook.append_page(custom_page, Gtk.Label(label="Custom Lua"))
+
+        custom_info = Gtk.Label()
+        custom_info.set_xalign(0)
+        custom_info.set_line_wrap(True)
+        custom_info.set_max_width_chars(96)
+        custom_info.set_markup(
+            "<small>Free-form Lua code inserted <b>after</b> <tt>require(\"require\")</tt> "
+            "and <b>before</b> draw items. Use this for <b>custom functions</b> and "
+            "<b>for-loops</b> that generate draw entries. Do <b>not</b> close the "
+            "file — the designer owns the full file structure.</small>"
+        )
+        custom_page.pack_start(custom_info, False, False, 0)
+
+        sw = Gtk.ScrolledWindow()
+        sw.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+        custom_page.pack_start(sw, True, True, 0)
+
+        self.custom_lua_view = GtkSource.View()
+        self.custom_lua_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
+        self.custom_lua_view.set_left_margin(6)
+        self.custom_lua_view.set_right_margin(6)
+        self.custom_lua_view.set_top_margin(4)
+        self.custom_lua_view.set_bottom_margin(4)
+        self.custom_lua_view.set_monospace(True)
+        self.custom_lua_view.set_show_line_numbers(True)
+        self.custom_lua_view.set_highlight_current_line(True)
+        lm = GtkSource.LanguageManager.get_default()
+        lang = lm.get_language("lua")
+        if lang:
+            self.custom_lua_view.get_buffer().set_language(lang)
+        scheme = GtkSource.StyleSchemeManager.get_default().get_scheme("oblivion")
+        if scheme:
+            self.custom_lua_view.get_buffer().set_style_scheme(scheme)
+        buf = self.custom_lua_view.get_buffer()
+        buf.connect("changed", self._on_custom_lua_changed)
+        sw.add(self.custom_lua_view)
+        self._custom_lua_loading = False
+
+        # ── Tab 9: Weather & Icons ──
         wi_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         wi_page.set_margin_start(8)
         wi_page.set_margin_end(8)
@@ -1673,6 +1728,8 @@ class DesignerWindow(Gtk.Window):
         self._update_padding_spin()
         self._populate_mouse_tab()
         self._refresh_weather_tab()
+        self._refresh_custom_lua_tab()
+        self._theme_init()
         self._update_file_ui()
         self.status.set_text(
             f"New empty layout → {os.path.basename(self.save_path)}"
@@ -1713,6 +1770,7 @@ class DesignerWindow(Gtk.Window):
         self._refresh_conky_tab()
         self._populate_mouse_tab()
         self._refresh_weather_tab()
+        self._refresh_custom_lua_tab()
         self._update_title()
         self._update_conky_state()
         self.status.set_text("Ready — use File > Open or add items")
@@ -1756,6 +1814,8 @@ class DesignerWindow(Gtk.Window):
         self._update_padding_spin()
         self._populate_mouse_tab()
         self._refresh_weather_tab()
+        self._refresh_custom_lua_tab()
+        self._theme_init()
         self._update_file_ui()
         self.status.set_text(
             f"Loaded {len(self.draw_list)} items, "
@@ -1780,6 +1840,9 @@ class DesignerWindow(Gtk.Window):
             self.weather_enabled = s["weather_enabled"]
             self.weather_icon_theme = s["weather_icon_theme"] or "default"
             self.xdg_icon_theme = s["xdg_icon_theme"] or ""
+            m = re.search(r"--\{\{\{ custom_lua\n(.*?)\n--\}\}\} custom_lua",
+                          content, re.DOTALL)
+            self.custom_lua_code = m.group(1) if m else ""
         except FileNotFoundError:
             pass
 
@@ -2608,6 +2671,24 @@ class DesignerWindow(Gtk.Window):
             self._set_dirty()
             self._schedule_refresh()
 
+    # ── CUSTOM LUA TAB ──
+
+    def _on_custom_lua_changed(self, buf):
+        if self._custom_lua_loading:
+            return
+        start, end = buf.get_bounds()
+        self.custom_lua_code = buf.get_text(start, end, True)
+        self._set_dirty()
+        self._schedule_refresh()
+
+    def _refresh_custom_lua_tab(self):
+        self._custom_lua_loading = True
+        try:
+            buf = self.custom_lua_view.get_buffer()
+            buf.set_text(self.custom_lua_code)
+        finally:
+            self._custom_lua_loading = False
+
     # ── WEATHER & ICONS TAB ──
 
     def _refresh_weather_tab(self):
@@ -2755,7 +2836,10 @@ class DesignerWindow(Gtk.Window):
             "}",
             "",
             "conky.text = [[",
-            "  ${lua weather_update}",
+        ]
+        if weather_enabled:
+            lines.append("  ${lua conky_weather_update}")
+        lines += [
             "]]",
             "",
         ]
@@ -4574,6 +4658,7 @@ class DesignerWindow(Gtk.Window):
         self._load_themes()
         for item in self.draw_list:
             te.apply_theme(item)
+        self._theme_init()
         self._block_selections()
         try:
             self._refresh_list()
@@ -4687,6 +4772,11 @@ class DesignerWindow(Gtk.Window):
             'require("require")',
             "",
         ]
+        if self.custom_lua_code.strip():
+            lines.append("--{{{ custom_lua")
+            lines.append(self.custom_lua_code.rstrip())
+            lines.append("--}}} custom_lua")
+            lines.append("")
         for item in self.draw_list:
             if isinstance(item, RawBlock):
                 # Verbatim Lua block (for-loop, etc.) — emit as-is
@@ -4706,8 +4796,11 @@ class DesignerWindow(Gtk.Window):
             "",
             generate_mouse_actions_lua(self.mouse_actions, self.mouse_enabled),
             "",
-            WIDGET_BOOTSTRAP_TAIL,
         ]
+        if self.weather_enabled:
+            lines.append(WIDGET_WEATHER_FUNC)
+            lines.append("")
+        lines.append(WIDGET_BOOTSTRAP_TAIL)
         return "\n".join(lines)
 
     def _show_code(self):

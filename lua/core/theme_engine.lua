@@ -112,3 +112,4 @@ function apply_theme(item)
         end
     end
 end
+end

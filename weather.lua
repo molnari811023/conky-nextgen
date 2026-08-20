@@ -776,4 +776,5 @@ init_groups(_GROUPS)
 function conky_weather_update()
     conky_load_weather_data()
     conky_update_alerts()
+    return ""
 end
