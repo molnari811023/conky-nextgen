@@ -63,836 +63,25 @@ from engine.widget_schema import (
     string_fields,
 )
 
-def _find_conky_dir():
-    """Resolve the conky-nextgen root directory.
-
-    Priority:
-      1. --conky-dir <path> CLI flag
-      2. CONKY_NEXTGEN_DIR environment variable
-      3. conky_dir = <path> in ~/.config/conky-designer.conf
-      4. default: in-tree layout (this file is sh/designer/main.py)
-
-    This lets the designer live anywhere and point at a conky-nextgen
-    checkout, instead of being tied to the ../.. layout.
-    """
-    # 1. CLI flag
-    if "--conky-dir" in sys.argv:
-        i = sys.argv.index("--conky-dir")
-        if i + 1 < len(sys.argv):
-            return os.path.abspath(sys.argv[i + 1])
-
-    # 2. Environment variable
-    env = os.environ.get("CONKY_NEXTGEN_DIR")
-    if env:
-        return os.path.abspath(env)
-
-    # 3. Config file: ~/.config/conky-designer.conf  (conky_dir = /path)
-    cfg = os.path.expanduser("~/.config/conky-designer.conf")
-    if os.path.exists(cfg):
-        try:
-            with open(cfg) as f:
-                for line in f:
-                    m = re.match(r"\s*conky_dir\s*=\s*[\"']?([^\"'\s]+)", line)
-                    if m:
-                        return os.path.abspath(m.group(1))
-        except OSError:
-            pass
-
-    # 4. Default: in-tree layout (sh/designer -> 3 levels up)
-    return os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-
-STATE_FILE = os.path.expanduser("~/.config/conky-designer-state.json")
-
-
-def _load_window_state():
-    try:
-        with open(STATE_FILE) as f:
-            return json.load(f)
-    except (OSError, ValueError):
-        return {}
-
-
-def _save_window_state(win):
-    win_win = win.get_window()
-    maximized = bool(
-        win_win is not None
-        and (win_win.get_state() & Gdk.WindowState.MAXIMIZED)
-    )
-    state = {"maximized": maximized}
-    if not maximized:
-        w, h = win.get_size()
-        state["width"] = w
-        state["height"] = h
-    try:
-        with open(STATE_FILE, "w") as f:
-            json.dump(state, f)
-    except OSError:
-        pass
-
-
-CONKY_DIR = _find_conky_dir()
-WIDGET_LUA = os.path.join(CONKY_DIR, "widget.lua")
-MAIN_LUA = os.path.join(CONKY_DIR, "main.lua")  # legacy fallback
-ICON_PATH = next(
-    (p for p in (
-        os.path.join(CONKY_DIR, "nd.svg"),
-        os.path.join(_here, "icons", "conky_128.png"),
-    ) if os.path.exists(p)),
-    None,
+from utils import (
+    CONKY_DIR, WIDGET_LUA, MAIN_LUA, ICON_PATH, THEME_NAME, WORK_DIR,
+    LIVE_CLEAR_LUA, HELP_DIR, CONKY_MAN_GZ, CONKY_MANUAL_HTML,
+    NEXTGEN_MD, NEXTGEN_HANDBOOK_HTML, HERE, STATE_FILE,
+    _find_conky_dir, _load_window_state, _save_window_state,
+    _clamp_size, _item_summary, _lua_escape, _infer_item_height,
 )
-
-# Single-theme designer: exactly one theme, always named "theme".
-THEME_NAME = "theme"
-
-# Unique per-instance work dir (conky.log + scratch)
-WORK_DIR = tempfile.mkdtemp(prefix="conky_designer_")
-
-# Preview helper: the designer appends to the PREVIEW conky's lua_load (see
-# _preview_conf). Kept out of the framework: the deployed .conf never
-# references it, so the desktop widget runs without the ghost-clear.
-LIVE_CLEAR_LUA = os.path.join(_here, "live_clear.lua")
-
-# Restart helper: always sends SIGUSR1 for a clean reload (X11 + Wayland).
-
-
-# Help menu: generated manuals land in /tmp, never inside the conky tree.
-HELP_DIR = os.path.join(tempfile.gettempdir(), "conky-designer-help")
-CONKY_MAN_GZ = "/usr/share/man/man1/conky.1.gz"
-CONKY_MANUAL_HTML = os.path.join(HELP_DIR, "conky-manual.html")
-NEXTGEN_MD = os.path.join(CONKY_DIR, "NextGen.md")
-NEXTGEN_HANDBOOK_HTML = os.path.join(HELP_DIR, "nextgen-handbook.html")
-
-
-def _clamp_size(w, h):
-    """Clamp a window size to the workarea of the monitor under the cursor
-    (falls back to the primary monitor) so it never exceeds the screen."""
-    try:
-        disp = Gdk.Display.get_default()
-        if disp is None:
-            return w, h
-        try:
-            ptr = disp.get_pointer()  # (screen, x, y, mask) or (screen, x, y)
-            x, y = ptr[1], ptr[2]
-            mon = disp.get_monitor_at_point(x, y)
-        except Exception:
-            mon = disp.get_primary_monitor()
-        if mon is None:
-            return w, h
-        wa = mon.get_workarea()
-        w = min(int(w), max(int(wa.width), 320))
-        h = min(int(h), max(int(wa.height), 240))
-    except Exception:
-        pass
-    return w, h
-
-
-def _item_summary(item, max_len=28):
-    """Short human-readable hint for the items list (e.g. the text content
-    for a text widget, the value expression for bar/ring/graph)."""
-    t = item.get("type", "")
-    if t == "text":
-        raw = str(item.get("text", ""))
-    elif t in ("bar", "ring", "graph"):
-        raw = str(item.get("value", ""))
-    elif t in ("image", "svg"):
-        raw = os.path.basename(str(item.get("path", "")))
-    elif t == "background":
-        w = item.get("w", 0) or 0
-        h = item.get("h", 0) or 0
-        raw = f"{w}x{h}" if w and h else "full"
-    elif t == "line":
-        raw = f"{item.get('x1', 0)},{item.get('y1', 0)} → {item.get('x2', 0)},{item.get('y2', 0)}"
-    else:
-        raw = ""
-    raw = raw.strip().replace("\n", " ")
-    return raw if len(raw) <= max_len else raw[: max_len - 1] + "…"
-
-
-def _lua_escape(s):
-    """Escape a string for safe inclusion in a Lua double-quoted literal."""
-    return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
-
-
-def _infer_item_height(item):
-    """Rough height heuristic for stacking newly added widgets (local stand-in
-    for the old renderer-based estimate in engine/cairo_draw.py)."""
-    t = item.get("type", "")
-    h = item.get("h")
-    if isinstance(h, (int, float)) and h > 0:
-        return h
-    if t == "text":
-        try:
-            return int(item.get("size") or 12) * 2 + 4
-        except (TypeError, ValueError):
-            return 40
-    if t == "clock":
-        try:
-            return int(item.get("radius") or 60) + 10
-        except (TypeError, ValueError):
-            return 70
-    if t == "ring":
-        try:
-            return int(item.get("radius") or 50) + 10
-        except (TypeError, ValueError):
-            return 60
-    if t == "bar":
-        try:
-            return int(item.get("height") or 12) + 6
-        except (TypeError, ValueError):
-            return 18
-    if t == "graph":
-        try:
-            return int(item.get("height") or 40) + 6
-        except (TypeError, ValueError):
-            return 46
-    if t == "calendar":
-        try:
-            return int(item.get("row_h") or 20) * 9 + 30
-        except (TypeError, ValueError):
-            return 210
-    if t == "line":
-        return 10
-    if t == "background":
-        return 0
-    return 40
-
-WIDGET_CONFIG_BLOCK = r'''------------------------------------------------------------
--- Global paths / config (formerly settings.lua)
--- script_dir is widget.lua's own directory (the project root)
-------------------------------------------------------------
-script_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"
-
-package.path = package.path
-    .. ";" .. script_dir .. "lua/?.lua"
-    .. ";" .. script_dir .. "lua/core/?.lua"
-    .. ";" .. script_dir .. "lua/draw/?.lua"
-    .. ";" .. script_dir .. "lua/weather/?.lua"
-    .. ";" .. script_dir .. "lua/hardware/?.lua"
-
--- JSON_PATH is always needed (weather, hardware/network, nowplaying data)
-JSON_PATH      = script_dir .. "tmp/"
-
-draw = {}
-
-'''
-
-WEATHER_ICON_SETS = ["default", "metno", "weathermap", "wmo"]
-
-
-def weather_icon_block(icon_theme):
-    """The weather-only icon path globals (emitted only when weather is on)."""
-    return (
-        "ICON_BASE      = script_dir .. \"icons/\"\n"
-        f'ICON_THEME     = "{icon_theme or "default"}"\n'
-        "MOON_ICON_BASE = script_dir .. \"icons/moon/\"\n"
-        "WIND_ICON_BASE = script_dir .. \"icons/wind/\"\n"
-    )
-
-
-def _installed_icon_themes():
-    """Scan the standard XDG icon dirs for installed icon themes."""
-    themes = []
-    bases = [
-        os.path.expanduser("~/.local/share/icons"),
-        os.path.expanduser("~/.icons"),
-        "/usr/local/share/icons",
-        "/usr/share/icons",
-    ]
-    for base in bases:
-        try:
-            entries = sorted(os.listdir(base))
-        except OSError:
-            continue
-        for name in entries:
-            if name.startswith("."):
-                continue
-            if os.path.isfile(os.path.join(base, name, "index.theme")):
-                if name not in themes:
-                    themes.append(name)
-    return themes
-
-WIDGET_BOOTSTRAP_TAIL = r'''------------------------------------------------------------
--- Bootstrap (formerly init.lua): initialize the item groups.
-------------------------------------------------------------
-init_groups(_GROUPS)
-'''
-
-WIDGET_WEATHER_FUNC = r'''function conky_weather_update()
-    conky_load_weather_data()
-    conky_update_alerts()
-    return ""
-end
-'''
-
-_FALLBACK_THEME = {
-    "palette": {
-        "bg_dark": "#202326", "bg_mid": "#292c30", "bg_light": "#31363c",
-        "fg": "#fcfcfc", "fg_dim": "#a1a9b1", "blue": "#3daee9",
-        "green": "#27ae60", "yellow": "#f67400", "red": "#da4453",
-    },
-    "gradients": {
-        "text_value": [[1, "#27ae60", 1]],
-        "bar_cpu": [[1, "#3daee9", 1]],
-        "border_subtle": [[1, "#a1a9b1", 0.6]],
-    },
-    "defaults": {
-        "background": {"bg": [[1, "#202326", 0.9]],
-                       "border": [[1, "#4a4d52", 1]], "border_width": 2},
-        "bar": {"fg": [[1, "#3daee9", 1]], "bg": [[1, "#3a3d41", 1]]},
-        "line": {"fg": [[1, "#a1a9b1", 1]]},
-        "graph": {"fg": [[1, "#3daee9", 1]], "bg": [[1, "#3a3d41", 1]],
-                  "border": [[1, "#4a4d52", 1]], "grid_color": [[1, "#31363c", 1]]},
-        "ring": {"fg": [[1, "#3daee9", 1]], "bg": [[1, "#3a3d41", 1]]},
-        "text": {"color": [[1, "#fcfcfc", 1]]},
-        "clock": {
-            "bg": [[1, "#31363c", 1]],
-            "border": [[1, "#4a4d52", 1]],
-            "tick_color": [[1, "#a1a9b1", 1]],
-            "number_color": [[1, "#fcfcfc", 1]],
-            "hour_color": [[1, "#fcfcfc", 1]],
-            "minute_color": [[1, "#3daee9", 1]],
-            "second_color": [[1, "#f67400", 1]],
-            "center_color": [[1, "#3daee9", 1]],
-        },
-        "calendar": {
-            "color_month": [[1, "#fcfcfc", 1]],
-            "color_weekdays": [[1, "#a1a9b1", 1]],
-            "color_days": [[1, "#a1a9b1", 1]],
-            "color_today": [[1, "#3daee9", 1]],
-            "color_outside": [[1, "#4a4d52", 1]],
-            "color_weeknums": [[1, "#3daee9", 1]],
-        },
-    },
-}
-
-
-def _empty_widget_lua():
-    """Build the empty widget.lua template, embedding the current theme
-    (always uses _FALLBACK_THEME for new widgets)."""
-    themes = {THEME_NAME: _FALLBACK_THEME}
-    if THEME_NAME not in themes:
-        themes = {THEME_NAME: themes[next(iter(themes))]}
-    themes_block = tw.serialize_themes(themes)
-    return (r'''--{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
-''' + WIDGET_CONFIG_BLOCK + weather_icon_block("default") + r'''--{{{
---  widget.lua — Empty widget data template (loaded directly by Conky)
---}}}
-
-''' + themes_block + '\n' + r'''DEFAULT_THEME = "theme"
-_PADDING = 10
-
-_GROUPS = {}
-
-_VIEWS = {
-    { name = "main" },
-}
-
-_MOUSE_ENABLED = true
-''' + WIDGET_BOOTSTRAP_TAIL)
-
-
-def _colors_match(a, b):
-    """Compare two color values (handles str vs list normalization)."""
-    if a == b:
-        return True
-    # Normalize both to comparable form
-    na = _color_to_hex_list(a)
-    nb = _color_to_hex_list(b)
-    return na == nb
-
-
-def _color_to_hex_list(val):
-    """Normalize a color value to [[pos, hex, alpha], ...] for comparison."""
-    if isinstance(val, list):
-        result = []
-        for stop in val:
-            if isinstance(stop, (list, tuple)) and len(stop) == 3:
-                result.append([stop[0], str(stop[1]).lower(), stop[2]])
-        return result
-    if isinstance(val, str):
-        return [[1, val.lower(), 1]]
-    return val
-
-
-class ColorPickButton(Gtk.Button):
-    """Gtk.ColorButton-compatible swatch button with an on-screen eyedropper.
-
-    Opens a color chooser dialog with a "Pick color from screen…" button
-    to sample a color from the screen (KWin ColorPicker / spectacle overlay).
-
-    API: set_rgba()/get_rgba() + "color-set" signal, same as Gtk.ColorButton.
-    """
-
-    __gsignals__ = {
-        "color-set": (GObject.SignalFlags.RUN_LAST, None, ()),
-    }
-
-    def __init__(self):
-        super().__init__()
-        self._rgba_val = Gdk.RGBA(red=1.0, green=1.0, blue=1.0, alpha=1.0)
-        self.set_size_request(48, 26)
-        self.set_relief(Gtk.ReliefStyle.NONE)
-        self.set_tooltip_text("Color picker (in the dialog: pick a color from the screen)")
-        self.connect("draw", self._draw_swatch)
-        self.connect("clicked", self._open_chooser)
-
-    def get_rgba(self):
-        return self._rgba_val
-
-    def set_rgba(self, rgba):
-        self._rgba_val = rgba
-        self.queue_draw()
-
-    def _draw_swatch(self, w, cr):
-        aw, ah = w.get_allocated_width(), w.get_allocated_height()
-        r = self._rgba_val
-        cr.set_source_rgba(r.red, r.green, r.blue, r.alpha)
-        cr.rectangle(1, 1, aw - 2, ah - 2)
-        cr.fill()
-        cr.set_source_rgba(0.4, 0.4, 0.4, 1.0)
-        cr.rectangle(0.5, 0.5, aw - 1, ah - 1)
-        cr.set_line_width(1)
-        cr.stroke()
-        return False
-
-    def _open_chooser(self, *a):
-        dialog = Gtk.ColorChooserDialog(
-            title="Select Color",
-            transient_for=self.get_toplevel(),
-        )
-        dialog.set_use_alpha(False)
-        dialog.set_rgba(self._rgba_val)
-        self._hide_builtin_picker(dialog)
-        if _PIL_OK:
-            pick = Gtk.Button(label="Pick color from screen…")
-            pick.set_tooltip_text("Click a pixel on the screen")
-            pick.connect("clicked", self._on_pick_screen, dialog)
-            dialog.get_content_area().pack_start(pick, False, False, 0)
-        dialog.show_all()
-        resp = dialog.run()
-        if resp == Gtk.ResponseType.OK:
-            self._rgba_val = dialog.get_rgba()
-            self.queue_draw()
-            self.emit("color-set")
-        dialog.destroy()
-
-    @staticmethod
-    def _hide_builtin_picker(widget):
-        """Hide the built-in eyedropper button of the GTK color chooser
-        (in GtkColorEditor), which doesn't work on Wayland."""
-        if isinstance(widget, Gtk.Button):
-            child = widget.get_child()
-            if isinstance(child, Gtk.Image):
-                icon = child.get_icon_name()
-                name = icon[0] if isinstance(icon, tuple) else None
-                if name and ("color-picker" in name or "color-select" in name):
-                    widget.set_no_show_all(True)
-                    widget.hide()
-        try:
-            for c in widget.get_children():
-                ColorPickButton._hide_builtin_picker(c)
-        except Exception:
-            pass
-
-    @staticmethod
-    def _grab_screen():
-        path = os.path.join(WORK_DIR, "eyedrop.png")
-        for cmd in (
-            ["spectacle", "-b", "-n", "-o", path, "--current"],
-            ["import", "-window", "root", path],
-        ):
-            try:
-                subprocess.run(cmd, timeout=15, check=True,
-                               stdout=subprocess.DEVNULL,
-                               stderr=subprocess.DEVNULL)
-            except Exception:
-                continue
-            if os.path.exists(path) and os.path.getsize(path) > 0:
-                return path
-        return None
-
-    def _on_pick_screen(self, btn, chooser):
-        res = self._on_pick_screen_raw()
-        if isinstance(res, Gdk.RGBA):
-            chooser.set_rgba(res)
-            chooser.response(Gtk.ResponseType.OK)
-        elif res is None:
-            self._pick_overlay(
-                lambda c: (chooser.set_rgba(c),
-                           chooser.response(Gtk.ResponseType.OK)))
-
-    def _on_pick_screen_raw(self):
-        """Screen color sampling: returns RGBA, or None (fallback needed),
-        or False (the user cancelled)."""
-        try:
-            res = self._pick_kwin()
-        except Exception as e:
-            print("PICKER: kwin exception:", repr(e), file=sys.stderr)
-            res = "unavailable"
-        print("PICKER: kwin res =", res, file=sys.stderr)
-        if isinstance(res, Gdk.RGBA):
-            return res
-        if res == "unavailable":
-            return None
-        return False
-
-    def _pick_kwin(self):
-        """KWin's built-in color picker (Wayland-native, compositor-side).
-
-        Via the `org.kde.kwin.ColorPicker.pick` D-Bus call, KWin draws the
-        picker and returns an ARGB uint32 on click. On KDE Wayland this is
-        the only reliable path. Otherwise None/"unavailable"/"cancelled".
-        """
-        try:
-            out = subprocess.run(
-                ["gdbus", "call", "--session",
-                 "--dest", "org.kde.KWin.ScreenShot2",
-                 "--object-path", "/ColorPicker",
-                 "--method", "org.kde.kwin.ColorPicker.pick"],
-                timeout=300, capture_output=True, text=True)
-        except subprocess.TimeoutExpired:
-            return "cancelled"
-        except Exception:
-            return "unavailable"
-        if out.returncode != 0:
-            err = out.stdout + out.stderr
-            if "ServiceUnknown" in err:
-                return "unavailable"
-            return "cancelled"
-        m = re.search(r"uint32 (\d+)", out.stdout)
-        if not m:
-            return "cancelled"
-        v = int(m.group(1))
-        r = (v >> 16) & 0xFF
-        g = (v >> 8) & 0xFF
-        b = v & 0xFF
-        return Gdk.RGBA(r / 255, g / 255, b / 255, 1.0)
-
-    def _pick_overlay(self, on_result):
-        path = self._grab_screen()
-        if not path:
-            chooser.get_toplevel().set_title("Screen capture failed")
-            return
-        try:
-            img = _PILImage.open(path).convert("RGB")
-        except Exception:
-            return
-        w, h = img.size
-        data = img.tobytes()
-
-        mask = (Gdk.EventMask.POINTER_MOTION_MASK |
-                Gdk.EventMask.BUTTON_PRESS_MASK |
-                Gdk.EventMask.BUTTON_RELEASE_MASK |
-                Gdk.EventMask.KEY_PRESS_MASK)
-
-        picker = Gtk.Window(type=Gtk.WindowType.POPUP)
-        picker.set_title("Click a color on the screen (Esc: cancel)")
-        picker.set_decorated(False)
-        picker.set_can_focus(True)
-        picker.set_accept_focus(True)
-        picker.set_events(mask)
-        disp = Gtk.DrawingArea()
-        disp.set_events(mask)
-        disp.set_hexpand(True)
-        disp.set_vexpand(True)
-        disp.set_halign(Gtk.Align.FILL)
-        disp.set_valign(Gtk.Align.FILL)
-        picker.add(disp)
-
-        pb = GdkPixbuf.Pixbuf.new_from_bytes(
-            GLib.Bytes(data), GdkPixbuf.Colorspace.RGB, False, 8, w, h, w * 3)
-
-        magnifier = Gtk.Window(type=Gtk.WindowType.POPUP)
-        magnifier.set_decorated(False)
-        mag_img = Gtk.Image()
-        magnifier.add(mag_img)
-        mag_sz, zoom = 120, 6
-        magnifier.set_default_size(mag_sz, mag_sz)
-
-        state = {"ox": 0, "oy": 0, "pb": None, "scale": 1.0}
-
-        def on_draw(area, cr):
-            cr.set_source_rgba(0, 0, 0, 1)
-            cr.paint()
-            s = state["pb"]
-            if s is not None:
-                ox = (area.get_allocated_width() - s.get_width()) // 2
-                oy = (area.get_allocated_height() - s.get_height()) // 2
-                state["ox"], state["oy"] = ox, oy
-                Gdk.cairo_set_source_pixbuf(cr, s, ox, oy)
-                cr.paint()
-            return False
-
-        def mag_at(ix, iy):
-            if ix < 0 or iy < 0 or ix >= w or iy >= h:
-                magnifier.hide()
-                return
-            half = mag_sz // zoom // 2
-            sx = max(0, min(w - mag_sz // zoom, ix - half))
-            sy = max(0, min(h - mag_sz // zoom, iy - half))
-            crop = pb.new_subpixbuf(sx, sy, mag_sz // zoom, mag_sz // zoom)
-            z = crop.scale_simple(mag_sz, mag_sz,
-                                  GdkPixbuf.InterpType.NEAREST)
-            pixels = bytearray(z.get_pixels())
-            rowstride = z.get_rowstride()
-            nch = 4 if z.get_has_alpha() else 3
-            for i in range(mag_sz):
-                off = rowstride * (mag_sz // 2) + i * nch
-                for c in range(nch):
-                    pixels[off + c] = min(255, pixels[off + c] + 90)
-                off = rowstride * i + (mag_sz // 2) * nch
-                for c in range(nch):
-                    pixels[off + c] = min(255, pixels[off + c] + 90)
-            zc = GdkPixbuf.Pixbuf.new_from_bytes(
-                GLib.Bytes(bytes(pixels)), z.get_colorspace(),
-                z.get_has_alpha(), z.get_bits_per_sample(),
-                z.get_width(), z.get_height(), z.get_rowstride())
-            mag_img.set_from_pixbuf(zc)
-
-        def map_xy(ev):
-            ix = int((ev.x - state["ox"]) / state["scale"])
-            iy = int((ev.y - state["oy"]) / state["scale"])
-            return ix, iy
-
-        def on_motion(wdg, ev):
-            ix, iy = map_xy(ev)
-            mag_at(ix, iy)
-            if not magnifier.get_visible():
-                magnifier.show_all()
-            magnifier.move(int(ev.x_root) + 18, int(ev.y_root) + 18)
-            return False
-
-        closed = {"v": False}
-
-        def _close_picker():
-            if closed["v"]:
-                return
-            closed["v"] = True
-            try:
-                magnifier.destroy()
-            except Exception:
-                pass
-            try:
-                picker.destroy()
-            except Exception:
-                pass
-
-        def on_press(wdg, ev):
-            ix, iy = map_xy(ev)
-            if 0 <= ix < w and 0 <= iy < h:
-                p = img.getpixel((ix, iy))
-                on_result(Gdk.RGBA(p[0] / 255, p[1] / 255,
-                                   p[2] / 255, 1.0))
-                GLib.idle_add(_close_picker)
-            return False
-
-        def on_key(wdg, ev):
-            if ev.keyval in (Gdk.KEY_Escape, Gdk.KEY_q, Gdk.KEY_Q):
-                GLib.idle_add(_close_picker)
-                return True
-            return False
-
-        disp.connect("draw", on_draw)
-        picker.connect("motion-notify-event", on_motion)
-        picker.connect("button-press-event", on_press)
-        picker.connect("key-press-event", on_key)
-        disp.connect("motion-notify-event", on_motion)
-        disp.connect("button-press-event", on_press)
-
-        picker.fullscreen()
-        picker.show_all()
-        pw = picker.get_window().get_width()
-        ph = picker.get_window().get_height()
-        scale = max(0.01, min(pw / w, ph / h))
-        state["scale"] = scale
-        state["pb"] = pb.scale_simple(
-            max(1, int(w * scale)), max(1, int(h * scale)),
-            GdkPixbuf.InterpType.BILINEAR)
-        disp.queue_draw()
-        picker.get_window().set_cursor(Gdk.Cursor.new_for_display(
-            Gdk.Display.get_default(), Gdk.CursorType.CROSSHAIR))
-        picker.grab_focus()
-
-
-def _lua_view_str(val):
-    """'main, view_1' → 'view = { "main", "view_1" }' (single name stays a string)."""
-    parts = [p.strip() for p in str(val).split(",") if p.strip()]
-    if not parts:
-        return "nil"
-    if len(parts) > 1:
-        return "{ " + ", ".join(f'"{_lua_escape(p)}"' for p in parts) + " }"
-    return f'"{_lua_escape(parts[0])}"'
-
-
-def generate_lua_entry(item, theme_defaults=None):
-    """Generate a Lua table string from a dict.
-    If theme_defaults is provided, skip fields that match the theme."""
-    lines = ["{"]
-    for key in ("type", "group", "view"):
-        if key in item and item[key] is not None:
-            if key == "view":
-                lines.append(f"    view = {_lua_view_str(item[key])},")
-            elif key == "group" and str(item[key]) == "":
-                # Empty group = group-less (Lua draw_allowed checks `== nil`,
-                # an empty string would hide the item in non-main views).
-                continue
-            else:
-                lines.append(f'    {key} = "{_lua_escape(str(item[key]))}",')
-    for key, val in item.items():
-        if key in ("type", "group", "view"):
-            continue
-        if val is None:
-            continue
-        # Skip if value matches theme default
-        if theme_defaults and key in theme_defaults:
-            if _colors_match(val, theme_defaults[key]):
-                continue
-        if isinstance(val, bool):
-            lines.append(f"    {key} = {'true' if val else 'false'},")
-        elif isinstance(val, (int, float)):
-            lines.append(f"    {key} = {val},")
-        elif isinstance(val, RawLua):
-            lines.append(f"    {key} = {val},")
-        elif isinstance(val, str):
-            lines.append(f'    {key} = "{_lua_escape(val)}",')
-        elif isinstance(val, list):
-            parts = []
-            for v in val:
-                if isinstance(v, (list, tuple)) and len(v) == 3:
-                    parts.append(f'{{ {v[0]}, "{_lua_escape(str(v[1]))}", {v[2]} }}')
-                elif isinstance(v, RawLua):
-                    parts.append(str(v))
-                elif isinstance(v, str):
-                    parts.append(f'"{_lua_escape(v)}"')
-                else:
-                    parts.append(repr(v))
-            lines.append(f"    {key} = {{ {', '.join(parts)} }},")
-        elif isinstance(val, dict):
-            parts = [f'{k} = {repr(v)}' for k, v in val.items()]
-            lines.append(f"    {key} = {{ {', '.join(parts)} }},")
-        else:
-            lines.append(f"    {key} = {repr(val)},")
-    lines.append("}")
-    return "\n".join(lines)
-
-
-def generate_groups_lua(groups):
-    """Generate _GROUPS Lua table string."""
-    lines = ["_GROUPS = {"]
-    for g in groups:
-        name = g.get("name", "unnamed")
-        views = g.get("views", [])
-        parts = [f'name = "{_lua_escape(str(name))}"']
-        if views:
-            views_str = ", ".join(f'"{_lua_escape(str(v))}"' for v in views)
-            parts.append(f"views = {{ {views_str} }}")
-        else:
-            parts.append("views = { }")
-        dm = g.get("draw_me")
-        if dm is not None:
-            if isinstance(dm, bool):
-                parts.append(f"draw_me = {'true' if dm else 'false'}")
-            elif isinstance(dm, RawLua):
-                parts.append(f"draw_me = {dm}")
-            else:
-                parts.append(f'draw_me = "{_lua_escape(str(dm))}"')
-        lines.append("    { " + ", ".join(parts) + " },")
-    lines.append("}")
-    return "\n".join(lines)
-
-
-def generate_views_lua(views):
-    """Generate _VIEWS Lua table string."""
-    lines = ["_VIEWS = {"]
-    for v in views:
-        name = v.get("name", "unnamed")
-        lines.append(f'    {{ name = "{_lua_escape(str(name))}" }},')
-    lines.append("}")
-    return "\n".join(lines)
-
-
-MOUSE_ACTIONS = [
-    ("MOUSE_ENTER_ACTION", "Enter"),
-    ("MOUSE_LEAVE_ACTION", "Leave"),
-    ("MOUSE_HOVER_IN_CONKY_WINDOW_ACTION", "Hover (window)"),
-    ("MOUSE_HOVER_IN_GROUP_ACTION", "Hover (group)"),
-    ("MOUSE_HOVER_LEAVE_GROUP_ACTION", "Hover leave (group)"),
-    ("MOUSE_SCROLL_UP", "Scroll up"),
-    ("MOUSE_SCROLL_DOWN", "Scroll down"),
-    ("MOUSE_SCROLL_LEFT", "Scroll left"),
-    ("MOUSE_SCROLL_RIGHT", "Scroll right"),
-    ("MOUSE_CTRL_SCROLL_UP", "Ctrl+scroll up"),
-    ("MOUSE_CTRL_SCROLL_DOWN", "Ctrl+scroll down"),
-    ("MOUSE_SHIFT_SCROLL_UP", "Shift+scroll up"),
-    ("MOUSE_SHIFT_SCROLL_DOWN", "Shift+scroll down"),
-    ("MOUSE_ALT_SCROLL_UP", "Alt+scroll up"),
-    ("MOUSE_ALT_SCROLL_DOWN", "Alt+scroll down"),
-    ("MOUSE_CLICK_LEFT", "Left click"),
-    ("MOUSE_CLICK_RIGHT", "Right click"),
-    ("MOUSE_CLICK_MIDDLE", "Middle click"),
-    ("MOUSE_CLICK_BACK", "Back click"),
-    ("MOUSE_CLICK_FORWARD", "Forward click"),
-    ("MOUSE_CTRL_CLICK", "Ctrl+click"),
-    ("MOUSE_SHIFT_CLICK", "Shift+click"),
-    ("MOUSE_ALT_CLICK", "Alt+click"),
-]
-
-MOUSE_ACTIONS_LUA = os.path.join(CONKY_DIR, "lua", "mouse_actions.lua")
-FUNCTION_SOURCES = [MOUSE_ACTIONS_LUA]
-
-
-def parse_mouse_functions(filepaths=FUNCTION_SOURCES):
-    """Extract global function names from the given Lua files."""
-    funcs = []
-    for filepath in filepaths:
-        if os.path.exists(filepath):
-            with open(filepath) as f:
-                for line in f:
-                    m = re.match(r'\s*function\s+(\w+)\s*\(', line)
-                    if m:
-                        funcs.append(m.group(1))
-    return sorted(set(funcs))
-
-
-def parse_mouse_actions(content):
-    """Parse MOUSE_*_ACTION lines from widget.lua content → { name: value_str }."""
-    result = {}
-    for line in content.split("\n"):
-        m = re.match(r'(MOUSE_[A-Z_]+)\s*=\s*(.+)', line.strip())
-        if m:
-            result[m.group(1)] = m.group(2).rstrip()
-    return result
-
-
-def generate_mouse_actions_lua(mouse_actions, enabled=True):
-    """Generate the MOUSE_* block Lua string (only non-nil actions)."""
-    lines = [
-        "------------------------------------------------------------",
-        "-- Mouse event actions (only the non-nil ones are listed)",
-        "-- All callbacks receive: function(event)",
-        "-- event has: type, x, y, x_abs, y_abs, time,",
-        "--            button (\"left\"/\"right\"/\"middle\"/\"back\"/\"forward\"),",
-        "--            direction (\"up\"/\"down\"/\"left\"/\"right\"),",
-        "--            mods = { shift=bool, control=bool, alt=bool, super=bool,",
-        "--                     caps_lock=bool, num_lock=bool }",
-        "------------------------------------------------------------",
-        "",
-        f"_MOUSE_ENABLED = {'true' if enabled else 'false'}",
-    ]
-    if enabled:
-        for name, _ in MOUSE_ACTIONS:
-            val = mouse_actions.get(name, "nil")
-            if val != "nil":
-                lines.append(f"{name} = {val}")
-    lines.append("")
-    return "\n".join(lines)
+from constants import (
+    WIDGET_CONFIG_BLOCK, WEATHER_ICON_SETS, weather_icon_block,
+    _installed_icon_themes, WIDGET_BOOTSTRAP_TAIL, WIDGET_WEATHER_FUNC,
+    _FALLBACK_THEME, _empty_widget_lua, _colors_match, _color_to_hex_list,
+)
+from color_picker import ColorPickButton
+from lua_helpers import (
+    _lua_view_str, generate_lua_entry, generate_groups_lua, generate_views_lua,
+    MOUSE_ACTIONS, MOUSE_ACTIONS_LUA, FUNCTION_SOURCES,
+    parse_mouse_functions, parse_mouse_actions, generate_mouse_actions_lua,
+)
+from update_checker import check_for_update, save_current_version, REPO_URL
 
 
 class DesignerWindow(Gtk.Window):
@@ -1306,103 +495,6 @@ class DesignerWindow(Gtk.Window):
         self.status.set_xalign(0)
         right.pack_end(self.status, False, False, 0)
 
-        # ── Tab 5: Gradient (standalone, no Lua writes) ──
-        grad_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
-        grad_page.set_margin_start(4)
-        grad_page.set_margin_end(4)
-        grad_page.set_margin_top(4)
-        notebook.append_page(grad_page, Gtk.Label(label="Gradient"))
-
-        grow1 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
-        grad_page.pack_start(grow1, False, False, 0)
-
-        add_stop = Gtk.Button(label="+ Stop")
-        add_stop.connect("clicked", self._grad_add_stop)
-        grow1.pack_start(add_stop, False, False, 0)
-
-        grow1.pack_start(Gtk.Label(label="Mode:"), False, False, 0)
-        self.grad_mode = Gtk.ComboBoxText()
-        for gid, glabel in gg.MODES:
-            self.grad_mode.append(gid, glabel)
-        self.grad_mode.set_active_id("linear")
-        self.grad_mode.connect("changed", self._grad_changed)
-        grow1.pack_start(self.grad_mode, False, False, 0)
-
-        grow1.pack_start(Gtk.Label(label="Steps:"), False, False, 0)
-        self.grad_steps = Gtk.SpinButton.new_with_range(2, 64, 1)
-        self.grad_steps.set_value(8)
-        self.grad_steps.connect("value-changed", self._grad_changed)
-        grow1.pack_start(self.grad_steps, False, False, 0)
-
-        grad_sw = Gtk.ScrolledWindow()
-        grad_sw.set_min_content_height(120)
-        grad_sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-        grad_page.pack_start(grad_sw, False, False, 0)
-        self.grad_stops_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
-        grad_sw.add(self.grad_stops_box)
-
-        grad_lbl = Gtk.Label(label="Preview")
-        grad_lbl.set_xalign(0)
-        grad_page.pack_start(grad_lbl, False, False, 0)
-        self.grad_preview = Gtk.DrawingArea()
-        self.grad_preview.set_size_request(-1, 40)
-        self.grad_preview.connect("draw", self._on_grad_preview_draw)
-        grad_page.pack_start(self.grad_preview, False, False, 0)
-
-        self.grad_swatch = Gtk.DrawingArea()
-        self.grad_swatch.set_size_request(-1, 30)
-        self.grad_swatch.connect("draw", self._on_grad_swatch_draw)
-        grad_page.pack_start(self.grad_swatch, False, False, 0)
-
-        # ── shades ──
-        shades_sep = Gtk.Separator()
-        grad_page.pack_start(shades_sep, False, False, 0)
-
-        shades_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
-        grad_page.pack_start(shades_row, False, False, 0)
-        shades_row.pack_start(Gtk.Label(label="Shades:"), False, False, 0)
-        self.shades_color = ColorPickButton()
-        self.shades_color.set_rgba(self._rgba("#3daee9"))
-        self.shades_color.connect("color-set", self._grad_changed)
-        shades_row.pack_start(self.shades_color, False, False, 0)
-        shades_row.pack_start(Gtk.Label(label="Db:"), False, False, 0)
-        self.shades_steps = Gtk.SpinButton.new_with_range(2, 16, 1)
-        self.shades_steps.set_value(7)
-        self.shades_steps.connect("value-changed", self._grad_changed)
-        shades_row.pack_start(self.shades_steps, False, False, 0)
-
-        self.shades_swatch = Gtk.DrawingArea()
-        self.shades_swatch.set_size_request(-1, 26)
-        self.shades_swatch.connect("draw", self._on_shades_draw)
-        grad_page.pack_start(self.shades_swatch, False, False, 0)
-
-        # ── output / copy ──
-        out_lbl = Gtk.Label(label="Output (THEMES block gradient format)")
-        out_lbl.set_xalign(0)
-        grad_page.pack_start(out_lbl, False, False, 0)
-        self.grad_output = Gtk.Entry()
-        self.grad_output.set_editable(False)
-        self.grad_output.set_hexpand(True)
-        grad_page.pack_start(self.grad_output, False, False, 0)
-
-        copy_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
-        grad_page.pack_start(copy_row, False, False, 0)
-        copy_lua = Gtk.Button(label="Copy Lua stops")
-        copy_lua.connect("clicked", self._grad_copy_lua)
-        copy_row.pack_start(copy_lua, False, False, 0)
-        copy_pal = Gtk.Button(label="Copy hex palette")
-        copy_pal.connect("clicked", self._grad_copy_palette)
-        copy_row.pack_start(copy_pal, False, False, 0)
-        copy_sha = Gtk.Button(label="Copy shades")
-        copy_sha.connect("clicked", self._grad_copy_shades)
-        copy_row.pack_start(copy_sha, False, False, 0)
-
-        # default two-stop gradient
-        self._grad_stops = [[0.0, "#3daee9", 1.0], [1.0, "#a065ee", 1.0]]
-        self._grad_stop_widgets = []
-        self._rebuild_grad_stops()
-        self._refresh_gradient()
-
         # ── Tab 6: Theme editor ──
         theme_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
         theme_page.set_margin_start(4)
@@ -1460,7 +552,7 @@ class DesignerWindow(Gtk.Window):
         self.theme_grad_tree.append_column(Gtk.TreeViewColumn("Name", Gtk.CellRendererText(), text=0))
         sel = self.theme_grad_tree.get_selection()
         sel.set_mode(Gtk.SelectionMode.SINGLE)
-        sel.connect("changed", self._on_theme_grad_select)
+        self._theme_grad_sel_hid = sel.connect("changed", self._on_theme_grad_select)
         thgrad_sw.add(self.theme_grad_tree)
 
         self.theme_grad_editor_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
@@ -1923,145 +1015,6 @@ class DesignerWindow(Gtk.Window):
     def _hex_from_rgba(self, rgba):
         return gg.rgb_to_hex(rgba.red * 255, rgba.green * 255, rgba.blue * 255)
 
-    def _grad_data(self):
-        stops = sorted((s[0], s[1], max(0.0, min(1.0, s[2]))) for s in self._grad_stops)
-        mode = self.grad_mode.get_active_id() or "linear"
-        n = int(self.grad_steps.get_value())
-        return stops, mode, n
-
-    def _grad_add_stop(self, *a):
-        stops = self._grad_stops
-        if len(stops) >= 16:
-            self.status.set_text("Max 16 stop")
-            return
-        if not stops:
-            stops.append([0.0, "#3daee9", 1.0])
-        else:
-            best_i, best_gap = 0, -1
-            for i in range(len(stops) - 1):
-                gap = stops[i + 1][0] - stops[i][0]
-                if gap > best_gap:
-                    best_i, best_gap = i, gap
-            if best_gap > 0:
-                pos = (stops[best_i][0] + stops[best_i + 1][0]) / 2
-            else:
-                pos = min(1.0, stops[-1][0] + 0.1)
-            rgb = gg.sample_stops(stops, pos)
-            stops.append([pos, gg.rgb_to_hex(rgb[0], rgb[1], rgb[2]), rgb[3]])
-        self._rebuild_grad_stops()
-        self._refresh_gradient()
-
-    def _grad_remove_stop(self, btn, i):
-        del self._grad_stops[i]
-        self._rebuild_grad_stops()
-        self._refresh_gradient()
-
-    def _rebuild_grad_stops(self):
-        for ch in self.grad_stops_box.get_children():
-            self.grad_stops_box.remove(ch)
-        self._grad_stop_widgets = []
-        for i, (pos, hexc, alpha) in enumerate(self._grad_stops):
-            row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
-            num = Gtk.Label(label="{}.".format(i + 1))
-            num.set_width_chars(3)
-            row.pack_start(num, False, False, 0)
-            pos_spin = Gtk.SpinButton.new_with_range(0.0, 1.0, 0.01)
-            pos_spin.set_value(pos)
-            pos_spin.set_width_chars(5)
-            color_btn = ColorPickButton()
-            color_btn.set_rgba(self._rgba(hexc))
-            alpha_spin = Gtk.SpinButton.new_with_range(0.0, 1.0, 0.05)
-            alpha_spin.set_value(max(0.0, min(1.0, alpha)))
-            rm = Gtk.Button(label="✕")
-            pos_spin.connect("value-changed", self._grad_stop_edited, i)
-            color_btn.connect("color-set", self._grad_stop_edited, i)
-            alpha_spin.connect("value-changed", self._grad_stop_edited, i)
-            rm.connect("clicked", self._grad_remove_stop, i)
-            row.pack_start(pos_spin, False, False, 0)
-            row.pack_start(color_btn, False, False, 0)
-            row.pack_start(alpha_spin, False, False, 0)
-            row.pack_start(rm, False, False, 0)
-            self.grad_stops_box.pack_start(row, False, False, 0)
-            self._grad_stop_widgets.append((pos_spin, color_btn, alpha_spin))
-        self.grad_stops_box.show_all()
-
-    def _grad_stop_edited(self, widget, i):
-        if i >= len(self._grad_stop_widgets):
-            return
-        pos_spin, color_btn, alpha_spin = self._grad_stop_widgets[i]
-        rgba = color_btn.get_rgba()
-        self._grad_stops[i] = [pos_spin.get_value(), self._hex_from_rgba(rgba), alpha_spin.get_value()]
-        self._refresh_gradient()
-
-    def _grad_changed(self, *a):
-        self._refresh_gradient()
-
-    def _refresh_gradient(self):
-        self.grad_preview.queue_draw()
-        self.grad_swatch.queue_draw()
-        self.shades_swatch.queue_draw()
-        stops, mode, n = self._grad_data()
-        self.grad_output.set_text(gg.format_lua_stops(stops))
-        self.status.set_text("Gradient: {} stop, {}, {} steps".format(len(stops), mode, n))
-
-    def _on_grad_preview_draw(self, widget, cr):
-        w = widget.get_allocated_width()
-        h = widget.get_allocated_height()
-        stops, mode, _ = self._grad_data()
-        if not stops:
-            return
-        for x in range(w):
-            t = x / (w - 1) if w > 1 else 0
-            r, g, b, a = gg.sample_stops(stops, t, mode)
-            cr.set_source_rgba(r / 255, g / 255, b / 255, a)
-            cr.rectangle(x, 0, 1, h)
-            cr.fill()
-
-    def _on_grad_swatch_draw(self, widget, cr):
-        w = widget.get_allocated_width()
-        h = widget.get_allocated_height()
-        stops, mode, n = self._grad_data()
-        swatches = gg.discrete_swatches(stops, n, mode)
-        if not swatches:
-            return
-        sw = w / len(swatches)
-        for i, (r, g, b, a) in enumerate(swatches):
-            cr.set_source_rgba(r / 255, g / 255, b / 255, a)
-            cr.rectangle(i * sw, 0, sw + 1, h)
-            cr.fill()
-
-    def _shades_data(self):
-        rgba = self.shades_color.get_rgba()
-        return self._hex_from_rgba(rgba), int(self.shades_steps.get_value())
-
-    def _on_shades_draw(self, widget, cr):
-        w = widget.get_allocated_width()
-        h = widget.get_allocated_height()
-        hexc, steps = self._shades_data()
-        cols = gg.shade_colors(hexc, steps)
-        sw = w / len(cols)
-        for i, (r, g, b, a) in enumerate(cols):
-            cr.set_source_rgba(r / 255, g / 255, b / 255, a)
-            cr.rectangle(i * sw, 0, sw + 1, h)
-            cr.fill()
-
-    def _grad_copy_lua(self, *a):
-        stops, mode, n = self._grad_data()
-        Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD).set_text(gg.format_lua_stops(stops), -1)
-        self.status.set_text("Lua stops on clipboard")
-
-    def _grad_copy_palette(self, *a):
-        stops, mode, n = self._grad_data()
-        swatches = gg.discrete_swatches(stops, n, mode)
-        Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD).set_text(gg.format_hex_palette(swatches), -1)
-        self.status.set_text("Hex palette on clipboard")
-
-    def _grad_copy_shades(self, *a):
-        hexc, steps = self._shades_data()
-        cols = gg.shade_colors(hexc, steps)
-        Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD).set_text(gg.format_hex_palette(cols), -1)
-        self.status.set_text("Shades on clipboard")
-
     # ── THEME EDITOR TAB ──
 
     def _theme_palette(self):
@@ -2084,8 +1037,10 @@ class DesignerWindow(Gtk.Window):
 
     def _theme_init(self):
         self._theme_editing = THEME_NAME
-        self._theme_sel_gradient = None
-        self._theme_sel_type = None
+        if self._theme_sel_gradient not in (self._theme_gradients() or {}):
+            self._theme_sel_gradient = None
+        if self._theme_sel_type not in (self._theme_defaults() or {}):
+            self._theme_sel_type = None
         self._theme_rebuild_all()
 
     def _theme_rebuild_all(self):
@@ -2288,17 +1243,25 @@ class DesignerWindow(Gtk.Window):
                 self._theme_build_gradient_editor()
 
     def _theme_rebuild_gradients(self):
-        self.theme_grad_liststore.clear()
-        grad = self._theme_gradients()
-        for gname in grad:
-            self.theme_grad_liststore.append([gname])
-        if self._theme_sel_gradient not in grad:
-            self._theme_sel_gradient = None
-        if self._theme_sel_gradient:
-            for row in self.theme_grad_liststore:
-                if row[0] == self._theme_sel_gradient:
-                    self.theme_grad_tree.get_selection().select_iter(row.iter)
-                    break
+        sel_hnd = self._on_theme_grad_select
+        sel = self.theme_grad_tree.get_selection()
+        if sel.handler_is_connected(self._theme_grad_sel_hid):
+            sel.handler_block(self._theme_grad_sel_hid)
+        try:
+            self.theme_grad_liststore.clear()
+            grad = self._theme_gradients()
+            for gname in grad:
+                self.theme_grad_liststore.append([gname])
+            if self._theme_sel_gradient not in grad:
+                self._theme_sel_gradient = None
+            if self._theme_sel_gradient:
+                for row in self.theme_grad_liststore:
+                    if row[0] == self._theme_sel_gradient:
+                        self.theme_grad_tree.get_selection().select_iter(row.iter)
+                        break
+        finally:
+            if sel.handler_is_connected(self._theme_grad_sel_hid):
+                sel.handler_unblock(self._theme_grad_sel_hid)
         self._theme_build_gradient_editor()
 
     def _theme_build_gradient_editor(self):
@@ -2315,7 +1278,15 @@ class DesignerWindow(Gtk.Window):
 
         gname = self._theme_sel_gradient
         grad = self._theme_gradients()
-        stops = grad.get(gname)
+        if gname not in grad:
+            self._theme_sel_gradient = None
+            lbl = Gtk.Label(label="Select a gradient from the list")
+            lbl.set_line_wrap(True)
+            lbl.set_max_width_chars(40)
+            box.pack_start(lbl, False, False, 0)
+            box.show_all()
+            return
+        stops = grad[gname]
         if not isinstance(stops, list):
             stops = []
             grad[gname] = stops
@@ -2376,6 +1347,8 @@ class DesignerWindow(Gtk.Window):
 
     def _theme_grad_delete(self, btn):
         if self._theme_sel_gradient is None:
+            return
+        if self._theme_sel_gradient not in self._theme_gradients():
             return
         del self._theme_gradients()[self._theme_sel_gradient]
         self._theme_sel_gradient = None
@@ -4648,10 +3621,7 @@ class DesignerWindow(Gtk.Window):
         self._sel_blocks = []
 
     def _save_and_refresh(self):
-        # Remember selection before save
         saved_index = self.selected_index
-        # Live-write to the target file (diff-guarded so conky only reloads
-        # when something actually changed)
         content = self._generate_content()
         self._write_live(content)
         self.draw_list, self.groups, self.views, self.padding = parse_widget_lua(self.save_path)
@@ -4734,8 +3704,9 @@ class DesignerWindow(Gtk.Window):
 
     def _generate_content(self):
         """Generate Lua content from current draw_list, groups, views."""
-        # Load theme defaults for skipping identical values
-        self._load_themes()
+        # Use the in-memory te.THEMES directly — do NOT call _load_themes()
+        # here, as it would overwrite any unsaved in-memory changes (e.g.
+        # newly added gradient/palette stops) with the on-disk file content.
         theme = te.THEMES.get(self.current_theme, {})
 
         lines = [
@@ -4990,6 +3961,26 @@ def main():
     win.connect("delete-event", win._on_delete_event)
     win.connect("destroy", Gtk.main_quit)
     win.show_all()
+
+    def _on_update_check(status, remote_sha, local_sha):
+        from update_checker import save_current_version, VERSION_FILE
+        if status == "update_avail":
+            if not os.path.exists(VERSION_FILE) and remote_sha:
+                save_current_version(remote_sha)
+                win.status.set_text("Up to date (first run)")
+            else:
+                win.status.set_markup(
+                    f'<span foreground="#f67400">⬆ Update available — '
+                    f'<a href="{REPO_URL}">GitHub</a></span>'
+                )
+        elif status == "dev_build":
+            win.status.set_text("Developer build — local is ahead")
+        elif status == "up_to_date":
+            win.status.set_text("Up to date")
+        else:
+            win.status.set_text("Could not check for updates")
+
+    check_for_update(_on_update_check)
     Gtk.main()
     shutil.rmtree(WORK_DIR, ignore_errors=True)
 
