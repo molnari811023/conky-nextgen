@@ -278,15 +278,22 @@ function conky_core_main()
     local updates = tonumber(conky_parse("${updates}")) or 0
     if updates < 3 then return end
 
-    if not draw or #draw == 0 then return end
-    if not _GROUPS then return end
-
     if capture_poll then capture_poll() end
+
+    local cs = conky_surface()
+
+    if not draw or #draw == 0 then
+        if cs and capture_finish then capture_finish() end
+        return
+    end
+    if not _GROUPS then
+        if cs and capture_finish then capture_finish() end
+        return
+    end
 
     check_group_visibility()
     compute_group_offsets(_GROUPS, draw, _PADDING or 10)
 
-    local cs = conky_surface()
     if not cs then return end
     local cr = cairo_create(cs)
 
@@ -304,6 +311,7 @@ function conky_core_main()
             graph      = draw_graph,
             calendar   = draw_calendar,
             clock      = draw_clock,
+            arc        = draw_arc,
         }
     end
 
