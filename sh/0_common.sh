@@ -23,7 +23,6 @@
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 CONKY_DIR="$(readlink -f "$_SCRIPT_DIR/..")"
 TMP_DIR="$CONKY_DIR/tmp"
-SW_BASE="https://services.swpc.noaa.gov"
 
 DEBUG=1
 log() { [ "$DEBUG" -eq 1 ] && echo "$@"; }

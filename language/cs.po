@@ -107,6 +107,9 @@ msgstr "západ slunce"
 msgid "sunshine_duration"
 msgstr "délka slunečního svitu"
 
+msgid "daylight_duration"
+msgstr "Délka denního světla"
+
 msgid "moonrise"
 msgstr "východ měsíce"
 
@@ -121,6 +124,12 @@ msgstr "min"
 
 msgid "max"
 msgstr "max"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 ############################################
 # CITY METADATA

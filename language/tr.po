@@ -94,6 +94,9 @@ msgstr "Gün batımı"
 msgid "sunshine_duration"
 msgstr "Güneşlenme süresi"
 
+msgid "daylight_duration"
+msgstr "Gün ışığı süresi"
+
 msgid "moonrise"
 msgstr "Ay doğumu"
 
@@ -108,6 +111,12 @@ msgstr "Min"
 
 msgid "max"
 msgstr "Maks"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 msgid "city"
 msgstr "Şehir"

@@ -1,0 +1,113 @@
+From: Istvan Molnar <molnari811023@users.noreply.github.com>
+Subject: [PATCH] Fix RSVG Lua bindings: set/get typo, GError leak, GType crash, add positioning helper
+
+Four fixes in the Lua RSVG bindings:
+
+1. RsvgDimensionData:set() was bound as 'get' (typo in rsvg.pkg line 68),
+   making the setter inaccessible from Lua. Introduced by PR #1263 /
+   commit 589b2403 (2022-10-16).
+
+2. g_object_unref() was called on GError in rsvg_create_handle_from_file(),
+   but GError is not a GObject. This caused undefined behavior / memory
+   corruption on every SVG load failure. Fixed to g_error_free().
+
+3. Added rsvg_render_document_at() convenience wrapper that combines
+   cairo_save/translate/restore with rsvg_handle_render_document(), providing
+   a single-call x/y/w/h positioning API (replacing the removed
+   rsvg_handle_render_cairo).
+
+4. Added -z,nodelete linker flag to conky-rsvg module to prevent GType
+   re-registration crash on Conky reload (SIGUSR1). The Rust-based librsvg
+   registers GType "RsvgHandle" in the process-global GLib type table.
+   On reload, dlclose + re-open triggers a panic: "Type RsvgHandle has
+   already been registered". The nodelete flag prevents unloading.
+
+Also removed dead rsvgPositionData helper code (unused since the librsvg
+>= 2.52 migration).
+---
+ lua/CMakeLists.txt     |  1 +
+ lua/librsvg-helper.h   | 21 ++++++++++-----------
+ lua/rsvg.pkg           |  5 +++--
+ 3 files changed, 15 insertions(+), 12 deletions(-)
+
+diff --git a/lua/CMakeLists.txt b/lua/CMakeLists.txt
+index 0933442..5807a6c 100644
+--- a/lua/CMakeLists.txt
++++ b/lua/CMakeLists.txt
+@@ -106,6 +106,7 @@ if(BUILD_LUA_RSVG)
+ 
+   add_library(conky-rsvg MODULE ${luarsvg_src})
+   set_target_properties(conky-rsvg PROPERTIES OUTPUT_NAME "rsvg")
++  target_link_options(conky-rsvg PRIVATE "LINKER:-z,nodelete")
+ 
+   target_link_libraries(conky-rsvg ${luarsvg_libs} toluapp_lib_static)
+   set(lua_libs ${lua_libs} conky-rsvg)
+diff --git a/lua/librsvg-helper.h b/lua/librsvg-helper.h
+index b09e041..b6d147f 100644
+--- a/lua/librsvg-helper.h
++++ b/lua/librsvg-helper.h
+@@ -57,17 +57,6 @@ void rsvg_dimension_data_set(RsvgDimensionData *dd, int width, int height,
+   }
+ }
+ 
+-RsvgPositionData *rsvgPositionDataCreate(void) {
+-  return (RsvgPositionData *)calloc(1, sizeof(RsvgPositionData));
+-}
+-
+-void rsvgPositionDataGet(RsvgPositionData *pd, int *x, int *y) {
+-  if (pd) {
+-    *x = pd->x;
+-    *y = pd->y;
+-  }
+-}
+-
+ RsvgHandle *rsvg_create_handle_from_file(const char *filename) {
+   GFile *gfile = g_file_new_for_path(filename);
+ 
+@@ -76,7 +65,7 @@ RsvgHandle *rsvg_create_handle_from_file(const char *filename) {
+       gfile, RSVG_HANDLE_FLAGS_NONE, NULL, &error);
+ 
+   if (error) {
+-    g_object_unref(error);
++    g_error_free(error);
+     if (handle) g_object_unref(handle);
+     handle = NULL;
+   }
+@@ -118,4 +107,14 @@ void rsvg_rectangle_get(RsvgRectangle *rect, double *x, double *y,
+   }
+ }
+ 
++void rsvg_render_document_at(RsvgHandle *handle, cairo_t *cr,
++                             double x, double y, double w, double h) {
++  if (!handle || !cr) return;
++  cairo_save(cr);
++  cairo_translate(cr, x, y);
++  RsvgRectangle viewport = {0, 0, w, h};
++  rsvg_handle_render_document(handle, cr, &viewport, NULL);
++  cairo_restore(cr);
++}
++
+ #endif /* _LIBRSVG_HELPER_H_ */
+diff --git a/lua/rsvg.pkg b/lua/rsvg.pkg
+index 61dec9b..0ab31ec 100644
+--- a/lua/rsvg.pkg
++++ b/lua/rsvg.pkg
+@@ -65,7 +65,7 @@ typedef struct _RsvgDimensionData {
+     static tolua_outside void rsvg_dimension_data_destroy @ destroy(RsvgDimensionData *);
+     tolua_outside void rsvg_dimension_data_get @ get(int * width, int * height,
+                                                   double * em, double * ex);
+-    tolua_outside void rsvg_dimension_data_set @ get(int width, int height,
++    tolua_outside void rsvg_dimension_data_set @ set(int width, int height,
+                                                   double em, double ex);
+ } RsvgDimensionData;
+ 
+@@ -128,6 +128,9 @@ void g_object_unref(gpointer object);
+ RsvgHandle * rsvg_create_handle_from_file(const char *);
+ int rsvg_destroy_handle(RsvgHandle *);
+ 
++void rsvg_render_document_at(RsvgHandle *handle, cairo_t *cr,
++                             double x, double y, double w, double h);
++
+ RsvgHandle *rsvg_handle_new_with_flags (RsvgHandleFlags flags);
+ 
+ void        rsvg_handle_set_base_gfile (RsvgHandle *handle,

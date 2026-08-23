@@ -24,6 +24,18 @@
 --     Average ping latency in milliseconds (from tmp/network_ping.json).
 --   conky_ping_jitter()     → number (ms)
 --     Ping jitter in milliseconds.
+--   conky_wifi_ap()         → string (MAC address)
+--   conky_wifi_bitrate()    → string ("11 Mb/s")
+--   conky_wifi_channel()    → string
+--   conky_wifi_essid()      → string
+--   conky_wifi_freq()       → string
+--   conky_wifi_link_bar(h,w) → conky bar template
+--   conky_wifi_link_qual()  → number
+--   conky_wifi_link_qual_max() → number
+--   conky_wifi_link_qual_perc() → number
+--   conky_wifi_mode()       → string ("Managed"/"Ad-Hoc"/"Master")
+--   All wireless_* functions accept optional iface argument,
+--   default = conky_wifi_interface().
 --
 -- Data source: tmp/network_ip.json, tmp/network_ping.json
 --}}}
@@ -115,7 +127,7 @@ end
 function conky_ping_avg()
 	local s = get_ping_data()
 	local avg = s:match("rtt min/avg/max/mdev = [%d%.]+/([%d%.]+)/")
-	return tonumber(avg) or 0
+	return tonumber(avg)
 end
 
 function conky_ping_jitter()
@@ -125,4 +137,64 @@ function conky_ping_jitter()
 		return math.floor((tonumber(max) - tonumber(min)) * 10) / 10
 	end
 	return 0
+end
+
+--{{{
+-- Wireless accessors — all use conky_parse("${wireless_xxx iface}")
+--}}}
+
+local function wifi_iface(iface)
+	return iface or conky_wifi_interface() or ""
+end
+
+function conky_wifi_ap(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${wireless_ap " .. i .. "}")
+end
+
+function conky_wifi_bitrate(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${wireless_bitrate " .. i .. "}")
+end
+
+function conky_wifi_channel(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${wireless_channel " .. i .. "}")
+end
+
+function conky_wifi_essid(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${wireless_essid " .. i .. "}")
+end
+
+function conky_wifi_freq(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${wireless_freq " .. i .. "}")
+end
+
+function conky_wifi_link_bar(iface, h, w)
+	local i = wifi_iface(iface)
+	h = h or 8
+	w = w or 100
+	return conky_parse("${wireless_link_bar " .. i .. " " .. h .. "," .. w .. "}")
+end
+
+function conky_wifi_link_qual(iface)
+	local i = wifi_iface(iface)
+	return tonumber(conky_parse("${wireless_link_qual " .. i .. "}"))
+end
+
+function conky_wifi_link_qual_max(iface)
+	local i = wifi_iface(iface)
+	return tonumber(conky_parse("${wireless_link_qual_max " .. i .. "}"))
+end
+
+function conky_wifi_link_qual_perc(iface)
+	local i = wifi_iface(iface)
+	return tonumber(conky_parse("${wireless_link_qual_perc " .. i .. "}"))
+end
+
+function conky_wifi_mode(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${wireless_mode " .. i .. "}")
 end

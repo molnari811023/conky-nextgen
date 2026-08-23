@@ -9,6 +9,8 @@
 - Themes: Understanding, Palette, Gradients, Defaults, Creating your own
 - Conky Configuration, Conky Variables
 - Troubleshooting (designer, preview, widgets, weather)
+- Native SVG Support (librsvg)
+- Display Backend (X11 / Wayland)
 - Configuration Reference / Environment Variables
 - Shell backend (sh/): data flow, dependencies, each module
 - Lua engine (lua/): dependencies, views & groups, each module
@@ -34,7 +36,7 @@
 
 - Build desktop panels with **bars, graphs, rings, analog clocks, calendars, images and SVG** widgets.
 - Show **live system data**: CPU, memory, sensors, network, battery, storage.
-- Show **rich weather data**: current conditions, hourly/daily forecasts, air quality, alerts, sun & moon, space weather.
+- Show **rich weather data**: current conditions, hourly/daily forecasts, air quality, alerts, sun & moon.
 - Switch between **views** and highlight **groups** with mouse events (click → view).
 - Use **themes**: a palette + gradient names + per-widget defaults fill every color automatically.
 - Edit it all visually in the **Designer** without hand-writing Lua.
@@ -150,6 +152,87 @@ Widgets embed standard Conky templates directly in `value`/`text`/`draw_me`: `${
 
 - Empty values — the fetchers run in the background; check `tmp/` JSON files and run `sh/0_fetch_all.sh` once.
 - Wrong units — use `conky_unit_cur_*()` / `_hour_*` / `_day_*` accessors; they follow the locale, don't hardcode °C.
+
+## Native SVG Support (librsvg)
+
+SVG widgets render **natively** via librsvg — no external tools (`rsvg-convert`) are needed. Handles are cached per path for performance, and the full Cairo feature set is available: alpha, tint, rotation, circle clip, and rounded-rect clip.
+
+### Basic usage
+
+```lua
+draw[#draw+1] = {
+    type = "svg",
+    x = 30, y = 225, w = 28, h = 28,
+    path = "/usr/share/icons/breeze/places/24/folder-blue-symbolic.svg",
+}
+```
+
+### Available properties
+
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `path` | string | *(required)* | SVG file path |
+| `w` | int | 32 | Render width (px) |
+| `h` | int | 32 | Render height (px) |
+| `alpha` | float | 1.0 | Opacity 0..1 |
+| `rotate` | float | 0 | Rotation in degrees (around center) |
+| `shape` | string | nil | `"circle"` → circular clip |
+| `radius` | int | 0 | Rounded-corner clip radius |
+| `tint` | string | nil | Tint color `"#RRGGBB"` |
+| `tint_alpha` | float | 1.0 | Tint opacity (multiplied with `alpha`) |
+
+### Tint example
+
+Recolor a monochrome SVG to match your theme:
+
+```lua
+draw[#draw+1] = {
+    type = "svg",
+    x = 30, y = 30, w = 32, h = 32,
+    path = "/usr/share/icons/hicolor/scalable/apps/conky-logomark-violet.svg",
+    tint = "#3daee9",
+    tint_alpha = 0.8,
+}
+```
+
+### Circle clip + alpha
+
+```lua
+draw[#draw+1] = {
+    type = "svg",
+    x = 100, y = 30, w = 48, h = 48,
+    path = "/usr/share/icons/hicolor/scalable/apps/spectacle.svg",
+    shape = "circle",
+    alpha = 0.5,
+}
+```
+
+### Rotation
+
+```lua
+draw[#draw+1] = {
+    type = "svg",
+    x = 200, y = 30, w = 32, h = 32,
+    path = "/usr/share/icons/hicolor/scalable/apps/htop.svg",
+    rotate = 45,
+}
+```
+
+## Display Backend (X11 / Wayland)
+
+Conky supports both X11 and Wayland display backends. The generated `.conf` includes both output flags:
+
+```
+out_to_x = true,
+out_to_wayland = true,
+```
+
+**Both lines are required.** Tested on KDE Plasma (X11 and Wayland sessions):
+
+- Without `out_to_wayland = true`, on Wayland Plasma the conky window disappears when using Win+D (show desktop) — it does not stay on the desktop.
+- Without `out_to_x = true`, the window may not render correctly on X11 sessions.
+- The order of the two lines does not matter.
+- On a pure X11 session, Conky attempts a Wayland socket connection first and falls back to X11. The `wl_display_connect failed: No such file or directory` messages in the log are **harmless** — they are informational, not errors.
 
 ## Configuration Reference
 
@@ -522,17 +605,16 @@ writes what, and how the pieces connect into the finished widget.
 │   ├── core/                   #   main loop, mouse, themes, i18n, utils
 │   ├── draw/                   #   Cairo widget renderers
 │   ├── hardware/               #   system info accessors
-│   ├── weather/                #   weather/air/alerts/spaceweather accessors
+│   ├── weather/                #   weather/air/alerts accessors
 │   ├── require.lua             #   module loader
 │   ├── nowplaying.lua          #   MPRIS player accessors
 │   └── mouse_actions.lua       #   user-defined mouse callbacks
 ├── sh/                         # Bash backend (data fetchers)
 │   ├── 0_common.sh             #   shared bootstrap
 │   ├── 0_fetch_all.sh          #   master dispatcher
-│   ├── 4_fetch_weather.sh      #   weather + air + sun/moon
-│   ├── 11_fetch_alerts.sh      #   MeteoAlarm
-│   ├── 12_fetch_spaceweather.sh#   NOAA space weather
-│   ├── 13_fetch_maps.sh        #   map/radar/satellite tiles
+ │   ├── 4_fetch_weather.sh      #   weather + air + sun/moon
+ │   ├── 11_fetch_alerts.sh      #   MeteoAlarm
+ │   ├── 13_fetch_maps.sh        #   map/radar/satellite tiles
 │   ├── fetch_network.sh        #   ping + public IP
 │   ├── fetch_nowplaying.sh     #   now playing + album art
 │   ├── updates.sh              #   Arch repo + AUR update counts
@@ -588,9 +670,8 @@ write it into `tmp/`; the Lua modules only ever read those cached files.
 | `0_common.sh` | Shared bootstrap: resolves dirs, sets `$UA`, enforces `curl`/`jq`/`python3`, defines `log`, `require_cmds`, `curl_cmd`, `urlencode`. | — (writes `~/.config/conky-nextgen/user_agent.txt`) |
 | `0_fetch_all.sh` | Master dispatcher: sources the modules and runs them by mode (`all`, `weather`, `space`, `alerts`, `map`, `nowplaying`, `network`, or a city name). | — (delegates) |
 | `4_fetch_weather.sh` | `fetch_weather(city)` — Open-Meteo geocoding + forecast + air quality, MET Norway sun/moon. | `city.json`, `weather_data.json`, `airquality.json`, `sun.json`, `moon.json` |
-| `11_fetch_alerts.sh` | `fetch_alerts()` — MeteoAlarm Atom feed for the country from `city.json`. | `alerts.xml` |
-| `12_fetch_spaceweather.sh` | `fetch_spaceweather()` — 8 NOAA SWPC JSON feeds. | `spaceweather_{kp,wind,mag,xray,scales,sunspot,aurora,alerts}.json` |
-| `13_fetch_maps.sh` | `fetch_maps(zoom)` — 3×3 tile grid from OSM, RainViewer radar, Environment Canada GDPS (temp/wind), stitched with ImageMagick. | `osm_big.png`, `rain_big.png`, `temp_big.png`, `wind_big.png` |
+ | `11_fetch_alerts.sh` | `fetch_alerts()` — MeteoAlarm Atom feed for the country from `city.json`. | `alerts.xml` |
+ | `13_fetch_maps.sh` | `fetch_maps(zoom)` — 3×3 tile grid from OSM, RainViewer radar, Environment Canada GDPS (temp/wind), stitched with ImageMagick. | `osm_big.png`, `rain_big.png`, `temp_big.png`, `wind_big.png` |
 | `fetch_network.sh` | `fetch_ping()` (ping 1.1.1.1) + `fetch_ipinfo()` (ipinfo.io). | `network_ping.json`, `network_ip.json` |
 | `fetch_nowplaying.sh` | `fetch_nowplaying()` — playerctl/CMUS/MPD/MOC + album art (change-cached). | `nowplaying.json`, `album_art.png` |
 | `updates.sh` | Standalone (does not source `0_common.sh`): `checkupdates` + AUR RPC, counts with `vercmp`. | `updates.txt` (`"<repo> <aur>"`) |
@@ -652,15 +733,15 @@ strict dependency order (core → weather → hardware → nowplaying → draw).
 
 | File | Accessors |
 |---|---|
-| `core.lua` | Data hub: loads `weather_data.json`, `airquality.json`, `sun.json`, `moon.json`, `city.json` into `W`; units, day names, sun/moon arc progress, icon-path builders, translated text helpers, `conky_units*`. |
-| `current.lua` | Current conditions (temp, humidity, wind, UV, pressure, precip, …) — 20 accessors. |
-| `hourly.lua` | Per-hour forecast (temp, precip prob, code, wind, UV, …) — 19 accessors. |
-| `daily.lua` | Per-day forecast (max/min, sunrise/sunset, daylight, UV, precip hours) — 10 accessors. |
-| `air.lua` | Air quality (PM10/PM2.5, CO, O3, NO2, SO2, dust, EAQI/US AQI, pollen) current + hourly. |
-| `alerts.lua` | MeteoAlarm XML parsing → `conky_alert_*` alert list. |
-| `spaceweather.lua` | NOAA data: Kp/G-scale, solar wind, Bz, X-ray class, sunspot, aurora visibility, alert summary. |
-| `sunmoon.lua` | Sun/moon rise/set/high/low times + azimuths + moon phase. |
-| `units.lua` | `conky_unit_*` accessors (unit-formatted day/hour fields) + `conky_city_name/postcode*`. |
+| `core.lua` | Data hub: loads JSON files into `W`; shared helpers: `read_j`, `round`, `load_weather_data`, `fmt_unix`, `iso_to_mins`, `seconds_to_hour_min`, `get_idx`, `arc_x`, `arc_y`, `get_wind_dir_code`, `wind_color`, `moon_phase_fraction`, WMO/direction tables, `conky_day_name/short`, `conky_load_weather_data`. |
+| `weather_data.lua` | Current (21) + hourly (19) + daily (23) weather accessors (`conky_weather_cur_*`, `conky_weather_hour_*`, `conky_weather_day_*`) + unit labels (`conky_unit_cur_*`, `conky_unit_hour_*`, `conky_unit_day_*`). |
+| `sun.lua` | Sun rise/set/noon/midnight times + azimuths + elevation; `need_to_draw_sun_icon()`, `conky_sun_x(cx,r)`, `conky_sun_y(cy,r)`. |
+| `moon.lua` | Moon rise/set/high/low times + azimuths + elevation + phase; `need_to_draw_moon_icon()`, `conky_moon_x(cx,r)`, `conky_moon_y(cy,r)`. |
+| `airquality.lua` | Air quality (PM10/PM2.5, CO, O3, NO2, SO2, dust, EAQI/US AQI, pollen) current + hourly + unit labels. |
+| `city.lua` | City metadata: `conky_city_name/country/timezone/admin1/admin2/lat/lon/elevation/population/postcode`. |
+| `weather_icons.lua` | Icon path builders: `conky_icon_current_weather/hour_weather/day_weather/moon/current_wind/hour_wind`. |
+| `weather_translations.lua` | `conky_weather_code_text`, `conky_wind_direction_text`, `conky_moon_phase_text`. |
+| `alerts.lua` | MeteoAlarm XML parsing → `conky_update_alerts`, `alerts_count`, `alerts_updated`, `alert_field`. |
 
 ### Icons & assets
 
@@ -680,7 +761,6 @@ regenerated by `sh/0_fetch_all.sh all`:
 - Weather/forecast: `city.json`, `weather_data.json`, `airquality.json`,
   `sun.json`, `moon.json`
 - Alerts: `alerts.xml`
-- Space weather: `spaceweather_{alerts,aurora,kp,mag,scales,sunspot,wind,xray}.json`
 - Network: `network_ip.json`, `network_ping.json`
 - Media: `nowplaying.json`, `album_art.png`
 - Maps: `osm_big.png`, `rain_big.png`, `temp_big.png`, `wind_big.png`
@@ -729,8 +809,7 @@ Consumers in `lua/`:
 |---|---|
 | `city.json`, `weather_data.json`, `airquality.json`, `sun.json`, `moon.json` | `weather/core.lua`, `current.lua`, `hourly.lua`, `daily.lua`, `air.lua`, `sunmoon.lua`, `units.lua` |
 | `alerts.xml` | `weather/alerts.lua` |
-| `spaceweather_*.json` | `weather/spaceweather.lua` |
-| `*_big.png` (maps) | image/SVG widgets |
+ | `*_big.png` (maps) | image/SVG widgets |
 | `nowplaying.json`, `album_art.png` | `nowplaying.lua` |
 | `network_ping.json`, `network_ip.json` | `hardware/network.lua` |
 | `updates.txt` | `hardware/core.lua` (`conky_updates_repo/aur`) |
@@ -772,8 +851,7 @@ second `source` is a no-op (`_COMMON_LOADED` guard).
 - `_SCRIPT_DIR` — absolute directory of `sh/`.
 - `CONKY_DIR` — project root (parent of `sh/`).
 - `TMP_DIR` — `CONKY_DIR/tmp`, the cache/output directory.
-- `SW_BASE` — NOAA SWPC base URL (`https://services.swpc.noaa.gov`).
-- `UA` — the User-Agent string read from the UA file.
+ - `UA` — the User-Agent string read from the UA file.
 - `DEBUG` — debug flag (hardcoded to `1`; `log()` echoes only when `1`).
 
 ####   FUNCTIONS (available after sourcing):
@@ -828,12 +906,11 @@ functions.
 
 ####   MODES:
 
-- **all** (default) — `fetch_weather` (default city), `fetch_spaceweather`,
-  `fetch_alerts`, `fetch_maps` (default zoom), `fetch_nowplaying`, then
-  `fetch_ping` + `fetch_ipinfo` in parallel.
-- **weather** — `fetch_weather` only.
-- **space** — `fetch_spaceweather` only.
-- **alerts** — `fetch_alerts` only.
+- **all** (default) — `fetch_weather` (default city),
+   `fetch_alerts`, `fetch_maps` (default zoom), `fetch_nowplaying`, then
+   `fetch_ping` + `fetch_ipinfo` in parallel.
+ - **weather** — `fetch_weather` only.
+ - **alerts** — `fetch_alerts` only.
 - **map** — `fetch_maps` only.
 - **nowplaying** — `fetch_nowplaying` only.
 - **network** — `fetch_ping` + `fetch_ipinfo` in parallel.
@@ -944,53 +1021,6 @@ unsupported country degrades to "no alerts" instead of an error.
 - The supported-country list is fixed in the `SLUGS` map; adding a country
   means adding its code → slug pair there.
 - The `-legacy-atom-` URL variant is intentional and current for the feeds.
-
-### === ./sh/12_fetch_spaceweather.sh ===
-
-NOAA SWPC space weather fetcher. Downloads eight JSON products from
-`services.swpc.noaa.gov` in one pass.
-
-####   FUNCTIONS:
-
-- **fetch_spaceweather()** — Fetches all eight products via the local
-  `fetch_sw` helper.
-
-####   LOCAL FUNCTIONS:
-
-- **fetch_sw(file, url, name)** — One download: `curl_cmd` to `<file>.tmp`,
-  `mv` on success, or warn + `return 1` on empty/error.
-
-#### Pipeline Role
-
-Data source for `weather/spaceweather.lua` (Kp index, solar wind, magnetic
-field Bz, X-ray flux, scales, sunspot, aurora, alerts).
-
-#### Input / Output
-
-Input: nothing. Output: eight files in `tmp/`:
-
-| File | Product |
-|---|---|
-| `spaceweather_kp.json` | NOAA planetary K-index forecast |
-| `spaceweather_wind.json` | Solar wind speed |
-| `spaceweather_mag.json` | Solar wind magnetic field (Bz) |
-| `spaceweather_xray.json` | GOES X-ray flux (1 day) |
-| `spaceweather_scales.json` | NOAA space weather scales |
-| `spaceweather_sunspot.json` | Sunspot report |
-| `spaceweather_aurora.json` | OVATION aurora forecast |
-| `spaceweather_alerts.json` | Active alerts |
-
-#### Internal Logic
-
-A single loop over `(file, url, name)` triples; each product is downloaded
-and atomically moved. Failures are per-product warnings, so one broken
-endpoint does not stop the other seven.
-
-#### Developer Notes
-
-- `SW_BASE` comes from `0_common.sh` — keep the base URL there, not here.
-- Some products have `products/…` and some `json/…` paths; the exact URL
-  matters and should only change when NOAA moves an endpoint.
 
 ### === ./sh/13_fetch_maps.sh ===
 
@@ -1180,23 +1210,22 @@ format `"<repo_count> <aur_count>"`.
 ### === ./sh/all_in_one.sh ===
 
 Standalone monolithic fetcher. Inlines the common helpers plus `fetch_weather`,
-`fetch_spaceweather`, `fetch_alerts`, and `fetch_maps` into one self-contained
+ `fetch_alerts`, and `fetch_maps` into one self-contained
 script with **no** `source` dependencies. Intended as the drop-in single-file
 variant when modular sourcing is not wanted.
 
 ####   MODES:
 
-- **all** (default) — weather (default city) + space weather + alerts + maps.
-- **weather** — weather only.
-- **space** — space weather only.
-- **alerts** — alerts only.
+- **all** (default) — weather (default city) + alerts + maps.
+ - **weather** — weather only.
+ - **alerts** — alerts only.
 - **map** — maps only.
 - anything else — city name shorthand for weather.
 
 #### Pipeline Role
 
-Functional duplicate of `4_fetch_weather.sh` + `12_fetch_spaceweather.sh` +
-`11_fetch_alerts.sh` + `13_fetch_maps.sh` + `0_common.sh`, used when a single
+Functional duplicate of `4_fetch_weather.sh` +
+ `11_fetch_alerts.sh` + `13_fetch_maps.sh` + `0_common.sh`, used when a single
 portable script is preferred over sourcing modules.
 
 #### Internal Logic
@@ -1233,6 +1262,10 @@ Notes:
   required unconditionally by `require.lua` (so a missing binding fails at
   load time), and `draw/svg.lua` only guards against a *nil* `rsvg` at
   runtime.
+- **SVG rendering is native** — no external tools (`rsvg-convert`) are
+  required. The framework uses `rsvg_create_handle_from_file()` and a
+  convenience wrapper `rsvg_render_document_at()` defined in
+  `librsvg-helper.h`. Handles are cached per path for performance.
 - Optional: `lua-lpeg` — not used by the framework directly; it is an
   optional dependency of `lua-dkjson` that speeds up JSON decoding.
 - Optional: `lua-utf8` / `utf8` improves hyphenation in `draw/hyphen.lua`
@@ -2695,22 +2728,18 @@ draw[#draw+1] = {
 
 SVG rendering drawer (librsvg). Rasterizes an SVG file into a target box with
 opacity, rotation, circle/rounded clip shapes, and optional flat tint. Handles
-are cached in `SVG_CACHE` and released at shutdown.
+are cached in `_svg_handles` and released at shutdown.
 
 ####   GLOBAL FUNCTIONS:
 
 - **draw_svg(cr, opts)** — Entry point for `type = "svg"` items. Loads and
   caches the rsvg handle, clamps the target size to ≥ 1, applies translation,
-  rotation and clip, then renders. With tint/opacity it renders into a temp
-  surface first (masking or `paint_with_alpha`). Returns nothing.
+  rotation and clip. For tint/alpha < 1 it renders into a temp ARGB32 surface
+  first (masking or `paint_with_alpha`); full opacity renders directly onto the
+  context. Returns `{ x, y, w, h }`.
 
 - **svg_free_all()** — Releases every cached rsvg handle and clears
-  `SVG_CACHE`. Called from `conky_cleanup()` at shutdown.
-
-####   LOCAL FUNCTIONS:
-
-- **svg_free(path)** — Frees and removes the cached handle for a single path
-  (currently unused by other modules).
+  `_svg_handles`. Called from `conky_cleanup()` at shutdown.
 
 #### Pipeline Role
 
@@ -2720,23 +2749,32 @@ SVG assets; participates in the shutdown cleanup chain.
 #### Input / Output
 
 Input: cairo context and `opts` (`x`, `y`, `w`, `h`, `path`, `rotate`,
-`shape`, `radius`, `alpha`, `tint`, `tint_alpha`). Output: rendered SVG; no
-return value.
+`shape`, `radius`, `alpha`, `tint`, `tint_alpha`). Output: rendered SVG;
+returns `{ x, y, w, h }` bounding box (or nil on error).
 
 #### Internal Logic
 
-`need_temp` is true when alpha < 1 or a tint is set — the document is then
-rendered to an ARGB32 temp surface and composited as a mask (tint) or with
-`paint_with_alpha`. Without those options the SVG renders straight onto the
-context. Viewport uses the pre-allocated `_svg_vp` rectangle.
+When `tint` is set the SVG is rendered to an ARGB32 temp surface, the tint
+color is set as source, and the surface alpha is used as a mask — this paints
+only where the SVG has content. When `alpha < 1` (no tint) the SVG is
+rendered to a temp surface and composited with `paint_with_alpha`. In both
+cases the cached handle (`_svg_handles`) is reused — no file re-read. When
+both `alpha = 1` and no tint is set, the SVG renders directly onto the cairo
+context for maximum performance.
 
 #### Developer Notes
 
-- Requires the librsvg Lua bindings (`rsvg_create_handle_from_file`,
-  `rsvg_handle_render_document`); guarded at runtime so missing bindings fail
-  softly.
-- Handles are cached per path (bound 256); `svg_free_all` must run at exit to
-  avoid leaking rsvg handles.
+- **Native rsvg bindings** — uses `rsvg_create_handle_from_file()` and
+  `rsvg_render_document_at()` (C convenience wrapper defined in
+  `librsvg-helper.h`). No external tools (`rsvg-convert`) needed.
+- Handles are cached per path in `_svg_handles`; `svg_free_all` must run at
+  exit to avoid leaking rsvg handles.
+- **GType crash prevention** — the `conky-rsvg` shared library is linked with
+  `-z,nodelete` to prevent GType re-registration crashes on SIGUSR1 reload.
+- **GError fix** — error paths now call `g_error_free(error)` instead of
+  `g_object_unref(error)`.
+- **Binding fix** — `RsvgDimensionData:set()` typo corrected (`@ get` →
+  `@ set`).
 
 #### Common fields (all drawers)
 
@@ -3640,42 +3678,22 @@ directions, moon phase, day names, sun/moon arcs, units, and hour indexing.
 - **conky_icon_moon()** — Moon-phase icon (`MOON_ICON_BASE/<idx>n/s.png`,
   hemisphere from latitude).
 
-- **conky_load_weather_data()** — Loads the five JSON files (`weather_data`,
-  `airquality`, `sun`, `moon`, `city`) into `W`, re-checking file mtimes at
-  most every 30 s. Called automatically at startup; safe to call again.
+- **conky_load_weather_data()** — Loads the JSON files into `W`, re-checking
+  file mtimes at most every 30 s. Called automatically at startup; safe to
+  call again.
 
-- **conky_moon_arc_x(cx, r)** — X of the moon on an arc (0 when not visible).
+- **conky_moon_x(cx, r)** — X position of the moon on an arc (0 when not
+  visible).
 
-- **conky_moon_arc_y(cy, r)** — Y of the moon on its arc.
+- **conky_moon_y(cy, r)** — Y position of the moon on its arc.
 
 - **conky_moon_phase_text()** — Textual moon-phase name (translated).
 
-- **conky_moon_progress()** — Moon progress 0–1 along its arc; `-1` when not
-  up. Handles overnight (rise > set) spans.
-
 - **conky_read_j(path)** — Decodes a JSON file into a table (`{}` on error).
 
-- **conky_round(v)** — Rounds to an integer, tolerating nil/NaN (→ 0).
+- **conky_sun_x(cx, r)** — X position of the sun on its arc.
 
-- **conky_sun_arc_x(cx, r)** — X of the sun on its arc.
-
-- **conky_sun_arc_y(cy, r)** — Y of the sun on its arc.
-
-- **conky_sun_progress()** — Sun progress 0–1 (0 = rise, 1 = set); 0.5 on
-  missing data.
-
-- **conky_units()** — The full units table `{cur, hour, day, air_cur,
-  air_hour}` for the active locale.
-
-- **conky_units_air_cur()** — Units for the current air block.
-
-- **conky_units_air_hour()** — Units for the hourly air block.
-
-- **conky_units_cur()** — Units for the current weather block.
-
-- **conky_units_day()** — Units for the daily block.
-
-- **conky_units_hour()** — Units for the hourly block.
+- **conky_sun_y(cy, r)** — Y position of the sun on its arc.
 
 - **conky_weather_code_text(code)** — Human-readable WMO code label,
   translated via `conky_get_tr` (`"WMO <code>"` for unknown codes).
@@ -3901,102 +3919,6 @@ Every accessor guards the array (`field and field[get_idx(i)]`) before
   offset at most once per 60 s, so slot `i` stays aligned across frames.
 - The hourly arrays can be longer than 24 slots; the accessors expose the
   first 24 by convention.
-
-### === ./lua/weather/spaceweather.lua ===
-
-NOAA SWPC space-weather data. Loads seven JSON files (`spaceweather_*.json`),
-reduces them into a compact `SW` table, and exposes Kp index, solar wind, Bz,
-X-ray flux/class, sunspots, G-scale, aurora visibility, alerts, and a
-one-line summary. Optional module — skip the `require` when unused.
-
-####   GLOBAL FUNCTIONS:
-
-- **conky_aurora_visibility_pct(kp, lat)** — Estimates aurora visibility
-  (0–100) from Kp and latitude using the aurora-oval approximation; raises a
-  floor for strong storms at mid latitudes.
-
-- **conky_kp_to_g_scale(kp)** — Maps Kp to the NOAA G scale (`"G0"`–`"G5"`).
-
-- **conky_load_spaceweather()** — Reads the seven JSON files (trimming
-  over-long x-ray/sunspot series), computes `kp_latest`, wind speed, Bz,
-  X-ray flux/class, G-scale, sunspot count, and alerts; caches the `SW` table
-  (refreshed after 300 s or on mtime change, mtime checked ≤ every 5 s).
-  Called at startup when `JSON_PATH` is set.
-
-- **conky_sw_alert_message(i)** — Message text of the i-th active alert
-  (1-based), `""` when none.
-
-- **conky_sw_alert_severity(i)** — Severity of the i-th alert (`warning`,
-  `watch`, `alert`, `summary`, `info`).
-
-- **conky_sw_alerts_count()** — Number of active SWPC alerts.
-
-- **conky_sw_aurora_pct()** — Aurora visibility % at the user latitude
-  (uses `conky_city_lat`).
-
-- **conky_sw_bz()** — IMF Bz component in nT (southward = active).
-
-- **conky_sw_g_scale()** — NOAA G scale for the current Kp (`"G0"`–`"G5"`).
-
-- **conky_sw_kp()** — Current planetary Kp index (0–9).
-
-- **conky_sw_kp_status()** — Status label of the latest Kp observation.
-
-- **conky_sw_summary()** — One-line summary, e.g.
-  `"Kp 4.2 G1 450 km/s Bz -5.2 nT M2.3"`.
-
-- **conky_sw_sunspot()** — Current sunspot count.
-
-- **conky_sw_wind_speed()** — Solar wind speed in km/s.
-
-- **conky_sw_xray_class()** — X-ray flux letter class (`A`–`X`), `"--"` when
-  invalid.
-
-- **conky_sw_xray_flux()** — Current X-ray flux in W/m².
-
-- **conky_sw_xray_full()** — Full class + magnitude (e.g. `"M2.3"`).
-
-- **conky_xray_full_class(flux)** — Letter + magnitude string for a flux
-  value (e.g. `"M2.3"`).
-
-- **conky_xray_short_class(flux)** — Letter class only (`A`–`X`) for a flux.
-
-####   LOCAL FUNCTIONS:
-
-- **sw_alert_severity(msg)** — Derives an alert severity from the message's
-  `Message Code:` (WAR/WAT/ALT/SUM → warning/watch/alert/summary, else info).
-
-- **sw_file_mtime(path)** — File mtime via `lfs`, 0 when missing.
-
-- **sw_json_changed()** — Returns `true` when any `sw_files` mtime changed
-  since the last check (guarded to run at most every 5 s).
-
-#### Pipeline Role
-
-Space-weather data source for compact widget panels. Loads, trims, and
-normalizes the NOAA JSON before exposing the reduced values; caching prevents
-re-parsing every frame.
-
-#### Input / Output
-
-Input: `tmp/spaceweather_kp.json`, `_wind`, `_mag`, `_xray`, `_scales`,
-`_sunspot`, `_alerts`. Output: the `SW` table and the `conky_sw_*` accessors.
-
-#### Internal Logic
-
-Latest values are the last element of each series (x-ray flux prefers the
-0.1–0.8 nm channel, falling back to the last entry; x-ray/sunspot series are
-trimmed to the last 100/10). `scales_forecast` is sorted by `DateStamp`.
-G-scale prefers the NOAA-provided value, falling back to `kp_to_g_scale`.
-
-#### Developer Notes
-
-- All accessors call `conky_load_spaceweather()` first, so a single call
-  populates the cache for the rest of the frame.
-- `conky_sw_aurora_pct` depends on `conky_city_lat` (weather/units.lua);
-  missing latitude → 47.5.
-- Optional: removing the `require("weather.spaceweather")` line disables this
-  module entirely.
 
 ### === ./lua/weather/sunmoon.lua ===
 

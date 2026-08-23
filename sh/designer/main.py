@@ -2821,8 +2821,12 @@ class DesignerWindow(Gtk.Window):
             self.prop_entries[key] = entry
             btn = Gtk.Button(label="…")
             btn.connect("clicked", self._on_pick_path, key, entry)
+            fn_btn = Gtk.Button(label="ƒx")
+            fn_btn.set_tooltip_text("Insert a project conky_* function")
+            fn_btn.connect("clicked", self._on_pick_conky_fn, key, entry)
             box.pack_start(entry, True, True, 0)
             box.pack_start(btn, False, False, 0)
+            box.pack_start(fn_btn, False, False, 0)
             return box
 
         if kind == Kind.CODE:
@@ -2971,7 +2975,7 @@ class DesignerWindow(Gtk.Window):
         dialog.destroy()
 
     def _on_pick_conky_fn(self, btn, key, entry):
-        """Pick a project conky_* function and insert it into the entry."""
+        """Pick a project conky_* function and copy ${lua name} to clipboard."""
         funcs = lua_data.list_conky_functions()
         if not funcs:
             self.status.set_text("No conky_* functions found in the project")
@@ -2982,7 +2986,7 @@ class DesignerWindow(Gtk.Window):
         )
         dialog.add_buttons(
             "Cancel", Gtk.ResponseType.CANCEL,
-            "Insert", Gtk.ResponseType.OK,
+            "Copy", Gtk.ResponseType.OK,
         )
         dialog.set_default_size(560, 480)
         content = dialog.get_content_area()
@@ -2992,20 +2996,25 @@ class DesignerWindow(Gtk.Window):
         content.set_margin_top(8)
         content.set_margin_bottom(8)
 
+        hint = Gtk.Label()
+        hint.set_markup("Copies the function name to clipboard.\n"
+                        "Paste into text field as: ${lua func_name} or ${lua_parse func_name}")
+        hint.set_xalign(0)
+        content.pack_start(hint, False, False, 0)
+
         search = Gtk.SearchEntry()
         search.set_placeholder_text("Search (e.g. temp, battery, usb)…")
         content.pack_start(search, False, False, 0)
 
-        store = Gtk.ListStore(str, str, str, str)  # name, call, args, source
+        store = Gtk.ListStore(str, str, str, str)  # name, lua_name, args, source
         for name in sorted(funcs):
             info = funcs[name]
-            quoted = ", ".join("'" + a + "'" for a in info["args"])
-            call = name + "(" + quoted + ")"
-            store.append([name, call, ", ".join(info["args"]) or "—", info["source"]])
+            lua_name = name[6:] if name.startswith("conky_") else name
+            store.append([name, lua_name, ", ".join(info["args"]) or "—", info["source"]])
 
         filtered = store.filter_new()
         view = Gtk.TreeView(model=filtered)
-        for col_i, title in enumerate(("Function", "Call", "Arguments", "Source")):
+        for col_i, title in enumerate(("Function", "${lua name}", "Arguments", "Source")):
             col = Gtk.TreeViewColumn(title, Gtk.CellRendererText(), text=col_i)
             col.set_expand(col_i == 1)
             view.append_column(col)
@@ -3017,24 +3026,22 @@ class DesignerWindow(Gtk.Window):
         scroller.add(view)
         content.pack_start(scroller, True, True, 0)
 
-        def _insert(sel=None):
+        def _copy(sel=None):
             model, tree_iter = view.get_selection().get_selected()
             if not tree_iter:
                 return
-            call = model[tree_iter][1]
-            cur = entry.get_text() or ""
-            pos = entry.get_position()
-            if pos is None or pos < 0:
-                pos = len(cur)
-            new_text = cur[:pos] + call + cur[pos:]
-            entry.set_text(new_text)
-            entry.set_position(pos + len(call))
+            name = model[tree_iter][0]
+            clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+            clipboard.set_text(name, -1)
+            self.status.set_text("Copied: " + name)
+            import subprocess
+            subprocess.Popen(["notify-send", "-a", "Conky Designer", "Copied to clipboard", name])
             GLib.idle_add(lambda: dialog.response(Gtk.ResponseType.OK))
 
-        view.connect("row-activated", lambda v, path, col: _insert())
+        view.connect("row-activated", lambda v, path, col: _copy())
         ok_btn = dialog.get_widget_for_response(Gtk.ResponseType.OK)
         if ok_btn:
-            ok_btn.connect("clicked", lambda *a: _insert())
+            ok_btn.connect("clicked", lambda *a: _copy())
 
         def _filter(changed_btn):
             query["q"] = search.get_text().lower()

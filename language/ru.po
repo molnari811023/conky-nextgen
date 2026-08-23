@@ -98,6 +98,9 @@ msgstr "Закат"
 msgid "sunshine_duration"
 msgstr "Продолжительность солнца"
 
+msgid "daylight_duration"
+msgstr "Продолжительность светового дня"
+
 msgid "moonrise"
 msgstr "Восход луны"
 
@@ -112,6 +115,12 @@ msgstr "Мин"
 
 msgid "max"
 msgstr "Макс"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 ############################################
 # CITY METADATA

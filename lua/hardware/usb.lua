@@ -85,7 +85,7 @@ function conky_usb_name(i)
 	if not list or #list < idx then
 		return ""
 	end
-	return list[idx].name or ""
+	return list[idx].name
 end
 
 function conky_usb_mount(i)
@@ -94,5 +94,5 @@ function conky_usb_mount(i)
 	if not list or #list < idx then
 		return ""
 	end
-	return list[idx].mount or ""
+	return list[idx].mount
 end

@@ -20,7 +20,6 @@ _EXCLUDED = {
     "conky_cleanup",
     "conky_on_mouse",
     "conky_load_weather_data",
-    "conky_load_spaceweather",
     "conky_update_alerts",
     "conky_round",
     "conky_read_j",

@@ -98,6 +98,9 @@ msgstr "Dagsljus slut"
 msgid "sunshine_duration"
 msgstr "Solskenstid"
 
+msgid "daylight_duration"
+msgstr "Dagstid"
+
 msgid "moonrise"
 msgstr "Månuppgång"
 
@@ -112,6 +115,12 @@ msgstr "Min"
 
 msgid "max"
 msgstr "Max"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 ############################################
 # CITY METADATA

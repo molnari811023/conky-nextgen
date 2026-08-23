@@ -86,11 +86,12 @@ function conky_battery_health_data()
 		local base = get_battery_path()
 		local design = read_num(base .. "charge_full_design")
 		local full = read_num(base .. "charge_full")
-		if design == 0 then
+		if not design or design == 0 then
 			design = read_num(base .. "energy_full_design")
 			full = read_num(base .. "energy_full")
 		end
-		return (design > 0) and math.floor((full / design) * 100) or 0
+		if not design or design == 0 then return nil end
+		return math.floor((full / design) * 100)
 	end)
 end
 
@@ -165,7 +166,7 @@ function conky_external_battery_name(i)
 	if not list or #list < idx then
 		return ""
 	end
-	return list[idx].name or ""
+	return list[idx].name
 end
 
 function conky_external_battery_charge(i)
@@ -174,5 +175,5 @@ function conky_external_battery_charge(i)
 	if not list or #list < idx then
 		return 0
 	end
-	return list[idx].pct or 0
+	return list[idx].pct
 end

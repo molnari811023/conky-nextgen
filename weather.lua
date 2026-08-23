@@ -111,6 +111,14 @@ THEMES = {
 DEFAULT_THEME = "theme"
 _PADDING = 10
 
+-- SIGUSR1 hot-reload: clear cached modules so require() re-executes them
+for k in pairs(package.loaded) do
+	if k:find("^weather%.") or k:find("^core%.") or k:find("^draw%.") or k:find("^hardware%.")
+		or k == "require" or k == "mouse_actions" or k == "nowplaying"
+		or k == "draw.hyphen" then
+		package.loaded[k] = nil
+	end
+end
 require("require")
 
 draw[#draw + 1] = {
@@ -197,7 +205,7 @@ draw[#draw + 1] = {
     y = 15,
     font = "Mono",
     size = 12,
-    text = conky_get_tr("current_weather"),
+    text = "${lua conky_get_tr current_weather}",
     align = "center",
 }
 
@@ -207,7 +215,7 @@ draw[#draw + 1] = {
     y = 15,
     font = "Mono",
     size = 12,
-    text = conky_get_tr("hourly_forecast"),
+    text = "${lua conky_get_tr hourly_forecast}",
     align = "center",
 }
 
@@ -217,7 +225,7 @@ draw[#draw + 1] = {
     y = 15,
     font = "Mono",
     size = 12,
-    text = conky_get_tr("daily_forecast"),
+    text = "${lua conky_get_tr daily_forecast}",
     align = "center",
 }
 
@@ -229,7 +237,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 13,
     weight = "bold",
-    text = conky_city_name() .. ", " .. conky_city_country(),
+    text = "${lua conky_city_name}, ${lua conky_city_country}",
     color = { { 1, "#3daee9", 1 } },
 }
 
@@ -251,7 +259,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 42,
     weight = "bold",
-    text = conky_weather_current_temp() .. conky_unit_cur_temp(),
+    text = "${lua conky_weather_cur_temp}",
 }
 
 draw[#draw + 1] = {
@@ -261,7 +269,7 @@ draw[#draw + 1] = {
     y = 112,
     font = "Mono",
     size = 12,
-    text = conky_weather_code_text(conky_weather_current_code()),
+    text = "${lua conky_weather_cur_code_text}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -272,7 +280,7 @@ draw[#draw + 1] = {
     y = 128,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("feels_like") .. ": " .. conky_weather_current_apparent() .. conky_unit_cur_apparent(),
+    text = "${lua conky_get_tr feels_like}: ${lua conky_weather_cur_apparent}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -293,7 +301,7 @@ draw[#draw + 1] = {
     y = 149,
     font = "Mono",
     size = 11,
-    text = conky_weather_current_wind_speed() .. " " .. conky_unit_cur_wind_speed() .. " " .. conky_wind_direction_text(conky_weather_current_wind_dir()),
+    text = "${lua conky_weather_cur_wind_full}",
 }
 
 draw[#draw + 1] = {
@@ -302,23 +310,38 @@ draw[#draw + 1] = {
     x = 0,
     cx = 560,
     cy = 175,
-    r = 130,
+    r = 118,
     segments = 30,
-    progress = conky_sun_progress,
-    arc_color = "#4a4d52",
-    arc_alpha = 0.35,
-    arc_width = 1.5,
-    icon = script_dir .. "icons/default/0d.png",
-    icon_size = 36,
+    arc_color = "#eff0f1",
+    arc_alpha = 1,
+    arc_width = 2,
     horizon = true,
-    horizon_color = "#4a4d52",
-    progress2 = conky_moon_progress,
-    icon2 = conky_icon_moon,
-    icon2_size = 32,
+    horizon_color = "#ffffff",
+}
+
+draw[#draw + 1] = {
+    type = "image",
+    view = "main",
+    width = 32,
+    height = 32,
+    path = ICON_BASE .. ICON_THEME .. "/0d.png",
+    x = function() return conky_sun_x(560, 118, 32) end,
+    y = function() return conky_sun_y(175, 118, 32) end,
     draw_me = function()
-        local sp = conky_sun_progress()
-        local mp = conky_moon_progress()
-        return (sp > 0 and sp < 1) or (mp > 0 and mp < 1)
+        return need_to_draw_sun_icon()
+    end,
+}
+
+draw[#draw + 1] = {
+    type = "image",
+    view = "main",
+    width = 32,
+    height = 32,
+    path = function() return conky_icon_moon() end,
+    x = function() return conky_moon_x(560, 118, 32) end,
+    y = function() return conky_moon_y(175, 118, 32) end,
+    draw_me = function()
+        return need_to_draw_moon_icon()
     end,
 }
 
@@ -339,7 +362,7 @@ draw[#draw + 1] = {
     y = 200,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("humidity") .. ": " .. conky_weather_current_humidity() .. conky_unit_cur_humidity(),
+    text = "${lua conky_get_tr humidity}: ${lua conky_weather_cur_humidity}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -350,7 +373,7 @@ draw[#draw + 1] = {
     y = 200,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("wind_gusts") .. ": " .. conky_weather_current_wind_gust() .. " " .. conky_unit_cur_wind_gust(),
+    text = "${lua conky_get_tr wind_gusts}: ${lua conky_weather_cur_wind_gust}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -361,7 +384,7 @@ draw[#draw + 1] = {
     y = 216,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("pressure") .. ": " .. conky_weather_current_pressure_msl() .. " " .. conky_unit_cur_pressure_msl(),
+    text = "${lua conky_get_tr pressure}: ${lua conky_weather_cur_pressure}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -372,7 +395,7 @@ draw[#draw + 1] = {
     y = 216,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("cloud_cover") .. ": " .. conky_weather_current_clouds() .. conky_unit_cur_clouds(),
+    text = "${lua conky_get_tr cloud_cover}: ${lua conky_weather_cur_clouds}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -383,7 +406,7 @@ draw[#draw + 1] = {
     y = 232,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("uv_index") .. ": " .. conky_weather_current_uv(),
+    text = "${lua conky_get_tr uv_index}: ${lua conky_weather_cur_uv}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -394,7 +417,7 @@ draw[#draw + 1] = {
     y = 232,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("visibility") .. ": " .. conky_weather_current_visibility() .. " " .. conky_unit_cur_visibility(),
+    text = "${lua conky_get_tr visibility}: ${lua conky_weather_cur_visibility}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -405,7 +428,7 @@ draw[#draw + 1] = {
     y = 248,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("dew_point") .. ": " .. conky_weather_current_dewpoint() .. " " .. conky_unit_cur_dewpoint(),
+    text = "${lua conky_get_tr dew_point}: ${lua conky_weather_cur_dewpoint}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -416,7 +439,7 @@ draw[#draw + 1] = {
     y = 248,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("precipitation") .. ": " .. conky_weather_current_precip() .. " " .. conky_unit_cur_precip(),
+    text = "${lua conky_get_tr precipitation}: ${lua conky_weather_cur_precip}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -447,7 +470,7 @@ draw[#draw + 1] = {
     y = 282,
     font = "Mono",
     size = 10,
-    text = conky_moon_phase_text(),
+    text = "${lua conky_moon_phase_text}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -458,7 +481,7 @@ draw[#draw + 1] = {
     y = 274,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("sunrise") .. ": " .. conky_weather_day_sunrise(1),
+    text = "${lua conky_get_tr sunrise}: ${lua conky_weather_day_sunrise 1}",
     color = { { 1, "#f67400", 1 } },
 }
 
@@ -469,7 +492,7 @@ draw[#draw + 1] = {
     y = 290,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("sunset") .. ": " .. conky_weather_day_sunset(1),
+    text = "${lua conky_get_tr sunset}: ${lua conky_weather_day_sunset 1}",
     color = { { 1, "#f67400", 1 } },
 }
 
@@ -480,7 +503,7 @@ draw[#draw + 1] = {
     y = 274,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("moonrise") .. ": " .. conky_moon_rise_time(),
+    text = "${lua conky_get_tr moonrise}: ${lua conky_moon_rise_time}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -491,7 +514,7 @@ draw[#draw + 1] = {
     y = 290,
     font = "Mono",
     size = 11,
-    text = conky_get_tr("moonset") .. ": " .. conky_moon_set_time(),
+    text = "${lua conky_get_tr moonset}: ${lua conky_moon_set_time}",
     color = { { 1, "#a1a9b1", 1 } },
 }
 
@@ -537,7 +560,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 52,
         font = "Mono", size = 11,
-        text = "conky_weather_hour_time(" .. (i + 1) .. ") and os.date(\"%H:00\", conky_weather_hour_time(" .. (i + 1) .. ")) or \"--\"",
+        text = "${lua conky_weather_hour_time_str " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#3daee9", 1 } },
     }
@@ -555,7 +578,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 142,
         font = "Mono", size = 14, weight = "bold",
-        text = "conky_weather_hour_temp(" .. (i + 1) .. ") .. conky_unit_hour_temp()",
+        text = "${lua conky_weather_hour_temp " .. (i + 1) .. "}",
         align = "center",
     }
 
@@ -564,7 +587,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 160,
         font = "Mono", size = 9,
-        text = "conky_weather_code_text(conky_weather_hour_code(" .. (i + 1) .. "))",
+        text = "${lua conky_weather_hour_code_text " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#a1a9b1", 1 } },
     }
@@ -582,7 +605,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 232,
         font = "Mono", size = 10,
-        text = "conky_weather_hour_wind_speed(" .. (i + 1) .. ") .. \" \" .. conky_unit_hour_wind_speed()",
+        text = "${lua conky_weather_hour_wind_speed " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#a1a9b1", 1 } },
     }
@@ -592,7 +615,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 248,
         font = "MesloLGS Nerd Font Mono", size = 10,
-        text = "\"\\u{E317} \" .. conky_weather_hour_precip_prob(" .. (i + 1) .. ") .. \"%\"",
+        text = "${lua conky_weather_hour_precip_icon " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#3daee9", 1 } },
     }
@@ -602,7 +625,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 264,
         font = "Mono", size = 10,
-        text = "conky_weather_hour_humidity(" .. (i + 1) .. ") .. conky_unit_hour_humidity()",
+        text = "${lua conky_weather_hour_humidity " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#a1a9b1", 1 } },
     }
@@ -651,7 +674,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 60,
         font = "Mono", size = 11, weight = "bold",
-        text = "conky_day_name_short(" .. i .. ")",
+        text = "${lua conky_day_name_short " .. i .. "}",
         align = "center",
     }
 
@@ -668,7 +691,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 166,
         font = "Mono", size = 16, weight = "bold",
-        text = "conky_weather_day_temp_max(" .. idx .. ") .. conky_unit_day_temp_max()",
+        text = "${lua conky_weather_day_temp_max " .. idx .. "}",
         align = "center",
         color = { { 1, "#f67400", 1 } },
     }
@@ -678,7 +701,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 186,
         font = "Mono", size = 13,
-        text = "conky_weather_day_temp_min(" .. idx .. ") .. conky_unit_day_temp_min()",
+        text = "${lua conky_weather_day_temp_min " .. idx .. "}",
         align = "center",
         color = { { 1, "#3daee9", 1 } },
     }
@@ -688,7 +711,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 206,
         font = "Mono", size = 9,
-        text = "conky_weather_code_text(conky_weather_day_code(" .. idx .. "))",
+        text = "${lua conky_weather_day_code_text " .. idx .. "}",
         align = "center",
         color = { { 1, "#a1a9b1", 1 } },
     }
@@ -705,7 +728,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 238,
         font = "Mono", size = 10,
-        text = "conky_get_tr(\"sunrise\") .. \": \" .. conky_weather_day_sunrise(" .. idx .. ")",
+        text = "${lua conky_weather_sunrise " .. idx .. "}",
         align = "center",
         color = { { 1, "#f67400", 1 } },
     }
@@ -715,7 +738,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 254,
         font = "Mono", size = 10,
-        text = "conky_get_tr(\"sunset\") .. \": \" .. conky_weather_day_sunset(" .. idx .. ")",
+        text = "${lua conky_weather_sunset " .. idx .. "}",
         align = "center",
         color = { { 1, "#f67400", 1 } },
     }
@@ -725,7 +748,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 270,
         font = "Mono", size = 10,
-        text = "conky_get_tr(\"uv_index\") .. \": \" .. conky_weather_day_uv(" .. idx .. ")",
+        text = "${lua conky_weather_day_uv_text " .. idx .. "}",
         align = "center",
         color = { { 1, "#a1a9b1", 1 } },
     }
@@ -735,7 +758,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 286,
         font = "Mono", size = 10,
-        text = "conky_get_tr(\"precipitation_hours\") .. \": \" .. conky_weather_day_precip_hours(" .. idx .. ") .. \" \" .. conky_get_tr(\"hour_short\")",
+        text = "${lua conky_weather_day_precip_hours_text " .. idx .. "}",
         align = "center",
         color = { { 1, "#3daee9", 1 } },
     }

@@ -94,6 +94,9 @@ msgstr "Zachód słońca"
 msgid "sunshine_duration"
 msgstr "Długość nasłonecznienia"
 
+msgid "daylight_duration"
+msgstr "Długość dnia"
+
 msgid "moonrise"
 msgstr "Wschód księżyca"
 
@@ -108,6 +111,12 @@ msgstr "Min"
 
 msgid "max"
 msgstr "Maks"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 msgid "city"
 msgstr "Miasto"

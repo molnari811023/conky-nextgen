@@ -208,6 +208,16 @@ FIELD_TEMPLATES = {
     "tint_alpha": _f("tint_alpha", "Tint alpha", Kind.FLOAT, G_APPEARANCE,
                      "Tint opacity 0..1.", min=0, max=1, step=0.05),
 
+    "segments": _f("segments", "Segments", Kind.INT, G_APPEARANCE,
+                   "Arc line segments.", min=3, max=100),
+    "arc_color": _f("arc_color", "Arc color", Kind.COLOR, G_COLORS, "Arc line color #RRGGBB."),
+    "arc_alpha": _f("arc_alpha", "Arc alpha", Kind.FLOAT, G_COLORS,
+                    "Arc opacity 0..1.", min=0, max=1, step=0.05),
+    "arc_width": _f("arc_width", "Arc width", Kind.INT, G_SIZE, "Arc line width (px).", min=1),
+    "horizon": _f("horizon", "Horizon line", Kind.BOOL, G_APPEARANCE, "Draw horizon line."),
+    "horizon_color": _f("horizon_color", "Horizon color", Kind.COLOR, G_COLORS,
+                        "Horizon line color #RRGGBB."),
+
     "show_ticks": _f("show_ticks", "Show ticks", Kind.BOOL, G_APPEARANCE, "Draw clock ticks."),
     "show_numbers": _f("show_numbers", "Show numbers", Kind.BOOL, G_APPEARANCE, "Draw clock numbers."),
     "show_seconds": _f("show_seconds", "Show seconds", Kind.BOOL, G_APPEARANCE, "Draw second hand."),
@@ -278,6 +288,10 @@ TYPE_PROPS = {
     "svg":        ["view", "group", "draw_me", "x", "y", "w", "h", "path", "alpha",
                    "radius", "shape", "rotate", "tint", "tint_alpha",
                    "click", "click_view"],
+    "arc":        ["view", "group", "draw_me", "x", "y", "radius", "segments",
+                   "arc_color", "arc_alpha", "arc_width",
+                   "horizon", "horizon_color",
+                   "click", "click_view"],
 }
 
 # ── per-type defaults (legacy WIDGET_DEFAULTS) ──
@@ -294,6 +308,9 @@ TYPE_DEFAULTS = {
     "calendar":   {"x": 20, "y": 10, "cell_w": 48, "row_h": 22, "font": "Mono", "size": 10},
     "image":      {"x": 20, "y": 10, "width": 48, "height": 48, "path": ""},
     "svg":        {"x": 20, "y": 10, "w": 48, "h": 48, "path": ""},
+    "arc":        {"x": 200, "y": 80, "radius": 80, "segments": 20,
+                   "arc_color": "#a1a9b1", "arc_alpha": 0.4, "arc_width": 2,
+                   "horizon": True, "horizon_color": "#4a4d52"},
 }
 
 # ── widget type display labels ──
@@ -309,6 +326,7 @@ TYPE_LABELS = {
     "calendar": "Calendar",
     "image": "Image",
     "svg": "SVG",
+    "arc": "Arc",
 }
 
 # ── legacy canonical ordering for leftover/extra fields ──
@@ -316,7 +334,9 @@ TYPE_LABELS = {
 FIELD_ORDER = ["view", "group", "draw_me", "x", "y", "x1", "y1", "x2", "y2", "w", "h", "width",
                "height", "radius", "thickness", "size", "font", "weight",
                "max", "value", "text", "fg", "bg", "border", "border_width",
-               "dash", "style_type", "path", "click", "click_view"]
+               "dash", "style_type", "path", "segments",
+               "arc_color", "arc_alpha", "arc_width", "horizon", "horizon_color",
+               "click", "click_view"]
 
 # ── per-type field overrides (shared templates with type-specific choices) ──
 

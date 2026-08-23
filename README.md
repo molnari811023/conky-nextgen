@@ -69,7 +69,7 @@ The weather widget supports 3 views with clickable labels — click any label to
 - **Desktop widgets** — clocks, calendars, bars, rings, graphs, images, SVG
 - **Multi-view layouts** — switch between views with a single click (see `top` widget)
 - **System info** — CPU, RAM, NVMe, sensors, network, battery, DMI
-- **Advanced weather** — current, hourly, daily, AQI, MeteoAlerts, sun/moon, space weather
+- **Advanced weather** — current, hourly, daily, AQI, MeteoAlerts, sun/moon
 - **Themes** — palette → gradients → per-widget defaults; every color resolves automatically
 - **Views & groups** — switchable layouts, clickable regions, mouse-driven navigation
 - **Visual editing** — no Lua coding required; everything is editable in the Designer
@@ -193,9 +193,8 @@ widget.lua → require.lua → lua/core/* → lua/draw/* → lua/hardware/* → 
 | `daily.lua` | Daily forecast (1–7 days) |
 | `air.lua` | Air quality — PM2.5/10, gases, pollen, AQI index |
 | `alerts.lua` | MeteoAlarm XML parser — 26 functions for warning data |
-| `sunmoon.lua` | Sunrise/sunset, moon phase, golden hour |
-| `spaceweather.lua` | NOAA Kp index, solar wind speed, aurora probability |
-| `units.lua` | Unit labels, city names, locale-aware formatting |
+ | `sunmoon.lua` | Sunrise/sunset, moon phase, golden hour |
+ | `units.lua` | Unit labels, city names, locale-aware formatting |
 | `core.lua` | Data loader, WMO weather codes, icon mapping |
 
 ## Widget Structure
@@ -231,9 +230,8 @@ Bash scripts fetch all external data into `tmp/`:
 | `all_in_one.sh` | Single-call fetcher (weather + hardware + network) |
 | `0_fetch_all.sh` | Full data fetch (all modules) |
 | `4_fetch_weather.sh` | Open-Meteo weather API |
-| `11_fetch_alerts.sh` | MeteoAlarm XML feeds |
-| `12_fetch_spaceweather.sh` | NOAA space weather data |
-| `13_fetch_maps.sh` | Weather map tiles |
+ | `11_fetch_alerts.sh` | MeteoAlarm XML feeds |
+ | `13_fetch_maps.sh` | Weather map tiles |
 | `fetch_network.sh` | Public IP, ping latency tests |
 | `fetch_nowplaying.sh` | MPRIS player data via playerctl |
 | `updates.sh` | Arch Linux package update checks |

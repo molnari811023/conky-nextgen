@@ -139,9 +139,9 @@ local function load_cache()
 	local now = os.time()
 	if not alerts_cache_storage or (now - alerts_cache_time > 120) then
 		local xml_path = JSON_PATH .. "alerts.xml"
-		local city_j = conky_read_j(JSON_PATH .. "city.json")
-		local city_name = city_j and city_j.results and city_j.results[1] and city_j.results[1].name or ""
-		local admin1 = city_j and city_j.results and city_j.results[1] and city_j.results[1].admin1 or ""
+		local city_j = read_j(JSON_PATH .. "city.json")
+		local city_name = city_j and city_j.results and city_j.results[1] and city_j.results[1].name
+		local admin1 = city_j and city_j.results and city_j.results[1] and city_j.results[1].admin1
 		local mtime = alerts_file_mtime(xml_path)
 
 		if not alerts_cache_storage or mtime ~= (alerts_cache_storage._mtime or 0) then
@@ -167,16 +167,16 @@ function conky_update_alerts()
 	load_cache()
 end
 
-local function alerts_count()
+function alerts_count()
 	return #load_alerts()
 end
 
-local function alerts_updated()
+function alerts_updated()
 	local cache = load_cache()
 	return cache and cache.updated or ""
 end
 
-local function alert_field(i, field)
+function alert_field(i, field)
 	local a = (load_alerts())[i]
 	if not a then return "" end
 	local val = a[field]

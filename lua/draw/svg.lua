@@ -1,30 +1,22 @@
 --{{{
 --  Conky NextGen Framework
---  Author: István Molnár
+--  Author: Istvan Molnar
 --  GitHub: https://github.com/molnari811023/conky-nextgen
 --  Description: Modular Conky UI framework (Lua engine + Bash backend)
 --}}}
 --
--- draw/svg.lua — SVG rendering via external rsvg-convert
--- draw_svg(cr, opts) → { x, y, w, h }
---     Rasterize an SVG file to a cached PNG with the external `rsvg-convert`
---     tool (librsvg), then draw the PNG through draw_png. Returns the drawn
---     bounding box.
+-- draw/svg.lua -- Native SVG rendering via librsvg (rsvg bindings)
+-- draw_svg(cr, opts) -> { x, y, w, h }
+--     Render an SVG file directly onto a Cairo context using librsvg.
+--     Handles are cached per path to avoid re-loading every frame.
+--     Supports alpha, tint, rotation, circle clip, and rounded rect clip.
 --
--- Why external conversion? librsvg registers the "RsvgHandle" GType in the
--- process-global GLib type table on first use. On a conky config reload the
--- Lua state is closed and Lua 5.5's loadlib.c dlcloses the loaded C modules
--- (librsvg.so and with it librsvg-2.so.2). The fresh copy of librsvg then
--- tries to register "RsvgHandle" again, hits the already-registered type and
--- panics/aborts conky. Running rsvg-convert in a separate process keeps
--- librsvg out of the conky process entirely, so reloads are safe.
+-- Requires: rsvg (loaded in require.lua)
 --
 -- Parameters:
 --   x, y, w, h, path
 --   rotate, shape = "circle", radius
 --   alpha, tint = "#hex", tint_alpha
---
--- Cache: PNG files under tmp/svg_cache/ (+ PNG_CACHE surface cache)
 --
 -- Example:
 --   draw[#draw+1] = {
@@ -34,78 +26,89 @@
 --   }
 --}}}
 
--- The conversion cache dir is created lazily, only when a conversion runs.
-local _SVG_CACHE_DIR = script_dir .. "tmp/svg_cache/"
-local _SVG_CACHE_MKDIR = false
+local _SVG_DEFAULT = {
+    x = 0, y = 0,
+    w = 32, h = 32,
+    path = nil,
+    alpha = 1,
+    tint = nil,
+    tint_alpha = 1,
+    rotate = 0,
+    shape = nil,
+    radius = 0,
+}
 
-local function svg_hash(s)
-    local h = 5381
-    for i = 1, #s do
-        h = (h * 33 + s:byte(i)) % 2147483647
-    end
-    return h
-end
+local _svg_handles = {}
 
-local function svg_to_png(path, w, h)
-    w = math.max(1, math.floor(tonumber(w) or 32))
-    h = math.max(1, math.floor(tonumber(h) or 32))
-
-    local png = _SVG_CACHE_DIR .. svg_hash(path) .. "-" .. w .. "x" .. h .. ".png"
-
-    if not _SVG_CACHE_MKDIR then
-        local dir = _SVG_CACHE_DIR:sub(1, -2)
-        if lfs and not lfs.attributes(dir) then
-            os.execute(string.format("mkdir -p %q", dir))
-        end
-        _SVG_CACHE_MKDIR = true
-    end
-
-    if lfs and lfs.attributes(path) then
-        local png_mtime = lfs.attributes(png, "modification")
-        if png_mtime and png_mtime >= (lfs.attributes(path, "modification") or 0) then
-            return png
-        end
-    end
-
-    local cmd = string.format("rsvg-convert -w %d -h %d %q -o %q",
-        w, h, path, png)
-    local ok = os.execute(cmd)
-    if not ok or not lfs.attributes(png, "modification") then
-        return nil
-    end
-
-    PNG_CACHE = PNG_CACHE or {}
-    PNG_CACHE[png] = nil
-
-    return png
+local function svg_get_handle(path)
+    if _svg_handles[path] then return _svg_handles[path] end
+    local handle = rsvg_create_handle_from_file(path)
+    if not handle then return nil end
+    _svg_handles[path] = handle
+    return handle
 end
 
 function draw_svg(cr, opts)
     if not conky_window or not opts or not opts.path then return nil end
 
-    local png = svg_to_png(opts.path, opts.w, opts.h)
-    if not png then return nil end
+    local path = opts.path
+    if type(path) == "table" and path.exec then path = path.exec()
+    elseif type(path) == "function" then path = path() end
+    if not path then return nil end
 
-    return draw_png(cr, {
-        x = opts.x,
-        y = opts.y,
-        width = math.floor(tonumber(opts.w) or 32),
-        height = math.floor(tonumber(opts.h) or 32),
-        path = png,
-        alpha = opts.alpha,
-        tint = opts.tint,
-        tint_alpha = opts.tint_alpha,
-        rotate = opts.rotate,
-        shape = opts.shape,
-        radius = opts.radius,
-    })
+    if type(opts.x) == "function" then opts.x = opts.x() end
+    if type(opts.y) == "function" then opts.y = opts.y() end
+
+    local c = apply_defaults(opts, _SVG_DEFAULT)
+    local w = math.floor(tonumber(c.w) or 32)
+    local h = math.floor(tonumber(c.h) or 32)
+    if w <= 0 or h <= 0 then return nil end
+
+    local handle = svg_get_handle(path)
+    if not handle then return nil end
+
+    cairo_save(cr)
+    cairo_translate(cr, c.x, c.y)
+
+    if c.rotate and c.rotate ~= 0 then
+        cairo_translate(cr, w / 2, h / 2)
+        cairo_rotate(cr, math.rad(c.rotate))
+        cairo_translate(cr, -w / 2, -h / 2)
+    end
+
+    if c.shape == "circle" then
+        local r = math.min(w, h) / 2
+        cairo_arc(cr, w / 2, h / 2, r, 0, 2 * math.pi)
+        cairo_clip(cr)
+    elseif c.radius and c.radius > 0 then
+        rounded_rect_path(cr, 0, 0, w, h, c.radius)
+        cairo_clip(cr)
+    end
+
+    rsvg_render_document_at(handle, cr, 0, 0, w, h)
+
+    local alpha = tonumber(c.alpha)
+    if not alpha then alpha = 1 end
+    alpha = math.max(0, math.min(1, alpha))
+
+    if c.tint then
+        local r_t, g_t, b_t, a_t = hex_to_rgba(c.tint, (c.tint_alpha or 1) * alpha)
+        cairo_set_operator(cr, CAIRO_OPERATOR_SOURCE)
+        cairo_set_source_rgba(cr, r_t, g_t, b_t, a_t)
+        cairo_paint_with_alpha(cr, alpha)
+        cairo_set_operator(cr, CAIRO_OPERATOR_OVER)
+    elseif alpha < 1 then
+        cairo_paint_with_alpha(cr, alpha)
+    end
+
+    cairo_restore(cr)
+
+    return { x = c.x, y = c.y, w = w, h = h }
 end
 
 function svg_free_all()
-    PNG_CACHE = PNG_CACHE or {}
-    for p, _ in pairs(PNG_CACHE) do
-        if type(p) == "string" and p:find(_SVG_CACHE_DIR, 1, true) == 1 then
-            PNG_CACHE[p] = nil
-        end
+    for path, handle in pairs(_svg_handles) do
+        rsvg_destroy_handle(handle)
     end
+    _svg_handles = {}
 end

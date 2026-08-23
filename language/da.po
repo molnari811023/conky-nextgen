@@ -107,6 +107,9 @@ msgstr "solnedgang"
 msgid "sunshine_duration"
 msgstr "solskinsvarighed"
 
+msgid "daylight_duration"
+msgstr "Dagliængde"
+
 msgid "moonrise"
 msgstr "måneopgang"
 
@@ -121,6 +124,12 @@ msgstr "min."
 
 msgid "max"
 msgstr "maks."
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 ############################################
 # CITY METADATA

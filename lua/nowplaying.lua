@@ -58,30 +58,30 @@ end
 
 function conky_nowplaying_player()
 	load()
-	return cache.player or ""
+	return cache.player
 end
 
 function conky_nowplaying_title()
 	load()
-	return cache.title or ""
+	return cache.title
 end
 
 function conky_nowplaying_artist()
 	load()
-	return cache.artist or ""
+	return cache.artist
 end
 
 function conky_nowplaying_album()
 	load()
-	return cache.album or ""
+	return cache.album
 end
 
 function conky_nowplaying_status()
 	load()
-	return cache.status or "Stopped"
+	return cache.status
 end
 
 function conky_nowplaying_art_path()
 	load()
-	return cache.art or ""
+	return cache.art
 end

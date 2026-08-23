@@ -13,9 +13,8 @@
 # don't want to source individual modules from 0_fetch_all.sh.
 #
 # Usage: ./all_in_one.sh [mode] [arguments]
-#   all                  weather + space + alerts + maps (default)
+#   all                  weather + alerts + maps (default)
 #   weather [city]       weather + air + sun + moon
-#   space                space weather data
 #   alerts               MeteoAlarm alerts
 #   map [zoom]           map tiles (zoom 5-7)
 #   [city name]          shorthand for weather
@@ -67,7 +66,6 @@ CONKY_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 TMP_DIR="$CONKY_DIR/tmp"
 mkdir -p "$TMP_DIR"
 
-SW_BASE="https://services.swpc.noaa.gov"
 
 # -------------------------------------------------------------------
 fetch_weather() {
@@ -117,17 +115,7 @@ fetch_weather() {
 }
 
 # -------------------------------------------------------------------
-fetch_spaceweather() {
-    fetch_sw() { local f=$1 u=$2 n=$3; log "[sw] $n"; curl_cmd "$u" >"${f}.tmp" || { rm -f "${f}.tmp"; log "[warn] $n download failed"; return 1; }; [ -s "${f}.tmp" ] && mv "${f}.tmp" "$f" || { rm -f "${f}.tmp"; log "[warn] $n empty response"; return 1; }; }
 
-    fetch_sw "$TMP_DIR/spaceweather_kp.json"      "$SW_BASE/products/noaa-planetary-k-index-forecast.json"  "Kp index"
-    fetch_sw "$TMP_DIR/spaceweather_wind.json"     "$SW_BASE/products/summary/solar-wind-speed.json"          "Solar wind speed"
-    fetch_sw "$TMP_DIR/spaceweather_mag.json"      "$SW_BASE/products/summary/solar-wind-mag-field.json"      "Magnetic field Bz"
-    fetch_sw "$TMP_DIR/spaceweather_xray.json"     "$SW_BASE/json/goes/primary/xrays-1-day.json"              "X-ray flux"
-    fetch_sw "$TMP_DIR/spaceweather_scales.json"   "$SW_BASE/products/noaa-scales.json"                        "NOAA scales"
-    fetch_sw "$TMP_DIR/spaceweather_sunspot.json"  "$SW_BASE/json/sunspot_report.json"                         "Sunspot report"
-    fetch_sw "$TMP_DIR/spaceweather_aurora.json"   "$SW_BASE/json/ovation_aurora_latest.json"                  "Aurora forecast"
-    fetch_sw "$TMP_DIR/spaceweather_alerts.json"   "$SW_BASE/products/alerts.json"                             "Alerts"
 
     log "[sw] all done"
 }
@@ -299,7 +287,6 @@ MODE="${1:-all}"
 case "$MODE" in
 all)
     fetch_weather "${2:-Vienna}"
-    fetch_spaceweather
     fetch_alerts
     fetch_maps "${3:-7}"
     ;;
@@ -307,7 +294,6 @@ weather)
     fetch_weather "${2:-Vienna}"
     ;;
 space)
-    fetch_spaceweather
     ;;
 alerts)
     fetch_alerts

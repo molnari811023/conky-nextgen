@@ -270,6 +270,37 @@ function normalize_with_suffix(raw)
     return num
 end
 
+function format_value(v, opts)
+    opts = opts or {}
+    local decimals = opts.decimals or 0
+    local suffix = opts.suffix or ""
+    local multiplier = opts.multiplier or 1
+    local n = safe_num(v, "format_value") * multiplier
+    if decimals == 0 then
+        n = round(n)
+        return tostring(n) .. suffix
+    end
+    local fmt = "%." .. tostring(decimals) .. "f"
+    return string.format(fmt, n) .. suffix
+end
+
+-- ═══ NUMBER HELPERS ═══
+
+function round(v)
+    if not v or type(v) ~= "number" then return 0 end
+    return v >= 0 and math.floor(v + 0.5) or math.ceil(v - 0.5)
+end
+
+-- ═══ FILE I/O ═══
+
+function read_file(path)
+    local f = io.open(path, "r")
+    if not f then return "" end
+    local out = f:read("*a") or ""
+    f:close()
+    return out:gsub("%s+$", "")
+end
+
 -- ═══ SAFE FUNCTIONS ═══
 
 local function _safe_log(msg)

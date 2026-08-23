@@ -98,6 +98,9 @@ msgstr "День закінчився"
 msgid "sunshine_duration"
 msgstr "Тривалість сонячного сяйва"
 
+msgid "daylight_duration"
+msgstr "Тривалість денного світла"
+
 msgid "moonrise"
 msgstr "Схід місяця"
 
@@ -112,6 +115,12 @@ msgstr "Мін"
 
 msgid "max"
 msgstr "Макс"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 ############################################
 # CITY METADATA

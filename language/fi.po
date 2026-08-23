@@ -107,6 +107,9 @@ msgstr "Auringonlasku"
 msgid "sunshine_duration"
 msgstr "Auringonpaisteen kesto"
 
+msgid "daylight_duration"
+msgstr "Päivänvalon kesto"
+
 msgid "moonrise"
 msgstr "Kuun nousu"
 
@@ -121,6 +124,12 @@ msgstr "Min"
 
 msgid "max"
 msgstr "Max"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 ############################################
 # CITY METADATA

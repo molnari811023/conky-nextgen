@@ -248,7 +248,7 @@ draw[#draw + 1] = {
     y = 70,
     font = "Mono",
     size = 12,
-    text = "conky_updates_repo()",
+    text = "${lua conky_updates_repo}",
     align = "right",
     color = { { 1, "#a1a9b1", 1 } },
 }
@@ -269,7 +269,7 @@ draw[#draw + 1] = {
     y = 85,
     font = "Mono",
     size = 12,
-    text = "conky_updates_aur()",
+    text = "${lua conky_updates_aur}",
     align = "right",
     color = { { 1, "#a1a9b1", 1 } },
 }

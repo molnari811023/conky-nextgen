@@ -167,7 +167,7 @@ draw[#draw + 1] = {
     y = 10,
     font = "Mono",
     size = 12,
-    text = conky_cpu_name(),
+    text = "${lua conky_cpu_name}",
     align = "right",
 }
 
@@ -188,7 +188,7 @@ draw[#draw + 1] = {
     y = 25,
     font = "Mono",
     size = 12,
-    text = conky_cpu_temp() .. "°C",
+    text = "${lua conky_cpu_temp}°C",
     align = "right",
 }
 

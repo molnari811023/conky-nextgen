@@ -98,6 +98,9 @@ msgstr "일몰"
 msgid "sunshine_duration"
 msgstr "일조 시간"
 
+msgid "daylight_duration"
+msgstr "일조 시간"
+
 msgid "moonrise"
 msgstr "월출"
 
@@ -112,6 +115,12 @@ msgstr "최소"
 
 msgid "max"
 msgstr "최대"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 ############################################
 # CITY METADATA

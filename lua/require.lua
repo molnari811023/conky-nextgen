@@ -11,7 +11,6 @@
 -- 1. C libraries: cairo, rsvg, imlib2, lfs, dkjson
 -- 2. Core: theme_engine (themes come from the THEMES block in widget.lua),
 --    translate, utils, draw_core, mouse_actions, mouse
--- 3. Weather: core, current, hourly, daily, air, sunmoon, units, alerts, spaceweather
 -- 4. Hardware: core, battery, dmi, info, mtp, network, sensors, usb
 -- 5. Extra: nowplaying
 -- 6. Draw: icon_theme, hyphen, background, text, bar, graph, image, svg, clock, calendar, lines, rings
@@ -39,14 +38,14 @@ require("core.mouse")
 
 -- ═══ WEATHER ═══
 require("weather.core")
-require("weather.current")
-require("weather.hourly")
-require("weather.daily")
-require("weather.air")
-require("weather.sunmoon")
-require("weather.units")
+require("weather.weather_data")
+require("weather.sun")
+require("weather.moon")
+require("weather.airquality")
+require("weather.city")
+require("weather.weather_icons")
+require("weather.weather_translations")
 require("weather.alerts")
-require("weather.spaceweather")
 
 -- ═══ HARDWARE ═══
 require("hardware.core")
@@ -74,3 +73,4 @@ require("draw.clock")
 require("draw.calendar")
 require("draw.lines")
 require("draw.rings")
+require("draw.arc")

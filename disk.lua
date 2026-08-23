@@ -157,7 +157,7 @@ draw[#draw + 1] = {
     y = 10,
     font = "Mono",
     size = 12,
-    text = conky_nvme_model(),
+    text = "${lua conky_nvme_model}",
 }
 
 draw[#draw + 1] = {
@@ -167,7 +167,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 12,
     align = "right",
-    text = conky_nvme_temp() .. "°C",
+    text = "${lua conky_nvme_temp}°C",
 }
 
 draw[#draw + 1] = {

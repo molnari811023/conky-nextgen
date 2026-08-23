@@ -70,6 +70,10 @@ function draw_png(cr, m)
     if not path then return nil end
     m.path = path
 
+    -- resolve function x/y at draw time
+    if type(m.x) == "function" then m.x = m.x() end
+    if type(m.y) == "function" then m.y = m.y() end
+
     local c = apply_defaults(m, PNG_DEFAULT)
 
     local cached = PNG_CACHE[c.path]

@@ -75,8 +75,8 @@ local function gvfs_mtp_info()
 				local info = pread(
 					"timeout 2 gio info -a 'filesystem::size,filesystem::free' '" .. base .. mtp .. "' 2>/dev/null"
 				)
-				local total = tonumber(info:match("size:%s+(%d+)")) or 0
-				local free = tonumber(info:match("free:%s+(%d+)")) or 0
+				local total = tonumber(info:match("size:%s+(%d+)"))
+				local free = tonumber(info:match("free:%s+(%d+)"))
 				local used = total - free
 				table.insert(devices, {
 					name = mtp:gsub("mtp:host=", ""):gsub("_", " "),
@@ -111,5 +111,5 @@ function conky_mtp_perc(dev_idx, storage_idx)
 		return 0
 	end
 	local s = d.storages[tonumber(storage_idx) or 1]
-	return s and s.perc or 0
+	return s and s.perc
 end

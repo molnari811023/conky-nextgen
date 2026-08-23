@@ -10,9 +10,8 @@
 # 0_fetch_all.sh — Master fetcher entry point.
 # Sources all fetch modules and dispatches by mode.
 # Usage: ./0_fetch_all.sh [mode] [arguments]
-#   all                  weather + space + alerts + maps + nowplaying + network (default)
+#   all                  weather + alerts + maps + nowplaying + network (default)
 #   weather [city]       weather + air + sun + moon
-#   space                space weather data
 #   alerts               MeteoAlarm alerts
 #   map [zoom]           map tiles (zoom 5-7)
 #   nowplaying           now-playing track info + album art
@@ -21,7 +20,6 @@
 #
 # Requires: curl, jq, python3
 # Output files: tmp/weather_data.json, tmp/airquality.json, tmp/sun.json,
-#               tmp/moon.json, tmp/city.json, tmp/spaceweather_*.json,
 #               tmp/alerts.xml, tmp/*.png (maps), tmp/network_*.json,
 #               tmp/nowplaying.json, tmp/album_art.png
 #}}}
@@ -30,7 +28,6 @@ _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"
 source "$_SCRIPT_DIR/4_fetch_weather.sh"
 source "$_SCRIPT_DIR/11_fetch_alerts.sh"
-source "$_SCRIPT_DIR/12_fetch_spaceweather.sh"
 source "$_SCRIPT_DIR/13_fetch_maps.sh"
 source "$_SCRIPT_DIR/fetch_nowplaying.sh"
 source "$_SCRIPT_DIR/fetch_network.sh"
@@ -41,7 +38,6 @@ if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 	case "$MODE" in
 	all)
 		fetch_weather "${2:-Vienna}"
-		fetch_spaceweather
 		fetch_alerts
 		fetch_maps "${3:-7}"
 		fetch_nowplaying
@@ -53,7 +49,6 @@ if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 		fetch_weather "${2:-Vienna}"
 		;;
 	space)
-		fetch_spaceweather
 		;;
 	alerts)
 		fetch_alerts

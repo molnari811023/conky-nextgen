@@ -202,6 +202,7 @@ local function infer_item_height(item)
     if t == "svg" then return (item.h or 48) end
     if t == "background" then return 0 end
     if t == "line" then return 10 end
+    if t == "arc" then return (item.r or 30) end
     return 30
 end
 
@@ -335,13 +336,15 @@ function conky_core_main()
 
         local group_offset_y = GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].y or 0
 
-        local saved_y = item.y
+        local saved_x, saved_y = item.x, item.y
+        if type(item.x) == "function" then item.x = item.x() end
+        if type(item.y) == "function" then item.y = item.y() end
         item.y = (item.y or 0) + group_offset_y
 
         local fn = DRAW_DISPATCH[item.type]
         if fn then fn(cr, item) end
 
-        item.y = saved_y
+        item.x, item.y = saved_x, saved_y
 
         ::continue::
     end

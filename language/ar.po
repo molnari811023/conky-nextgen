@@ -98,6 +98,9 @@ msgstr "الغروب"
 msgid "sunshine_duration"
 msgstr "مدة سطوع الشمس"
 
+msgid "daylight_duration"
+msgstr "مدة النهار"
+
 msgid "moonrise"
 msgstr "طلوع القمر"
 
@@ -112,6 +115,12 @@ msgstr "أدنى"
 
 msgid "max"
 msgstr "أقصى"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 ############################################
 # CITY METADATA

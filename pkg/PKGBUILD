@@ -59,8 +59,10 @@ conflicts=('conky' 'conky-git')
 source=(
   "git+https://github.com/brndnmtthws/conky.git"
   "sigusr1-reload.patch"
+  "rsvg-bindings-fix.patch"
 )
 sha256sums=('SKIP'
+            'SKIP'
             'SKIP')
 
 pkgver() {
@@ -73,6 +75,9 @@ prepare() {
 
   # SIGUSR1 reload: skip window+display teardown on X11 during reload
   patch -Np1 -i "${srcdir}/sigusr1-reload.patch"
+
+  # RSVG Lua bindings: fix set/get typo, GError leak, add positioning helper
+  patch -Np1 -i "${srcdir}/rsvg-bindings-fix.patch"
 
   # unbundle catch2 to fix build with glibc >= 2.35
   if [ -d tests/catch2 ]; then

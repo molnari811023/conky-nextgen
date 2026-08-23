@@ -94,6 +94,9 @@ msgstr "Tramonto"
 msgid "sunshine_duration"
 msgstr "Durata del sole"
 
+msgid "daylight_duration"
+msgstr "Durata del giorno"
+
 msgid "moonrise"
 msgstr "Sorgere della luna"
 
@@ -108,6 +111,12 @@ msgstr "Min"
 
 msgid "max"
 msgstr "Max"
+
+msgid "hour_short"
+msgstr "h"
+
+msgid "minute_short"
+msgstr "m"
 
 msgid "city"
 msgstr "Città"

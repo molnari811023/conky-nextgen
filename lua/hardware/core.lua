@@ -100,7 +100,7 @@ end
 function get_sensor_val(pattern)
 	local s = read_sensors_raw()
 	local v = s:match(pattern)
-	return tonumber(v) or 0
+	return tonumber(v)
 end
 
 function get_root_device(map, name)
@@ -137,15 +137,7 @@ function pread(cmd)
 	return out:gsub("%s+$", "")
 end
 
-function read_file(path)
-	local f = io.open(path, "r")
-	if not f then
-		return ""
-	end
-	local out = f:read("*a") or ""
-	f:close()
-	return out:gsub("%s+$", "")
-end
+-- read_file() is defined in core/utils.lua (loaded before hardware)
 
 local function has_cmd(cmd)
 	local f = io.popen("command -v " .. cmd .. " 2>/dev/null")
@@ -157,7 +149,7 @@ end
 
 function read_num(path)
 	local v = read_file(path)
-	return tonumber(v and v:match("(%d+)")) or 0
+	return tonumber(v and v:match("(%d+)"))
 end
 
 local source = debug.getinfo(1, "S").source:sub(2)
@@ -167,12 +159,12 @@ local updates_file = tmp_dir .. "updates.txt"
 
 function conky_updates_repo()
 	local s = read_file(updates_file)
-	local n = tonumber(s:match("^(%d+)") or 0)
+	local n = tonumber(s:match("^(%d+)"))
 	return tostring(n) .. " " .. ((n == 1) and "package" or "packages")
 end
 
 function conky_updates_aur()
 	local s = read_file(updates_file)
-	local n = tonumber(s:match("%s(%d+)$") or 0)
+	local n = tonumber(s:match("%s(%d+)$"))
 	return tostring(n) .. " " .. ((n == 1) and "package" or "packages")
 end
