@@ -108,6 +108,13 @@ fetch_weather() {
     curl_cmd "https://api.met.no/weatherapi/sunrise/3.0/moon?lat=${lat}&lon=${lon}&date=${date}&offset=${offset}" >"$TMP_DIR/moon.json.tmp" || { rm -f "$TMP_DIR/moon.json.tmp"; log "[warn] Moon download failed"; }
     [ -s "$TMP_DIR/moon.json.tmp" ] && mv "$TMP_DIR/moon.json.tmp" "$TMP_DIR/moon.json" || { rm -f "$TMP_DIR/moon.json.tmp"; log "[warn] Moon empty response"; }
 
+    local next_date=$(date -d "${date} +1 day" +%Y-%m-%d 2>/dev/null || date -v+1d +%Y-%m-%d 2>/dev/null)
+    if [ -n "$next_date" ]; then
+        log "[moon] moon_next.json"
+        curl_cmd "https://api.met.no/weatherapi/sunrise/3.0/moon?lat=${lat}&lon=${lon}&date=${next_date}&offset=${offset}" >"$TMP_DIR/moon_next.json.tmp" || { rm -f "$TMP_DIR/moon_next.json.tmp"; log "[warn] Moon next download failed"; }
+        [ -s "$TMP_DIR/moon_next.json.tmp" ] && mv "$TMP_DIR/moon_next.json.tmp" "$TMP_DIR/moon_next.json" || { rm -f "$TMP_DIR/moon_next.json.tmp"; log "[warn] Moon next empty response"; }
+    fi
+
     # MET Norway locationforecast backup (when Open-Meteo fails)
     # log "[met] metnorway_raw.json"
     # curl_cmd "https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=${lat}&lon=${lon}" >"$TMP_DIR/metnorway_raw.json.tmp" || { rm -f "$TMP_DIR/metnorway_raw.json.tmp"; log "[warn] MET Norway download failed"; }

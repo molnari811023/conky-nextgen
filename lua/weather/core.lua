@@ -23,6 +23,7 @@ local cached_files = {
 	"airquality.json",
 	"sun.json",
 	"moon.json",
+	"moon_next.json",
 	"city.json"
 }
 
@@ -52,7 +53,7 @@ function read_j(path)
 	return json.decode(c) or {}
 end
 
-W = W or { weather = {}, air = {}, city = {}, moon = {}, sun = {} }
+W = W or { weather = {}, air = {}, city = {}, moon = {}, moon_next = {}, sun = {} }
 
 function load_weather_data()
 	local now = os.time()
@@ -60,19 +61,21 @@ function load_weather_data()
 	if not weather_cache_storage or (diff > 5) then
 		last_mtime_check = now
 		local data = {
-			weather = read_j(JSON_PATH .. "weather_data.json"),
-			air     = read_j(JSON_PATH .. "airquality.json"),
-			sun     = read_j(JSON_PATH .. "sun.json"),
-			moon    = read_j(JSON_PATH .. "moon.json"),
-			city    = read_j(JSON_PATH .. "city.json"),
+			weather   = read_j(JSON_PATH .. "weather_data.json"),
+			air       = read_j(JSON_PATH .. "airquality.json"),
+			sun       = read_j(JSON_PATH .. "sun.json"),
+			moon      = read_j(JSON_PATH .. "moon.json"),
+			moon_next = read_j(JSON_PATH .. "moon_next.json"),
+			city      = read_j(JSON_PATH .. "city.json"),
 		}
 		if data then
 			weather_cache_storage = data
-			W.weather = data.weather or W.weather
-			W.air     = data.air or W.air
-			W.city    = data.city or W.city
-			W.moon    = data.moon or W.moon
-			W.sun     = data.sun or W.sun
+			W.weather   = data.weather or W.weather
+			W.air       = data.air or W.air
+			W.city      = data.city or W.city
+			W.moon      = data.moon or W.moon
+			W.moon_next = data.moon_next or W.moon_next
+			W.sun       = data.sun or W.sun
 		end
 	end
 	return weather_cache_storage
