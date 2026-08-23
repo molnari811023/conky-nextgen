@@ -33,19 +33,6 @@ local function moon_data()
 	return (W.moon or {}).properties or {}
 end
 
-local function moon_next_data()
-	return (W.moon_next or {}).properties or {}
-end
-
--- Merge: if today has no moonset, use tomorrow's
-local function moon_set_merged()
-	local m = moon_data()
-	if m.moonset and m.moonset.time then return m.moonset end
-	local n = moon_next_data()
-	if n.moonset and n.moonset.time then return n.moonset end
-	return m.moonset or {}
-end
-
 --{{{
 -- Moon — Rise/Set
 --}}}
@@ -61,13 +48,13 @@ function conky_moon_rise_azimuth()
 end
 
 function conky_moon_set_time()
-	local ms = moon_set_merged()
-	return fmt_time(ms.time)
+	local m = moon_data()
+	return fmt_time(safe_str(m.moonset and m.moonset.time, "moon_set_time"))
 end
 
 function conky_moon_set_azimuth()
-	local ms = moon_set_merged()
-	return safe_num(ms.azimuth, "moon_set_az")
+	local m = moon_data()
+	return safe_num(m.moonset and m.moonset.azimuth, "moon_set_az")
 end
 
 --{{{
@@ -112,8 +99,7 @@ local function moon_progress()
 	load_weather_data()
 	local m = moon_data()
 	local rise = m.moonrise and iso_to_mins(m.moonrise.time)
-	local ms = moon_set_merged()
-	local set = ms.time and iso_to_mins(ms.time)
+	local set = m.moonset and iso_to_mins(m.moonset.time)
 	if not rise or not set then return nil end
 	local now = os.date("*t")
 	local now_mins = now.hour * 60 + now.min
@@ -152,8 +138,7 @@ function need_to_draw_moon_icon()
 	load_weather_data()
 	local m = moon_data()
 	local rise = m.moonrise and iso_to_mins(m.moonrise.time)
-	local ms = moon_set_merged()
-	local set = ms.time and iso_to_mins(ms.time)
+	local set = m.moonset and iso_to_mins(m.moonset.time)
 	if not rise or not set then return false end
 	local now = os.date("*t")
 	local now_mins = now.hour * 60 + now.min

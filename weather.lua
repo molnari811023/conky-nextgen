@@ -605,7 +605,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 232,
         font = "Mono", size = 10,
-        text = "${lua conky_weather_hour_wind_speed " .. (i + 1) .. "}",
+        text = "${lua conky_get_tr wind_speed}: ${lua conky_weather_hour_wind_speed " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#a1a9b1", 1 } },
     }
@@ -614,8 +614,8 @@ for i = 0, 3 do
         type = "text",
         view = "view_1",
         x = cx, y = 248,
-        font = "MesloLGS Nerd Font Mono", size = 10,
-        text = "${lua conky_weather_hour_precip_icon " .. (i + 1) .. "}",
+        font = "Mono", size = 10,
+        text = "${lua conky_get_tr precipitation_probability}: ${lua conky_weather_hour_precip_icon " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#3daee9", 1 } },
     }
@@ -625,7 +625,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 264,
         font = "Mono", size = 10,
-        text = "${lua conky_weather_hour_humidity " .. (i + 1) .. "}",
+        text = "${lua conky_get_tr humidity}: ${lua conky_weather_hour_humidity " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#a1a9b1", 1 } },
     }
@@ -728,7 +728,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 238,
         font = "Mono", size = 10,
-        text = "${lua conky_weather_sunrise " .. idx .. "}",
+        text = "${lua conky_get_tr sunrise}: ${lua conky_weather_sunrise " .. idx .. "}",
         align = "center",
         color = { { 1, "#f67400", 1 } },
     }
@@ -738,7 +738,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 254,
         font = "Mono", size = 10,
-        text = "${lua conky_weather_sunset " .. idx .. "}",
+        text = "${lua conky_get_tr sunset}: ${lua conky_weather_sunset " .. idx .. "}",
         align = "center",
         color = { { 1, "#f67400", 1 } },
     }
@@ -748,7 +748,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 270,
         font = "Mono", size = 10,
-        text = "${lua conky_weather_day_uv_text " .. idx .. "}",
+        text = "${lua conky_get_tr uv_index}: ${lua conky_weather_day_uv_text " .. idx .. "}",
         align = "center",
         color = { { 1, "#a1a9b1", 1 } },
     }

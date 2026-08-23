@@ -29,7 +29,7 @@ source "$_SCRIPT_DIR/0_common.sh"
 fetch_weather() {
 	local city_raw="${1:-Vienna}"
 	local city=$(urlencode "$city_raw")
-	local lang="${WEATHER_LANG:-en}" forecast_days=7 air_forecast_days=4
+	local lang="hu" forecast_days=7 air_forecast_days=4
 	local cj="$TMP_DIR/city.json"
 
 	log "[geo] Geocoding $city_raw"
@@ -65,13 +65,6 @@ fetch_weather() {
 	log "[moon] moon.json"
 	curl_cmd "https://api.met.no/weatherapi/sunrise/3.0/moon?lat=${lat}&lon=${lon}&date=${date}&offset=${offset}" >"$TMP_DIR/moon.json.tmp" || { rm -f "$TMP_DIR/moon.json.tmp"; log "[warn] Moon download failed"; }
 	[ -s "$TMP_DIR/moon.json.tmp" ] && mv "$TMP_DIR/moon.json.tmp" "$TMP_DIR/moon.json" || { rm -f "$TMP_DIR/moon.json.tmp"; log "[warn] Moon empty response"; }
-
-	local next_date=$(date -d "${date} +1 day" +%Y-%m-%d 2>/dev/null || date -v+1d +%Y-%m-%d 2>/dev/null)
-	if [ -n "$next_date" ]; then
-		log "[moon] moon_next.json"
-		curl_cmd "https://api.met.no/weatherapi/sunrise/3.0/moon?lat=${lat}&lon=${lon}&date=${next_date}&offset=${offset}" >"$TMP_DIR/moon_next.json.tmp" || { rm -f "$TMP_DIR/moon_next.json.tmp"; log "[warn] Moon next download failed"; }
-		[ -s "$TMP_DIR/moon_next.json.tmp" ] && mv "$TMP_DIR/moon_next.json.tmp" "$TMP_DIR/moon_next.json" || { rm -f "$TMP_DIR/moon_next.json.tmp"; log "[warn] Moon next empty response"; }
-	fi
 }
 
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then

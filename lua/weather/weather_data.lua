@@ -52,7 +52,8 @@ end
 
 local function day(i, field, no_round)
 	local arr = (W.weather.daily or {})[field]
-	return fv(safe_num(arr and arr[i], "day_" .. field), day_units(), field, no_round)
+	local idx = tonumber(i) or 1
+	return fv(safe_num(arr and arr[idx], "day_" .. field), day_units(), field, no_round)
 end
 
 --{{{
@@ -137,6 +138,9 @@ end
 function conky_weather_hour_humidity(i)
 	return hour(i, "relative_humidity_2m")
 end
+function conky_weather_hour_wind_speed(i)
+	return hour(i, "wind_speed_10m")
+end
 function conky_weather_hour_dewpoint(i)
 	return hour(i, "dew_point_2m")
 end
@@ -215,19 +219,23 @@ function conky_weather_day_apparent_min(i)
 end
 function conky_weather_day_sunrise(i)
 	local d = (W.weather.daily or {}).sunrise
-	return fmt_unix(safe_num(d and d[i], "day_sunrise"))
+	local idx = tonumber(i) or 1
+	return fmt_unix(safe_num(d and d[idx], "day_sunrise"))
 end
 function conky_weather_day_sunset(i)
 	local d = (W.weather.daily or {}).sunset
-	return fmt_unix(safe_num(d and d[i], "day_sunset"))
+	local idx = tonumber(i) or 1
+	return fmt_unix(safe_num(d and d[idx], "day_sunset"))
 end
 function conky_weather_day_daylight(i)
 	local d = (W.weather.daily or {}).daylight_duration
-	return seconds_to_hour_min(safe_num(d and d[i], "day_daylight"))
+	local idx = tonumber(i) or 1
+	return seconds_to_hour_min(safe_num(d and d[idx], "day_daylight"))
 end
 function conky_weather_day_sunshine(i)
 	local d = (W.weather.daily or {}).sunshine_duration
-	return seconds_to_hour_min(safe_num(d and d[i], "day_sunshine"))
+	local idx = tonumber(i) or 1
+	return seconds_to_hour_min(safe_num(d and d[idx], "day_sunshine"))
 end
 function conky_weather_day_uv(i)
 	return day(i, "uv_index_max")
@@ -261,7 +269,8 @@ function conky_weather_day_gust_max(i)
 end
 function conky_weather_day_wind_dir(i)
 	local d = (W.weather.daily or {}).wind_direction_10m_dominant
-	return safe_num(d and d[i], "day_wind_dir")
+	local idx = tonumber(i) or 1
+	return safe_num(d and d[idx], "day_wind_dir")
 end
 function conky_weather_day_radiation(i)
 	return day(i, "shortwave_radiation_sum", true)
@@ -283,7 +292,7 @@ function conky_weather_hour_code_text(i)
 	return conky_weather_code_text(conky_weather_hour_code(i))
 end
 function conky_weather_hour_precip_icon(i)
-	return "\u{E317} " .. conky_weather_hour_precip_prob(i) .. "%"
+	return conky_weather_hour_precip_prob(i) .. "%"
 end
 function conky_weather_hour_time_str(i)
 	local t = conky_weather_hour_time(i)
@@ -293,13 +302,13 @@ function conky_weather_day_code_text(i)
 	return conky_weather_code_text(conky_weather_day_code(i))
 end
 function conky_weather_sunrise(i)
-	return conky_get_tr("sunrise") .. ": " .. conky_weather_day_sunrise(i)
+	return conky_weather_day_sunrise(i)
 end
 function conky_weather_sunset(i)
-	return conky_get_tr("sunset") .. ": " .. conky_weather_day_sunset(i)
+	return conky_weather_day_sunset(i)
 end
 function conky_weather_day_uv_text(i)
-	return conky_get_tr("uv_index") .. ": " .. conky_weather_day_uv(i)
+	return conky_weather_day_uv(i)
 end
 function conky_weather_day_precip_hours_text(i)
 	return conky_get_tr("precipitation_hours") .. ": " .. conky_weather_day_precip_hours(i) .. " " .. conky_get_tr("hour_short")

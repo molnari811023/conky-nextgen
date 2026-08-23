@@ -91,18 +91,16 @@ function dmi(field)
 end
 
 -- Raw output of the `sensors` command, cached for 2 seconds.
--- LANG=C ensures decimal dot separator regardless of user locale.
 local function read_sensors_raw()
 	return cached("sensors_raw", 2, function()
-		return pread("env LANG=C sensors 2>/dev/null")
+		return pread("sensors 2>/dev/null")
 	end)
 end
 
 function get_sensor_val(pattern)
 	local s = read_sensors_raw()
 	local v = s:match(pattern)
-	if not v then return "N/A" end
-	return tostring(tonumber(v) or "N/A")
+	return tonumber(v)
 end
 
 function get_root_device(map, name)
@@ -154,7 +152,10 @@ function read_num(path)
 	return tonumber(v and v:match("(%d+)"))
 end
 
-local updates_file = (JSON_PATH or "../") .. "updates.txt"
+local source = debug.getinfo(1, "S").source:sub(2)
+local conky_dir = source:match("(.*/)") or "./"
+local tmp_dir = conky_dir .. "../tmp/"
+local updates_file = tmp_dir .. "updates.txt"
 
 function conky_updates_repo()
 	local s = read_file(updates_file)
