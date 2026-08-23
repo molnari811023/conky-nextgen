@@ -91,9 +91,10 @@ function dmi(field)
 end
 
 -- Raw output of the `sensors` command, cached for 2 seconds.
+-- LANG=C ensures decimal dot separator regardless of user locale.
 local function read_sensors_raw()
 	return cached("sensors_raw", 2, function()
-		return pread("sensors 2>/dev/null")
+		return pread("LANG=C sensors 2>/dev/null")
 	end)
 end
 

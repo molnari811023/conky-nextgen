@@ -1,7 +1,9 @@
 .env
 __pycache__/
 *.pyc
+*.pkg.tar.zst
 examples/multi_view/
 tmp/
 pkg/src/
 pkg/pkg/
+pkg/conky/
