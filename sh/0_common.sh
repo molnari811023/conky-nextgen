@@ -25,6 +25,7 @@ CONKY_DIR="$(readlink -f "$_SCRIPT_DIR/..")"
 TMP_DIR="$CONKY_DIR/tmp"
 
 DEBUG=1
+WEATHER_LANG="${WEATHER_LANG:-en}"
 log() { [ "$DEBUG" -eq 1 ] && echo "$@"; }
 
 require_cmds() {
