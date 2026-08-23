@@ -100,7 +100,8 @@ end
 function get_sensor_val(pattern)
 	local s = read_sensors_raw()
 	local v = s:match(pattern)
-	return tonumber(v)
+	if not v then return "N/A" end
+	return tostring(tonumber(v) or "N/A")
 end
 
 function get_root_device(map, name)
