@@ -94,7 +94,7 @@ end
 -- LANG=C ensures decimal dot separator regardless of user locale.
 local function read_sensors_raw()
 	return cached("sensors_raw", 2, function()
-		return pread("LANG=C sensors 2>/dev/null")
+		return pread("env LANG=C sensors 2>/dev/null")
 	end)
 end
 
@@ -154,10 +154,7 @@ function read_num(path)
 	return tonumber(v and v:match("(%d+)"))
 end
 
-local source = debug.getinfo(1, "S").source:sub(2)
-local conky_dir = source:match("(.*/)") or "./"
-local tmp_dir = conky_dir .. "../tmp/"
-local updates_file = tmp_dir .. "updates.txt"
+local updates_file = (JSON_PATH or "../") .. "updates.txt"
 
 function conky_updates_repo()
 	local s = read_file(updates_file)
