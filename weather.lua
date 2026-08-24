@@ -615,7 +615,7 @@ for i = 0, 3 do
         view = "view_1",
         x = cx, y = 248,
         font = "Mono", size = 10,
-        text = "${lua conky_get_tr precipitation_probability}: ${lua conky_weather_hour_precip_icon " .. (i + 1) .. "}",
+        text = "${lua conky_get_tr precipitation}: ${lua conky_weather_hour_precip_icon " .. (i + 1) .. "}",
         align = "center",
         color = { { 1, "#3daee9", 1 } },
     }
@@ -758,7 +758,7 @@ for i = 0, 3 do
         view = "view_2",
         x = cx, y = 286,
         font = "Mono", size = 10,
-        text = "${lua conky_weather_day_precip_hours_text " .. idx .. "}",
+        text = "${lua conky_get_tr precipitation}: ${lua conky_weather_day_precip_hours_text " .. idx .. "} ${lua conky_get_tr hour_short}",
         align = "center",
         color = { { 1, "#3daee9", 1 } },
     }

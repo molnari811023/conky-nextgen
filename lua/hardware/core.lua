@@ -93,7 +93,7 @@ end
 -- Raw output of the `sensors` command, cached for 2 seconds.
 local function read_sensors_raw()
 	return cached("sensors_raw", 2, function()
-		return pread("sensors 2>/dev/null")
+		return pread("env LANG=C sensors 2>/dev/null")
 	end)
 end
 

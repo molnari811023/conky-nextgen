@@ -311,5 +311,7 @@ function conky_weather_day_uv_text(i)
 	return conky_weather_day_uv(i)
 end
 function conky_weather_day_precip_hours_text(i)
-	return conky_get_tr("precipitation_hours") .. ": " .. conky_weather_day_precip_hours(i) .. " " .. conky_get_tr("hour_short")
+	local arr = (W.weather.daily or {}).precipitation_hours
+	local idx = tonumber(i) or 1
+	return tostring(round(safe_num(arr and arr[idx], "day_precip_hours")))
 end

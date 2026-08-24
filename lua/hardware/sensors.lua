@@ -7,7 +7,7 @@
 
 --{{{
 -- hardware/sensors.lua — lm-sensors: CPU/NVMe/WiFi temp, fan speed
--- All values read from `sensors` output (2s cache); 0 when unavailable.
+-- All values read from `sensors` output (2s cache, LANG=C); 0 when unavailable.
 -- Callable from Conky:
 --   conky_cpu_temp()          → number (°C)
 --     CPU package temperature ("Package id 0") in °C.
@@ -24,16 +24,16 @@
 --   read_sensors_raw() → string (2s cache) — internal to hardware/core.lua.
 
 function conky_cpu_temp()
-	return get_sensor_val("Package id 0:%s+%+(%d+%.?%d*)°C")
+	return get_sensor_val("Package id 0:%s+%+(%d+%.?%d*)%s*C")
 end
 function conky_cpu_core_temp(core)
-	return get_sensor_val("Core%s+" .. core .. ":%s+%+(%d+%.?%d*)°C")
+	return get_sensor_val("Core%s+" .. core .. ":%s+%+(%d+%.?%d*)%s*C")
 end
 function conky_nvme_temp()
-	return get_sensor_val("Composite:%s+%+(%d+%.?%d*)°C")
+	return get_sensor_val("Composite:%s+%+(%d+%.?%d*)%s*C")
 end
 function conky_wifi_temp()
-	return get_sensor_val("iwlwifi_%d+%-virtual%-0.*temp1:%s+%+(%d+%.?%d*)°C")
+	return get_sensor_val("iwlwifi_%d+%-virtual%-0.*temp1:%s+%+(%d+%.?%d*)%s*C")
 end
 function conky_fan_speed(index)
 	return get_sensor_val("fan" .. (index or 1) .. ":%s+(%d+)")
