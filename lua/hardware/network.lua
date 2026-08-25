@@ -29,11 +29,15 @@
 --   conky_wifi_channel()    → string
 --   conky_wifi_essid()      → string
 --   conky_wifi_freq()       → string
---   conky_wifi_link_bar(h,w) → conky bar template
---   conky_wifi_link_qual()  → number
---   conky_wifi_link_qual_max() → number
 --   conky_wifi_link_qual_perc() → number
 --   conky_wifi_mode()       → string ("Managed"/"Ad-Hoc"/"Master")
+--   conky_wifi_ip(iface)    → string (IPv4 address)
+--   conky_wifi_v6addrs(iface, show_netmask, show_scope) → string (IPv6)
+--     IPv6 addresses for an interface. Optional: -n (netmask), -s (scope).
+--   conky_wifi_downspeed(iface)  → string (e.g. "1.2 KiB/s")
+--   conky_wifi_downspeedf(iface) → string (e.g. "1.2 KiB/s")
+--   conky_wifi_upspeed(iface)    → string (e.g. "1.2 KiB/s")
+--   conky_wifi_upspeedf(iface)   → string (e.g. "1.2 KiB/s")
 --   All wireless_* functions accept optional iface argument,
 --   default = conky_wifi_interface().
 --
@@ -157,6 +161,11 @@ function conky_wifi_bitrate(iface)
 	return conky_parse("${wireless_bitrate " .. i .. "}")
 end
 
+function conky_wifi_ip(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${addr " .. i .. "}")
+end
+
 function conky_wifi_channel(iface)
 	local i = wifi_iface(iface)
 	return conky_parse("${wireless_channel " .. i .. "}")
@@ -172,11 +181,33 @@ function conky_wifi_freq(iface)
 	return conky_parse("${wireless_freq " .. i .. "}")
 end
 
-function conky_wifi_link_bar(iface, h, w)
+
+function conky_wifi_downspeed(iface)
 	local i = wifi_iface(iface)
-	h = h or 8
-	w = w or 100
-	return conky_parse("${wireless_link_bar " .. i .. " " .. h .. "," .. w .. "}")
+	return conky_parse("${downspeed " .. i .. "}")
+end
+
+function conky_wifi_downspeedf(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${downspeedf " .. i .. "}")
+end
+
+function conky_wifi_upspeed(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${upspeed " .. i .. "}")
+end
+
+function conky_wifi_upspeedf(iface)
+	local i = wifi_iface(iface)
+	return conky_parse("${upspeedf " .. i .. "}")
+end
+
+function conky_wifi_v6addrs(iface, show_netmask, show_scope)
+	local i = wifi_iface(iface)
+	local flags = ""
+	if show_netmask then flags = flags .. " -n" end
+	if show_scope then flags = flags .. " -s" end
+	return conky_parse("${v6addrs" .. flags .. " " .. i .. "}")
 end
 
 function conky_wifi_link_qual(iface)
