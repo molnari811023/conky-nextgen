@@ -104,6 +104,9 @@ msgstr ""
 msgid "sunshine_duration"
 msgstr ""
 
+msgid "daylight_duration"
+msgstr ""
+
 msgid "moonrise"
 msgstr ""
 
@@ -117,6 +120,12 @@ msgid "min"
 msgstr ""
 
 msgid "max"
+msgstr ""
+
+msgid "hour_short"
+msgstr ""
+
+msgid "minute_short"
 msgstr ""
 
 ############################################
