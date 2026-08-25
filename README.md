@@ -267,6 +267,22 @@ Themes can be switched at runtime from the Designer's Theme tab. Widgets can ove
 - **System tools**: lm-sensors, playerctl, upower, lsblk
 - **Optional**: XDG icon themes, `kio-extras` (MTP support under KDE Plasma)
 
+## Documentation Status
+
+This project has been under active development for the past 8 months. During
+this time many modules have been rewritten from scratch — some of them more
+than 50 times — and the internal architecture has evolved significantly.
+
+Because of this rapid development, the current documentation is outdated and
+no longer reflects the actual state of the NextGen system. The codebase is
+stable and up to date, but the manual still describes older versions of the
+designer, the modules, and several features that have since been removed or
+replaced.
+
+A complete rewrite of the documentation is in progress.
+
+---
+
 ## Documentation
 
 - [NextGen.md](NextGen.md) — full reference (themes, configuration, troubleshooting, shell backend, Lua engine internals)
