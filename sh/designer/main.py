@@ -115,6 +115,7 @@ class DesignerWindow(Gtk.Window):
         self._state_save_timeout = None  # pending debounced window-state save
         # Conky management (live preview instance)
         self._conky_managed = False
+        self._conky_pid = None
         self.conky_proc = None
         self.conky_log_path = None
         self._spawn_conf_path = None  # preview .conf (X11) vs. real .conf
@@ -198,6 +199,16 @@ class DesignerWindow(Gtk.Window):
             )
         )
         conky_box.pack_start(self.btn_reload_all, False, False, 0)
+
+        self.btn_stop_all = Gtk.Button(label="Stop All")
+        self.btn_stop_all.set_tooltip_text(
+            "Kill ALL conky instances.\n"
+            "Use when you need a clean slate."
+        )
+        self.btn_stop_all.connect(
+            "clicked", lambda _: self._conky_stop_all()
+        )
+        conky_box.pack_start(self.btn_stop_all, False, False, 0)
 
         self.conky_state_label = Gtk.Label(label="conky: stopped", xalign=0)
         conky_box.pack_start(self.conky_state_label, False, False, 0)
@@ -2091,24 +2102,47 @@ class DesignerWindow(Gtk.Window):
 
     @staticmethod
     def _conky_pids():
-        """All running conky PIDs (pgrep -x conky)."""
+        """All running conky PIDs — scans /proc directly, no pgrep."""
         pids = []
         try:
-            out = subprocess.run(
-                ["pgrep", "-x", "conky"],
-                capture_output=True, text=True,
-            )
-            for line in out.stdout.split():
-                line = line.strip()
-                if line.isdigit():
-                    pids.append(int(line))
+            for entry in os.listdir("/proc"):
+                if not entry.isdigit():
+                    continue
+                try:
+                    with open(f"/proc/{entry}/comm", "r") as f:
+                        comm = f.read().strip()
+                    if comm == "conky":
+                        pids.append(int(entry))
+                except (OSError, ValueError):
+                    pass
         except OSError:
             pass
         return pids
 
     def _ours_running(self):
-        """True when at least one conky process is alive."""
+        """True when our specific conky process is alive."""
+        if self._conky_pid:
+            try:
+                os.kill(self._conky_pid, 0)
+                return True
+            except OSError:
+                self._conky_pid = None
+                return False
         return bool(self._conky_pids())
+
+    def _read_conky_pid_from_log(self):
+        """Read the daemon PID from the conky log after start."""
+        if not self.conky_log_path:
+            return None
+        try:
+            with open(self.conky_log_path, "r", errors="replace") as f:
+                for line in f:
+                    m = re.search(r"forked to background, pid is (\d+)", line)
+                    if m:
+                        return int(m.group(1))
+        except OSError:
+            pass
+        return None
 
     def _ensure_conf(self):
         conf_path = os.path.splitext(self.save_path)[0] + ".conf"
@@ -2122,6 +2156,14 @@ class DesignerWindow(Gtk.Window):
             self._update_conky_state()
             self._start_watchdog()
             return True
+        # Clear the log so we can read the fresh PID
+        if self.conky_log_path is None:
+            self.conky_log_path = os.path.join(WORK_DIR, "conky.log")
+        try:
+            with open(self.conky_log_path, "w") as f:
+                f.truncate(0)
+        except OSError:
+            pass
         conf_path = self._ensure_conf()
         if not os.path.exists(conf_path):
             self.status.set_text(
@@ -2135,8 +2177,6 @@ class DesignerWindow(Gtk.Window):
         self._spawn_conf_path = (
             spawn_conf if spawn_conf != conf_path else None
         )
-        if self.conky_log_path is None:
-            self.conky_log_path = os.path.join(WORK_DIR, "conky.log")
         try:
             logf = open(self.conky_log_path, "ab")
         except OSError:
@@ -2153,8 +2193,11 @@ class DesignerWindow(Gtk.Window):
             self._conky_managed = False
             self.status.set_text(f"Could not start conky: {e}")
             return False
+        time.sleep(0.3)
+        self._conky_pid = self._read_conky_pid_from_log()
         activity_log.add(
             "Conky", f"started conky -c {os.path.basename(spawn_conf)}"
+            + (f" (pid {self._conky_pid})" if self._conky_pid else "")
         )
         self._update_conky_state()
         self._start_watchdog()
@@ -2186,18 +2229,40 @@ class DesignerWindow(Gtk.Window):
 
     def _conky_stop(self):
         self._stop_watchdog()
-        subprocess.run(["killall", "conky"], capture_output=True)
+        if self._conky_pid:
+            subprocess.run(
+                ["kill", str(self._conky_pid)], capture_output=True
+            )
+        else:
+            subprocess.run(["killall", "conky"], capture_output=True)
+        self._conky_pid = None
         time.sleep(0.3)
         self._conky_managed = False
         self._update_conky_state()
         activity_log.add("Conky", "stopped conky")
 
+    def _conky_stop_all(self):
+        self._stop_watchdog()
+        subprocess.run(["killall", "conky"], capture_output=True)
+        self._conky_pid = None
+        time.sleep(0.3)
+        self._conky_managed = False
+        self._update_conky_state()
+        activity_log.add("Conky", "stopped ALL conky instances")
+
     def _conky_restart(self):
         self._stop_watchdog()
-        subprocess.run(["killall", "-USR1", "conky"], capture_output=True)
+        if self._conky_pid:
+            subprocess.run(
+                ["kill", "-USR1", str(self._conky_pid)], capture_output=True
+            )
+        else:
+            subprocess.run(
+                ["killall", "-USR1", "conky"], capture_output=True
+            )
         self._start_watchdog()
         self._update_conky_state()
-        activity_log.add("Conky", "restarted conky")
+        activity_log.add("Conky", "reloaded conky")
 
     def _start_watchdog(self):
         if self._watchdog_id is None:
