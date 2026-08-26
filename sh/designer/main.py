@@ -2104,7 +2104,7 @@ class DesignerWindow(Gtk.Window):
 
     @staticmethod
     def _conky_pids():
-        """All running conky PIDs — scans /proc directly, no pgrep."""
+        """All live (non-zombie) conky PIDs — scans /proc directly."""
         pids = []
         try:
             for entry in os.listdir("/proc"):
@@ -2114,6 +2114,10 @@ class DesignerWindow(Gtk.Window):
                     with open(f"/proc/{entry}/comm", "r") as f:
                         comm = f.read().strip()
                     if comm == "conky":
+                        with open(f"/proc/{entry}/stat", "r") as f:
+                            parts = f.read().split()
+                            if len(parts) > 2 and parts[2] == "Z":
+                                continue  # skip zombies
                         pids.append(int(entry))
                 except (OSError, ValueError):
                     pass
@@ -2122,14 +2126,24 @@ class DesignerWindow(Gtk.Window):
         return pids
 
     def _ours_running(self):
-        """True when our specific conky process is alive."""
+        """True when our specific conky process is alive (not zombie)."""
         if self._conky_pid:
             try:
                 os.kill(self._conky_pid, 0)
-                return True
             except OSError:
                 self._conky_pid = None
                 return False
+            # os.kill(pid, 0) succeeds on zombies — check /proc state
+            try:
+                with open(f"/proc/{self._conky_pid}/stat", "r") as f:
+                    parts = f.read().split()
+                    if len(parts) > 2 and parts[2] == "Z":
+                        self._conky_pid = None
+                        return False
+            except OSError:
+                self._conky_pid = None
+                return False
+            return True
         return bool(self._conky_pids())
 
     def _read_conky_pid_from_log(self):
