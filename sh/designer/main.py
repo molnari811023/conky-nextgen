@@ -2168,7 +2168,7 @@ class DesignerWindow(Gtk.Window):
 
     def _conky_start(self, preview=True):
         self._conky_managed = True
-        if self._ours_running():
+        if self._conky_pid and self._ours_running():
             self._update_conky_state()
             self._start_watchdog()
             return True
