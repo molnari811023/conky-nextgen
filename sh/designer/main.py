@@ -2249,8 +2249,6 @@ class DesignerWindow(Gtk.Window):
             subprocess.run(
                 ["kill", str(self._conky_pid)], capture_output=True
             )
-        else:
-            subprocess.run(["killall", "conky"], capture_output=True)
         self._conky_pid = None
         time.sleep(0.3)
         self._conky_managed = False
@@ -2314,12 +2312,13 @@ class DesignerWindow(Gtk.Window):
 
     def _update_conky_state(self):
         running = self._ours_running()
+        has_ours = self._conky_pid is not None and running
         self.conky_state_label.set_text(
             f"conky: {'running' if running else 'stopped'}"
         )
-        self.btn_conky_run.set_sensitive(not running)
-        self.btn_conky_stop.set_sensitive(running)
-        self.btn_conky_restart.set_sensitive(True)
+        self.btn_conky_run.set_sensitive(not has_ours)
+        self.btn_conky_stop.set_sensitive(has_ours)
+        self.btn_conky_restart.set_sensitive(has_ours)
 
     def _conky_restart_debounced(self):
         """Coalesce full restarts triggered by rapid live writes (X11)."""
