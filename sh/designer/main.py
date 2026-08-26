@@ -120,6 +120,7 @@ class DesignerWindow(Gtk.Window):
         self.conky_log_path = None
         self._spawn_conf_path = None  # preview .conf (X11) vs. real .conf
         self._watchdog_id = None
+        self._state_poller_id = None
         self._restart_debounce_id = None
         # PNG capture queue (Save → on-demand surface export per view)
         self._capture_queue = []
@@ -876,6 +877,7 @@ class DesignerWindow(Gtk.Window):
         self._refresh_custom_lua_tab()
         self._update_title()
         self._update_conky_state()
+        self._start_state_poller()
         self.status.set_text("Ready — use File > Open or add items")
 
     # ── RELOAD ──
@@ -2264,6 +2266,20 @@ class DesignerWindow(Gtk.Window):
         self._update_conky_state()
         activity_log.add("Conky", "reloaded conky")
 
+    def _start_state_poller(self):
+        """Always-on poller: refreshes the conky state label every 3 s."""
+        if self._state_poller_id is None:
+            self._state_poller_id = GLib.timeout_add(3000, self._state_poller_tick)
+
+    def _stop_state_poller(self):
+        if self._state_poller_id is not None:
+            GLib.source_remove(self._state_poller_id)
+            self._state_poller_id = None
+
+    def _state_poller_tick(self):
+        self._update_conky_state()
+        return GLib.SOURCE_CONTINUE
+
     def _start_watchdog(self):
         if self._watchdog_id is None:
             self._watchdog_id = GLib.timeout_add(2000, self._watchdog_tick)
@@ -2280,7 +2296,6 @@ class DesignerWindow(Gtk.Window):
         if not self._ours_running():
             activity_log.add("Conky", "watchdog: conky not running — starting")
             self._conky_start()
-        self._update_conky_state()
         return GLib.SOURCE_CONTINUE
 
     def _update_conky_state(self):
@@ -3903,6 +3918,7 @@ class DesignerWindow(Gtk.Window):
         # Stop all management timers. A running conky is left untouched on
         # purpose: it is the desktop widget and keeps showing after exit.
         self._stop_watchdog()
+        self._stop_state_poller()
         for attr in ("_restart_debounce_id", "_capture_poll_id", "_log_poll_id"):
             tid = getattr(self, attr, None)
             if tid is not None:
