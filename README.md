@@ -1,5 +1,7 @@
 # Conky NextGen
 
+![banner](screenshots/banner.png)
+
 A modular, theme-driven Conky UI framework with a Lua/Cairo rendering engine, Bash data backend, and a full visual Designer.
 Built for modern desktops (KDE Plasma Wayland/X11), with clean SIGUSR1 reloads and zero window flashing.
 
