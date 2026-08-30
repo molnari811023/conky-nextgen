@@ -1,5 +1,39 @@
 #!/usr/bin/env lua
 
+--[[[
+debug/extreme_test.lua — extreme load / stress test: builds a 500-item draw
+list (50 columns x 10 element types) from live conky vars, PNG files and
+Papirus SVGs, then wraps conky_core_main to log per-update resource stats
+
+Runs inside a live Conky session (it requires the 'require' bootstrap and
+defines conky_core_main, the per-update Conky callback). Each update it logs
+updates, RSS, VmPeak, CPU% and render time to stdout.
+]]--
+
+--{{{
+-- ## Extreme draw-list stress test
+--
+-- Generates an extreme number of heterogeneous draw items from real system
+-- data (Conky variables, PNGs found on disk, and Papirus SVG app icons) and
+-- wraps Conky's per-update core to report resource usage, so rendering this
+-- many items at once can be stress-tested for performance and leaks.
+--
+-- **What it does:**
+-- - Resolves the project root from the debug/ folder, sets the Lua path and
+--   the JSON/icon/theme config globals, and defines a THEMES table with a
+--   palette, gradients and defaults plus DEFAULT_THEME.
+-- - Defines CPU/memory/filesystem variable pools and two asset pools: PNG
+--   files from the project and caches, and 50 Papirus SVG filenames.
+-- - Builds 50 of each element type -- background, text, bar, graph, ring,
+--   clock, calendar, image (PNG), svg and line -- for N = 50 columns
+--   (500 draw items total) with unique keys and cycling values.
+-- - Bootstraps the widget via require('require') and init_groups().
+-- - Wraps conky_core_main() to measure render time and wall-clock CPU%, and
+--   reads /proc/self/status for VmRSS/VmPeak, printing
+--   '[update N] RSS MB | VmPeak MB | CPU % | render ms | <item count>' per
+--   update.
+--}}}
+
 local src = debug.getinfo(1, 'S').source or ''
 src = src:gsub('^@', '')
 local here = src:match('^(.*[/\\])[^/\\]*$') or './'

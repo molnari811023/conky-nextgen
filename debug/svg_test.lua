@@ -1,3 +1,34 @@
+--[[[
+debug/svg_test.lua — load / stress test for librsvg SVG rendering inside a
+Conky draw loop: moving, rotating, clipped, size-series, alpha-series,
+icon-cycle and 20-SVG stress renders of the Conky logo
+
+Runs inside a live Conky session as the conky_svg_test_draw() draw function;
+each call (every Conky update) exercises the whole set of rsvg + cairo
+operations.
+]]--
+
+--{{{
+-- ## SVG rendering stress test
+--
+-- Defines the conky_svg_test_draw() Conky draw callback which renders the
+-- Conky logomark SVG through librsvg (rsvg_create_handle_from_file /
+-- rsvg_render_document_at) in many transformation styles every update, to
+-- stress-test SVG loading, caching and cairo compositing.
+--
+-- **What it does:**
+-- - Requires the cairo and rsvg Lua bindings and points at the Conky logomark
+--   SVG icon.
+-- - Draws a sinusoidally moving and resizing SVG, a rotating + scaling SVG,
+--   and a circle-clipped, pulsing SVG.
+-- - Draws a 5-size series of SVGs and an alpha series rendered to an offscreen
+--   image surface and painted with increasing alpha (i * 0.2).
+-- - Cycles through 3 different scalable app icons per update.
+-- - Stress-renders 20 small SVGs in a 2-row grid with sinusoidal sizing.
+-- - Destroys the cairo context at the end of the draw; bails out if there is
+--   no Conky window or surface.
+--}}}
+
 require("cairo")
 require("rsvg")
 

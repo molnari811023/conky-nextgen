@@ -1,5 +1,25 @@
 #!/bin/bash
-
+#{{{
+# ## 4_fetch_weather — weather, air quality, sun and moon data fetcher
+#
+# Defines fetch_weather(), which geocodes a city (default Vienna) via the
+# Open-Meteo geocoding API and uses the resulting lat/lon/timezone to fetch
+# full current/hourly/daily forecasts from Open-Meteo, air-quality data
+# (AQI + pollen), and sun/moon data from Yr (api.met.no). Everything is
+# written as JSON into $TMP_DIR.
+#
+# **What it does:**
+# - Geocodes the city name into $TMP_DIR/city.json
+# - Fetches forecast → $TMP_DIR/weather_data.json
+# - Fetches air quality + pollen → $TMP_DIR/airquality.json
+# - Fetches sun info → $TMP_DIR/sun.json
+# - Fetches moon info for today (and the next day, when computable)
+#   → $TMP_DIR/moon.json and $TMP_DIR/moon_next.json
+# - Writes each to a .tmp file first, then renames it on success
+#
+# **Environment/requirements:** needs 0_common.sh (curl_cmd, urlencode, log,
+# TMP_DIR). Optional WEATHER_LANG env var (default en)
+#}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"
 

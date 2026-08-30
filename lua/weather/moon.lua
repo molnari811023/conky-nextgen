@@ -1,3 +1,39 @@
+--[[[
+lua/weather/moon.lua — Conky accessors for moon rise/set, high/low, phase, and arc position
+
+Reads moon data from the global `W.moon` table (loaded from moon.json) and exposes functions for
+rise/set times and azimuths, high/low moon times and elevations, moon phase percentage, arc
+coordinates (for drawing the moon along the sky path), and a visibility check for icons.
+]]--
+
+--{{{
+-- ## Moon Module
+--
+-- Surfaces moon ephemeris data to Conky. Rise/set and high/low values are read from
+-- `W.moon.properties` and formatted as "HH:MM" times or number elevations. The phase is
+-- computed as a 0–100% value from a degree field. Arc helpers (`conky_moon_x/y`) position the
+-- moon icon along a progress arc between rise and set (safe for overnight spans), and
+-- `need_to_draw_moon_icon()` reports whether the moon is currently above the horizon.
+--
+-- **Exposed/global functions:**
+-- - `conky_moon_rise_time()` — moonrise time string
+-- - `conky_moon_rise_azimuth()` — moonrise azimuth (degrees)
+-- - `conky_moon_set_time()` — moonset time string
+-- - `conky_moon_set_azimuth()` — moonset azimuth (degrees)
+-- - `conky_moon_high_time()` — highest-point time string
+-- - `conky_moon_high_elevation()` — highest-point disc-centre elevation
+-- - `conky_moon_low_time()` — lowest-point time string
+-- - `conky_moon_low_elevation()` — lowest-point disc-centre elevation
+-- - `conky_moon_phase()` — moon phase as 0–100%
+-- - `conky_moon_x(cx, r, size)` — arc x for the moon, centered on size/2
+-- - `conky_moon_y(cy, r, size)` — arc y for the moon, centered on size/2
+-- - `need_to_draw_moon_icon()` — true if the moon is above the horizon
+--
+-- **Config/globals used:**
+-- `W.moon`, `safe_str()`, `safe_num()`, `iso_to_mins()`, `arc_x()`, `arc_y()`, `round()`,
+-- `load_weather_data()`
+--}}}
+
 local function fmt_time(t)
 	if type(t) ~= "string" or t == "" then return "" end
 	local hh, mm = t:match("T(%d%d):(%d%d)")

@@ -1,3 +1,32 @@
+--[[[
+disk.lua — disk / NVMe storage usage and I/O widget
+
+Root-level widget layout for the ConkyNextGen system. It bootstraps the
+script (script_dir, package.path, JSON_PATH, icon globals), declares
+the THEMES theme, loads the engine via require("require") and
+registers the draw items: a rounded background, NVMe model and
+temperature text (${lua conky_nvme_model}, ${lua conky_nvme_temp}),
+root filesystem used/size/percent with a usage bar, and read/write
+disk I/O graphs.
+]]--
+
+--{{{
+-- ## Disk / storage widget
+--
+-- Shows NVMe drive info, root filesystem usage and live disk read/write
+-- I/O graphs in a single "main" view.
+--
+-- **Exposed/global functions:**
+-- (none defined in this file)
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `ICON_BASE`, `ICON_THEME`,
+-- `MOON_ICON_BASE`, `WIND_ICON_BASE`, `draw`, `THEMES`, `DEFAULT_THEME`,
+-- `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `${lua conky_nvme_model}` / `${lua conky_nvme_temp}` — drive info providers
+-- `require("require")` and `init_groups(_GROUPS)` — bootstraps the system
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

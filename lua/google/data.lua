@@ -1,3 +1,37 @@
+--[[[
+lua/google/data.lua — Google data accessors for the Conky widget layer.
+Exposes conky_google_* functions so conky_config can render Gmail,
+Calendar, Tasks, Contacts, Drive, YouTube and Meet metrics inline.
+]]--
+--{{{
+-- ## Google Dashboard — Data Accessors
+--
+-- Reads the parsed Google JSON (loaded by `lua/google/core.lua`) through the
+-- global `load_google_data()` and exposes one `conky_google_*` accessor per
+-- metric. Safe/empty values are returned for missing data so widgets never
+-- crash.
+--
+-- **Data sources** (current items via `[...][idx]`):
+--
+-- - **Gmail** — `conky_google_unread_count()`, `conky_google_gmail_count()`,
+--   `conky_google_gmail_subject(idx)`, `conky_google_gmail_from(idx)`,
+--   `conky_google_gmail_date(idx)`, `conky_google_gmail_label(idx)`,
+--   `conky_google_gmail_id(idx)`, `conky_google_gmail_is_unread(idx)`
+-- - **Calendar** — `conky_google_calendar_count()`, `_summary(idx)`,
+--   `_start(idx)`, `_end(idx)`, `_location(idx)`, `_hangout(idx)`
+-- - **Tasks** — `conky_google_tasks_count()`, `_title(idx)`, `_due(idx)`,
+--   `_status(idx)`, and list title via `conky_google_tasks_list_title(idx)`
+-- - **Contacts** — `conky_google_contacts_count()`, `_name(idx)`, `_phone(idx)`
+-- - **Drive** — `conky_google_drive_count()`, `_filesize(idx)` (B/kB/MB/GB),
+--   `_name(idx)`, `_doctype(idx)` (Doc/Sheet/Slides/Folder/PDF)
+-- - **YouTube** — `conky_google_youtube_count()`, `_title(idx)`
+-- - **Meet** — `conky_google_meet_count()`
+--
+-- Local helpers `*_raw()` wrap `load_google_data()`. Uses `safe_str`,
+-- `google_sender_name`, `google_date_str`, `google_msg_label` and `get_tr`
+-- (translated labels) from the shared core modules.
+--}}}
+
 local function gmail_raw()
 	return (load_google_data().gmail) or {}
 end

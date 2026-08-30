@@ -1,3 +1,29 @@
+--[[[
+lua/draw/bar.lua — Draws progress-bar widgets with block, dot, polygon, and smooth styles
+
+Supports rotation via an angle parameter. Values are normalised to a 0-1 range
+against a configurable maximum before rendering.
+]]--
+
+--{{{
+-- ## Bar
+--
+-- Renders a horizontal progress bar in one of four visual styles: segmented
+-- blocks, round dots, regular polygons, or a smooth gradient fill. The bar
+-- value is fetched, normalised, and clamped to [0, 1] against the configured
+-- maximum, then drawn with Cairo. Rotation is supported via a transform matrix.
+--
+-- **Exposed/global functions:**
+-- - `conky_draw_bar_modules(cr, m)` — Main entry point; draws a bar of the chosen style and returns `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `conky_window` — checked for early-exit guard.
+-- - `draw_get_value()` — fetches the numeric value to display.
+-- - `normalize_with_suffix()` — parses human-readable suffixes (k, M, G…).
+-- - `get_color_from_list()` — resolves a gradient color-stop list to RGBA.
+-- - `build_gradient_pattern()` — creates a Cairo linear gradient pattern.
+--}}}
+
 local _bar_mx = cairo_matrix_t:create()
 
 local BAR_DEFAULT = {

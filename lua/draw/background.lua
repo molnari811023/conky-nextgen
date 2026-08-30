@@ -1,3 +1,28 @@
+--[[[
+lua/draw/background.lua — Draws a rounded-rectangle background panel with gradient fill and border
+
+Defaults adapt to the conky window size or a group's computed height when
+explicit dimensions are not supplied.
+]]--
+
+--{{{
+-- ## Background
+--
+-- Fills a rounded rectangle with a vertical gradient, then optionally strokes
+-- an inset border with its own gradient. Dimensions fall back to the conky
+-- window size or a group offset when zero.
+--
+-- **Exposed/global functions:**
+-- - `draw_background(cr, cfg)` — Draws a rounded rectangle background with gradient fill and optional border; returns `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `BACKGROUND_DEFAULT` — global table of default background parameters.
+-- - `conky_window` — window dimensions used as fallback for w/h.
+-- - `GROUP_OFFSETS` — looked up when `cfg.group` is set to determine height.
+-- - `build_gradient_pattern()` — creates a Cairo linear gradient from a color-stop list.
+-- - `rounded_rect_path()` — adds a rounded rectangle path to the Cairo context.
+--}}}
+
 BACKGROUND_DEFAULT = {
 	x = 0,
 	y = 0,

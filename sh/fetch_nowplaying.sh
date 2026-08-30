@@ -1,4 +1,25 @@
 #!/bin/bash
+#{{{
+# ## Now Playing — metadata + cover art fetcher
+#
+# Detects the active music player (MPRIS via `playerctl`, `cmus`, `mpd`,
+# or `moc`), collects title/artist/album/status, downloads the cover art,
+# and writes the result to `$TMP_DIR/nowplaying.json` (+ `album_art.png`).
+#
+# **Output JSON:**
+#   `{"player","title","artist","album","status","art"}`
+#   When stopped/no player → empty player and `"Stopped"` status, art removed.
+#
+# **Player detection order** (first match wins):
+#   1. MPRIS/`playerctl` — modern desktops
+#   2. `cmus-remote` — CMUS
+#   3. `mpc` + `mpd` — MPD
+#   4. `mocp` — MOC
+#
+# **Cover art** (via embedded python3): `file://` and `http(s)` URLs are
+#   copied/downloaded to the tmp path; missing/failed art is cleaned up.
+#   A change-cache skips rewriting when title/artist/status/art are unchanged.
+#}}}
 
 [ -n "$_FETCH_NOWPLAYING" ] && return || _FETCH_NOWPLAYING=1
 

@@ -1,3 +1,29 @@
+--[[[
+lua/draw/icon_theme.lua — Resolves freedesktop icon-theme names to file paths
+
+Parses index.theme files, follows the Inherits chain, and caches both parsed
+metadata and resolved paths in global tables.
+]]--
+
+--{{{
+-- ## Icon Theme
+--
+-- Locates icon files by name within a freedesktop-compliant icon theme. The
+-- module searches standard XDG directories, parses index.theme metadata to
+-- extract available sizes and the Inherits chain, and picks the closest size
+-- match. SVG files are preferred; PNG is used as a fallback. All results are
+-- cached in global tables keyed by theme/name/size.
+--
+-- **Exposed/global functions:**
+-- - `icon_resolve(name, target_size, theme_name)` — Returns the filesystem path to the best-matching icon, or nil.
+--
+-- **Config/globals used:**
+-- - `ICON_THEME_CACHE` — global cache for parsed index.theme metadata.
+-- - `ICON_PATH_CACHE` — global cache for resolved icon file paths.
+-- - `XDG_ICON_THEME` — fallback theme name when none is passed explicitly.
+-- - `cache_set()` — external LRU cache helper used for both caches.
+--}}}
+
 ICON_THEME_CACHE = ICON_THEME_CACHE or {}
 ICON_PATH_CACHE = ICON_PATH_CACHE or {}
 

@@ -1,3 +1,30 @@
+--[[[
+lua/google/core.lua — loads Google JSON data files into a global `G` table and exposes helpers for labels, senders, and dates
+]]--
+
+--{{{
+-- ## Google Dashboard — Core
+--
+-- Loads Google API JSON files (gmail, calendar, tasks, contacts, drive,
+-- youtube, meet) from the configured `JSON_PATH` into a global `G` table,
+-- wrapping each payload into the single-object array where needed. Reads are
+-- cached in memory and only re-populated when any source file's mtime changes
+-- (checked at most once every 5 seconds).
+--
+-- **Exposed/global functions:**
+-- - `load_google_data()` — returns cached Google data, triggering `G.populate()` on file changes
+-- - `G.populate()` — reads and parses all JSON files into the `G` data structure
+-- - `google_label_text(label)` — maps a Gmail label to its translation or a readable fallback
+-- - `google_msg_label(msg)` — returns the first human-readable label prioritizing INBOX/CATEGORY
+-- - `google_label_is_system(label)` — whether a label is a Gmail system label
+-- - `google_sender_name(from)` — extracts and cleans a sender display name from a raw address
+-- - `google_date_str(internalDateIso)` — converts an ISO date to a readable string
+--
+-- **Globals/data structures:**
+-- - `G` — global table holding parsed data under keys `gmail`, `calendar`, `tlists`, `tasks`, `contacts`, `drive`, `youtube`, `meet`
+-- - requires `package.path` to provide `JSON_PATH`, `get_tr`, and `lfs`
+--}}}
+
 local google_cache_storage = nil
 local google_cache_mtimes = {}
 local last_google_mtime_check = 0

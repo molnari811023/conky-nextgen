@@ -1,5 +1,24 @@
 #!/bin/bash
-
+#{{{
+# ## 0_fetch_all — orchestrator for all fetch sub-scripts
+#
+# Sources 0_common.sh together with the weather, alerts, maps, nowplaying,
+# network and google fetchers and dispatches them based on the first
+# command-line argument (default `all`). In `all` mode weather, alerts, maps
+# and nowplaying run sequentially while google, ping and ipinfo run as
+# parallel background jobs, then waits for them.
+#
+# **What it does:**
+# - Sources every fetch module so their functions are available
+# - `all`: fetch_weather, fetch_alerts, fetch_maps, fetch_nowplaying,
+#   then fetch_google / fetch_ping / fetch_ipinfo in parallel
+# - `weather`, `alerts`, `map`, `nowplaying`, `network`, `google`: run only
+#   the matching fetcher
+# - Any other argument is passed as a city to fetch_weather
+#
+# **Environment/requirements:** depends on 0_common.sh and the sourced
+# fetch scripts
+#}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"
 source "$_SCRIPT_DIR/4_fetch_weather.sh"

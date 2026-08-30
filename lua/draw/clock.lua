@@ -1,3 +1,26 @@
+--[[[
+lua/draw/clock.lua — Draws an analogue clock face with hands, ticks, and numbers
+
+The clock reads the current time from os.date each frame. Hour/minute/second
+hand lengths are proportional to the configured radius.
+]]--
+
+--{{{
+-- ## Clock
+--
+-- Renders a complete analogue clock: a filled circular face, optional tick
+-- marks (60 minute ticks + 12 bolder hour ticks), optional hour numbers, and
+-- hour/minute/second hands whose angles are derived from the current system
+-- time. A small centre dot caps the hands.
+--
+-- **Exposed/global functions:**
+-- - `draw_clock(cr, o)` — Draws an analogue clock face and returns `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `conky_window` — checked for early-exit guard.
+-- - `get_color_from_list()` — resolves gradient color-stop lists to RGBA for every element.
+--}}}
+
 local _clock_ext = cairo_text_extents_t:create()
 
 local CLOCK_DEFAULT = {

@@ -1,3 +1,29 @@
+--[[[
+lua/draw/rings.lua — Draws circular ring gauges in sector, smooth, dot, or polygon mode
+
+Supports auto-computed sector sizes with configurable gaps and an alarm
+colour that overrides the foreground when the value exceeds the maximum.
+]]--
+
+--{{{
+-- ## Rings
+--
+-- Renders a circular gauge around a centre point. The ring can be divided
+-- into discrete sectors, drawn as a smooth arc, as dots, or as polygons.
+-- When the measured value exceeds `max`, the alarm colour is applied to all
+-- sectors. Reversed angle spans (end < start) sweep the short arc correctly.
+--
+-- **Exposed/global functions:**
+-- - `draw_one_ring(cr, s0)` — Draws a single ring gauge and returns `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `conky_window` — checked for early-exit guard.
+-- - `draw_get_value()` — fetches the numeric value to display.
+-- - `normalize_with_suffix()` — parses human-readable suffixes.
+-- - `get_color_from_list()` — resolves gradient color-stop lists to RGBA.
+-- - `hex_to_rgba()` — converts the alarm hex colour to RGBA.
+--}}}
+
 local RING_DEFAULT = {
 	x = 100,
 	y = 100,

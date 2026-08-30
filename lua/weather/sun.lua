@@ -1,3 +1,37 @@
+--[[[
+lua/weather/sun.lua — Conky accessors for sun rise/set, noon/midnight, and arc position
+
+Reads sun data from the global `W.sun` table (loaded from sun.json) and exposes functions for
+sunrise/sunset times and azimuths, solar noon/midnight times and elevations, arc coordinates
+(for drawing the sun along the sky path), and a visibility check for icons.
+]]--
+
+--{{{
+-- ## Sun Module
+--
+-- Surfaces solar ephemeris data to Conky. Rise/set and noon/midnight values are read from
+-- `W.sun.properties` and formatted as "HH:MM" times or number elevations. Arc helpers
+-- (`conky_sun_x/y`) position the sun icon along a progress arc between sunrise and sunset, and
+-- `need_to_draw_sun_icon()` reports whether the sun is currently above the horizon.
+--
+-- **Exposed/global functions:**
+-- - `conky_sun_rise_time()` — sunrise time string
+-- - `conky_sun_rise_azimuth()` — sunrise azimuth (degrees)
+-- - `conky_sun_set_time()` — sunset time string
+-- - `conky_sun_set_azimuth()` — sunset azimuth (degrees)
+-- - `conky_sun_noon_time()` — solar noon time string
+-- - `conky_sun_noon_elevation()` — solar noon disc-centre elevation
+-- - `conky_sun_midnight_time()` — solar midnight time string
+-- - `conky_sun_midnight_elevation()` — solar midnight disc-centre elevation
+-- - `conky_sun_x(cx, r, size)` — arc x for the sun, centered on size/2
+-- - `conky_sun_y(cy, r, size)` — arc y for the sun, centered on size/2
+-- - `need_to_draw_sun_icon()` — true if the sun is above the horizon
+--
+-- **Config/globals used:**
+-- `W.sun`, `safe_str()`, `safe_num()`, `iso_to_mins()`, `arc_x()`, `arc_y()`, `round()`,
+-- `load_weather_data()`
+--}}}
+
 local function fmt_time(t)
 	if type(t) ~= "string" or t == "" then return "" end
 	local hh, mm = t:match("T(%d%d):(%d%d)")

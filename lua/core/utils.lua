@@ -1,3 +1,47 @@
+--[[[
+lua/core/utils.lua — shared helpers: colors, gradients, numbers, safe access, I/O, name interpretation
+
+A general-purpose utility library used across the widget set. Provides hex and
+OKLab color conversion with cached, bounded-cache helpers; normalized and
+perceptually-interpolated gradient stops plus cairo gradient pattern building;
+number/suffix normalization and safe accessors (num/str/tbl with logging); a
+rounded-rect path builder; a file reader; option-aware number formatting; and
+auto-interpretation of widget name/value fields into callable Lua or Conky
+expressions.
+]]--
+
+--{{{
+-- ## Utils
+--
+-- Broad helper library. Named global functions include color conversion and
+-- gradient utilities (hex_to_rgba, get_color_from_list, build_gradient_pattern),
+-- a rounded-rectangle path builder, a bounded cache setter, a general defaults
+-- merger, number normalization/formatting, a file reader, safe accessors that
+-- log through conky_log, and the draw-value/name interpreters used by the draw
+-- core. Lower-level conversions (OKLab, stop normalization, component caching)
+-- are internal to the module.
+--
+-- **Exposed/global functions:**
+-- - `cache_set(cache, key, value, max)` — store into a bounded cache, clearing it when over `max`
+-- - `apply_defaults(cfg, defaults)` — merge tables, defaults filling missing keys
+-- - `hex_to_rgba(hex, alpha)` — convert a hex color to r,g,b,a floats (0-1)
+-- - `get_color_from_list(stops, t)` — interpolate gradient stops at t via OKLab
+-- - `build_gradient_pattern(cr, stops, x1,y1,x2,y2)` — build a cairo linear gradient from sampled stops
+-- - `rounded_rect_path(cr, x, y, w, h, r)` — append a rounded rectangle path
+-- - `normalize_with_suffix(raw)` — parse a number with optional K/M/G suffix
+-- - `format_value(v, opts)` — format a number with decimals/suffix/multiplier
+-- - `round(v)` — round to nearest integer
+-- - `read_file(path)` — read a file's contents ("" if missing), trimming trailing space
+-- - `safe_num(v, name)` — coerce to a number, logging and defaulting to 0 on bad input
+-- - `safe_str(v, name)` — coerce to a string, logging and defaulting to "N/A"
+-- - `draw_get_value(m)` — resolve a widget's value to a plain string
+-- - `interpret_name(name)` — interpret a name with "()" as Lua, otherwise Conky template
+--
+-- **Config/globals used:**
+-- - `conky_log` — logging hook, used by the safe accessors
+-- - `conky_parse` — Conky template expansion used by the Conky name interpreter
+--}}}
+
 --{{{
 -- ═══ HELPER FUNCTIONS ═══
 -- Color handling:

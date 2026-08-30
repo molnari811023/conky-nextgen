@@ -1,5 +1,26 @@
 #!/bin/bash
-
+#{{{
+# ## all_in_one — combined weather, alerts and maps fetcher
+#
+# Standalone script that embeds its own copy of the shared helpers
+# (log, require_cmds, User-Agent setup, curl_cmd, urlencode) and bundles the
+# weather, alerts and maps fetch routines into one file. It does not source
+# 0_common.sh; paths and TMP_DIR are computed locally.
+#
+# **What it does:**
+# - Builds a persisted User-Agent under ~/.config/conky-nextgen
+#   (auto-generated without a TTY, prompted otherwise)
+# - fetch_weather(): geocoding + Open-Meteo forecast/air-quality + Yr
+#   sun/moon → $TMP_DIR/city.json, weather_data.json, airquality.json,
+#   sun.json, moon.json, moon_next.json
+# - fetch_alerts(): MeteoAlarm feed → $TMP_DIR/alerts.xml
+# - fetch_maps(): ImageMagick 3x3 tile stitch → $TMP_DIR/osm_big.png,
+#   temp_big.png, rain_big.png, wind_big.png
+# - Dispatches by first argument: all / weather / alerts / map / <city>
+#
+# **Environment/requirements:** requires curl, jq, python3 and ImageMagick;
+# optional WEATHER_LANG
+#}}}
 DEBUG=1
 log() { [ "$DEBUG" -eq 1 ] && echo "$@"; }
 require_cmds() { local m=0; for c in "$@"; do command -v "$c" >/dev/null 2>&1 || { echo "[error] Missing: $c"; m=1; }; done; [ "$m" -eq 1 ] && exit 1; }

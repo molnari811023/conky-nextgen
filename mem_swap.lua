@@ -1,3 +1,29 @@
+--[[[
+mem_swap.lua — memory and swap usage widget
+
+Root-level widget layout for the ConkyNextGen system. It bootstraps the
+script (script_dir, package.path, JSON_PATH), declares a compact THEMES
+theme (background/bar/text defaults), registers draw items showing RAM
+and swap used/max/percent with two usage bars, then loads the engine
+via require("require") and initializes the item groups.
+]]--
+
+--{{{
+-- ## Memory and swap widget
+--
+-- Shows RAM and swap totals, usage percentages and progress bars in a
+-- single "main" view, fed by the ${mem}, ${memmax}, ${memperc}, ${swap},
+-- ${swapmax} and ${swapperc} conky variables.
+--
+-- **Exposed/global functions:**
+-- (none defined in this file)
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `draw`, `THEMES`,
+-- `DEFAULT_THEME`, `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `require("require")` and `init_groups(_GROUPS)` — bootstraps the system
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

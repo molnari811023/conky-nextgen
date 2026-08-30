@@ -1,6 +1,23 @@
 #!/usr/bin/env bash
 # conky_check.sh — List all conky processes with state info.
 # Usage: watch -n2 bash ~/.conky/sh/conky_check.sh
+#{{{
+# ## conky_check — conky process & designer PID health checker
+#
+# Scans /proc for running conky processes and prints each one with its PID,
+# PPID, decoded process state (running/sleeping/zombie/stopped), start time
+# and command line. It also reports the tracked PID file written by the conky
+# designer (/tmp/conky_preview/conky.pid) and any "pid is …" line found in
+# ~/.conky/tmp/conky.log.
+#
+# **What it does:**
+# - Iterates /proc/[0-9]* and matches processes whose comm is `conky`
+# - Decodes each process's state from /proc/PID/stat and command line
+# - Prints a summary, or a notice when no conky processes are found
+# - Reports the designer PID file and the PID (if any) in the conky log
+#
+# **Environment/requirements:** standard /proc userland tools
+#}}}
 
 echo "=== Conky processes ==="
 found=0

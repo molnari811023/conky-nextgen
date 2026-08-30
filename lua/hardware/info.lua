@@ -1,3 +1,22 @@
+--[[[
+lua/hardware/info.lua — Hardware identification: CPU model, NVMe model, and OS install date.
+]]--
+--{{{
+-- ## Info Module
+--
+-- Returns human-readable hardware identifiers. CPU and NVMe names are
+-- read from sysfs/proc and cached for a full day. The Arch Linux install
+-- date is extracted once from `pacman.log` and stored in `static`.
+--
+-- **Exposed/global functions:**
+-- - `conky_cpu_name()` — cleaned-up CPU model name (symbols and filler words stripped)
+-- - `conky_nvme_model()` — NVMe drive model string
+-- - `conky_install_date()` — first line of pacman.log (Arch install date)
+--
+-- **Config/globals used:**
+-- `static` (from core.lua), `read_file()`, `cached()`, `pread()`
+--}}}
+
 function conky_cpu_name()
 	return cached("cpu_model", 86400, function()
 		local name = read_file("/proc/cpuinfo"):match("model name%s+:%s+(.-)\n") or "Unknown CPU"

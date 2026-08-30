@@ -1,3 +1,23 @@
+--[[[
+lua/hardware/mtp.lua — MTP device detection and storage usage via KDE kmtpd or GVFS.
+]]--
+--{{{
+-- ## MTP Module
+--
+-- Detects MTP-connected Android (or similar) devices and reports storage
+-- capacity and usage. On KDE Plasma the kmtpd D-Bus interface is used;
+-- on other desktops GVFS (`gio info`) is the fallback. Results are cached
+-- for 5 seconds.
+--
+-- **Exposed/global functions:**
+-- - `conky_mtp_data()` — returns `{count, devices}` table with per-device storage info
+-- - `conky_mtp_count()` — number of connected MTP devices
+-- - `conky_mtp_perc(dev_idx, storage_idx)` — usage percentage for a specific storage volume
+--
+-- **Config/globals used:**
+-- `XDG_CURRENT_DESKTOP` env var, `cached()`, `pread()`, `parse_num()`
+--}}}
+
 local function kde_mtp_info()
 	return cached("kde_mtp_info", 5, function()
 		local data = { count = 0, devices = {} }

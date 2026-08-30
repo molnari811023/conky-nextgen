@@ -1,5 +1,21 @@
 #!/bin/bash
-
+#{{{
+# ## gog_open_mail — open a Gmail thread in Firefox
+#
+# Defines open_gmail_thread(), which takes a Gmail message/thread ID, asks
+# `gog` to build the corresponding Gmail URL and opens it in Firefox using
+# a background process. Uses the gog file keyring backend with a default
+# keyring password (overridable via GOG_KEYRING_PASSWORD).
+#
+# **What it does:**
+# - Exports GOG_KEYRING_BACKEND=file and GOG_KEYRING_PASSWORD
+# - Validates the message ID and that gog + firefox are installed
+# - Resolves the Gmail URL via `gog gmail url <id> --plain`
+# - Launches `firefox <url>` in the background
+#
+# **Environment/requirements:** needs `gog` and `firefox`; optional
+# GOG_KEYRING_PASSWORD override
+#}}}
 export GOG_KEYRING_BACKEND=file
 export GOG_KEYRING_PASSWORD="${GOG_KEYRING_PASSWORD:-conky-google-dashboard}"
 

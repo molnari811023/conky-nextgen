@@ -1,3 +1,38 @@
+--[[[
+lua/hardware/network.lua — WiFi status, public IP info, ping metrics, and wireless accessors for Conky.
+]]--
+--{{{
+-- ## Network Module
+--
+-- Detects the active wireless interface, reports public IP geolocation
+-- data and ping latency/jitter read from JSON files produced by external
+-- scripts, and wraps every Conky `${wireless_*}` / `${downspeed}` /
+-- `${upspeed}` template into a Lua function.
+--
+-- **Exposed/global functions:**
+-- - `conky_wifi_interface()` — name of the first wireless interface found in sysfs
+-- - `conky_wifi_active()` — returns 1 if the WiFi interface has a carrier, else 0
+-- - `conky_public_ip()` — public IP address from JSON cache
+-- - `conky_public_city()` — city from JSON cache
+-- - `conky_public_country()` — country from JSON cache
+-- - `conky_ping_avg()` — average ping round-trip time
+-- - `conky_ping_jitter()` — max − min ping difference
+-- - `conky_wifi_ap(iface)` — access point name
+-- - `conky_wifi_bitrate(iface)` — current bitrate
+-- - `conky_wifi_ip(iface)` — interface IP address
+-- - `conky_wifi_channel(iface)` — wireless channel
+-- - `conky_wifi_essid(iface)` — ESSID (network name)
+-- - `conky_wifi_freq(iface)` — frequency
+-- - `conky_wifi_downspeed(iface)` / `conky_wifi_downspeedf(iface)` — download speed
+-- - `conky_wifi_upspeed(iface)` / `conky_wifi_upspeedf(iface)` — upload speed
+-- - `conky_wifi_v6addrs(iface, show_netmask, show_scope)` — IPv6 addresses
+-- - `conky_wifi_link_qual(iface)` / `_qual_max(iface)` / `_qual_perc(iface)` — signal quality
+-- - `conky_wifi_mode(iface)` — wireless mode
+--
+-- **Config/globals used:**
+-- `JSON_PATH`, `conky_parse()`, `cached()`, `read_file()`, `pread()`, `lfs`
+--}}}
+
 local network_ping_time = 0
 local network_ip_time = 0
 local network_ping_cache = ""

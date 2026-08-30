@@ -1,3 +1,32 @@
+--[[[
+mouse_actions.lua — view-switching and hover helpers (support module)
+
+Support module loaded by the engine (via require.lua). It defines the
+global functions that widget layouts bind to mouse events: switching
+between widget views and highlighting / restoring group backgrounds
+when the pointer enters or leaves a group.
+]]--
+
+--{{{
+-- ## Mouse actions support module
+--
+-- Not a standalone widget. Provides global view-switching and hover
+-- callbacks: switch_view sets the current view, view_toggle flips
+-- between two views while remembering the previous one, and the
+-- hover/leave handlers temporarily highlight the border of the group
+-- under the pointer.
+--
+-- **Exposed/global functions:**
+-- - `switch_view(v)` — sets the global current_view
+-- - `view_toggle(v)` — toggles to v, or back to the previous view
+-- - `on_hover_group(event)` — highlights the group border on hover
+-- - `on_leave_group(event)` — restores the group background on leave
+--
+-- **Config/globals used:**
+-- `current_view` and `_previous_view` (module-local) — view state
+-- `modify_group_background()` / `restore_group_background()` — group styling helpers
+--}}}
+
 function switch_view(v)
     if not v then return end
     current_view = v

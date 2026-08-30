@@ -1,3 +1,28 @@
+--[[[
+lua/draw/hyphen.lua — TeX-style hyphenation engine for breaking words at soft-hyphen points
+
+Loads a standard TeX .dic pattern file, caches the parsed result per path,
+and exposes a break_word() function that returns byte offsets for valid breaks.
+]]--
+
+--{{{
+-- ## Hyphen
+--
+-- Implements a TeX-compatible hyphenation algorithm. Pattern files are parsed
+-- once and cached (with optional mtime-based invalidation via lfs). The
+-- break_word() function applies all loaded patterns to a lowercased copy of
+-- the input, respects LEFTHYPHENMIN/RIGHTHYPHENMIN constraints, and returns
+-- break byte-offsets that map back into the original (possibly mixed-case) word.
+--
+-- **Exposed/global functions:**
+-- - `hyphen.load(path)` — Parses and loads a TeX .dic hyphenation pattern file; returns `true` on success.
+-- - `hyphen.break_word(word)` — Returns an array of byte-offset break points for the given word.
+--
+-- **Config/globals used:**
+-- - `lfs` (optional) — LuaFileSystem used for mtime-based cache invalidation.
+-- - `utf8` (optional) — lua-utf8 or builtin utf8 module for UTF-8 character iteration.
+--}}}
+
 local hyphen = {}
 hyphen.patterns = {}
 hyphen.min_left = 2

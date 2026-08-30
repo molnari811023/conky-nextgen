@@ -1,3 +1,30 @@
+--[[[
+lua/weather/alerts.lua — Parses weather-alert RSS/Atom XML and exposes filtered, cached alert data
+
+Parses an Atom XML feed (alerts.xml) using SAX-style XML parsing via LuaExpat, filters alerts
+by city/region name, sorts by severity, caches results (with 120 s TTL and file-mtime tracking),
+and exposes the top 3 matching alerts to Conky via global accessor functions.
+]]--
+
+--{{{
+-- ## Alerts Module
+--
+-- Loads and parses weather-alert entries from an Atom XML file (`alerts.xml`). Entries are sorted
+-- by severity (Extreme > Severe > Moderate > Minor) and filtered to match the configured city
+-- or admin region. The top 3 alerts are cached and refreshed when the file modification time
+-- changes or the 120-second TTL expires. Severity and color values are passed through the
+-- translation system when available.
+--
+-- **Exposed/global functions:**
+-- - `conky_update_alerts()` — force-refresh the alert cache from disk
+-- - `alerts_count()` — return number of active (filtered) alerts
+-- - `alerts_updated()` — return the feed `<updated>` timestamp string
+-- - `alert_field(i, field)` — return a field of the i-th alert (event, severity, area, onset, expires, title, color)
+--
+-- **Config/globals used:**
+-- `JSON_PATH`, `read_j()`, `read_file()`, `conky_get_tr()`, `lfs` (LuaFileSystem)
+--}}}
+
 local alerts_cache_storage = nil
 local alerts_cache_time = 0
 

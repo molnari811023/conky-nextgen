@@ -1,3 +1,32 @@
+--[[[
+top.lua — top processes widget (highest CPU / memory usage)
+
+Root-level widget layout for the ConkyNextGen system. It bootstraps the
+script (script_dir, package.path, JSON_PATH, icon globals), declares
+the THEMES theme, loads the engine via require("require") and regis-
+ters a column header plus six rows showing name, PID and percentage
+for the busiest processes. The "main" view lists top CPU consumers
+(${top ...}) and view_1 lists top memory consumers (${top_mem ...}).
+]]--
+
+--{{{
+-- ## Top processes widget
+--
+-- Lists the six most CPU-hungry processes in view "main" and the six
+-- most memory-hungry processes in view "view_1", with a left-click
+-- action toggling between the two views.
+--
+-- **Exposed/global functions:**
+-- (none defined in this file)
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `ICON_BASE`, `ICON_THEME`,
+-- `MOON_ICON_BASE`, `WIND_ICON_BASE`, `draw`, `THEMES`, `DEFAULT_THEME`,
+-- `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `view_toggle("view_1")` — left-click action (defined in mouse_actions.lua)
+-- `require("require")` and `init_groups(_GROUPS)` — bootstraps the system
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

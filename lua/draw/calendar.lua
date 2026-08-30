@@ -1,3 +1,27 @@
+--[[[
+lua/draw/calendar.lua — Draws a monthly calendar grid with weekday headers and week numbers
+
+The calendar is computed entirely from Lua's os.date at draw time, so it
+always reflects the current month. Today's date is highlighted.
+]]--
+
+--{{{
+-- ## Calendar
+--
+-- Renders a full monthly calendar: a centred month/year title, abbreviated
+-- weekday headers, an optional ISO week-number column, and a 6×7 grid of day
+-- cells. Days outside the current month are drawn in a muted colour; today is
+-- bold and highlighted.
+--
+-- **Exposed/global functions:**
+-- - `draw_calendar(cr, opts)` — Draws a monthly calendar grid and returns `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `conky_window` — checked for early-exit guard.
+-- - `draw_text()` — renders all text elements (title, weekdays, day numbers, week numbers).
+-- - `draw_line_modules()` — draws the separator line beneath the month title.
+--}}}
+
 CALENDAR_DEFAULT = {
 	x = 300,
 	y = 15,

@@ -1,3 +1,26 @@
+--[[[
+lua/draw/lines.lua — Draws straight lines with solid, dashed, or dotted styles
+
+Supports gradient colour along the line direction via build_gradient_pattern.
+Dash parameters are clamped to non-negative values to protect the Cairo context.
+]]--
+
+--{{{
+-- ## Lines
+--
+-- Renders a straight line between two endpoints using Cairo. The line style
+-- can be solid, dashed, or dotted, with configurable dash/gap and dot/gap
+-- lengths. A gradient pattern can be applied along the line axis. The dash
+-- state is explicitly reset after drawing to prevent leakage to later elements.
+--
+-- **Exposed/global functions:**
+-- - `draw_line_modules(cr, m)` — Draws a styled line between two points and returns its bounding box `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `conky_window` — checked for early-exit guard.
+-- - `build_gradient_pattern()` — creates a Cairo linear gradient from a color-stop list.
+--}}}
+
 local LINE_DEFAULT = {
 	x1 = 0,
 	y1 = 0,

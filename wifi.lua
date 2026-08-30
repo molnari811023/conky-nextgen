@@ -1,3 +1,29 @@
+--[[[
+wifi.lua — wifi / network widget layout
+
+Root-level widget layout for the ConkyNextGen system. It bootstraps the
+script (script_dir, package.path, JSON_PATH), declares the THEMES
+theme, loads the engine via require("require") and registers a small
+draw list: a rounded window background, a "Wifi" title, a dashed
+separator line, a "Temp:" label and a few placeholder "New text"
+elements.
+]]--
+
+--{{{
+-- ## Wifi widget
+--
+-- Minimal network widget layout: title, separator line, a temperature
+-- label and placeholder text entries in a single "main" view.
+--
+-- **Exposed/global functions:**
+-- (none defined in this file)
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `draw`, `THEMES`,
+-- `DEFAULT_THEME`, `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `require("require")` and `init_groups(_GROUPS)` — bootstraps the system
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

@@ -1,3 +1,31 @@
+--[[[
+lua/core/translate.lua — gettext-style string translation from GNU .mo catalogs
+
+Loads GNU .mo message catalogs for the active locale (resolved from LANG /
+LC_ALL / LC_MESSAGES, falling back to English) plus the English catalog as a
+guaranteed fallback, sets the time locale from LC_TIME/LANG, and exposes a
+conky_get_tr() lookup plus a backward-compatible get_tr alias.
+]]--
+
+--{{{
+-- ## Translate
+--
+-- Translation support for widget strings. Binary GNU .mo catalogs are parsed
+-- for the detected locale (and English as a fallback when different). The
+-- process time locale is also set up from LC_TIME/LANG. Exposes conky_get_tr
+-- for msgid lookup (mo → en → msgid itself) and a get_tr alias used by older
+-- widgets.
+--
+-- **Exposed/global functions:**
+-- - `conky_get_tr(msgid)` — return the translated string for msgid, else the msgid itself
+-- - `get_tr(msgid)` — backward-compatible alias of conky_get_tr
+--
+-- **Config/globals used:**
+-- - `STRINGS_MO_PATH` — path to the active .mo catalog (auto-resolved if unset)
+-- - `script_dir` — base directory for the language/*.mo catalogs
+-- - `LANG`, `LC_ALL`, `LC_MESSAGES`, `LC_TIME` — environment for locale detection
+--}}}
+
 local mo_strings = {}
 local en_strings = {}
 local function load_mo(path, into)

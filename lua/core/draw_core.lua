@@ -1,3 +1,45 @@
+--[[[
+lua/core/draw_core.lua — the main per-frame draw driver: dispatch, view/group gating, layout
+
+Holds the global VIEW state (GROUP_VIEWS, GROUP_OFFSETS, HOVER_VIEW,
+current_view) and drives each frame from conky_core_main(): it evaluates
+per-item draw_me conditions, checks view/group visibility, computes stacked
+group offsets, builds themed/interpreted items, dispatches to the per-type
+draw functions, and coordinates capture. Also provides group-height
+computation and group-background highlight overrides.
+]]--
+
+--{{{
+-- ## Draw Core
+--
+-- Central draw loop and layout logic for the widget set. conky_core_main()
+-- is the per-frame entry point: it skips early frames, calls capture_poll(),
+-- recomputes group visibility/offsets, applies themes and auto-interpreted
+-- fields to each item, dispatches each item to its type-specific draw
+-- function, and calls capture_finish(). The module also evaluates draw_me
+-- conditions, decides whether an item is drawable in the current view, and
+-- manages per-group stacked vertical offsets.
+--
+-- **Exposed/global functions:**
+-- - `evaluate_draw_me(draw_me)` — truthiness for bool/function/Lua-expression/template
+-- - `draw_allowed(item_view, item_group)` — view and group visibility gating
+-- - `init_groups(group_list)` — populate GROUP_VIEWS and register each group
+-- - `modify_group_background(group_name, overrides)` — override a group's background styling (hover highlight)
+-- - `restore_group_background(group_name)` — restore overridden background values
+-- - `compute_group_height(group_name, draw_list)` — max vertical extent of a group's visible items
+-- - `clear_surface(cr)` — no-op that a preview helper can override to clear per frame
+-- - `conky_core_main()` — the main per-frame draw driver
+-- - `conky_cleanup()` — free SVG resources on shutdown
+--
+-- **Config/globals used:**
+-- - `GROUP_VIEWS`, `GROUP_OFFSETS`, `HOVER_VIEW`, `current_view` — view/group state
+-- - `GROUP_STATE` — current visible/hidden state per group
+-- - `draw` — the full item list; `_GROUPS` — the registered group list
+-- - `_PADDING` — vertical spacing between stacked groups
+-- - `apply_theme`, `interpret_name`, `check_group_visibility`,
+--   `capture_poll`, `capture_finish`, `svg_free_all` — collaborator functions
+--}}}
+
 GROUP_VIEWS   = GROUP_VIEWS or {}
 GROUP_OFFSETS = GROUP_OFFSETS or {}
 HOVER_VIEW    = HOVER_VIEW or nil

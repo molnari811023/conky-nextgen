@@ -1,3 +1,34 @@
+--[[[
+cpu.lua — CPU monitor widget (load, temperature, per-core bars)
+
+Root-level widget layout for the ConkyNextGen system. It bootstraps the
+script: computes script_dir, extends package.path to the lua/ module
+tree, sets JSON_PATH, defines the icon base globals, declares the
+THEMES theme, loads the engine via require("require") and registers
+the draw items: a rounded background, overall CPU load and temperature
+text, a CPU usage graph, and a 12-core view with per-core ${cpu cpuN}
+bars and ${freq N} frequencies.
+]]--
+
+--{{{
+-- ## CPU widget
+--
+-- Displays overall CPU usage/temperature and a live graph in view
+-- "main", and twelve per-core load bars with frequencies in view_1.
+-- Uses the ${cpu}, ${freq} conky variables plus the lua text providers
+-- ${lua conky_cpu_name} and ${lua conky_cpu_temp}.
+--
+-- **Exposed/global functions:**
+-- (none defined in this file)
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `ICON_BASE`, `ICON_THEME`,
+-- `MOON_ICON_BASE`, `WIND_ICON_BASE`, `draw`, `THEMES`, `DEFAULT_THEME`,
+-- `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `require("require")` and `init_groups(_GROUPS)` — bootstraps the system
+-- `view_toggle("view_1")` — left-click action (defined in mouse_actions.lua)
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

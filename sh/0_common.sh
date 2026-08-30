@@ -1,5 +1,24 @@
 #!/bin/bash
-
+#{{{
+# ## 0_common — shared shell environment for all fetch scripts
+#
+# Common bootstrap imported by the other fetch scripts. Defines the script,
+# project and tmp directories, an idempotent include guard, a DEBUG/log()
+# helper, a require_cmds() validator (curl, jq, python3), a persisted
+# per-user User-Agent under ~/.config/conky-nextgen (auto-generated when not
+# run from a TTY, prompted otherwise), the curl_cmd() wrapper used for all
+# HTTP requests, and a urlencode() helper. Ensures CONFIG_DIR and TMP_DIR
+# exist.
+#
+# **What it does:**
+# - Computes _SCRIPT_DIR, CONKY_DIR and TMP_DIR from the script location
+# - Provides log() (enabled via DEBUG) and require_cmds()
+# - Loads/creates a User-Agent file and exposes it via $UA
+# - Defines curl_cmd() (quiet, follows redirects, 15s timeout, 2 retries)
+# - Defines urlencode() and creates the tmp dir
+#
+# **Environment/requirements:** requires curl, jq, python3
+#}}}
 [ -n "$_COMMON_LOADED" ] && return || _COMMON_LOADED=1
 
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"

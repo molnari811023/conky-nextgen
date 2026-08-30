@@ -1,5 +1,39 @@
 #!/usr/bin/env lua
 
+--[[[
+debug/debug_hardware.lua — standalone debug script that dumps the hardware
+information layer (package updates, DMI, CPU, sensors, battery, network, MTP,
+USB) with per-section timing
+
+Run it directly with the system lua interpreter from the project root:
+`lua debug/debug_hardware.lua`. It stubs out the Conky environment, loads the
+hardware modules, then prints the result of every accessor grouped by theme
+with section timings.
+]]--
+
+--{{{
+-- ## Hardware data dump
+--
+-- Loads the hardware module tree (dmi, info, sensors, battery, network, mtp,
+-- usb) outside of Conky and prints each exported accessor through a recursive
+-- dump() helper, so nested tables are pretty-printed too. Every section is
+-- bracketed by a timing helper that reports elapsed milliseconds.
+--
+-- **What it does:**
+-- - Bootstraps the Conky stubs, config globals, and a local get_battery_path()
+--   replica of the battery-lookup helper.
+-- - CORE: dumps conky_updates_repo() and conky_updates_aur().
+-- - DMI: dumps vendor/product/board/bios/chassis accessors.
+-- - INFO: dumps CPU name, NVMe model and install date.
+-- - SENSORS: dumps CPU/core temps, NVMe and Wi-Fi temps, fan speeds.
+-- - BATTERY: dumps the battery path, health data, headset/mouse info and the
+--   external battery list with per-entry name and charge.
+-- - NETWORK: dumps Wi-Fi interface/state, public IP/city/country and ping stats.
+-- - MTP: dumps MTP device count, data and charge percentage.
+-- - USB: dumps USB present/count/list plus per-entry name and mount.
+-- - Prints TOTAL elapsed time.
+--}}}
+
 local function get_root()
   local src = (debug.getinfo(1, 'S').source or arg[0]):match('@(.*)') or arg[0] or '.'
   local dir = src:match('^(.*[/\\])') or './'

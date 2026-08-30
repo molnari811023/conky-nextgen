@@ -1,3 +1,24 @@
+--[[[
+lua/hardware/usb.lua — Mounted USB block device detection and enumeration via lsblk.
+]]--
+--{{{
+-- ## USB Module
+--
+-- Parses `lsblk` output to find block devices whose transport is USB and
+-- that are mounted under a user media directory. Returns device model
+-- names and mount points. Results are cached for 3 seconds.
+--
+-- **Exposed/global functions:**
+-- - `conky_usb_list()` — returns a sorted list of `{name, part, mount}` tables
+-- - `conky_has_usb()` — returns 1 if any USB device is mounted, else 0
+-- - `conky_usb_count()` — number of mounted USB devices
+-- - `conky_usb_name(i)` — model name of the i-th USB device
+-- - `conky_usb_mount(i)` — mount point of the i-th USB device
+--
+-- **Config/globals used:**
+-- `cached()`, `pread()`, `starts_with()`, `get_root_device()` (all from core.lua), `os.getenv("USER")`
+--}}}
+
 function conky_usb_list()
 	return cached("usb_detect", 3, function()
 		local result = {}

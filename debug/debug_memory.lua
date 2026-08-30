@@ -1,5 +1,38 @@
 #!/usr/bin/env lua
 
+--[[[
+debug/debug_memory.lua — standalone memory/leak benchmark and correctness test
+for the theme engine and draw-core helpers (apply_theme, resolve_gradient,
+view_toggle, draw_allowed, view_contains, cache_set)
+
+Run it directly with the system lua interpreter from the project root:
+`lua debug/debug_memory.lua`. It measures time and GC-heap growth for repeated
+calls and flags sections that grew more than expected as potential leaks.
+]]--
+
+--{{{
+-- ## Memory / leak benchmark
+--
+-- Measures timing and garbage-collector heap growth of the hot draw/theme
+-- functions in a loop and flags results whose memory growth exceeds a
+-- threshold as a suspected leak. It also runs a few one-shot correctness
+-- checks for table-based view matching and the bounded cache.
+--
+-- **What it does:**
+-- - Stubs the Conky and Cairo entry points and loads theme_engine, utils,
+--   draw_core and mouse_actions.
+-- - run_test(): runs fn(N) with GC collect before/after and prints timing,
+--   before/after heap KB and growth, flagging >= 4 KB growth as "LEAK?".
+-- - Benchmark: 10k apply_theme bar items, 10k apply_theme text items, 100k
+--   resolve_gradient lookups and 10k rapid view_toggle churn cycles.
+-- - Correctness: draw_allowed with a multi-view table, view_contains with a
+--   string vs a table.
+-- - Cache: cache_set capped at max entries after 1000 inserts, re-setting the
+--   same key must not bump the counter, and 200 fill+clear cycles of a
+--   100-entry cache must stay under 8 KB retention.
+-- - Prints TOTAL time for the final cache fill+clear loop.
+--}}}
+
 local function get_root()
   local src = (debug.getinfo(1, 'S').source or arg[0]):match('@(.*)') or arg[0] or '.'
   local dir = src:match('^(.*[/\\])') or './'

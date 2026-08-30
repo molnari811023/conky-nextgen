@@ -1,3 +1,23 @@
+--[[[
+lua/hardware/battery.lua — Battery and external-device charge monitoring via sysfs, UPower, and BlueZ/D-Bus.
+]]--
+--{{{
+-- ## Battery Module
+--
+-- Reads internal battery health from sysfs, and detects Bluetooth headset
+-- and HID++ mouse battery levels via UPower or KDE Plasma's BlueZ D-Bus
+-- interface. All queries are cached to avoid rapid repeated I/O.
+--
+-- **Exposed/global functions:**
+-- - `conky_battery_health_data()` — returns internal battery health as a percentage (0–100), or nil
+-- - `conky_headset_info()` — returns `{name, pct}` table for a connected Bluetooth headset
+-- - `conky_mouse_info()` — returns `{name, pct}` table for a HID++ mouse via UPower
+-- - `conky_external_battery_list()` — combined list of headset and mouse battery entries
+-- - `conky_external_battery_count()` — number of detected external battery devices
+-- - `conky_external_battery_name(i)` — name of the i-th external device
+-- - `conky_external_battery_charge(i)` — charge percentage of the i-th external device
+--}}}
+
 local function get_battery_path()
 	return cached("main_battery_path", 3600, function()
 		if lfs then

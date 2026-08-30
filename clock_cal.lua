@@ -1,3 +1,34 @@
+--[[[
+clock_cal.lua — analog clock and calendar widget
+
+Root-level widget layout for the ConkyNextGen system. It computes the
+project root (script_dir), extends package.path to the lua/ module
+tree, sets JSON_PATH to the tmp/ cache directory, loads the whole
+engine with require("require"), declares the THEMES theme and
+registers the draw list: a rounded window background, an analog clock
+(main view, with seconds hand and ticks) and a month calendar
+(view_1). It also declares the view list and a left-click action that
+toggles view_1.
+]]--
+
+--{{{
+-- ## Clock and calendar widget
+--
+-- Entry-style widget file: bootstraps global paths, theme and engine
+-- loading, then registers the background, clock and calendar draw
+-- items across the "main" and "view_1" views.
+--
+-- **Exposed/global functions:**
+-- (none defined in this file)
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `draw`, `THEMES`,
+-- `DEFAULT_THEME`, `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `require("require")` — loads all engine modules
+-- `init_groups(_GROUPS)` — initializes the item groups
+-- `view_toggle("view_1")` — left-click action (defined in mouse_actions.lua)
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

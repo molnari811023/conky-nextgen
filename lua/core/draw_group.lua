@@ -1,3 +1,30 @@
+--[[[
+lua/core/draw_group.lua — group registration and per-group visibility
+
+Provides register_group() to track groups in GROUP_REGISTRY and initialise
+their GROUP_STATE, and check_group_visibility() which updates each group's
+visible state (once per second) based on its optional draw_me condition.
+]]--
+
+--{{{
+-- ## Draw Group
+--
+-- Manages the interactive group lifecycle. Each group is registered into
+-- GROUP_REGISTRY and given an enabled GROUP_STATE entry. Once per second,
+-- check_group_visibility() re-evaluates every group's draw_me condition to
+-- toggle its GROUP_STATE between visible (true) and hidden (nil), which
+-- drives the layout and rendering elsewhere.
+--
+-- **Exposed/global functions:**
+-- - `register_group(name)` — register a group and ensure it starts visible
+-- - `check_group_visibility()` — update group visibility from per-group draw_me (throttled to 1/sec)
+--
+-- **Config/globals used:**
+-- - `GROUP_STATE`, `GROUP_REGISTRY` — group state and registration tables
+-- - `_GROUPS` — the list of configured groups, each with `.name` and `.draw_me`
+-- - `evaluate_draw_me` — collaborator that evaluates a draw_me condition
+--}}}
+
 GROUP_STATE       = GROUP_STATE or {}
 GROUP_REGISTRY    = GROUP_REGISTRY or {}
 

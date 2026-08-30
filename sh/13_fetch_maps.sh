@@ -1,5 +1,25 @@
 #!/bin/bash
-
+#{{{
+# ## 13_fetch_maps — weather radar / temperature / wind map image builder
+#
+# Defines fetch_maps(), which uses ImageMagick (`magick` or legacy `convert`)
+# to download a 3x3 grid of tiles centered on the city from TMP_DIR/city.json
+# and stitch them into large composite images. Tile sources are OpenStreetMap
+# (base map), RainViewer (radar), and Environment Canada WMS (2m temperature
+# and 10m wind). The zoom level defaults to 7 and is clamped to 5–7.
+#
+# **What it does:**
+# - Reads lat/lon from $TMP_DIR/city.json (error if missing)
+# - Computes the Mercator tile center via a python3 helper
+# - Downloads 9 tiles each of osm/temp/radar/wind with a retry on failure
+# - Stitches each set into osm_big.png, temp_big.png, rain_big.png and
+#   wind_big.png in $TMP_DIR, filling missing tiles with transparent ones
+# - Removes the 0..8 per-tile pngs afterwards
+#
+# **Environment/requirements:** needs ImageMagick (magick or convert),
+# python3, 0_common.sh (curl_cmd, log, TMP_DIR) and an existing
+# $TMP_DIR/city.json
+#}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"
 

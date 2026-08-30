@@ -1,3 +1,29 @@
+--[[[
+lua/core/theme_engine.lua — theme resolution and per-widget default/color application
+
+Holds the THEMES table and DEFAULT_THEME. apply_theme(item) selects the
+item's theme (or DEFAULT_THEME), resolves gradient-name strings in color
+fields to actual gradient stop lists, and fills in any missing widget fields
+from the theme's per-type defaults.
+]]--
+
+--{{{
+-- ## Theme Engine
+--
+-- Resolves an item's theme and applies it before drawing. apply_theme(item)
+-- looks up the theme by the item's `.theme` name (falling back to
+-- DEFAULT_THEME), maps color-field strings that name a theme-defined
+-- gradient to their real stop lists, and back-fills per-widget-type default
+-- values for any field the item has not already set.
+--
+-- **Exposed/global functions:**
+-- - `apply_theme(item)` — apply theme defaults and resolve gradient color fields for a widget item
+--
+-- **Config/globals used:**
+-- - `THEMES` — theme table keyed by name, each with optional `gradients` and `defaults`
+-- - `DEFAULT_THEME` — theme name used when an item does not name one
+--}}}
+
 THEMES = THEMES or {}
 
 DEFAULT_THEME = DEFAULT_THEME or "theme"

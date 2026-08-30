@@ -1,3 +1,28 @@
+--[[[
+lua/draw/text.lua — Draws styled text with alignment, word-wrapping, and optional hyphenation
+
+Text sources may be plain strings, functions, or exec-tables evaluated at draw
+time. Conky ${...} syntax is parsed via conky_parse before rendering.
+]]--
+
+--{{{
+-- ## Text
+--
+-- Renders a single text string or multi-line word-wrapped block onto the Cairo
+-- context. Supports left/centre/right alignment, italic/bold slant/weight, and
+-- a gradient colour applied per-line. When wrap_width is set, long words are
+-- hyphenated using the hyphen module if a dictionary path is provided.
+--
+-- **Exposed/global functions:**
+-- - `draw_text(cr, opts)` — Draws styled text (single or wrapped) and returns `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `conky_window` — checked for early-exit guard; centre alignment references its width/height.
+-- - `conky_parse()` — expands Conky `${...}` substitution syntax in text strings.
+-- - `build_gradient_pattern()` — creates a Cairo linear gradient from a color-stop list.
+-- - `hyphen` — used for word-break hyphenation when `wrap_dic` is supplied.
+--}}}
+
 local _text_ext = cairo_text_extents_t:create()
 local _font_ext = cairo_font_extents_t:create()
 

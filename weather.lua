@@ -1,3 +1,38 @@
+--[[[
+weather.lua — full weather widget (current, hourly, daily forecast)
+
+Root-level widget layout for the ConkyNextGen system. It bootstraps the
+script (script_dir, package.path incl. lua/google/, JSON_PATH, icon
+globals), clears cached engine modules so a SIGUSR1 hot-reload re-
+executes them, loads the engine via require("require"), declares the
+THEMES theme and registers three views: "main" (current conditions,
+city, temperature, sun/moon arc and icons, humidity, pressure, UV,
+sunrise/sunset, moonrise/moonset, moon phase), "view_1" (four hourly
+forecast columns) and "view_2" (four daily forecast columns). Tab
+backgrounds switch the view and a mouse-leave action returns to main.
+]]--
+
+--{{{
+-- ## Weather widget
+--
+-- Full weather display driven by the weather.* lua modules: current
+-- conditions, hourly and daily forecast tables and a sun/moon arc.
+-- Also exports the conky_weather_update() hook used by lua_hook_exec
+-- to refresh weather data and alerts.
+--
+-- **Exposed/global functions:**
+-- - `conky_weather_update()` — refresh hook; calls conky_load_weather_data() and conky_update_alerts()
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `ICON_BASE`, `ICON_THEME`,
+-- `MOON_ICON_BASE`, `WIND_ICON_BASE`, `draw`, `THEMES`, `DEFAULT_THEME`,
+-- `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `package.loaded` — cleared for weather/core/draw/hardware/google modules (hot-reload)
+-- `switch_view("main")` — mouse-leave action (defined in mouse_actions.lua)
+-- `conky_load_weather_data()` / `conky_update_alerts()` — data refresh helpers
+-- `require("require")` and `init_groups(_GROUPS)` — bootstraps the system
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

@@ -1,3 +1,35 @@
+--[[[
+lua/weather/city.lua — Conky accessors for the currently selected city metadata
+
+Exposes Conky-callable read functions for the first city result stored in the global `W.city`
+table: name, country, timezone, administrative divisions, coordinates, elevation, population,
+and postal codes.
+]]--
+
+--{{{
+-- ## City Module
+--
+-- Reads city metadata from the first entry of `W.city.results` (loaded from city.json) and
+-- surfaces it through individually named Conky functions. String fields go through `safe_str`
+-- for translation or fallback handling; numeric fields go through `safe_num`.
+--
+-- **Exposed/global functions:**
+-- - `conky_city_name()` — city display name (defaults to "Unknown City")
+-- - `conky_city_country()` — country name/code (translated)
+-- - `conky_city_timezone()` — IANA timezone string
+-- - `conky_city_admin1()` — first administrative division
+-- - `conky_city_admin2()` — second administrative division
+-- - `conky_city_lat()` — latitude
+-- - `conky_city_lon()` — longitude
+-- - `conky_city_elevation()` — elevation in metres
+-- - `conky_city_population()` — population count
+-- - `conky_city_postcode(i)` — i-th postal code
+-- - `conky_city_postcode_count()` — number of postal codes
+--
+-- **Config/globals used:**
+-- `W.city`, `safe_str()`, `safe_num()`
+--}}}
+
 local function city_data()
 	return ((W.city or {}).results and W.city.results[1]) or {}
 end

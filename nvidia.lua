@@ -1,3 +1,31 @@
+--[[[
+nvidia.lua — NVIDIA GPU monitoring widget
+
+Root-level widget layout for the ConkyNextGen system. It bootstraps the
+script (script_dir, package.path, JSON_PATH), loads the engine via
+require("require") early, declares the THEMES theme and icon globals,
+and registers draw items: a rounded background, GPU model, temperature,
+memory usage bar, driver version and GPU utilization.
+]]--
+
+--{{{
+-- ## NVIDIA GPU widget
+--
+-- Monitors GPU model, temperature, memory usage, utilization and driver
+-- version in a single "main" view using the ${nvidia ...} conky
+-- variables (modelname, gputemp, memused, memmax, memutil,
+-- driverversion, gpuutil).
+--
+-- **Exposed/global functions:**
+-- (none defined in this file)
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `ICON_BASE`, `ICON_THEME`,
+-- `MOON_ICON_BASE`, `WIND_ICON_BASE`, `draw`, `THEMES`, `DEFAULT_THEME`,
+-- `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `require("require")` and `init_groups(_GROUPS)` — bootstraps the system
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

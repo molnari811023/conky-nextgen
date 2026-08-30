@@ -1,3 +1,28 @@
+--[[[
+lua/draw/svg.lua — Renders SVG files via librsvg with tinting, rotation, and shape clipping
+
+SVG handles are cached in an internal table and freed on demand with svg_free_all().
+]]--
+
+--{{{
+-- ## SVG
+--
+-- Renders an SVG file onto the Cairo context using librsvg
+-- (`rsvg_create_handle_from_file` / `rsvg_render_document_at`). Handles are
+-- cached and reused across frames. Supports rotation, circle or rounded-rect
+-- clipping, flat tint overlay, and global alpha.
+--
+-- **Exposed/global functions:**
+-- - `draw_svg(cr, opts)` — Renders an SVG file at the given position/size and returns `{x, y, w, h}`.
+-- - `svg_free_all()` — Destroys all cached rsvg handles and clears the cache.
+--
+-- **Config/globals used:**
+-- - `conky_window` — checked for early-exit guard.
+-- - `apply_defaults()` — merges user options over _SVG_DEFAULT.
+-- - `hex_to_rgba()` — converts a hex colour string to r, g, b, a values.
+-- - `rounded_rect_path()` — adds a rounded rectangle clipping path.
+--}}}
+
 local _SVG_DEFAULT = {
     x = 0, y = 0,
     w = 32, h = 32,

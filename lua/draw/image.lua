@@ -1,3 +1,30 @@
+--[[[
+lua/draw/image.lua — Draws cached PNG images with cropping, tinting, rotation, and shape clipping
+
+PNG surfaces are loaded once and stored in the global PNG_CACHE table for
+reuse across frames.
+]]--
+
+--{{{
+-- ## Image
+--
+-- Renders a PNG image onto the Cairo context with support for optional crop
+-- region, aspect-ratio-preserving sizing, rotation, circle or rounded-rect
+-- clipping, bilinear/nearest/good scaling, flat tint overlay, and global
+-- alpha. Loaded surfaces are cached in `PNG_CACHE` and reused until invalid.
+--
+-- **Exposed/global functions:**
+-- - `draw_png(cr, m)` — Draws a PNG image with all options and returns `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `PNG_CACHE` — global table caching loaded Cairo image surfaces by path.
+-- - `conky_window` — checked for early-exit guard.
+-- - `apply_defaults()` — merges user options over PNG_DEFAULT.
+-- - `hex_to_rgba()` — converts a hex colour string to r, g, b, a values.
+-- - `rounded_rect_path()` — adds a rounded rectangle clipping path.
+-- - `cache_set()` — external cache helper for surface storage.
+--}}}
+
 local _img_mx1 = cairo_matrix_t:create()
 
 PNG_CACHE = PNG_CACHE or {}

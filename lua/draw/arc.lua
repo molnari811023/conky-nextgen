@@ -1,3 +1,21 @@
+--[[[
+lua/draw/arc.lua — Draws a segmented semicircular arc gauge via Cairo
+
+The arc is rendered as a series of line segments along the upper half of a
+circle and optionally includes a horizontal baseline.
+]]--
+
+--{{{
+-- ## Arc
+--
+-- Renders a semicircular arc gauge divided into discrete segments using Cairo
+-- path operations. An optional horizon line is drawn across the arc diameter.
+-- A JSON-style config table merges user options over ARC_DEFAULT before drawing.
+--
+-- **Exposed/global functions:**
+-- - `draw_arc(cr, m)` — Draws a semicircular arc gauge and returns its bounding box `{x, y, w, h}`.
+--}}}
+
 local ARC_DEFAULT = {
     cx = 0, cy = 0, r = 30,
     segments = 20,

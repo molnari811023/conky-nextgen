@@ -1,3 +1,30 @@
+--[[[
+lua/draw/graph.lua — Draws time-series line or area graphs with history buffers
+
+Each unique graph key maintains a rolling history ring-buffer that persists
+across frames in the global `graph_history` table.
+]]--
+
+--{{{
+-- ## Graph
+--
+-- Renders a scrolling time-series graph as either a line or a filled area.
+-- The current value is appended to a width-sized ring buffer each frame; older
+-- samples scroll left. An optional grid, border, and rotation are supported.
+-- Autoscale mode adjusts the Y maximum to 110 % of the peak observed value.
+--
+-- **Exposed/global functions:**
+-- - `draw_graph(cr, m)` — Draws a time-series graph and returns `{x, y, w, h}`.
+--
+-- **Config/globals used:**
+-- - `graph_history` — global table storing per-key history ring buffers.
+-- - `conky_window` — checked for early-exit guard.
+-- - `draw_get_value()` — fetches the numeric value to graph.
+-- - `normalize_with_suffix()` — parses human-readable suffixes.
+-- - `get_color_from_list()` — resolves gradient color-stop lists to RGBA.
+-- - `build_gradient_pattern()` — creates Cairo linear gradient patterns.
+--}}}
+
 local _graph_mx = cairo_matrix_t:create()
 
 graph_history = graph_history or {}

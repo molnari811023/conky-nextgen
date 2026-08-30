@@ -1,3 +1,41 @@
+--[[[
+lua/weather/core.lua — Core data loading, time/math helpers, WMO and wind/moon lookups
+
+Loads and caches the JSON data files (weather, air, sun, moon, city) into the global `W` table,
+tracks file modification times to detect changes, and provides shared helper functions for hour
+alignment, arc positioning, WMO weather-code mapping, wind-direction indexing/coloring, moon
+phase calculation, and day-name lookup.
+]]--
+
+--{{{
+-- ## Core Module
+--
+-- Central data loader and shared utility library for the weather widget. `load_weather_data()`
+-- reads the JSON files from `JSON_PATH`, caches them (re-checked at most every 5 seconds), and
+-- merges results into the global `W` table. Also provides time formatting, ISO-time conversion,
+-- current-hour index alignment (`get_idx`), arc math, WMO-code and moon-phase message-id tables,
+-- wind direction code + color computation, and (translated-aware) day names.
+--
+-- **Exposed/global functions:**
+-- - `load_weather_data()` — (re)load and cache JSON data into `W`
+-- - `read_j(path)` — read and JSON-decode a file, returning `{}` on error
+-- - `fmt_unix(ts)` — format unix timestamp as "HH:MM"
+-- - `iso_to_mins(t)` — convert an ISO "T HH:MM" time string to minutes since midnight
+-- - `seconds_to_hour_min(sec)` — format seconds as "Nh MMm"
+-- - `get_idx(i)` — map a 1-based hour index to the real index starting at the current hour
+-- - `arc_x(cx, r, p)` — x coordinate on an arc for progress p (0–1)
+-- - `arc_y(cy, r, p)` — y coordinate on an arc for progress p (0–1)
+-- - `get_wind_dir_code(deg)` — compass code (n, nne, …) for a wind direction in degrees
+-- - `wind_color(s)` — color key (no_wind/green/yellow/orange/red) for wind speed
+-- - `moon_phase_fraction()` — moon phase as a 0–1 synodic fraction
+-- - `conky_day_name(o)` — full day name offset o days from today
+-- - `conky_day_name_short(o)` — short day name offset o days from today (cached)
+-- - `conky_load_weather_data` — global alias for `load_weather_data`
+--
+-- **Config/globals used:**
+-- `JSON_PATH`, `lfs`, `json.decode`, `round()` (from core/utils.lua), global `W`
+--}}}
+
 -- ═══ DATA LOADER ═══
 
 local weather_cache_storage = nil

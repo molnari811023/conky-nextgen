@@ -1,3 +1,38 @@
+--[[[
+widget.lua — main entry / loader of the whole ConkyNextGen system
+
+This root file is the system entry point. It computes the project root
+(script_dir), extends package.path with the lua/, lua/core/, lua/draw/,
+lua/weather/, lua/hardware/ and lua/google/ module directories, sets
+JSON_PATH to the tmp/ cache folder and the icon-base globals, declares
+the THEMES/DEFAULT_THEME configuration and loads the entire engine by
+calling require("require"). It then registers the draw items of the
+bundled widget (a small network panel with download/upload speed
+graphs using ${lua conky_wifi_downspeed} / ${lua conky_wifi_upspeed}),
+defines the lua_hook_exec refresh hook (conky_weather_update) and
+boots the renderer via init_groups(_GROUPS).
+]]--
+
+--{{{
+-- ## Main entry / loader
+--
+-- Sets up global paths and the module search path, defines the theme
+-- configuration and loads every engine module through require("require")
+-- before initializing the item groups with init_groups(). Its own draw
+-- list configures a network/wifi panel in a single "main" view.
+--
+-- **Exposed/global functions:**
+-- - `conky_weather_update()` — lua_hook_exec refresh hook (weather data + alerts)
+--
+-- **Config/globals used:**
+-- `script_dir`, `package.path`, `JSON_PATH`, `ICON_BASE`, `ICON_THEME`,
+-- `MOON_ICON_BASE`, `WIND_ICON_BASE`, `draw`, `THEMES`, `DEFAULT_THEME`,
+-- `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
+-- `require("require")` — central module loader
+-- `conky_load_weather_data()` / `conky_update_alerts()` — used by the refresh hook
+-- `init_groups(_GROUPS)` — final bootstrap of the renderer
+--}}}
+
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

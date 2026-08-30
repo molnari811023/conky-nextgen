@@ -1,5 +1,22 @@
 #!/bin/bash
-
+#{{{
+# ## updates — Arch package update counter
+#
+# Counts the number of available updates from the official repositories
+# (via `checkupdates`) and from the AUR (via the AUR RPC, comparing each
+# installed -Qm package's local version against the remote one with
+# `vercmp`). Writes the two counts ("repo aur") to $TMP_DIR/updates.txt.
+#
+# **What it does:**
+# - Defines require_cmds() and checks curl, jq, pacman, vercmp, checkupdates
+# - Counts repo updates with `checkupdates`
+# - Queries the AUR RPC for all installed foreign packages and uses vercmp to
+#   count those with newer remote versions
+# - Writes "<repo> <aur>" to $TMP_DIR/updates.txt
+#
+# **Environment/requirements:** Arch Linux with pacman, checkupdates,
+# vercmp, curl and jq
+#}}}
 require_cmds() { local m=0; for c in "$@"; do command -v "$c" >/dev/null 2>&1 || { echo "[error] Missing: $c"; m=1; }; done; [ "$m" -eq 1 ] && exit 1; }
 require_cmds curl jq pacman vercmp checkupdates
 

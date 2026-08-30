@@ -1,5 +1,27 @@
 #!/bin/bash
-
+#{{{
+# ## fetch_google — gog-based Google data fetcher
+#
+# Uses the `gog` command-line Google client to pull Gmail, calendar events,
+# tasks, contacts, Drive files, YouTube subscriptions and (optionally) Meet
+# history, emitting each result as JSON into TMP_DIR alongside a matching
+# .err file. Sets GOG_KEYRING_BACKEND=file, a keyring password and the
+# target Google account so gog can authenticate without a prompts.
+#
+# **What it does:**
+# - Exports GOG_KEYRING_BACKEND/file, GOG_KEYRING_PASSWORD and GOG_ACCOUNT
+# - gog_emit(): runs `gog --json --results-only` into <out>.json (+ <out>.err)
+# - fetch_google_gmail/contacts/drive/youtube run in parallel, then
+#   calendar, tasks and meet run sequentially
+# - Outputs $TMP_DIR/gmail_emails.json, calendar_events.json,
+#   tasks_lists.json, tasks.json, contacts.json, drive_files.json,
+#   youtube_subs.json and meet_history.json
+#
+# **Environment/requirements:** needs the `gog` binary present (skips
+# otherwise) and 0_common.sh. Overridable env vars: GOG_KEYRING_BACKEND,
+# GOG_KEYRING_PASSWORD, GOG_ACCOUNT, GOOGLE_CALENDAR_DAYS,
+# GOOGLE_GMAIL_MAX, GOOGLE_TASKS_MAX, GOOGLE_MEET_CODE
+#}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"
 

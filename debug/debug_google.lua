@@ -1,5 +1,34 @@
 #!/usr/bin/env lua
 
+--[[[
+debug/debug_google.lua — standalone debug script that dumps the Google API
+data layer (Gmail, Calendar, Tasks, Contacts, Drive, YouTube, Meet)
+
+Run it directly with the system lua interpreter from the project root:
+`lua debug/debug_google.lua`. It stubs out the Conky environment, resolves the
+project root relative to the script, loads the Google modules, then prints
+counts and a sample of entries for each service.
+]]--
+
+--{{{
+-- ## Google data dump
+--
+-- Loads the Google data layer (google.core + google.data) outside of Conky and
+-- prints a textual dump of everything it exposes, so you can eyeball the JSON
+-- cache and the conky_google_* accessor functions.
+--
+-- **What it does:**
+-- - Stubs conky_parse/conky_window/conky_log and sets the JSON, icon and
+--   theme config globals the modules expect, then loads core.utils,
+--   core.translate, google.core and google.data.
+-- - Prints unread and Gmail counts plus up to 5 sample messages with from,
+--   subject, date and label for existing gmail entries.
+-- - Prints calendar count, tasks count and the first tasks list title.
+-- - Prints contacts count plus up to 10 sample contacts (name / phone).
+-- - Prints Drive count plus up to 5 sample files (name / filesize).
+-- - Prints YouTube and Meet counts.
+--}}}
+
 local function get_root()
   local src = (debug.getinfo(1, 'S').source or arg[0]):match('@(.*)') or arg[0] or '.'
   local dir = src:match('^(.*[/\\])') or './'
