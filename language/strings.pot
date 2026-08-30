@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 20:32+0200\n"
+"POT-Creation-Date: 2026-08-30 12:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -294,7 +294,7 @@ msgid "thunderstorm_with_heavy_hail"
 msgstr ""
 
 ############################################
-# WIND DIRECTIONS
+# WIND DIRECTIONS (SHORT)
 ############################################
 
 msgid "north"
@@ -686,3 +686,1104 @@ msgstr ""
 
 msgid "alert_certainty_unknown"
 msgstr ""
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr ""
+
+msgid "All Disks"
+msgstr ""
+
+msgid "All GPUs"
+msgstr ""
+
+msgid "All GPUs Total Memory"
+msgstr ""
+
+msgid "All GPUs Usage"
+msgstr ""
+
+msgid "All GPUs Used Memory"
+msgstr ""
+
+msgid "All Network Devices"
+msgstr ""
+
+msgid "Application Memory"
+msgstr ""
+
+msgid "Application Memory Percentage"
+msgstr ""
+
+msgid "Average CPU Frequency"
+msgstr ""
+
+msgid "Average CPU Temperature"
+msgstr ""
+
+msgid "Buffer Memory"
+msgstr ""
+
+msgid "Buffer Memory Percentage"
+msgstr ""
+
+msgid "CPU %1"
+msgstr ""
+
+msgid "CPU %1 Core %2"
+msgstr ""
+
+msgid "CPU Pressure"
+msgstr ""
+
+msgid "Cache Memory"
+msgstr ""
+
+msgid "Cache Memory Percentage"
+msgstr ""
+
+msgid "Charge"
+msgstr ""
+
+msgid "Charge Percentage"
+msgstr ""
+
+msgid "Charging  Rate"
+msgstr ""
+
+msgid "Charging Rate"
+msgstr ""
+
+msgid "Core %1"
+msgstr ""
+
+msgid "Current Capacity"
+msgstr ""
+
+msgid "Current Frequency"
+msgstr ""
+
+msgid "Current Temperature"
+msgstr ""
+
+msgid "Design Capacity"
+msgstr ""
+
+msgid "Download Rate"
+msgstr ""
+
+msgid "Free Physical Memory"
+msgstr ""
+
+msgid "Free Physical Memory Percentage"
+msgstr ""
+
+msgid "Free Space"
+msgstr ""
+
+msgid "Free Swap Memory"
+msgstr ""
+
+msgid "Free Swap Memory Percentage"
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Full (1 minute average)"
+msgstr ""
+
+msgid "Full (10 second average)"
+msgstr ""
+
+msgid "Full (5 minute average)"
+msgstr ""
+
+msgid "GPU"
+msgstr ""
+
+msgid "Health"
+msgstr ""
+
+msgid "Hostname"
+msgstr ""
+
+msgid "IO Pressure"
+msgstr ""
+
+msgid "IPv4 Address"
+msgstr ""
+
+msgid "IPv4 DNS"
+msgstr ""
+
+msgid "IPv4 Gateway"
+msgstr ""
+
+msgid "IPv4 Subnet Mask"
+msgstr ""
+
+msgid "IPv4 with Prefix Length"
+msgstr ""
+
+msgid "IPv6 Address"
+msgstr ""
+
+msgid "IPv6 DNS"
+msgstr ""
+
+msgid "IPv6 Gateway"
+msgstr ""
+
+msgid "IPv6 Subnet Mask"
+msgstr ""
+
+msgid "IPv6 with Prefix Length"
+msgstr ""
+
+msgid "KDE Frameworks Version"
+msgstr ""
+
+msgid "KDE Plasma"
+msgstr ""
+
+msgid "KDE Plasma Version"
+msgstr ""
+
+msgid "Kernel"
+msgstr ""
+
+msgid "Kernel Name"
+msgstr ""
+
+msgid "Kernel Name and Version"
+msgstr ""
+
+msgid "Kernel Version"
+msgstr ""
+
+msgid "Load Averages"
+msgstr ""
+
+msgid "Load average (1 minute)"
+msgstr ""
+
+msgid "Load average (15 minute)"
+msgstr ""
+
+msgid "Load average (5 minutes)"
+msgstr ""
+
+msgid "Maximum CPU Frequency"
+msgstr ""
+
+msgid "Maximum CPU Temperature"
+msgstr ""
+
+msgid "Memory"
+msgstr ""
+
+msgid "Memory Frequency"
+msgstr ""
+
+msgid "Memory Pressure"
+msgstr ""
+
+msgid "Minimum CPU Frequency"
+msgstr ""
+
+msgid "Minimum CPU Temperature"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Network Devices"
+msgstr ""
+
+msgid "Network Name"
+msgstr ""
+
+msgid "Number of CPUs"
+msgstr ""
+
+msgid "Number of Cores"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "Operating System Logo"
+msgstr ""
+
+msgid "Operating System Name"
+msgstr ""
+
+msgid "Operating System Name and Version"
+msgstr ""
+
+msgid "Operating System URL"
+msgstr ""
+
+msgid "Operating System Version"
+msgstr ""
+
+msgid "Percentage Free"
+msgstr ""
+
+msgid "Percentage Used"
+msgstr ""
+
+msgid "Physical Memory"
+msgstr ""
+
+msgid "Power"
+msgstr ""
+
+msgid "Pressure"
+msgstr ""
+
+msgid "Qt Version"
+msgstr ""
+
+msgid "Read Rate"
+msgstr ""
+
+msgid "Signal Strength"
+msgstr ""
+
+msgid "Some (1 minute average)"
+msgstr ""
+
+msgid "Some (10 second average)"
+msgstr ""
+
+msgid "Some (5 minute average)"
+msgstr ""
+
+msgid "Swap Memory"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "System Usage"
+msgstr ""
+
+msgid "Temperature"
+msgstr ""
+
+msgid "Total Downloaded"
+msgstr ""
+
+msgid "Total Full Stall Time"
+msgstr ""
+
+msgid "Total Physical Memory"
+msgstr ""
+
+msgid "Total Some Stall Time"
+msgstr ""
+
+msgid "Total Space"
+msgstr ""
+
+msgid "Total Swap Memory"
+msgstr ""
+
+msgid "Total Uploaded"
+msgstr ""
+
+msgid "Total Usage"
+msgstr ""
+
+msgid "Total Video Memory"
+msgstr ""
+
+msgid "Upload Rate"
+msgstr ""
+
+msgid "Uptime"
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
+msgid "Used Physical Memory"
+msgstr ""
+
+msgid "Used Physical Memory Percentage"
+msgstr ""
+
+msgid "Used Space"
+msgstr ""
+
+msgid "Used Swap Memory"
+msgstr ""
+
+msgid "Used Swap Memory Percentage"
+msgstr ""
+
+msgid "User Usage"
+msgstr ""
+
+msgid "Video Memory Used"
+msgstr ""
+
+msgid "Video Usage"
+msgstr ""
+
+msgid "Wait Usage"
+msgstr ""
+
+msgid "Window System"
+msgstr ""
+
+msgid "Write Rate"
+msgstr ""
+
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Sent"
+msgstr ""
+
+msgid "Drafts"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+msgid "Trash"
+msgstr ""
+
+msgid "Archive"
+msgstr ""
+
+msgid "Folders"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Bcc"
+msgstr ""
+
+msgid "Cc"
+msgstr ""
+
+msgid "Priority"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Attachment"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "Attachment Properties"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "Reply to All"
+msgstr ""
+
+msgid "Forward"
+msgstr ""
+
+msgid "Attach a file"
+msgstr ""
+
+msgid "Compose Message"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Accounts"
+msgstr ""
+
+msgid "Folder"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Calendar"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Events"
+msgstr ""
+
+msgid "Meeting"
+msgstr ""
+
+msgid "Appointment"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Week"
+msgstr ""
+
+msgid "Month"
+msgstr ""
+
+msgid "Year"
+msgstr ""
+
+msgid "Tasks"
+msgstr ""
+
+msgid "Task"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "End"
+msgstr ""
+
+msgid "All day:"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Reminders"
+msgstr ""
+
+msgid "Busy"
+msgstr ""
+
+msgid "Free"
+msgstr ""
+
+msgid "Private"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "Recurring"
+msgstr ""
+
+msgid "Recurrence"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "Delete Task"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Print…"
+msgstr ""
+
+msgid "Undo"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "January"
+msgstr ""
+
+msgid "February"
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "April"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
+msgid "September"
+msgstr ""
+
+msgid "October"
+msgstr ""
+
+msgid "November"
+msgstr ""
+
+msgid "December"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Load"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Completed"
+msgstr ""
+
+msgid "Unread Messages"
+msgstr ""
+
+msgid "Important"
+msgstr ""
+
+msgid "Flagged"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Select All"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+msgid "Updated"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Attendee"
+msgstr ""
+
+msgid "Attendees"
+msgstr ""
+
+msgid "Tentative"
+msgstr ""
+
+msgid "Free/Busy"
+msgstr ""
+
+msgid "Timezone"
+msgstr ""
+
+msgid "UTC"
+msgstr ""
+
+msgid "Daily"
+msgstr ""
+
+msgid "Weekly"
+msgstr ""
+
+msgid "Holiday"
+msgstr ""
+
+msgid "Birthday"
+msgstr ""
+
+msgid "Anniversary"
+msgstr ""
+
+msgid "Out of Office"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Now"
+msgstr ""
+
+msgid "Task List"
+msgstr ""
+
+msgid "To Do"
+msgstr ""
+
+msgid "Due date"
+msgstr ""
+
+msgid "Assigned"
+msgstr ""
+
+msgid "Overdue Tasks"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Clear All"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Username:"
+msgstr ""
+
+msgid "Accept meeting request"
+msgstr ""
+
+msgid "Decline meeting request"
+msgstr ""
+
+msgid "Accepted"
+msgstr ""
+
+msgid "Declined"
+msgstr ""
+
+msgid "Forward message"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Due"
+msgstr ""
+
+msgid "Due Date:"
+msgstr ""
+
+msgid "Complete"
+msgstr ""
+
+msgid "Completed Tasks"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Fax"
+msgstr ""
+
+msgid "Work"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Company"
+msgstr ""
+
+msgid "High"
+msgstr ""
+
+msgid "Low"
+msgstr ""
+
+msgid "Website"
+msgstr ""
+
+msgid "Recent"
+msgstr ""
+
+msgid "Reminder"
+msgstr ""
+
+msgid "Starred"
+msgstr ""
+
+msgid "Star"
+msgstr ""
+
+msgid "Mute"
+msgstr ""
+
+msgid "Snooze"
+msgstr ""
+
+msgid "Snoozed"
+msgstr ""
+
+msgid "Promotions"
+msgstr ""
+
+msgid "Updates"
+msgstr ""
+
+msgid "Social"
+msgstr ""
+
+msgid "Forums"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "Sign out"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "No new mail"
+msgstr ""
+
+msgid "No messages"
+msgstr ""
+
+msgid "Last updated"
+msgstr ""
+
+msgid "Retry"
+msgstr ""
+
+msgid "Connected"
+msgstr ""
+
+msgid "Disconnected"
+msgstr ""
+
+msgid "Sync"
+msgstr ""
+
+msgid "No upcoming events"
+msgstr ""
+
+msgid "Nothing scheduled"
+msgstr ""
+
+msgid "Mark all as read"
+msgstr ""
+
+msgid "Agenda"
+msgstr ""
+
+msgid "All Mail"
+msgstr ""
+
+msgid "Move to"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
+
+msgid "Add task"
+msgstr ""
+
+msgid "New task"
+msgstr ""
+
+msgid "Edit task"
+msgstr ""
+
+msgid "Task details"
+msgstr ""
+
+msgid "Task list"
+msgstr ""
+
+msgid "To Do list"
+msgstr ""
+
+msgid "Subtasks"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Priority: High"
+msgstr ""
+
+msgid "Priority: Medium"
+msgstr ""
+
+msgid "Priority: Low"
+msgstr ""
+
+msgid "Mark complete"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Job title"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Drive"
+msgstr ""
+
+msgid "Storage"
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "Quota"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Recent files"
+msgstr ""
+
+msgid "Shared with me"
+msgstr ""
+
+msgid "My Drive"
+msgstr ""
+
+msgid "Folder size"
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+msgid "Videos"
+msgstr ""
+
+msgid "Channel"
+msgstr ""
+
+msgid "Channels"
+msgstr ""
+
+msgid "Subscription"
+msgstr ""
+
+msgid "Subscriptions"
+msgstr ""
+
+msgid "Views"
+msgstr ""
+
+msgid "Uploads"
+msgstr ""
+
+msgid "Latest"
+msgstr ""
+
+msgid "Watch"
+msgstr ""
+
+msgid "Playlists"
+msgstr ""
+
+msgid "Comments"
+msgstr ""
+
+msgid "Meeting code"
+msgstr ""
+
+msgid "Join"
+msgstr ""
+
+msgid "Join now"
+msgstr ""
+
+msgid "Ongoing"
+msgstr ""
+
+msgid "Ended"
+msgstr ""
+
+msgid "History"
+msgstr ""
+
+msgid "Past calls"
+msgstr ""
+
+msgid "Leave"
+msgstr ""
+
+msgid "Participants"
+msgstr ""
+
+msgid "Pin"
+msgstr ""
+
+msgid "Pinned"
+msgstr ""
+
+msgid "Checklist"
+msgstr ""
+
+msgid "Space"
+msgstr ""
+
+msgid "Spaces"
+msgstr ""
+
+msgid "Direct message"
+msgstr ""
+
+msgid "Direct messages"
+msgstr ""
+
+msgid "Mentions"
+msgstr ""
+
+msgid "Thread"
+msgstr ""
+
+msgid "Threads"
+msgstr ""
+
+msgid "Group chat"
+msgstr ""
+
+msgid "Reaction"
+msgstr ""
+
+msgid "React"
+msgstr ""
+
