@@ -680,3 +680,361 @@ msgstr "Malo vjerojatno"
 
 msgid "alert_certainty_unknown"
 msgstr "Nepoznato"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Sve"
+
+msgid "All Disks"
+msgstr "Svi diskovi"
+
+msgid "All GPUs"
+msgstr "Svi GPU-i"
+
+msgid "All GPUs Total Memory"
+msgstr "Ukupna memorija svih GPU-a"
+
+msgid "All GPUs Usage"
+msgstr "Korištenje svih GPU-a"
+
+msgid "All GPUs Used Memory"
+msgstr "Zauzeta memorija svih GPU-a"
+
+msgid "All Network Devices"
+msgstr "Svi mrežni uređaji"
+
+msgid "Application Memory"
+msgstr "Memorija aplikacija"
+
+msgid "Application Memory Percentage"
+msgstr "Postotak memorije aplikacija"
+
+msgid "Average CPU Frequency"
+msgstr "Prosječna CPU frekvencija"
+
+msgid "Average CPU Temperature"
+msgstr "Prosječna CPU temperatura"
+
+msgid "Buffer Memory"
+msgstr "Međuspremnička memorija"
+
+msgid "Buffer Memory Percentage"
+msgstr "Postotak međuspremničke memorije"
+
+msgid "CPU %1"
+msgstr "CPU %1"
+
+msgid "CPU %1 Core %2"
+msgstr "CPU %1 jezgra %2"
+
+msgid "CPU Pressure"
+msgstr "CPU pritisak"
+
+msgid "Cache Memory"
+msgstr "Predmemorija"
+
+msgid "Cache Memory Percentage"
+msgstr "Postotak predmemorije"
+
+msgid "Charge"
+msgstr "Napunjenost"
+
+msgid "Charge Percentage"
+msgstr "Postotak napunjenosti"
+
+msgid "Charging  Rate"
+msgstr "Brzina punjenja"
+
+msgid "Charging Rate"
+msgstr "Brzina punjenja"
+
+msgid "Core %1"
+msgstr "Jezgra %1"
+
+msgid "Current Capacity"
+msgstr "Trenutni kapacitet"
+
+msgid "Current Frequency"
+msgstr "Trenutna frekvencija"
+
+msgid "Current Temperature"
+msgstr "Trenutna temperatura"
+
+msgid "Design Capacity"
+msgstr "Dizajniran kapacitet"
+
+msgid "Download Rate"
+msgstr "Brzina preuzimanja"
+
+msgid "Free Physical Memory"
+msgstr "Slobodna fizička memorija"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Postotak slobodne fizičke memorije"
+
+msgid "Free Space"
+msgstr "Slobodni prostor"
+
+msgid "Free Swap Memory"
+msgstr "Slobodna swap memorija"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Postotak slobodne swap memorije"
+
+msgid "Frequency"
+msgstr "Frekvencija"
+
+msgid "Full (1 minute average)"
+msgstr "Puno (prosjek 1 minuta)"
+
+msgid "Full (10 second average)"
+msgstr "Puno (prosjek 10 sekundi)"
+
+msgid "Full (5 minute average)"
+msgstr "Puno (prosjek 5 minuta)"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "Health"
+msgstr "Zdravlje"
+
+msgid "Hostname"
+msgstr "Naziv računala"
+
+msgid "IO Pressure"
+msgstr "IO pritisak"
+
+msgid "IPv4 Address"
+msgstr "IPv4 adresa"
+
+msgid "IPv4 DNS"
+msgstr "IPv4 DNS"
+
+msgid "IPv4 Gateway"
+msgstr "IPv4 pristupnik"
+
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4 mrežna maska"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 s duljinom prefiksa"
+
+msgid "IPv6 Address"
+msgstr "IPv6 adresa"
+
+msgid "IPv6 DNS"
+msgstr "IPv6 DNS"
+
+msgid "IPv6 Gateway"
+msgstr "IPv6 pristupnik"
+
+msgid "IPv6 Subnet Mask"
+msgstr "IPv6 mrežna maska"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6 s duljinom prefiksa"
+
+msgid "KDE Frameworks Version"
+msgstr "Verzija KDE okvira"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "KDE Plasma Version"
+msgstr "Verzija KDE Plasma"
+
+msgid "Kernel"
+msgstr "Jezgra"
+
+msgid "Kernel Name"
+msgstr "Naziv jezgre"
+
+msgid "Kernel Name and Version"
+msgstr "Naziv i verzija jezgre"
+
+msgid "Kernel Version"
+msgstr "Verzija jezgre"
+
+msgid "Load Averages"
+msgstr "Prosjeci opterećenja"
+
+msgid "Load average (1 minute)"
+msgstr "Prosjek opterećenja (1 minuta)"
+
+msgid "Load average (15 minute)"
+msgstr "Prosjek opterećenja (15 minuta)"
+
+msgid "Load average (5 minutes)"
+msgstr "Prosjek opterećenja (5 minuta)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Maksimalna CPU frekvencija"
+
+msgid "Maximum CPU Temperature"
+msgstr "Maksimalna CPU temperatura"
+
+msgid "Memory"
+msgstr "Memorija"
+
+msgid "Memory Frequency"
+msgstr "Frekvencija memorije"
+
+msgid "Memory Pressure"
+msgstr "Pritisak memorije"
+
+msgid "Minimum CPU Frequency"
+msgstr "Minimalna CPU frekvencija"
+
+msgid "Minimum CPU Temperature"
+msgstr "Minimalna CPU temperatura"
+
+msgid "Name"
+msgstr "Naziv"
+
+msgid "Network Devices"
+msgstr "Mrežni uređaji"
+
+msgid "Network Name"
+msgstr "Naziv mreže"
+
+msgid "Number of CPUs"
+msgstr "Broj CPU-a"
+
+msgid "Number of Cores"
+msgstr "Broj jezgri"
+
+msgid "Operating System"
+msgstr "Operativni sustav"
+
+msgid "Operating System Logo"
+msgstr "Logotip operativnog sustava"
+
+msgid "Operating System Name"
+msgstr "Naziv operativnog sustava"
+
+msgid "Operating System Name and Version"
+msgstr "Naziv i verzija operativnog sustava"
+
+msgid "Operating System URL"
+msgstr "URL operativnog sustava"
+
+msgid "Operating System Version"
+msgstr "Verzija operativnog sustava"
+
+msgid "Percentage Free"
+msgstr "Postotak slobodno"
+
+msgid "Percentage Used"
+msgstr "Postotak iskorišteno"
+
+msgid "Physical Memory"
+msgstr "Fizička memorija"
+
+msgid "Power"
+msgstr "Napon"
+
+msgid "Pressure"
+msgstr "Pritisak"
+
+msgid "Qt Version"
+msgstr "Qt verzija"
+
+msgid "Read Rate"
+msgstr "Brzina čitanja"
+
+msgid "Signal Strength"
+msgstr "Jačina signala"
+
+msgid "Some (1 minute average)"
+msgstr "Djelomično (prosjek 1 minuta)"
+
+msgid "Some (10 second average)"
+msgstr "Djelomično (prosjek 10 sekundi)"
+
+msgid "Some (5 minute average)"
+msgstr "Djelomično (prosjek 5 minuta)"
+
+msgid "Swap Memory"
+msgstr "Swap memorija"
+
+msgid "System"
+msgstr "Sustav"
+
+msgid "System Usage"
+msgstr "Korištenje sustava"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "Total Downloaded"
+msgstr "Ukupno preuzeto"
+
+msgid "Total Full Stall Time"
+msgstr "Ukupno vrijeme potpune blokade"
+
+msgid "Total Physical Memory"
+msgstr "Ukupna fizička memorija"
+
+msgid "Total Some Stall Time"
+msgstr "Ukupno vrijeme djelomične blokade"
+
+msgid "Total Space"
+msgstr "Ukupni prostor"
+
+msgid "Total Swap Memory"
+msgstr "Ukupna swap memorija"
+
+msgid "Total Uploaded"
+msgstr "Ukupno otpremljeno"
+
+msgid "Total Usage"
+msgstr "Ukupno korištenje"
+
+msgid "Total Video Memory"
+msgstr "Ukupna video memorija"
+
+msgid "Upload Rate"
+msgstr "Brzina otpremanja"
+
+msgid "Uptime"
+msgstr "Vrijeme rada"
+
+msgid "Usage"
+msgstr "Korištenje"
+
+msgid "Used Physical Memory"
+msgstr "Zauzeta fizička memorija"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Postotak zauzete fizičke memorije"
+
+msgid "Used Space"
+msgstr "Zauzeti prostor"
+
+msgid "Used Swap Memory"
+msgstr "Zauzeta swap memorija"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Postotak zauzete swap memorije"
+
+msgid "User Usage"
+msgstr "Korištenje korisnika"
+
+msgid "Video Memory Used"
+msgstr "Korištena video memorija"
+
+msgid "Video Usage"
+msgstr "Korištenje video"
+
+msgid "Wait Usage"
+msgstr "Korištenje čekanja"
+
+msgid "Window System"
+msgstr "Prozorski sustav"
+
+msgid "Write Rate"
+msgstr "Brzina pisanja"
