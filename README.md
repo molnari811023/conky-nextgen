@@ -64,6 +64,37 @@ The weather widget supports 3 views with clickable labels — click any label to
 
 ---
 
+## Google Dashboard (experimental)
+
+A Google widget showing Gmail, Calendar, Tasks, Contacts, Drive, YouTube and Meet
+in a compact dashboard. Data is pulled with **gogcli** (`gog`) — a command-line
+Google API client that stores OAuth credentials in a local keyring, so no API
+keys are embedded in the config.
+
+```
+# First-time setup (once)
+gog auth login --client default
+export GOG_KEYRING_BACKEND=file GOG_KEYRING_PASSWORD=conky-google-dashboard
+
+# Fetch all Google data into tmp/ (JSON)
+bash sh/0_fetch_all.sh google
+```
+
+- **Gmail** — recent messages (subject, sender, date, label), unread count
+- **Calendar** — upcoming events
+- **Tasks** — task lists and items
+- **Contacts** — name + phone list
+- **Drive** — file listing and sizes
+- **YouTube** — subscriptions
+- **Meet** — meeting history (needs a meeting code)
+
+Clicking an email opens the thread in the browser via `sh/gog_open_mail.sh`.
+
+> **Status: under testing** — the data fetching and Lua processing modules work,
+> the dashboard widget is still being developed. Watch this space.
+
+---
+
 ## What NextGen Provides
 
 - **Desktop widgets** — clocks, calendars, bars, rings, graphs, images, SVG
@@ -139,7 +170,7 @@ A single `widget.lua` file defines:
 ### Load Order
 
 ```
-widget.lua → require.lua → lua/core/* → lua/draw/* → lua/hardware/* → lua/weather/*
+widget.lua → require.lua → lua/core/* → lua/draw/* → lua/hardware/* → lua/weather/* → lua/google/*
 ```
 
 ### Core Modules
@@ -234,6 +265,8 @@ Bash scripts fetch all external data into `tmp/`:
  | `13_fetch_maps.sh` | Weather map tiles |
 | `fetch_network.sh` | Public IP, ping latency tests |
 | `fetch_nowplaying.sh` | MPRIS player data via playerctl |
+| `fetch_google.sh` | Gmail, Calendar, Tasks, Contacts, Drive, YouTube, Meet via `gog` |
+| `gog_open_mail.sh` | Open a Gmail thread in the browser from a message id |
 | `updates.sh` | Arch Linux package update checks |
 
 Data is cached as JSON in `tmp/` and read directly by the Lua modules — no database required.
@@ -265,7 +298,7 @@ Themes can be switched at runtime from the Designer's Theme tab. Widgets can ove
 - **Bash** + curl + jq — for data fetchers
 - **Lua modules**: dkjson, lfs, lua-utf8 (optional: lpeg for faster JSON decoding)
 - **System tools**: lm-sensors, playerctl, upower, lsblk
-- **Optional**: XDG icon themes, `kio-extras` (MTP support under KDE Plasma)
+- **Optional**: XDG icon themes, `kio-extras` (MTP support under KDE Plasma), `gog` (Google dashboard)
 
 ## Documentation Status
 
