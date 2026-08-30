@@ -1,3 +1,34 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## widget_schema.py
+#
+# Headless widget/schema metadata (no GTK/Qt): the single source of truth
+# for the designer widget property panel and Lua generation. Defines a
+# `Kind` enum of editor kinds, shared `PropertySpec` field templates
+# (grouped by section), per-type property lists with defaults and label
+# overrides, and a small public API to query them. Modeled on Conky-Studio's
+# registry.py, replacing the legacy WIDGET_TYPE_FIELDS / WIDGET_DEFAULTS.
+#
+# **Exposed/global:**
+# - `Kind` — editor kind constants (int, enum, string, color, stops, ...)
+# - `PropertySpec` — frozen dataclass describing one widget property
+# - `WidgetSpec` — frozen dataclass describing one widget type
+# - `widgets()` — ordered list of WidgetSpec
+# - `widget_types()` — ordered list of widget type names
+# - `props_for(wtype)` — ordered PropertySpec list for one widget type
+# - `spec_for(key)` — shared PropertySpec template for a key (or None)
+# - `defaults_for(wtype)` — {key: default} dict (legacy WIDGET_DEFAULTS)
+# - `field_order()` — canonical leftover ordering (legacy FIELD_ORDER)
+# - `string_fields()` — keys always coerced to strings
+#
+# **Used by / input data:** consumes no files; supplies the designer
+# property panel and Lua generation with field kinds, defaults and order.
+#}}}
 """PropertySpec metadata for designer widgets.
 
 Headless (no GTK/Qt) — single source of truth for the widget property panel

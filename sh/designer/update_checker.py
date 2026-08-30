@@ -1,3 +1,32 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## update_checker.py
+#
+# Checks the GitHub repo for new versions at startup by querying the
+# GitHub commits API for the latest HEAD commit SHA and comparing it
+# with a locally persisted SHA in nextgen_version.txt. Reports one of
+# "update_avail", "up_to_date", "dev_build" or "unknown", running in a
+# daemon thread so the UI is never blocked; the result callback is
+# dispatched via GLib.idle_add so it may touch GTK widgets.
+#
+# **Exposed/global:**
+# - `check_for_update(callback)` — start the async check; calls
+#   `callback(status, remote_sha, local_sha)` on the main thread
+# - `save_current_version(sha)` — explicitly persist a known SHA
+# - `VERSION_FILE` — path of the stored local SHA file
+# - `GITHUB_API` — GitHub commits API URL
+# - `REPO_URL` — repository home page URL
+#
+# **Usage / dependencies:**
+# - urllib.request/urllib.error (HTTP API query), `json`, `threading`,
+#   `os`; optional PyGObject `GLib` (idle dispatch); `CONKY_DIR` from
+#   `utils`
+#}}}
 """GitHub update checker for the NextGen Designer.
 
 On startup queries the GitHub API for the latest commit SHA of the repo,

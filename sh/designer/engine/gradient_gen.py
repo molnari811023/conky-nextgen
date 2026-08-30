@@ -1,3 +1,33 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## gradient_gen.py
+#
+# Standalone gradient / palette generator (no Lua writes). Color math,
+# OKLab perceptual interpolation, interpolation modes (linear/log/exp/
+# sine), stop normalization/sampling and shade generation used by the
+# designer's "Gradient" tab. All output follows the framework's
+# gradient-stop format `{ { pos, "#rrggbb", alpha }, ... }`.
+#
+# **Exposed/global:**
+# - `hex_to_rgb` / `rgb_to_hex` — hex ↔ (r, g, b) conversion
+# - `mix(c1, c2, t)` — linear RGB mix
+# - `mix_oklab(c1, c2, t)` — perceptual mix in OKLab space
+# - `remap_t(t, mode)` — remap 0..1 progress by interpolation mode
+# - `normalize_stops(stops)` — sorted merged (pos, hex, alpha) tuples
+# - `sample_stops(stops, t, mode)` — gradient at t → (r, g, b, a)
+# - `discrete_swatches(stops, n, mode)` — n sampled colors
+# - `format_lua_stops(stops)` — stops → Lua table string (THEMES block)
+# - `format_hex_palette(swatches)` — swatches → comma-separated hex list
+# - `shade_colors(hexc, steps)` — darker → base → lighter shades
+#
+# **Used by / input data:** designer "Gradient" tab; produces stops for
+# the THEMES block and palette lists written by theme_writer.
+#}}}
 """
 gradient_gen.py — Standalone gradient / palette generator (no Lua writes).
 

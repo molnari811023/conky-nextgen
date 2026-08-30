@@ -1,3 +1,28 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## activity_log.py
+#
+# Thread-safe in-memory error/activity log for the designer GUI. Messages
+# from the conky runs, the Lua probe and the render subprocess are stored
+# as (timestamp, source, line) tuples and shown LIVE in a log window —
+# nothing gets hidden. Consecutive duplicate entries collapse into one
+# line to avoid spam, and listeners are notified on every change.
+#
+# **Exposed/global:**
+# - `add(source, message)` — append a timestamped message (deduped)
+# - `clear()` — reset the log
+# - `entries()` — thread-safe snapshot of all entries
+# - `subscribe(cb)` / `unsubscribe(cb)` — listener registration
+#
+# **Used by / input data:** collects errors/activity surfaced by conky
+# runs, the Lua probe and the render subprocess; drives the designer's
+# live log window.
+#}}}
 """In-memory error/activity log for the designer GUI.
 
 Errors surfaced by the conky runs, the Lua probe and the render

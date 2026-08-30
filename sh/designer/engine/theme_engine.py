@@ -1,3 +1,30 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## theme_engine.py
+#
+# Theme engine — Python reimplementation of the Lua theme_engine.lua
+# (widget.lua THEMES block). Loads themes through lua_parser, resolves a
+# theme and its named gradients, and applies per-widget-type defaults to
+# a draw item: gradient name references become stop lists, missing color
+# fields are filled from the theme, and all color stops are normalized to
+# `[pos, hex, alpha]` lists.
+#
+# **Exposed/global:**
+# - `load_themes(filepath)` — parse themes into global THEMES (with defaults)
+# - `resolve_theme(name)` — theme dict, falling back to DEFAULT_THEME
+# - `resolve_gradient(theme_name, gradient_name)` — stops or None
+# - `apply_theme(item)` — fill missing color fields on a widget item in place
+# - `_normalize_stops(val)` — coerce gradient stops to [pos, hex, alpha] lists
+#
+# **Used by / input data:** reads the widget.lua THEMES block via
+# lua_parser.parse_themes_lua; mirror of the Lua theme_engine.lua, applied
+# to widget items before preview/render in the designer.
+#}}}
 """
 Theme engine — Python reimplementation of Lua theme_engine.lua
 (widget.lua THEMES block).

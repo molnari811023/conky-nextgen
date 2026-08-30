@@ -1,3 +1,26 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## lua_data.py
+#
+# Scans the project's lua/ source for the `conky_*` data functions and
+# builds a {name: {args, source}} catalog for the designer's function
+# picker. It also derives `conky_unit_*` / `conky_city_*` getters from the
+# static map tables in weather/core.lua and weather/units.lua. Nothing is
+# evaluated here — the live preview is the real conky, not a Python
+# renderer, so the old probe machinery is gone.
+#
+# **Exposed/global:**
+# - `list_conky_functions()` — {name: {args: (names), source: relpath}}
+#
+# **Used by / input data:** walks lua/hardware/*.lua, lua/weather/*.lua
+# and lua/nowplaying.lua plus the weather map tables; feeds the designer's
+# function picker (control/draw helpers excluded).
+#}}}
 """List the project's conky_* Lua functions for the designer's function picker.
 
 The project's data layer (lua/hardware/*.lua, lua/weather/*.lua,

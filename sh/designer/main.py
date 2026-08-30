@@ -1,4 +1,48 @@
 #!/usr/bin/env python3
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## NextGen Designer — Main
+#
+# GTK3 desktop app for visually editing a Conky NextGen widget.lua: it parses
+# the widget Lua (draw list, groups, views, settings), lets the user edit items,
+# their properties, groups, and views inside notebook tabs, renders a live Conky
+# preview that can be started/stopped/restarted, exports per-view PNG captures,
+# and writes the edited Lua plus a matching .conf back to disk. The target
+# directory (conky-nextgen root containing widget.lua + lua/) is resolved by
+# _find_conky_dir() with the priority: --conky-dir flag > CONKY_NEXTGEN_DIR env
+# var > ~/.config/conky-designer.conf (conky_dir = /path) > in-tree layout.
+#
+# **Main classes:**
+# - `DesignerWindow` — the single top-level Gtk.Window application; __init__
+#   builds the whole UI (_setup_ui), loads/parses the widget Lua (_init_empty /
+#   _reload), and manages state; it owns all editing, preview, and save logic.
+#
+# **Entry point / flow:**
+# - `main()` constructs a `DesignerWindow`, wires delete-event to the dirty
+#   checker and destroy to Gtk.main_quit, shows the window, kicks off an
+#   asynchronous update check (check_for_update), enters the GTK main loop, and
+#   on exit removes the temporary WORK_DIR. Missed by the class because it is a
+#   module-level function; the app itself runs until the loop quits.
+#
+# **Notable features** (those implemented in the code):
+# - Target dir resolution via _find_conky_dir() (flag/env/config/in-tree).
+# - Notebook tabs: Items, Groups, Views, Mouse, Theme (Palette/Gradients/
+#   Defaults), Conky, Custom Lua, Weather & Icons.
+# - Property editor with type-aware entries (spin/bool/combo/path/code),
+#   commit-on-Enter, theme-default highlighting, and add/delete of items,
+#   groups, and views.
+# - Live Conky preview management: start/stop/restart/stop-all, SIGUSR1 reload,
+#   state polling, watchdog, log tail, and dev-console log window.
+# - Per-view PNG capture/export (_export_pngs/_capture_step) with auto-reload.
+# - Write-on-save: emits the generated Lua, .conf, and PNGs via _atomic_write.
+# - Autosave of window size/position and dirty-tracking in the window title.
+# - In-app help/About dialogs and an update check against the GitHub repo.
+#}}}
 """
 NextGen Designer — GTK3 visual editor for widget.lua.
 

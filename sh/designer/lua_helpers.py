@@ -1,3 +1,29 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## Lua_Helpers
+#
+# Lua code-generation helpers: turn Python dicts into Lua table strings for
+# draw items, widget groups and views, and emit/parse the MOUSE_* action block.
+# Values are escaped for Lua and theme-matching fields can be omitted via
+# theme_defaults; global mouse function names are extracted from Lua sources.
+#
+# **Exposed/global:**
+# - `_lua_view_str(val)` — renders a view field ('main, view_1' → 'view = { "main", "view_1" }')
+# - `generate_lua_entry(item, theme_defaults=None)` — returns a Lua table string for one draw item
+# - `generate_groups_lua(groups)` — returns the _GROUPS Lua table string
+# - `generate_views_lua(views)` — returns the _VIEWS Lua table string
+# - `MOUSE_ACTIONS` — list of (MOUSE_*_ACTION constant, human label) pairs
+# - `MOUSE_ACTIONS_LUA` — path to lua/mouse_actions.lua under CONKY_DIR
+# - `FUNCTION_SOURCES` — Lua files scanned for global function names
+# - `parse_mouse_functions(filepaths)` — extracts global function names from Lua files
+# - `parse_mouse_actions(content)` — parses MOUSE_*_ACTION lines from widget.lua content
+# - `generate_mouse_actions_lua(mouse_actions, enabled=True)` — emits the MOUSE_* block Lua string
+#}}}
 """Lua code generation helpers for draw items, groups, views, mouse actions."""
 import os
 import re

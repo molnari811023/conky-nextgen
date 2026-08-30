@@ -1,3 +1,37 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## utils.py
+#
+# Shared helpers for the designer: resolves the conky-nextgen root
+# (--conky-dir flag, CONKY_NEXTGEN_DIR env var, ~/.config
+# /conky-designer.conf, or the in-tree layout), persists/restores the
+# main window state (maximized flag + size) in a JSON file, clamps a
+# window size to the monitor workarea, and offers small widgets
+# helpers: list summary hints, Lua string escaping and a height
+# heuristic for stacking newly added widget items.
+#
+# **Exposed/global:**
+# - `_find_conky_dir()` — resolve the conky-nextgen root directory
+# - `_load_window_state()` — read saved window state JSON
+# - `_save_window_state(win)` — write window state (maximized/size)
+# - `_clamp_size(w, h)` — clamp a size to the current monitor workarea
+# - `_item_summary(item, max_len=28)` — short hint text for the items list
+# - `_lua_escape(s)` — escape a string into a Lua double-quoted literal
+# - `_infer_item_height(item)` — estimated height for stacking new widgets
+# - `CONKY_DIR`, `HERE`, `STATE_FILE`, `WIDGET_LUA`, `MAIN_LUA`,
+#   `ICON_PATH`, `THEME_NAME`, `WORK_DIR`, `LIVE_CLEAR_LUA`, `HELP_DIR`,
+#   `CONKY_MAN_GZ`, `CONKY_MANUAL_HTML`, `NEXTGEN_MD`,
+#   `NEXTGEN_HANDBOOK_HTML` — resolved paths and constant globals
+#
+# **Usage / dependencies:**
+# - PyGObject `Gdk` (window state + workarea), stdlib `sys`, `os`,
+#   `re`, `json`, `tempfile`
+#}}}
 """Path resolution, window state, and small utility functions."""
 import sys
 import os

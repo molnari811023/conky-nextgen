@@ -1,3 +1,33 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## color_picker.py
+#
+# A GTK 3 color-picker button that behaves like a Gtk.ColorButton
+# (set_rgba()/get_rgba() + "color-set" signal) but adds a screen
+# eyedropper. Sampling goes through KWin's compositor-side ColorPicker
+# D-Bus service on Wayland; if unavailable, it falls back to a
+# spectacular/ImageMagick screenshot of the current screen shown in a
+# fullscreen overlay with a crosshair cursor and a zoomed magnifier.
+# The built-in GTK eyedropper is hidden because it does not work on
+# Wayland.
+#
+# **Exposed/global:**
+# - `ColorPickButton(Gtk.Button)` — colour swatch button opening a
+#   Gtk.ColorChooserDialog, with on-screen color picking
+# - `ColorPickButton.get_rgba()` — return the current Gdk.RGBA
+# - `ColorPickButton.set_rgba(rgba)` — set the current Gdk.RGBA
+#
+# **Usage / dependencies:** (only what the actual code uses)
+# - PyGObject (Gtk 3.0, Gdk, GdkPixbuf, GLib, GObject); optional PIL/Pillow
+#   for the screenshot-fallback overlay; subprocess + `gdbus` (KWin
+#   ColorPicker), `spectacle`/ImageMagick `import` for screen grabs;
+#   `os`/`re`; `WORK_DIR` from `utils`
+#}}}
 """Custom color picker button with screen eyedropper support."""
 import os
 import re

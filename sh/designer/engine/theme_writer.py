@@ -1,3 +1,28 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## theme_writer.py
+#
+# Serializes the THEMES dict back into the inline `THEMES = { ... }`
+# block at the top of widget.lua (palette, gradients and per-widget-type
+# defaults) using fixed Lua formatting helpers for numbers, gradient
+# stops and nested values. Round-trip partner of
+# lua_parser.parse_themes_lua().
+#
+# **Exposed/global:**
+# - `serialize_themes(themes, filepath)` — THEMES dict → Lua block string
+# - `_fmt_num(x)` — bool/int/float → Lua number literal
+# - `_fmt_stops(stops)` — stop list → Lua table string
+# - `_fmt_value(v)` — arbitrary value → Lua literal
+#
+# **Used by / input data:** receives the THEMES dict (loaded by
+# lua_parser.parse_themes_lua / theme_engine) and writes it into the
+# THEMES block of widget.lua; round-trip partner of the Lua parser.
+#}}}
 """
 theme_writer.py — Serialize the THEMES dict into the inline THEMES = {...}
 block that lives at the top of widget.lua.

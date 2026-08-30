@@ -1,3 +1,30 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## Constants
+#
+# Module-level Lua template strings and theme data used to bootstrap
+# widget.lua: path/config preamble, weather icon globals, bootstrap tail,
+# weather update function, installed XDG icon-theme discovery, the fallback
+# color theme, and the empty widget.lua template assembly. Also provides
+# color normalization/comparison helpers used by the Lua generators.
+#
+# **Exposed/global:**
+# - `WIDGET_CONFIG_BLOCK` — Lua preamble setting script_dir, package.path, JSON_PATH, draw
+# - `WEATHER_ICON_SETS` — list of supported weather icon theme names
+# - `weather_icon_block(icon_theme)` — builds the weather-only icon path globals (Lua)
+# - `_installed_icon_themes()` — scans XDG icon dirs for installed themes
+# - `WIDGET_BOOTSTRAP_TAIL` — Lua bootstrap snippet calling init_groups(_GROUPS)
+# - `WIDGET_WEATHER_FUNC` — Lua conky_weather_update() definition
+# - `_FALLBACK_THEME` — default palette/gradients/defaults dict used when no theme exists
+# - `_empty_widget_lua()` — builds the empty widget.lua template embedding the current theme
+# - `_colors_match(a, b)` — compares two color values (str vs list normalization)
+# - `_color_to_hex_list(val)` — normalizes a color value to [[pos, hex, alpha], ...]
+#}}}
 """Lua template constants, theme data, and helper functions."""
 import os
 

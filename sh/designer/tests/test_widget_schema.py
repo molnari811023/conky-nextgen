@@ -1,4 +1,38 @@
 #!/usr/bin/env python3
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## Test_Widget_Schema
+#
+# Headless parity + integrity tests for engine.widget_schema: freezes the
+# legacy widget type lists, field orders, defaults and string fields from the
+# pre-migration main.py and checks widgets_schema against them, then validates
+# schema integrity (kinds, labels, duplicates, orphan templates) and performs a
+# parse → generate → parse roundtrip via main.lua generators. Runnable standalone.
+#
+# **Exposed/global:**
+# - `LEGACY_WIDGET_TYPES` — frozen list of widget types from before the migration
+# - `LEGACY_FIELD_ORDER` — frozen widget field ordering used by the builders
+# - `LEGACY_WIDGET_DEFAULTS` — frozen per-type default values dict
+# - `LEGACY_WIDGET_TYPE_FIELDS` — frozen per-type field lists
+# - `LEGACY_STRING_FIELDS` — frozen set of fields rendered as Lua strings
+# - `check(name, cond)` — records and reports a failed assertion
+# - `test_widget_types()` — widget_types() matches the legacy list
+# - `test_field_order_prefix()` — field_order() preserves legacy prefix and covers all templates
+# - `test_defaults_parity()` — defaults_for() equals legacy defaults per type
+# - `test_props_parity()` — props_for() equals legacy field order per type
+# - `test_string_fields_parity()` — string_fields() equals legacy set
+# - `test_schema_integrity()` — validates WidgetSpec/PropertySpec shapes and templates
+# - `test_string_kind_consistency()` — string_fields() only contains string kinds
+# - `test_spec_for()` — spec_for() maps known kinds and returns None for unknown
+# - `test_roundtrip()` — widget.lua parse → generate → parse roundtrip equality
+# - `test_generate_empty_group()` — empty/None group must be omitted from generated Lua
+# - `main()` — runs all tests and exits nonzero on failures
+#}}}
 """Headless parity + integrity tests for engine.widget_schema.
 
 Run:  python3 tests/test_widget_schema.py

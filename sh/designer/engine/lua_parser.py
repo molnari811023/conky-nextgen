@@ -1,3 +1,32 @@
+#{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
+# ## lua_parser.py
+#
+# Lua table parser — converts widget.lua / themes.lua into Python dicts,
+# lists and primitive values. Parses `draw[#draw + 1] = {...}` entries,
+# the `_GROUPS` / `_VIEWS` tables, global settings constants and the
+# inline `THEMES = {...}` block. Un-parseable Lua constructs (`for`,
+# `if`, ...) are preserved verbatim so round-tripping does not lose them.
+#
+# **Exposed/global:**
+# - `RawLua` — marker for raw Lua expressions emitted unquoted on save
+# - `RawBlock` — verbatim Lua code emitted as-is on save (dict-like proxy)
+# - `parse_lua_value` — parse a single Lua value string into a Python value
+# - `parse_lua_table_content` — parse `{ ... }` into a list or dict
+# - `parse_settings` — parse global settings from widget.lua into a dict
+# - `parse_widget_lua` — widget.lua into (draw_list, groups, views, padding)
+# - `parse_themes_lua` — themes file into { name: { palette, gradients, defaults } }
+# - `parse_gradient_stops` — gradient stop string into (pos, hex, alpha) tuples
+#
+# **Used by / input data:** parses widget.lua draw[] / _GROUPS / _VIEWS /
+# settings and the THEMES block; feeds theme_engine.apply_theme, is the
+# round-trip partner of theme_writer, and supplies the designer GUI.
+#}}}
 """
 Lua table parser — parses widget.lua draw[] entries into Python dicts.
 
