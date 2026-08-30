@@ -680,3 +680,59 @@ msgstr "可能性が低い"
 
 msgid "alert_certainty_unknown"
 msgstr "不明"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All GPUs Total Memory"
+msgstr "すべての GPU の合計メモリ"
+
+msgid "Core %1"
+msgstr "コア %1"
+
+msgid "Download Rate"
+msgstr "ダウンロード量"
+
+msgid "Free Swap Memory"
+msgstr "空きスワップメモリ"
+
+msgid "KDE Frameworks Version"
+msgstr "KDE Frameworks のバージョン"
+
+msgid "KDE Plasma Version"
+msgstr "KDE Plasma のバージョン"
+
+msgid "Memory"
+msgstr "メモリ"
+
+msgid "Qt Version"
+msgstr "Qt のバージョン"
+
+msgid "Total Physical Memory"
+msgstr "物理メモリの合計"
+
+msgid "Total Space"
+msgstr "合計容量"
+
+msgid "Total Usage"
+msgstr "合計使用率"
+
+msgid "Total Video Memory"
+msgstr "ビデオメモリの合計"
+
+msgid "Upload Rate"
+msgstr "アップロード量"
+
+msgid "Used Physical Memory"
+msgstr "使用されている物理メモリ"
+
+msgid "Used Space"
+msgstr "使用した容量"
+
+msgid "Used Swap Memory"
+msgstr "使用されているスワップメモリ"
+
+msgid "Used Swap Memory Percentage"
+msgstr "使用済みスワップメモリのパーセンテージ"
+

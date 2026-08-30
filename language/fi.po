@@ -689,3 +689,362 @@ msgstr "Epätodennäköinen"
 
 msgid "alert_certainty_unknown"
 msgstr "Tuntematon"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Kaikki"
+
+msgid "All Disks"
+msgstr "Kaikki levyt"
+
+msgid "All GPUs"
+msgstr "Kaikki grafiikkasuorittimet"
+
+msgid "All GPUs Total Memory"
+msgstr "kaikkien grafiikkasuoritinten muisti yhteensä"
+
+msgid "All GPUs Usage"
+msgstr "Kaikkien graafisten suoritinten käyttö"
+
+msgid "All GPUs Used Memory"
+msgstr "Kaikkien grafiikkasuoritinten käyttämä muisti"
+
+msgid "All Network Devices"
+msgstr "Kaikki verkkolaitteet"
+
+msgid "Application Memory"
+msgstr "Sovellusmuisti"
+
+msgid "Application Memory Percentage"
+msgstr "Sovellusmuistin osuus"
+
+msgid "Average CPU Frequency"
+msgstr "Suorittimen keskitaajuus"
+
+msgid "Average CPU Temperature"
+msgstr "Suorittimen keskilämpötila"
+
+msgid "Buffer Memory"
+msgstr "Puskurimuisti"
+
+msgid "Buffer Memory Percentage"
+msgstr "Puskurimuistin osuus"
+
+msgid "CPU %1"
+msgstr "Suoritin %1"
+
+msgid "CPU %1 Core %2"
+msgstr "Suoritin %1 ydin %2"
+
+msgid "CPU Pressure"
+msgstr "Suoritinpaine"
+
+msgid "Cache Memory"
+msgstr "Välimuisti"
+
+msgid "Cache Memory Percentage"
+msgstr "Välimuistin osuus"
+
+msgid "Charge"
+msgstr "Lataus"
+
+msgid "Charge Percentage"
+msgstr "lataus-%"
+
+msgid "Charging  Rate"
+msgstr "latausnopeus"
+
+msgid "Charging Rate"
+msgstr "latausnopeus"
+
+msgid "Core %1"
+msgstr "Ytimen %1"
+
+msgid "Current Capacity"
+msgstr "Nykyinen kapasiteetti"
+
+msgid "Current Frequency"
+msgstr "Nykyinen taajuus"
+
+msgid "Current Temperature"
+msgstr "Nykyinen lämpötila"
+
+msgid "Design Capacity"
+msgstr "Suunniteltu kapasiteetti"
+
+msgid "Download Rate"
+msgstr "latausnopeus"
+
+msgid "Free Physical Memory"
+msgstr "Vapaa fyysinen muisti"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Vapaan fyysisen muistin osuus"
+
+msgid "Free Space"
+msgstr "Vapaa tila"
+
+msgid "Free Swap Memory"
+msgstr "Vapaa sivutusmuisti"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Vapaan sivutusmuistin osuus"
+
+msgid "Frequency"
+msgstr "Taajuus"
+
+msgid "Full (1 minute average)"
+msgstr "Täysi (1 minuutin keskiarvo)"
+
+msgid "Full (10 second average)"
+msgstr "Täysi (10 sekunnin keskiarvo)"
+
+msgid "Full (5 minute average)"
+msgstr "Täysi (5 minuutin keskiarvo)"
+
+msgid "GPU"
+msgstr "Graafinen suoritin"
+
+msgid "Health"
+msgstr "Terveys"
+
+msgid "Hostname"
+msgstr "Konenimi"
+
+msgid "IO Pressure"
+msgstr "I/O-paine"
+
+msgid "IPv4 Address"
+msgstr "IPv4-osoite"
+
+msgid "IPv4 DNS"
+msgstr "IPv4 DNS"
+
+msgid "IPv4 Gateway"
+msgstr "IPv4-yhdyskäytävä"
+
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4-aliverkkopeite"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 etuliitteen pituudella"
+
+msgid "IPv6 Address"
+msgstr "IPv6-osoite"
+
+msgid "IPv6 DNS"
+msgstr "IPv6 DNS"
+
+msgid "IPv6 Gateway"
+msgstr "IPv6-yhdyskäytävä"
+
+msgid "IPv6 Subnet Mask"
+msgstr "IPv6-aliverkkopeite"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6 etuliitteen pituudella"
+
+msgid "KDE Frameworks Version"
+msgstr "KDE Frameworks -versio"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "KDE Plasma Version"
+msgstr "KDE Plasma -versio"
+
+msgid "Kernel"
+msgstr "Ydin"
+
+msgid "Kernel Name"
+msgstr "Ytimen nimi"
+
+msgid "Kernel Name and Version"
+msgstr "Ytimen nimi ja versio"
+
+msgid "Kernel Version"
+msgstr "Ytimen versio"
+
+msgid "Load Averages"
+msgstr "Keskiarvokuorma"
+
+msgid "Load average (1 minute)"
+msgstr "Keskiarvokuorma (1 min)"
+
+msgid "Load average (15 minute)"
+msgstr "Keskiarvokuorma (15 min)"
+
+msgid "Load average (5 minutes)"
+msgstr "Keskiarvokuorma (5 min)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Suorittimen enimmäistaajuus"
+
+msgid "Maximum CPU Temperature"
+msgstr "Suorittimen enimmäislämpötila"
+
+msgid "Memory"
+msgstr "Muisti"
+
+msgid "Memory Frequency"
+msgstr "Muistitaajuus"
+
+msgid "Memory Pressure"
+msgstr "Muistipaine"
+
+msgid "Minimum CPU Frequency"
+msgstr "Suorittimen vähimmäistaajuus"
+
+msgid "Minimum CPU Temperature"
+msgstr "Suorittimen vähimmäislämpötila"
+
+msgid "Name"
+msgstr "Nimi"
+
+msgid "Network Devices"
+msgstr "Verkkolaitteet"
+
+msgid "Network Name"
+msgstr "Verkkonimi"
+
+msgid "Number of CPUs"
+msgstr "Suorittimia"
+
+msgid "Number of Cores"
+msgstr "Ytimiä"
+
+msgid "Operating System"
+msgstr "Käyttöjärjestelmä"
+
+msgid "Operating System Logo"
+msgstr "Käyttöjärjestelmän logo"
+
+msgid "Operating System Name"
+msgstr "Käyttöjärjestelmän nimi"
+
+msgid "Operating System Name and Version"
+msgstr "Käyttöjärjestelmän nimi ja versio"
+
+msgid "Operating System URL"
+msgstr "Käyttöjärjestelmän verkko-osoite"
+
+msgid "Operating System Version"
+msgstr "Käyttöjärjestelmän versio"
+
+msgid "Percentage Free"
+msgstr "Vapaa osuus"
+
+msgid "Percentage Used"
+msgstr "% käytössä"
+
+msgid "Physical Memory"
+msgstr "Fyysinen muisti"
+
+msgid "Power"
+msgstr "Virta"
+
+msgid "Pressure"
+msgstr "Paine"
+
+msgid "Qt Version"
+msgstr "Qt-versio"
+
+msgid "Read Rate"
+msgstr "Lukunopeus"
+
+msgid "Signal Strength"
+msgstr "Signaalin voimakkuus"
+
+msgid "Some (1 minute average)"
+msgstr "Jonkin verran (1 minuutin keskiarvo)"
+
+msgid "Some (10 second average)"
+msgstr "Jonkin verran (10 sekunnin keskiarvo)"
+
+msgid "Some (5 minute average)"
+msgstr "Jonkin verran (5 minuutin keskiarvo)"
+
+msgid "Swap Memory"
+msgstr "Sivutusmuisti"
+
+msgid "System"
+msgstr "Järjestelmä"
+
+msgid "System Usage"
+msgstr "Järjestelmäkäyttö"
+
+msgid "Temperature"
+msgstr "Lämpötila"
+
+msgid "Total Downloaded"
+msgstr "ladattu yhteensä"
+
+msgid "Total Full Stall Time"
+msgstr "Täyden odottelun aika yhteensä"
+
+msgid "Total Physical Memory"
+msgstr "fyysinen muisti yhteensä"
+
+msgid "Total Some Stall Time"
+msgstr "Jonkin odottelun aika yhteensä"
+
+msgid "Total Space"
+msgstr "tila yhteensä"
+
+msgid "Total Swap Memory"
+msgstr "sivutusmuisti yhteensä"
+
+msgid "Total Uploaded"
+msgstr "lähetetty yhteensä"
+
+msgid "Total Usage"
+msgstr "käyttö yhteensä"
+
+msgid "Total Video Memory"
+msgstr "näyttömuisti yhteensä"
+
+msgid "Upload Rate"
+msgstr "lähetysnopeus"
+
+msgid "Uptime"
+msgstr "Käynnissäoloaika"
+
+msgid "Usage"
+msgstr "Käyttö"
+
+msgid "Used Physical Memory"
+msgstr "käytetty fyysinen muisti"
+
+msgid "Used Physical Memory Percentage"
+msgstr "% fyysistä muistia käytössä"
+
+msgid "Used Space"
+msgstr "käytetty tila"
+
+msgid "Used Swap Memory"
+msgstr "käytetty sivutusmuisti"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Käytetyn sivutusmuistin osuus"
+
+msgid "User Usage"
+msgstr "Käyttäjäkäyttö"
+
+msgid "Video Memory Used"
+msgstr "käytetty näyttömuisti"
+
+msgid "Video Usage"
+msgstr "Näytön käyttö"
+
+msgid "Wait Usage"
+msgstr "Odotuskäyttö"
+
+msgid "Window System"
+msgstr "Ikkunointijärjestelmä"
+
+msgid "Write Rate"
+msgstr "Kirjoitusnopeus"
+

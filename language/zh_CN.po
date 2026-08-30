@@ -680,3 +680,362 @@ msgstr "不太可能"
 
 msgid "alert_certainty_unknown"
 msgstr "未知"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "全部"
+
+msgid "All Disks"
+msgstr "所有磁盘"
+
+msgid "All GPUs"
+msgstr "所有 GPU"
+
+msgid "All GPUs Total Memory"
+msgstr "所有 GPU 总显存"
+
+msgid "All GPUs Usage"
+msgstr "所有 GPU 使用率"
+
+msgid "All GPUs Used Memory"
+msgstr "所有 GPU 已用显存"
+
+msgid "All Network Devices"
+msgstr "所有网络设备"
+
+msgid "Application Memory"
+msgstr "应用程序内存"
+
+msgid "Application Memory Percentage"
+msgstr "应用程序内存百分比"
+
+msgid "Average CPU Frequency"
+msgstr "平均 CPU 频率"
+
+msgid "Average CPU Temperature"
+msgstr "平均 CPU 温度"
+
+msgid "Buffer Memory"
+msgstr "缓冲区内存"
+
+msgid "Buffer Memory Percentage"
+msgstr "缓冲区内存百分比"
+
+msgid "CPU %1"
+msgstr "CPU %1"
+
+msgid "CPU %1 Core %2"
+msgstr "CPU %1 核心 %2"
+
+msgid "CPU Pressure"
+msgstr "CPU 压力"
+
+msgid "Cache Memory"
+msgstr "缓存内存"
+
+msgid "Cache Memory Percentage"
+msgstr "缓存内存百分比"
+
+msgid "Charge"
+msgstr "电量"
+
+msgid "Charge Percentage"
+msgstr "电量百分比"
+
+msgid "Charging  Rate"
+msgstr "充放电速率"
+
+msgid "Charging Rate"
+msgstr "充放电速率"
+
+msgid "Core %1"
+msgstr "核心 %1"
+
+msgid "Current Capacity"
+msgstr "当前容量"
+
+msgid "Current Frequency"
+msgstr "当前频率"
+
+msgid "Current Temperature"
+msgstr "当前温度"
+
+msgid "Design Capacity"
+msgstr "设计容量"
+
+msgid "Download Rate"
+msgstr "下载速率"
+
+msgid "Free Physical Memory"
+msgstr "空闲物理内存"
+
+msgid "Free Physical Memory Percentage"
+msgstr "空闲物理内存百分比"
+
+msgid "Free Space"
+msgstr "剩余空间"
+
+msgid "Free Swap Memory"
+msgstr "空闲交换内存"
+
+msgid "Free Swap Memory Percentage"
+msgstr "空闲交换内存百分比"
+
+msgid "Frequency"
+msgstr "频率"
+
+msgid "Full (1 minute average)"
+msgstr "完全 (1 分钟平均值)"
+
+msgid "Full (10 second average)"
+msgstr "完全 (10 秒平均值)"
+
+msgid "Full (5 minute average)"
+msgstr "完全 (5 分钟平均值)"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "Health"
+msgstr "健康程度"
+
+msgid "Hostname"
+msgstr "主机名"
+
+msgid "IO Pressure"
+msgstr "IO  压力"
+
+msgid "IPv4 Address"
+msgstr "IPv4 地址"
+
+msgid "IPv4 DNS"
+msgstr "IPv4 DNS"
+
+msgid "IPv4 Gateway"
+msgstr "IPv4 网关"
+
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4 子网掩码"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 前缀长度"
+
+msgid "IPv6 Address"
+msgstr "IPv6 地址"
+
+msgid "IPv6 DNS"
+msgstr "IPv6 DNS"
+
+msgid "IPv6 Gateway"
+msgstr "IPv6 网关"
+
+msgid "IPv6 Subnet Mask"
+msgstr "IPv4 子网掩码"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6前缀长度"
+
+msgid "KDE Frameworks Version"
+msgstr "KDE 程序框架版本"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "KDE Plasma Version"
+msgstr "KDE Plasma 版本"
+
+msgid "Kernel"
+msgstr "内核"
+
+msgid "Kernel Name"
+msgstr "内核名称"
+
+msgid "Kernel Name and Version"
+msgstr "内核名称和版本"
+
+msgid "Kernel Version"
+msgstr "内核版本"
+
+msgid "Load Averages"
+msgstr "平均负载"
+
+msgid "Load average (1 minute)"
+msgstr "平均负载 (1 分钟)"
+
+msgid "Load average (15 minute)"
+msgstr "平均负载 (15 分钟)"
+
+msgid "Load average (5 minutes)"
+msgstr "平均负载 (5 分钟)"
+
+msgid "Maximum CPU Frequency"
+msgstr "最高 CPU 频率"
+
+msgid "Maximum CPU Temperature"
+msgstr "最高 CPU 温度"
+
+msgid "Memory"
+msgstr "内存"
+
+msgid "Memory Frequency"
+msgstr "内存频率"
+
+msgid "Memory Pressure"
+msgstr "内存压力"
+
+msgid "Minimum CPU Frequency"
+msgstr "最低 CPU 频率"
+
+msgid "Minimum CPU Temperature"
+msgstr "最低 CPU 温度"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Network Devices"
+msgstr "网络设备"
+
+msgid "Network Name"
+msgstr "网络名称"
+
+msgid "Number of CPUs"
+msgstr "CPU 数量"
+
+msgid "Number of Cores"
+msgstr "核心数量"
+
+msgid "Operating System"
+msgstr "操作系统"
+
+msgid "Operating System Logo"
+msgstr "操作系统标志"
+
+msgid "Operating System Name"
+msgstr "操作系统名称"
+
+msgid "Operating System Name and Version"
+msgstr "操作系统名称和版本"
+
+msgid "Operating System URL"
+msgstr "操作系统 URL"
+
+msgid "Operating System Version"
+msgstr "操作系统版本"
+
+msgid "Percentage Free"
+msgstr "剩余百分比"
+
+msgid "Percentage Used"
+msgstr "已用百分比"
+
+msgid "Physical Memory"
+msgstr "物理内存"
+
+msgid "Power"
+msgstr "电源"
+
+msgid "Pressure"
+msgstr "压力"
+
+msgid "Qt Version"
+msgstr "Qt 版本"
+
+msgid "Read Rate"
+msgstr "读取速率"
+
+msgid "Signal Strength"
+msgstr "信号强度"
+
+msgid "Some (1 minute average)"
+msgstr "部分 (1 分钟平均值)"
+
+msgid "Some (10 second average)"
+msgstr "部分 (10 秒平均值)"
+
+msgid "Some (5 minute average)"
+msgstr "部分 (5 分钟平均值)"
+
+msgid "Swap Memory"
+msgstr "交换内存"
+
+msgid "System"
+msgstr "系统"
+
+msgid "System Usage"
+msgstr "系统使用率"
+
+msgid "Temperature"
+msgstr "温度"
+
+msgid "Total Downloaded"
+msgstr "总下载量"
+
+msgid "Total Full Stall Time"
+msgstr "合计完全停滞时间"
+
+msgid "Total Physical Memory"
+msgstr "总物理内存"
+
+msgid "Total Some Stall Time"
+msgstr "合计部分停滞时间"
+
+msgid "Total Space"
+msgstr "总空间"
+
+msgid "Total Swap Memory"
+msgstr "总交换内存"
+
+msgid "Total Uploaded"
+msgstr "总上传量"
+
+msgid "Total Usage"
+msgstr "总使用率"
+
+msgid "Total Video Memory"
+msgstr "总显存"
+
+msgid "Upload Rate"
+msgstr "上传速率"
+
+msgid "Uptime"
+msgstr "开机时间"
+
+msgid "Usage"
+msgstr "使用率"
+
+msgid "Used Physical Memory"
+msgstr "已用物理内存"
+
+msgid "Used Physical Memory Percentage"
+msgstr "已用物理内存百分比"
+
+msgid "Used Space"
+msgstr "已用空间"
+
+msgid "Used Swap Memory"
+msgstr "已用交换内存"
+
+msgid "Used Swap Memory Percentage"
+msgstr "已用交换内存百分比"
+
+msgid "User Usage"
+msgstr "用户使用率"
+
+msgid "Video Memory Used"
+msgstr "已用显存"
+
+msgid "Video Usage"
+msgstr "显卡使用率"
+
+msgid "Wait Usage"
+msgstr "等待使用率"
+
+msgid "Window System"
+msgstr "窗口系统"
+
+msgid "Write Rate"
+msgstr "写入速率"
+

@@ -636,3 +636,362 @@ msgstr "Mało prawdopodobne"
 
 msgid "alert_certainty_unknown"
 msgstr "Nieznane"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Wszystkie"
+
+msgid "All Disks"
+msgstr "Wszystkie dyski"
+
+msgid "All GPUs"
+msgstr "Wszystkie karty graficzne"
+
+msgid "All GPUs Total Memory"
+msgstr "Łącznie pamięci wszystkich kart graficznych"
+
+msgid "All GPUs Usage"
+msgstr "Wykorzystanie wszystkich kart graficznych"
+
+msgid "All GPUs Used Memory"
+msgstr "Użycie pamięci wszystkich kart graficznych"
+
+msgid "All Network Devices"
+msgstr "Wszystkie urządzenia sieciowe"
+
+msgid "Application Memory"
+msgstr "Pamięć programów"
+
+msgid "Application Memory Percentage"
+msgstr "Procent pamięci programu"
+
+msgid "Average CPU Frequency"
+msgstr "Śr. częstotliwość CPU"
+
+msgid "Average CPU Temperature"
+msgstr "Przeciętna temperatura procesora"
+
+msgid "Buffer Memory"
+msgstr "Pamięć buforowana"
+
+msgid "Buffer Memory Percentage"
+msgstr "Procent pamięci buforowanej"
+
+msgid "CPU %1"
+msgstr "Procesor %1"
+
+msgid "CPU %1 Core %2"
+msgstr "Procesor %1 Rdzeń %2"
+
+msgid "CPU Pressure"
+msgstr "Ciśnienie CPU"
+
+msgid "Cache Memory"
+msgstr "Pamięć podręczna"
+
+msgid "Cache Memory Percentage"
+msgstr "Procent pamięci podręcznej"
+
+msgid "Charge"
+msgstr "Ładunek"
+
+msgid "Charge Percentage"
+msgstr "Procent naładowania"
+
+msgid "Charging  Rate"
+msgstr "Szybkość ładowania"
+
+msgid "Charging Rate"
+msgstr "Szybkość ładowania"
+
+msgid "Core %1"
+msgstr "Rdzeń %1"
+
+msgid "Current Capacity"
+msgstr "Bieżąca pojemność"
+
+msgid "Current Frequency"
+msgstr "Bieżąca częstotliwość"
+
+msgid "Current Temperature"
+msgstr "Bieżąca temperatura"
+
+msgid "Design Capacity"
+msgstr "Zakładana pojemność"
+
+msgid "Download Rate"
+msgstr "Szybkość pobierania"
+
+msgid "Free Physical Memory"
+msgstr "Wolna pamięć fizyczna"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Procent niezajęcia pamięci fizycznej"
+
+msgid "Free Space"
+msgstr "Wolna przestrzeń"
+
+msgid "Free Swap Memory"
+msgstr "Wolna przestrzeń wymiany"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Procent wolnej przestrzeni wymiany"
+
+msgid "Frequency"
+msgstr "Częstotliwość"
+
+msgid "Full (1 minute average)"
+msgstr "Pełne (średnia z 1 minuty)"
+
+msgid "Full (10 second average)"
+msgstr "Pełne (średnia z 10 sekund)"
+
+msgid "Full (5 minute average)"
+msgstr "Pełne (średnia z 5 minut)"
+
+msgid "GPU"
+msgstr "Karta graficzna"
+
+msgid "Health"
+msgstr "Zdrowie"
+
+msgid "Hostname"
+msgstr "Nazwa gospodarza"
+
+msgid "IO Pressure"
+msgstr "Ciśnienie pamięci trwałej"
+
+msgid "IPv4 Address"
+msgstr "Adres IPv4"
+
+msgid "IPv4 DNS"
+msgstr "DNS IPv4"
+
+msgid "IPv4 Gateway"
+msgstr "Brama IPv4"
+
+msgid "IPv4 Subnet Mask"
+msgstr "Maska podsieci IPv4"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 z długością przedrostka"
+
+msgid "IPv6 Address"
+msgstr "Adres IPv6"
+
+msgid "IPv6 DNS"
+msgstr "DNS IPv6"
+
+msgid "IPv6 Gateway"
+msgstr "Brama IPv6"
+
+msgid "IPv6 Subnet Mask"
+msgstr "Maska podsieci IPv6"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6 z długością przedrostka"
+
+msgid "KDE Frameworks Version"
+msgstr "Wersja Szkieletów KDE"
+
+msgid "KDE Plasma"
+msgstr "Plazma KDE"
+
+msgid "KDE Plasma Version"
+msgstr "Wersja Plazmy KDE"
+
+msgid "Kernel"
+msgstr "Jądro"
+
+msgid "Kernel Name"
+msgstr "Nazwa jądra"
+
+msgid "Kernel Name and Version"
+msgstr "Nazwa i wersja jądra"
+
+msgid "Kernel Version"
+msgstr "Wersja jądra"
+
+msgid "Load Averages"
+msgstr "Wczytaj przeciętne"
+
+msgid "Load average (1 minute)"
+msgstr "Przeciętna obciążenia (1 minuta)"
+
+msgid "Load average (15 minute)"
+msgstr "Przeciętna obciążenia (15 minut)"
+
+msgid "Load average (5 minutes)"
+msgstr "Przeciętna obciążenia (5 minut)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Maks. częstotliwość CPU"
+
+msgid "Maximum CPU Temperature"
+msgstr "Maks. temperatura CPU"
+
+msgid "Memory"
+msgstr "Pamięć"
+
+msgid "Memory Frequency"
+msgstr "Częstotliwość pamięci"
+
+msgid "Memory Pressure"
+msgstr "Ciśnienie na pamięć"
+
+msgid "Minimum CPU Frequency"
+msgstr "Min. częstotliwość CPU"
+
+msgid "Minimum CPU Temperature"
+msgstr "Min. temperatura CPU"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Network Devices"
+msgstr "Urządzenia sieciowe"
+
+msgid "Network Name"
+msgstr "Nazwa sieci"
+
+msgid "Number of CPUs"
+msgstr "Liczba procesorów"
+
+msgid "Number of Cores"
+msgstr "Liczba rdzeni"
+
+msgid "Operating System"
+msgstr "System operacyjny"
+
+msgid "Operating System Logo"
+msgstr "Logo systemu operacyjnego"
+
+msgid "Operating System Name"
+msgstr "Nazwa systemu operacyjnego"
+
+msgid "Operating System Name and Version"
+msgstr "Nazwa i wersja systemu operacyjnego"
+
+msgid "Operating System URL"
+msgstr "Adres URL systemu operacyjnego"
+
+msgid "Operating System Version"
+msgstr "Wersja systemu operacyjnego"
+
+msgid "Percentage Free"
+msgstr "Procent wolnego"
+
+msgid "Percentage Used"
+msgstr "Procent użycia"
+
+msgid "Physical Memory"
+msgstr "Pamięć fizyczna"
+
+msgid "Power"
+msgstr "Moc"
+
+msgid "Pressure"
+msgstr "Ciśnienie"
+
+msgid "Qt Version"
+msgstr "Wersja Qt"
+
+msgid "Read Rate"
+msgstr "Szybkość odczytu"
+
+msgid "Signal Strength"
+msgstr "Siła sygnału"
+
+msgid "Some (1 minute average)"
+msgstr "Niektóre (średnia z 1 minuty)"
+
+msgid "Some (10 second average)"
+msgstr "Niektóre (średnia z 10 sekund)"
+
+msgid "Some (5 minute average)"
+msgstr "Niektóre (średnia z 5 minut)"
+
+msgid "Swap Memory"
+msgstr "Pamięć wymiany"
+
+msgid "System"
+msgstr "System"
+
+msgid "System Usage"
+msgstr "Wykorzystanie przez system"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "Total Downloaded"
+msgstr "Łącznie pobranych"
+
+msgid "Total Full Stall Time"
+msgstr "Łączny czas w pełni zblokowanych"
+
+msgid "Total Physical Memory"
+msgstr "Łącznie pamięci fizycznej"
+
+msgid "Total Some Stall Time"
+msgstr "Łączny czas niektórych zblokowanych"
+
+msgid "Total Space"
+msgstr "Łącznie przestrzeni"
+
+msgid "Total Swap Memory"
+msgstr "Łącznie pamięci przestrzeni wymiany"
+
+msgid "Total Uploaded"
+msgstr "Łącznie wysłanych"
+
+msgid "Total Usage"
+msgstr "Wykorzystanie łącznie"
+
+msgid "Total Video Memory"
+msgstr "Łącznie pamięci grafiki"
+
+msgid "Upload Rate"
+msgstr "Szybkość wysyłania"
+
+msgid "Uptime"
+msgstr "Czas od uruchomienia"
+
+msgid "Usage"
+msgstr "Użycie"
+
+msgid "Used Physical Memory"
+msgstr "Używana pamięć fizyczna"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Procent używania pamięci fizycznej"
+
+msgid "Used Space"
+msgstr "Używana przestrzeń"
+
+msgid "Used Swap Memory"
+msgstr "Używana pamięć wymiany"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Procent użycia pamięci wymiany"
+
+msgid "User Usage"
+msgstr "Wykorzystanie przez użytkownika"
+
+msgid "Video Memory Used"
+msgstr "Użycie pamięci grafiki"
+
+msgid "Video Usage"
+msgstr "Wykorzystanie GPU"
+
+msgid "Wait Usage"
+msgstr "Wykorzystanie przez oczekiwanie"
+
+msgid "Window System"
+msgstr "System okien"
+
+msgid "Write Rate"
+msgstr "Szybkość zapisu"
+

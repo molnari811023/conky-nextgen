@@ -680,3 +680,362 @@ msgstr "Малоймовірно"
 
 msgid "alert_certainty_unknown"
 msgstr "Невідомо"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Усі"
+
+msgid "All Disks"
+msgstr "Усі диски"
+
+msgid "All GPUs"
+msgstr "Усі ГП"
+
+msgid "All GPUs Total Memory"
+msgstr "Загальна пам'ять для усіх ГП"
+
+msgid "All GPUs Usage"
+msgstr "Використання усіх ГП"
+
+msgid "All GPUs Used Memory"
+msgstr "Використана пам'ять для усіх ГП"
+
+msgid "All Network Devices"
+msgstr "Усі пристрої мережі"
+
+msgid "Application Memory"
+msgstr "Пам'ять програм"
+
+msgid "Application Memory Percentage"
+msgstr "Частка програм у пам'яті"
+
+msgid "Average CPU Frequency"
+msgstr "Середня частота процесорів"
+
+msgid "Average CPU Temperature"
+msgstr "Середня температура процесорів"
+
+msgid "Buffer Memory"
+msgstr "Пам'ять буфера"
+
+msgid "Buffer Memory Percentage"
+msgstr "Частка буфера у пам'яті"
+
+msgid "CPU %1"
+msgstr "Процесор %1"
+
+msgid "CPU %1 Core %2"
+msgstr "Процесор %1, ядро %2"
+
+msgid "CPU Pressure"
+msgstr "Тиск процесора"
+
+msgid "Cache Memory"
+msgstr "Пам'ять кешу"
+
+msgid "Cache Memory Percentage"
+msgstr "Частка кешу у пам'яті"
+
+msgid "Charge"
+msgstr "Заряд"
+
+msgid "Charge Percentage"
+msgstr "Відсоток заряду"
+
+msgid "Charging  Rate"
+msgstr "Швидкість заряджання"
+
+msgid "Charging Rate"
+msgstr "Швидкість заряджання"
+
+msgid "Core %1"
+msgstr "Ядро %1"
+
+msgid "Current Capacity"
+msgstr "Поточна місткість"
+
+msgid "Current Frequency"
+msgstr "Поточна частота"
+
+msgid "Current Temperature"
+msgstr "Поточна температура"
+
+msgid "Design Capacity"
+msgstr "Проєктна місткість"
+
+msgid "Download Rate"
+msgstr "Швидкість отримання"
+
+msgid "Free Physical Memory"
+msgstr "Вільна фізична пам'ять"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Частка вільної фізичної пам'яті"
+
+msgid "Free Space"
+msgstr "Вільне місце"
+
+msgid "Free Swap Memory"
+msgstr "Вільна резервна пам'ять"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Частка вільної резервної пам'яті"
+
+msgid "Frequency"
+msgstr "Частота"
+
+msgid "Full (1 minute average)"
+msgstr "Повний (усереднення за 1 хвилиною)"
+
+msgid "Full (10 second average)"
+msgstr "Повний (усереднення за 10 секундами)"
+
+msgid "Full (5 minute average)"
+msgstr "Повний (усереднення за 5 хвилинами)"
+
+msgid "GPU"
+msgstr "ГП"
+
+msgid "Health"
+msgstr "Стан"
+
+msgid "Hostname"
+msgstr "Назва вузла"
+
+msgid "IO Pressure"
+msgstr "Тиск введення-виведення"
+
+msgid "IPv4 Address"
+msgstr "Адреса IPv4"
+
+msgid "IPv4 DNS"
+msgstr "DNS IPv4"
+
+msgid "IPv4 Gateway"
+msgstr "Шлюз IPv4"
+
+msgid "IPv4 Subnet Mask"
+msgstr "Маска підмережі IPv4"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 із довжиною префікса"
+
+msgid "IPv6 Address"
+msgstr "Адреса IPv6"
+
+msgid "IPv6 DNS"
+msgstr "DNS IPv6"
+
+msgid "IPv6 Gateway"
+msgstr "Шлюз IPv6"
+
+msgid "IPv6 Subnet Mask"
+msgstr "Маска підмережі IPv6"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6 із довжиною префікса"
+
+msgid "KDE Frameworks Version"
+msgstr "Версія KDE Frameworks"
+
+msgid "KDE Plasma"
+msgstr "Плазма KDE"
+
+msgid "KDE Plasma Version"
+msgstr "Версія Плазми KDE"
+
+msgid "Kernel"
+msgstr "Ядро"
+
+msgid "Kernel Name"
+msgstr "Назва ядра"
+
+msgid "Kernel Name and Version"
+msgstr "Назва і версія ядра"
+
+msgid "Kernel Version"
+msgstr "Версія ядра"
+
+msgid "Load Averages"
+msgstr "Середнє завантаження"
+
+msgid "Load average (1 minute)"
+msgstr "Середнє завантаження (1 хвилина)"
+
+msgid "Load average (15 minute)"
+msgstr "Середнє завантаження (15 хвилин)"
+
+msgid "Load average (5 minutes)"
+msgstr "Середнє завантаження (5 хвилин)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Максимальна частота процесорів"
+
+msgid "Maximum CPU Temperature"
+msgstr "Максимальна температура процесорів"
+
+msgid "Memory"
+msgstr "Пам'ять"
+
+msgid "Memory Frequency"
+msgstr "Частота пам'яті"
+
+msgid "Memory Pressure"
+msgstr "Тиск пам'яті"
+
+msgid "Minimum CPU Frequency"
+msgstr "Мінімальна частота процесорів"
+
+msgid "Minimum CPU Temperature"
+msgstr "Мінімальна температура процесорів"
+
+msgid "Name"
+msgstr "Назва"
+
+msgid "Network Devices"
+msgstr "Пристрої мережі"
+
+msgid "Network Name"
+msgstr "Назва мережі"
+
+msgid "Number of CPUs"
+msgstr "Кількість процесорів"
+
+msgid "Number of Cores"
+msgstr "Кількість ядер"
+
+msgid "Operating System"
+msgstr "Операційна система"
+
+msgid "Operating System Logo"
+msgstr "Логотип операційної системи"
+
+msgid "Operating System Name"
+msgstr "Назва операційної системи"
+
+msgid "Operating System Name and Version"
+msgstr "Назва і версія операційної системи"
+
+msgid "Operating System URL"
+msgstr "Адреса сайта операційної системи"
+
+msgid "Operating System Version"
+msgstr "Версія операційної системи"
+
+msgid "Percentage Free"
+msgstr "Частка вільного"
+
+msgid "Percentage Used"
+msgstr "Частка використання"
+
+msgid "Physical Memory"
+msgstr "Фізична пам'ять"
+
+msgid "Power"
+msgstr "Потужність"
+
+msgid "Pressure"
+msgstr "Тиск"
+
+msgid "Qt Version"
+msgstr "Версія Qt"
+
+msgid "Read Rate"
+msgstr "Швидкість читання"
+
+msgid "Signal Strength"
+msgstr "Потужність сигналу"
+
+msgid "Some (1 minute average)"
+msgstr "Частковий (усереднення за 1 хвилиною)"
+
+msgid "Some (10 second average)"
+msgstr "Частковий (усереднення за 10 секундами)"
+
+msgid "Some (5 minute average)"
+msgstr "Частковий (усереднення за 5 хвилинами)"
+
+msgid "Swap Memory"
+msgstr "Пам'ять свопінгу"
+
+msgid "System"
+msgstr "Система"
+
+msgid "System Usage"
+msgstr "Використання системою"
+
+msgid "Temperature"
+msgstr "Температура"
+
+msgid "Total Downloaded"
+msgstr "Загалом отримано"
+
+msgid "Total Full Stall Time"
+msgstr "Загальний час повного призупинення"
+
+msgid "Total Physical Memory"
+msgstr "Загалом фізичної пам'яті"
+
+msgid "Total Some Stall Time"
+msgstr "Загалом час певного призупинення"
+
+msgid "Total Space"
+msgstr "Усього місця"
+
+msgid "Total Swap Memory"
+msgstr "Загалом резервної пам'яті"
+
+msgid "Total Uploaded"
+msgstr "Загалом вивантажено"
+
+msgid "Total Usage"
+msgstr "Загальне використання"
+
+msgid "Total Video Memory"
+msgstr "Загалом відеопам'яті"
+
+msgid "Upload Rate"
+msgstr "Швидкість вивантаження"
+
+msgid "Uptime"
+msgstr "Тривалість роботи"
+
+msgid "Usage"
+msgstr "Використання"
+
+msgid "Used Physical Memory"
+msgstr "Використано фізичної пам'яті"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Частка використаної фізичної пам'яті"
+
+msgid "Used Space"
+msgstr "Використане місце"
+
+msgid "Used Swap Memory"
+msgstr "Використана резервна пам'ять"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Частка використаної резервної пам'яті"
+
+msgid "User Usage"
+msgstr "Використання користувачем"
+
+msgid "Video Memory Used"
+msgstr "Використано відеопам'яті"
+
+msgid "Video Usage"
+msgstr "Використання відео"
+
+msgid "Wait Usage"
+msgstr "Використання очікуванням"
+
+msgid "Window System"
+msgstr "Система роботи з вікнами"
+
+msgid "Write Rate"
+msgstr "Швидкість запису"
+

@@ -680,3 +680,335 @@ msgstr "Puțin probabil"
 
 msgid "alert_certainty_unknown"
 msgstr "Necunoscut"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Toate"
+
+msgid "All Disks"
+msgstr "Toate discurile"
+
+msgid "All GPUs"
+msgstr "Toate plăcile grafice"
+
+msgid "All GPUs Total Memory"
+msgstr "Memoria totală a tuturor plăcilor grafice"
+
+msgid "All GPUs Usage"
+msgstr "Utilizarea tuturor plăcilor grafice"
+
+msgid "All GPUs Used Memory"
+msgstr "Memoria folosită a tuturor plăcilor grafice"
+
+msgid "All Network Devices"
+msgstr "Toate dispozitivele de rețea"
+
+msgid "Application Memory"
+msgstr "Memorie aplicații"
+
+msgid "Application Memory Percentage"
+msgstr "Procentaj memorie aplicații"
+
+msgid "Average CPU Frequency"
+msgstr "Frecvența medie a procesorului"
+
+msgid "Average CPU Temperature"
+msgstr "Temperatura medie a procesorului"
+
+msgid "Buffer Memory"
+msgstr "Memorie-tampon"
+
+msgid "Buffer Memory Percentage"
+msgstr "Procentaj memorie-tampon"
+
+msgid "CPU %1"
+msgstr "Procesor %1"
+
+msgid "CPU %1 Core %2"
+msgstr "Procesor %1 Nucleu %2"
+
+msgid "CPU Pressure"
+msgstr "Presiunea procesorului"
+
+msgid "Cache Memory"
+msgstr "Memorie cache"
+
+msgid "Cache Memory Percentage"
+msgstr "Procentaj memorie cache"
+
+msgid "Charge"
+msgstr "Încărcare"
+
+msgid "Charge Percentage"
+msgstr "Procentaj încărcare"
+
+msgid "Charging  Rate"
+msgstr "Rată de încărcare"
+
+msgid "Charging Rate"
+msgstr "Rată de încărcare"
+
+msgid "Core %1"
+msgstr "Nucleu %1"
+
+msgid "Current Capacity"
+msgstr "Capacitate actuală"
+
+msgid "Current Frequency"
+msgstr "Frecvență actuală"
+
+msgid "Current Temperature"
+msgstr "Temperatură actuală"
+
+msgid "Design Capacity"
+msgstr "Capacitate proiectată"
+
+msgid "Download Rate"
+msgstr "Rată descărcare"
+
+msgid "Free Physical Memory"
+msgstr "Memorie fizică liberă"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Procentaj memorie fizică liberă"
+
+msgid "Free Space"
+msgstr "Spațiu liber"
+
+msgid "Free Swap Memory"
+msgstr "Memorie swap liberă"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Procentaj memorie swap liberă"
+
+msgid "Frequency"
+msgstr "Frecvență"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "Health"
+msgstr "Sănătate"
+
+msgid "Hostname"
+msgstr "Nume gazdă"
+
+msgid "IPv4 Address"
+msgstr "Adresă IPv4"
+
+msgid "IPv4 DNS"
+msgstr "DNS IPv4"
+
+msgid "IPv4 Gateway"
+msgstr "Poartă IPv4"
+
+msgid "IPv4 Subnet Mask"
+msgstr "Mască de subrețea IPv4"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 cu lungime de prefix"
+
+msgid "IPv6 Address"
+msgstr "Adresă IPv6"
+
+msgid "IPv6 DNS"
+msgstr "DNS IPv6"
+
+msgid "IPv6 Gateway"
+msgstr "Poartă IPv6"
+
+msgid "IPv6 Subnet Mask"
+msgstr "Mască de subrețea IPv6"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6 cu lungime de prefix"
+
+msgid "KDE Frameworks Version"
+msgstr "Versiune KDE Frameworks"
+
+msgid "KDE Plasma"
+msgstr "Plasma KDE"
+
+msgid "KDE Plasma Version"
+msgstr "Versiune KDE Plasma"
+
+msgid "Kernel"
+msgstr "Nucleu"
+
+msgid "Kernel Name"
+msgstr "Denumire nucleu"
+
+msgid "Kernel Name and Version"
+msgstr "Denumire și versiune nucleu"
+
+msgid "Kernel Version"
+msgstr "Versiune nucleu"
+
+msgid "Load Averages"
+msgstr "Încărcări medii"
+
+msgid "Load average (1 minute)"
+msgstr "Încărcare medie (1 min)"
+
+msgid "Load average (15 minute)"
+msgstr "Încărcare medie (15 min)"
+
+msgid "Load average (5 minutes)"
+msgstr "Încărcare medie (5 min)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Frecvența maximă a procesorului"
+
+msgid "Maximum CPU Temperature"
+msgstr "Temperatura maximă a procesorului"
+
+msgid "Memory"
+msgstr "Memorie"
+
+msgid "Memory Frequency"
+msgstr "Frecvența memoriei"
+
+msgid "Memory Pressure"
+msgstr "Presiunea memoriei"
+
+msgid "Minimum CPU Frequency"
+msgstr "Frecvența minimă a procesorului"
+
+msgid "Minimum CPU Temperature"
+msgstr "Temperatura minimă a procesorului"
+
+msgid "Name"
+msgstr "Denumire"
+
+msgid "Network Devices"
+msgstr "Dispozitive de rețea"
+
+msgid "Network Name"
+msgstr "Denumire rețea"
+
+msgid "Number of CPUs"
+msgstr "Numărul de procesoare"
+
+msgid "Number of Cores"
+msgstr "Număr de nuclee"
+
+msgid "Operating System"
+msgstr "Sistem de operare"
+
+msgid "Operating System Logo"
+msgstr "Logotip sistem de operare"
+
+msgid "Operating System Name"
+msgstr "Denumire sistem de operare"
+
+msgid "Operating System Name and Version"
+msgstr "Denumire și versiune sistem de operare"
+
+msgid "Operating System URL"
+msgstr "URL sistem de operare"
+
+msgid "Operating System Version"
+msgstr "Versiune sistem de operare"
+
+msgid "Percentage Free"
+msgstr "Procentaj liber"
+
+msgid "Percentage Used"
+msgstr "Procentaj folosit"
+
+msgid "Physical Memory"
+msgstr "Memorie fizică"
+
+msgid "Power"
+msgstr "Putere"
+
+msgid "Pressure"
+msgstr "Presiune"
+
+msgid "Qt Version"
+msgstr "Versiune Qt"
+
+msgid "Read Rate"
+msgstr "Rată de citire"
+
+msgid "Signal Strength"
+msgstr "Intensitate semnal"
+
+msgid "Swap Memory"
+msgstr "Memorie swap"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "System Usage"
+msgstr "Utilizare sistem"
+
+msgid "Temperature"
+msgstr "Temperatură"
+
+msgid "Total Downloaded"
+msgstr "Total descărcat"
+
+msgid "Total Physical Memory"
+msgstr "Memorie fizică totală"
+
+msgid "Total Space"
+msgstr "Spațiu total"
+
+msgid "Total Swap Memory"
+msgstr "Memorie swap totală"
+
+msgid "Total Uploaded"
+msgstr "Total încărcat"
+
+msgid "Total Usage"
+msgstr "Total folosit"
+
+msgid "Total Video Memory"
+msgstr "Memorie video totală"
+
+msgid "Upload Rate"
+msgstr "Rată încărcare"
+
+msgid "Uptime"
+msgstr "Durată pornire"
+
+msgid "Usage"
+msgstr "Utilizare"
+
+msgid "Used Physical Memory"
+msgstr "Memorie fizică folosită"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Procentaj memorie fizică folosită"
+
+msgid "Used Space"
+msgstr "Spațiu folosit"
+
+msgid "Used Swap Memory"
+msgstr "Memorie swap folosită"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Procentaj memorie cache folosită"
+
+msgid "User Usage"
+msgstr "Utilizare utilizator"
+
+msgid "Video Memory Used"
+msgstr "Memorie video folosită"
+
+msgid "Video Usage"
+msgstr "Utilizare video"
+
+msgid "Wait Usage"
+msgstr "Utilizare așteptare"
+
+msgid "Window System"
+msgstr "Sistem de ferestre"
+
+msgid "Write Rate"
+msgstr "Rată de scriere"
+

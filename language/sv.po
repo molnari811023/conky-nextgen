@@ -680,3 +680,362 @@ msgstr "Osannolik"
 
 msgid "alert_certainty_unknown"
 msgstr "Okänd"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Alla"
+
+msgid "All Disks"
+msgstr "Alla diskar"
+
+msgid "All GPUs"
+msgstr "Alla grafikprocessorer"
+
+msgid "All GPUs Total Memory"
+msgstr "Alla grafikprocessorers totala minne"
+
+msgid "All GPUs Usage"
+msgstr "All grafikprocessoranvändning"
+
+msgid "All GPUs Used Memory"
+msgstr "Alla grafikprocessorers använda minne"
+
+msgid "All Network Devices"
+msgstr "Alla nätverksenheter"
+
+msgid "Application Memory"
+msgstr "Programminne"
+
+msgid "Application Memory Percentage"
+msgstr "Programminne i procent"
+
+msgid "Average CPU Frequency"
+msgstr "Medelprocessorfrekvens"
+
+msgid "Average CPU Temperature"
+msgstr "Processorns medeltemperatur"
+
+msgid "Buffer Memory"
+msgstr "Buffertminne"
+
+msgid "Buffer Memory Percentage"
+msgstr "Buffertminne i procent"
+
+msgid "CPU %1"
+msgstr "Processor %1"
+
+msgid "CPU %1 Core %2"
+msgstr "Processor %1 kärna %2"
+
+msgid "CPU Pressure"
+msgstr "Processorstress"
+
+msgid "Cache Memory"
+msgstr "Cacheminne"
+
+msgid "Cache Memory Percentage"
+msgstr "Cacheminne i procent"
+
+msgid "Charge"
+msgstr "Laddning"
+
+msgid "Charge Percentage"
+msgstr "Laddningsprocent"
+
+msgid "Charging  Rate"
+msgstr "Laddningshastighet"
+
+msgid "Charging Rate"
+msgstr "Laddningshastighet"
+
+msgid "Core %1"
+msgstr "Kärna %1"
+
+msgid "Current Capacity"
+msgstr "Aktuell kapacitet"
+
+msgid "Current Frequency"
+msgstr "Aktuell frekvens"
+
+msgid "Current Temperature"
+msgstr "Aktuell temperatur"
+
+msgid "Design Capacity"
+msgstr "Angiven kapacitet"
+
+msgid "Download Rate"
+msgstr "Nerladdningshastighet"
+
+msgid "Free Physical Memory"
+msgstr "Ledigt fysiskt minne"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Ledigt fysiskt minne i procent"
+
+msgid "Free Space"
+msgstr "Ledigt utrymme"
+
+msgid "Free Swap Memory"
+msgstr "Ledigt växlingsminne"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Ledigt växlingsminne i procent"
+
+msgid "Frequency"
+msgstr "Frekvens"
+
+msgid "Full (1 minute average)"
+msgstr "Fullständig (1-minuters medelvärde)"
+
+msgid "Full (10 second average)"
+msgstr "Fullständig (10-sekunders medelvärde)"
+
+msgid "Full (5 minute average)"
+msgstr "Fullständig (5-minuters medelvärde)"
+
+msgid "GPU"
+msgstr "Grafikprocessor"
+
+msgid "Health"
+msgstr "Hälsa"
+
+msgid "Hostname"
+msgstr "Värddatornamn"
+
+msgid "IO Pressure"
+msgstr "I/O-stress"
+
+msgid "IPv4 Address"
+msgstr "IPv4-adress"
+
+msgid "IPv4 DNS"
+msgstr "IPv4 domännamntjänst"
+
+msgid "IPv4 Gateway"
+msgstr "IPv4-förmedlingsnod"
+
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4-delnätmask"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 med prefixlängd"
+
+msgid "IPv6 Address"
+msgstr "IPv6-adress"
+
+msgid "IPv6 DNS"
+msgstr "IPv6 domännamntjänst"
+
+msgid "IPv6 Gateway"
+msgstr "IPv6-förmedlingsnod"
+
+msgid "IPv6 Subnet Mask"
+msgstr "IPv6-delnätmask"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6 med prefixlängd"
+
+msgid "KDE Frameworks Version"
+msgstr "KDE Ramverksversion"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "KDE Plasma Version"
+msgstr "KDE Plasma-version"
+
+msgid "Kernel"
+msgstr "Kärna"
+
+msgid "Kernel Name"
+msgstr "Kärnans namn"
+
+msgid "Kernel Name and Version"
+msgstr "Kärnans namn och version"
+
+msgid "Kernel Version"
+msgstr "Kärnans version"
+
+msgid "Load Averages"
+msgstr "Lastmedelvärden"
+
+msgid "Load average (1 minute)"
+msgstr "Lastmedelvärde (1 minut)"
+
+msgid "Load average (15 minute)"
+msgstr "Lastmedelvärde (15 minut)"
+
+msgid "Load average (5 minutes)"
+msgstr "Lastmedelvärde (5 minut)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Maximal processorfrekvens"
+
+msgid "Maximum CPU Temperature"
+msgstr "Maximal processortemperatur"
+
+msgid "Memory"
+msgstr "Minne"
+
+msgid "Memory Frequency"
+msgstr "Minnesfrekvens"
+
+msgid "Memory Pressure"
+msgstr "Minnesstress"
+
+msgid "Minimum CPU Frequency"
+msgstr "Minimal processorfrekvens"
+
+msgid "Minimum CPU Temperature"
+msgstr "Minimal processortemperatur"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "Network Devices"
+msgstr "Nätverksenheter"
+
+msgid "Network Name"
+msgstr "Nätverksnamn"
+
+msgid "Number of CPUs"
+msgstr "Antal processorer"
+
+msgid "Number of Cores"
+msgstr "Antal kärnor"
+
+msgid "Operating System"
+msgstr "Operativsystem"
+
+msgid "Operating System Logo"
+msgstr "Operativsystemlogotyp"
+
+msgid "Operating System Name"
+msgstr "Operativsystemnamn"
+
+msgid "Operating System Name and Version"
+msgstr "Operativsystemnamn och version"
+
+msgid "Operating System URL"
+msgstr "Operativsystemwebbadress"
+
+msgid "Operating System Version"
+msgstr "Operativsystemversion"
+
+msgid "Percentage Free"
+msgstr "Procent ledigt"
+
+msgid "Percentage Used"
+msgstr "Procent använt"
+
+msgid "Physical Memory"
+msgstr "Fysiskt minne"
+
+msgid "Power"
+msgstr "Effekt"
+
+msgid "Pressure"
+msgstr "Stress"
+
+msgid "Qt Version"
+msgstr "Qt-version"
+
+msgid "Read Rate"
+msgstr "Läsfrekvens"
+
+msgid "Signal Strength"
+msgstr "Signalstyrka"
+
+msgid "Some (1 minute average)"
+msgstr "Någon (1-minuters medelvärde)"
+
+msgid "Some (10 second average)"
+msgstr "Någon (10-sekunders medelvärde)"
+
+msgid "Some (5 minute average)"
+msgstr "Någon (5-minuters medelvärde)"
+
+msgid "Swap Memory"
+msgstr "Växlingsminne"
+
+msgid "System"
+msgstr "System"
+
+msgid "System Usage"
+msgstr "Systemanvändning"
+
+msgid "Temperature"
+msgstr "Temperatur"
+
+msgid "Total Downloaded"
+msgstr "Totalt nerladdat"
+
+msgid "Total Full Stall Time"
+msgstr "Total fullständigt avstannad tid"
+
+msgid "Total Physical Memory"
+msgstr "Totalt fysiskt minne"
+
+msgid "Total Some Stall Time"
+msgstr "Total någon avstannad tid"
+
+msgid "Total Space"
+msgstr "Totalt utrymme "
+
+msgid "Total Swap Memory"
+msgstr "Totalt växlingsminne"
+
+msgid "Total Uploaded"
+msgstr "Totalt uppladdat"
+
+msgid "Total Usage"
+msgstr "Total användning"
+
+msgid "Total Video Memory"
+msgstr "Totalt videominne"
+
+msgid "Upload Rate"
+msgstr "Uppladdningshastighet"
+
+msgid "Uptime"
+msgstr "Upptid"
+
+msgid "Usage"
+msgstr "Användning"
+
+msgid "Used Physical Memory"
+msgstr "Använt fysiskt minne"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Använt fysiskt minne i procent"
+
+msgid "Used Space"
+msgstr "Använt utrymme"
+
+msgid "Used Swap Memory"
+msgstr "Använt växlingsminne"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Använt växlingsminne i procent"
+
+msgid "User Usage"
+msgstr "Användaranvändning"
+
+msgid "Video Memory Used"
+msgstr "Använt videominne"
+
+msgid "Video Usage"
+msgstr "Videoanvändning"
+
+msgid "Wait Usage"
+msgstr "Vänteanvändning"
+
+msgid "Window System"
+msgstr "Fönstersystem"
+
+msgid "Write Rate"
+msgstr "Skrivfrekvens"
+

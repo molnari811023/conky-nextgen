@@ -680,3 +680,362 @@ msgstr "가능성 낮음"
 
 msgid "alert_certainty_unknown"
 msgstr "알 수 없음"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "모두"
+
+msgid "All Disks"
+msgstr "모든 디스크"
+
+msgid "All GPUs"
+msgstr "모든 GPU"
+
+msgid "All GPUs Total Memory"
+msgstr "모든 GPU 총 메모리"
+
+msgid "All GPUs Usage"
+msgstr "모든 GPU 사용량"
+
+msgid "All GPUs Used Memory"
+msgstr "모든 GPU 사용한 메모리"
+
+msgid "All Network Devices"
+msgstr "모든 네트워크 장치"
+
+msgid "Application Memory"
+msgstr "앱 메모리"
+
+msgid "Application Memory Percentage"
+msgstr "앱 메모리 백분율"
+
+msgid "Average CPU Frequency"
+msgstr "평균 CPU 주파수"
+
+msgid "Average CPU Temperature"
+msgstr "평균 CPU 온도"
+
+msgid "Buffer Memory"
+msgstr "버퍼 메모리"
+
+msgid "Buffer Memory Percentage"
+msgstr "버퍼 메모리 백분율"
+
+msgid "CPU %1"
+msgstr "CPU %1"
+
+msgid "CPU %1 Core %2"
+msgstr "CPU %1 코어 %2"
+
+msgid "CPU Pressure"
+msgstr "CPU 압박"
+
+msgid "Cache Memory"
+msgstr "캐시 메모리"
+
+msgid "Cache Memory Percentage"
+msgstr "캐시 메모리 백분율"
+
+msgid "Charge"
+msgstr "충전량"
+
+msgid "Charge Percentage"
+msgstr "충전 비율"
+
+msgid "Charging  Rate"
+msgstr "충전 속도"
+
+msgid "Charging Rate"
+msgstr "충전 속도"
+
+msgid "Core %1"
+msgstr "코어 %1"
+
+msgid "Current Capacity"
+msgstr "현재 용량"
+
+msgid "Current Frequency"
+msgstr "현재 주파수"
+
+msgid "Current Temperature"
+msgstr "현재 온도"
+
+msgid "Design Capacity"
+msgstr "설계 용량"
+
+msgid "Download Rate"
+msgstr "다운로드 속도"
+
+msgid "Free Physical Memory"
+msgstr "남은 물리적 메모리"
+
+msgid "Free Physical Memory Percentage"
+msgstr "남은 물리적 메모리 백분율"
+
+msgid "Free Space"
+msgstr "남은 공간"
+
+msgid "Free Swap Memory"
+msgstr "남은 스왑 메모리"
+
+msgid "Free Swap Memory Percentage"
+msgstr "남은 스왑 메모리 백분율"
+
+msgid "Frequency"
+msgstr "주파수"
+
+msgid "Full (1 minute average)"
+msgstr "전체(1분 평균)"
+
+msgid "Full (10 second average)"
+msgstr "전체(10초 평균)"
+
+msgid "Full (5 minute average)"
+msgstr "전체(5분 평균)"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "Health"
+msgstr "수명"
+
+msgid "Hostname"
+msgstr "호스트 이름"
+
+msgid "IO Pressure"
+msgstr "IO 압박"
+
+msgid "IPv4 Address"
+msgstr "IPv4 주소"
+
+msgid "IPv4 DNS"
+msgstr "IPv4 DNS"
+
+msgid "IPv4 Gateway"
+msgstr "IPv4 게이트웨이"
+
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4 서브넷 마스크"
+
+msgid "IPv4 with Prefix Length"
+msgstr "접두사 길이 포함 IPv4"
+
+msgid "IPv6 Address"
+msgstr "IPv6 주소"
+
+msgid "IPv6 DNS"
+msgstr "IPv6 DNS"
+
+msgid "IPv6 Gateway"
+msgstr "IPv6 게이트웨이"
+
+msgid "IPv6 Subnet Mask"
+msgstr "IPv6 서브넷 마스크"
+
+msgid "IPv6 with Prefix Length"
+msgstr "접두사 길이 포함 IPv6"
+
+msgid "KDE Frameworks Version"
+msgstr "KDE 프레임워크 버전"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "KDE Plasma Version"
+msgstr "KDE Plasma 버전"
+
+msgid "Kernel"
+msgstr "커널"
+
+msgid "Kernel Name"
+msgstr "커널 이름"
+
+msgid "Kernel Name and Version"
+msgstr "커널 이름과 버전"
+
+msgid "Kernel Version"
+msgstr "커널 버전"
+
+msgid "Load Averages"
+msgstr "평균 부하"
+
+msgid "Load average (1 minute)"
+msgstr "평균 부하(1분)"
+
+msgid "Load average (15 minute)"
+msgstr "평균 부하(15분)"
+
+msgid "Load average (5 minutes)"
+msgstr "평균 부하(5분)"
+
+msgid "Maximum CPU Frequency"
+msgstr "최대 CPU 주파수"
+
+msgid "Maximum CPU Temperature"
+msgstr "최대 CPU 온도"
+
+msgid "Memory"
+msgstr "메모리"
+
+msgid "Memory Frequency"
+msgstr "메모리 주파수"
+
+msgid "Memory Pressure"
+msgstr "메모리 압박"
+
+msgid "Minimum CPU Frequency"
+msgstr "최소 CPU 주파수"
+
+msgid "Minimum CPU Temperature"
+msgstr "최소 CPU 온도"
+
+msgid "Name"
+msgstr "이름"
+
+msgid "Network Devices"
+msgstr "네트워크 장치"
+
+msgid "Network Name"
+msgstr "네트워크 이름"
+
+msgid "Number of CPUs"
+msgstr "CPU 개수"
+
+msgid "Number of Cores"
+msgstr "코어 개수"
+
+msgid "Operating System"
+msgstr "운영 체제"
+
+msgid "Operating System Logo"
+msgstr "운영 체제 로고"
+
+msgid "Operating System Name"
+msgstr "운영 체제 이름"
+
+msgid "Operating System Name and Version"
+msgstr "운영 체제 이름과 버전"
+
+msgid "Operating System URL"
+msgstr "운영 체제 URL"
+
+msgid "Operating System Version"
+msgstr "운영 체제 버전"
+
+msgid "Percentage Free"
+msgstr "남은 공간 백분율"
+
+msgid "Percentage Used"
+msgstr "사용량 백분율"
+
+msgid "Physical Memory"
+msgstr "물리적 메모리"
+
+msgid "Power"
+msgstr "전원"
+
+msgid "Pressure"
+msgstr "압박"
+
+msgid "Qt Version"
+msgstr "Qt 버전"
+
+msgid "Read Rate"
+msgstr "읽기 전송률"
+
+msgid "Signal Strength"
+msgstr "신호 강도"
+
+msgid "Some (1 minute average)"
+msgstr "약간(1분 평균)"
+
+msgid "Some (10 second average)"
+msgstr "약간(10초 평균)"
+
+msgid "Some (5 minute average)"
+msgstr "약간(5분 평균)"
+
+msgid "Swap Memory"
+msgstr "스왑 메모리"
+
+msgid "System"
+msgstr "시스템"
+
+msgid "System Usage"
+msgstr "시스템 사용량"
+
+msgid "Temperature"
+msgstr "온도"
+
+msgid "Total Downloaded"
+msgstr "총 다운로드"
+
+msgid "Total Full Stall Time"
+msgstr "총 전체 지연된 시간"
+
+msgid "Total Physical Memory"
+msgstr "총 물리적 메모리"
+
+msgid "Total Some Stall Time"
+msgstr "총 약간 지연된 시간"
+
+msgid "Total Space"
+msgstr "총 공간"
+
+msgid "Total Swap Memory"
+msgstr "총 스왑 메모리"
+
+msgid "Total Uploaded"
+msgstr "총 업로드"
+
+msgid "Total Usage"
+msgstr "총 사용량"
+
+msgid "Total Video Memory"
+msgstr "모든 비디오 메모리"
+
+msgid "Upload Rate"
+msgstr "업로드 속도"
+
+msgid "Uptime"
+msgstr "켜진 시간"
+
+msgid "Usage"
+msgstr "사용량"
+
+msgid "Used Physical Memory"
+msgstr "사용한 물리적 메모리"
+
+msgid "Used Physical Memory Percentage"
+msgstr "사용한 물리적 메모리 백분율"
+
+msgid "Used Space"
+msgstr "사용한 공간"
+
+msgid "Used Swap Memory"
+msgstr "사용한 스왑 메모리"
+
+msgid "Used Swap Memory Percentage"
+msgstr "사용한 스왑 메모리 백분율"
+
+msgid "User Usage"
+msgstr "사용자 사용량"
+
+msgid "Video Memory Used"
+msgstr "사용한 비디오 메모리"
+
+msgid "Video Usage"
+msgstr "비디오 사용량"
+
+msgid "Wait Usage"
+msgstr "대기 사용량"
+
+msgid "Window System"
+msgstr "창 시스템"
+
+msgid "Write Rate"
+msgstr "쓰기 전송률"
+

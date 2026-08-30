@@ -680,3 +680,362 @@ msgstr "Nem valószínű"
 
 msgid "alert_certainty_unknown"
 msgstr "Ismeretlen"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Mind"
+
+msgid "All Disks"
+msgstr "Összes lemez"
+
+msgid "All GPUs"
+msgstr "Összes GPU"
+
+msgid "All GPUs Total Memory"
+msgstr "Összes GPU teljes memóriája"
+
+msgid "All GPUs Usage"
+msgstr "Összes GPU-használat"
+
+msgid "All GPUs Used Memory"
+msgstr "Összes GPU foglalt memóriája"
+
+msgid "All Network Devices"
+msgstr "Összes hálózati eszköz"
+
+msgid "Application Memory"
+msgstr "Alkalmazásmemória"
+
+msgid "Application Memory Percentage"
+msgstr "Alkalmazásmemória százalékos aránya"
+
+msgid "Average CPU Frequency"
+msgstr "Átlagos CPU-frekvencia"
+
+msgid "Average CPU Temperature"
+msgstr "Átlagus CPU-hőmérséklet"
+
+msgid "Buffer Memory"
+msgstr "Puffermemória"
+
+msgid "Buffer Memory Percentage"
+msgstr "Puffermemória százalékos aránya"
+
+msgid "CPU %1"
+msgstr "%1. CPU"
+
+msgid "CPU %1 Core %2"
+msgstr "%1. CPU %2. mag"
+
+msgid "CPU Pressure"
+msgstr "CPU-igény"
+
+msgid "Cache Memory"
+msgstr "Gyorsítótár-memória"
+
+msgid "Cache Memory Percentage"
+msgstr "Gyorsítótár-memória százalékos aránya"
+
+msgid "Charge"
+msgstr "Töltöttség"
+
+msgid "Charge Percentage"
+msgstr "Töltöttségi százalék"
+
+msgid "Charging  Rate"
+msgstr "Töltési sebesség"
+
+msgid "Charging Rate"
+msgstr "Töltési sebesség"
+
+msgid "Core %1"
+msgstr "%1. mag"
+
+msgid "Current Capacity"
+msgstr "Jelenlegi kapacitás"
+
+msgid "Current Frequency"
+msgstr "Jelenlegi frekvencia"
+
+msgid "Current Temperature"
+msgstr "Jelenlegi hőmérséklet"
+
+msgid "Design Capacity"
+msgstr "Tervezett kapacitás"
+
+msgid "Download Rate"
+msgstr "Letöltési sebesség"
+
+msgid "Free Physical Memory"
+msgstr "Szabad fizikai memória"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Szabad fizikai memória százalékos aránya"
+
+msgid "Free Space"
+msgstr "Szabad hely"
+
+msgid "Free Swap Memory"
+msgstr "Szabad lapozási memória"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Szabad lapozási memória százalékos aránya"
+
+msgid "Frequency"
+msgstr "Frekvencia"
+
+msgid "Full (1 minute average)"
+msgstr "Teljes (1 perces átlag)"
+
+msgid "Full (10 second average)"
+msgstr "Teljes (10 másodperces átlag)"
+
+msgid "Full (5 minute average)"
+msgstr "Teljes (5 perces átlag)"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "Health"
+msgstr "Állapot"
+
+msgid "Hostname"
+msgstr "Gépnév"
+
+msgid "IO Pressure"
+msgstr "IO-igény"
+
+msgid "IPv4 Address"
+msgstr "IPv4 cím"
+
+msgid "IPv4 DNS"
+msgstr "IPv4 DNS"
+
+msgid "IPv4 Gateway"
+msgstr "IPv4 átjáró"
+
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4 alhálózati maszk"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 előtaghosszal"
+
+msgid "IPv6 Address"
+msgstr "IPv6 cím"
+
+msgid "IPv6 DNS"
+msgstr "IPv6 DNS"
+
+msgid "IPv6 Gateway"
+msgstr "IPv6 átjáró"
+
+msgid "IPv6 Subnet Mask"
+msgstr "IPv6 alhálózati maszk"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6 előtaghosszal"
+
+msgid "KDE Frameworks Version"
+msgstr "KDE Frameworks verzió"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "KDE Plasma Version"
+msgstr "KDE Plasma verzió"
+
+msgid "Kernel"
+msgstr "Kernel"
+
+msgid "Kernel Name"
+msgstr "Kernelnév"
+
+msgid "Kernel Name and Version"
+msgstr "Kernelnév és verzió"
+
+msgid "Kernel Version"
+msgstr "Kernelverzió"
+
+msgid "Load Averages"
+msgstr "Átlagos terhelések"
+
+msgid "Load average (1 minute)"
+msgstr "Átlagos terhelés (1 perc)"
+
+msgid "Load average (15 minute)"
+msgstr "Átlagos terhelés (15 perc)"
+
+msgid "Load average (5 minutes)"
+msgstr "Átlagos terhelés (5 perc)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Maximális CPU-frekvencia"
+
+msgid "Maximum CPU Temperature"
+msgstr "Maximális CPU-hőmérséklet"
+
+msgid "Memory"
+msgstr "Memória"
+
+msgid "Memory Frequency"
+msgstr "Memóriafrekvencia"
+
+msgid "Memory Pressure"
+msgstr "Memóriaigény"
+
+msgid "Minimum CPU Frequency"
+msgstr "Minimális CPU-frekvencia"
+
+msgid "Minimum CPU Temperature"
+msgstr "Minimális CPU-hőmérséklet"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Network Devices"
+msgstr "Hálózati eszközök"
+
+msgid "Network Name"
+msgstr "Hálózatnév"
+
+msgid "Number of CPUs"
+msgstr "CPU-k száma"
+
+msgid "Number of Cores"
+msgstr "Magszám"
+
+msgid "Operating System"
+msgstr "Operációs rendszer"
+
+msgid "Operating System Logo"
+msgstr "Operációs rendszer logója"
+
+msgid "Operating System Name"
+msgstr "Operációs rendszer neve"
+
+msgid "Operating System Name and Version"
+msgstr "Operációs rendszer neve és verziója"
+
+msgid "Operating System URL"
+msgstr "Operációs rendszer honlapja"
+
+msgid "Operating System Version"
+msgstr "Operációs rendszer verziója"
+
+msgid "Percentage Free"
+msgstr "Szabad százalék"
+
+msgid "Percentage Used"
+msgstr "Felhasznált százalék"
+
+msgid "Physical Memory"
+msgstr "Fizikai memória"
+
+msgid "Power"
+msgstr "Teljesítmény"
+
+msgid "Pressure"
+msgstr "Igény"
+
+msgid "Qt Version"
+msgstr "Qt verzió"
+
+msgid "Read Rate"
+msgstr "Olvasási sebesség"
+
+msgid "Signal Strength"
+msgstr "Jelerősség"
+
+msgid "Some (1 minute average)"
+msgstr "Alacsony (1 perces átlag)"
+
+msgid "Some (10 second average)"
+msgstr "Alacsony (10 másodperces átlag)"
+
+msgid "Some (5 minute average)"
+msgstr "Alacsony (5 perces átlag)"
+
+msgid "Swap Memory"
+msgstr "Lapozási memória"
+
+msgid "System"
+msgstr "Rendszer"
+
+msgid "System Usage"
+msgstr "Rendszerhasználat"
+
+msgid "Temperature"
+msgstr "Hőmérséklet"
+
+msgid "Total Downloaded"
+msgstr "Összesen letöltött"
+
+msgid "Total Full Stall Time"
+msgstr "Összes várakozási idő"
+
+msgid "Total Physical Memory"
+msgstr "Teljes fizikai memória"
+
+msgid "Total Some Stall Time"
+msgstr "Összes várakozási idő"
+
+msgid "Total Space"
+msgstr "Összes hely"
+
+msgid "Total Swap Memory"
+msgstr "Teljes lapozási memória"
+
+msgid "Total Uploaded"
+msgstr "Összesel feltöltött"
+
+msgid "Total Usage"
+msgstr "Teljes használat"
+
+msgid "Total Video Memory"
+msgstr "Teljes videómemória"
+
+msgid "Upload Rate"
+msgstr "Feltöltési sebesség"
+
+msgid "Uptime"
+msgstr "Működési idő"
+
+msgid "Usage"
+msgstr "Használat"
+
+msgid "Used Physical Memory"
+msgstr "Foglalt fizikai memória"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Foglalt fizikai memória százalékos aránya"
+
+msgid "Used Space"
+msgstr "Foglalt hely"
+
+msgid "Used Swap Memory"
+msgstr "Foglalt lapozási memória"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Foglalt lapozási memória százalékos aránya"
+
+msgid "User Usage"
+msgstr "Felhasználói használat"
+
+msgid "Video Memory Used"
+msgstr "Foglalt videómemória"
+
+msgid "Video Usage"
+msgstr "Videohasználat"
+
+msgid "Wait Usage"
+msgstr "Várakozási használat"
+
+msgid "Window System"
+msgstr "Ablakkezelő rendszer"
+
+msgid "Write Rate"
+msgstr "Írási sebesség"
+

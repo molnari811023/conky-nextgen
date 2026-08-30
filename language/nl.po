@@ -680,3 +680,362 @@ msgstr "Onwaarschijnlijk"
 
 msgid "alert_certainty_unknown"
 msgstr "Onbekend"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Alles"
+
+msgid "All Disks"
+msgstr "Alle schijven"
+
+msgid "All GPUs"
+msgstr "Alle GPU's"
+
+msgid "All GPUs Total Memory"
+msgstr "Totaal geheugen van alle GPU's"
+
+msgid "All GPUs Usage"
+msgstr "Alle GPU's gebruiken"
+
+msgid "All GPUs Used Memory"
+msgstr "Gebruikt geheugen van alle GPU's"
+
+msgid "All Network Devices"
+msgstr "Alle netwerkapparaten"
+
+msgid "Application Memory"
+msgstr "Geheugen voor toepassingen"
+
+msgid "Application Memory Percentage"
+msgstr "Percentage geheugen voor toepassingen"
+
+msgid "Average CPU Frequency"
+msgstr "Gemiddelde CPU-frequentie"
+
+msgid "Average CPU Temperature"
+msgstr "Gemiddelde temperatuur van CPU"
+
+msgid "Buffer Memory"
+msgstr "Geheugen voor buffers"
+
+msgid "Buffer Memory Percentage"
+msgstr "Percentage geheugen voor buffers"
+
+msgid "CPU %1"
+msgstr "CPU %1"
+
+msgid "CPU %1 Core %2"
+msgstr "CPU %1 kern %2"
+
+msgid "CPU Pressure"
+msgstr "CPU-druk"
+
+msgid "Cache Memory"
+msgstr "Cachegeheugen"
+
+msgid "Cache Memory Percentage"
+msgstr "Percentage geheugen voor cache"
+
+msgid "Charge"
+msgstr "Belast"
+
+msgid "Charge Percentage"
+msgstr "Percentage"
+
+msgid "Charging  Rate"
+msgstr "Snelheid van opladen"
+
+msgid "Charging Rate"
+msgstr "Snelheid van opladen"
+
+msgid "Core %1"
+msgstr "Kern %1"
+
+msgid "Current Capacity"
+msgstr "Huidige capaciteit"
+
+msgid "Current Frequency"
+msgstr "Huidige frequentie"
+
+msgid "Current Temperature"
+msgstr "Huidige temperatuur"
+
+msgid "Design Capacity"
+msgstr "Ontwerpcapaciteit"
+
+msgid "Download Rate"
+msgstr "Downloadsnelheid"
+
+msgid "Free Physical Memory"
+msgstr "Beschikbaar fysiek geheugen"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Percentage vrij fysiek geheugen"
+
+msgid "Free Space"
+msgstr "Vrije ruimte"
+
+msgid "Free Swap Memory"
+msgstr "Vrij wisselgeheugen"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Percentage vrij wisselgeheugen"
+
+msgid "Frequency"
+msgstr "Frequentie"
+
+msgid "Full (1 minute average)"
+msgstr "Volledig (1 minuut gemiddeld)"
+
+msgid "Full (10 second average)"
+msgstr "Volledig (10 seconden gemiddeld)"
+
+msgid "Full (5 minute average)"
+msgstr "Volledig (5 minuten gemiddeld)"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "Health"
+msgstr "Gezondheid"
+
+msgid "Hostname"
+msgstr "Hostnaam"
+
+msgid "IO Pressure"
+msgstr "IO-druk"
+
+msgid "IPv4 Address"
+msgstr "IPv4-adres"
+
+msgid "IPv4 DNS"
+msgstr "IPv4 DNS"
+
+msgid "IPv4 Gateway"
+msgstr "IPv4 gateway"
+
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4 subnetmasker"
+
+msgid "IPv4 with Prefix Length"
+msgstr "IPv4 met netwerkmaskerlengte"
+
+msgid "IPv6 Address"
+msgstr "IPv6-adres"
+
+msgid "IPv6 DNS"
+msgstr "IPv6 DNS"
+
+msgid "IPv6 Gateway"
+msgstr "IPv6 gateway"
+
+msgid "IPv6 Subnet Mask"
+msgstr "IPv6 subnetmasker"
+
+msgid "IPv6 with Prefix Length"
+msgstr "IPv6 met netwerkmaskerlengte"
+
+msgid "KDE Frameworks Version"
+msgstr "KDE-Frameworks-versie"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "KDE Plasma Version"
+msgstr "KDE Plasma-versie"
+
+msgid "Kernel"
+msgstr "Kernel"
+
+msgid "Kernel Name"
+msgstr "Kernelnaam"
+
+msgid "Kernel Name and Version"
+msgstr "Kernelnaam en versie"
+
+msgid "Kernel Version"
+msgstr "Kernel-versie"
+
+msgid "Load Averages"
+msgstr "Gemiddelde belastingen"
+
+msgid "Load average (1 minute)"
+msgstr "Gemiddelde belasting (1 min)"
+
+msgid "Load average (15 minute)"
+msgstr "Gemiddelde belasting (15 min)"
+
+msgid "Load average (5 minutes)"
+msgstr "Gemiddelde belasting (5 min)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Maximum van CPU-frequentie"
+
+msgid "Maximum CPU Temperature"
+msgstr "Maximum CPU-temperatuur"
+
+msgid "Memory"
+msgstr "Geheugen"
+
+msgid "Memory Frequency"
+msgstr "Frequentie van geheugen"
+
+msgid "Memory Pressure"
+msgstr "Druk op geheugen"
+
+msgid "Minimum CPU Frequency"
+msgstr "Minimum van CPU-frequentie"
+
+msgid "Minimum CPU Temperature"
+msgstr "Minimum CPU-temperatuur"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Network Devices"
+msgstr "Netwerkapparaten"
+
+msgid "Network Name"
+msgstr "Netwerknaam"
+
+msgid "Number of CPUs"
+msgstr "Aantal CPU's"
+
+msgid "Number of Cores"
+msgstr "Aantal kernen"
+
+msgid "Operating System"
+msgstr "Besturingssysteem"
+
+msgid "Operating System Logo"
+msgstr "Besturingssysteemlogo"
+
+msgid "Operating System Name"
+msgstr "Naam van besturingss&ysteem"
+
+msgid "Operating System Name and Version"
+msgstr "Naam en versie van besturingssysteem"
+
+msgid "Operating System URL"
+msgstr "Besturingssysteem-URL"
+
+msgid "Operating System Version"
+msgstr "Versie van besturingssysteem"
+
+msgid "Percentage Free"
+msgstr "Percentage vrij"
+
+msgid "Percentage Used"
+msgstr "Percentage gebruikt"
+
+msgid "Physical Memory"
+msgstr "Fysiek geheugen"
+
+msgid "Power"
+msgstr "Energie"
+
+msgid "Pressure"
+msgstr "Druk"
+
+msgid "Qt Version"
+msgstr "Qt-versie"
+
+msgid "Read Rate"
+msgstr "Leessnelheid"
+
+msgid "Signal Strength"
+msgstr "Signaalsterkte"
+
+msgid "Some (1 minute average)"
+msgstr "Iets (1 minuut gemiddeld)"
+
+msgid "Some (10 second average)"
+msgstr "Iets (10 seconden gemiddeld)"
+
+msgid "Some (5 minute average)"
+msgstr "Iets (5 minuten gemiddeld)"
+
+msgid "Swap Memory"
+msgstr "Wisselgeheugen"
+
+msgid "System"
+msgstr "Systeem"
+
+msgid "System Usage"
+msgstr "Gebruik door systeem"
+
+msgid "Temperature"
+msgstr "Temperatuur"
+
+msgid "Total Downloaded"
+msgstr "Totaal gedownload"
+
+msgid "Total Full Stall Time"
+msgstr "Totaal tijd van volledig oponthoud"
+
+msgid "Total Physical Memory"
+msgstr "Totaal fysiek geheugen"
+
+msgid "Total Some Stall Time"
+msgstr "Totaal enig oponthoud"
+
+msgid "Total Space"
+msgstr "Totale ruimte"
+
+msgid "Total Swap Memory"
+msgstr "Totaal aan wisselgeheugen"
+
+msgid "Total Uploaded"
+msgstr "Totaal geüpload"
+
+msgid "Total Usage"
+msgstr "Totaal in gebruik"
+
+msgid "Total Video Memory"
+msgstr "Totaal videogeheugen"
+
+msgid "Upload Rate"
+msgstr "Uploadsnelheid"
+
+msgid "Uptime"
+msgstr "Tijd in bedrijf"
+
+msgid "Usage"
+msgstr "Gebruik"
+
+msgid "Used Physical Memory"
+msgstr "Gebruikt fysiek geheugen"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Percentage fysiek geheugen in gebruik"
+
+msgid "Used Space"
+msgstr "Gebruikte ruimte"
+
+msgid "Used Swap Memory"
+msgstr "Gebruikt wisselgeheugen"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Percentage wisselgeheugen in gebruik"
+
+msgid "User Usage"
+msgstr "Gebruik van gebruiker"
+
+msgid "Video Memory Used"
+msgstr "Gebruikt videogeheugen"
+
+msgid "Video Usage"
+msgstr "Videogebruik"
+
+msgid "Wait Usage"
+msgstr "Gebruik bij wachten"
+
+msgid "Window System"
+msgstr "Venstersysteem"
+
+msgid "Write Rate"
+msgstr "Schrijfsnelheid"
+

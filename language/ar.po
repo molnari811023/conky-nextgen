@@ -680,3 +680,362 @@ msgstr "غير محتمل"
 
 msgid "alert_certainty_unknown"
 msgstr "غير معروف"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "الكلّ"
+
+msgid "All Disks"
+msgstr "جميع الأقراص"
+
+msgid "All GPUs"
+msgstr "جميع المعالجات الرسومية"
+
+msgid "All GPUs Total Memory"
+msgstr "مجموع ذواكر المعالجات الرسومية"
+
+msgid "All GPUs Usage"
+msgstr "استخدام جميع المعالجات الرسومية"
+
+msgid "All GPUs Used Memory"
+msgstr "مجموع ذواكر المعالجات الرسومية المستخدمة"
+
+msgid "All Network Devices"
+msgstr "جميع أجهزة الشبكة"
+
+msgid "Application Memory"
+msgstr "ذاكرة التطبيقات"
+
+msgid "Application Memory Percentage"
+msgstr "نسبة ذاكرة التطبيقات"
+
+msgid "Average CPU Frequency"
+msgstr "متوسط سرعة المعالج"
+
+msgid "Average CPU Temperature"
+msgstr "متوسط حرارة المعالج"
+
+msgid "Buffer Memory"
+msgstr "ذاكرة مؤقتة"
+
+msgid "Buffer Memory Percentage"
+msgstr "نسبة الذاكرة المؤقتة"
+
+msgid "CPU %1"
+msgstr "المعالج %1"
+
+msgid "CPU %1 Core %2"
+msgstr "المعالج %1 النواة %2"
+
+msgid "CPU Pressure"
+msgstr "ضغط المعالج"
+
+msgid "Cache Memory"
+msgstr "ذاكرة الخبيئة"
+
+msgid "Cache Memory Percentage"
+msgstr "نسبة ذاكرة الخبيئة"
+
+msgid "Charge"
+msgstr "التعبئة"
+
+msgid "Charge Percentage"
+msgstr "نسبة الشّحن"
+
+msgid "Charging  Rate"
+msgstr "معدل الشحن"
+
+msgid "Charging Rate"
+msgstr "معدل الشحن"
+
+msgid "Core %1"
+msgstr "النواة %1"
+
+msgid "Current Capacity"
+msgstr "السعة الحالية"
+
+msgid "Current Frequency"
+msgstr "التردد الحالي"
+
+msgid "Current Temperature"
+msgstr "الحرارة الحالية"
+
+msgid "Design Capacity"
+msgstr "السعة التصميمية"
+
+msgid "Download Rate"
+msgstr "معدّل التنزيل"
+
+msgid "Free Physical Memory"
+msgstr "الذاكرة الحقيقية المتبقية"
+
+msgid "Free Physical Memory Percentage"
+msgstr "نسبة الذاكرة الحقيقية المتبقية"
+
+msgid "Free Space"
+msgstr "المساحة المتبقية"
+
+msgid "Free Swap Memory"
+msgstr "ذاكرة التبادل المتبقية"
+
+msgid "Free Swap Memory Percentage"
+msgstr "نسبة ذاكرة التبديل المتبقية"
+
+msgid "Frequency"
+msgstr "التردّد"
+
+msgid "Full (1 minute average)"
+msgstr "كامل (متوسط دقيقة)"
+
+msgid "Full (10 second average)"
+msgstr "كامل (متوسط 10 ثواني)"
+
+msgid "Full (5 minute average)"
+msgstr "كامل (متوسط 5 دقائق)"
+
+msgid "GPU"
+msgstr "معالج الرسوميات"
+
+msgid "Health"
+msgstr "الصحة"
+
+msgid "Hostname"
+msgstr "اسم المضيف"
+
+msgid "IO Pressure"
+msgstr "ضغط الدخل والخرج"
+
+msgid "IPv4 Address"
+msgstr "عناوين IPv4"
+
+msgid "IPv4 DNS"
+msgstr "‏IPv4 DNS"
+
+msgid "IPv4 Gateway"
+msgstr "بوابة IPv4"
+
+msgid "IPv4 Subnet Mask"
+msgstr "قناع الشبكة الفرعية IPv4"
+
+msgid "IPv4 with Prefix Length"
+msgstr "‏IPv4 بطول مثبت"
+
+msgid "IPv6 Address"
+msgstr "عناوين IPv6"
+
+msgid "IPv6 DNS"
+msgstr "‏IPv6 DNS"
+
+msgid "IPv6 Gateway"
+msgstr "بوابة IPv6"
+
+msgid "IPv6 Subnet Mask"
+msgstr "قناع الشبكة الفرعية IPv6"
+
+msgid "IPv6 with Prefix Length"
+msgstr "‏IPv6 بطول مثبت"
+
+msgid "KDE Frameworks Version"
+msgstr "إصدارة إطار كِيدِي"
+
+msgid "KDE Plasma"
+msgstr "سطح مكتب بلازما"
+
+msgid "KDE Plasma Version"
+msgstr "إصدارة كِيدِي بلازما"
+
+msgid "Kernel"
+msgstr "النواة"
+
+msgid "Kernel Name"
+msgstr "اسم النواة"
+
+msgid "Kernel Name and Version"
+msgstr "اسم وإصدارة النواة"
+
+msgid "Kernel Version"
+msgstr "إصدارة النّواة"
+
+msgid "Load Averages"
+msgstr "معدلات الحمل"
+
+msgid "Load average (1 minute)"
+msgstr "معدّل الحِمْل (دقيقة واحدة)"
+
+msgid "Load average (15 minute)"
+msgstr "معدّل الحِمْل (15 دقيقة)"
+
+msgid "Load average (5 minutes)"
+msgstr "معدّل الحِمْل (5 دقائق)"
+
+msgid "Maximum CPU Frequency"
+msgstr "أقصى سرعة للمعالج"
+
+msgid "Maximum CPU Temperature"
+msgstr "أعلى درجة الحرارة المعالج"
+
+msgid "Memory"
+msgstr "الذاكرة"
+
+msgid "Memory Frequency"
+msgstr "تردد الذاكرة"
+
+msgid "Memory Pressure"
+msgstr "ضغط الذاكرة"
+
+msgid "Minimum CPU Frequency"
+msgstr "أدنى سرعة معالج"
+
+msgid "Minimum CPU Temperature"
+msgstr "أدنى درجة حرارة المعالج"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Network Devices"
+msgstr "أجهزة الشبكة"
+
+msgid "Network Name"
+msgstr "اسم الشبكة"
+
+msgid "Number of CPUs"
+msgstr "عدد المعالجات"
+
+msgid "Number of Cores"
+msgstr "عدد الأنوية"
+
+msgid "Operating System"
+msgstr "نظام التشغيل"
+
+msgid "Operating System Logo"
+msgstr "شعار نظام التشغيل"
+
+msgid "Operating System Name"
+msgstr "اسم نظام التشغيل"
+
+msgid "Operating System Name and Version"
+msgstr "اسم وإصدارة نظام التشغيل"
+
+msgid "Operating System URL"
+msgstr "عنوان نظام التشغيل"
+
+msgid "Operating System Version"
+msgstr "إصدارة نظام التشغيل"
+
+msgid "Percentage Free"
+msgstr "نسبة المتبقي"
+
+msgid "Percentage Used"
+msgstr "نسبة المستخدم"
+
+msgid "Physical Memory"
+msgstr "الذاكرة الفيزيائية"
+
+msgid "Power"
+msgstr "الطاقة"
+
+msgid "Pressure"
+msgstr "الضغط"
+
+msgid "Qt Version"
+msgstr "إصدار كيوت"
+
+msgid "Read Rate"
+msgstr "معدل القراءة"
+
+msgid "Signal Strength"
+msgstr "قوّة الإشارة"
+
+msgid "Some (1 minute average)"
+msgstr "البعض (متوسط دقيقة)"
+
+msgid "Some (10 second average)"
+msgstr "البعض (متوسط 10 ثواني)"
+
+msgid "Some (5 minute average)"
+msgstr "البعض (متوسط دقيقة)"
+
+msgid "Swap Memory"
+msgstr "ذاكرة الإبدال"
+
+msgid "System"
+msgstr "النظام"
+
+msgid "System Usage"
+msgstr "استخدام النظام"
+
+msgid "Temperature"
+msgstr "درجة الحرارة"
+
+msgid "Total Downloaded"
+msgstr "مجموع المنزل"
+
+msgid "Total Full Stall Time"
+msgstr "إجمالي وقت الانتظار الكامل"
+
+msgid "Total Physical Memory"
+msgstr "مجموع الذاكرة الحقيقية"
+
+msgid "Total Some Stall Time"
+msgstr "إجمالي بعض وقت التوقف"
+
+msgid "Total Space"
+msgstr "مجموع المساحة"
+
+msgid "Total Swap Memory"
+msgstr "مجموع ذاكرة التبادل"
+
+msgid "Total Uploaded"
+msgstr "مجموع المرفوع"
+
+msgid "Total Usage"
+msgstr "الاستخدام الكلي"
+
+msgid "Total Video Memory"
+msgstr "مجموع ذاكرة الفيديو"
+
+msgid "Upload Rate"
+msgstr "معدل ا لرفع"
+
+msgid "Uptime"
+msgstr "زمن التشغيل"
+
+msgid "Usage"
+msgstr "الاستخدام"
+
+msgid "Used Physical Memory"
+msgstr "الذاكرة الحقيقية المستخدمة"
+
+msgid "Used Physical Memory Percentage"
+msgstr "نسبة الذاكرة الحقيقية المستخدمة"
+
+msgid "Used Space"
+msgstr "المساحة المُستخدَمة"
+
+msgid "Used Swap Memory"
+msgstr "ذاكرة التبديل المستخدمة"
+
+msgid "Used Swap Memory Percentage"
+msgstr "نسبة ذاكرة التبديل المستخدمة"
+
+msgid "User Usage"
+msgstr "استخدام المستخدم"
+
+msgid "Video Memory Used"
+msgstr "ذاكرة الفيديو المستخدمة"
+
+msgid "Video Usage"
+msgstr "استخدام الفيديو"
+
+msgid "Wait Usage"
+msgstr "استخدام الانتظام"
+
+msgid "Window System"
+msgstr "النظام النوافذ"
+
+msgid "Write Rate"
+msgstr "معدل الكتابة"
+

@@ -636,3 +636,362 @@ msgstr "Olası değil"
 
 msgid "alert_certainty_unknown"
 msgstr "Bilinmiyor"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Tümü"
+
+msgid "All Disks"
+msgstr "Tüm Diskler"
+
+msgid "All GPUs"
+msgstr "Tüm GPU’lar"
+
+msgid "All GPUs Total Memory"
+msgstr "Tüm GPU’ların Toplam Belleği"
+
+msgid "All GPUs Usage"
+msgstr "Kullanılan Tüm GPU’lar"
+
+msgid "All GPUs Used Memory"
+msgstr "Tüm GPU’ların Kullanılan Belleği"
+
+msgid "All Network Devices"
+msgstr "Tüm Ağ Aygıtları"
+
+msgid "Application Memory"
+msgstr "Uygulama Belleği"
+
+msgid "Application Memory Percentage"
+msgstr "Uygulama Belleği Yüzdesi"
+
+msgid "Average CPU Frequency"
+msgstr "Ortalama CPU Frekansı"
+
+msgid "Average CPU Temperature"
+msgstr "Ortalama CPU Sıcaklığı"
+
+msgid "Buffer Memory"
+msgstr "Arabellek Belleği"
+
+msgid "Buffer Memory Percentage"
+msgstr "Arabellek Belleği Yüzdesi"
+
+msgid "CPU %1"
+msgstr "%1. CPU"
+
+msgid "CPU %1 Core %2"
+msgstr "%1. CPU, %2. Çekirdek"
+
+msgid "CPU Pressure"
+msgstr "CPU Basıncı"
+
+msgid "Cache Memory"
+msgstr "Önbellek Belleği"
+
+msgid "Cache Memory Percentage"
+msgstr "Önbellek Belleği Yüzdesi"
+
+msgid "Charge"
+msgstr "Şarj"
+
+msgid "Charge Percentage"
+msgstr "Şarj Yüzdesi"
+
+msgid "Charging  Rate"
+msgstr "Şarj Hızı"
+
+msgid "Charging Rate"
+msgstr "Şarj Hızı"
+
+msgid "Core %1"
+msgstr "%1. Çekirdek"
+
+msgid "Current Capacity"
+msgstr "Geçerli Sığa"
+
+msgid "Current Frequency"
+msgstr "Geçerli Frekans"
+
+msgid "Current Temperature"
+msgstr "Geçerli Sıcaklık"
+
+msgid "Design Capacity"
+msgstr "Fabrika Sığası"
+
+msgid "Download Rate"
+msgstr "İndirme Hızı"
+
+msgid "Free Physical Memory"
+msgstr "Boş Fiziksel Bellek"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Boş Fiziksel Bellek Yüzdesi"
+
+msgid "Free Space"
+msgstr "Boş Alan"
+
+msgid "Free Swap Memory"
+msgstr "Boş Takas Belleği"
+
+msgid "Free Swap Memory Percentage"
+msgstr "Boş Takas Belleği Yüzdesi"
+
+msgid "Frequency"
+msgstr "Frekans"
+
+msgid "Full (1 minute average)"
+msgstr "Tam (1 Dakikalık Averaj)"
+
+msgid "Full (10 second average)"
+msgstr "Tam (10 Saniyelik Averaj)"
+
+msgid "Full (5 minute average)"
+msgstr "Tam (5 Dakikalık Averaj)"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "Health"
+msgstr "Sağlık"
+
+msgid "Hostname"
+msgstr "Makine Adı"
+
+msgid "IO Pressure"
+msgstr "GÇ Basıncı"
+
+msgid "IPv4 Address"
+msgstr "IPv4 Adresi"
+
+msgid "IPv4 DNS"
+msgstr "IPv4 DNS"
+
+msgid "IPv4 Gateway"
+msgstr "IPv4 Geçidi"
+
+msgid "IPv4 Subnet Mask"
+msgstr "IPv4 Alt Ağ Maskesi"
+
+msgid "IPv4 with Prefix Length"
+msgstr "Önek Uzunluklu IPv4"
+
+msgid "IPv6 Address"
+msgstr "IPv6 Adresi"
+
+msgid "IPv6 DNS"
+msgstr "IPv6 DNS"
+
+msgid "IPv6 Gateway"
+msgstr "IPv6 Geçidi"
+
+msgid "IPv6 Subnet Mask"
+msgstr "IPv6 Alt Ağ Maskesi"
+
+msgid "IPv6 with Prefix Length"
+msgstr "Önek Uzunluklu IPv6"
+
+msgid "KDE Frameworks Version"
+msgstr "KDE Frameworks Sürümü"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "KDE Plasma Version"
+msgstr "KDE Plasma Sürümü"
+
+msgid "Kernel"
+msgstr "Çekirdek"
+
+msgid "Kernel Name"
+msgstr "Çekirdek Adı"
+
+msgid "Kernel Name and Version"
+msgstr "Çekirdek Adı ve Sürümü"
+
+msgid "Kernel Version"
+msgstr "Çekirdek Sürümü"
+
+msgid "Load Averages"
+msgstr "Yükleme Ortalamaları"
+
+msgid "Load average (1 minute)"
+msgstr "Yükleme ortalaması (1 dakika)"
+
+msgid "Load average (15 minute)"
+msgstr "Yükleme ortalaması (15 dakika)"
+
+msgid "Load average (5 minutes)"
+msgstr "Yükleme ortalaması (5 dakika)"
+
+msgid "Maximum CPU Frequency"
+msgstr "En Büyük CPU Frekansı"
+
+msgid "Maximum CPU Temperature"
+msgstr "En Yüksek CPU Sıcaklığı"
+
+msgid "Memory"
+msgstr "Bellek"
+
+msgid "Memory Frequency"
+msgstr "Bellek Frekansı"
+
+msgid "Memory Pressure"
+msgstr "Bellek Basıncı"
+
+msgid "Minimum CPU Frequency"
+msgstr "En Küçük CPU Frekansı"
+
+msgid "Minimum CPU Temperature"
+msgstr "En Düşük CPU Sıcaklığı"
+
+msgid "Name"
+msgstr "Ad"
+
+msgid "Network Devices"
+msgstr "Ağ Aygıtları"
+
+msgid "Network Name"
+msgstr "Ağ Adı"
+
+msgid "Number of CPUs"
+msgstr "CPU Sayısı"
+
+msgid "Number of Cores"
+msgstr "Çekirdek Sayısı"
+
+msgid "Operating System"
+msgstr "İşletim Sistemi"
+
+msgid "Operating System Logo"
+msgstr "İşletim Sistemi Logosu"
+
+msgid "Operating System Name"
+msgstr "İşletim Sistemi Adı"
+
+msgid "Operating System Name and Version"
+msgstr "İşletim Sistemi Adı ve Sürümü"
+
+msgid "Operating System URL"
+msgstr "İşletim Sistemi URL’si"
+
+msgid "Operating System Version"
+msgstr "İşletim Sistemi Sürümü"
+
+msgid "Percentage Free"
+msgstr "Boş Yüzde"
+
+msgid "Percentage Used"
+msgstr "Kullanılan Yüzde"
+
+msgid "Physical Memory"
+msgstr "Fiziksel Bellek"
+
+msgid "Power"
+msgstr "Güç"
+
+msgid "Pressure"
+msgstr "Basınç"
+
+msgid "Qt Version"
+msgstr "Qt Sürümü"
+
+msgid "Read Rate"
+msgstr "Okuma Hızı"
+
+msgid "Signal Strength"
+msgstr "Sinyal Gücü"
+
+msgid "Some (1 minute average)"
+msgstr "Biraz (1 Dakikalık Averaj)"
+
+msgid "Some (10 second average)"
+msgstr "Biraz (10 Saniyelik Averaj)"
+
+msgid "Some (5 minute average)"
+msgstr "Biraz (5 Dakikalık Averaj)"
+
+msgid "Swap Memory"
+msgstr "Takas Belleği"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "System Usage"
+msgstr "Sistem Kullanımı"
+
+msgid "Temperature"
+msgstr "Sıcaklık"
+
+msgid "Total Downloaded"
+msgstr "Toplam İndirilen"
+
+msgid "Total Full Stall Time"
+msgstr "Toplam Tam Oyalama Süresi"
+
+msgid "Total Physical Memory"
+msgstr "Toplam Fiziksel Bellek"
+
+msgid "Total Some Stall Time"
+msgstr "Toplam Biraz Oyalama Zamanı"
+
+msgid "Total Space"
+msgstr "Toplam Alan"
+
+msgid "Total Swap Memory"
+msgstr "Toplam Takas Belleği"
+
+msgid "Total Uploaded"
+msgstr "Toplam Karşıya Yüklenen"
+
+msgid "Total Usage"
+msgstr "Toplam Kullanım"
+
+msgid "Total Video Memory"
+msgstr "Toplam Video Belleği"
+
+msgid "Upload Rate"
+msgstr "Karşıya Yükleme Hızı"
+
+msgid "Uptime"
+msgstr "Açık Kalma Süresi"
+
+msgid "Usage"
+msgstr "Kullanım"
+
+msgid "Used Physical Memory"
+msgstr "Kullanılan Fiziksel Bellek"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Kullanılan Fiziksel Bellek Yüzdesi"
+
+msgid "Used Space"
+msgstr "Kullanılan Alan"
+
+msgid "Used Swap Memory"
+msgstr "Kullanılan Takas Belleği"
+
+msgid "Used Swap Memory Percentage"
+msgstr "Kullanılan Takas Belleği Yüzdesi"
+
+msgid "User Usage"
+msgstr "Kullanıcı Kullanımı"
+
+msgid "Video Memory Used"
+msgstr "Kullanılan Video Belleği"
+
+msgid "Video Usage"
+msgstr "Video Kullanımı"
+
+msgid "Wait Usage"
+msgstr "Bekleme Kullanımı"
+
+msgid "Window System"
+msgstr "Pencere Sistemi"
+
+msgid "Write Rate"
+msgstr "Yazma Hızı"
+

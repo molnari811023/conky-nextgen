@@ -689,3 +689,176 @@ msgstr "usandsynlig"
 
 msgid "alert_certainty_unknown"
 msgstr "ukendt"
+
+############################################
+# KDE SYSTEM STATS (short labels)
+############################################
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All Disks"
+msgstr "Alle diske"
+
+msgid "All GPUs"
+msgstr "Alle GPU'er"
+
+msgid "All GPUs Total Memory"
+msgstr "Samlet hukommelse over alle GPU'er"
+
+msgid "All GPUs Usage"
+msgstr "Forbrug af alle GPU'er"
+
+msgid "All GPUs Used Memory"
+msgstr "Brugt hukommelse for alle GPU'er"
+
+msgid "Application Memory"
+msgstr "Programhukommelse"
+
+msgid "Application Memory Percentage"
+msgstr "Procentdel programhukommelse"
+
+msgid "Average CPU Frequency"
+msgstr "Gennemsnitlig CPU-frekvens"
+
+msgid "Average CPU Temperature"
+msgstr "Gennemsnitlig CPU-temperatur"
+
+msgid "Buffer Memory"
+msgstr "Buffer-hukommelse"
+
+msgid "CPU %1"
+msgstr "CPU %1"
+
+msgid "CPU %1 Core %2"
+msgstr "CPU %1 kerne %2"
+
+msgid "Cache Memory"
+msgstr "Cache-hukommelse"
+
+msgid "Cache Memory Percentage"
+msgstr "Procentdel cache-hukommelse"
+
+msgid "Core %1"
+msgstr "Kerne %1"
+
+msgid "Current Frequency"
+msgstr "Aktuel frekvens"
+
+msgid "Current Temperature"
+msgstr "Nuværende temperature"
+
+msgid "Free Physical Memory"
+msgstr "Ledigt fysisk hukommelse"
+
+msgid "Free Physical Memory Percentage"
+msgstr "Procentdel ledigt fysisk hukommelse"
+
+msgid "Free Space"
+msgstr "Ledigt lagerplads"
+
+msgid "Frequency"
+msgstr "Frekvens"
+
+msgid "GPU"
+msgstr "GPU"
+
+msgid "Load Averages"
+msgstr "Systembelastning"
+
+msgid "Load average (1 minute)"
+msgstr "Systembelastning (1 minut)"
+
+msgid "Load average (15 minute)"
+msgstr "Systembelastning (15 minutter)"
+
+msgid "Load average (5 minutes)"
+msgstr "Systembelastning (5 minutter)"
+
+msgid "Maximum CPU Frequency"
+msgstr "Maksimal CPU-frekvens"
+
+msgid "Maximum CPU Temperature"
+msgstr "Maksimal CPU-temperatur"
+
+msgid "Memory Frequency"
+msgstr "Hukommelsesfrekvens"
+
+msgid "Minimum CPU Frequency"
+msgstr "Minimum CPU-frekvens"
+
+msgid "Minimum CPU Temperature"
+msgstr "Minimum CPU-temperatur"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Number of CPUs"
+msgstr "Antal CPU'er"
+
+msgid "Number of Cores"
+msgstr "Antal kerner"
+
+msgid "Percentage Free"
+msgstr "Procentdel ledigt"
+
+msgid "Percentage Used"
+msgstr "Procentdel brugt"
+
+msgid "Physical Memory"
+msgstr "Fysisk hukommelse"
+
+msgid "Power"
+msgstr "Strømforbrug"
+
+msgid "Read Rate"
+msgstr "Læsehastighed"
+
+msgid "Swap Memory"
+msgstr "Swap-hukommelse"
+
+msgid "System Usage"
+msgstr "Systemforbrug"
+
+msgid "Temperature"
+msgstr "Temperatur"
+
+msgid "Total Physical Memory"
+msgstr "Samlet fysisk hukommelse"
+
+msgid "Total Space"
+msgstr "Lagerplads i alt"
+
+msgid "Total Usage"
+msgstr "Totalt forbrug"
+
+msgid "Total Video Memory"
+msgstr "Samlet videohukommelse"
+
+msgid "Usage"
+msgstr "Forbrug"
+
+msgid "Used Physical Memory"
+msgstr "Brugt fysisk hukommelse"
+
+msgid "Used Physical Memory Percentage"
+msgstr "Procentdel af brugt fysisk hukommelse"
+
+msgid "Used Space"
+msgstr "Brugt lagerplads"
+
+msgid "User Usage"
+msgstr "Brugerforbrug"
+
+msgid "Video Memory Used"
+msgstr "Videohukommelse brugt"
+
+msgid "Video Usage"
+msgstr "Videoforbrug"
+
+msgid "Wait Usage"
+msgstr "Venteforbrug"
+
+msgid "Write Rate"
+msgstr "Skrivehastighed"
+
