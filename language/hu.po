@@ -1039,3 +1039,745 @@ msgstr "Ablakkezelő rendszer"
 msgid "Write Rate"
 msgstr "Írási sebesség"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Beérkezett üzenetek"
+
+msgid "Sent"
+msgstr "Elküldött"
+
+msgid "Drafts"
+msgstr "Piszkozatok"
+
+msgid "Junk"
+msgstr "Szemét"
+
+msgid "Trash"
+msgstr "Kuka"
+
+msgid "Archive"
+msgstr "Archívum"
+
+msgid "Folders"
+msgstr "Mappák"
+
+msgid "From"
+msgstr "Feladó"
+
+msgid "To"
+msgstr "Címzett"
+
+msgid "Subject"
+msgstr "Tárgy"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "Bcc"
+msgstr "Rejtett másolat"
+
+msgid "Cc"
+msgstr "Másolat"
+
+msgid "Priority"
+msgstr "Prioritás"
+
+msgid "Message"
+msgstr "Üzenet"
+
+msgid "Attachment"
+msgstr "Melléklet"
+
+msgid "Attachments"
+msgstr "Mellékletek"
+
+msgid "Attachment Properties"
+msgstr "Melléklet tulajdonságai"
+
+msgid "Reply"
+msgstr "Válasz"
+
+msgid "Reply to All"
+msgstr "Válasz mindenkinek"
+
+msgid "Forward"
+msgstr "Továbbítás"
+
+msgid "Attach a file"
+msgstr "Fájl csatolása"
+
+msgid "Compose Message"
+msgstr "Üzenet írása"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Account"
+msgstr "Postafiók"
+
+msgid "Accounts"
+msgstr "Fiókok"
+
+msgid "Folder"
+msgstr "Mappa"
+
+msgid "Search"
+msgstr "Keresés"
+
+msgid "Labels"
+msgstr "Címkék"
+
+msgid "Show"
+msgstr "Megjelenítés"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Calendar"
+msgstr "Naptár"
+
+msgid "Event"
+msgstr "Esemény"
+
+msgid "Events"
+msgstr "Események"
+
+msgid "Meeting"
+msgstr "Találkozó"
+
+msgid "Appointment"
+msgstr "Értekezlet"
+
+msgid "Today"
+msgstr "Ma"
+
+msgid "Day"
+msgstr "Nap"
+
+msgid "Week"
+msgstr "Hét"
+
+msgid "Month"
+msgstr "Hónap"
+
+msgid "Year"
+msgstr "Év"
+
+msgid "Tasks"
+msgstr "Feladatok"
+
+msgid "Task"
+msgstr "Feladat"
+
+msgid "Start"
+msgstr "Kezdés"
+
+msgid "End"
+msgstr "Befejezés"
+
+msgid "All day:"
+msgstr "Egész nap:"
+
+msgid "Summary"
+msgstr "Összegzés"
+
+msgid "Description"
+msgstr "Leírás"
+
+msgid "Location"
+msgstr "Hely"
+
+msgid "Details"
+msgstr "Részletek"
+
+msgid "Reminders"
+msgstr "Emlékeztetők"
+
+msgid "Busy"
+msgstr "Elfoglalt"
+
+msgid "Free"
+msgstr "Szabad"
+
+msgid "Private"
+msgstr "Magánjellegű"
+
+msgid "Public"
+msgstr "Nyilvános"
+
+msgid "Recurring"
+msgstr "Ismétlődő"
+
+msgid "Recurrence"
+msgstr "Ismétlődés"
+
+msgid "Categories"
+msgstr "Kategóriák"
+
+msgid "Notes"
+msgstr "Jegyzetek"
+
+msgid "New"
+msgstr "Új"
+
+msgid "Delete Task"
+msgstr "Feladat törlése"
+
+msgid "Export"
+msgstr "Exportálás"
+
+msgid "Print…"
+msgstr "Nyomtatás…"
+
+msgid "Undo"
+msgstr "Visszavonás"
+
+msgid "Previous"
+msgstr "Előző"
+
+msgid "Next"
+msgstr "Következő"
+
+msgid "Monday"
+msgstr "hétfő"
+
+msgid "Tuesday"
+msgstr "kedd"
+
+msgid "Wednesday"
+msgstr "szerda"
+
+msgid "Thursday"
+msgstr "csütörtök"
+
+msgid "Friday"
+msgstr "péntek"
+
+msgid "Saturday"
+msgstr "szombat"
+
+msgid "Sunday"
+msgstr "vasárnap"
+
+msgid "January"
+msgstr "Január"
+
+msgid "February"
+msgstr "Február"
+
+msgid "March"
+msgstr "Március"
+
+msgid "April"
+msgstr "Április"
+
+msgid "May"
+msgstr "Május"
+
+msgid "June"
+msgstr "Június"
+
+msgid "July"
+msgstr "Július"
+
+msgid "August"
+msgstr "Augusztus"
+
+msgid "September"
+msgstr "Szeptember"
+
+msgid "October"
+msgstr "Október"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Error"
+msgstr "Hiba"
+
+msgid "Warning"
+msgstr "Figyelmeztetés"
+
+msgid "Open"
+msgstr "Megnyitás"
+
+msgid "Load"
+msgstr "Betöltés"
+
+msgid "Status"
+msgstr "Állapot"
+
+msgid "Offline"
+msgstr "Kapcsolat nélkül"
+
+msgid "Done"
+msgstr "Kész"
+
+msgid "Completed"
+msgstr "Befejezve"
+
+msgid "Unread Messages"
+msgstr "Olvasatlan üzenetek"
+
+msgid "Important"
+msgstr "Fontos"
+
+msgid "Flagged"
+msgstr "Megjelölt"
+
+msgid "Category"
+msgstr "Kategória"
+
+msgid "Label"
+msgstr "Címke"
+
+msgid "Select All"
+msgstr "Összes kijelölése"
+
+msgid "Loading"
+msgstr "Betöltés"
+
+msgid "Updated"
+msgstr "Frissítve"
+
+msgid "Refresh"
+msgstr "Frissítés"
+
+msgid "Preferences"
+msgstr "Beállítások"
+
+msgid "Attendee"
+msgstr "Résztvevő"
+
+msgid "Attendees"
+msgstr "Résztvevők"
+
+msgid "Tentative"
+msgstr "Feltételes"
+
+msgid "Free/Busy"
+msgstr "Időbeosztás"
+
+msgid "Timezone"
+msgstr "Időzóna"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Naponta"
+
+msgid "Weekly"
+msgstr "Hetente"
+
+msgid "Holiday"
+msgstr "Üdülés"
+
+msgid "Birthday"
+msgstr "Születésnap"
+
+msgid "Anniversary"
+msgstr "Évforduló"
+
+msgid "Out of Office"
+msgstr "Nincs bent"
+
+msgid "Yesterday"
+msgstr "Tegnap"
+
+msgid "Now"
+msgstr "Most"
+
+msgid "Task List"
+msgstr "Feladatlista"
+
+msgid "To Do"
+msgstr "Teendő"
+
+msgid "Due date"
+msgstr "Határidő"
+
+msgid "Assigned"
+msgstr "Hozzárendelve"
+
+msgid "Overdue Tasks"
+msgstr "Lejárt határidejű feladatok"
+
+msgid "Remove"
+msgstr "Eltávolítás"
+
+msgid "Clear All"
+msgstr "Minden mező törlése"
+
+msgid "Size"
+msgstr "Méret"
+
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+msgid "Accept meeting request"
+msgstr "Találkozó-összehívási kérés elfogadása"
+
+msgid "Decline meeting request"
+msgstr "Találkozó-összehívási kérés elutasítása"
+
+msgid "Accepted"
+msgstr "Elfogadva"
+
+msgid "Declined"
+msgstr "Elutasítva"
+
+msgid "Forward message"
+msgstr "Üzenet továbbítása"
+
+msgid "Address"
+msgstr "Cím"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Due"
+msgstr "Esedékes"
+
+msgid "Due Date:"
+msgstr "Határidő:"
+
+msgid "Complete"
+msgstr "Befejezve"
+
+msgid "Completed Tasks"
+msgstr "Befejezett feladatok"
+
+msgid "Contact"
+msgstr "Névjegy"
+
+msgid "Contacts"
+msgstr "Névjegyek"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Work"
+msgstr "Munkahelyi"
+
+msgid "Home"
+msgstr "Otthoni"
+
+msgid "Other"
+msgstr "Egyéb"
+
+msgid "Company"
+msgstr "Cég"
+
+msgid "High"
+msgstr "Magas"
+
+msgid "Low"
+msgstr "Alacsony"
+
+msgid "Website"
+msgstr "Weboldal"
+
+msgid "Recent"
+msgstr "Legutóbbi"
+
+msgid "Reminder"
+msgstr "Emlékeztető"
+
+msgid "Starred"
+msgstr "Megjelölt"
+
+msgid "Star"
+msgstr "Csillag"
+
+msgid "Mute"
+msgstr "Némítás"
+
+msgid "Snooze"
+msgstr "Szundi"
+
+msgid "Snoozed"
+msgstr "Elnapolt"
+
+msgid "Promotions"
+msgstr "Promóciók"
+
+msgid "Updates"
+msgstr "Frissítések"
+
+msgid "Social"
+msgstr "Közösségi"
+
+msgid "Forums"
+msgstr "Fórumok"
+
+msgid "Primary"
+msgstr "Elsődleges"
+
+msgid "Sign in"
+msgstr "Bejelentkezés"
+
+msgid "Sign out"
+msgstr "Kijelentkezés"
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "No new mail"
+msgstr "Nincs új levél"
+
+msgid "No messages"
+msgstr "Nincs üzenet"
+
+msgid "Last updated"
+msgstr "Utolsó frissítés"
+
+msgid "Retry"
+msgstr "Újra"
+
+msgid "Connected"
+msgstr "Kapcsolódva"
+
+msgid "Disconnected"
+msgstr "Nincs kapcsolat"
+
+msgid "Sync"
+msgstr "Szinkronizálás"
+
+msgid "No upcoming events"
+msgstr "Nincs közelgő esemény"
+
+msgid "Nothing scheduled"
+msgstr "Nincs ütemezett esemény"
+
+msgid "Mark all as read"
+msgstr "Összes olvasottként megjelölése"
+
+msgid "Agenda"
+msgstr "Napirend"
+
+msgid "All Mail"
+msgstr "Összes levél"
+
+msgid "Move to"
+msgstr "Áthelyezés ide"
+
+msgid "Due today"
+msgstr "Ma esedékes"
+
+msgid "Overdue"
+msgstr "Lejárt"
+
+msgid "Incomplete"
+msgstr "Befejezetlen"
+
+msgid "Add task"
+msgstr "Feladat hozzáadása"
+
+msgid "New task"
+msgstr "Új feladat"
+
+msgid "Edit task"
+msgstr "Feladat szerkesztése"
+
+msgid "Task details"
+msgstr "Feladat részletei"
+
+msgid "Task list"
+msgstr "Feladatlista"
+
+msgid "To Do list"
+msgstr "Teendőlista"
+
+msgid "Subtasks"
+msgstr "Alfeladatok"
+
+msgid "Medium"
+msgstr "Közepes"
+
+msgid "Priority: High"
+msgstr "Prioritás: Magas"
+
+msgid "Priority: Medium"
+msgstr "Prioritás: Közepes"
+
+msgid "Priority: Low"
+msgstr "Prioritás: Alacsony"
+
+msgid "Mark complete"
+msgstr "Befejezettnek jelölés"
+
+msgid "Full name"
+msgstr "Teljes név"
+
+msgid "First name"
+msgstr "Keresztnév"
+
+msgid "Last name"
+msgstr "Vezetéknév"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Job title"
+msgstr "Beosztás"
+
+msgid "Email address"
+msgstr "E-mail cím"
+
+msgid "Drive"
+msgstr "Meghajtó"
+
+msgid "Storage"
+msgstr "Tárhely"
+
+msgid "Used"
+msgstr "Használt"
+
+msgid "Quota"
+msgstr "Kvóta"
+
+msgid "Upload"
+msgstr "Feltöltés"
+
+msgid "Download"
+msgstr "Letöltés"
+
+msgid "Recent files"
+msgstr "Legutóbbi fájlok"
+
+msgid "Shared with me"
+msgstr "Velem megosztva"
+
+msgid "My Drive"
+msgstr "Saját Drive"
+
+msgid "Folder size"
+msgstr "Mappa mérete"
+
+msgid "Video"
+msgstr "Videó"
+
+msgid "Videos"
+msgstr "Videók"
+
+msgid "Channel"
+msgstr "Csatorna"
+
+msgid "Channels"
+msgstr "Csatornák"
+
+msgid "Subscription"
+msgstr "Feliratkozás"
+
+msgid "Subscriptions"
+msgstr "Feliratkozások"
+
+msgid "Views"
+msgstr "Megtekintések"
+
+msgid "Uploads"
+msgstr "Feltöltések"
+
+msgid "Latest"
+msgstr "Legújabb"
+
+msgid "Watch"
+msgstr "Megtekintés"
+
+msgid "Playlists"
+msgstr "Lejátszási listák"
+
+msgid "Comments"
+msgstr "Hozzászólások"
+
+msgid "Meeting code"
+msgstr "Értekezleti kód"
+
+msgid "Join"
+msgstr "Csatlakozás"
+
+msgid "Join now"
+msgstr "Csatlakozás most"
+
+msgid "Ongoing"
+msgstr "Folyamatban"
+
+msgid "Ended"
+msgstr "Vége"
+
+msgid "History"
+msgstr "Előzmények"
+
+msgid "Past calls"
+msgstr "Korábbi hívások"
+
+msgid "Leave"
+msgstr "Kilépés"
+
+msgid "Participants"
+msgstr "Résztvevők"
+
+msgid "Pin"
+msgstr "Rögzítés"
+
+msgid "Pinned"
+msgstr "Rögzítve"
+
+msgid "Checklist"
+msgstr "Ellenőrzőlista"
+
+msgid "Space"
+msgstr "Tér"
+
+msgid "Spaces"
+msgstr "Terek"
+
+msgid "Direct message"
+msgstr "Közvetlen üzenet"
+
+msgid "Direct messages"
+msgstr "Közvetlen üzenetek"
+
+msgid "Mentions"
+msgstr "Említések"
+
+msgid "Thread"
+msgstr "Szál"
+
+msgid "Threads"
+msgstr "Szálak"
+
+msgid "Group chat"
+msgstr "Csoportos csevegés"
+
+msgid "Reaction"
+msgstr "Reakció"
+
+msgid "React"
+msgstr "Reagálás"
+

@@ -995,3 +995,745 @@ msgstr "System okien"
 msgid "Write Rate"
 msgstr "Szybkość zapisu"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Odebrane"
+
+msgid "Sent"
+msgstr "Wysłane"
+
+msgid "Drafts"
+msgstr "Szkice"
+
+msgid "Junk"
+msgstr "Niechciane"
+
+msgid "Trash"
+msgstr "Kosz"
+
+msgid "Archive"
+msgstr "Archiwum"
+
+msgid "Folders"
+msgstr "Katalogi"
+
+msgid "From"
+msgstr "Od"
+
+msgid "To"
+msgstr "Do"
+
+msgid "Subject"
+msgstr "Podmiot"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Bcc"
+msgstr "Ukryta kopia"
+
+msgid "Cc"
+msgstr "Kopia"
+
+msgid "Priority"
+msgstr "Priorytet"
+
+msgid "Message"
+msgstr "Wiadomość"
+
+msgid "Attachment"
+msgstr "Załącznik"
+
+msgid "Attachments"
+msgstr "Załączniki"
+
+msgid "Attachment Properties"
+msgstr "Właściwości załącznika"
+
+msgid "Reply"
+msgstr "Odpowiedz"
+
+msgid "Reply to All"
+msgstr "Odpowiedź wszystkim"
+
+msgid "Forward"
+msgstr "Przekaż"
+
+msgid "Attach a file"
+msgstr "Załącza plik"
+
+msgid "Compose Message"
+msgstr "Tworzenie wiadomości"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Close"
+msgstr "Zamknij"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Accounts"
+msgstr "Konta"
+
+msgid "Folder"
+msgstr "Katalog"
+
+msgid "Search"
+msgstr "Wyszukiwanie"
+
+msgid "Labels"
+msgstr "Etykiety"
+
+msgid "Show"
+msgstr "Wyświetlanie"
+
+msgid "Delete"
+msgstr "Usuń"
+
+msgid "Calendar"
+msgstr "Kalendarz"
+
+msgid "Event"
+msgstr "Wydarzenie"
+
+msgid "Events"
+msgstr "Wydarzenia"
+
+msgid "Meeting"
+msgstr "Zebranie"
+
+msgid "Appointment"
+msgstr "Spotkanie"
+
+msgid "Today"
+msgstr "Dzisiaj"
+
+msgid "Day"
+msgstr "Dzień"
+
+msgid "Week"
+msgstr "Tydzień"
+
+msgid "Month"
+msgstr "Miesiąc"
+
+msgid "Year"
+msgstr "Rok"
+
+msgid "Tasks"
+msgstr "Zadania"
+
+msgid "Task"
+msgstr "Zadanie"
+
+msgid "Start"
+msgstr "Rozpoczęcie"
+
+msgid "End"
+msgstr "Zakończenie"
+
+msgid "All day:"
+msgstr "Cały dzień:"
+
+msgid "Summary"
+msgstr "Podsumowanie"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Location"
+msgstr "Położenie"
+
+msgid "Details"
+msgstr "Szczegóły"
+
+msgid "Reminders"
+msgstr "Przypomnienia"
+
+msgid "Busy"
+msgstr "Zajęty"
+
+msgid "Free"
+msgstr "Wolny"
+
+msgid "Private"
+msgstr "Prywatne"
+
+msgid "Public"
+msgstr "Publiczne"
+
+msgid "Recurring"
+msgstr "Powtarzanie"
+
+msgid "Recurrence"
+msgstr "Powtarzanie"
+
+msgid "Categories"
+msgstr "Kategorie"
+
+msgid "Notes"
+msgstr "Notatki"
+
+msgid "New"
+msgstr "Nowe"
+
+msgid "Delete Task"
+msgstr "Usuń zadanie"
+
+msgid "Export"
+msgstr "Wyeksportuj"
+
+msgid "Print…"
+msgstr "Wydrukuj…"
+
+msgid "Undo"
+msgstr "Cofnij"
+
+msgid "Previous"
+msgstr "Poprzedni"
+
+msgid "Next"
+msgstr "Następny"
+
+msgid "Monday"
+msgstr "poniedziałek"
+
+msgid "Tuesday"
+msgstr "wtorek"
+
+msgid "Wednesday"
+msgstr "środa"
+
+msgid "Thursday"
+msgstr "czwartek"
+
+msgid "Friday"
+msgstr "piątek"
+
+msgid "Saturday"
+msgstr "sobota"
+
+msgid "Sunday"
+msgstr "niedziela"
+
+msgid "January"
+msgstr "styczeń"
+
+msgid "February"
+msgstr "luty"
+
+msgid "March"
+msgstr "marzec"
+
+msgid "April"
+msgstr "kwiecień"
+
+msgid "May"
+msgstr "maj"
+
+msgid "June"
+msgstr "czerwiec"
+
+msgid "July"
+msgstr "lipiec"
+
+msgid "August"
+msgstr "sierpień"
+
+msgid "September"
+msgstr "wrzesień"
+
+msgid "October"
+msgstr "październik"
+
+msgid "November"
+msgstr "listopad"
+
+msgid "December"
+msgstr "grudzień"
+
+msgid "Yes"
+msgstr "Tak"
+
+msgid "No"
+msgstr "Nie"
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Error"
+msgstr "Błąd"
+
+msgid "Warning"
+msgstr "Ostrzeżenia"
+
+msgid "Open"
+msgstr "Otwórz"
+
+msgid "Load"
+msgstr "Wczytaj"
+
+msgid "Status"
+msgstr "Stan"
+
+msgid "Offline"
+msgstr "Offline"
+
+msgid "Done"
+msgstr "Gotowe"
+
+msgid "Completed"
+msgstr "Ukończone"
+
+msgid "Unread Messages"
+msgstr "Nieprzeczytane wiadomości"
+
+msgid "Important"
+msgstr "Ważne"
+
+msgid "Flagged"
+msgstr "Oznaczone"
+
+msgid "Category"
+msgstr "Kategoria"
+
+msgid "Label"
+msgstr "Etykieta"
+
+msgid "Select All"
+msgstr "Zaznacz wszystko"
+
+msgid "Loading"
+msgstr "Wczytywanie"
+
+msgid "Updated"
+msgstr "Zaktualizowano"
+
+msgid "Refresh"
+msgstr "Odświeżono"
+
+msgid "Preferences"
+msgstr "Preferencje"
+
+msgid "Attendee"
+msgstr "Uczestnik"
+
+msgid "Attendees"
+msgstr "Uczestnicy"
+
+msgid "Tentative"
+msgstr "Wstępnie"
+
+msgid "Free/Busy"
+msgstr "Sygnalizacja zajętości"
+
+msgid "Timezone"
+msgstr "Strefa czasowa"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Codziennie"
+
+msgid "Weekly"
+msgstr "Co tydzień"
+
+msgid "Holiday"
+msgstr "Dzień wolny"
+
+msgid "Birthday"
+msgstr "Urodziny"
+
+msgid "Anniversary"
+msgstr "Rocznica"
+
+msgid "Out of Office"
+msgstr "Poza biurem"
+
+msgid "Yesterday"
+msgstr "Wczoraj"
+
+msgid "Now"
+msgstr "Teraz"
+
+msgid "Task List"
+msgstr "Lista zadań"
+
+msgid "To Do"
+msgstr "Do zrobienia"
+
+msgid "Due date"
+msgstr "Termin ukończenia"
+
+msgid "Assigned"
+msgstr "Przyporządkowano"
+
+msgid "Overdue Tasks"
+msgstr "Zaległe zadania"
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Clear All"
+msgstr "Wyczyść wszystko"
+
+msgid "Size"
+msgstr "Rozmiar"
+
+msgid "Username:"
+msgstr "Nazwa użytkownika:"
+
+msgid "Accept meeting request"
+msgstr "Akceptuje prośbę o zebranie"
+
+msgid "Decline meeting request"
+msgstr "Odmawia prośbę o zebranie"
+
+msgid "Accepted"
+msgstr "Zaakceptowano"
+
+msgid "Declined"
+msgstr "Odrzucono"
+
+msgid "Forward message"
+msgstr "Przekazanie wiadomości"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Email"
+msgstr "Adres e-mail"
+
+msgid "Due"
+msgstr "Termin"
+
+msgid "Due Date:"
+msgstr "Termin ukończenia:"
+
+msgid "Complete"
+msgstr "Gotowe"
+
+msgid "Completed Tasks"
+msgstr "Ukończone zadania"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Contacts"
+msgstr "Kontakty"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Telefaks"
+
+msgid "Work"
+msgstr "Praca"
+
+msgid "Home"
+msgstr "Dom"
+
+msgid "Other"
+msgstr "Inne"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "High"
+msgstr "Wysoki"
+
+msgid "Low"
+msgstr "Niski"
+
+msgid "Website"
+msgstr "Witryna"
+
+msgid "Recent"
+msgstr "Ostatnio używane"
+
+msgid "Reminder"
+msgstr "Przypomnienie"
+
+msgid "Starred"
+msgstr "Z gwiazdką"
+
+msgid "Star"
+msgstr "Gwiazdka"
+
+msgid "Mute"
+msgstr "Wycisz"
+
+msgid "Snooze"
+msgstr "Odłóż"
+
+msgid "Snoozed"
+msgstr "Odłożone"
+
+msgid "Promotions"
+msgstr "Promocje"
+
+msgid "Updates"
+msgstr "Aktualizacje"
+
+msgid "Social"
+msgstr "Społeczności"
+
+msgid "Forums"
+msgstr "Fora"
+
+msgid "Primary"
+msgstr "Podstawowe"
+
+msgid "Sign in"
+msgstr "Zaloguj się"
+
+msgid "Sign out"
+msgstr "Wyloguj się"
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "No new mail"
+msgstr "Brak nowych wiadomości"
+
+msgid "No messages"
+msgstr "Brak wiadomości"
+
+msgid "Last updated"
+msgstr "Ostatnia aktualizacja"
+
+msgid "Retry"
+msgstr "Spróbuj ponownie"
+
+msgid "Connected"
+msgstr "Połączono"
+
+msgid "Disconnected"
+msgstr "Rozłączono"
+
+msgid "Sync"
+msgstr "Synchronizacja"
+
+msgid "No upcoming events"
+msgstr "Brak nadchodzących wydarzeń"
+
+msgid "Nothing scheduled"
+msgstr "Nic zaplanowanego"
+
+msgid "Mark all as read"
+msgstr "Oznacz wszystkie jako przeczytane"
+
+msgid "Agenda"
+msgstr "Porządek obrad"
+
+msgid "All Mail"
+msgstr "Cała poczta"
+
+msgid "Move to"
+msgstr "Przenieś do"
+
+msgid "Due today"
+msgstr "Wymagane dziś"
+
+msgid "Overdue"
+msgstr "Zaległe"
+
+msgid "Incomplete"
+msgstr "Nieukończone"
+
+msgid "Add task"
+msgstr "Dodaj zadanie"
+
+msgid "New task"
+msgstr "Nowe zadanie"
+
+msgid "Edit task"
+msgstr "Edytuj zadanie"
+
+msgid "Task details"
+msgstr "Szczegóły zadania"
+
+msgid "Task list"
+msgstr "Lista zadań"
+
+msgid "To Do list"
+msgstr "Lista zadań"
+
+msgid "Subtasks"
+msgstr "Podzadania"
+
+msgid "Medium"
+msgstr "Średni"
+
+msgid "Priority: High"
+msgstr "Priorytet: Wysoki"
+
+msgid "Priority: Medium"
+msgstr "Priorytet: Średni"
+
+msgid "Priority: Low"
+msgstr "Priorytet: Niski"
+
+msgid "Mark complete"
+msgstr "Oznacz jako ukończone"
+
+msgid "Full name"
+msgstr "Pełne imię i nazwisko"
+
+msgid "First name"
+msgstr "Imię"
+
+msgid "Last name"
+msgstr "Nazwisko"
+
+msgid "Mobile"
+msgstr "Telefon komórkowy"
+
+msgid "Job title"
+msgstr "Stanowisko"
+
+msgid "Email address"
+msgstr "Adres e-mail"
+
+msgid "Drive"
+msgstr "Dysk"
+
+msgid "Storage"
+msgstr "Pamięć"
+
+msgid "Used"
+msgstr "Użyto"
+
+msgid "Quota"
+msgstr "Limit"
+
+msgid "Upload"
+msgstr "Prześlij"
+
+msgid "Download"
+msgstr "Pobierz"
+
+msgid "Recent files"
+msgstr "Ostatnie pliki"
+
+msgid "Shared with me"
+msgstr "Udostępnione mi"
+
+msgid "My Drive"
+msgstr "Mój dysk"
+
+msgid "Folder size"
+msgstr "Rozmiar folderu"
+
+msgid "Video"
+msgstr "Wideo"
+
+msgid "Videos"
+msgstr "Wideo"
+
+msgid "Channel"
+msgstr "Kanał"
+
+msgid "Channels"
+msgstr "Kanały"
+
+msgid "Subscription"
+msgstr "Subskrypcja"
+
+msgid "Subscriptions"
+msgstr "Subskrypcje"
+
+msgid "Views"
+msgstr "Wyświetlenia"
+
+msgid "Uploads"
+msgstr "Przesyłki"
+
+msgid "Latest"
+msgstr "Najnowsze"
+
+msgid "Watch"
+msgstr "Oglądaj"
+
+msgid "Playlists"
+msgstr "Listy odtwarzania"
+
+msgid "Comments"
+msgstr "Komentarze"
+
+msgid "Meeting code"
+msgstr "Kod spotkania"
+
+msgid "Join"
+msgstr "Dołącz"
+
+msgid "Join now"
+msgstr "Dołącz teraz"
+
+msgid "Ongoing"
+msgstr "W toku"
+
+msgid "Ended"
+msgstr "Zakończone"
+
+msgid "History"
+msgstr "Historia"
+
+msgid "Past calls"
+msgstr "Poprzednie połączenia"
+
+msgid "Leave"
+msgstr "Opuść"
+
+msgid "Participants"
+msgstr "Uczestnicy"
+
+msgid "Pin"
+msgstr "Przypnij"
+
+msgid "Pinned"
+msgstr "Przypięte"
+
+msgid "Checklist"
+msgstr "Lista kontrolna"
+
+msgid "Space"
+msgstr "Przestrzeń"
+
+msgid "Spaces"
+msgstr "Przestrzenie"
+
+msgid "Direct message"
+msgstr "Wiadomość bezpośrednia"
+
+msgid "Direct messages"
+msgstr "Wiadomości bezpośrednie"
+
+msgid "Mentions"
+msgstr "Wzmianki"
+
+msgid "Thread"
+msgstr "Wątek"
+
+msgid "Threads"
+msgstr "Wątki"
+
+msgid "Group chat"
+msgstr "Czat grupowy"
+
+msgid "Reaction"
+msgstr "Reakcja"
+
+msgid "React"
+msgstr "Zareaguj"
+

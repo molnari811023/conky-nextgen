@@ -1039,3 +1039,745 @@ msgstr "Оконная система"
 msgid "Write Rate"
 msgstr "Скорость записи"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Входящие"
+
+msgid "Sent"
+msgstr "Отправленные"
+
+msgid "Drafts"
+msgstr "Черновики"
+
+msgid "Junk"
+msgstr "Спам"
+
+msgid "Trash"
+msgstr "Корзина"
+
+msgid "Archive"
+msgstr "Архив"
+
+msgid "Folders"
+msgstr "Папки"
+
+msgid "From"
+msgstr "От"
+
+msgid "To"
+msgstr "Кому"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Bcc"
+msgstr "Скрытая копия"
+
+msgid "Cc"
+msgstr "Копия"
+
+msgid "Priority"
+msgstr "Приоритет"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Attachment"
+msgstr "Вложение"
+
+msgid "Attachments"
+msgstr "Вложения"
+
+msgid "Attachment Properties"
+msgstr "Свойства вложения"
+
+msgid "Reply"
+msgstr "Ответить"
+
+msgid "Reply to All"
+msgstr "Ответить всем"
+
+msgid "Forward"
+msgstr "Перенаправить"
+
+msgid "Attach a file"
+msgstr "Прикрепить файл"
+
+msgid "Compose Message"
+msgstr "Новое сообщение"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Account"
+msgstr "Учётная запись"
+
+msgid "Accounts"
+msgstr "Учётные записи"
+
+msgid "Folder"
+msgstr "Папка"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Labels"
+msgstr "Метки"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Calendar"
+msgstr "Календарь"
+
+msgid "Event"
+msgstr "Событие"
+
+msgid "Events"
+msgstr "События"
+
+msgid "Meeting"
+msgstr "Собрание"
+
+msgid "Appointment"
+msgstr "Встреча"
+
+msgid "Today"
+msgstr "Сегодня"
+
+msgid "Day"
+msgstr "День"
+
+msgid "Week"
+msgstr "Неделя"
+
+msgid "Month"
+msgstr "Месяц"
+
+msgid "Year"
+msgstr "Год"
+
+msgid "Tasks"
+msgstr "Задачи"
+
+msgid "Task"
+msgstr "Задание"
+
+msgid "Start"
+msgstr "Начало"
+
+msgid "End"
+msgstr "Конец"
+
+msgid "All day:"
+msgstr "Весь день:"
+
+msgid "Summary"
+msgstr "Сводка"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Location"
+msgstr "Адрес"
+
+msgid "Details"
+msgstr "Подробности"
+
+msgid "Reminders"
+msgstr "Напоминания"
+
+msgid "Busy"
+msgstr "Занят"
+
+msgid "Free"
+msgstr "Свободен"
+
+msgid "Private"
+msgstr "Личное"
+
+msgid "Public"
+msgstr "Общее"
+
+msgid "Recurring"
+msgstr "Повторение"
+
+msgid "Recurrence"
+msgstr "Повторение"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "New"
+msgstr "Создать"
+
+msgid "Delete Task"
+msgstr "Удалить задачу"
+
+msgid "Export"
+msgstr "Экспортировать"
+
+msgid "Print…"
+msgstr "Печать…"
+
+msgid "Undo"
+msgstr "Отменить"
+
+msgid "Previous"
+msgstr "Предыдущее"
+
+msgid "Next"
+msgstr "Следующее"
+
+msgid "Monday"
+msgstr "Понедельник"
+
+msgid "Tuesday"
+msgstr "Вторник"
+
+msgid "Wednesday"
+msgstr "Среда"
+
+msgid "Thursday"
+msgstr "Четверг"
+
+msgid "Friday"
+msgstr "Пятница"
+
+msgid "Saturday"
+msgstr "Суббота"
+
+msgid "Sunday"
+msgstr "Воскресенье"
+
+msgid "January"
+msgstr "Январь"
+
+msgid "February"
+msgstr "Февраль"
+
+msgid "March"
+msgstr "Март"
+
+msgid "April"
+msgstr "Апрель"
+
+msgid "May"
+msgstr "Май"
+
+msgid "June"
+msgstr "Июнь"
+
+msgid "July"
+msgstr "Июль"
+
+msgid "August"
+msgstr "Август"
+
+msgid "September"
+msgstr "Сентябрь"
+
+msgid "October"
+msgstr "Октябрь"
+
+msgid "November"
+msgstr "Ноябрь"
+
+msgid "December"
+msgstr "Декабрь"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid "Open"
+msgstr "Открыть"
+
+msgid "Load"
+msgstr "Загрузить"
+
+msgid "Status"
+msgstr "Состояние"
+
+msgid "Offline"
+msgstr "Автономно"
+
+msgid "Done"
+msgstr "Готово"
+
+msgid "Completed"
+msgstr "Завершена"
+
+msgid "Unread Messages"
+msgstr "Непрочитанные"
+
+msgid "Important"
+msgstr "Важное"
+
+msgid "Flagged"
+msgstr "Отмечено"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Label"
+msgstr "Метка"
+
+msgid "Select All"
+msgstr "Выделить всё"
+
+msgid "Loading"
+msgstr "Загрузка"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "Refresh"
+msgstr "Обновить"
+
+msgid "Preferences"
+msgstr "Параметры"
+
+msgid "Attendee"
+msgstr "Участник"
+
+msgid "Attendees"
+msgstr "Участники"
+
+msgid "Tentative"
+msgstr "Условно"
+
+msgid "Free/Busy"
+msgstr "Свободен/занят"
+
+msgid "Timezone"
+msgstr "Часовой пояс"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Ежедневно"
+
+msgid "Weekly"
+msgstr "Еженедельно"
+
+msgid "Holiday"
+msgstr "Праздник (выходной)"
+
+msgid "Birthday"
+msgstr "День рождения"
+
+msgid "Anniversary"
+msgstr "Годовщина"
+
+msgid "Out of Office"
+msgstr "Не на работе"
+
+msgid "Yesterday"
+msgstr "Вчера"
+
+msgid "Now"
+msgstr "Сейчас"
+
+msgid "Task List"
+msgstr "Список задач"
+
+msgid "To Do"
+msgstr "Дела"
+
+msgid "Due date"
+msgstr "Срок выполнения"
+
+msgid "Assigned"
+msgstr "Назначенная"
+
+msgid "Overdue Tasks"
+msgstr "Просроченные задачи"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Clear All"
+msgstr "Очистить все"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+msgid "Accept meeting request"
+msgstr "Принять запрос на встречу"
+
+msgid "Decline meeting request"
+msgstr "Отклонить просьбу о встрече"
+
+msgid "Accepted"
+msgstr "Принято"
+
+msgid "Declined"
+msgstr "Отклонено"
+
+msgid "Forward message"
+msgstr "Пересылаемое сообщение"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "Email"
+msgstr "Эл. почта"
+
+msgid "Due"
+msgstr "Срок завершения"
+
+msgid "Due Date:"
+msgstr "Дата выполнения:"
+
+msgid "Complete"
+msgstr "Завершена"
+
+msgid "Completed Tasks"
+msgstr "Завершённые задачи"
+
+msgid "Contact"
+msgstr "Контакт"
+
+msgid "Contacts"
+msgstr "Контакты"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Fax"
+msgstr "Факс"
+
+msgid "Work"
+msgstr "Рабочий"
+
+msgid "Home"
+msgstr "Домашний"
+
+msgid "Other"
+msgstr "Другой"
+
+msgid "Company"
+msgstr "Компания"
+
+msgid "High"
+msgstr "Высокий"
+
+msgid "Low"
+msgstr "Низкий"
+
+msgid "Website"
+msgstr "Веб-сайт"
+
+msgid "Recent"
+msgstr "Недавние"
+
+msgid "Reminder"
+msgstr "Напоминание"
+
+msgid "Starred"
+msgstr "Помечено"
+
+msgid "Star"
+msgstr "Звезда"
+
+msgid "Mute"
+msgstr "Отключить звук"
+
+msgid "Snooze"
+msgstr "Отложить"
+
+msgid "Snoozed"
+msgstr "Отложено"
+
+msgid "Promotions"
+msgstr "Акции"
+
+msgid "Updates"
+msgstr "Обновления"
+
+msgid "Social"
+msgstr "Социальные"
+
+msgid "Forums"
+msgstr "Форумы"
+
+msgid "Primary"
+msgstr "Основные"
+
+msgid "Sign in"
+msgstr "Войти"
+
+msgid "Sign out"
+msgstr "Выйти"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "No new mail"
+msgstr "Нет новых писем"
+
+msgid "No messages"
+msgstr "Нет сообщений"
+
+msgid "Last updated"
+msgstr "Последнее обновление"
+
+msgid "Retry"
+msgstr "Повторить"
+
+msgid "Connected"
+msgstr "Подключено"
+
+msgid "Disconnected"
+msgstr "Отключено"
+
+msgid "Sync"
+msgstr "Синхронизация"
+
+msgid "No upcoming events"
+msgstr "Нет предстоящих событий"
+
+msgid "Nothing scheduled"
+msgstr "Ничего не запланировано"
+
+msgid "Mark all as read"
+msgstr "Отметить все как прочитанные"
+
+msgid "Agenda"
+msgstr "Повестка дня"
+
+msgid "All Mail"
+msgstr "Вся почта"
+
+msgid "Move to"
+msgstr "Переместить в"
+
+msgid "Due today"
+msgstr "Истекает сегодня"
+
+msgid "Overdue"
+msgstr "Просрочено"
+
+msgid "Incomplete"
+msgstr "Незавершено"
+
+msgid "Add task"
+msgstr "Добавить задачу"
+
+msgid "New task"
+msgstr "Новая задача"
+
+msgid "Edit task"
+msgstr "Изменить задачу"
+
+msgid "Task details"
+msgstr "Детали задачи"
+
+msgid "Task list"
+msgstr "Список задач"
+
+msgid "To Do list"
+msgstr "Список дел"
+
+msgid "Subtasks"
+msgstr "Подзадачи"
+
+msgid "Medium"
+msgstr "Средний"
+
+msgid "Priority: High"
+msgstr "Приоритет: высокий"
+
+msgid "Priority: Medium"
+msgstr "Приоритет: средний"
+
+msgid "Priority: Low"
+msgstr "Приоритет: низкий"
+
+msgid "Mark complete"
+msgstr "Отметить выполненным"
+
+msgid "Full name"
+msgstr "Полное имя"
+
+msgid "First name"
+msgstr "Имя"
+
+msgid "Last name"
+msgstr "Фамилия"
+
+msgid "Mobile"
+msgstr "Мобильный"
+
+msgid "Job title"
+msgstr "Должность"
+
+msgid "Email address"
+msgstr "Электронная почта"
+
+msgid "Drive"
+msgstr "Диск"
+
+msgid "Storage"
+msgstr "Хранилище"
+
+msgid "Used"
+msgstr "Использовано"
+
+msgid "Quota"
+msgstr "Квота"
+
+msgid "Upload"
+msgstr "Загрузить"
+
+msgid "Download"
+msgstr "Скачать"
+
+msgid "Recent files"
+msgstr "Недавние файлы"
+
+msgid "Shared with me"
+msgstr "Доступные мне"
+
+msgid "My Drive"
+msgstr "Мой диск"
+
+msgid "Folder size"
+msgstr "Размер папки"
+
+msgid "Video"
+msgstr "Видео"
+
+msgid "Videos"
+msgstr "Видео"
+
+msgid "Channel"
+msgstr "Канал"
+
+msgid "Channels"
+msgstr "Каналы"
+
+msgid "Subscription"
+msgstr "Подписка"
+
+msgid "Subscriptions"
+msgstr "Подписки"
+
+msgid "Views"
+msgstr "Просмотры"
+
+msgid "Uploads"
+msgstr "Загрузки"
+
+msgid "Latest"
+msgstr "Последние"
+
+msgid "Watch"
+msgstr "Смотреть"
+
+msgid "Playlists"
+msgstr "Плейлисты"
+
+msgid "Comments"
+msgstr "Комментарии"
+
+msgid "Meeting code"
+msgstr "Код встречи"
+
+msgid "Join"
+msgstr "Присоединиться"
+
+msgid "Join now"
+msgstr "Присоединиться сейчас"
+
+msgid "Ongoing"
+msgstr "Идёт"
+
+msgid "Ended"
+msgstr "Завершено"
+
+msgid "History"
+msgstr "История"
+
+msgid "Past calls"
+msgstr "Прошлые звонки"
+
+msgid "Leave"
+msgstr "Покинуть"
+
+msgid "Participants"
+msgstr "Участники"
+
+msgid "Pin"
+msgstr "Закрепить"
+
+msgid "Pinned"
+msgstr "Закреплено"
+
+msgid "Checklist"
+msgstr "Контрольный список"
+
+msgid "Space"
+msgstr "Пространство"
+
+msgid "Spaces"
+msgstr "Пространства"
+
+msgid "Direct message"
+msgstr "Личное сообщение"
+
+msgid "Direct messages"
+msgstr "Личные сообщения"
+
+msgid "Mentions"
+msgstr "Упоминания"
+
+msgid "Thread"
+msgstr "Ветка"
+
+msgid "Threads"
+msgstr "Ветки"
+
+msgid "Group chat"
+msgstr "Групповой чат"
+
+msgid "Reaction"
+msgstr "Реакция"
+
+msgid "React"
+msgstr "Реагировать"
+

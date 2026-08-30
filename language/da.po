@@ -862,3 +862,745 @@ msgstr "Venteforbrug"
 msgid "Write Rate"
 msgstr "Skrivehastighed"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Indbakke"
+
+msgid "Sent"
+msgstr "Sendt"
+
+msgid "Drafts"
+msgstr "Kladder"
+
+msgid "Junk"
+msgstr "Spam"
+
+msgid "Trash"
+msgstr "Affald"
+
+msgid "Archive"
+msgstr "Arkiv"
+
+msgid "Folders"
+msgstr "Mapper"
+
+msgid "From"
+msgstr "Fra"
+
+msgid "To"
+msgstr "Til"
+
+msgid "Subject"
+msgstr "Emne"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Priority"
+msgstr "Prioritet"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "Attachment"
+msgstr "Vedhæftning"
+
+msgid "Attachments"
+msgstr "Vedhæftninger"
+
+msgid "Attachment Properties"
+msgstr "Egenskaber for vedhæftning"
+
+msgid "Reply"
+msgstr "Svar"
+
+msgid "Reply to All"
+msgstr "Svar til alle"
+
+msgid "Forward"
+msgstr "Videresend"
+
+msgid "Attach a file"
+msgstr "Vedhæft en fil"
+
+msgid "Compose Message"
+msgstr "Skriv besked"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Close"
+msgstr "Luk"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Accounts"
+msgstr "Konti"
+
+msgid "Folder"
+msgstr "Mappe"
+
+msgid "Search"
+msgstr "Søg"
+
+msgid "Labels"
+msgstr "Etiketter"
+
+msgid "Show"
+msgstr "Vis"
+
+msgid "Delete"
+msgstr "Slet"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Event"
+msgstr "Begivenhed"
+
+msgid "Events"
+msgstr "Begivenheder"
+
+msgid "Meeting"
+msgstr "Møde"
+
+msgid "Appointment"
+msgstr "Aftale"
+
+msgid "Today"
+msgstr "I dag"
+
+msgid "Day"
+msgstr "Dag"
+
+msgid "Week"
+msgstr "Uge"
+
+msgid "Month"
+msgstr "Måned"
+
+msgid "Year"
+msgstr "År"
+
+msgid "Tasks"
+msgstr "Opgaver"
+
+msgid "Task"
+msgstr "Opgave"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "End"
+msgstr "End"
+
+msgid "All day:"
+msgstr "Hele dagen:"
+
+msgid "Summary"
+msgstr "Sammendrag"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Location"
+msgstr "Sted"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Reminders"
+msgstr "Påmindelser"
+
+msgid "Busy"
+msgstr "Optaget"
+
+msgid "Free"
+msgstr "Ledig"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Public"
+msgstr "Offentlig"
+
+msgid "Recurring"
+msgstr "Tilbagevendende"
+
+msgid "Recurrence"
+msgstr "Gentagelse"
+
+msgid "Categories"
+msgstr "Kategorier"
+
+msgid "Notes"
+msgstr "Kommentarer"
+
+msgid "New"
+msgstr "Ny"
+
+msgid "Delete Task"
+msgstr "Slet opgave"
+
+msgid "Export"
+msgstr "_Eksportér"
+
+msgid "Print…"
+msgstr "Udskriv …"
+
+msgid "Undo"
+msgstr "Fortryd"
+
+msgid "Previous"
+msgstr "Forrige"
+
+msgid "Next"
+msgstr "Næste"
+
+msgid "Monday"
+msgstr "Mandag"
+
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+msgid "Wednesday"
+msgstr "Onsdag"
+
+msgid "Thursday"
+msgstr "Torsdag"
+
+msgid "Friday"
+msgstr "Fredag"
+
+msgid "Saturday"
+msgstr "Lørdag"
+
+msgid "Sunday"
+msgstr "Søndag"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "Marts"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Cancel"
+msgstr "Annullér"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Error"
+msgstr "Fejl"
+
+msgid "Warning"
+msgstr "Advarsel"
+
+msgid "Open"
+msgstr "Åbn"
+
+msgid "Load"
+msgstr "Indlæs"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Offline"
+msgstr "Offline"
+
+msgid "Done"
+msgstr "Færdig"
+
+msgid "Completed"
+msgstr "Fuldført"
+
+msgid "Unread Messages"
+msgstr "Ulæste beskeder"
+
+msgid "Important"
+msgstr "Vigtig"
+
+msgid "Flagged"
+msgstr "Markeret"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Label"
+msgstr "Etiket"
+
+msgid "Select All"
+msgstr "Markér alt"
+
+msgid "Loading"
+msgstr "Indlæser"
+
+msgid "Updated"
+msgstr "Opdateret"
+
+msgid "Refresh"
+msgstr "Genopfrisk"
+
+msgid "Preferences"
+msgstr "Indstillinger"
+
+msgid "Attendee"
+msgstr "Deltager"
+
+msgid "Attendees"
+msgstr "Deltagere"
+
+msgid "Tentative"
+msgstr "Foreløbig"
+
+msgid "Free/Busy"
+msgstr "Ledig/optaget"
+
+msgid "Timezone"
+msgstr "Tidszone"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Dagligt"
+
+msgid "Weekly"
+msgstr "Ugentligt"
+
+msgid "Holiday"
+msgstr "Ferie"
+
+msgid "Birthday"
+msgstr "Fødselsdag"
+
+msgid "Anniversary"
+msgstr "Mærkedag"
+
+msgid "Out of Office"
+msgstr "Ude"
+
+msgid "Yesterday"
+msgstr "I går"
+
+msgid "Now"
+msgstr "Nu"
+
+msgid "Task List"
+msgstr "Opgaveliste"
+
+msgid "To Do"
+msgstr "Gøremål"
+
+msgid "Due date"
+msgstr "Forfaldsdato"
+
+msgid "Assigned"
+msgstr "Tildelt"
+
+msgid "Overdue Tasks"
+msgstr "Opgaver der tidsmæssigt er overskredet"
+
+msgid "Remove"
+msgstr "Fjern"
+
+msgid "Clear All"
+msgstr "Tøm alt"
+
+msgid "Size"
+msgstr "Størrelse"
+
+msgid "Username:"
+msgstr "Brugernavn:"
+
+msgid "Accept meeting request"
+msgstr "Acceptér mødeindkaldelse"
+
+msgid "Decline meeting request"
+msgstr "Afslå mødeindkaldelse"
+
+msgid "Accepted"
+msgstr "Accepteret"
+
+msgid "Declined"
+msgstr "Afslået"
+
+msgid "Forward message"
+msgstr "Videresend besked"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Due"
+msgstr "Forfalder"
+
+msgid "Due Date:"
+msgstr "Forfaldsdato:"
+
+msgid "Complete"
+msgstr "Fuldført"
+
+msgid "Completed Tasks"
+msgstr "Fuldførte opgaver"
+
+msgid "Contact"
+msgstr "Kontaktperson"
+
+msgid "Contacts"
+msgstr "Kontakter"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Work"
+msgstr "Arbejde"
+
+msgid "Home"
+msgstr "Hjem"
+
+msgid "Other"
+msgstr "Andet"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "High"
+msgstr "Høj"
+
+msgid "Low"
+msgstr "Lav"
+
+msgid "Website"
+msgstr "Websted"
+
+msgid "Recent"
+msgstr "Seneste"
+
+msgid "Reminder"
+msgstr "Påmindelse"
+
+msgid "Starred"
+msgstr "Med stjerne"
+
+msgid "Star"
+msgstr "Stjerne"
+
+msgid "Mute"
+msgstr "Slå lyd fra"
+
+msgid "Snooze"
+msgstr "Udskyd"
+
+msgid "Snoozed"
+msgstr "Udskudt"
+
+msgid "Promotions"
+msgstr "Kampagner"
+
+msgid "Updates"
+msgstr "Opdateringer"
+
+msgid "Social"
+msgstr "Socialt"
+
+msgid "Forums"
+msgstr "Fora"
+
+msgid "Primary"
+msgstr "Primær"
+
+msgid "Sign in"
+msgstr "Log ind"
+
+msgid "Sign out"
+msgstr "Log ud"
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "No new mail"
+msgstr "Ingen ny post"
+
+msgid "No messages"
+msgstr "Ingen beskeder"
+
+msgid "Last updated"
+msgstr "Sidst opdateret"
+
+msgid "Retry"
+msgstr "Prøv igen"
+
+msgid "Connected"
+msgstr "Forbundet"
+
+msgid "Disconnected"
+msgstr "Afbrudt"
+
+msgid "Sync"
+msgstr "Synkronisering"
+
+msgid "No upcoming events"
+msgstr "Ingen kommende begivenheder"
+
+msgid "Nothing scheduled"
+msgstr "Intet planlagt"
+
+msgid "Mark all as read"
+msgstr "Markér alle som læst"
+
+msgid "Agenda"
+msgstr "Dagsorden"
+
+msgid "All Mail"
+msgstr "Al post"
+
+msgid "Move to"
+msgstr "Flyt til"
+
+msgid "Due today"
+msgstr "Forfalder i dag"
+
+msgid "Overdue"
+msgstr "Forfalden"
+
+msgid "Incomplete"
+msgstr "Ufuldstændig"
+
+msgid "Add task"
+msgstr "Tilføj opgave"
+
+msgid "New task"
+msgstr "Ny opgave"
+
+msgid "Edit task"
+msgstr "Rediger opgave"
+
+msgid "Task details"
+msgstr "Opgavedetaljer"
+
+msgid "Task list"
+msgstr "Opgaveliste"
+
+msgid "To Do list"
+msgstr "Gøremålsliste"
+
+msgid "Subtasks"
+msgstr "Underopgaver"
+
+msgid "Medium"
+msgstr "Middel"
+
+msgid "Priority: High"
+msgstr "Prioritet: Høj"
+
+msgid "Priority: Medium"
+msgstr "Prioritet: Middel"
+
+msgid "Priority: Low"
+msgstr "Prioritet: Lav"
+
+msgid "Mark complete"
+msgstr "Markér som fuldført"
+
+msgid "Full name"
+msgstr "Fulde navn"
+
+msgid "First name"
+msgstr "Fornavn"
+
+msgid "Last name"
+msgstr "Efternavn"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Job title"
+msgstr "Stilling"
+
+msgid "Email address"
+msgstr "E-mailadresse"
+
+msgid "Drive"
+msgstr "Drev"
+
+msgid "Storage"
+msgstr "Lagerplads"
+
+msgid "Used"
+msgstr "Brugt"
+
+msgid "Quota"
+msgstr "Kvote"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Recent files"
+msgstr "Seneste filer"
+
+msgid "Shared with me"
+msgstr "Delt med mig"
+
+msgid "My Drive"
+msgstr "Mit drev"
+
+msgid "Folder size"
+msgstr "Mappestørrelse"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Videos"
+msgstr "Videoer"
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Channels"
+msgstr "Kanaler"
+
+msgid "Subscription"
+msgstr "Abonnement"
+
+msgid "Subscriptions"
+msgstr "Abonnementer"
+
+msgid "Views"
+msgstr "Visninger"
+
+msgid "Uploads"
+msgstr "Uploads"
+
+msgid "Latest"
+msgstr "Seneste"
+
+msgid "Watch"
+msgstr "Se"
+
+msgid "Playlists"
+msgstr "Playlister"
+
+msgid "Comments"
+msgstr "Kommentarer"
+
+msgid "Meeting code"
+msgstr "Mødekode"
+
+msgid "Join"
+msgstr "Deltag"
+
+msgid "Join now"
+msgstr "Deltag nu"
+
+msgid "Ongoing"
+msgstr "I gang"
+
+msgid "Ended"
+msgstr "Afsluttet"
+
+msgid "History"
+msgstr "Historik"
+
+msgid "Past calls"
+msgstr "Tidligere opkald"
+
+msgid "Leave"
+msgstr "Forlad"
+
+msgid "Participants"
+msgstr "Deltagere"
+
+msgid "Pin"
+msgstr "Fastgør"
+
+msgid "Pinned"
+msgstr "Fastgjort"
+
+msgid "Checklist"
+msgstr "Tjekliste"
+
+msgid "Space"
+msgstr "Rum"
+
+msgid "Spaces"
+msgstr "Rum"
+
+msgid "Direct message"
+msgstr "Direkte besked"
+
+msgid "Direct messages"
+msgstr "Direkte beskeder"
+
+msgid "Mentions"
+msgstr "Omtaler"
+
+msgid "Thread"
+msgstr "Tråd"
+
+msgid "Threads"
+msgstr "Tråde"
+
+msgid "Group chat"
+msgstr "Gruppechat"
+
+msgid "Reaction"
+msgstr "Reaktion"
+
+msgid "React"
+msgstr "Reager"
+

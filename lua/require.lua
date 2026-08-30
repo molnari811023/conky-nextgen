@@ -13,7 +13,8 @@
 --    translate, utils, draw_core, mouse_actions, mouse
 -- 4. Hardware: core, battery, dmi, info, mtp, network, sensors, usb
 -- 5. Extra: nowplaying
--- 6. Draw: icon_theme, hyphen, background, text, bar, graph, image, svg, clock, calendar, lines, rings
+-- 6. Google: core (loader) + data (accessors)
+-- 7. Draw: icon_theme, hyphen, background, text, bar, graph, image, svg, clock, calendar, lines, rings
 --
 -- Debug files are in debug/ folder:
 --   debug/debug_weather.lua    — weather module dump (requires tmp/ data)
@@ -59,6 +60,10 @@ require("hardware.usb")
 
 -- ═══ EXTRAS ═══
 require("nowplaying")
+
+-- ═══ GOOGLE ═══
+require("google.core")
+require("google.data")
 
 -- ═══ DRAW MODULES ═══
 require("draw.icon_theme")

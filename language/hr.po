@@ -1038,3 +1038,746 @@ msgstr "Prozorski sustav"
 
 msgid "Write Rate"
 msgstr "Brzina pisanja"
+
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Pristigla pošta"
+
+msgid "Sent"
+msgstr "Slanje"
+
+msgid "Drafts"
+msgstr "Nedovršeno"
+
+msgid "Junk"
+msgstr "Neželjena pošta"
+
+msgid "Trash"
+msgstr "Smeće"
+
+msgid "Archive"
+msgstr "Arhiva"
+
+msgid "Folders"
+msgstr "Mape"
+
+msgid "From"
+msgstr "Od"
+
+msgid "To"
+msgstr "Prima"
+
+msgid "Subject"
+msgstr "Predmet"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Bcc"
+msgstr "Prima tajnu kopiju"
+
+msgid "Cc"
+msgstr "Prima kopiju"
+
+msgid "Priority"
+msgstr "Prioritet"
+
+msgid "Message"
+msgstr "Poruka"
+
+msgid "Attachment"
+msgstr "Privitak"
+
+msgid "Attachments"
+msgstr "Privitci"
+
+msgid "Attachment Properties"
+msgstr "Svojstva privitka"
+
+msgid "Reply"
+msgstr "Odgovori"
+
+msgid "Reply to All"
+msgstr "Odgovori svima"
+
+msgid "Forward"
+msgstr "Proslijedi"
+
+msgid "Attach a file"
+msgstr "Priloži datoteku"
+
+msgid "Compose Message"
+msgstr "Sastavi poruku"
+
+msgid "Save"
+msgstr "Spremi"
+
+msgid "Close"
+msgstr "Zatvori"
+
+msgid "Account"
+msgstr "Račun"
+
+msgid "Accounts"
+msgstr "Računi"
+
+msgid "Folder"
+msgstr "Mapa"
+
+msgid "Search"
+msgstr "Pretraži"
+
+msgid "Labels"
+msgstr "Natpisi"
+
+msgid "Show"
+msgstr "Prikaži"
+
+msgid "Delete"
+msgstr "Obriši"
+
+msgid "Calendar"
+msgstr "Kalendar"
+
+msgid "Event"
+msgstr "Događaj"
+
+msgid "Events"
+msgstr "Događaj"
+
+msgid "Meeting"
+msgstr "Sastanak"
+
+msgid "Appointment"
+msgstr "Ugovoreni sastanak"
+
+msgid "Today"
+msgstr "Danas"
+
+msgid "Day"
+msgstr "Dan"
+
+msgid "Week"
+msgstr "Tjedan"
+
+msgid "Month"
+msgstr "Mjesec"
+
+msgid "Year"
+msgstr "Godina"
+
+msgid "Tasks"
+msgstr "Zadaci"
+
+msgid "Task"
+msgstr "Zadatak"
+
+msgid "Start"
+msgstr "Početak"
+
+msgid "End"
+msgstr "Završetak"
+
+msgid "All day:"
+msgstr "Cijeli dan:"
+
+msgid "Summary"
+msgstr "Sažetak"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Location"
+msgstr "Mjesto"
+
+msgid "Details"
+msgstr "Pojedinosti"
+
+msgid "Reminders"
+msgstr "Podsjetnici"
+
+msgid "Busy"
+msgstr "Zauzeto"
+
+msgid "Free"
+msgstr "Slobodno"
+
+msgid "Private"
+msgstr "Privatno"
+
+msgid "Public"
+msgstr "Javno"
+
+msgid "Recurring"
+msgstr "Ponavljajući"
+
+msgid "Recurrence"
+msgstr "Ponavljanje"
+
+msgid "Categories"
+msgstr "Kategorije"
+
+msgid "Notes"
+msgstr "Bilješke"
+
+msgid "New"
+msgstr "Novo"
+
+msgid "Delete Task"
+msgstr "Obriši zadatak"
+
+msgid "Export"
+msgstr "Izvoz"
+
+msgid "Print…"
+msgstr "Ispis…"
+
+msgid "Undo"
+msgstr "Vrati"
+
+msgid "Previous"
+msgstr "Prijašnja"
+
+msgid "Next"
+msgstr "Sljedeća"
+
+msgid "Monday"
+msgstr "Ponedjeljak"
+
+msgid "Tuesday"
+msgstr "Utorak"
+
+msgid "Wednesday"
+msgstr "Srijedu"
+
+msgid "Thursday"
+msgstr "Četvrtak"
+
+msgid "Friday"
+msgstr "Petak"
+
+msgid "Saturday"
+msgstr "Subotu"
+
+msgid "Sunday"
+msgstr "Nedjelju"
+
+msgid "January"
+msgstr "Siječanj"
+
+msgid "February"
+msgstr "Veljača"
+
+msgid "March"
+msgstr "Ožujak"
+
+msgid "April"
+msgstr "Travanj"
+
+msgid "May"
+msgstr "Svibanj"
+
+msgid "June"
+msgstr "Lipanj"
+
+msgid "July"
+msgstr "Srpanj"
+
+msgid "August"
+msgstr "Kolovoz"
+
+msgid "September"
+msgstr "Rujan"
+
+msgid "October"
+msgstr "Listopad"
+
+msgid "November"
+msgstr "Studeni"
+
+msgid "December"
+msgstr "Prosinac"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Cancel"
+msgstr "Odustani"
+
+msgid "OK"
+msgstr "U redu"
+
+msgid "Error"
+msgstr "Greška"
+
+msgid "Warning"
+msgstr "Upozorenje"
+
+msgid "Open"
+msgstr "Otvori"
+
+msgid "Load"
+msgstr "Učitaj"
+
+msgid "Status"
+msgstr "Stanje"
+
+msgid "Offline"
+msgstr "Izvanmreže"
+
+msgid "Done"
+msgstr "Završetak"
+
+msgid "Completed"
+msgstr "Završeno"
+
+msgid "Unread Messages"
+msgstr "Nepročitane poruke"
+
+msgid "Important"
+msgstr "Bitno"
+
+msgid "Flagged"
+msgstr "Označeno"
+
+msgid "Category"
+msgstr "Kategorija"
+
+msgid "Label"
+msgstr "Natpis"
+
+msgid "Select All"
+msgstr "Odaberi sve"
+
+msgid "Loading"
+msgstr "Učitavanje"
+
+msgid "Updated"
+msgstr "Nadopunjen"
+
+msgid "Refresh"
+msgstr "Osvježen"
+
+msgid "Preferences"
+msgstr "Osobitosti"
+
+msgid "Attendee"
+msgstr "Sudionik"
+
+msgid "Attendees"
+msgstr "Sudionici"
+
+msgid "Tentative"
+msgstr "Privremeno"
+
+msgid "Free/Busy"
+msgstr "Slobodan/Zauzet"
+
+msgid "Timezone"
+msgstr "Vremenska zona"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Dnevno"
+
+msgid "Weekly"
+msgstr "Tjedno"
+
+msgid "Holiday"
+msgstr "Praznik"
+
+msgid "Birthday"
+msgstr "Rođendan"
+
+msgid "Anniversary"
+msgstr "Obljetnica"
+
+msgid "Out of Office"
+msgstr "Izvan ureda"
+
+msgid "Yesterday"
+msgstr "Jučer"
+
+msgid "Now"
+msgstr "Sada"
+
+msgid "Task List"
+msgstr "Popis zadataka"
+
+msgid "To Do"
+msgstr "Zadaci"
+
+msgid "Due date"
+msgstr "Datum dospijeća"
+
+msgid "Assigned"
+msgstr "Dodijeljeno"
+
+msgid "Overdue Tasks"
+msgstr "Neispunjeni zadaci"
+
+msgid "Remove"
+msgstr "Ukloni"
+
+msgid "Clear All"
+msgstr "Ukloni sve"
+
+msgid "Size"
+msgstr "Veličina"
+
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+msgid "Accept meeting request"
+msgstr "Prihvati zahtjev za sastankom"
+
+msgid "Decline meeting request"
+msgstr "Odbij zahtjev za sastankom"
+
+msgid "Accepted"
+msgstr "Prihvaćen"
+
+msgid "Declined"
+msgstr "Odbijen"
+
+msgid "Forward message"
+msgstr "Proslijeđena poruku"
+
+msgid "Address"
+msgstr "Adresa"
+
+msgid "Email"
+msgstr "E-pošta"
+
+msgid "Due"
+msgstr "Rok"
+
+msgid "Due Date:"
+msgstr "Datum dospijeća:"
+
+msgid "Complete"
+msgstr "Završeno"
+
+msgid "Completed Tasks"
+msgstr "Završeni zadaci"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Contacts"
+msgstr "Kontakti"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Faks"
+
+msgid "Work"
+msgstr "Posao"
+
+msgid "Home"
+msgstr "Kuća"
+
+msgid "Other"
+msgstr "Ostalo"
+
+msgid "Company"
+msgstr "Tvrtka"
+
+msgid "High"
+msgstr "Visok"
+
+msgid "Low"
+msgstr "Nizak"
+
+msgid "Website"
+msgstr "Web stranica"
+
+msgid "Recent"
+msgstr "Nedavno"
+
+msgid "Reminder"
+msgstr "Podsjetnik"
+
+msgid "Starred"
+msgstr "Označeno zvjezdicom"
+
+msgid "Star"
+msgstr "Zvjezdica"
+
+msgid "Mute"
+msgstr "Utišaj"
+
+msgid "Snooze"
+msgstr "Odgodi"
+
+msgid "Snoozed"
+msgstr "Odgođeno"
+
+msgid "Promotions"
+msgstr "Promocije"
+
+msgid "Updates"
+msgstr "Novosti"
+
+msgid "Social"
+msgstr "Društvene mreže"
+
+msgid "Forums"
+msgstr "Forumi"
+
+msgid "Primary"
+msgstr "Glavno"
+
+msgid "Sign in"
+msgstr "Prijava"
+
+msgid "Sign out"
+msgstr "Odjava"
+
+msgid "Settings"
+msgstr "Postavke"
+
+msgid "No new mail"
+msgstr "Nema nove pošte"
+
+msgid "No messages"
+msgstr "Nema poruka"
+
+msgid "Last updated"
+msgstr "Zadnje ažuriranje"
+
+msgid "Retry"
+msgstr "Pokušaj ponovno"
+
+msgid "Connected"
+msgstr "Spojeno"
+
+msgid "Disconnected"
+msgstr "Prekinuto"
+
+msgid "Sync"
+msgstr "Sinkronizacija"
+
+msgid "No upcoming events"
+msgstr "Nema nadolazećih događaja"
+
+msgid "Nothing scheduled"
+msgstr "Ništa nije zakazano"
+
+msgid "Mark all as read"
+msgstr "Označi sve kao pročitano"
+
+msgid "Agenda"
+msgstr "Dnevni red"
+
+msgid "All Mail"
+msgstr "Sva pošta"
+
+msgid "Move to"
+msgstr "Premjesti u"
+
+msgid "Due today"
+msgstr "Dospijeva danas"
+
+msgid "Overdue"
+msgstr "Zakašnjelo"
+
+msgid "Incomplete"
+msgstr "Nedovršeno"
+
+msgid "Add task"
+msgstr "Dodaj zadatak"
+
+msgid "New task"
+msgstr "Novi zadatak"
+
+msgid "Edit task"
+msgstr "Uredi zadatak"
+
+msgid "Task details"
+msgstr "Detalji zadatka"
+
+msgid "Task list"
+msgstr "Popis zadataka"
+
+msgid "To Do list"
+msgstr "Popis zadataka"
+
+msgid "Subtasks"
+msgstr "Podzadaci"
+
+msgid "Medium"
+msgstr "Srednje"
+
+msgid "Priority: High"
+msgstr "Prioritet: Visok"
+
+msgid "Priority: Medium"
+msgstr "Prioritet: Srednji"
+
+msgid "Priority: Low"
+msgstr "Prioritet: Nizak"
+
+msgid "Mark complete"
+msgstr "Označi kao dovršeno"
+
+msgid "Full name"
+msgstr "Puno ime"
+
+msgid "First name"
+msgstr "Ime"
+
+msgid "Last name"
+msgstr "Prezime"
+
+msgid "Mobile"
+msgstr "Mobitel"
+
+msgid "Job title"
+msgstr "Radno mjesto"
+
+msgid "Email address"
+msgstr "Adresa e-pošte"
+
+msgid "Drive"
+msgstr "Disk"
+
+msgid "Storage"
+msgstr "Pohrana"
+
+msgid "Used"
+msgstr "Iskorišteno"
+
+msgid "Quota"
+msgstr "Kvota"
+
+msgid "Upload"
+msgstr "Prenesi"
+
+msgid "Download"
+msgstr "Preuzmi"
+
+msgid "Recent files"
+msgstr "Nedavne datoteke"
+
+msgid "Shared with me"
+msgstr "Podijeljeno sa mnom"
+
+msgid "My Drive"
+msgstr "Moj disk"
+
+msgid "Folder size"
+msgstr "Veličina mape"
+
+msgid "Video"
+msgstr "Videozapis"
+
+msgid "Videos"
+msgstr "Videozapisi"
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Channels"
+msgstr "Kanali"
+
+msgid "Subscription"
+msgstr "Pretplata"
+
+msgid "Subscriptions"
+msgstr "Pretplate"
+
+msgid "Views"
+msgstr "Pregledi"
+
+msgid "Uploads"
+msgstr "Prijenos"
+
+msgid "Latest"
+msgstr "Najnovije"
+
+msgid "Watch"
+msgstr "Gledaj"
+
+msgid "Playlists"
+msgstr "Popisi za reprodukciju"
+
+msgid "Comments"
+msgstr "Komentari"
+
+msgid "Meeting code"
+msgstr "Kod sastanka"
+
+msgid "Join"
+msgstr "Pridruži se"
+
+msgid "Join now"
+msgstr "Pridruži se sada"
+
+msgid "Ongoing"
+msgstr "U tijeku"
+
+msgid "Ended"
+msgstr "Završeno"
+
+msgid "History"
+msgstr "Povijest"
+
+msgid "Past calls"
+msgstr "Prošli pozivi"
+
+msgid "Leave"
+msgstr "Napuštanje"
+
+msgid "Participants"
+msgstr "Sudionici"
+
+msgid "Pin"
+msgstr "Zakači"
+
+msgid "Pinned"
+msgstr "Zakačeno"
+
+msgid "Checklist"
+msgstr "Kontrolni popis"
+
+msgid "Space"
+msgstr "Prostor"
+
+msgid "Spaces"
+msgstr "Prostori"
+
+msgid "Direct message"
+msgstr "Izravna poruka"
+
+msgid "Direct messages"
+msgstr "Izravne poruke"
+
+msgid "Mentions"
+msgstr "Spominjanja"
+
+msgid "Thread"
+msgstr "Nit"
+
+msgid "Threads"
+msgstr "Niti"
+
+msgid "Group chat"
+msgstr "Grupni chat"
+
+msgid "Reaction"
+msgstr "Reakcija"
+
+msgid "React"
+msgstr "Reagiraj"
+

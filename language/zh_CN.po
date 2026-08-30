@@ -1039,3 +1039,745 @@ msgstr "窗口系统"
 msgid "Write Rate"
 msgstr "写入速率"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "收件箱"
+
+msgid "Sent"
+msgstr "已发送"
+
+msgid "Drafts"
+msgstr "草稿"
+
+msgid "Junk"
+msgstr "垃圾"
+
+msgid "Trash"
+msgstr "废件箱"
+
+msgid "Archive"
+msgstr "归档"
+
+msgid "Folders"
+msgstr "文件夹"
+
+msgid "From"
+msgstr "来自"
+
+msgid "To"
+msgstr "收件人"
+
+msgid "Subject"
+msgstr "证书持有者"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "Bcc"
+msgstr "密件抄送"
+
+msgid "Cc"
+msgstr "抄送"
+
+msgid "Priority"
+msgstr "优先级"
+
+msgid "Message"
+msgstr "消息"
+
+msgid "Attachment"
+msgstr "附件"
+
+msgid "Attachments"
+msgstr "附件"
+
+msgid "Attachment Properties"
+msgstr "附件属性"
+
+msgid "Reply"
+msgstr "回复"
+
+msgid "Reply to All"
+msgstr "全部回复"
+
+msgid "Forward"
+msgstr "转发"
+
+msgid "Attach a file"
+msgstr "添加附件"
+
+msgid "Compose Message"
+msgstr "新建消息"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Account"
+msgstr "帐号"
+
+msgid "Accounts"
+msgstr "帐号"
+
+msgid "Folder"
+msgstr "文件夹"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Labels"
+msgstr "标签"
+
+msgid "Show"
+msgstr "显示"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Calendar"
+msgstr "日历"
+
+msgid "Event"
+msgstr "事件"
+
+msgid "Events"
+msgstr "事件"
+
+msgid "Meeting"
+msgstr "会议"
+
+msgid "Appointment"
+msgstr "约会"
+
+msgid "Today"
+msgstr "今天"
+
+msgid "Day"
+msgstr "天"
+
+msgid "Week"
+msgstr "周"
+
+msgid "Month"
+msgstr "月"
+
+msgid "Year"
+msgstr "年"
+
+msgid "Tasks"
+msgstr "任务"
+
+msgid "Task"
+msgstr "任务"
+
+msgid "Start"
+msgstr "开始"
+
+msgid "End"
+msgstr "结束"
+
+msgid "All day:"
+msgstr "全天："
+
+msgid "Summary"
+msgstr "概要"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Location"
+msgstr "位置"
+
+msgid "Details"
+msgstr "详细信息"
+
+msgid "Reminders"
+msgstr "提醒"
+
+msgid "Busy"
+msgstr "繁忙"
+
+msgid "Free"
+msgstr "空闲"
+
+msgid "Private"
+msgstr "保密"
+
+msgid "Public"
+msgstr "公开"
+
+msgid "Recurring"
+msgstr "重复"
+
+msgid "Recurrence"
+msgstr "重复"
+
+msgid "Categories"
+msgstr "类别"
+
+msgid "Notes"
+msgstr "注释"
+
+msgid "New"
+msgstr "新建"
+
+msgid "Delete Task"
+msgstr "删除任务"
+
+msgid "Export"
+msgstr "导出"
+
+msgid "Print…"
+msgstr "打印…"
+
+msgid "Undo"
+msgstr "撤消"
+
+msgid "Previous"
+msgstr "上一项"
+
+msgid "Next"
+msgstr "下一项"
+
+msgid "Monday"
+msgstr "星期一"
+
+msgid "Tuesday"
+msgstr "星期二"
+
+msgid "Wednesday"
+msgstr "星期三"
+
+msgid "Thursday"
+msgstr "星期四"
+
+msgid "Friday"
+msgstr "星期五"
+
+msgid "Saturday"
+msgstr "星期六"
+
+msgid "Sunday"
+msgstr "星期日"
+
+msgid "January"
+msgstr "一月"
+
+msgid "February"
+msgstr "二月"
+
+msgid "March"
+msgstr "三月"
+
+msgid "April"
+msgstr "四月"
+
+msgid "May"
+msgstr "五月"
+
+msgid "June"
+msgstr "六月"
+
+msgid "July"
+msgstr "七月"
+
+msgid "August"
+msgstr "八月"
+
+msgid "September"
+msgstr "九月"
+
+msgid "October"
+msgstr "十月"
+
+msgid "November"
+msgstr "十一月"
+
+msgid "December"
+msgstr "十二月"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "OK"
+msgstr "确定"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Open"
+msgstr "打开"
+
+msgid "Load"
+msgstr "加载"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Offline"
+msgstr "离线"
+
+msgid "Done"
+msgstr "完成"
+
+msgid "Completed"
+msgstr "已完成"
+
+msgid "Unread Messages"
+msgstr "未读信息"
+
+msgid "Important"
+msgstr "重要"
+
+msgid "Flagged"
+msgstr "已标志"
+
+msgid "Category"
+msgstr "类别"
+
+msgid "Label"
+msgstr "标签"
+
+msgid "Select All"
+msgstr "全选"
+
+msgid "Loading"
+msgstr "载入"
+
+msgid "Updated"
+msgstr "更新"
+
+msgid "Refresh"
+msgstr "刷新"
+
+msgid "Preferences"
+msgstr "首选项"
+
+msgid "Attendee"
+msgstr "出席者"
+
+msgid "Attendees"
+msgstr "出席者"
+
+msgid "Tentative"
+msgstr "暂时的"
+
+msgid "Free/Busy"
+msgstr "忙/闲"
+
+msgid "Timezone"
+msgstr "时区"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "每天"
+
+msgid "Weekly"
+msgstr "每周"
+
+msgid "Holiday"
+msgstr "假日"
+
+msgid "Birthday"
+msgstr "生日"
+
+msgid "Anniversary"
+msgstr "周年纪念日"
+
+msgid "Out of Office"
+msgstr "办公室以外"
+
+msgid "Yesterday"
+msgstr "昨天"
+
+msgid "Now"
+msgstr "现在"
+
+msgid "Task List"
+msgstr "任务列表"
+
+msgid "To Do"
+msgstr "待办"
+
+msgid "Due date"
+msgstr "截止日期"
+
+msgid "Assigned"
+msgstr "已分配"
+
+msgid "Overdue Tasks"
+msgstr "延期任务"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Clear All"
+msgstr "全部清除"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Username:"
+msgstr "用户名："
+
+msgid "Accept meeting request"
+msgstr "接受会议请求"
+
+msgid "Decline meeting request"
+msgstr "拒绝会议请求"
+
+msgid "Accepted"
+msgstr "接受"
+
+msgid "Declined"
+msgstr "拒绝"
+
+msgid "Forward message"
+msgstr "转发信息"
+
+msgid "Address"
+msgstr "地址"
+
+msgid "Email"
+msgstr "电子邮件"
+
+msgid "Due"
+msgstr "到期"
+
+msgid "Due Date:"
+msgstr "到期日期："
+
+msgid "Complete"
+msgstr "完成"
+
+msgid "Completed Tasks"
+msgstr "已完成任务"
+
+msgid "Contact"
+msgstr "联系人"
+
+msgid "Contacts"
+msgstr "联系人"
+
+msgid "Phone"
+msgstr "电话"
+
+msgid "Fax"
+msgstr "传真"
+
+msgid "Work"
+msgstr "工作"
+
+msgid "Home"
+msgstr "家庭"
+
+msgid "Other"
+msgstr "其它"
+
+msgid "Company"
+msgstr "公司"
+
+msgid "High"
+msgstr "高"
+
+msgid "Low"
+msgstr "低"
+
+msgid "Website"
+msgstr "网站"
+
+msgid "Recent"
+msgstr "最近"
+
+msgid "Reminder"
+msgstr "提醒"
+
+msgid "Starred"
+msgstr "已加星标"
+
+msgid "Star"
+msgstr "加星标"
+
+msgid "Mute"
+msgstr "静音"
+
+msgid "Snooze"
+msgstr "稍后提醒"
+
+msgid "Snoozed"
+msgstr "已稍后提醒"
+
+msgid "Promotions"
+msgstr "促销"
+
+msgid "Updates"
+msgstr "更新"
+
+msgid "Social"
+msgstr "社交"
+
+msgid "Forums"
+msgstr "论坛"
+
+msgid "Primary"
+msgstr "主要"
+
+msgid "Sign in"
+msgstr "登录"
+
+msgid "Sign out"
+msgstr "退出登录"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "No new mail"
+msgstr "没有新邮件"
+
+msgid "No messages"
+msgstr "没有消息"
+
+msgid "Last updated"
+msgstr "上次更新"
+
+msgid "Retry"
+msgstr "重试"
+
+msgid "Connected"
+msgstr "已连接"
+
+msgid "Disconnected"
+msgstr "已断开"
+
+msgid "Sync"
+msgstr "同步"
+
+msgid "No upcoming events"
+msgstr "没有即将到来的活动"
+
+msgid "Nothing scheduled"
+msgstr "没有日程安排"
+
+msgid "Mark all as read"
+msgstr "全部标为已读"
+
+msgid "Agenda"
+msgstr "议程"
+
+msgid "All Mail"
+msgstr "所有邮件"
+
+msgid "Move to"
+msgstr "移至"
+
+msgid "Due today"
+msgstr "今天到期"
+
+msgid "Overdue"
+msgstr "已逾期"
+
+msgid "Incomplete"
+msgstr "未完成"
+
+msgid "Add task"
+msgstr "添加任务"
+
+msgid "New task"
+msgstr "新任务"
+
+msgid "Edit task"
+msgstr "编辑任务"
+
+msgid "Task details"
+msgstr "任务详情"
+
+msgid "Task list"
+msgstr "任务列表"
+
+msgid "To Do list"
+msgstr "待办列表"
+
+msgid "Subtasks"
+msgstr "子任务"
+
+msgid "Medium"
+msgstr "中"
+
+msgid "Priority: High"
+msgstr "优先级：高"
+
+msgid "Priority: Medium"
+msgstr "优先级：中"
+
+msgid "Priority: Low"
+msgstr "优先级：低"
+
+msgid "Mark complete"
+msgstr "标记为完成"
+
+msgid "Full name"
+msgstr "全名"
+
+msgid "First name"
+msgstr "名"
+
+msgid "Last name"
+msgstr "姓"
+
+msgid "Mobile"
+msgstr "手机"
+
+msgid "Job title"
+msgstr "职位"
+
+msgid "Email address"
+msgstr "电子邮件地址"
+
+msgid "Drive"
+msgstr "云盘"
+
+msgid "Storage"
+msgstr "存储空间"
+
+msgid "Used"
+msgstr "已用"
+
+msgid "Quota"
+msgstr "配额"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Recent files"
+msgstr "最近文件"
+
+msgid "Shared with me"
+msgstr "与我共享"
+
+msgid "My Drive"
+msgstr "我的云盘"
+
+msgid "Folder size"
+msgstr "文件夹大小"
+
+msgid "Video"
+msgstr "视频"
+
+msgid "Videos"
+msgstr "视频"
+
+msgid "Channel"
+msgstr "频道"
+
+msgid "Channels"
+msgstr "频道"
+
+msgid "Subscription"
+msgstr "订阅"
+
+msgid "Subscriptions"
+msgstr "订阅"
+
+msgid "Views"
+msgstr "观看次数"
+
+msgid "Uploads"
+msgstr "上传"
+
+msgid "Latest"
+msgstr "最新"
+
+msgid "Watch"
+msgstr "观看"
+
+msgid "Playlists"
+msgstr "播放列表"
+
+msgid "Comments"
+msgstr "评论"
+
+msgid "Meeting code"
+msgstr "会议代码"
+
+msgid "Join"
+msgstr "加入"
+
+msgid "Join now"
+msgstr "立即加入"
+
+msgid "Ongoing"
+msgstr "进行中"
+
+msgid "Ended"
+msgstr "已结束"
+
+msgid "History"
+msgstr "历史记录"
+
+msgid "Past calls"
+msgstr "过去的通话"
+
+msgid "Leave"
+msgstr "离开"
+
+msgid "Participants"
+msgstr "参与者"
+
+msgid "Pin"
+msgstr "置顶"
+
+msgid "Pinned"
+msgstr "已置顶"
+
+msgid "Checklist"
+msgstr "清单"
+
+msgid "Space"
+msgstr "空间"
+
+msgid "Spaces"
+msgstr "空间"
+
+msgid "Direct message"
+msgstr "私信"
+
+msgid "Direct messages"
+msgstr "私信"
+
+msgid "Mentions"
+msgstr "提及"
+
+msgid "Thread"
+msgstr "话题"
+
+msgid "Threads"
+msgstr "话题"
+
+msgid "Group chat"
+msgstr "群聊"
+
+msgid "Reaction"
+msgstr "回应"
+
+msgid "React"
+msgstr "回应"
+

@@ -1039,3 +1039,745 @@ msgstr "النظام النوافذ"
 msgid "Write Rate"
 msgstr "معدل الكتابة"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "الوارد"
+
+msgid "Sent"
+msgstr "أرسِل"
+
+msgid "Drafts"
+msgstr "مسوّدات"
+
+msgid "Junk"
+msgstr "نفاية"
+
+msgid "Trash"
+msgstr "المهملات"
+
+msgid "Archive"
+msgstr "أرشيف"
+
+msgid "Folders"
+msgstr "المجلّدات"
+
+msgid "From"
+msgstr "من"
+
+msgid "To"
+msgstr "إلى"
+
+msgid "Subject"
+msgstr "الموضوع"
+
+msgid "Date"
+msgstr "التّاريخ"
+
+msgid "Bcc"
+msgstr "ن.ك.م"
+
+msgid "Cc"
+msgstr "ن.ك"
+
+msgid "Priority"
+msgstr "الأولويّة"
+
+msgid "Message"
+msgstr "رسالة"
+
+msgid "Attachment"
+msgstr "مرفق"
+
+msgid "Attachments"
+msgstr "المُرفقات"
+
+msgid "Attachment Properties"
+msgstr "خصائص المُرفق"
+
+msgid "Reply"
+msgstr "رد"
+
+msgid "Reply to All"
+msgstr "رد على الجميع"
+
+msgid "Forward"
+msgstr "مرّر"
+
+msgid "Attach a file"
+msgstr "إرفاق ملف"
+
+msgid "Compose Message"
+msgstr "أنشئ رسالة"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Account"
+msgstr "حساب"
+
+msgid "Accounts"
+msgstr "حسابات"
+
+msgid "Folder"
+msgstr "مجلد"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Labels"
+msgstr "ملصقات"
+
+msgid "Show"
+msgstr "عرض"
+
+msgid "Delete"
+msgstr "احذف"
+
+msgid "Calendar"
+msgstr "التقويم"
+
+msgid "Event"
+msgstr "حدث"
+
+msgid "Events"
+msgstr "أحداث"
+
+msgid "Meeting"
+msgstr "اجتماع"
+
+msgid "Appointment"
+msgstr "موعد"
+
+msgid "Today"
+msgstr "اليوم"
+
+msgid "Day"
+msgstr "اليوم"
+
+msgid "Week"
+msgstr "أسبوع"
+
+msgid "Month"
+msgstr "شهر"
+
+msgid "Year"
+msgstr "سنة"
+
+msgid "Tasks"
+msgstr "المهام"
+
+msgid "Task"
+msgstr "مهمَّة"
+
+msgid "Start"
+msgstr "البداية"
+
+msgid "End"
+msgstr "النهاية"
+
+msgid "All day:"
+msgstr "طوال اليوم:"
+
+msgid "Summary"
+msgstr "الملخّص"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Location"
+msgstr "المكان"
+
+msgid "Details"
+msgstr "تفاصيل"
+
+msgid "Reminders"
+msgstr "التذكيرات"
+
+msgid "Busy"
+msgstr "مشغول"
+
+msgid "Free"
+msgstr "متفرّغ"
+
+msgid "Private"
+msgstr "خاص"
+
+msgid "Public"
+msgstr "عام"
+
+msgid "Recurring"
+msgstr "متكرّر"
+
+msgid "Recurrence"
+msgstr "تكرار"
+
+msgid "Categories"
+msgstr "الفئات"
+
+msgid "Notes"
+msgstr "ملاحظات"
+
+msgid "New"
+msgstr "جديد"
+
+msgid "Delete Task"
+msgstr "احذف المهمة"
+
+msgid "Export"
+msgstr "تصدير"
+
+msgid "Print…"
+msgstr "طباعة…"
+
+msgid "Undo"
+msgstr "تراجع"
+
+msgid "Previous"
+msgstr "السابق"
+
+msgid "Next"
+msgstr "التّالي"
+
+msgid "Monday"
+msgstr "الإثنين"
+
+msgid "Tuesday"
+msgstr "الثّلاثاء"
+
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+msgid "Thursday"
+msgstr "الخميس"
+
+msgid "Friday"
+msgstr "الجمعة"
+
+msgid "Saturday"
+msgstr "السّبت"
+
+msgid "Sunday"
+msgstr "الأحد"
+
+msgid "January"
+msgstr "يناير"
+
+msgid "February"
+msgstr "فبراير"
+
+msgid "March"
+msgstr "مارس"
+
+msgid "April"
+msgstr "أبريل"
+
+msgid "May"
+msgstr "مايو"
+
+msgid "June"
+msgstr "يونيو"
+
+msgid "July"
+msgstr "يوليو"
+
+msgid "August"
+msgstr "أغسطس"
+
+msgid "September"
+msgstr "سبتمبر"
+
+msgid "October"
+msgstr "أكتوبر"
+
+msgid "November"
+msgstr "نوفمبر"
+
+msgid "December"
+msgstr "ديسمبر"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "No"
+msgstr "لا"
+
+msgid "Cancel"
+msgstr "الغِ"
+
+msgid "OK"
+msgstr "موافق"
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Warning"
+msgstr "تحذير"
+
+msgid "Open"
+msgstr "افتح"
+
+msgid "Load"
+msgstr "تحميل"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Offline"
+msgstr "غير متصل"
+
+msgid "Done"
+msgstr "تمّ"
+
+msgid "Completed"
+msgstr "مُنجز"
+
+msgid "Unread Messages"
+msgstr "الرسائل غير المقروءة"
+
+msgid "Important"
+msgstr "هامة"
+
+msgid "Flagged"
+msgstr "معلّم"
+
+msgid "Category"
+msgstr "الفئة"
+
+msgid "Label"
+msgstr "لصيقة"
+
+msgid "Select All"
+msgstr "انتق الكل"
+
+msgid "Loading"
+msgstr "يحمّل"
+
+msgid "Updated"
+msgstr "تم التحديث"
+
+msgid "Refresh"
+msgstr "تحديث"
+
+msgid "Preferences"
+msgstr "التفضيلات"
+
+msgid "Attendee"
+msgstr "الحاضر"
+
+msgid "Attendees"
+msgstr "الحضور"
+
+msgid "Tentative"
+msgstr "مبدئي"
+
+msgid "Free/Busy"
+msgstr "متفرّغ/مشغول"
+
+msgid "Timezone"
+msgstr "المنطقة الزّمنيّة"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "يوميًا"
+
+msgid "Weekly"
+msgstr "أسبوعيًا"
+
+msgid "Holiday"
+msgstr "عطلة"
+
+msgid "Birthday"
+msgstr "عيد الميلاد"
+
+msgid "Anniversary"
+msgstr "الذكرى السنويّة"
+
+msgid "Out of Office"
+msgstr "خارج المكتب"
+
+msgid "Yesterday"
+msgstr "بالأمس"
+
+msgid "Now"
+msgstr "الآن"
+
+msgid "Task List"
+msgstr "قائمة المهام"
+
+msgid "To Do"
+msgstr "مهام"
+
+msgid "Due date"
+msgstr "تاريخ الاستحقاق"
+
+msgid "Assigned"
+msgstr "مُسْندة"
+
+msgid "Overdue Tasks"
+msgstr "المهام الفائت موعدها"
+
+msgid "Remove"
+msgstr "إزالة"
+
+msgid "Clear All"
+msgstr "امسح الكل"
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Username:"
+msgstr "اسم المستخدم:"
+
+msgid "Accept meeting request"
+msgstr "قبول طلب الاجتماع"
+
+msgid "Decline meeting request"
+msgstr "رفض طلب الاجتماع"
+
+msgid "Accepted"
+msgstr "مقبول"
+
+msgid "Declined"
+msgstr "مرفوض"
+
+msgid "Forward message"
+msgstr "مرّر الرسالة"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Due"
+msgstr "مُستحق"
+
+msgid "Due Date:"
+msgstr "تاريخ الاستحقاق:"
+
+msgid "Complete"
+msgstr "تام"
+
+msgid "Completed Tasks"
+msgstr "المهام المنجَزة"
+
+msgid "Contact"
+msgstr "المتراسل"
+
+msgid "Contacts"
+msgstr "المتراسِلين"
+
+msgid "Phone"
+msgstr "هاتف"
+
+msgid "Fax"
+msgstr "فاكس"
+
+msgid "Work"
+msgstr "العمل"
+
+msgid "Home"
+msgstr "المنزل"
+
+msgid "Other"
+msgstr "أُخرى"
+
+msgid "Company"
+msgstr "الشركة"
+
+msgid "High"
+msgstr "مرتفع"
+
+msgid "Low"
+msgstr "منخفض"
+
+msgid "Website"
+msgstr "موقع ويب"
+
+msgid "Recent"
+msgstr "الأخيرة"
+
+msgid "Reminder"
+msgstr "تذكير"
+
+msgid "Starred"
+msgstr "مميّز بنجمة"
+
+msgid "Star"
+msgstr "نجمة"
+
+msgid "Mute"
+msgstr "كتم الصوت"
+
+msgid "Snooze"
+msgstr "غفوة"
+
+msgid "Snoozed"
+msgstr "مؤجَّل"
+
+msgid "Promotions"
+msgstr "عروض"
+
+msgid "Updates"
+msgstr "تحديثات"
+
+msgid "Social"
+msgstr "اجتماعي"
+
+msgid "Forums"
+msgstr "منتديات"
+
+msgid "Primary"
+msgstr "أساسي"
+
+msgid "Sign in"
+msgstr "تسجيل الدخول"
+
+msgid "Sign out"
+msgstr "تسجيل الخروج"
+
+msgid "Settings"
+msgstr "الإعدادت"
+
+msgid "No new mail"
+msgstr "لا رسائل جديدة"
+
+msgid "No messages"
+msgstr "لا رسائل"
+
+msgid "Last updated"
+msgstr "آخر تحديث"
+
+msgid "Retry"
+msgstr "إعادة المحاولة"
+
+msgid "Connected"
+msgstr "متصل"
+
+msgid "Disconnected"
+msgstr "غير متصل"
+
+msgid "Sync"
+msgstr "مزامنة"
+
+msgid "No upcoming events"
+msgstr "لا أحداث قادمة"
+
+msgid "Nothing scheduled"
+msgstr "لا شيء مجدول"
+
+msgid "Mark all as read"
+msgstr "تحديد الكل كمقروء"
+
+msgid "Agenda"
+msgstr "جدول الأعمال"
+
+msgid "All Mail"
+msgstr "جميع الرسائل"
+
+msgid "Move to"
+msgstr "نقل إلى"
+
+msgid "Due today"
+msgstr "مستحق اليوم"
+
+msgid "Overdue"
+msgstr "متأخر"
+
+msgid "Incomplete"
+msgstr "غير مكتمل"
+
+msgid "Add task"
+msgstr "إضافة مهمة"
+
+msgid "New task"
+msgstr "مهمة جديدة"
+
+msgid "Edit task"
+msgstr "تعديل مهمة"
+
+msgid "Task details"
+msgstr "تفاصيل المهمة"
+
+msgid "Task list"
+msgstr "قائمة المهام"
+
+msgid "To Do list"
+msgstr "قائمة المهام"
+
+msgid "Subtasks"
+msgstr "مهام فرعية"
+
+msgid "Medium"
+msgstr "متوسط"
+
+msgid "Priority: High"
+msgstr "أولوية: عالية"
+
+msgid "Priority: Medium"
+msgstr "أولوية: متوسطة"
+
+msgid "Priority: Low"
+msgstr "أولوية: منخفضة"
+
+msgid "Mark complete"
+msgstr "وضع علامة مكتمل"
+
+msgid "Full name"
+msgstr "الاسم الكامل"
+
+msgid "First name"
+msgstr "الاسم الأول"
+
+msgid "Last name"
+msgstr "اسم العائلة"
+
+msgid "Mobile"
+msgstr "جوال"
+
+msgid "Job title"
+msgstr "المسمى الوظيفي"
+
+msgid "Email address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Drive"
+msgstr "محرك الأقراص"
+
+msgid "Storage"
+msgstr "التخزين"
+
+msgid "Used"
+msgstr "مستخدم"
+
+msgid "Quota"
+msgstr "الحصة النسبية"
+
+msgid "Upload"
+msgstr "رفع"
+
+msgid "Download"
+msgstr "تنزيل"
+
+msgid "Recent files"
+msgstr "الملفات الأخيرة"
+
+msgid "Shared with me"
+msgstr "مشارَك معي"
+
+msgid "My Drive"
+msgstr "محرّك أقراصي"
+
+msgid "Folder size"
+msgstr "حجم المجلد"
+
+msgid "Video"
+msgstr "فيديو"
+
+msgid "Videos"
+msgstr "فيديوهات"
+
+msgid "Channel"
+msgstr "قناة"
+
+msgid "Channels"
+msgstr "قنوات"
+
+msgid "Subscription"
+msgstr "اشتراك"
+
+msgid "Subscriptions"
+msgstr "اشتراكات"
+
+msgid "Views"
+msgstr "المشاهدات"
+
+msgid "Uploads"
+msgstr "التحميلات"
+
+msgid "Latest"
+msgstr "الأحدث"
+
+msgid "Watch"
+msgstr "شاهد"
+
+msgid "Playlists"
+msgstr "قوائم التشغيل"
+
+msgid "Comments"
+msgstr "التعليقات"
+
+msgid "Meeting code"
+msgstr "رمز الاجتماع"
+
+msgid "Join"
+msgstr "انضم"
+
+msgid "Join now"
+msgstr "انضم الآن"
+
+msgid "Ongoing"
+msgstr "جاري"
+
+msgid "Ended"
+msgstr "انتهى"
+
+msgid "History"
+msgstr "السجل"
+
+msgid "Past calls"
+msgstr "المكالمات السابقة"
+
+msgid "Leave"
+msgstr "مغادرة"
+
+msgid "Participants"
+msgstr "المشاركون"
+
+msgid "Pin"
+msgstr "تثبيت"
+
+msgid "Pinned"
+msgstr "مثبّت"
+
+msgid "Checklist"
+msgstr "قائمة تحقق"
+
+msgid "Space"
+msgstr "مساحة"
+
+msgid "Spaces"
+msgstr "مساحات"
+
+msgid "Direct message"
+msgstr "رسالة مباشرة"
+
+msgid "Direct messages"
+msgstr "رسائل مباشرة"
+
+msgid "Mentions"
+msgstr "ذِكر"
+
+msgid "Thread"
+msgstr "سلسلة"
+
+msgid "Threads"
+msgstr "سلاسل"
+
+msgid "Group chat"
+msgstr "محادثة جماعية"
+
+msgid "Reaction"
+msgstr "تفاعل"
+
+msgid "React"
+msgstr "تفاعل"
+

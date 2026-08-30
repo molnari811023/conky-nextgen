@@ -114,7 +114,7 @@ _PADDING = 10
 -- SIGUSR1 hot-reload: clear cached modules so require() re-executes them
 for k in pairs(package.loaded) do
 	if k:find("^weather%.") or k:find("^core%.") or k:find("^draw%.") or k:find("^hardware%.")
-		or k == "require" or k == "mouse_actions" or k == "nowplaying"
+		or k:find("^google%.") or k == "require" or k == "mouse_actions" or k == "nowplaying"
 		or k == "draw.hyphen" then
 		package.loaded[k] = nil
 	end

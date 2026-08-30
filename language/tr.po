@@ -995,3 +995,745 @@ msgstr "Pencere Sistemi"
 msgid "Write Rate"
 msgstr "Yazma Hızı"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Gelenler"
+
+msgid "Sent"
+msgstr "Gönderilenler"
+
+msgid "Drafts"
+msgstr "Taslaklar"
+
+msgid "Junk"
+msgstr "Gereksiz"
+
+msgid "Trash"
+msgstr "Çöp"
+
+msgid "Archive"
+msgstr "Arşiv"
+
+msgid "Folders"
+msgstr "Klasörler"
+
+msgid "From"
+msgstr "Gönderen"
+
+msgid "To"
+msgstr "Alıcı"
+
+msgid "Subject"
+msgstr "Konu"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Bcc"
+msgstr "Saklı Bilgi"
+
+msgid "Cc"
+msgstr "Bilgi"
+
+msgid "Priority"
+msgstr "Öncelik"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Attachment"
+msgstr "Eklenti"
+
+msgid "Attachments"
+msgstr "Ekler"
+
+msgid "Attachment Properties"
+msgstr "Ek Özellikleri"
+
+msgid "Reply"
+msgstr "Yanıtla"
+
+msgid "Reply to All"
+msgstr "Tümüne Yanıtla"
+
+msgid "Forward"
+msgstr "Yönlendir"
+
+msgid "Attach a file"
+msgstr "Dosya ekle"
+
+msgid "Compose Message"
+msgstr "İleti Yaz"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Account"
+msgstr "Hesap"
+
+msgid "Accounts"
+msgstr "Hesaplar"
+
+msgid "Folder"
+msgstr "Klasör"
+
+msgid "Search"
+msgstr "Ara"
+
+msgid "Labels"
+msgstr "Etiketler"
+
+msgid "Show"
+msgstr "Şunca gün gör:"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Calendar"
+msgstr "Takvim"
+
+msgid "Event"
+msgstr "Olay"
+
+msgid "Events"
+msgstr "Olaylar"
+
+msgid "Meeting"
+msgstr "Toplantı"
+
+msgid "Appointment"
+msgstr "Randevu"
+
+msgid "Today"
+msgstr "Bugün"
+
+msgid "Day"
+msgstr "Gün"
+
+msgid "Week"
+msgstr "Hafta"
+
+msgid "Month"
+msgstr "Ay"
+
+msgid "Year"
+msgstr "Yıl"
+
+msgid "Tasks"
+msgstr "Görevler"
+
+msgid "Task"
+msgstr "Görev"
+
+msgid "Start"
+msgstr "Başlangıç"
+
+msgid "End"
+msgstr "Bitiş"
+
+msgid "All day:"
+msgstr "Tüm gün:"
+
+msgid "Summary"
+msgstr "Özet"
+
+msgid "Description"
+msgstr "Açıklama"
+
+msgid "Location"
+msgstr "Konum"
+
+msgid "Details"
+msgstr "Ayrıntılar"
+
+msgid "Reminders"
+msgstr "Anımsatıcılar"
+
+msgid "Busy"
+msgstr "Meşgul"
+
+msgid "Free"
+msgstr "Uygun"
+
+msgid "Private"
+msgstr "Özel"
+
+msgid "Public"
+msgstr "Herkese Açık"
+
+msgid "Recurring"
+msgstr "Yineleme"
+
+msgid "Recurrence"
+msgstr "Yineleniş"
+
+msgid "Categories"
+msgstr "Kategoriler"
+
+msgid "Notes"
+msgstr "Notlar"
+
+msgid "New"
+msgstr "Yeni"
+
+msgid "Delete Task"
+msgstr "Görevi Sil"
+
+msgid "Export"
+msgstr "Dışa Aktar"
+
+msgid "Print…"
+msgstr "Yazdır…"
+
+msgid "Undo"
+msgstr "Geri Al"
+
+msgid "Previous"
+msgstr "Geri"
+
+msgid "Next"
+msgstr "İleri"
+
+msgid "Monday"
+msgstr "Pazartesi"
+
+msgid "Tuesday"
+msgstr "Salı"
+
+msgid "Wednesday"
+msgstr "Çarşamba"
+
+msgid "Thursday"
+msgstr "Perşembe"
+
+msgid "Friday"
+msgstr "Cuma"
+
+msgid "Saturday"
+msgstr "Cumartesi"
+
+msgid "Sunday"
+msgstr "Pazar"
+
+msgid "January"
+msgstr "Ocak"
+
+msgid "February"
+msgstr "Şubat"
+
+msgid "March"
+msgstr "Mart"
+
+msgid "April"
+msgstr "Nisan"
+
+msgid "May"
+msgstr "Mayıs"
+
+msgid "June"
+msgstr "Haziran"
+
+msgid "July"
+msgstr "Temmuz"
+
+msgid "August"
+msgstr "Ağustos"
+
+msgid "September"
+msgstr "Eylül"
+
+msgid "October"
+msgstr "Ekim"
+
+msgid "November"
+msgstr "Kasım"
+
+msgid "December"
+msgstr "Aralık"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "OK"
+msgstr "Tamam"
+
+msgid "Error"
+msgstr "Hata"
+
+msgid "Warning"
+msgstr "Uyarı"
+
+msgid "Open"
+msgstr "Aç"
+
+msgid "Load"
+msgstr "Yükle"
+
+msgid "Status"
+msgstr "Durum"
+
+msgid "Offline"
+msgstr "Çevrim dışı"
+
+msgid "Done"
+msgstr "Tamamlandı"
+
+msgid "Completed"
+msgstr "Tamamlandı"
+
+msgid "Unread Messages"
+msgstr "Okunmamış İletiler"
+
+msgid "Important"
+msgstr "Önemli"
+
+msgid "Flagged"
+msgstr "İmli"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Label"
+msgstr "Etiket"
+
+msgid "Select All"
+msgstr "Tümünü Seç"
+
+msgid "Loading"
+msgstr "Yükleniyor"
+
+msgid "Updated"
+msgstr "Güncellendi"
+
+msgid "Refresh"
+msgstr "Yenile"
+
+msgid "Preferences"
+msgstr "Tercihler"
+
+msgid "Attendee"
+msgstr "Katılımcı"
+
+msgid "Attendees"
+msgstr "Katılımcılar"
+
+msgid "Tentative"
+msgstr "Belirsiz"
+
+msgid "Free/Busy"
+msgstr "Uygun/Meşgul"
+
+msgid "Timezone"
+msgstr "Saat dilimi"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Günlük"
+
+msgid "Weekly"
+msgstr "Haftalık"
+
+msgid "Holiday"
+msgstr "Tatil"
+
+msgid "Birthday"
+msgstr "Doğum Günü"
+
+msgid "Anniversary"
+msgstr "Yıl Dönümü"
+
+msgid "Out of Office"
+msgstr "Ofis Dışı"
+
+msgid "Yesterday"
+msgstr "Dün"
+
+msgid "Now"
+msgstr "Şimdi"
+
+msgid "Task List"
+msgstr "Görev Listesi"
+
+msgid "To Do"
+msgstr "Yapılacaklar"
+
+msgid "Due date"
+msgstr "Tamamlanma tarihi"
+
+msgid "Assigned"
+msgstr "Görevlendirildi"
+
+msgid "Overdue Tasks"
+msgstr "Teslimi Geçmiş Görevler"
+
+msgid "Remove"
+msgstr "Kaldır"
+
+msgid "Clear All"
+msgstr "Tümünü Temizle"
+
+msgid "Size"
+msgstr "Boyut"
+
+msgid "Username:"
+msgstr "Kullanıcı adı:"
+
+msgid "Accept meeting request"
+msgstr "Toplantı istemini onayla"
+
+msgid "Decline meeting request"
+msgstr "Toplantı istemini geri çevir"
+
+msgid "Accepted"
+msgstr "Onaylandı"
+
+msgid "Declined"
+msgstr "Reddedildi"
+
+msgid "Forward message"
+msgstr "İletiyi yönlendir"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "Due"
+msgstr "Tamamlanma"
+
+msgid "Due Date:"
+msgstr "Tamamlanma Tarihi:"
+
+msgid "Complete"
+msgstr "Tamamlandı"
+
+msgid "Completed Tasks"
+msgstr "Tamamlanmış Görevler"
+
+msgid "Contact"
+msgstr "Bağlantı"
+
+msgid "Contacts"
+msgstr "Bağlantılar"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Faks"
+
+msgid "Work"
+msgstr "İş"
+
+msgid "Home"
+msgstr "Ev"
+
+msgid "Other"
+msgstr "Diğer"
+
+msgid "Company"
+msgstr "Şirket"
+
+msgid "High"
+msgstr "Yüksek"
+
+msgid "Low"
+msgstr "Düşük"
+
+msgid "Website"
+msgstr "Web Sitesi"
+
+msgid "Recent"
+msgstr "Son"
+
+msgid "Reminder"
+msgstr "Hatırlatma"
+
+msgid "Starred"
+msgstr "Yıldızlı"
+
+msgid "Star"
+msgstr "Yıldız"
+
+msgid "Mute"
+msgstr "Sessize al"
+
+msgid "Snooze"
+msgstr "Ertele"
+
+msgid "Snoozed"
+msgstr "Ertelendi"
+
+msgid "Promotions"
+msgstr "Promosyonlar"
+
+msgid "Updates"
+msgstr "Güncellemeler"
+
+msgid "Social"
+msgstr "Sosyal"
+
+msgid "Forums"
+msgstr "Forumlar"
+
+msgid "Primary"
+msgstr "Birincil"
+
+msgid "Sign in"
+msgstr "Oturum aç"
+
+msgid "Sign out"
+msgstr "Oturumu kapat"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "No new mail"
+msgstr "Yeni e-posta yok"
+
+msgid "No messages"
+msgstr "Mesaj yok"
+
+msgid "Last updated"
+msgstr "Son güncelleme"
+
+msgid "Retry"
+msgstr "Yeniden dene"
+
+msgid "Connected"
+msgstr "Bağlı"
+
+msgid "Disconnected"
+msgstr "Bağlı değil"
+
+msgid "Sync"
+msgstr "Senkronizasyon"
+
+msgid "No upcoming events"
+msgstr "Yaklaşan etkinlik yok"
+
+msgid "Nothing scheduled"
+msgstr "Planlanmış etkinlik yok"
+
+msgid "Mark all as read"
+msgstr "Tümünü okunmuş işaretle"
+
+msgid "Agenda"
+msgstr "Gündem"
+
+msgid "All Mail"
+msgstr "Tüm e-posta"
+
+msgid "Move to"
+msgstr "Şuraya taşı"
+
+msgid "Due today"
+msgstr "Bugün son tarih"
+
+msgid "Overdue"
+msgstr "Gecikmiş"
+
+msgid "Incomplete"
+msgstr "Tamamlanmamış"
+
+msgid "Add task"
+msgstr "Görev ekle"
+
+msgid "New task"
+msgstr "Yeni görev"
+
+msgid "Edit task"
+msgstr "Görevi düzenle"
+
+msgid "Task details"
+msgstr "Görev ayrıntıları"
+
+msgid "Task list"
+msgstr "Görev listesi"
+
+msgid "To Do list"
+msgstr "Yapılacaklar listesi"
+
+msgid "Subtasks"
+msgstr "Alt görevler"
+
+msgid "Medium"
+msgstr "Orta"
+
+msgid "Priority: High"
+msgstr "Öncelik: Yüksek"
+
+msgid "Priority: Medium"
+msgstr "Öncelik: Orta"
+
+msgid "Priority: Low"
+msgstr "Öncelik: Düşük"
+
+msgid "Mark complete"
+msgstr "Tamamlandı olarak işaretle"
+
+msgid "Full name"
+msgstr "Tam ad"
+
+msgid "First name"
+msgstr "Ad"
+
+msgid "Last name"
+msgstr "Soyad"
+
+msgid "Mobile"
+msgstr "Cep telefonu"
+
+msgid "Job title"
+msgstr "Unvan"
+
+msgid "Email address"
+msgstr "E-posta adresi"
+
+msgid "Drive"
+msgstr "Sürücü"
+
+msgid "Storage"
+msgstr "Depolama"
+
+msgid "Used"
+msgstr "Kullanılan"
+
+msgid "Quota"
+msgstr "Kota"
+
+msgid "Upload"
+msgstr "Yükle"
+
+msgid "Download"
+msgstr "İndir"
+
+msgid "Recent files"
+msgstr "Son dosyalar"
+
+msgid "Shared with me"
+msgstr "Benimle paylaşılan"
+
+msgid "My Drive"
+msgstr "Sürücüm"
+
+msgid "Folder size"
+msgstr "Klasör boyutu"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Videos"
+msgstr "Videolar"
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Channels"
+msgstr "Kanallar"
+
+msgid "Subscription"
+msgstr "Abonelik"
+
+msgid "Subscriptions"
+msgstr "Abonelikler"
+
+msgid "Views"
+msgstr "Görüntülenme"
+
+msgid "Uploads"
+msgstr "Yüklemeler"
+
+msgid "Latest"
+msgstr "En yeni"
+
+msgid "Watch"
+msgstr "İzle"
+
+msgid "Playlists"
+msgstr "Oynatma listeleri"
+
+msgid "Comments"
+msgstr "Yorumlar"
+
+msgid "Meeting code"
+msgstr "Toplantı kodu"
+
+msgid "Join"
+msgstr "Katıl"
+
+msgid "Join now"
+msgstr "Şimdi katıl"
+
+msgid "Ongoing"
+msgstr "Devam ediyor"
+
+msgid "Ended"
+msgstr "Bitti"
+
+msgid "History"
+msgstr "Geçmiş"
+
+msgid "Past calls"
+msgstr "Geçmiş aramalar"
+
+msgid "Leave"
+msgstr "Ayrıl"
+
+msgid "Participants"
+msgstr "Katılımcılar"
+
+msgid "Pin"
+msgstr "Sabitle"
+
+msgid "Pinned"
+msgstr "Sabitlendi"
+
+msgid "Checklist"
+msgstr "Kontrol listesi"
+
+msgid "Space"
+msgstr "Alan"
+
+msgid "Spaces"
+msgstr "Alanlar"
+
+msgid "Direct message"
+msgstr "Doğrudan mesaj"
+
+msgid "Direct messages"
+msgstr "Doğrudan mesajlar"
+
+msgid "Mentions"
+msgstr "Bahsedilmeler"
+
+msgid "Thread"
+msgstr "Konu"
+
+msgid "Threads"
+msgstr "Konular"
+
+msgid "Group chat"
+msgstr "Grup sohbeti"
+
+msgid "Reaction"
+msgstr "Tepki"
+
+msgid "React"
+msgstr "Tepki ver"
+

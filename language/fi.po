@@ -1048,3 +1048,745 @@ msgstr "Ikkunointijärjestelmä"
 msgid "Write Rate"
 msgstr "Kirjoitusnopeus"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Saapuneet"
+
+msgid "Sent"
+msgstr "Lähetetyt"
+
+msgid "Drafts"
+msgstr "Luonnokset"
+
+msgid "Junk"
+msgstr "Roskaposti"
+
+msgid "Trash"
+msgstr "Roskakori"
+
+msgid "Archive"
+msgstr "Arkisto"
+
+msgid "Folders"
+msgstr "Kansiot"
+
+msgid "From"
+msgstr "Lähettäjä"
+
+msgid "To"
+msgstr "Vastaanottaja"
+
+msgid "Subject"
+msgstr "Aihe"
+
+msgid "Date"
+msgstr "Päiväys"
+
+msgid "Bcc"
+msgstr "Piilokopiot"
+
+msgid "Cc"
+msgstr "Kopiot"
+
+msgid "Priority"
+msgstr "Prioriteetti"
+
+msgid "Message"
+msgstr "Viesti"
+
+msgid "Attachment"
+msgstr "Liite"
+
+msgid "Attachments"
+msgstr "Liitteet"
+
+msgid "Attachment Properties"
+msgstr "Liitteen ominaisuudet"
+
+msgid "Reply"
+msgstr "Vastaa"
+
+msgid "Reply to All"
+msgstr "Vastaa kaikille"
+
+msgid "Forward"
+msgstr "Välitä"
+
+msgid "Attach a file"
+msgstr "Liitä tiedosto viestiin"
+
+msgid "Compose Message"
+msgstr "Uusi viesti"
+
+msgid "Save"
+msgstr "Tallenna"
+
+msgid "Close"
+msgstr "Sulje"
+
+msgid "Account"
+msgstr "Tili"
+
+msgid "Accounts"
+msgstr "Tilit"
+
+msgid "Folder"
+msgstr "Kansio"
+
+msgid "Search"
+msgstr "Etsi"
+
+msgid "Labels"
+msgstr "Merkinnät"
+
+msgid "Show"
+msgstr "Näytä"
+
+msgid "Delete"
+msgstr "Poista"
+
+msgid "Calendar"
+msgstr "Kalenteri"
+
+msgid "Event"
+msgstr "Tapahtuma"
+
+msgid "Events"
+msgstr "Tapahtumat"
+
+msgid "Meeting"
+msgstr "Kokous"
+
+msgid "Appointment"
+msgstr "Tapaaminen"
+
+msgid "Today"
+msgstr "Tänään"
+
+msgid "Day"
+msgstr "Päivä"
+
+msgid "Week"
+msgstr "Viikko"
+
+msgid "Month"
+msgstr "Kuukausi"
+
+msgid "Year"
+msgstr "Vuosi"
+
+msgid "Tasks"
+msgstr "Tehtävät"
+
+msgid "Task"
+msgstr "Tehtävä"
+
+msgid "Start"
+msgstr "Alkaa"
+
+msgid "End"
+msgstr "Loppu"
+
+msgid "All day:"
+msgstr "Koko päivä:"
+
+msgid "Summary"
+msgstr "Yhteenveto"
+
+msgid "Description"
+msgstr "Kuvaus"
+
+msgid "Location"
+msgstr "Sijainti"
+
+msgid "Details"
+msgstr "Tiedot"
+
+msgid "Reminders"
+msgstr "Muistutukset"
+
+msgid "Busy"
+msgstr "Varattu"
+
+msgid "Free"
+msgstr "Vapaa"
+
+msgid "Private"
+msgstr "Henkilökohtainen"
+
+msgid "Public"
+msgstr "Julkinen"
+
+msgid "Recurring"
+msgstr "Toistuva"
+
+msgid "Recurrence"
+msgstr "Toistuvuus"
+
+msgid "Categories"
+msgstr "Ryhmät"
+
+msgid "Notes"
+msgstr "Muistio"
+
+msgid "New"
+msgstr "Uusi"
+
+msgid "Delete Task"
+msgstr "Poista tehtävä"
+
+msgid "Export"
+msgstr "Vie"
+
+msgid "Print…"
+msgstr "Tulosta…"
+
+msgid "Undo"
+msgstr "Kumoa"
+
+msgid "Previous"
+msgstr "Edellinen"
+
+msgid "Next"
+msgstr "Seuraava"
+
+msgid "Monday"
+msgstr "Maanantai"
+
+msgid "Tuesday"
+msgstr "Tiistai"
+
+msgid "Wednesday"
+msgstr "Keskiviikko"
+
+msgid "Thursday"
+msgstr "Torstai"
+
+msgid "Friday"
+msgstr "Perjantai"
+
+msgid "Saturday"
+msgstr "Lauantai"
+
+msgid "Sunday"
+msgstr "Sunnuntai"
+
+msgid "January"
+msgstr "Tammikuu"
+
+msgid "February"
+msgstr "Helmikuu"
+
+msgid "March"
+msgstr "Maaliskuu"
+
+msgid "April"
+msgstr "Huhtikuu"
+
+msgid "May"
+msgstr "Toukokuu"
+
+msgid "June"
+msgstr "Kesäkuu"
+
+msgid "July"
+msgstr "Heinäkuu"
+
+msgid "August"
+msgstr "Elokuu"
+
+msgid "September"
+msgstr "Syyskuu"
+
+msgid "October"
+msgstr "Lokakuu"
+
+msgid "November"
+msgstr "Marraskuu"
+
+msgid "December"
+msgstr "Joulukuu"
+
+msgid "Yes"
+msgstr "Kyllä"
+
+msgid "No"
+msgstr "Ei"
+
+msgid "Cancel"
+msgstr "Peru"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Error"
+msgstr "Virhe"
+
+msgid "Warning"
+msgstr "Varoitus"
+
+msgid "Open"
+msgstr "Avaa"
+
+msgid "Load"
+msgstr "Lataa"
+
+msgid "Status"
+msgstr "Tila"
+
+msgid "Offline"
+msgstr "Offline-tilassa"
+
+msgid "Done"
+msgstr "Valmis"
+
+msgid "Completed"
+msgstr "Valmis"
+
+msgid "Unread Messages"
+msgstr "Lukemattomat viestit"
+
+msgid "Important"
+msgstr "Tärkeä"
+
+msgid "Flagged"
+msgstr "Merkitty"
+
+msgid "Category"
+msgstr "Luokka"
+
+msgid "Label"
+msgstr "Merkintä"
+
+msgid "Select All"
+msgstr "Valitse kaikki"
+
+msgid "Loading"
+msgstr "Ladataan"
+
+msgid "Updated"
+msgstr "Päivitetty"
+
+msgid "Refresh"
+msgstr "Päivitä"
+
+msgid "Preferences"
+msgstr "Asetukset"
+
+msgid "Attendee"
+msgstr "Osallistuja"
+
+msgid "Attendees"
+msgstr "Osallistujat"
+
+msgid "Tentative"
+msgstr "Alustava"
+
+msgid "Free/Busy"
+msgstr "Vapaa/Varattu"
+
+msgid "Timezone"
+msgstr "Aikavyöhyke"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Päivittäin"
+
+msgid "Weekly"
+msgstr "Viikoittain"
+
+msgid "Holiday"
+msgstr "Lomapäivä"
+
+msgid "Birthday"
+msgstr "Syntymäpäivä"
+
+msgid "Anniversary"
+msgstr "Vuosipäivä"
+
+msgid "Out of Office"
+msgstr "Poissa toimistolta"
+
+msgid "Yesterday"
+msgstr "Eilen"
+
+msgid "Now"
+msgstr "Nyt"
+
+msgid "Task List"
+msgstr "Tehtävälista"
+
+msgid "To Do"
+msgstr "Tehtävä"
+
+msgid "Due date"
+msgstr "Päättymispäivä"
+
+msgid "Assigned"
+msgstr "Annettu tehtäväksi"
+
+msgid "Overdue Tasks"
+msgstr "Vanhentuneet tehtävät"
+
+msgid "Remove"
+msgstr "Poista"
+
+msgid "Clear All"
+msgstr "Tyhjennä merkki"
+
+msgid "Size"
+msgstr "Koko"
+
+msgid "Username:"
+msgstr "Käyttäjätunnus:"
+
+msgid "Accept meeting request"
+msgstr "Hyväksy kokouspyyntö"
+
+msgid "Decline meeting request"
+msgstr "Kieltäydy kokouspyynnöstä"
+
+msgid "Accepted"
+msgstr "Hyväksytty"
+
+msgid "Declined"
+msgstr "Hylätty"
+
+msgid "Forward message"
+msgstr "Välitetty viesti"
+
+msgid "Address"
+msgstr "Osoite"
+
+msgid "Email"
+msgstr "Sähköposti"
+
+msgid "Due"
+msgstr "Päättyy"
+
+msgid "Due Date:"
+msgstr "Päättymispäivä:"
+
+msgid "Complete"
+msgstr "Valmis"
+
+msgid "Completed Tasks"
+msgstr "Valmistuneet tehtävät"
+
+msgid "Contact"
+msgstr "Yhteystieto"
+
+msgid "Contacts"
+msgstr "Yhteystiedot"
+
+msgid "Phone"
+msgstr "Puhelin"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Work"
+msgstr "Työ"
+
+msgid "Home"
+msgstr "Koti"
+
+msgid "Other"
+msgstr "Muut"
+
+msgid "Company"
+msgstr "Yritys"
+
+msgid "High"
+msgstr "Korkea"
+
+msgid "Low"
+msgstr "Matala"
+
+msgid "Website"
+msgstr "Verkkosivusto"
+
+msgid "Recent"
+msgstr "Viimeisimmät"
+
+msgid "Reminder"
+msgstr "Muistutus"
+
+msgid "Starred"
+msgstr "Tähdellä merkitty"
+
+msgid "Star"
+msgstr "Tähti"
+
+msgid "Mute"
+msgstr "Mykistä"
+
+msgid "Snooze"
+msgstr "Torkku"
+
+msgid "Snoozed"
+msgstr "Torkutettu"
+
+msgid "Promotions"
+msgstr "Tarjoukset"
+
+msgid "Updates"
+msgstr "Päivitykset"
+
+msgid "Social"
+msgstr "Sosiaaliset"
+
+msgid "Forums"
+msgstr "Foorumit"
+
+msgid "Primary"
+msgstr "Ensisijainen"
+
+msgid "Sign in"
+msgstr "Kirjaudu sisään"
+
+msgid "Sign out"
+msgstr "Kirjaudu ulos"
+
+msgid "Settings"
+msgstr "Asetukset"
+
+msgid "No new mail"
+msgstr "Ei uutta sähköpostia"
+
+msgid "No messages"
+msgstr "Ei viestejä"
+
+msgid "Last updated"
+msgstr "Päivitetty viimeksi"
+
+msgid "Retry"
+msgstr "Yritä uudelleen"
+
+msgid "Connected"
+msgstr "Yhdistetty"
+
+msgid "Disconnected"
+msgstr "Ei yhteyttä"
+
+msgid "Sync"
+msgstr "Synkronointi"
+
+msgid "No upcoming events"
+msgstr "Ei tulevia tapahtumia"
+
+msgid "Nothing scheduled"
+msgstr "Ei aikataulutettua"
+
+msgid "Mark all as read"
+msgstr "Merkitse kaikki luetuiksi"
+
+msgid "Agenda"
+msgstr "Esityslista"
+
+msgid "All Mail"
+msgstr "Kaikki sähköposti"
+
+msgid "Move to"
+msgstr "Siirrä kohteeseen"
+
+msgid "Due today"
+msgstr "Erääntyy tänään"
+
+msgid "Overdue"
+msgstr "Myöhässä"
+
+msgid "Incomplete"
+msgstr "Keskeneräinen"
+
+msgid "Add task"
+msgstr "Lisää tehtävä"
+
+msgid "New task"
+msgstr "Uusi tehtävä"
+
+msgid "Edit task"
+msgstr "Muokkaa tehtävää"
+
+msgid "Task details"
+msgstr "Tehtävän tiedot"
+
+msgid "Task list"
+msgstr "Tehtävälista"
+
+msgid "To Do list"
+msgstr "Tehtävälista"
+
+msgid "Subtasks"
+msgstr "Alitehtävät"
+
+msgid "Medium"
+msgstr "Keskitaso"
+
+msgid "Priority: High"
+msgstr "Prioriteetti: Korkea"
+
+msgid "Priority: Medium"
+msgstr "Prioriteetti: Keski"
+
+msgid "Priority: Low"
+msgstr "Prioriteetti: Matala"
+
+msgid "Mark complete"
+msgstr "Merkitse tehdyksi"
+
+msgid "Full name"
+msgstr "Koko nimi"
+
+msgid "First name"
+msgstr "Etunimi"
+
+msgid "Last name"
+msgstr "Sukunimi"
+
+msgid "Mobile"
+msgstr "Matkapuhelin"
+
+msgid "Job title"
+msgstr "Työnimike"
+
+msgid "Email address"
+msgstr "Sähköpostiosoite"
+
+msgid "Drive"
+msgstr "Asema"
+
+msgid "Storage"
+msgstr "Tallennus"
+
+msgid "Used"
+msgstr "Käytetty"
+
+msgid "Quota"
+msgstr "Kiintiö"
+
+msgid "Upload"
+msgstr "Lataa"
+
+msgid "Download"
+msgstr "Lataa"
+
+msgid "Recent files"
+msgstr "Viimeisimmät tiedostot"
+
+msgid "Shared with me"
+msgstr "Jaettu kanssani"
+
+msgid "My Drive"
+msgstr "Oma Drive"
+
+msgid "Folder size"
+msgstr "Kansion koko"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Videos"
+msgstr "Videot"
+
+msgid "Channel"
+msgstr "Kanava"
+
+msgid "Channels"
+msgstr "Kanavat"
+
+msgid "Subscription"
+msgstr "Tilaus"
+
+msgid "Subscriptions"
+msgstr "Tilaukset"
+
+msgid "Views"
+msgstr "Katselut"
+
+msgid "Uploads"
+msgstr "Lataukset"
+
+msgid "Latest"
+msgstr "Uusimmat"
+
+msgid "Watch"
+msgstr "Katso"
+
+msgid "Playlists"
+msgstr "Soittolistat"
+
+msgid "Comments"
+msgstr "Kommentit"
+
+msgid "Meeting code"
+msgstr "Kokouskoodi"
+
+msgid "Join"
+msgstr "Liity"
+
+msgid "Join now"
+msgstr "Liity nyt"
+
+msgid "Ongoing"
+msgstr "Käynnissä"
+
+msgid "Ended"
+msgstr "Päättynyt"
+
+msgid "History"
+msgstr "Historia"
+
+msgid "Past calls"
+msgstr "Aiemmat puhelut"
+
+msgid "Leave"
+msgstr "Poistu"
+
+msgid "Participants"
+msgstr "Osallistujat"
+
+msgid "Pin"
+msgstr "Kiinnitä"
+
+msgid "Pinned"
+msgstr "Kiinnitetty"
+
+msgid "Checklist"
+msgstr "Tarkistuslista"
+
+msgid "Space"
+msgstr "Tila"
+
+msgid "Spaces"
+msgstr "Tilat"
+
+msgid "Direct message"
+msgstr "Suora viesti"
+
+msgid "Direct messages"
+msgstr "Suorat viestit"
+
+msgid "Mentions"
+msgstr "Maininnat"
+
+msgid "Thread"
+msgstr "Ketju"
+
+msgid "Threads"
+msgstr "Ketjut"
+
+msgid "Group chat"
+msgstr "Ryhmäkeskustelu"
+
+msgid "Reaction"
+msgstr "Reaktio"
+
+msgid "React"
+msgstr "Reagoi"
+

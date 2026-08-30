@@ -1012,3 +1012,745 @@ msgstr "Sistem de ferestre"
 msgid "Write Rate"
 msgstr "Rată de scriere"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Inbox"
+
+msgid "Sent"
+msgstr "Trimise"
+
+msgid "Drafts"
+msgstr "Ciorne"
+
+msgid "Junk"
+msgstr "Spam"
+
+msgid "Trash"
+msgstr "Coșul de gunoi"
+
+msgid "Archive"
+msgstr "Archivă"
+
+msgid "Folders"
+msgstr "Dosare"
+
+msgid "From"
+msgstr "De la"
+
+msgid "To"
+msgstr "Către"
+
+msgid "Subject"
+msgstr "Subiect"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Priority"
+msgstr "Prioritate"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Attachment"
+msgstr "Fișier atașat"
+
+msgid "Attachments"
+msgstr "Fișiere atașate"
+
+msgid "Attachment Properties"
+msgstr "Proprietăți fișier atașat"
+
+msgid "Reply"
+msgstr "Răspunde"
+
+msgid "Reply to All"
+msgstr "Răspunde tuturor"
+
+msgid "Forward"
+msgstr "Înaintează"
+
+msgid "Attach a file"
+msgstr "Atașează un fișier"
+
+msgid "Compose Message"
+msgstr "Compune un mesaj"
+
+msgid "Save"
+msgstr "Salvează"
+
+msgid "Close"
+msgstr "Închide"
+
+msgid "Account"
+msgstr "Cont"
+
+msgid "Accounts"
+msgstr "Conturi"
+
+msgid "Folder"
+msgstr "Dosar"
+
+msgid "Search"
+msgstr "Caută"
+
+msgid "Labels"
+msgstr "Etichete"
+
+msgid "Show"
+msgstr "Arată"
+
+msgid "Delete"
+msgstr "Șterge"
+
+msgid "Calendar"
+msgstr "Calendar"
+
+msgid "Event"
+msgstr "Eveniment"
+
+msgid "Events"
+msgstr "Evenimente"
+
+msgid "Meeting"
+msgstr "Întâlnire"
+
+msgid "Appointment"
+msgstr "Programare"
+
+msgid "Today"
+msgstr "Astăzi"
+
+msgid "Day"
+msgstr "Zi"
+
+msgid "Week"
+msgstr "Săptămână"
+
+msgid "Month"
+msgstr "Lună"
+
+msgid "Year"
+msgstr "An"
+
+msgid "Tasks"
+msgstr "Sarcini"
+
+msgid "Task"
+msgstr "Sarcină"
+
+msgid "Start"
+msgstr "Început"
+
+msgid "End"
+msgstr "Șfârșit"
+
+msgid "All day:"
+msgstr "Toată ziua:"
+
+msgid "Summary"
+msgstr "Rezumat"
+
+msgid "Description"
+msgstr "Descriere"
+
+msgid "Location"
+msgstr "Locație"
+
+msgid "Details"
+msgstr "Detalii"
+
+msgid "Reminders"
+msgstr "Mementouri"
+
+msgid "Busy"
+msgstr "Ocupat"
+
+msgid "Free"
+msgstr "Liber"
+
+msgid "Private"
+msgstr "Personal"
+
+msgid "Public"
+msgstr "Public"
+
+msgid "Recurring"
+msgstr "Recurent"
+
+msgid "Recurrence"
+msgstr "Recurență"
+
+msgid "Categories"
+msgstr "Categorii"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "New"
+msgstr "Nou"
+
+msgid "Delete Task"
+msgstr "Șterge sarcină"
+
+msgid "Export"
+msgstr "Exportă"
+
+msgid "Print…"
+msgstr "Tipărește…"
+
+msgid "Undo"
+msgstr "Anulează"
+
+msgid "Previous"
+msgstr "Înapoi"
+
+msgid "Next"
+msgstr "Înainte"
+
+msgid "Monday"
+msgstr "Luni"
+
+msgid "Tuesday"
+msgstr "Marți"
+
+msgid "Wednesday"
+msgstr "Miercuri"
+
+msgid "Thursday"
+msgstr "Joi"
+
+msgid "Friday"
+msgstr "Vineri"
+
+msgid "Saturday"
+msgstr "Sâmbătă"
+
+msgid "Sunday"
+msgstr "Duminică"
+
+msgid "January"
+msgstr "Ianuarie"
+
+msgid "February"
+msgstr "Februarie"
+
+msgid "March"
+msgstr "Martie"
+
+msgid "April"
+msgstr "Aprilie"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "June"
+msgstr "Iunie"
+
+msgid "July"
+msgstr "Iulie"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "Septembrie"
+
+msgid "October"
+msgstr "Octombrie"
+
+msgid "November"
+msgstr "Noiembrie"
+
+msgid "December"
+msgstr "Decembrie"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Nu"
+
+msgid "Cancel"
+msgstr "Anulează"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Error"
+msgstr "Eroare"
+
+msgid "Warning"
+msgstr "Avertisment"
+
+msgid "Open"
+msgstr "Deschide"
+
+msgid "Load"
+msgstr "Încarcă"
+
+msgid "Status"
+msgstr "Stare"
+
+msgid "Offline"
+msgstr "Deconectat"
+
+msgid "Done"
+msgstr "Gata"
+
+msgid "Completed"
+msgstr "Terminat"
+
+msgid "Unread Messages"
+msgstr "Mesaje necitite"
+
+msgid "Important"
+msgstr "Important"
+
+msgid "Flagged"
+msgstr "Marcat"
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Label"
+msgstr "Etichetă"
+
+msgid "Select All"
+msgstr "Selectează tot"
+
+msgid "Loading"
+msgstr "Se încarcă"
+
+msgid "Updated"
+msgstr "Actualizată"
+
+msgid "Refresh"
+msgstr "Actualizare"
+
+msgid "Preferences"
+msgstr "Preferințe"
+
+msgid "Attendee"
+msgstr "Participant"
+
+msgid "Attendees"
+msgstr "Participanți"
+
+msgid "Tentative"
+msgstr "Tentativă"
+
+msgid "Free/Busy"
+msgstr "Disponibil/ocupat"
+
+msgid "Timezone"
+msgstr "Fus orar"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Zilnic"
+
+msgid "Weekly"
+msgstr "Săptămânal"
+
+msgid "Holiday"
+msgstr "Vacanță"
+
+msgid "Birthday"
+msgstr "Zi de naștere"
+
+msgid "Anniversary"
+msgstr "Aniversare"
+
+msgid "Out of Office"
+msgstr "Absent din birou"
+
+msgid "Yesterday"
+msgstr "Ieri"
+
+msgid "Now"
+msgstr "Acum"
+
+msgid "Task List"
+msgstr "Listă de sarcini"
+
+msgid "To Do"
+msgstr "De făcut"
+
+msgid "Due date"
+msgstr "Dată scadentă"
+
+msgid "Assigned"
+msgstr "Alocat"
+
+msgid "Overdue Tasks"
+msgstr "Sarcini restante"
+
+msgid "Remove"
+msgstr "Elimină"
+
+msgid "Clear All"
+msgstr "Curăță tot"
+
+msgid "Size"
+msgstr "Dimensiune"
+
+msgid "Username:"
+msgstr "Nume utilizator:"
+
+msgid "Accept meeting request"
+msgstr "Acceptă cererea de întâlnire"
+
+msgid "Decline meeting request"
+msgstr "Refuză cererea de întâlnire"
+
+msgid "Accepted"
+msgstr "Acceptată"
+
+msgid "Declined"
+msgstr "Refuzată"
+
+msgid "Forward message"
+msgstr "Trimite mesajul mai departe"
+
+msgid "Address"
+msgstr "Adresă"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Due"
+msgstr "Scadent"
+
+msgid "Due Date:"
+msgstr "Dată scadentă:"
+
+msgid "Complete"
+msgstr "Terminat"
+
+msgid "Completed Tasks"
+msgstr "Sarcini Finalizate"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Contacts"
+msgstr "Contacte"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Work"
+msgstr "Loc de muncă"
+
+msgid "Home"
+msgstr "Acasă"
+
+msgid "Other"
+msgstr "Alte"
+
+msgid "Company"
+msgstr "Firmă"
+
+msgid "High"
+msgstr "Ridicat"
+
+msgid "Low"
+msgstr "Scăzut"
+
+msgid "Website"
+msgstr "Pagină web"
+
+msgid "Recent"
+msgstr "Recente"
+
+msgid "Reminder"
+msgstr "Memento"
+
+msgid "Starred"
+msgstr "Cu stea"
+
+msgid "Star"
+msgstr "Stea"
+
+msgid "Mute"
+msgstr "Dezactivează sunetul"
+
+msgid "Snooze"
+msgstr "Amână"
+
+msgid "Snoozed"
+msgstr "Amânat"
+
+msgid "Promotions"
+msgstr "Promoții"
+
+msgid "Updates"
+msgstr "Noutăți"
+
+msgid "Social"
+msgstr "Social"
+
+msgid "Forums"
+msgstr "Forumuri"
+
+msgid "Primary"
+msgstr "Principal"
+
+msgid "Sign in"
+msgstr "Autentifică-te"
+
+msgid "Sign out"
+msgstr "Deconectează-te"
+
+msgid "Settings"
+msgstr "Setări"
+
+msgid "No new mail"
+msgstr "Niciun e-mail nou"
+
+msgid "No messages"
+msgstr "Niciun mesaj"
+
+msgid "Last updated"
+msgstr "Ultima actualizare"
+
+msgid "Retry"
+msgstr "Reîncearcă"
+
+msgid "Connected"
+msgstr "Conectat"
+
+msgid "Disconnected"
+msgstr "Deconectat"
+
+msgid "Sync"
+msgstr "Sincronizare"
+
+msgid "No upcoming events"
+msgstr "Niciun eveniment viitor"
+
+msgid "Nothing scheduled"
+msgstr "Nimic programat"
+
+msgid "Mark all as read"
+msgstr "Marchează toate ca citite"
+
+msgid "Agenda"
+msgstr "Ordine de zi"
+
+msgid "All Mail"
+msgstr "Tot e-mailul"
+
+msgid "Move to"
+msgstr "Mută în"
+
+msgid "Due today"
+msgstr "Scade azi"
+
+msgid "Overdue"
+msgstr "Întârziat"
+
+msgid "Incomplete"
+msgstr "Incomplet"
+
+msgid "Add task"
+msgstr "Adaugă sarcină"
+
+msgid "New task"
+msgstr "Sarcină nouă"
+
+msgid "Edit task"
+msgstr "Editează sarcina"
+
+msgid "Task details"
+msgstr "Detalii sarcină"
+
+msgid "Task list"
+msgstr "Listă de sarcini"
+
+msgid "To Do list"
+msgstr "Listă de sarcini"
+
+msgid "Subtasks"
+msgstr "Subsarcini"
+
+msgid "Medium"
+msgstr "Mediu"
+
+msgid "Priority: High"
+msgstr "Prioritate: Ridicată"
+
+msgid "Priority: Medium"
+msgstr "Prioritate: Medie"
+
+msgid "Priority: Low"
+msgstr "Prioritate: Scăzută"
+
+msgid "Mark complete"
+msgstr "Marchează ca finalizată"
+
+msgid "Full name"
+msgstr "Nume complet"
+
+msgid "First name"
+msgstr "Prenume"
+
+msgid "Last name"
+msgstr "Nume"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Job title"
+msgstr "Funcție"
+
+msgid "Email address"
+msgstr "Adresă de e-mail"
+
+msgid "Drive"
+msgstr "Disc"
+
+msgid "Storage"
+msgstr "Stocare"
+
+msgid "Used"
+msgstr "Folosit"
+
+msgid "Quota"
+msgstr "Cotă"
+
+msgid "Upload"
+msgstr "Încarcă"
+
+msgid "Download"
+msgstr "Descarcă"
+
+msgid "Recent files"
+msgstr "Fișiere recente"
+
+msgid "Shared with me"
+msgstr "Partajat cu mine"
+
+msgid "My Drive"
+msgstr "Discul meu"
+
+msgid "Folder size"
+msgstr "Dimensiune folder"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Videos"
+msgstr "Videoclipuri"
+
+msgid "Channel"
+msgstr "Canal"
+
+msgid "Channels"
+msgstr "Canale"
+
+msgid "Subscription"
+msgstr "Abonament"
+
+msgid "Subscriptions"
+msgstr "Abonamente"
+
+msgid "Views"
+msgstr "Vizualizări"
+
+msgid "Uploads"
+msgstr "Încărcări"
+
+msgid "Latest"
+msgstr "Cele mai recente"
+
+msgid "Watch"
+msgstr "Vizionează"
+
+msgid "Playlists"
+msgstr "Liste de redare"
+
+msgid "Comments"
+msgstr "Comentarii"
+
+msgid "Meeting code"
+msgstr "Cod de întâlnire"
+
+msgid "Join"
+msgstr "Participă"
+
+msgid "Join now"
+msgstr "Participă acum"
+
+msgid "Ongoing"
+msgstr "În desfășurare"
+
+msgid "Ended"
+msgstr "S-a încheiat"
+
+msgid "History"
+msgstr "Istoric"
+
+msgid "Past calls"
+msgstr "Apeluri anterioare"
+
+msgid "Leave"
+msgstr "Părăsește"
+
+msgid "Participants"
+msgstr "Participanți"
+
+msgid "Pin"
+msgstr "Fixare"
+
+msgid "Pinned"
+msgstr "Fixat"
+
+msgid "Checklist"
+msgstr "Listă de verificare"
+
+msgid "Space"
+msgstr "Spațiu"
+
+msgid "Spaces"
+msgstr "Spații"
+
+msgid "Direct message"
+msgstr "Mesaj direct"
+
+msgid "Direct messages"
+msgstr "Mesaje directe"
+
+msgid "Mentions"
+msgstr "Mențiuni"
+
+msgid "Thread"
+msgstr "Discuție"
+
+msgid "Threads"
+msgstr "Discuții"
+
+msgid "Group chat"
+msgstr "Chat de grup"
+
+msgid "Reaction"
+msgstr "Reacție"
+
+msgid "React"
+msgstr "Reacționează"
+

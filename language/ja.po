@@ -736,3 +736,748 @@ msgstr "使用されているスワップメモリ"
 msgid "Used Swap Memory Percentage"
 msgstr "使用済みスワップメモリのパーセンテージ"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "受信箱"
+
+msgid "Sent"
+msgstr "送信済み"
+
+msgid "Drafts"
+msgstr "下書き"
+
+msgid "Junk"
+msgstr "ジャンク"
+
+msgid "Trash"
+msgstr "ゴミ箱"
+
+msgid "Archive"
+msgstr "アーカイブ"
+
+msgid "Folders"
+msgstr "フォルダー"
+
+msgid "From"
+msgstr "差出人"
+
+msgid "To"
+msgstr "宛先"
+
+msgid "Subject"
+msgstr "件名"
+
+msgid "Date"
+msgstr "日付"
+
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Priority"
+msgstr "優先度"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "Attachment"
+msgstr "添付ファイル"
+
+msgid "Attachments"
+msgstr "添付ファイル"
+
+msgid "Attachment Properties"
+msgstr "添付ファイルのプロパティ"
+
+msgid "Reply"
+msgstr "返信"
+
+msgid "Reply to All"
+msgstr "全員へ返信"
+
+msgid "Forward"
+msgstr "転送"
+
+msgid "Attach a file"
+msgstr "ファイルを添付します"
+
+msgid "Compose Message"
+msgstr "メッセージの作成"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Account"
+msgstr "アカウント"
+
+msgid "Accounts"
+msgstr "アカウント"
+
+msgid "Folder"
+msgstr "フォルダー"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Labels"
+msgstr "ラベル"
+
+msgid "Show"
+msgstr "表示"
+
+msgid "Delete"
+msgstr "削除する"
+
+msgid "Calendar"
+msgstr "カレンダー"
+
+msgid "Event"
+msgstr "イベント"
+
+msgid "Events"
+msgstr "イベント"
+
+msgid "Meeting"
+msgstr "会議"
+
+msgid "Appointment"
+msgstr "予定"
+
+msgid "Today"
+msgstr "今日"
+
+msgid "Day"
+msgstr "日"
+
+msgid "Week"
+msgstr "週"
+
+msgid "Month"
+msgstr "月"
+
+msgid "Year"
+msgstr "年"
+
+msgid "Tasks"
+msgstr "タスク"
+
+msgid "Task"
+msgstr "タスク"
+
+msgid "Start"
+msgstr "開始"
+
+msgid "End"
+msgstr "終了"
+
+msgid "All day:"
+msgstr "終日:"
+
+msgid "Summary"
+msgstr "サマリ"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Location"
+msgstr "場所"
+
+msgid "Details"
+msgstr "詳細"
+
+msgid "Reminders"
+msgstr "リマインダー"
+
+msgid "Busy"
+msgstr "予定あり"
+
+msgid "Free"
+msgstr "予定なし"
+
+msgid "Private"
+msgstr "非公開"
+
+msgid "Public"
+msgstr "公開"
+
+msgid "Recurring"
+msgstr "繰り返し"
+
+msgid "Recurrence"
+msgstr "繰り返し"
+
+msgid "Categories"
+msgstr "カテゴリ"
+
+msgid "Notes"
+msgstr "注釈"
+
+msgid "New"
+msgstr "新規"
+
+msgid "Delete Task"
+msgstr "タスクを委任"
+
+msgid "Export"
+msgstr "エクスポート"
+
+msgid "Print…"
+msgstr "印刷…"
+
+msgid "Undo"
+msgstr "元に戻す"
+
+msgid "Previous"
+msgstr "前へ"
+
+msgid "Next"
+msgstr "次へ"
+
+msgid "Monday"
+msgstr "月曜日"
+
+msgid "Tuesday"
+msgstr "火曜日"
+
+msgid "Wednesday"
+msgstr "水曜日"
+
+msgid "Thursday"
+msgstr "木曜日"
+
+msgid "Friday"
+msgstr "金曜日"
+
+msgid "Saturday"
+msgstr "土曜日"
+
+msgid "Sunday"
+msgstr "日曜日"
+
+msgid "January"
+msgstr "1月"
+
+msgid "February"
+msgstr "2月"
+
+msgid "March"
+msgstr "3月"
+
+msgid "April"
+msgstr "4月"
+
+msgid "May"
+msgstr "5月"
+
+msgid "June"
+msgstr "6月"
+
+msgid "July"
+msgstr "7月"
+
+msgid "August"
+msgstr "8月"
+
+msgid "September"
+msgstr "9月"
+
+msgid "October"
+msgstr "10月"
+
+msgid "November"
+msgstr "11月"
+
+msgid "December"
+msgstr "12月"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Open"
+msgstr "開く"
+
+msgid "Load"
+msgstr "読み込み"
+
+msgid "Status"
+msgstr "状態"
+
+msgid "Offline"
+msgstr "オフライン"
+
+msgid "Done"
+msgstr "完了"
+
+msgid "Completed"
+msgstr "完了"
+
+msgid "Unread Messages"
+msgstr "未読のメッセージ"
+
+msgid "Important"
+msgstr "重要"
+
+msgid "Flagged"
+msgstr "フラグ"
+
+msgid "Category"
+msgstr "カテゴリ"
+
+msgid "Label"
+msgstr "ラベル"
+
+msgid "Select All"
+msgstr "すべて選択"
+
+msgid "Loading"
+msgstr "読み込み中"
+
+msgid "Updated"
+msgstr "更新済"
+
+msgid "Refresh"
+msgstr "更新"
+
+msgid "Preferences"
+msgstr "環境設定"
+
+msgid "Attendee"
+msgstr "出席者"
+
+msgid "Attendees"
+msgstr "出席者"
+
+msgid "Tentative"
+msgstr "仮承認"
+
+msgid "Free/Busy"
+msgstr "スケジュール"
+
+msgid "Timezone"
+msgstr "タイムゾーン"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "毎日"
+
+msgid "Weekly"
+msgstr "毎週"
+
+msgid "Holiday"
+msgstr "休日"
+
+msgid "Birthday"
+msgstr "誕生日"
+
+msgid "Anniversary"
+msgstr "記念日"
+
+msgid "Out of Office"
+msgstr "外出中"
+
+msgid "Yesterday"
+msgstr "昨日"
+
+msgid "Now"
+msgstr "今"
+
+msgid "Task List"
+msgstr "タスクの一覧"
+
+msgid "To Do"
+msgstr "To Do"
+
+msgid "Due date"
+msgstr "期日"
+
+msgid "Assigned"
+msgstr "割当て済み"
+
+msgid "Overdue Tasks"
+msgstr "期限を過ぎたタスク"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid "Clear All"
+msgstr "すべてクリア"
+
+msgid "Size"
+msgstr "サイズ"
+
+msgid "Username:"
+msgstr "ユーザー名:"
+
+msgid "Accept meeting request"
+msgstr "会議のリクエストを承認"
+
+msgid "Decline meeting request"
+msgstr "会議のリクエストを辞退"
+
+msgid "Accepted"
+msgstr "受諾済"
+
+msgid "Declined"
+msgstr "辞退済"
+
+msgid "Forward message"
+msgstr "転送メッセージ"
+
+msgid "Address"
+msgstr "住所"
+
+msgid "Email"
+msgstr "メール"
+
+msgid "Due"
+msgstr "期日"
+
+msgid "Due Date:"
+msgstr "期日:"
+
+msgid "Complete"
+msgstr "完了しました"
+
+msgid "Completed Tasks"
+msgstr "完了したタスク"
+
+msgid "Contact"
+msgstr "連絡先"
+
+msgid "Contacts"
+msgstr "連絡先"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Fax"
+msgstr "FAX"
+
+msgid "Work"
+msgstr "仕事"
+
+msgid "Home"
+msgstr "自宅"
+
+msgid "Other"
+msgstr "その他"
+
+msgid "Company"
+msgstr "会社"
+
+msgid "High"
+msgstr "高い"
+
+msgid "Low"
+msgstr "低い"
+
+msgid "Website"
+msgstr "ウェブサイト"
+
+msgid "Recent"
+msgstr "最近"
+
+msgid "Reminder"
+msgstr "リマインダー"
+
+msgid "Starred"
+msgstr "スター付き"
+
+msgid "Star"
+msgstr "スター"
+
+msgid "Mute"
+msgstr "ミュート"
+
+msgid "Snooze"
+msgstr "スヌーズ"
+
+msgid "Snoozed"
+msgstr "スヌーズ済み"
+
+msgid "Promotions"
+msgstr "プロモーション"
+
+msgid "Updates"
+msgstr "アップデート"
+
+msgid "Social"
+msgstr "ソーシャル"
+
+msgid "Forums"
+msgstr "フォーラム"
+
+msgid "Primary"
+msgstr "優先"
+
+msgid "Sign in"
+msgstr "ログイン"
+
+msgid "Sign out"
+msgstr "ログアウト"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "No new mail"
+msgstr "新しいメールはありません"
+
+msgid "No messages"
+msgstr "メッセージはありません"
+
+msgid "Last updated"
+msgstr "最終更新"
+
+msgid "Retry"
+msgstr "再試行"
+
+msgid "Connected"
+msgstr "接続済み"
+
+msgid "Disconnected"
+msgstr "未接続"
+
+msgid "Sync"
+msgstr "同期"
+
+msgid "No upcoming events"
+msgstr "予定はありません"
+
+msgid "Nothing scheduled"
+msgstr "予定されていません"
+
+msgid "Mark all as read"
+msgstr "すべて既読にする"
+
+msgid "Agenda"
+msgstr "アジェンダ"
+
+msgid "All Mail"
+msgstr "すべてのメール"
+
+msgid "Move to"
+msgstr "移動先"
+
+msgid "Due today"
+msgstr "今日期限"
+
+msgid "Overdue"
+msgstr "期限切れ"
+
+msgid "Incomplete"
+msgstr "未完了"
+
+msgid "Add task"
+msgstr "タスクを追加"
+
+msgid "New task"
+msgstr "新しいタスク"
+
+msgid "Edit task"
+msgstr "タスクを編集"
+
+msgid "Task details"
+msgstr "タスクの詳細"
+
+msgid "Task list"
+msgstr "タスクリスト"
+
+msgid "To Do list"
+msgstr "To Doリスト"
+
+msgid "Subtasks"
+msgstr "サブタスク"
+
+msgid "Medium"
+msgstr "中"
+
+msgid "Priority: High"
+msgstr "優先度: 高"
+
+msgid "Priority: Medium"
+msgstr "優先度: 中"
+
+msgid "Priority: Low"
+msgstr "優先度: 低"
+
+msgid "Mark complete"
+msgstr "完了にする"
+
+msgid "Full name"
+msgstr "フルネーム"
+
+msgid "First name"
+msgstr "名"
+
+msgid "Last name"
+msgstr "姓"
+
+msgid "Mobile"
+msgstr "携帯電話"
+
+msgid "Job title"
+msgstr "役職"
+
+msgid "Email address"
+msgstr "メールアドレス"
+
+msgid "Drive"
+msgstr "ドライブ"
+
+msgid "Storage"
+msgstr "ストレージ"
+
+msgid "Used"
+msgstr "使用中"
+
+msgid "Quota"
+msgstr "割り当て"
+
+msgid "Upload"
+msgstr "アップロード"
+
+msgid "Download"
+msgstr "ダウンロード"
+
+msgid "Recent files"
+msgstr "最近のファイル"
+
+msgid "Shared with me"
+msgstr "共有アイテム"
+
+msgid "My Drive"
+msgstr "マイドライブ"
+
+msgid "Folder size"
+msgstr "フォルダサイズ"
+
+msgid "Video"
+msgstr "動画"
+
+msgid "Videos"
+msgstr "動画"
+
+msgid "Channel"
+msgstr "チャンネル"
+
+msgid "Channels"
+msgstr "チャンネル"
+
+msgid "Subscription"
+msgstr "登録"
+
+msgid "Subscriptions"
+msgstr "登録チャンネル"
+
+msgid "Views"
+msgstr "再生回数"
+
+msgid "Uploads"
+msgstr "アップロード"
+
+msgid "Latest"
+msgstr "最新"
+
+msgid "Watch"
+msgstr "見る"
+
+msgid "Playlists"
+msgstr "プレイリスト"
+
+msgid "Comments"
+msgstr "コメント"
+
+msgid "Meeting code"
+msgstr "会議コード"
+
+msgid "Join"
+msgstr "参加"
+
+msgid "Join now"
+msgstr "今すぐ参加"
+
+msgid "Ongoing"
+msgstr "開催中"
+
+msgid "Ended"
+msgstr "終了"
+
+msgid "History"
+msgstr "履歴"
+
+msgid "Past calls"
+msgstr "過去の通話"
+
+msgid "Leave"
+msgstr "退出"
+
+msgid "Participants"
+msgstr "参加者"
+
+msgid "Pin"
+msgstr "ピン留め"
+
+msgid "Pinned"
+msgstr "ピン留め済み"
+
+msgid "Checklist"
+msgstr "チェックリスト"
+
+msgid "Space"
+msgstr "スペース"
+
+msgid "Spaces"
+msgstr "スペース"
+
+msgid "Direct message"
+msgstr "ダイレクトメッセージ"
+
+msgid "Direct messages"
+msgstr "ダイレクトメッセージ"
+
+msgid "Mentions"
+msgstr "メンション"
+
+msgid "Thread"
+msgstr "スレッド"
+
+msgid "Threads"
+msgstr "スレッド"
+
+msgid "Group chat"
+msgstr "グループチャット"
+
+msgid "Reaction"
+msgstr "リアクション"
+
+msgid "React"
+msgstr "リアクション"
+

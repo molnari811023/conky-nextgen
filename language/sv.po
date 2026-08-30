@@ -1039,3 +1039,745 @@ msgstr "Fönstersystem"
 msgid "Write Rate"
 msgstr "Skrivfrekvens"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Inkorg"
+
+msgid "Sent"
+msgstr "Skickat"
+
+msgid "Drafts"
+msgstr "Utkast"
+
+msgid "Junk"
+msgstr "Skräppost"
+
+msgid "Trash"
+msgstr "Papperskorg"
+
+msgid "Archive"
+msgstr "Arkiv"
+
+msgid "Folders"
+msgstr "Mappar"
+
+msgid "From"
+msgstr "Från"
+
+msgid "To"
+msgstr "Till"
+
+msgid "Subject"
+msgstr "Innehavare"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Bcc"
+msgstr "Blindkopia"
+
+msgid "Cc"
+msgstr "Kopia"
+
+msgid "Priority"
+msgstr "Prioritet"
+
+msgid "Message"
+msgstr "Meddelande"
+
+msgid "Attachment"
+msgstr "Bilaga"
+
+msgid "Attachments"
+msgstr "Bilagor"
+
+msgid "Attachment Properties"
+msgstr "Egenskaper hos bilagan"
+
+msgid "Reply"
+msgstr "Svara"
+
+msgid "Reply to All"
+msgstr "Svara till alla"
+
+msgid "Forward"
+msgstr "Vidarebefordra"
+
+msgid "Attach a file"
+msgstr "Bifoga en fil"
+
+msgid "Compose Message"
+msgstr "Skriv meddelande"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Close"
+msgstr "Stäng"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Accounts"
+msgstr "Konton"
+
+msgid "Folder"
+msgstr "Mapp"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Labels"
+msgstr "Etiketter"
+
+msgid "Show"
+msgstr "Visa"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Event"
+msgstr "Evenemang"
+
+msgid "Events"
+msgstr "Evenemang"
+
+msgid "Meeting"
+msgstr "Sammanträde"
+
+msgid "Appointment"
+msgstr "Möte"
+
+msgid "Today"
+msgstr "I dag"
+
+msgid "Day"
+msgstr "Dag"
+
+msgid "Week"
+msgstr "Vecka"
+
+msgid "Month"
+msgstr "Månad"
+
+msgid "Year"
+msgstr "År"
+
+msgid "Tasks"
+msgstr "Uppgifter"
+
+msgid "Task"
+msgstr "Uppgift"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "End"
+msgstr "Slut"
+
+msgid "All day:"
+msgstr "Hela dagen:"
+
+msgid "Summary"
+msgstr "Sammanfattning"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "Location"
+msgstr "Plats"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Reminders"
+msgstr "Påminnelser"
+
+msgid "Busy"
+msgstr "Upptagen"
+
+msgid "Free"
+msgstr "Ledig"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Public"
+msgstr "Publikt"
+
+msgid "Recurring"
+msgstr "Återkommande"
+
+msgid "Recurrence"
+msgstr "Upprepning"
+
+msgid "Categories"
+msgstr "Kategorier"
+
+msgid "Notes"
+msgstr "Anteckningar"
+
+msgid "New"
+msgstr "Nytt"
+
+msgid "Delete Task"
+msgstr "Ta bort uppgift"
+
+msgid "Export"
+msgstr "Exportera"
+
+msgid "Print…"
+msgstr "Skriv ut…"
+
+msgid "Undo"
+msgstr "Ångra"
+
+msgid "Previous"
+msgstr "Föregående"
+
+msgid "Next"
+msgstr "Nästa"
+
+msgid "Monday"
+msgstr "måndag"
+
+msgid "Tuesday"
+msgstr "tisdag"
+
+msgid "Wednesday"
+msgstr "onsdag"
+
+msgid "Thursday"
+msgstr "torsdag"
+
+msgid "Friday"
+msgstr "fredag"
+
+msgid "Saturday"
+msgstr "lördag"
+
+msgid "Sunday"
+msgstr "söndag"
+
+msgid "January"
+msgstr "januari"
+
+msgid "February"
+msgstr "februari"
+
+msgid "March"
+msgstr "mars"
+
+msgid "April"
+msgstr "april"
+
+msgid "May"
+msgstr "maj"
+
+msgid "June"
+msgstr "juni"
+
+msgid "July"
+msgstr "juli"
+
+msgid "August"
+msgstr "augusti"
+
+msgid "September"
+msgstr "september"
+
+msgid "October"
+msgstr "oktober"
+
+msgid "November"
+msgstr "november"
+
+msgid "December"
+msgstr "december"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Error"
+msgstr "Fel"
+
+msgid "Warning"
+msgstr "Varning"
+
+msgid "Open"
+msgstr "Öppna"
+
+msgid "Load"
+msgstr "Läs in"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Offline"
+msgstr "Frånkopplad"
+
+msgid "Done"
+msgstr "Klar"
+
+msgid "Completed"
+msgstr "Färdig"
+
+msgid "Unread Messages"
+msgstr "Olästa meddelanden"
+
+msgid "Important"
+msgstr "Viktigt"
+
+msgid "Flagged"
+msgstr "Flaggat"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Label"
+msgstr "Etikett"
+
+msgid "Select All"
+msgstr "Markera allt"
+
+msgid "Loading"
+msgstr "Läser in"
+
+msgid "Updated"
+msgstr "Uppdaterat"
+
+msgid "Refresh"
+msgstr "Uppdatera"
+
+msgid "Preferences"
+msgstr "Inställningar"
+
+msgid "Attendee"
+msgstr "Deltagare"
+
+msgid "Attendees"
+msgstr "Deltagare"
+
+msgid "Tentative"
+msgstr "Preliminärt"
+
+msgid "Free/Busy"
+msgstr "Ledig/Upptagen"
+
+msgid "Timezone"
+msgstr "Tidszon"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Dagligen"
+
+msgid "Weekly"
+msgstr "Per vecka"
+
+msgid "Holiday"
+msgstr "Semester"
+
+msgid "Birthday"
+msgstr "Födelsedag"
+
+msgid "Anniversary"
+msgstr "Jubileum"
+
+msgid "Out of Office"
+msgstr "Inte på kontoret"
+
+msgid "Yesterday"
+msgstr "I går"
+
+msgid "Now"
+msgstr "Nu"
+
+msgid "Task List"
+msgstr "Uppgiftslista"
+
+msgid "To Do"
+msgstr "Att göra"
+
+msgid "Due date"
+msgstr "Förfallodatum"
+
+msgid "Assigned"
+msgstr "Tilldelad"
+
+msgid "Overdue Tasks"
+msgstr "Uppgifter som skulle ha genomförts"
+
+msgid "Remove"
+msgstr "Ta bort"
+
+msgid "Clear All"
+msgstr "Töm alla"
+
+msgid "Size"
+msgstr "Storlek"
+
+msgid "Username:"
+msgstr "Användarnamn:"
+
+msgid "Accept meeting request"
+msgstr "Acceptera sammanträdesbegäran"
+
+msgid "Decline meeting request"
+msgstr "Avslå sammanträdesbegäran"
+
+msgid "Accepted"
+msgstr "Accepterat"
+
+msgid "Declined"
+msgstr "Avslaget"
+
+msgid "Forward message"
+msgstr "Vidarebefordra meddelande"
+
+msgid "Address"
+msgstr "Adress"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Due"
+msgstr "Ska genomföras"
+
+msgid "Due Date:"
+msgstr "Förfallodatum:"
+
+msgid "Complete"
+msgstr "Färdigt"
+
+msgid "Completed Tasks"
+msgstr "Färdiga uppgifter"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Contacts"
+msgstr "Kontakter"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Work"
+msgstr "Arbete"
+
+msgid "Home"
+msgstr "Hem"
+
+msgid "Other"
+msgstr "Annat"
+
+msgid "Company"
+msgstr "Företag"
+
+msgid "High"
+msgstr "Hög"
+
+msgid "Low"
+msgstr "Låg"
+
+msgid "Website"
+msgstr "Webbplats"
+
+msgid "Recent"
+msgstr "Senaste"
+
+msgid "Reminder"
+msgstr "Påminnelse"
+
+msgid "Starred"
+msgstr "Med stjärna"
+
+msgid "Star"
+msgstr "Stjärna"
+
+msgid "Mute"
+msgstr "Tysta"
+
+msgid "Snooze"
+msgstr "Vila"
+
+msgid "Snoozed"
+msgstr "Pausad"
+
+msgid "Promotions"
+msgstr "Kampanjer"
+
+msgid "Updates"
+msgstr "Uppdateringar"
+
+msgid "Social"
+msgstr "Socialt"
+
+msgid "Forums"
+msgstr "Forum"
+
+msgid "Primary"
+msgstr "Primär"
+
+msgid "Sign in"
+msgstr "Logga in"
+
+msgid "Sign out"
+msgstr "Logga ut"
+
+msgid "Settings"
+msgstr "Inställningar"
+
+msgid "No new mail"
+msgstr "Ingen ny e-post"
+
+msgid "No messages"
+msgstr "Inga meddelanden"
+
+msgid "Last updated"
+msgstr "Senast uppdaterad"
+
+msgid "Retry"
+msgstr "Försök igen"
+
+msgid "Connected"
+msgstr "Ansluten"
+
+msgid "Disconnected"
+msgstr "Frånkopplad"
+
+msgid "Sync"
+msgstr "Synkronisering"
+
+msgid "No upcoming events"
+msgstr "Inga kommande händelser"
+
+msgid "Nothing scheduled"
+msgstr "Inget planerat"
+
+msgid "Mark all as read"
+msgstr "Markera alla som lästa"
+
+msgid "Agenda"
+msgstr "Dagordning"
+
+msgid "All Mail"
+msgstr "All e-post"
+
+msgid "Move to"
+msgstr "Flytta till"
+
+msgid "Due today"
+msgstr "Förfaller idag"
+
+msgid "Overdue"
+msgstr "Försenad"
+
+msgid "Incomplete"
+msgstr "Ofullständig"
+
+msgid "Add task"
+msgstr "Lägg till uppgift"
+
+msgid "New task"
+msgstr "Ny uppgift"
+
+msgid "Edit task"
+msgstr "Redigera uppgift"
+
+msgid "Task details"
+msgstr "Uppgiftsdetaljer"
+
+msgid "Task list"
+msgstr "Uppgiftslista"
+
+msgid "To Do list"
+msgstr "Att göra-lista"
+
+msgid "Subtasks"
+msgstr "Deluppgifter"
+
+msgid "Medium"
+msgstr "Medium"
+
+msgid "Priority: High"
+msgstr "Prioritet: Hög"
+
+msgid "Priority: Medium"
+msgstr "Prioritet: Medel"
+
+msgid "Priority: Low"
+msgstr "Prioritet: Låg"
+
+msgid "Mark complete"
+msgstr "Markera som klar"
+
+msgid "Full name"
+msgstr "Fullständigt namn"
+
+msgid "First name"
+msgstr "Förnamn"
+
+msgid "Last name"
+msgstr "Efternamn"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Job title"
+msgstr "Befattning"
+
+msgid "Email address"
+msgstr "E-postadress"
+
+msgid "Drive"
+msgstr "Enhet"
+
+msgid "Storage"
+msgstr "Lagring"
+
+msgid "Used"
+msgstr "Använt"
+
+msgid "Quota"
+msgstr "Kvot"
+
+msgid "Upload"
+msgstr "Ladda upp"
+
+msgid "Download"
+msgstr "Ladda ner"
+
+msgid "Recent files"
+msgstr "Senaste filerna"
+
+msgid "Shared with me"
+msgstr "Delat med mig"
+
+msgid "My Drive"
+msgstr "Min Drive"
+
+msgid "Folder size"
+msgstr "Mappstorlek"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Videos"
+msgstr "Videor"
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Channels"
+msgstr "Kanaler"
+
+msgid "Subscription"
+msgstr "Prenumeration"
+
+msgid "Subscriptions"
+msgstr "Prenumerationer"
+
+msgid "Views"
+msgstr "Visningar"
+
+msgid "Uploads"
+msgstr "Uppladdningar"
+
+msgid "Latest"
+msgstr "Senaste"
+
+msgid "Watch"
+msgstr "Titta"
+
+msgid "Playlists"
+msgstr "Spellistor"
+
+msgid "Comments"
+msgstr "Kommentarer"
+
+msgid "Meeting code"
+msgstr "Möteskod"
+
+msgid "Join"
+msgstr "Gå med"
+
+msgid "Join now"
+msgstr "Gå med nu"
+
+msgid "Ongoing"
+msgstr "Pågår"
+
+msgid "Ended"
+msgstr "Avslutad"
+
+msgid "History"
+msgstr "Historik"
+
+msgid "Past calls"
+msgstr "Tidigare samtal"
+
+msgid "Leave"
+msgstr "Lämna"
+
+msgid "Participants"
+msgstr "Deltagare"
+
+msgid "Pin"
+msgstr "Fäst"
+
+msgid "Pinned"
+msgstr "Fastnålad"
+
+msgid "Checklist"
+msgstr "Checklista"
+
+msgid "Space"
+msgstr "Utrymme"
+
+msgid "Spaces"
+msgstr "Utrymmen"
+
+msgid "Direct message"
+msgstr "Direktmeddelande"
+
+msgid "Direct messages"
+msgstr "Direktmeddelanden"
+
+msgid "Mentions"
+msgstr "Omnämnanden"
+
+msgid "Thread"
+msgstr "Tråd"
+
+msgid "Threads"
+msgstr "Trådar"
+
+msgid "Group chat"
+msgstr "Gruppchatt"
+
+msgid "Reaction"
+msgstr "Reaktion"
+
+msgid "React"
+msgstr "Reagera"
+

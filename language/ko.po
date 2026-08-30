@@ -1039,3 +1039,745 @@ msgstr "창 시스템"
 msgid "Write Rate"
 msgstr "쓰기 전송률"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "받은 편지함"
+
+msgid "Sent"
+msgstr "보낸 편지함"
+
+msgid "Drafts"
+msgstr "임시 보관함"
+
+msgid "Junk"
+msgstr "정크메일"
+
+msgid "Trash"
+msgstr "지운 메시지"
+
+msgid "Archive"
+msgstr "보관함"
+
+msgid "Folders"
+msgstr "폴더"
+
+msgid "From"
+msgstr "보낸 사람"
+
+msgid "To"
+msgstr "받는 사람"
+
+msgid "Subject"
+msgstr "제목"
+
+msgid "Date"
+msgstr "날짜"
+
+msgid "Bcc"
+msgstr "숨은 참조"
+
+msgid "Cc"
+msgstr "참조"
+
+msgid "Priority"
+msgstr "우선순위"
+
+msgid "Message"
+msgstr "메시지"
+
+msgid "Attachment"
+msgstr "첨부"
+
+msgid "Attachments"
+msgstr "첨부"
+
+msgid "Attachment Properties"
+msgstr "첨부 속성"
+
+msgid "Reply"
+msgstr "답장"
+
+msgid "Reply to All"
+msgstr "전체 답장"
+
+msgid "Forward"
+msgstr "전달"
+
+msgid "Attach a file"
+msgstr "파일을 첨부합니다"
+
+msgid "Compose Message"
+msgstr "메시지를 작성합니다"
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Account"
+msgstr "계정"
+
+msgid "Accounts"
+msgstr "계정"
+
+msgid "Folder"
+msgstr "폴더"
+
+msgid "Search"
+msgstr "검색"
+
+msgid "Labels"
+msgstr "레이블"
+
+msgid "Show"
+msgstr "표시할 기간:"
+
+msgid "Delete"
+msgstr "삭제"
+
+msgid "Calendar"
+msgstr "달력"
+
+msgid "Event"
+msgstr "행사"
+
+msgid "Events"
+msgstr "행사"
+
+msgid "Meeting"
+msgstr "모임"
+
+msgid "Appointment"
+msgstr "약속"
+
+msgid "Today"
+msgstr "오늘"
+
+msgid "Day"
+msgstr "하루"
+
+msgid "Week"
+msgstr "한 주씩"
+
+msgid "Month"
+msgstr "한 달"
+
+msgid "Year"
+msgstr "연도"
+
+msgid "Tasks"
+msgstr "작업"
+
+msgid "Task"
+msgstr "작업"
+
+msgid "Start"
+msgstr "시작"
+
+msgid "End"
+msgstr "끝"
+
+msgid "All day:"
+msgstr "하루 종일:"
+
+msgid "Summary"
+msgstr "요약"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Location"
+msgstr "위치"
+
+msgid "Details"
+msgstr "자세히"
+
+msgid "Reminders"
+msgstr "알리미"
+
+msgid "Busy"
+msgstr "약속 있음"
+
+msgid "Free"
+msgstr "약속 없음"
+
+msgid "Private"
+msgstr "개인"
+
+msgid "Public"
+msgstr "공개"
+
+msgid "Recurring"
+msgstr "반복됨"
+
+msgid "Recurrence"
+msgstr "반복"
+
+msgid "Categories"
+msgstr "분류"
+
+msgid "Notes"
+msgstr "메모"
+
+msgid "New"
+msgstr "새로 만들기"
+
+msgid "Delete Task"
+msgstr "작업 삭제"
+
+msgid "Export"
+msgstr "내보내기"
+
+msgid "Print…"
+msgstr "인쇄…"
+
+msgid "Undo"
+msgstr "실행 취소"
+
+msgid "Previous"
+msgstr "이전"
+
+msgid "Next"
+msgstr "다음"
+
+msgid "Monday"
+msgstr "월요일"
+
+msgid "Tuesday"
+msgstr "화요일"
+
+msgid "Wednesday"
+msgstr "수요일"
+
+msgid "Thursday"
+msgstr "목요일"
+
+msgid "Friday"
+msgstr "금요일"
+
+msgid "Saturday"
+msgstr "토요일"
+
+msgid "Sunday"
+msgstr "일요일"
+
+msgid "January"
+msgstr "1월"
+
+msgid "February"
+msgstr "2월"
+
+msgid "March"
+msgstr "3월"
+
+msgid "April"
+msgstr "4월"
+
+msgid "May"
+msgstr "5월"
+
+msgid "June"
+msgstr "6월"
+
+msgid "July"
+msgstr "7월"
+
+msgid "August"
+msgstr "8월"
+
+msgid "September"
+msgstr "9월"
+
+msgid "October"
+msgstr "10월"
+
+msgid "November"
+msgstr "11월"
+
+msgid "December"
+msgstr "12월"
+
+msgid "Yes"
+msgstr "예"
+
+msgid "No"
+msgstr "아니요"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "OK"
+msgstr "확인"
+
+msgid "Error"
+msgstr "오류"
+
+msgid "Warning"
+msgstr "경고"
+
+msgid "Open"
+msgstr "열기"
+
+msgid "Load"
+msgstr "불러오기"
+
+msgid "Status"
+msgstr "상태"
+
+msgid "Offline"
+msgstr "연결 중지"
+
+msgid "Done"
+msgstr "완료"
+
+msgid "Completed"
+msgstr "완료함"
+
+msgid "Unread Messages"
+msgstr "읽지 않은 메시지"
+
+msgid "Important"
+msgstr "중요"
+
+msgid "Flagged"
+msgstr "플래그"
+
+msgid "Category"
+msgstr "분류"
+
+msgid "Label"
+msgstr "레이블"
+
+msgid "Select All"
+msgstr "모두 선택"
+
+msgid "Loading"
+msgstr "읽어들이는 중"
+
+msgid "Updated"
+msgstr "업데이트됨"
+
+msgid "Refresh"
+msgstr "새로운 사항"
+
+msgid "Preferences"
+msgstr "기본 설정"
+
+msgid "Attendee"
+msgstr "참석자"
+
+msgid "Attendees"
+msgstr "참석자"
+
+msgid "Tentative"
+msgstr "잠정적"
+
+msgid "Free/Busy"
+msgstr "약속 있음/없음"
+
+msgid "Timezone"
+msgstr "표준 시간대"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "매일"
+
+msgid "Weekly"
+msgstr "매주"
+
+msgid "Holiday"
+msgstr "휴일"
+
+msgid "Birthday"
+msgstr "생일"
+
+msgid "Anniversary"
+msgstr "기념일"
+
+msgid "Out of Office"
+msgstr "부재 중"
+
+msgid "Yesterday"
+msgstr "어제"
+
+msgid "Now"
+msgstr "현재"
+
+msgid "Task List"
+msgstr "작업 목록"
+
+msgid "To Do"
+msgstr "할 일"
+
+msgid "Due date"
+msgstr "마감 날짜"
+
+msgid "Assigned"
+msgstr "예약됨"
+
+msgid "Overdue Tasks"
+msgstr "마감이 지난 작업"
+
+msgid "Remove"
+msgstr "제거"
+
+msgid "Clear All"
+msgstr "모두 지우기"
+
+msgid "Size"
+msgstr "크기"
+
+msgid "Username:"
+msgstr "사용자이름:"
+
+msgid "Accept meeting request"
+msgstr "모임 요청을 수락합니다"
+
+msgid "Decline meeting request"
+msgstr "모임 요청을 거절합니다"
+
+msgid "Accepted"
+msgstr "수락"
+
+msgid "Declined"
+msgstr "거절"
+
+msgid "Forward message"
+msgstr "전달 메시지"
+
+msgid "Address"
+msgstr "주소"
+
+msgid "Email"
+msgstr "전자메일"
+
+msgid "Due"
+msgstr "기한"
+
+msgid "Due Date:"
+msgstr "마감 날짜:"
+
+msgid "Complete"
+msgstr "완료"
+
+msgid "Completed Tasks"
+msgstr "완료한 작업"
+
+msgid "Contact"
+msgstr "연락처"
+
+msgid "Contacts"
+msgstr "연락처"
+
+msgid "Phone"
+msgstr "전화"
+
+msgid "Fax"
+msgstr "팩스"
+
+msgid "Work"
+msgstr "업무"
+
+msgid "Home"
+msgstr "집"
+
+msgid "Other"
+msgstr "기타"
+
+msgid "Company"
+msgstr "회사"
+
+msgid "High"
+msgstr "높음"
+
+msgid "Low"
+msgstr "낮음"
+
+msgid "Website"
+msgstr "웹사이트"
+
+msgid "Recent"
+msgstr "최근"
+
+msgid "Reminder"
+msgstr "알림"
+
+msgid "Starred"
+msgstr "별표"
+
+msgid "Star"
+msgstr "별"
+
+msgid "Mute"
+msgstr "음소거"
+
+msgid "Snooze"
+msgstr "스누즈"
+
+msgid "Snoozed"
+msgstr "스누즈됨"
+
+msgid "Promotions"
+msgstr "프로모션"
+
+msgid "Updates"
+msgstr "업데이트"
+
+msgid "Social"
+msgstr "소셜"
+
+msgid "Forums"
+msgstr "포럼"
+
+msgid "Primary"
+msgstr "기본"
+
+msgid "Sign in"
+msgstr "로그인"
+
+msgid "Sign out"
+msgstr "로그아웃"
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "No new mail"
+msgstr "새 메일 없음"
+
+msgid "No messages"
+msgstr "메시지 없음"
+
+msgid "Last updated"
+msgstr "마지막 업데이트"
+
+msgid "Retry"
+msgstr "다시 시도"
+
+msgid "Connected"
+msgstr "연결됨"
+
+msgid "Disconnected"
+msgstr "연결 끊김"
+
+msgid "Sync"
+msgstr "동기화"
+
+msgid "No upcoming events"
+msgstr "예정된 일정 없음"
+
+msgid "Nothing scheduled"
+msgstr "일정 없음"
+
+msgid "Mark all as read"
+msgstr "모두 읽음으로 표시"
+
+msgid "Agenda"
+msgstr "안건"
+
+msgid "All Mail"
+msgstr "모든 메일"
+
+msgid "Move to"
+msgstr "이동"
+
+msgid "Due today"
+msgstr "오늘 마감"
+
+msgid "Overdue"
+msgstr "기한 지남"
+
+msgid "Incomplete"
+msgstr "미완료"
+
+msgid "Add task"
+msgstr "작업 추가"
+
+msgid "New task"
+msgstr "새 작업"
+
+msgid "Edit task"
+msgstr "작업 편집"
+
+msgid "Task details"
+msgstr "작업 세부정보"
+
+msgid "Task list"
+msgstr "작업 목록"
+
+msgid "To Do list"
+msgstr "할 일 목록"
+
+msgid "Subtasks"
+msgstr "하위 작업"
+
+msgid "Medium"
+msgstr "중간"
+
+msgid "Priority: High"
+msgstr "우선순위: 높음"
+
+msgid "Priority: Medium"
+msgstr "우선순위: 중간"
+
+msgid "Priority: Low"
+msgstr "우선순위: 낮음"
+
+msgid "Mark complete"
+msgstr "완료로 표시"
+
+msgid "Full name"
+msgstr "전체 이름"
+
+msgid "First name"
+msgstr "이름"
+
+msgid "Last name"
+msgstr "성"
+
+msgid "Mobile"
+msgstr "휴대전화"
+
+msgid "Job title"
+msgstr "직함"
+
+msgid "Email address"
+msgstr "이메일 주소"
+
+msgid "Drive"
+msgstr "드라이브"
+
+msgid "Storage"
+msgstr "저장용량"
+
+msgid "Used"
+msgstr "사용됨"
+
+msgid "Quota"
+msgstr "할당량"
+
+msgid "Upload"
+msgstr "업로드"
+
+msgid "Download"
+msgstr "다운로드"
+
+msgid "Recent files"
+msgstr "최근 파일"
+
+msgid "Shared with me"
+msgstr "나와 공유됨"
+
+msgid "My Drive"
+msgstr "내 드라이브"
+
+msgid "Folder size"
+msgstr "폴더 크기"
+
+msgid "Video"
+msgstr "동영상"
+
+msgid "Videos"
+msgstr "동영상"
+
+msgid "Channel"
+msgstr "채널"
+
+msgid "Channels"
+msgstr "채널"
+
+msgid "Subscription"
+msgstr "구독"
+
+msgid "Subscriptions"
+msgstr "구독"
+
+msgid "Views"
+msgstr "조회수"
+
+msgid "Uploads"
+msgstr "업로드"
+
+msgid "Latest"
+msgstr "최신"
+
+msgid "Watch"
+msgstr "시청"
+
+msgid "Playlists"
+msgstr "재생목록"
+
+msgid "Comments"
+msgstr "댓글"
+
+msgid "Meeting code"
+msgstr "회의 코드"
+
+msgid "Join"
+msgstr "참여"
+
+msgid "Join now"
+msgstr "지금 참여"
+
+msgid "Ongoing"
+msgstr "진행 중"
+
+msgid "Ended"
+msgstr "종료됨"
+
+msgid "History"
+msgstr "기록"
+
+msgid "Past calls"
+msgstr "지난 통화"
+
+msgid "Leave"
+msgstr "나가기"
+
+msgid "Participants"
+msgstr "참가자"
+
+msgid "Pin"
+msgstr "고정"
+
+msgid "Pinned"
+msgstr "고정됨"
+
+msgid "Checklist"
+msgstr "체크리스트"
+
+msgid "Space"
+msgstr "공간"
+
+msgid "Spaces"
+msgstr "공간"
+
+msgid "Direct message"
+msgstr "다이렉트 메시지"
+
+msgid "Direct messages"
+msgstr "다이렉트 메시지"
+
+msgid "Mentions"
+msgstr "멘션"
+
+msgid "Thread"
+msgstr "스레드"
+
+msgid "Threads"
+msgstr "스레드"
+
+msgid "Group chat"
+msgstr "그룹 채팅"
+
+msgid "Reaction"
+msgstr "반응"
+
+msgid "React"
+msgstr "반응"
+

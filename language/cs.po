@@ -994,3 +994,745 @@ msgstr "Systém Oken"
 msgid "Write Rate"
 msgstr "Rychlost zápisu"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Přijatá"
+
+msgid "Sent"
+msgstr "Odeslané"
+
+msgid "Drafts"
+msgstr "Koncepty"
+
+msgid "Junk"
+msgstr "Nevyžádané"
+
+msgid "Trash"
+msgstr "Koš"
+
+msgid "Archive"
+msgstr "Archiv"
+
+msgid "Folders"
+msgstr "Složky"
+
+msgid "From"
+msgstr "Od"
+
+msgid "To"
+msgstr "Komu"
+
+msgid "Subject"
+msgstr "Předmět"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Bcc"
+msgstr "Skrytá kopie"
+
+msgid "Cc"
+msgstr "Kopie"
+
+msgid "Priority"
+msgstr "Naléhavost"
+
+msgid "Message"
+msgstr "Zpráva"
+
+msgid "Attachment"
+msgstr "Příloha"
+
+msgid "Attachments"
+msgstr "Přílohy"
+
+msgid "Attachment Properties"
+msgstr "Vlastnosti přílohy"
+
+msgid "Reply"
+msgstr "Odpovědět"
+
+msgid "Reply to All"
+msgstr "Odpovědět všem"
+
+msgid "Forward"
+msgstr "Přeposlat"
+
+msgid "Attach a file"
+msgstr "Připojit soubor"
+
+msgid "Compose Message"
+msgstr "Napsat zprávu"
+
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Close"
+msgstr "Zavřít"
+
+msgid "Account"
+msgstr "Účet"
+
+msgid "Accounts"
+msgstr "Účty"
+
+msgid "Folder"
+msgstr "Složka"
+
+msgid "Search"
+msgstr "Hledat"
+
+msgid "Labels"
+msgstr "Štítky"
+
+msgid "Show"
+msgstr "Zobrazovat"
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Calendar"
+msgstr "Kalendář"
+
+msgid "Event"
+msgstr "Událost"
+
+msgid "Events"
+msgstr "Události"
+
+msgid "Meeting"
+msgstr "Schůzka"
+
+msgid "Appointment"
+msgstr "Událost"
+
+msgid "Today"
+msgstr "Dnes"
+
+msgid "Day"
+msgstr "Den"
+
+msgid "Week"
+msgstr "Týden"
+
+msgid "Month"
+msgstr "Měsíc"
+
+msgid "Year"
+msgstr "Rok"
+
+msgid "Tasks"
+msgstr "Úkoly"
+
+msgid "Task"
+msgstr "Úkol"
+
+msgid "Start"
+msgstr "Začátek"
+
+msgid "End"
+msgstr "Konec"
+
+msgid "All day:"
+msgstr "Celý den:"
+
+msgid "Summary"
+msgstr "Přehled"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Location"
+msgstr "Místo"
+
+msgid "Details"
+msgstr "Podrobnosti"
+
+msgid "Reminders"
+msgstr "Připomenutí"
+
+msgid "Busy"
+msgstr "Obsazený"
+
+msgid "Free"
+msgstr "Volný"
+
+msgid "Private"
+msgstr "Soukromé"
+
+msgid "Public"
+msgstr "Veřejné"
+
+msgid "Recurring"
+msgstr "Opakovaný"
+
+msgid "Recurrence"
+msgstr "Opakování"
+
+msgid "Categories"
+msgstr "Kategorie"
+
+msgid "Notes"
+msgstr "Poznámky"
+
+msgid "New"
+msgstr "Nový"
+
+msgid "Delete Task"
+msgstr "Smazat úkol"
+
+msgid "Export"
+msgstr "Vyexportovat"
+
+msgid "Print…"
+msgstr "Tisknout…"
+
+msgid "Undo"
+msgstr "Zpět"
+
+msgid "Previous"
+msgstr "Předchozí"
+
+msgid "Next"
+msgstr "Další"
+
+msgid "Monday"
+msgstr "pondělí"
+
+msgid "Tuesday"
+msgstr "úterý"
+
+msgid "Wednesday"
+msgstr "středa"
+
+msgid "Thursday"
+msgstr "čtvrtek"
+
+msgid "Friday"
+msgstr "pátek"
+
+msgid "Saturday"
+msgstr "sobota"
+
+msgid "Sunday"
+msgstr "neděle"
+
+msgid "January"
+msgstr "Leden"
+
+msgid "February"
+msgstr "Únor"
+
+msgid "March"
+msgstr "březen"
+
+msgid "April"
+msgstr "Duben"
+
+msgid "May"
+msgstr "květen"
+
+msgid "June"
+msgstr "červen"
+
+msgid "July"
+msgstr "Červen"
+
+msgid "August"
+msgstr "Srpen"
+
+msgid "September"
+msgstr "září"
+
+msgid "October"
+msgstr "říjen"
+
+msgid "November"
+msgstr "listopad"
+
+msgid "December"
+msgstr "prosinec"
+
+msgid "Yes"
+msgstr "Ano"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "OK"
+msgstr "Budiž"
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid "Warning"
+msgstr "Varování"
+
+msgid "Open"
+msgstr "Otevřít"
+
+msgid "Load"
+msgstr "Načíst"
+
+msgid "Status"
+msgstr "Stav"
+
+msgid "Offline"
+msgstr "Odojeno"
+
+msgid "Done"
+msgstr "Hotovo"
+
+msgid "Completed"
+msgstr "Dokončeno"
+
+msgid "Unread Messages"
+msgstr "Nepřečtené zprávy"
+
+msgid "Important"
+msgstr "Důležité"
+
+msgid "Flagged"
+msgstr "Označeno"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Label"
+msgstr "Štítek"
+
+msgid "Select All"
+msgstr "Vybrat vše"
+
+msgid "Loading"
+msgstr "Načítání"
+
+msgid "Updated"
+msgstr "Aktualizováno"
+
+msgid "Refresh"
+msgstr "Aktualizovat"
+
+msgid "Preferences"
+msgstr "Předvolby"
+
+msgid "Attendee"
+msgstr "Účastník"
+
+msgid "Attendees"
+msgstr "Účastníci"
+
+msgid "Tentative"
+msgstr "Předběžné"
+
+msgid "Free/Busy"
+msgstr "Volno/obsazeno"
+
+msgid "Timezone"
+msgstr "Časové pásmo"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Denně"
+
+msgid "Weekly"
+msgstr "Týdně"
+
+msgid "Holiday"
+msgstr "Dovolená"
+
+msgid "Birthday"
+msgstr "Narozeniny"
+
+msgid "Anniversary"
+msgstr "Výročí"
+
+msgid "Out of Office"
+msgstr "Mimo kancelář"
+
+msgid "Yesterday"
+msgstr "Včera"
+
+msgid "Now"
+msgstr "Nyní"
+
+msgid "Task List"
+msgstr "Seznam úkolů"
+
+msgid "To Do"
+msgstr "K vyřízení"
+
+msgid "Due date"
+msgstr "Plánované dokončení"
+
+msgid "Assigned"
+msgstr "Přiděleno"
+
+msgid "Overdue Tasks"
+msgstr "Úkoly ve skluzu"
+
+msgid "Remove"
+msgstr "Odebrat"
+
+msgid "Clear All"
+msgstr "Zrušit vše"
+
+msgid "Size"
+msgstr "Velikost"
+
+msgid "Username:"
+msgstr "Uživatelské jméno:"
+
+msgid "Accept meeting request"
+msgstr "Příjmout žádost o schůzku"
+
+msgid "Decline meeting request"
+msgstr "Odmítnout žádost o schůzku"
+
+msgid "Accepted"
+msgstr "Odsouhlaseno"
+
+msgid "Declined"
+msgstr "Zamítnuto"
+
+msgid "Forward message"
+msgstr "Přeposlat zprávu"
+
+msgid "Address"
+msgstr "Adresa"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Due"
+msgstr "Plánované dokončení"
+
+msgid "Due Date:"
+msgstr "Plánované dokončení:"
+
+msgid "Complete"
+msgstr "Dokončeno"
+
+msgid "Completed Tasks"
+msgstr "Dokončené úkoly"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Contacts"
+msgstr "Kontakty"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Work"
+msgstr "Pracovní"
+
+msgid "Home"
+msgstr "Domácí"
+
+msgid "Other"
+msgstr "Ostatní"
+
+msgid "Company"
+msgstr "Společnost"
+
+msgid "High"
+msgstr "Vysoká"
+
+msgid "Low"
+msgstr "Nízká"
+
+msgid "Website"
+msgstr "Webová stránka"
+
+msgid "Recent"
+msgstr "Nedávné"
+
+msgid "Reminder"
+msgstr "Připomínka"
+
+msgid "Starred"
+msgstr "S hvězdičkou"
+
+msgid "Star"
+msgstr "Hvězdička"
+
+msgid "Mute"
+msgstr "Ztlumit"
+
+msgid "Snooze"
+msgstr "Odložit"
+
+msgid "Snoozed"
+msgstr "Odloženo"
+
+msgid "Promotions"
+msgstr "Propagace"
+
+msgid "Updates"
+msgstr "Aktualizace"
+
+msgid "Social"
+msgstr "Sociální"
+
+msgid "Forums"
+msgstr "Fóra"
+
+msgid "Primary"
+msgstr "Hlavní"
+
+msgid "Sign in"
+msgstr "Přihlásit se"
+
+msgid "Sign out"
+msgstr "Odhlásit se"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "No new mail"
+msgstr "Žádný nový e-mail"
+
+msgid "No messages"
+msgstr "Žádné zprávy"
+
+msgid "Last updated"
+msgstr "Poslední aktualizace"
+
+msgid "Retry"
+msgstr "Zkusit znovu"
+
+msgid "Connected"
+msgstr "Připojeno"
+
+msgid "Disconnected"
+msgstr "Odpojeno"
+
+msgid "Sync"
+msgstr "Synchronizace"
+
+msgid "No upcoming events"
+msgstr "Žádné nadcházející události"
+
+msgid "Nothing scheduled"
+msgstr "Nic naplánováno"
+
+msgid "Mark all as read"
+msgstr "Označit vše jako přečtené"
+
+msgid "Agenda"
+msgstr "Agenda"
+
+msgid "All Mail"
+msgstr "Všechen e-mail"
+
+msgid "Move to"
+msgstr "Přesunout do"
+
+msgid "Due today"
+msgstr "Splatné dnes"
+
+msgid "Overdue"
+msgstr "Po termínu"
+
+msgid "Incomplete"
+msgstr "Nedokončeno"
+
+msgid "Add task"
+msgstr "Přidat úkol"
+
+msgid "New task"
+msgstr "Nový úkol"
+
+msgid "Edit task"
+msgstr "Upravit úkol"
+
+msgid "Task details"
+msgstr "Podrobnosti úkolu"
+
+msgid "Task list"
+msgstr "Seznam úkolů"
+
+msgid "To Do list"
+msgstr "Seznam úkolů"
+
+msgid "Subtasks"
+msgstr "Dílčí úkoly"
+
+msgid "Medium"
+msgstr "Střední"
+
+msgid "Priority: High"
+msgstr "Priorita: Vysoká"
+
+msgid "Priority: Medium"
+msgstr "Priorita: Střední"
+
+msgid "Priority: Low"
+msgstr "Priorita: Nízká"
+
+msgid "Mark complete"
+msgstr "Označit jako dokončeno"
+
+msgid "Full name"
+msgstr "Celé jméno"
+
+msgid "First name"
+msgstr "Křestní jméno"
+
+msgid "Last name"
+msgstr "Příjmení"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Job title"
+msgstr "Pracovní pozice"
+
+msgid "Email address"
+msgstr "E-mailová adresa"
+
+msgid "Drive"
+msgstr "Disk"
+
+msgid "Storage"
+msgstr "Úložiště"
+
+msgid "Used"
+msgstr "Použito"
+
+msgid "Quota"
+msgstr "Kvóta"
+
+msgid "Upload"
+msgstr "Nahrát"
+
+msgid "Download"
+msgstr "Stáhnout"
+
+msgid "Recent files"
+msgstr "Nedávné soubory"
+
+msgid "Shared with me"
+msgstr "Sdíleno se mnou"
+
+msgid "My Drive"
+msgstr "Můj disk"
+
+msgid "Folder size"
+msgstr "Velikost složky"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Videos"
+msgstr "Videa"
+
+msgid "Channel"
+msgstr "Kanál"
+
+msgid "Channels"
+msgstr "Kanály"
+
+msgid "Subscription"
+msgstr "Odběr"
+
+msgid "Subscriptions"
+msgstr "Odběry"
+
+msgid "Views"
+msgstr "Zhlédnutí"
+
+msgid "Uploads"
+msgstr "Nahráno"
+
+msgid "Latest"
+msgstr "Nejnovější"
+
+msgid "Watch"
+msgstr "Sledovat"
+
+msgid "Playlists"
+msgstr "Seznamy videí"
+
+msgid "Comments"
+msgstr "Komentáře"
+
+msgid "Meeting code"
+msgstr "Kód schůzky"
+
+msgid "Join"
+msgstr "Připojit"
+
+msgid "Join now"
+msgstr "Připojit se nyní"
+
+msgid "Ongoing"
+msgstr "Probíhá"
+
+msgid "Ended"
+msgstr "Skončeno"
+
+msgid "History"
+msgstr "Historie"
+
+msgid "Past calls"
+msgstr "Minulé hovory"
+
+msgid "Leave"
+msgstr "Odejít"
+
+msgid "Participants"
+msgstr "Účastníci"
+
+msgid "Pin"
+msgstr "Připnout"
+
+msgid "Pinned"
+msgstr "Připnuto"
+
+msgid "Checklist"
+msgstr "Kontrolní seznam"
+
+msgid "Space"
+msgstr "Prostor"
+
+msgid "Spaces"
+msgstr "Prostory"
+
+msgid "Direct message"
+msgstr "Přímá zpráva"
+
+msgid "Direct messages"
+msgstr "Přímé zprávy"
+
+msgid "Mentions"
+msgstr "Zmínky"
+
+msgid "Thread"
+msgstr "Vlákno"
+
+msgid "Threads"
+msgstr "Vlákna"
+
+msgid "Group chat"
+msgstr "Skupinový chat"
+
+msgid "Reaction"
+msgstr "Reakce"
+
+msgid "React"
+msgstr "Reagovat"
+

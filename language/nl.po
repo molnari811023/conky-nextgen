@@ -1039,3 +1039,745 @@ msgstr "Venstersysteem"
 msgid "Write Rate"
 msgstr "Schrijfsnelheid"
 
+############################################
+# GOOGLE DASHBOARD
+############################################
+
+msgid "Inbox"
+msgstr "Postvak IN"
+
+msgid "Sent"
+msgstr "Verzonden"
+
+msgid "Drafts"
+msgstr "Concepten"
+
+msgid "Junk"
+msgstr "Spam"
+
+msgid "Trash"
+msgstr "Prullenbak"
+
+msgid "Archive"
+msgstr "Archief"
+
+msgid "Folders"
+msgstr "Mappen"
+
+msgid "From"
+msgstr "Van"
+
+msgid "To"
+msgstr "Aan"
+
+msgid "Subject"
+msgstr "Certificaathouder"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Priority"
+msgstr "Prioriteit"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Attachment"
+msgstr "Bijlage"
+
+msgid "Attachments"
+msgstr "Bijlagen"
+
+msgid "Attachment Properties"
+msgstr "Bijlage-eigenschappen"
+
+msgid "Reply"
+msgstr "Beantwoorden"
+
+msgid "Reply to All"
+msgstr "Allen beantwoorden"
+
+msgid "Forward"
+msgstr "Doorsturen"
+
+msgid "Attach a file"
+msgstr "Een bestand toevoegen als bijlage"
+
+msgid "Compose Message"
+msgstr "Een nieuw bericht opstellen"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Accounts"
+msgstr "Accounts"
+
+msgid "Folder"
+msgstr "Map"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Labels"
+msgstr "Labels"
+
+msgid "Show"
+msgstr "Tonen"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Calendar"
+msgstr "Agenda"
+
+msgid "Event"
+msgstr "Gebeurtenis"
+
+msgid "Events"
+msgstr "Evenementen"
+
+msgid "Meeting"
+msgstr "Bijeenkomst"
+
+msgid "Appointment"
+msgstr "Afspraak"
+
+msgid "Today"
+msgstr "Vandaag"
+
+msgid "Day"
+msgstr "Dag"
+
+msgid "Week"
+msgstr "Week"
+
+msgid "Month"
+msgstr "Maand"
+
+msgid "Year"
+msgstr "Jaar"
+
+msgid "Tasks"
+msgstr "Taken"
+
+msgid "Task"
+msgstr "Taak"
+
+msgid "Start"
+msgstr "Begin"
+
+msgid "End"
+msgstr "Eind"
+
+msgid "All day:"
+msgstr "De hele dag:"
+
+msgid "Summary"
+msgstr "Samenvatting"
+
+msgid "Description"
+msgstr "Omschrijving"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Reminders"
+msgstr "Herinneringen"
+
+msgid "Busy"
+msgstr "Bezet"
+
+msgid "Free"
+msgstr "Vrij"
+
+msgid "Private"
+msgstr "Privé"
+
+msgid "Public"
+msgstr "Openbaar"
+
+msgid "Recurring"
+msgstr "Terugkerend"
+
+msgid "Recurrence"
+msgstr "Herhaling"
+
+msgid "Categories"
+msgstr "Categorieën"
+
+msgid "Notes"
+msgstr "Notities"
+
+msgid "New"
+msgstr "Nieuw"
+
+msgid "Delete Task"
+msgstr "Taak verwijderen"
+
+msgid "Export"
+msgstr "Exporteren"
+
+msgid "Print…"
+msgstr "Afdrukken…"
+
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+msgid "Previous"
+msgstr "Vorige"
+
+msgid "Next"
+msgstr "Volgende"
+
+msgid "Monday"
+msgstr "Maandag"
+
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+msgid "Wednesday"
+msgstr "Woensdag"
+
+msgid "Thursday"
+msgstr "Donderdag"
+
+msgid "Friday"
+msgstr "Vrijdag"
+
+msgid "Saturday"
+msgstr "Zaterdag"
+
+msgid "Sunday"
+msgstr "Zondag"
+
+msgid "January"
+msgstr "Januari"
+
+msgid "February"
+msgstr "Februari"
+
+msgid "March"
+msgstr "Maart"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mei"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "Augustus"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "Warning"
+msgstr "Waarschuwing"
+
+msgid "Open"
+msgstr "Openen"
+
+msgid "Load"
+msgstr "Laden"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Offline"
+msgstr "Offline"
+
+msgid "Done"
+msgstr "Klaar"
+
+msgid "Completed"
+msgstr "Voltooid"
+
+msgid "Unread Messages"
+msgstr "Ongelezen berichten"
+
+msgid "Important"
+msgstr "Belangrijk"
+
+msgid "Flagged"
+msgstr "Gemarkeerd"
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Label"
+msgstr "Label"
+
+msgid "Select All"
+msgstr "Alles selecteren"
+
+msgid "Loading"
+msgstr "Laden"
+
+msgid "Updated"
+msgstr "Bijgewerkt"
+
+msgid "Refresh"
+msgstr "Verversen"
+
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+msgid "Attendee"
+msgstr "Aanwezige"
+
+msgid "Attendees"
+msgstr "Aanwezigen"
+
+msgid "Tentative"
+msgstr "Voorlopig"
+
+msgid "Free/Busy"
+msgstr "Vrij/Bezet"
+
+msgid "Timezone"
+msgstr "Tijdzone"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "Daily"
+msgstr "Dagelijks"
+
+msgid "Weekly"
+msgstr "Wekelijks"
+
+msgid "Holiday"
+msgstr "Vakantie"
+
+msgid "Birthday"
+msgstr "Verjaardag"
+
+msgid "Anniversary"
+msgstr "Gedenkdag"
+
+msgid "Out of Office"
+msgstr "Afwezig"
+
+msgid "Yesterday"
+msgstr "Gisteren"
+
+msgid "Now"
+msgstr "Nu"
+
+msgid "Task List"
+msgstr "Takenlijst"
+
+msgid "To Do"
+msgstr "Taken"
+
+msgid "Due date"
+msgstr "Verloopdatum"
+
+msgid "Assigned"
+msgstr "Toegewezen"
+
+msgid "Overdue Tasks"
+msgstr "Verlopen taken"
+
+msgid "Remove"
+msgstr "Verwijderen"
+
+msgid "Clear All"
+msgstr "Alles wissen"
+
+msgid "Size"
+msgstr "Grootte"
+
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+msgid "Accept meeting request"
+msgstr "Bijeenkomstverzoek accepteren"
+
+msgid "Decline meeting request"
+msgstr "Bijeenkomstverzoek afwijzen"
+
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+msgid "Declined"
+msgstr "Afgewezen"
+
+msgid "Forward message"
+msgstr "Bericht doorsturen"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Due"
+msgstr "Verloopt"
+
+msgid "Due Date:"
+msgstr "Verloopdatum:"
+
+msgid "Complete"
+msgstr "Voltooid"
+
+msgid "Completed Tasks"
+msgstr "Voltooide taken"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Contacts"
+msgstr "Contacten"
+
+msgid "Phone"
+msgstr "Telefoon"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Work"
+msgstr "Werk"
+
+msgid "Home"
+msgstr "Thuis"
+
+msgid "Other"
+msgstr "Overige"
+
+msgid "Company"
+msgstr "Bedrijf"
+
+msgid "High"
+msgstr "Hoog"
+
+msgid "Low"
+msgstr "Laag"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Recent"
+msgstr "Recent"
+
+msgid "Reminder"
+msgstr "Herinnering"
+
+msgid "Starred"
+msgstr "Met ster"
+
+msgid "Star"
+msgstr "Ster"
+
+msgid "Mute"
+msgstr "Dempen"
+
+msgid "Snooze"
+msgstr "Snoozen"
+
+msgid "Snoozed"
+msgstr "Gesnoozed"
+
+msgid "Promotions"
+msgstr "Promoties"
+
+msgid "Updates"
+msgstr "Updates"
+
+msgid "Social"
+msgstr "Sociaal"
+
+msgid "Forums"
+msgstr "Forums"
+
+msgid "Primary"
+msgstr "Primair"
+
+msgid "Sign in"
+msgstr "Aanmelden"
+
+msgid "Sign out"
+msgstr "Afmelden"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "No new mail"
+msgstr "Geen nieuwe e-mail"
+
+msgid "No messages"
+msgstr "Geen berichten"
+
+msgid "Last updated"
+msgstr "Laatst bijgewerkt"
+
+msgid "Retry"
+msgstr "Opnieuw proberen"
+
+msgid "Connected"
+msgstr "Verbonden"
+
+msgid "Disconnected"
+msgstr "Niet verbonden"
+
+msgid "Sync"
+msgstr "Synchronisatie"
+
+msgid "No upcoming events"
+msgstr "Geen aankomende evenementen"
+
+msgid "Nothing scheduled"
+msgstr "Niets gepland"
+
+msgid "Mark all as read"
+msgstr "Alles als gelezen markeren"
+
+msgid "Agenda"
+msgstr "Agenda"
+
+msgid "All Mail"
+msgstr "Alle e-mail"
+
+msgid "Move to"
+msgstr "Verplaatsen naar"
+
+msgid "Due today"
+msgstr "Vandaag vervalt"
+
+msgid "Overdue"
+msgstr "Te laat"
+
+msgid "Incomplete"
+msgstr "Onvolledig"
+
+msgid "Add task"
+msgstr "Taak toevoegen"
+
+msgid "New task"
+msgstr "Nieuwe taak"
+
+msgid "Edit task"
+msgstr "Taak bewerken"
+
+msgid "Task details"
+msgstr "Taakdetails"
+
+msgid "Task list"
+msgstr "Takenlijst"
+
+msgid "To Do list"
+msgstr "Takenlijst"
+
+msgid "Subtasks"
+msgstr "Subtaken"
+
+msgid "Medium"
+msgstr "Gemiddeld"
+
+msgid "Priority: High"
+msgstr "Prioriteit: Hoog"
+
+msgid "Priority: Medium"
+msgstr "Prioriteit: Medium"
+
+msgid "Priority: Low"
+msgstr "Prioriteit: Laag"
+
+msgid "Mark complete"
+msgstr "Als voltooid markeren"
+
+msgid "Full name"
+msgstr "Volledige naam"
+
+msgid "First name"
+msgstr "Voornaam"
+
+msgid "Last name"
+msgstr "Achternaam"
+
+msgid "Mobile"
+msgstr "Mobiel"
+
+msgid "Job title"
+msgstr "Functietitel"
+
+msgid "Email address"
+msgstr "E-mailadres"
+
+msgid "Drive"
+msgstr "Station"
+
+msgid "Storage"
+msgstr "Opslag"
+
+msgid "Used"
+msgstr "Gebruikt"
+
+msgid "Quota"
+msgstr "Quota"
+
+msgid "Upload"
+msgstr "Uploaden"
+
+msgid "Download"
+msgstr "Downloaden"
+
+msgid "Recent files"
+msgstr "Recente bestanden"
+
+msgid "Shared with me"
+msgstr "Gedeeld met mij"
+
+msgid "My Drive"
+msgstr "Mijn Drive"
+
+msgid "Folder size"
+msgstr "Mapgrootte"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Videos"
+msgstr "Video's"
+
+msgid "Channel"
+msgstr "Kanaal"
+
+msgid "Channels"
+msgstr "Kanalen"
+
+msgid "Subscription"
+msgstr "Abonnement"
+
+msgid "Subscriptions"
+msgstr "Abonnementen"
+
+msgid "Views"
+msgstr "Weergaven"
+
+msgid "Uploads"
+msgstr "Uploads"
+
+msgid "Latest"
+msgstr "Nieuwste"
+
+msgid "Watch"
+msgstr "Bekijk"
+
+msgid "Playlists"
+msgstr "Afspeellijsten"
+
+msgid "Comments"
+msgstr "Reacties"
+
+msgid "Meeting code"
+msgstr "Vergadercode"
+
+msgid "Join"
+msgstr "Deelnemen"
+
+msgid "Join now"
+msgstr "Nu deelnemen"
+
+msgid "Ongoing"
+msgstr "Lopend"
+
+msgid "Ended"
+msgstr "Beëindigd"
+
+msgid "History"
+msgstr "Geschiedenis"
+
+msgid "Past calls"
+msgstr "Eerdere oproepen"
+
+msgid "Leave"
+msgstr "Verlaten"
+
+msgid "Participants"
+msgstr "Deelnemers"
+
+msgid "Pin"
+msgstr "Vastzetten"
+
+msgid "Pinned"
+msgstr "Vastgezet"
+
+msgid "Checklist"
+msgstr "Controlelijst"
+
+msgid "Space"
+msgstr "Ruimte"
+
+msgid "Spaces"
+msgstr "Ruimtes"
+
+msgid "Direct message"
+msgstr "Direct bericht"
+
+msgid "Direct messages"
+msgstr "Directe berichten"
+
+msgid "Mentions"
+msgstr "Vermeldingen"
+
+msgid "Thread"
+msgstr "Discussie"
+
+msgid "Threads"
+msgstr "Discussies"
+
+msgid "Group chat"
+msgstr "Groepschat"
+
+msgid "Reaction"
+msgstr "Reactie"
+
+msgid "React"
+msgstr "Reageren"
+
