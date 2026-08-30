@@ -1,3 +1,9 @@
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
 --[[[
 debug/svg_test.lua — load / stress test for librsvg SVG rendering inside a
 Conky draw loop: moving, rotating, clipped, size-series, alpha-series,

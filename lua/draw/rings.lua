@@ -1,3 +1,9 @@
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
 --[[[
 lua/draw/rings.lua — Draws circular ring gauges in sector, smooth, dot, or polygon mode
 

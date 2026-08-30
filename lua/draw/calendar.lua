@@ -1,3 +1,9 @@
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
 --[[[
 lua/draw/calendar.lua — Draws a monthly calendar grid with weekday headers and week numbers
 

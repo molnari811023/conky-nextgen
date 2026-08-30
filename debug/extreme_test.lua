@@ -1,4 +1,10 @@
 #!/usr/bin/env lua
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
 
 --[[[
 debug/extreme_test.lua — extreme load / stress test: builds a 500-item draw

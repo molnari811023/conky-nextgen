@@ -1,5 +1,11 @@
 #!/bin/bash
 #{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
 # ## gog_open_mail — open a Gmail thread in Firefox
 #
 # Defines open_gmail_thread(), which takes a Gmail message/thread ID, asks

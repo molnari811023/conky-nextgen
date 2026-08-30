@@ -1,3 +1,9 @@
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
 --[[[
 clock_cal.lua — analog clock and calendar widget
 

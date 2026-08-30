@@ -1,5 +1,11 @@
 #!/bin/bash
 #{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
 # ## updates — Arch package update counter
 #
 # Counts the number of available updates from the official repositories

@@ -1,5 +1,11 @@
 #!/bin/bash
 #{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
 # ## 0_fetch_all — orchestrator for all fetch sub-scripts
 #
 # Sources 0_common.sh together with the weather, alerts, maps, nowplaying,

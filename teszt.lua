@@ -1,3 +1,9 @@
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)

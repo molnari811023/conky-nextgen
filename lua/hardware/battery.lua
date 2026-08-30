@@ -1,3 +1,9 @@
+--{{{
+--  Conky NextGen Framework
+--  Author: István Molnár
+--  GitHub: https://github.com/molnari811023/conky-nextgen
+--  Description: Modular Conky UI framework (Lua engine + Bash backend)
+--}}}
 --[[[
 lua/hardware/battery.lua — Battery and external-device charge monitoring via sysfs, UPower, and BlueZ/D-Bus.
 ]]--

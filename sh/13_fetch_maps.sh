@@ -1,5 +1,11 @@
 #!/bin/bash
 #{{{
+#  Conky NextGen Framework
+#  Author: István Molnár
+#  GitHub: https://github.com/molnari811023/conky-nextgen
+#  Description: Modular Conky UI framework (Lua engine + Bash backend)
+#}}}
+#{{{
 # ## 13_fetch_maps — weather radar / temperature / wind map image builder
 #
 # Defines fetch_maps(), which uses ImageMagick (`magick` or legacy `convert`)
