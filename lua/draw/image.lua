@@ -1,38 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- draw/image.lua — PNG rendering, crop, tint, rotation
--- Pattern matrix-based scaling (no cairo_scale on cr).
--- draw_png(cr, m) → { x, y, w, h }
---     Load a PNG file and paint it into the given width/height box.
---     Supports opacity (alpha), a flat tint color, rotation, a circle
---     clip shape, and cropping. Returns the drawn bounding box.
---
--- Parameters:
---   x, y, width, height, path, alpha, rotate
---   tint = "#hex", tint_alpha
---   shape = "circle", radius
---   crop = { x, y, w, h }
---   scale_mode = "bilinear"|"nearest"|"good"
---
--- Cache: PNG_CACHE
---
--- Example:
---   draw[#draw+1] = {
---       type = "image",
---       x = 238, y = 32, width = 24, height = 24,
---       path = "/usr/share/pixmaps/htop.png",
---       click = "konsole -e htop &",
---   }
-
--- Pre-allocated Cairo structs (reused every tick to avoid binding leak)
---}}}
-
 local _img_mx1 = cairo_matrix_t:create()
 
 PNG_CACHE = PNG_CACHE or {}

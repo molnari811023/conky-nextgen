@@ -1,26 +1,5 @@
 #!/usr/bin/env lua
 
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- debug_memory.lua — Memory-leak / repeated-call stress tests.
--- Run:  lua debug/debug_memory.lua   (from the repo root or anywhere)
---
--- Tests (N = 10000 unless noted):
---   1. theme_engine.apply_theme  — fresh draw item per iteration (worst case)
---   2. theme resolution          — resolve_gradient lookup
---   3. view_toggle churn         — back-and-forth view switching
---   4. draw_allowed multi-view   — view = { "main", "view_1" } table handling
---   5. cache_set() limit         — cache size-limit enforcement
---
--- Every test: memory growth measured after GC. Under 1-2 KB is OK.
---}}}
-
 local function get_root()
   local src = (debug.getinfo(1, 'S').source or arg[0]):match('@(.*)') or arg[0] or '.'
   local dir = src:match('^(.*[/\\])') or './'

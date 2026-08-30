@@ -1,24 +1,4 @@
 #!/bin/bash
-#{{{
-#  Conky NextGen Framework
-#  Author: István Molnár
-#  GitHub: https://github.com/molnari811023/conky-nextgen
-#  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
-# 11_fetch_alerts.sh — Download MeteoAlarm weather alerts
-#
-# Reads country_code from tmp/city.json, maps to MeteoAlarm feed slug,
-# downloads Atom XML feed to tmp/alerts.xml.
-#
-# Supports: AD, AT, BE, BA, BG, HR, CY, CZ, DK, EE, FI, FR, DE, GR,
-#           HU, IS, IE, IL, IT, LV, LT, LU, MT, MD, ME, NL, MK, NO,
-#           PL, PT, RO, RS, SK, SI, ES, SE, CH, UA, GB
-#
-# Usage: source 0_common.sh && fetch_alerts
-# Output: tmp/alerts.xml
-#}}}
 
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"

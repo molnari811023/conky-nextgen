@@ -1,28 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- weather/moon.lua — Moon data accessors
--- Reads from W.moon (fetched by sh/4_fetch_weather.sh).
--- Uses shared functions from weather/core.lua.
---
--- Callable from Conky:
---   conky_moon_rise_time()        → "HH:MM"
---   conky_moon_rise_azimuth()     → degrees
---   conky_moon_set_time()         → "HH:MM"
---   conky_moon_set_azimuth()      → degrees
---   conky_moon_high_time()        → "HH:MM"
---   conky_moon_high_elevation()   → degrees
---   conky_moon_low_time()         → "HH:MM"
---   conky_moon_low_elevation()    → degrees
---   conky_moon_phase()            → 0-100%
---   need_to_draw_moon_icon()      → bool (for draw_me guard)
---}}}
-
 local function fmt_time(t)
 	if type(t) ~= "string" or t == "" then return "" end
 	local hh, mm = t:match("T(%d%d):(%d%d)")

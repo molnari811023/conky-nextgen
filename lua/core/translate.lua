@@ -1,35 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- core/translate.lua — .mo translation loader, locale and conky_get_tr()
--- Loaded first so weather modules can translate WMO codes and wind directions.
--- 22 .mo files available. Resolves the active language from $LANG and loads
--- the matching .mo (fallback en.mo). STRINGS_MO_PATH may be preset to
--- override the auto-detection.
--- Fallback chain: active language → en.mo (every msgid is guaranteed there)
--- Also resolves the time locale (os.setlocale) from $LC_TIME/$LC_ALL/$LANG so
--- os.date() weekday/month names match the system language — not hardcoded.
--- → msgid. Empty translation (msgstr = "") counts as missing.
--- Functions:
---   conky_get_tr(msgid) → translated string, English text, or msgid
---     Translate a msgid to the active language. Falls back to the English
---     .mo, then to the msgid itself when no translation exists. Returns a
---     plain UTF-8 string, so it is safe to use inside Conky text widgets.
---     The conky_ prefix makes it visible in the designer's function picker.
---   get_tr(msgid) — backward-compatible alias of conky_get_tr
---   load_mo(path, into)  — internal, .mo file loader
---     Low-level GNU .mo parser (binary format). Do not call directly.
---
--- Usage:
---   conky_get_tr("clear_sky")  → "Clear sky" (en)
---   conky_get_tr("north")      → "North"
---}}}
-
 local mo_strings = {}
 local en_strings = {}
 local function load_mo(path, into)

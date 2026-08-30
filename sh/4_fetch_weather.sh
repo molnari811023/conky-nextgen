@@ -1,27 +1,4 @@
 #!/bin/bash
-#{{{
-#  Conky NextGen Framework
-#  Author: István Molnár
-#  GitHub: https://github.com/molnari811023/conky-nextgen
-#  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
-# 4_fetch_weather.sh — Download weather, air quality, sun/moon data
-#
-# 1. Geocodes city name via Open-Meteo geocoding API → tmp/city.json
-# 2. Downloads weather forecast (current + hourly + daily) → tmp/weather_data.json
-# 3. Downloads air quality (current + hourly PM, gases, pollen, AQI) → tmp/airquality.json
-# 4. Downloads sunrise/sunset from MET Norway → tmp/sun.json
-# 5. Downloads moonrise/moonset/phase from MET Norway → tmp/moon.json
-#
-# APIs used:
-#   - Open-Meteo (weather + air quality)
-#   - MET Norway (sun/moon)
-#
-# Usage: source 0_common.sh && fetch_weather [city_name]
-# Output: tmp/city.json, tmp/weather_data.json, tmp/airquality.json, tmp/sun.json, tmp/moon.json
-#}}}
 
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"

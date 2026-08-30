@@ -1,22 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- core/mouse.lua — Mouse event dispatcher (all buttons, modifiers, scroll)
--- Conky callback: conky_on_mouse(event)
--- Events: mouse_enter, mouse_leave, mouse_move, mouse_scroll, button_down, button_up
---
--- Actions defined in widget.lua:
---   MOUSE_LEAVE_ACTION, MOUSE_HOVER_IN_GROUP_ACTION, MOUSE_HOVER_LEAVE_GROUP_ACTION
---   MOUSE_SCROLL_UP/DOWN, MOUSE_CLICK_LEFT/RIGHT/MIDDLE, MOUSE_CTRL_CLICK, etc.
---
--- Left click: hit_test → item.click_view or item.click
---}}}
-
 local dbg_file = io.open("/tmp/conky_mouse.log", "w")
 
 local last_hovered_group = nil

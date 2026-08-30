@@ -1,22 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
---  widget.lua — Widget data (generated/edited by sh/designer/main.py)
---  Loaded directly by Conky (lua_load = 'widget.lua'). Structure:
---    Global paths / config (formerly settings.lua)
---    DEFAULT_THEME / _PADDING — global settings
---    draw[#draw + 1] = { ... }        — draw items (background, clock, bar, ...)
---    _GROUPS = { { name, views } }    — item groups (view switching)
---    _VIEWS  = { { name } }           — view definitions
---    MOUSE_*_ACTION = ...             — mouse event callbacks
---    Bootstrap (formerly init.lua)    — loads the modules, inits the groups
---}}}
-
 ------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)
@@ -29,6 +10,7 @@ package.path = package.path
     .. ";" .. script_dir .. "lua/draw/?.lua"
     .. ";" .. script_dir .. "lua/weather/?.lua"
     .. ";" .. script_dir .. "lua/hardware/?.lua"
+    .. ";" .. script_dir .. "lua/google/?.lua"
 
 -- JSON_PATH is always needed (weather, hardware/network, nowplaying data)
 JSON_PATH      = script_dir .. "tmp/"

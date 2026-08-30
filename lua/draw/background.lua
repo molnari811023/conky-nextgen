@@ -1,34 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- draw/background.lua — Rounded rectangles with gradient fill + border
--- draw_background(cr, cfg) → { x, y, w, h }
---     Draw a rounded rectangle panel filled with a gradient (bg) and an
---     optional border (border + border_width). Returns the widget's
---     bounding box { x, y, w, h } so the caller can layout around it.
---     The radius applies to every corner; use w/h = 0 for auto sizing.
---
--- Parameters:
---   x, y, w, h, radius
---   bg = { { position, "#hex", alpha }, ... }  — gradient stops
---   border = { { position, "#hex", alpha }, ... }
---   border_width
---
--- Example (main.lua):
---   draw[#draw+1] = {
---       type = "background",
---       x = 20, y = 0, w = 280, h = 100, radius = 12,
---       bg = { { 1, "#1a1b26", 0.9 } },
---       border = { { 1, "#7aa2f7", 0.6 } },
---       border_width = 2,
---   }
---}}}
-
 BACKGROUND_DEFAULT = {
 	x = 0,
 	y = 0,

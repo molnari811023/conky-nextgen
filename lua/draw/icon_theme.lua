@@ -1,20 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- draw/icon_theme.lua — XDG icon theme resolver
--- Finds closest-size SVG from icon themes, with automatic context search.
--- Search order: ~/.local/share/icons → ~/.icons → /usr/local/share/icons → /usr/share/icons
--- All helpers below are internal to this module.
---
--- Default theme: "Papirus"
--- Automatic inheritance: if icon not found, searches parent theme
---}}}
-
 ICON_THEME_CACHE = ICON_THEME_CACHE or {}
 ICON_PATH_CACHE = ICON_PATH_CACHE or {}
 

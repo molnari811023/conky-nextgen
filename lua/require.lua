@@ -1,26 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- require.lua — Central module loader
--- Load order (important!):
--- 1. C libraries: cairo, rsvg, imlib2, lfs, dkjson
--- 2. Core: theme_engine (themes come from the THEMES block in widget.lua),
---    translate, utils, draw_core, mouse_actions, mouse
--- 4. Hardware: core, battery, dmi, info, mtp, network, sensors, usb
--- 5. Extra: nowplaying
--- 6. Google: core (loader) + data (accessors)
--- 7. Draw: icon_theme, hyphen, background, text, bar, graph, image, svg, clock, calendar, lines, rings
---
--- Debug files are in debug/ folder:
---   debug/debug_weather.lua    — weather module dump (requires tmp/ data)
---   debug/debug_hardware.lua   — hardware module dump (real values)
---}}}
-
 cairo = require("cairo")
 rsvg = require("rsvg")
 imlib2 = require("imlib2")
@@ -62,8 +39,13 @@ require("hardware.usb")
 require("nowplaying")
 
 -- ═══ GOOGLE ═══
-require("google.core")
-require("google.data")
+-- The google modules need tmp/ JSONs (from sh/fetch_google.sh) and the
+-- lua/google/?.lua path entry. Loaded with pcall so configs that don't
+-- include that path (e.g. some secondary widgets) stay unaffected.
+local ok_google, _ = pcall(require, "google.core")
+if ok_google then
+	require("google.data")
+end
 
 -- ═══ DRAW MODULES ═══
 require("draw.icon_theme")

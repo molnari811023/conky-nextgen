@@ -1,21 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- weather/weather_translations.lua — Translation functions
--- WMO code text, wind direction text, moon phase text.
--- Uses shared functions from weather/core.lua.
---
--- Callable from Conky:
---   conky_weather_code_text(code)  → "Clear sky"
---   conky_wind_direction_text(deg) → "Northwest"
---   conky_moon_phase_text()        → "Full moon"
---}}}
-
 function conky_weather_code_text(code)
 	local msgid = WMO_TO_MSGID[tonumber(code) or 0]
 	if not msgid then return "WMO " .. (code or 0) end

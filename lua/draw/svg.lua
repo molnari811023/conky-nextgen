@@ -1,31 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: Istvan Molnar
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
---
--- draw/svg.lua -- Native SVG rendering via librsvg (rsvg bindings)
--- draw_svg(cr, opts) -> { x, y, w, h }
---     Render an SVG file directly onto a Cairo context using librsvg.
---     Handles are cached per path to avoid re-loading every frame.
---     Supports alpha, tint, rotation, circle clip, and rounded rect clip.
---
--- Requires: rsvg (loaded in require.lua)
---
--- Parameters:
---   x, y, w, h, path
---   rotate, shape = "circle", radius
---   alpha, tint = "#hex", tint_alpha
---
--- Example:
---   draw[#draw+1] = {
---       type = "svg",
---       x = 30, y = 225, w = 28, h = 28,
---       path = "/usr/share/icons/breeze/places/24/folder-blue-symbolic.svg",
---   }
---}}}
-
 local _SVG_DEFAULT = {
     x = 0, y = 0,
     w = 32, h = 32,

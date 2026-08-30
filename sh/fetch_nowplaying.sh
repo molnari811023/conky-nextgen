@@ -1,28 +1,4 @@
 #!/bin/bash
-#{{{
-#  Conky NextGen Framework
-#  Author: István Molnár
-#  GitHub: https://github.com/molnari811023/conky-nextgen
-#  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
-# fetch_nowplaying.sh — Multi-player track info + album art fetcher
-#
-# Supported players (auto-detected in priority order):
-#   1. playerctl (MPRIS2) — Spotify, VLC, Firefox, Chrome, etc.
-#   2. CMUS — cmus-remote
-#   3. MPD — mpc
-#   4. MOC — mocp
-#
-# Features:
-#   - Caches JSON to avoid re-downloading album art when track unchanged
-#   - Supports file:// and http:// album art URLs
-#   - Falls back to "Unknown Title"/"Unknown Artist" for empty fields
-#
-# Usage: source 0_common.sh && fetch_nowplaying
-# Output: tmp/nowplaying.json, tmp/album_art.png
-#}}}
 
 [ -n "$_FETCH_NOWPLAYING" ] && return || _FETCH_NOWPLAYING=1
 

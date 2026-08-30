@@ -1,23 +1,4 @@
 #!/bin/bash
-#{{{
-#  Conky NextGen Framework
-#  Author: István Molnár
-#  GitHub: https://github.com/molnari811023/conky-nextgen
-#  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
-# gog_open_mail.sh — Open a Gmail thread in Firefox from its ID.
-#
-# Takes a Gmail message/thread ID (as returned by `gog gmail search`),
-# builds the web URL via `gog gmail url`, and opens it in Firefox.
-#
-# Usage:
-#   ./gog_open_mail.sh <message-id>
-#   ./gog_open_mail.sh 1a051c3b97898a2d
-#
-# Requires: gog (configured OAuth + file keyring), firefox
-#}}}
 
 export GOG_KEYRING_BACKEND=file
 export GOG_KEYRING_PASSWORD="${GOG_KEYRING_PASSWORD:-conky-google-dashboard}"

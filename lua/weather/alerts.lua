@@ -1,29 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- weather/alerts.lua — MeteoAlarm weather alert XML parser
--- Parses the XML with SAX (lxp). Filters by city/admin1 region.
--- Callable from Conky:
---   conky_update_alerts()   — refresh cache
---     Re-parse tmp/alerts.xml and refresh the cached alert list.
---     Called automatically at startup.
---   alerts_count()          → number
---     Number of active weather alerts for the region.
---   alerts_updated()        → string (ISO time)
---     Timestamp of the last successful alert fetch.
---   alert_field(i, field)   → string
---     One field of the i-th alert. Valid field names: "event",
---     "severity", "certainty", "area", "onset", "expires", "title",
---     "color".
---
--- Data source: tmp/alerts.xml
---}}}
-
 local alerts_cache_storage = nil
 local alerts_cache_time = 0
 

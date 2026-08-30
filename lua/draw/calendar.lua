@@ -1,34 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- draw/calendar.lua — Month calendar grid with week numbers
--- draw_calendar(cr, opts) → { x, y, w, h }
---     Draw the current month as a grid of day cells with the weekday
---     header, today highlighted, and an optional week-number column.
---     Colors and fonts come from the opts table. Returns the grid size.
---
--- Parameters:
---   x, y, cell_w, row_h, font, size
---   show_weeknums = true/false
---   color_month, color_weekdays, color_days, color_today, color_outside, color_weeknums
---
--- Automatic: month name, day numbers, today highlight, week numbers
---
--- Example:
---   draw[#draw+1] = {
---       type = "calendar",
---       x = 30, y = 10,
---       cell_w = 34, row_h = 22,
---       font = "Mono", size = 10,
---       show_weeknums = false,
---   }
---}}}
-
 CALENDAR_DEFAULT = {
 	x = 300,
 	y = 15,

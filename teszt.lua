@@ -17,11 +17,6 @@ JSON_PATH      = script_dir .. "tmp/"
 draw = {}
 
 
-ICON_BASE      = script_dir .. "icons/"
-ICON_THEME     = "default"
-MOON_ICON_BASE = script_dir .. "icons/moon/"
-WIND_ICON_BASE = script_dir .. "icons/wind/"
-
 --{{{
 -- THEMES — Theme definitions (palette, gradients, widget defaults).
 -- Lives in widget.lua, before the modules are loaded, so that
@@ -79,8 +74,39 @@ THEMES = {
                 fg = { { 1, "#3daee9", 1 } },
                 bg = { { 1, "#3a3d41", 1 } },
             },
+            line = {
+                fg = { { 1, "#a1a9b1", 1 } },
+            },
+            graph = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                grid_color = { { 1, "#31363c", 1 } },
+            },
+            ring = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
             text = {
-                color = { { 1, "#a1a9b1", 1 } },
+                color = { { 1, "#fcfcfc", 1 } },
+            },
+            clock = {
+                bg = { { 1, "#31363c", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                tick_color = { { 1, "#a1a9b1", 1 } },
+                number_color = { { 1, "#fcfcfc", 1 } },
+                hour_color = { { 1, "#fcfcfc", 1 } },
+                minute_color = { { 1, "#3daee9", 1 } },
+                second_color = { { 1, "#f67400", 1 } },
+                center_color = { { 1, "#3daee9", 1 } },
+            },
+            calendar = {
+                color_month = { { 1, "#fcfcfc", 1 } },
+                color_weekdays = { { 1, "#a1a9b1", 1 } },
+                color_days = { { 1, "#a1a9b1", 1 } },
+                color_today = { { 1, "#3daee9", 1 } },
+                color_outside = { { 1, "#4a4d52", 1 } },
+                color_weeknums = { { 1, "#3daee9", 1 } },
             },
         },
     },
@@ -89,92 +115,7 @@ THEMES = {
 DEFAULT_THEME = "theme"
 _PADDING = 10
 
-draw[#draw + 1] = {
-    type = "background",
-    x = 0,
-    y = 0,
-    w = 0,
-    h = 0,
-    radius = 12,
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 10,
-    y = 10,
-    font = "Meslo LGS",
-    size = 12,
-    text = "Ram:",
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 170,
-    y = 10,
-    font = "Mono",
-    size = 12,
-    text = "${mem}/${memmax}",
-    align = "center",
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 330,
-    y = 10,
-    font = "Mono",
-    size = 12,
-    text = "${memperc}% used",
-    align = "right",
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 10,
-    y = 45,
-    font = "Mono",
-    size = 12,
-    text = "Swap:",
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 170,
-    y = 45,
-    font = "Mono",
-    size = 12,
-    text = "${swap}/${swapmax}",
-    align = "center",
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 330,
-    y = 45,
-    font = "Mono",
-    size = 12,
-    text = "${swapperc}% used",
-    align = "right",
-}
-
-draw[#draw + 1] = {
-    type = "bar",
-    x = 10,
-    y = 25,
-    width = 320,
-    height = 12,
-    value = "${memperc}",
-    max = 100,
-}
-
-draw[#draw + 1] = {
-    type = "bar",
-    x = 10,
-    y = 60,
-    width = 320,
-    height = 12,
-    value = "${swapperc}",
-    max = 100,
-}
+require("require")
 
 
 _GROUPS = {
@@ -194,12 +135,10 @@ _VIEWS = {
 --                     caps_lock=bool, num_lock=bool }
 ------------------------------------------------------------
 
-_MOUSE_ENABLED = true
+_MOUSE_ENABLED = false
 
 
 ------------------------------------------------------------
--- Bootstrap (formerly init.lua): load the modules, then
--- initialize the item groups.
+-- Bootstrap (formerly init.lua): initialize the item groups.
 ------------------------------------------------------------
-require("require")
 init_groups(_GROUPS)

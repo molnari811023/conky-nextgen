@@ -1,27 +1,4 @@
 #!/bin/bash
-#{{{
-#  Conky NextGen Framework
-#  Author: István Molnár
-#  GitHub: https://github.com/molnari811023/conky-nextgen
-#  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
-# 13_fetch_maps.sh — Download OSM tiles, radar, temperature, wind maps
-#
-# Downloads a 3x3 tile grid centered on the user's city (from tmp/city.json).
-# Tile sources:
-#   - OpenStreetMap (base map)
-#   - RainViewer API (radar overlay)
-#   - Environment Canada GDPS (temperature 2m, wind 10m)
-#
-# Uses ImageMagick to stitch 9 tiles into 4 composite images.
-# Zoom levels: 5-7 (default 7). Zoom >7 or <5 falls back to 7.
-#
-# Usage: source 0_common.sh && fetch_maps [zoom]
-# Output: tmp/{osm_big,rain_big,temp_big,wind_big}.png
-# Requires: ImageMagick (magick or convert), python3, jq
-#}}}
 
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"

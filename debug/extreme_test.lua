@@ -1,19 +1,5 @@
 #!/usr/bin/env lua
 
---{{{
---    Conky NextGen Framework
---    Author: István Molnár
---    GitHub: https://github.com/molnari811023/conky-nextgen
---    Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- extreme_test.lua — Extreme stress / memory-leak test driven by a live Conky.
--- Run:    conky -c ~/.conky/debug/extreme_test.conf
---
--- Draws 50 widgets of EVERY type with unique variables, assets, and unique SVGs.
---}}}
-
 local src = debug.getinfo(1, 'S').source or ''
 src = src:gsub('^@', '')
 local here = src:match('^(.*[/\\])[^/\\]*$') or './'

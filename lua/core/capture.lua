@@ -1,27 +1,9 @@
 --{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
---
--- core/capture.lua — on-demand PNG export of the drawn surface
--- The NextGen Designer writes tmp/capture_request containing two lines:
---   <view name | ->
---   <output png path>
--- conky switches to that view (if needed), draws one frame, then saves the
--- whole surface to the requested PNG and removes the request on success.
--- Works on both X11 and Wayland: the surface is conky's own, so no external
--- screenshot tools are involved. On failure the request is kept and retried
--- on the next tick.
-
---{{{
 --   capture_poll() — call before drawing
 --     Reads tmp/capture_request; switches to the requested view.
 --   capture_finish() — call after drawing
 --     Writes the drawn surface to the requested PNG; removes the request
 --     only when the file exists afterwards.
---}}}
 --}}}
 
 local _CAPTURE_REQUEST = script_dir .. "tmp/capture_request"

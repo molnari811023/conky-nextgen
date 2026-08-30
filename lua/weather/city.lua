@@ -1,29 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- weather/city.lua — City metadata accessors
--- Reads from W.city (fetched by sh/4_fetch_weather.sh).
--- Uses shared functions from weather/core.lua.
---
--- Callable from Conky:
---   conky_city_name()       → "Budapest"
---   conky_city_lat()        → 47.49
---   conky_city_lon()        → 19.04
---   conky_city_country()    → "Hungary"
---   conky_city_timezone()   → "Europe/Budapest"
---   conky_city_population() → number
---   conky_city_admin1()     → "Budapest"
---   conky_city_admin2()     → ""
---   conky_city_elevation()  → 102
---   conky_city_postcode(i)  → "1011"
---   conky_city_postcode_count() → number
---}}}
-
 local function city_data()
 	return ((W.city or {}).results and W.city.results[1]) or {}
 end

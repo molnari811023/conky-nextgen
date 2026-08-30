@@ -1,32 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- draw/lines.lua — Lines with solid/dash/dot styles
--- draw_line_modules(cr, m) → { x, y, w, h }
---     Draw a straight line between two points with a given thickness.
---     Supports solid, dashed and dotted styles with configurable
---     on/off lengths. Returns the bounding box of the line.
---
--- Parameters:
---   x1, y1, x2, y2, thickness
---   style_type = "solid"|"dashed"|"dotted"
---   dash_on, dash_off, dot_on, dot_off
---   fg = { { position, "#hex", alpha }, ... }
---
--- Example:
---   draw[#draw+1] = {
---       type = "line",
---       x1 = 30, y1 = 50, x2 = 270, y2 = 50,
---       thickness = 1, style_type = "dashed",
---       fg = { { 1, "#7aa2f7", 0.6 } },
---   }
---}}}
-
 local LINE_DEFAULT = {
 	x1 = 0,
 	y1 = 0,

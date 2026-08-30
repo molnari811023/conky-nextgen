@@ -1,17 +1,5 @@
 #!/usr/bin/env lua
 
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---}}}
-
---{{{
--- debug_google.lua — Standalone debug dump for the Google modules.
--- Needs data JSONs in <root>/tmp/ (written by sh/fetch_google.sh).
--- Run:  lua debug/debug_google.lua   (from the repo root or anywhere)
---}}}
-
 local function get_root()
   local src = (debug.getinfo(1, 'S').source or arg[0]):match('@(.*)') or arg[0] or '.'
   local dir = src:match('^(.*[/\\])') or './'

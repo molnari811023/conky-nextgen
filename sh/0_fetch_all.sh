@@ -1,32 +1,4 @@
 #!/bin/bash
-#{{{
-#  Conky NextGen Framework
-#  Author: István Molnár
-#  GitHub: https://github.com/molnari811023/conky-nextgen
-#  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
-# 0_fetch_all.sh — Master fetcher entry point.
-# Sources all fetch modules and dispatches by mode.
-# Usage: ./0_fetch_all.sh [mode] [arguments]
-#   all                  weather + alerts + maps + nowplaying + network (default)
-#   weather [city]       weather + air + sun + moon
-#   alerts               MeteoAlarm alerts
-#   map [zoom]           map tiles (zoom 5-7)
-#   nowplaying           now-playing track info + album art
-#   network              ping + public IP info
-#   google               Gmail + Calendar + Tasks + Contacts + Drive + YouTube
-#   [city name]          shorthand for weather
-#
-# Requires: curl, jq, python3
-# Output files: tmp/weather_data.json, tmp/airquality.json, tmp/sun.json,
-#               tmp/alerts.xml, tmp/*.png (maps), tmp/network_*.json,
-#               tmp/nowplaying.json, tmp/album_art.png,
-#               tmp/gmail_emails.json, tmp/calendar_events.json,
-#               tmp/tasks_lists.json, tmp/tasks.json, tmp/contacts.json,
-#               tmp/drive_files.json, tmp/youtube_subs.json
-#}}}
 
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"

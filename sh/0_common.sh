@@ -1,22 +1,4 @@
 #!/bin/bash
-#{{{
-#  Conky NextGen Framework
-#  Author: István Molnár
-#  GitHub: https://github.com/molnari811023/conky-nextgen
-#  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
-# 0_common.sh — Shared helpers for fetch modules
-#
-# Provides:
-#   log()          — debug logging (DEBUG=1)
-#   require_cmds() — check required commands
-#   curl_cmd()     — curl with User-Agent, timeout, retry
-#   urlencode()    — URL-encode via python3
-#   $TMP_DIR       — temp directory for JSON/XML files
-#   $UA            — User-Agent string (auto-generated or user-configured)
-#}}}
 
 [ -n "$_COMMON_LOADED" ] && return || _COMMON_LOADED=1
 

@@ -1,27 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- google/data.lua — Google dashboard data accessors
--- Contiki-style accessor functions reading from W.google (loaded by
--- google/core.lua from tmp/*.json, fetched by sh/fetch_google.sh).
---
--- Naming: conky_google_<domain>_<field>[ <index>]
---   gmail    — unread count, message fields (subject/from/date/label/byId)
---   calendar — upcoming event count / fields
---   tasks    — task count / fields
---   contacts — contact count / fields
---   drive    — file count, total size, largest name/size
---   youtube  — subscription count / fields
---   meet     — meet history count / fields
---
--- All accessors use safe_str/safe_num/round from core/utils.lua.
---}}}
-
 local function gmail_raw()
 	return (load_google_data().gmail) or {}
 end

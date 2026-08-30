@@ -1,17 +1,5 @@
 #!/usr/bin/env lua
 
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- debug_hardware.lua — Standalone debug dump for the hardware modules.
--- Run:  lua debug/debug_hardware.lua   (from the repo root or anywhere)
---}}}
-
 local function get_root()
   local src = (debug.getinfo(1, 'S').source or arg[0]):match('@(.*)') or arg[0] or '.'
   local dir = src:match('^(.*[/\\])') or './'

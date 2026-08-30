@@ -1,17 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- weather/core.lua — Shared weather functions
--- Data loader, time helpers, WMO codes, wind maps, arc helpers.
--- All functions here are global (no conky_ prefix) and used by
--- weather_data.lua, sun.lua, moon.lua, weather_icons.lua, etc.
---}}}
-
 -- ═══ DATA LOADER ═══
 
 local weather_cache_storage = nil

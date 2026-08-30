@@ -1,31 +1,4 @@
 #!/bin/bash
-#{{{
-#  Conky NextGen Framework
-#  Author: István Molnár
-#  GitHub: https://github.com/molnari811023/conky-nextgen
-#  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
-# fetch_google.sh — Fetch Google (gog) data: Gmail, Calendar, Tasks,
-#                    Contacts, Drive, YouTube subscriptions, Meet.
-#
-# Uses the `gog` CLI (https://github.com/ungoogled-software/... or the
-# user's gogcli) with OAuth credentials stored in the file keyring.
-#
-# Requires: gog, jq (python3 via 0_common.sh)
-# Output files (in $TMP_DIR):
-#   gmail_emails.json        — recent Gmail messages (from <senders>, subject…)
-#   calendar_events.json     — upcoming Calendar events (from today)
-#   tasks_lists.json         — Tasks task-lists
-#   tasks.json               — tasks of the first task-list
-#   contacts.json            — contacts
-#   drive_files.json         — Drive file listing
-#   youtube_subs.json        — YouTube subscriptions
-#   meet_history.json        — Meet history (requires a meeting code)
-#
-# Usage: source 0_common.sh && fetch_google
-#}}}
 
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 source "$_SCRIPT_DIR/0_common.sh"

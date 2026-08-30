@@ -1,30 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- google/core.lua — Google dashboard shared functions
--- Data loader for the gog-fetched JSONs (sh/fetch_google.sh) plus small
--- helpers (label mapping, date parsing).
---
--- JSON_PATH points to tmp/ (set in widget.lua before load). The following
--- files are loaded into the global W.google table:
---   gmail_emails.json   — Gmail messages        (array)
---   calendar_events.json— Calendar events       (array)
---   tasks_lists.json    — Tasks task-lists      (array)
---   tasks.json          — tasks of first list   (array)
---   contacts.json       — contacts              (array)
---   drive_files.json    — Drive files           (array)
---   youtube_subs.json   — YouTube subscriptions (array)
---   meet_history.json   — Meet history          (array)
---
--- The loader caches by mtime (re-reads only when a file changes), so the
--- data is cheap to refresh without an explicit reload call.
---}}}
-
 local google_cache_storage = nil
 local google_cache_mtimes = {}
 local last_google_mtime_check = 0

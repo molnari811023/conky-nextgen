@@ -1,19 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---  Description: Modular Conky UI framework (Lua engine + Bash backend)
---}}}
-
---{{{
--- draw/hyphen.lua — Pure Lua hyphenation via LibreOffice .dic patterns
--- Loaded by draw/text.lua (draw_text) for automatic word hyphenation in wrapped text.
--- hyphen.load(path)          → true/false
--- hyphen.break_word(word)    → { byte_positions }
---
--- Usage: draw_text wrap_dic parameter
---}}}
-
 local hyphen = {}
 hyphen.patterns = {}
 hyphen.min_left = 2

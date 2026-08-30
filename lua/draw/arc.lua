@@ -1,24 +1,3 @@
---{{{
---  Conky NextGen Framework
---  Author: István Molnár
---  GitHub: https://github.com/molnari811023/conky-nextgen
---}}}
-
---{{{
--- draw/arc.lua — Simple semicircle arc drawer
--- draw_arc(cr, m) → { x, y, w, h }
---
--- Parameters:
---   cx, cy        — center of the semicircle
---   r             — radius
---   segments      — line segments (default 20)
---   arc_color     — arc line color (default "#a1a9b1")
---   arc_alpha     — arc alpha (default 0.4)
---   arc_width     — arc line width (default 2)
---   horizon       — draw horizon line (default true)
---   horizon_color — horizon line color (default "#4a4d52")
---}}}
-
 local ARC_DEFAULT = {
     cx = 0, cy = 0, r = 30,
     segments = 20,

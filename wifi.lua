@@ -17,11 +17,6 @@ JSON_PATH      = script_dir .. "tmp/"
 draw = {}
 
 
-ICON_BASE      = script_dir .. "icons/"
-ICON_THEME     = "default"
-MOON_ICON_BASE = script_dir .. "icons/moon/"
-WIND_ICON_BASE = script_dir .. "icons/wind/"
-
 --{{{
 -- THEMES — Theme definitions (palette, gradients, widget defaults).
 -- Lives in widget.lua, before the modules are loaded, so that
@@ -63,12 +58,6 @@ THEMES = {
             red = "#da4453",
         },
 
-        gradients = {
-            text_value = { { 1, "#27ae60", 1 } },
-            bar_cpu = { { 1, "#3daee9", 1 } },
-            border_subtle = { { 1, "#a1a9b1", 0.6 } },
-        },
-
         defaults = {
             background = {
                 bg = { { 1, "#202326", 0.9 } },
@@ -79,8 +68,39 @@ THEMES = {
                 fg = { { 1, "#3daee9", 1 } },
                 bg = { { 1, "#3a3d41", 1 } },
             },
+            line = {
+                fg = { { 1, "#a1a9b1", 1 } },
+            },
+            graph = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                grid_color = { { 1, "#31363c", 1 } },
+            },
+            ring = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
             text = {
-                color = { { 1, "#a1a9b1", 1 } },
+                color = { { 1, "#fcfcfc", 1 } },
+            },
+            clock = {
+                bg = { { 1, "#31363c", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                tick_color = { { 1, "#a1a9b1", 1 } },
+                number_color = { { 1, "#fcfcfc", 1 } },
+                hour_color = { { 1, "#fcfcfc", 1 } },
+                minute_color = { { 1, "#3daee9", 1 } },
+                second_color = { { 1, "#f67400", 1 } },
+                center_color = { { 1, "#3daee9", 1 } },
+            },
+            calendar = {
+                color_month = { { 1, "#fcfcfc", 1 } },
+                color_weekdays = { { 1, "#a1a9b1", 1 } },
+                color_days = { { 1, "#a1a9b1", 1 } },
+                color_today = { { 1, "#3daee9", 1 } },
+                color_outside = { { 1, "#4a4d52", 1 } },
+                color_weeknums = { { 1, "#3daee9", 1 } },
             },
         },
     },
@@ -88,6 +108,8 @@ THEMES = {
 
 DEFAULT_THEME = "theme"
 _PADDING = 10
+
+require("require")
 
 draw[#draw + 1] = {
     type = "background",
@@ -102,78 +124,58 @@ draw[#draw + 1] = {
     type = "text",
     x = 10,
     y = 10,
-    font = "Meslo LGS",
-    size = 12,
-    text = "Ram:",
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 170,
-    y = 10,
     font = "Mono",
     size = 12,
-    text = "${mem}/${memmax}",
-    align = "center",
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 330,
-    y = 10,
-    font = "Mono",
-    size = 12,
-    text = "${memperc}% used",
-    align = "right",
+    text = "Wifi",
 }
 
 draw[#draw + 1] = {
     type = "text",
     x = 10,
-    y = 45,
+    y = 70,
     font = "Mono",
     size = 12,
-    text = "Swap:",
+    text = "Temp:",
 }
 
 draw[#draw + 1] = {
     type = "text",
-    x = 170,
-    y = 45,
+    x = 20,
+    y = 262,
     font = "Mono",
     size = 12,
-    text = "${swap}/${swapmax}",
-    align = "center",
+    text = "New text",
 }
 
 draw[#draw + 1] = {
     type = "text",
-    x = 330,
-    y = 45,
+    x = 20,
+    y = 290,
     font = "Mono",
     size = 12,
-    text = "${swapperc}% used",
-    align = "right",
+    text = "New text",
 }
 
 draw[#draw + 1] = {
-    type = "bar",
-    x = 10,
-    y = 25,
-    width = 320,
-    height = 12,
-    value = "${memperc}",
-    max = 100,
+    type = "text",
+    x = 20,
+    y = 318,
+    font = "Mono",
+    size = 12,
+    text = "New text",
 }
 
 draw[#draw + 1] = {
-    type = "bar",
-    x = 10,
-    y = 60,
-    width = 320,
-    height = 12,
-    value = "${swapperc}",
-    max = 100,
+    type = "line",
+    x1 = 60,
+    y1 = 20,
+    x2 = 330,
+    y2 = 20,
+    thickness = 3,
+    style_type = "solid",
+    dash_on = 3,
+    dash_off = 3,
+    fg = { { 1, "#295166", 1 } },
 }
 
 
@@ -198,8 +200,6 @@ _MOUSE_ENABLED = true
 
 
 ------------------------------------------------------------
--- Bootstrap (formerly init.lua): load the modules, then
--- initialize the item groups.
+-- Bootstrap (formerly init.lua): initialize the item groups.
 ------------------------------------------------------------
-require("require")
 init_groups(_GROUPS)
