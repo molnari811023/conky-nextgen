@@ -74,6 +74,7 @@ require("hardware.usb")
 
 -- ═══ EXTRAS ═══
 require("nowplaying")
+require("songtext")
 
 -- ═══ GOOGLE ═══
 -- The google modules need tmp/ JSONs (from sh/fetch_google.sh) and the
@@ -98,3 +99,4 @@ require("draw.calendar")
 require("draw.lines")
 require("draw.rings")
 require("draw.arc")
+require("draw.lyrics")

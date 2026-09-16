@@ -322,6 +322,7 @@ function conky_core_main()
             calendar   = draw_calendar,
             clock      = draw_clock,
             arc        = draw_arc,
+            lyrics     = draw_lyrics,
         }
     end
 
