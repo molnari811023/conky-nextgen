@@ -26,6 +26,23 @@ corresponding MOUSE_* action callbacks, and writes a debug log.
 --
 -- **Exposed/global functions:**
 -- - `conky_on_mouse(event)` — callback entry point that dispatches to the internal handler
+-- - `register_clickable_area(x, y, w, h, action)` — declare a Cairo-free clickable rectangle
+-- - `conky_register_clickable_area("x,y,w,h", action)` — text-callable variant
+--   (`${lua conky_register_clickable_area 0,0,100,100 view:main}`)
+-- - `clear_clickable_areas()` — drop all registered clickable areas
+--
+-- **Clickable areas (Cairo-free):**
+-- The draw-item/group machinery only exists for Cairo-drawn widgets. A plain
+-- (text/Cairo-free) widget has no items to hit-test, so it registers explicit
+-- rectangles via `register_clickable_area()`. They are window-relative and are
+-- tested before the draw items, so the same `lua_mouse_hook` callback drives
+-- both kinds of widgets.
+--
+-- `action` may be:
+-- - a function(event) — called with the mouse event
+-- - a string "view:<name>" — switches to that view
+-- - a string "toggle:<name>" — toggles between <name> and the base view (_VIEWS[1])
+-- - a plain string — executed as a shell command (os.execute)
 --
 -- **Config/globals used:**
 -- - `GROUP_OFFSETS`, `draw`, `compute_group_height` — layout geometry for hit tracking
@@ -41,6 +58,9 @@ corresponding MOUSE_* action callbacks, and writes a debug log.
 local dbg_file = io.open("/tmp/conky_mouse.log", "w")
 
 local last_hovered_group = nil
+
+-- Clickable areas for Cairo-free widgets (window-relative rectangles).
+local CLICKABLE_AREAS = {}
 
 -- Left button press: if an element handled the click (click_view/click),
 -- then on release the global MOUSE_CLICK_* must not fire too.
@@ -89,6 +109,14 @@ end
 ------------------------------------------------------------
 
 local function hit_test(ex, ey)
+    -- clickable areas first (Cairo-free widgets have no draw items)
+    for i = #CLICKABLE_AREAS, 1, -1 do
+        local a = CLICKABLE_AREAS[i]
+        if ex >= a.x and ex <= a.x + a.w and ey >= a.y and ey <= a.y + a.h then
+            return { click_view = a.click_view, click = a.click, toggle_view = a.toggle_view }
+        end
+    end
+
     for i = #draw, 1, -1 do
         local item = draw[i]
 
@@ -103,6 +131,12 @@ local function hit_test(ex, ey)
             local iy = (item.y or 0) + gy
             local iw = item.w or item.width or 100
             local ih = item.h or item.height or (item.radius and item.radius * 2) or 20
+            if item.type == "background" then
+                if (item.w or item.width) == 0 and conky_window then iw = conky_window.width end
+                if (item.h or item.height or 0) == 0 then
+                    ih = (GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].height) or ih
+                end
+            end
 
             if ex >= ix and ex <= ix + iw and ey >= iy and ey <= iy + ih then
                 return item
@@ -146,7 +180,13 @@ end
 local function handle_left_click(event)
     local item = hit_test(event.x, event.y)
     if item then
-        if item.click_view then
+        if item.toggle_view then
+            local base = (_VIEWS and _VIEWS[1] and _VIEWS[1].name) or "main"
+            local nextv = (current_view == item.toggle_view) and base or item.toggle_view
+            log("toggle view to: " .. tostring(nextv))
+            switch_view(nextv)
+            return true
+        elseif item.click_view then
             log("switching view to: " .. tostring(item.click_view))
             switch_view(item.click_view)
             return true
@@ -295,4 +335,63 @@ end
 
 function conky_on_mouse(event)
     return on_event(event)
+end
+
+------------------------------------------------------------
+-- Clickable areas (Cairo-free interaction)
+------------------------------------------------------------
+
+function register_clickable_area(x, y, w, h, action)
+    local a = { x = x, y = y, w = w, h = h }
+    if type(action) == "table" then
+        a.click_view = action.click_view
+        a.click = action.click
+    elseif type(action) == "function" then
+        a.click = action
+    elseif type(action) == "string" then
+        local name = action:match("^toggle:(.+)$")
+        if name then
+            a.toggle_view = name
+        else
+            name = action:match("^view:(.+)$")
+            if name then
+                a.click_view = name
+            else
+                a.click = action
+            end
+        end
+    end
+    CLICKABLE_AREAS[#CLICKABLE_AREAS + 1] = a
+end
+
+-- Text-callable variant: ${lua conky_register_clickable_area 0,0,100,100 view:main}
+-- The rect arrives as a single "x,y,w,h" string because ${lua} splits args
+-- on spaces and passes them as strings. Any extra args are rejoined into a
+-- shell command (e.g. ${lua conky_register_clickable_area 0,0,100,100 notify-send hello}).
+function conky_register_clickable_area(rect, ...)
+    if type(rect) ~= "string" then
+        return ""
+    end
+    local x, y, w, h = rect:match("^(%-?%d+),%s*(%-?%d+),%s*(%-?%d+),%s*(%-?%d+)$")
+    if not x then
+        return ""
+    end
+    local args = { ... }
+    local action
+    if args[1] and (args[1]:match("^toggle:") or args[1]:match("^view:")) then
+        action = args[1]
+        args = nil
+    end
+    register_clickable_area(tonumber(x), tonumber(y), tonumber(w), tonumber(h), action or (args and #args > 0 and table.concat(args, " ") or nil))
+    return ""
+end
+
+function clear_clickable_areas()
+    CLICKABLE_AREAS = {}
+end
+
+-- text-callable alias: ${lua conky_clear_clickable_areas}
+function conky_clear_clickable_areas()
+    clear_clickable_areas()
+    return ""
 end
