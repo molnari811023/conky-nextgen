@@ -71,11 +71,10 @@ function evaluate_draw_me(draw_me)
 
     if type(draw_me) == "string" then
         if draw_me:find("%(") and draw_me:find("%)") then
-            local fn = load("return " .. draw_me)
-            if fn then
-                local r = fn()
-                return r == true or r == 1 or r == "1"
-            end
+            local fn, err = load("return " .. draw_me)
+            assert(fn, "Invalid draw_me expression '" .. draw_me .. "': " .. err)
+            local r = fn()
+            return r == true or r == 1 or r == "1"
         else
             return conky_parse(draw_me) == "1"
         end
@@ -108,20 +107,6 @@ function draw_allowed(item_view, item_group)
         end
         if not matches then
             return false
-        end
-    end
-
-    -- Grouped element: the group's views must also be checked
-    if item_group then
-        local gview = GROUP_VIEWS[item_group]
-        if gview ~= nil then
-            local found = false
-            for _, gv in ipairs(gview) do
-                if gv == current_view then
-                    found = true; break
-                end
-            end
-            if not found and current_view ~= "main" then return false end
         end
     end
 
@@ -204,7 +189,7 @@ local function infer_item_height(item)
     if t == "clock" then return (item.radius or 60) + 10 end
     if t == "ring" then return (item.radius or 50) + 10 end
     if t == "bar" then return (item.height or 12) + 6 end
-    if t == "graph" then return (item.height or 40) + 6 end
+    if t == "graph" then return (item.height or 40) + 24 end
     if t == "calendar" then return (item.row_h or 20) * 9 + 30 end
     if t == "text" then return (item.size or 12) * 1.6 + 4 end
     if t == "image" then return 48 end
@@ -220,15 +205,23 @@ function compute_group_height(group_name, draw_list)
     for _, item in ipairs(draw_list) do
         if item.group == group_name then
             if not evaluate_draw_me(item.draw_me) then goto continue end
-            local item_view = item.view or "main"
-            if view_contains(item_view, current_view) then
-                local ih = infer_item_height(item)
-                local iy = item.y or 0
-                if iy + ih > max_y then max_y = iy + ih end
+            if item.view then
+                if not view_contains(item.view, current_view) then goto continue end
             end
+            local ih = infer_item_height(item)
+            local iy = item.y or 0
+            if iy + ih > max_y then max_y = iy + ih end
             ::continue::
         end
     end
+    local floor = 0
+    for _, item in ipairs(draw_list) do
+        if item.group == group_name and item.type == "background" and item.h and item.h > 0 then
+            floor = item.h
+            break
+        end
+    end
+    if floor > max_y then max_y = floor end
     return max_y
 end
 
@@ -239,23 +232,8 @@ local function compute_group_offsets(group_list, draw_list, padding)
 
     for _, g in ipairs(group_list) do
         local name = g.name
-        local views = GROUP_VIEWS[name]
 
-        local visible
-        if GROUP_STATE[name] == nil then
-            visible = false
-        elseif current_view == "main" then
-            visible = true
-        elseif views then
-            visible = false
-            for _, v in ipairs(views) do
-                if v == current_view then
-                    visible = true; break
-                end
-            end
-        else
-            visible = false
-        end
+        local visible = GROUP_STATE[name] ~= nil
 
         GROUP_OFFSETS[name] = { y = offset, visible = visible, height = 0 }
 

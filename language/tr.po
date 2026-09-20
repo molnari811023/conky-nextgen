@@ -1,26 +1,24 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/tr.po — Turkish translations
 #  Compiled to language/tr.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 msgid "air_quality"
 msgstr "Hava kalitesi"
@@ -117,6 +115,9 @@ msgstr "h"
 
 msgid "minute_short"
 msgstr "m"
+
+msgid "second_short"
+msgstr ""
 
 msgid "city"
 msgstr "Şehir"
@@ -367,9 +368,6 @@ msgstr "Güneş rüzgarı"
 msgid "aurora_visibility"
 msgstr "Aurora görünürlüğü"
 
-msgid "xray_class"
-msgstr "X-ışını parlama sınıfı"
-
 msgid "geomagnetic_activity"
 msgstr "Jeomanyetik aktivite"
 
@@ -426,24 +424,6 @@ msgstr "Yüksek"
 
 msgid "aurora_excellent"
 msgstr "Mükemmel"
-
-msgid "g0_desc"
-msgstr "Jeomanyetik fırtına aktivitesi yok."
-
-msgid "g1_desc"
-msgstr "Küçük jeomanyetik fırtına."
-
-msgid "g2_desc"
-msgstr "Orta şiddetli jeomanyetik fırtına."
-
-msgid "g3_desc"
-msgstr "Güçlü jeomanyetik fırtına."
-
-msgid "g4_desc"
-msgstr "Şiddetli jeomanyetik fırtına."
-
-msgid "g5_desc"
-msgstr "Aşırı jeomanyetik fırtına."
 
 msgid "wind"
 msgstr "Rüzgar"
@@ -637,10 +617,9 @@ msgstr "Olası değil"
 msgid "alert_certainty_unknown"
 msgstr "Bilinmiyor"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "Tümü"
 
@@ -650,35 +629,14 @@ msgstr "Tüm Diskler"
 msgid "All GPUs"
 msgstr "Tüm GPU’lar"
 
-msgid "All GPUs Total Memory"
-msgstr "Tüm GPU’ların Toplam Belleği"
-
-msgid "All GPUs Usage"
-msgstr "Kullanılan Tüm GPU’lar"
-
-msgid "All GPUs Used Memory"
-msgstr "Tüm GPU’ların Kullanılan Belleği"
-
 msgid "All Network Devices"
 msgstr "Tüm Ağ Aygıtları"
 
 msgid "Application Memory"
 msgstr "Uygulama Belleği"
 
-msgid "Application Memory Percentage"
-msgstr "Uygulama Belleği Yüzdesi"
-
-msgid "Average CPU Frequency"
-msgstr "Ortalama CPU Frekansı"
-
-msgid "Average CPU Temperature"
-msgstr "Ortalama CPU Sıcaklığı"
-
 msgid "Buffer Memory"
 msgstr "Arabellek Belleği"
-
-msgid "Buffer Memory Percentage"
-msgstr "Arabellek Belleği Yüzdesi"
 
 msgid "CPU %1"
 msgstr "%1. CPU"
@@ -692,17 +650,8 @@ msgstr "CPU Basıncı"
 msgid "Cache Memory"
 msgstr "Önbellek Belleği"
 
-msgid "Cache Memory Percentage"
-msgstr "Önbellek Belleği Yüzdesi"
-
 msgid "Charge"
 msgstr "Şarj"
-
-msgid "Charge Percentage"
-msgstr "Şarj Yüzdesi"
-
-msgid "Charging  Rate"
-msgstr "Şarj Hızı"
 
 msgid "Charging Rate"
 msgstr "Şarj Hızı"
@@ -716,9 +665,6 @@ msgstr "Geçerli Sığa"
 msgid "Current Frequency"
 msgstr "Geçerli Frekans"
 
-msgid "Current Temperature"
-msgstr "Geçerli Sıcaklık"
-
 msgid "Design Capacity"
 msgstr "Fabrika Sığası"
 
@@ -728,29 +674,11 @@ msgstr "İndirme Hızı"
 msgid "Free Physical Memory"
 msgstr "Boş Fiziksel Bellek"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Boş Fiziksel Bellek Yüzdesi"
-
 msgid "Free Space"
 msgstr "Boş Alan"
 
 msgid "Free Swap Memory"
 msgstr "Boş Takas Belleği"
-
-msgid "Free Swap Memory Percentage"
-msgstr "Boş Takas Belleği Yüzdesi"
-
-msgid "Frequency"
-msgstr "Frekans"
-
-msgid "Full (1 minute average)"
-msgstr "Tam (1 Dakikalık Averaj)"
-
-msgid "Full (10 second average)"
-msgstr "Tam (10 Saniyelik Averaj)"
-
-msgid "Full (5 minute average)"
-msgstr "Tam (5 Dakikalık Averaj)"
 
 msgid "GPU"
 msgstr "GPU"
@@ -815,18 +743,6 @@ msgstr "Çekirdek Adı ve Sürümü"
 msgid "Kernel Version"
 msgstr "Çekirdek Sürümü"
 
-msgid "Load Averages"
-msgstr "Yükleme Ortalamaları"
-
-msgid "Load average (1 minute)"
-msgstr "Yükleme ortalaması (1 dakika)"
-
-msgid "Load average (15 minute)"
-msgstr "Yükleme ortalaması (15 dakika)"
-
-msgid "Load average (5 minutes)"
-msgstr "Yükleme ortalaması (5 dakika)"
-
 msgid "Maximum CPU Frequency"
 msgstr "En Büyük CPU Frekansı"
 
@@ -872,9 +788,6 @@ msgstr "İşletim Sistemi Logosu"
 msgid "Operating System Name"
 msgstr "İşletim Sistemi Adı"
 
-msgid "Operating System Name and Version"
-msgstr "İşletim Sistemi Adı ve Sürümü"
-
 msgid "Operating System URL"
 msgstr "İşletim Sistemi URL’si"
 
@@ -905,15 +818,6 @@ msgstr "Okuma Hızı"
 msgid "Signal Strength"
 msgstr "Sinyal Gücü"
 
-msgid "Some (1 minute average)"
-msgstr "Biraz (1 Dakikalık Averaj)"
-
-msgid "Some (10 second average)"
-msgstr "Biraz (10 Saniyelik Averaj)"
-
-msgid "Some (5 minute average)"
-msgstr "Biraz (5 Dakikalık Averaj)"
-
 msgid "Swap Memory"
 msgstr "Takas Belleği"
 
@@ -922,9 +826,6 @@ msgstr "Sistem"
 
 msgid "System Usage"
 msgstr "Sistem Kullanımı"
-
-msgid "Temperature"
-msgstr "Sıcaklık"
 
 msgid "Total Downloaded"
 msgstr "Toplam İndirilen"
@@ -965,17 +866,11 @@ msgstr "Kullanım"
 msgid "Used Physical Memory"
 msgstr "Kullanılan Fiziksel Bellek"
 
-msgid "Used Physical Memory Percentage"
-msgstr "Kullanılan Fiziksel Bellek Yüzdesi"
-
 msgid "Used Space"
 msgstr "Kullanılan Alan"
 
 msgid "Used Swap Memory"
 msgstr "Kullanılan Takas Belleği"
-
-msgid "Used Swap Memory Percentage"
-msgstr "Kullanılan Takas Belleği Yüzdesi"
 
 msgid "User Usage"
 msgstr "Kullanıcı Kullanımı"
@@ -995,10 +890,9 @@ msgstr "Pencere Sistemi"
 msgid "Write Rate"
 msgstr "Yazma Hızı"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "Gelenler"
 
@@ -1737,3 +1631,725 @@ msgstr "Tepki"
 msgid "React"
 msgstr "Tepki ver"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "İşlemci"
+
+msgid "Processor Usage"
+msgstr "İşlemci Kullanımı"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "CPU Kullanımı"
+
+msgid "Cores"
+msgstr "Çekirdekler"
+
+msgid "Freq"
+msgstr "Frek."
+
+msgid "Max Freq"
+msgstr "En yüksek frek."
+
+msgid "Min Freq"
+msgstr "En düşük frek."
+
+msgid "Governor"
+msgstr "Governor"
+
+msgid "CPU Governor"
+msgstr "CPU Governor"
+
+msgid "Temp"
+msgstr "Sıcaklık"
+
+msgid "CPU Temp"
+msgstr "CPU Sıcaklığı"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "Bellek"
+
+msgid "Mem Used"
+msgstr "Kullanılan Bellek"
+
+msgid "Mem Free"
+msgstr "Boş Bellek"
+
+msgid "Mem Total"
+msgstr "Toplam Bellek"
+
+msgid "Swap"
+msgstr "Takas"
+
+msgid "Swap Used"
+msgstr "Kullanılan Takas"
+
+msgid "Swap Free"
+msgstr "Boş Takas"
+
+msgid "Swap Total"
+msgstr "Toplam Takas"
+
+msgid "Buffer"
+msgstr "Arabellek"
+
+msgid "Cache"
+msgstr "Önbellek"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "Disk"
+
+msgid "Disk Usage"
+msgstr "Disk Kullanımı"
+
+msgid "Disk IO"
+msgstr "Disk G/Ç"
+
+msgid "Disk IO Rate"
+msgstr "Disk G/Ç Hızı"
+
+msgid "File System"
+msgstr "Dosya Sistemi"
+
+msgid "Filesystem"
+msgstr "Dosya Sistemi"
+
+msgid "HDD Temp"
+msgstr "HDD Sıcaklığı"
+
+msgid "Net"
+msgstr "Ağ"
+
+msgid "Network Usage"
+msgstr "Ağ Kullanımı"
+
+msgid "Down"
+msgstr "İndirme"
+
+msgid "Up"
+msgstr "Yükleme"
+
+msgid "Total Down"
+msgstr "Toplam İndirme"
+
+msgid "Total Up"
+msgstr "Toplam Yükleme"
+
+msgid "Gateway"
+msgstr "Ağ geçidi"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Kablosuz"
+
+msgid "Access Point"
+msgstr "Erişim Noktası"
+
+msgid "Wireless Signal"
+msgstr "Kablosuz Sinyal"
+
+msgid "Wireless Channel"
+msgstr "Kablosuz Kanal"
+
+msgid "Wireless Bitrate"
+msgstr "Kablosuz Bit Hızı"
+
+msgid "Wireless Mode"
+msgstr "Kablosuz Mod"
+
+msgid "Wireless ESSID"
+msgstr "Kablosuz ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "Ekran Kartı"
+
+msgid "Graphics Card"
+msgstr "Grafik Kartı"
+
+msgid "GPU Temp"
+msgstr "GPU Sıcaklığı"
+
+msgid "GPU Freq"
+msgstr "GPU Frekansı"
+
+msgid "Video Memory"
+msgstr "Video Belleği"
+
+msgid "GPU Model"
+msgstr "GPU Modeli"
+
+msgid "Model Name"
+msgstr "Model Adı"
+
+msgid "GPU Driver"
+msgstr "GPU Sürücüsü"
+
+msgid "GPU Architecture"
+msgstr "GPU Mimarisi"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "Fan"
+
+msgid "Fan Speed"
+msgstr "Fan Hızı"
+
+msgid "Voltage"
+msgstr "Gerilim"
+
+msgid "Entropy"
+msgstr "Entropi"
+
+msgid "Entropy Pool Size"
+msgstr "Entropi Havuz Boyutu"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "Pil"
+
+msgid "Battery Status"
+msgstr "Pil Durumu"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "Pil Süresi"
+
+msgid "Time Remaining"
+msgstr "Kalan Süre"
+
+msgid "Power Draw"
+msgstr "Güç Tüketimi"
+
+msgid "AC Adapter"
+msgstr "AC Adaptörü"
+
+msgid "AC Power"
+msgstr "AC Gücü"
+
+msgid "Charging"
+msgstr "Şarj Oluyor"
+
+msgid "Discharging"
+msgstr "Deşarj Oluyor"
+
+msgid "Not Charging"
+msgstr "Şarj Olmuyor"
+
+msgid "Full"
+msgstr "Dolu"
+
+msgid "Empty"
+msgstr "Boş"
+
+msgid "Remaining"
+msgstr "Kalan"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "Makine"
+
+msgid "Machine Model"
+msgstr "Makine Modeli"
+
+msgid "Distribution"
+msgstr "Dağıtım"
+
+msgid "Desktop"
+msgstr "Masaüstü"
+
+msgid "Desktop Name"
+msgstr "Masaüstü Adı"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "İşlemler"
+
+msgid "Running Processes"
+msgstr "Çalışan İşlemler"
+
+msgid "Running Threads"
+msgstr "Çalışan İş Parçacıkları"
+
+msgid "Shared Memory"
+msgstr "Paylaşılan Bellek"
+
+msgid "Shared Memory Used"
+msgstr "Kullanılan Paylaşılan Bellek"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "Şu an çalıyor"
+
+msgid "Media Player"
+msgstr "Medya Oynatıcı"
+
+msgid "Music"
+msgstr "Müzik"
+
+msgid "Song"
+msgstr "Şarkı"
+
+msgid "Artist"
+msgstr "Sanatçı"
+
+msgid "Album"
+msgstr "Albüm"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "Track"
+msgstr "Parça"
+
+msgid "Track Number"
+msgstr "Parça numarası"
+
+msgid "Genre"
+msgstr "Tür"
+
+msgid "Bitrate"
+msgstr "Bit hızı"
+
+msgid "Lyrics"
+msgstr "Şarkı sözleri"
+
+msgid "Play"
+msgstr "Çal"
+
+msgid "Pause"
+msgstr "Duraklat"
+
+msgid "Stop"
+msgstr "Durdur"
+
+msgid "Volume"
+msgstr "Ses düzeyi"
+
+msgid "Shuffle"
+msgstr "Karıştır"
+
+msgid "Repeat"
+msgstr "Tekrarla"
+
+msgid "Playing"
+msgstr "Çalıyor"
+
+msgid "Paused"
+msgstr "Duraklatıldı"
+
+msgid "Stopped"
+msgstr "Durduruldu"
+
+msgid "Not Playing"
+msgstr "Çalmıyor"
+
+msgid "Position"
+msgstr "Konum"
+
+msgid "Duration"
+msgstr "Süre"
+
+msgid "Elapsed"
+msgstr "Geçen süre"
+
+msgid "Remaining Time"
+msgstr "Kalan süre"
+
+msgid "Total Time"
+msgstr "Toplam süre"
+
+msgid "Stream"
+msgstr "Akış"
+
+msgid "Radio"
+msgstr "Radyo"
+
+msgid "Podcast"
+msgstr "Podcast"
+
+msgid "Episode"
+msgstr "Bölüm"
+
+msgid "Artwork"
+msgstr "Albüm kapağı"
+
+msgid "Cover"
+msgstr "Kapak"
+
+msgid "Track List"
+msgstr "Parça listesi"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "Etkin Bellek"
+
+msgid "Inactive Memory"
+msgstr "Pasif Bellek"
+
+msgid "Dirty Memory"
+msgstr "Kirli Bellek"
+
+msgid "Wired Memory"
+msgstr "Sabit Bellek"
+
+msgid "Available Memory"
+msgstr "Kullanılabilir Bellek"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "Arayüz"
+
+msgid "Interface Name"
+msgstr "Arayüz Adı"
+
+msgid "Network Interface"
+msgstr "Ağ Arayüzü"
+
+msgid "Local IP"
+msgstr "Yerel IP"
+
+msgid "Local IPv4"
+msgstr "Yerel IPv4"
+
+msgid "Local IPv6"
+msgstr "Yerel IPv6"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "MAC Adresi"
+
+msgid "Network Status"
+msgstr "Ağ Durumu"
+
+msgid "Online"
+msgstr "Çevrimiçi"
+
+msgid "Unavailable"
+msgstr "Kullanılamıyor"
+
+msgid "Unknown"
+msgstr "Bilinmiyor"
+
+msgid "Download Speed"
+msgstr "İndirme Hızı"
+
+msgid "Upload Speed"
+msgstr "Yükleme Hızı"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "Kablo"
+
+msgid "Line Voltage"
+msgstr "Hat Gerilimi"
+
+msgid "Last Transfer"
+msgstr "Son Aktarım"
+
+msgid "Time Left"
+msgstr "Kalan Süre"
+
+msgid "UPS Mode"
+msgstr "UPS Modu"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Sayı Kilidi"
+
+msgid "Scroll Lock"
+msgstr "Kaydırma Kilidi"
+
+msgid "Brightness"
+msgstr "Parlaklık"
+
+msgid "Backlight"
+msgstr "Arka Aydınlatma"
+
+msgid "Laptop Mode"
+msgstr "Dizüstü Modu"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Kullanıcı"
+
+msgid "CPU Time"
+msgstr "CPU Süresi"
+
+msgid "I/O Scheduler"
+msgstr "G/Ç Zamanlayıcı"
+
+msgid "Scheduler"
+msgstr "Zamanlayıcı"
+
+msgid "Node Name"
+msgstr "Düğüm Adı"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "Paketler"
+
+msgid "Package"
+msgstr "Paket"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "Güncel Sıcaklık"
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "Albüm Sanatçısı"
+
+msgid "Codec"
+msgstr "Kodek"
+
+msgid "Composer"
+msgstr "Besteci"
+
+msgid "Disc"
+msgstr "Disk"
+
+msgid "Disc Number"
+msgstr "Disk Numarası"
+
+msgid "Elapsed Time"
+msgstr "Geçen Süre"
+
+msgid "Format"
+msgstr "Biçim"
+
+msgid "Sample Rate"
+msgstr "Örnekleme Oranı"
+
+msgid "Track Position"
+msgstr "Parça Konumu"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "Arabellek"
+
+msgid "Karaoke Mode"
+msgstr "Karaoke Modu"
+
+msgid "Live Stream"
+msgstr "Canlı Yayın"
+
+msgid "Playlist"
+msgstr "Çalma Listesi"
+
+msgid "Progress"
+msgstr "İlerleme"
+
+msgid "Queue"
+msgstr "Kuyruk"
+
+msgid "Recently Played"
+msgstr "Son Çalınanlar"
+
+msgid "Repeat One"
+msgstr "Tek Tekrar"
+
+msgid "Repeat All"
+msgstr "Tümünü Tekrarla"
+
+msgid "Station"
+msgstr "İstasyon"
+
+msgid "Streaming"
+msgstr "Yayın Akışı"
+
+msgid "Stream Quality"
+msgstr "Yayın Kalitesi"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "Sonraki Parça"
+
+msgid "Previous Track"
+msgstr "Önceki Parça"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "Geçerli Satır"
+
+msgid "Next Line"
+msgstr "Sonraki Satır"
+
+msgid "Previous Line"
+msgstr "Önceki Satır"
+
+msgid "Synced"
+msgstr "Senkronize Edildi"
+
+msgid "Unsynced"
+msgstr "Senkronize Edilmedi"
+
+msgid "Synced Lyrics"
+msgstr "Senkronize Şarkı Sözleri"
+
+msgid "No Synced Lyrics"
+msgstr "Senkronize Şarkı Sözü Yok"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "Şarkı Sözü Hatası"
+
+msgid "Lyrics Loading"
+msgstr "Şarkı Sözleri Yükleniyor"
+
+msgid "Lyrics Not Found"
+msgstr "Şarkı Sözü Bulunamadı"
+
+msgid "Lyrics Unavailable"
+msgstr "Şarkı Sözü Kullanılamıyor"
+
+msgid "No Cover"
+msgstr "Kapak Yok"
+
+msgid "No Lyrics"
+msgstr "Şarkı Sözü Yok"
+
+msgid "No Lyrics Available"
+msgstr "Kullanılabilir Şarkı Sözü Yok"
+
+msgid "Loading Cover"
+msgstr "Kapak Yükleniyor"
+
+msgid "Loading Lyrics"
+msgstr "Şarkı Sözleri Yükleniyor"

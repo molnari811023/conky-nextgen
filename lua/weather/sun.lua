@@ -34,7 +34,7 @@ sunrise/sunset times and azimuths, solar noon/midnight times and elevations, arc
 -- - `need_to_draw_sun_icon()` — true if the sun is above the horizon
 --
 -- **Config/globals used:**
--- `W.sun`, `safe_str()`, `safe_num()`, `iso_to_mins()`, `arc_x()`, `arc_y()`, `round()`,
+-- `W.sun`, `optional_str()`, `optional_num()`, `iso_to_mins()`, `arc_x()`, `arc_y()`, `round()`,
 -- `load_weather_data()`
 --}}}
 
@@ -54,22 +54,22 @@ end
 
 function conky_sun_rise_time()
 	local s = sun_data()
-	return fmt_time(safe_str(s.sunrise and s.sunrise.time, "sun_rise_time"))
+	return fmt_time(optional_str(s.sunrise and s.sunrise.time, "", "sun_rise_time"))
 end
 
 function conky_sun_rise_azimuth()
 	local s = sun_data()
-	return safe_num(s.sunrise and s.sunrise.azimuth, "sun_rise_az")
+	return optional_num(s.sunrise and s.sunrise.azimuth, 0, "sun_rise_az")
 end
 
 function conky_sun_set_time()
 	local s = sun_data()
-	return fmt_time(safe_str(s.sunset and s.sunset.time, "sun_set_time"))
+	return fmt_time(optional_str(s.sunset and s.sunset.time, "", "sun_set_time"))
 end
 
 function conky_sun_set_azimuth()
 	local s = sun_data()
-	return safe_num(s.sunset and s.sunset.azimuth, "sun_set_az")
+	return optional_num(s.sunset and s.sunset.azimuth, 0, "sun_set_az")
 end
 
 --{{{
@@ -78,22 +78,22 @@ end
 
 function conky_sun_noon_time()
 	local s = sun_data()
-	return fmt_time(safe_str(s.solarnoon and s.solarnoon.time, "sun_noon_time"))
+	return fmt_time(optional_str(s.solarnoon and s.solarnoon.time, "", "sun_noon_time"))
 end
 
 function conky_sun_noon_elevation()
 	local s = sun_data()
-	return safe_num(s.solarnoon and s.solarnoon.disc_centre_elevation, "sun_noon_elev")
+	return optional_num(s.solarnoon and s.solarnoon.disc_centre_elevation, 0, "sun_noon_elev")
 end
 
 function conky_sun_midnight_time()
 	local s = sun_data()
-	return fmt_time(safe_str(s.solarmidnight and s.solarmidnight.time, "sun_mid_time"))
+	return fmt_time(optional_str(s.solarmidnight and s.solarmidnight.time, "", "sun_mid_time"))
 end
 
 function conky_sun_midnight_elevation()
 	local s = sun_data()
-	return safe_num(s.solarmidnight and s.solarmidnight.disc_centre_elevation, "sun_mid_elev")
+	return optional_num(s.solarmidnight and s.solarmidnight.disc_centre_elevation, 0, "sun_mid_elev")
 end
 
 --{{{

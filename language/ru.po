@@ -1,31 +1,28 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/ru.po — Russian translations
 #  Compiled to language/ru.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "Качество воздуха"
 
@@ -122,10 +119,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "Город"
 
@@ -147,10 +146,9 @@ msgstr "Высота"
 msgid "population"
 msgstr "Население"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "Европейский AQI"
 
@@ -199,10 +197,9 @@ msgstr "Амброзия"
 msgid "pollen"
 msgstr "Пыльца"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "Ясно"
 
@@ -287,10 +284,9 @@ msgstr "Гроза с мелким градом"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "Гроза с крупным градом"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "С"
 
@@ -345,10 +341,9 @@ msgstr "ИЗМ"
 msgid "calm"
 msgstr "ШТИЛЬ"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "Новолуние"
 
@@ -373,20 +368,18 @@ msgstr "Последняя четверть"
 msgid "waning_crescent"
 msgstr "Старая луна"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "Солнце"
 
 msgid "moon"
 msgstr "Луна"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "Космическая погода"
 
@@ -398,9 +391,6 @@ msgstr "Солнечный ветер"
 
 msgid "aurora_visibility"
 msgstr "Видимость полярного сияния"
-
-msgid "xray_class"
-msgstr "Класс рентгеновской вспышки"
 
 msgid "geomagnetic_activity"
 msgstr "Геомагнитная активность"
@@ -458,28 +448,6 @@ msgstr "Высокая"
 
 msgid "aurora_excellent"
 msgstr "Отличная"
-
-msgid "g0_desc"
-msgstr "Геомагнитной активности нет."
-
-msgid "g1_desc"
-msgstr "Слабая геомагнитная буря."
-
-msgid "g2_desc"
-msgstr "Умеренная геомагнитная буря."
-
-msgid "g3_desc"
-msgstr "Сильная геомагнитная буря."
-
-msgid "g4_desc"
-msgstr "Очень сильная геомагнитная буря."
-
-msgid "g5_desc"
-msgstr "Экстремальная геомагнитная буря."
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "Ветер"
@@ -547,10 +515,9 @@ msgstr "Местоположение не задано"
 msgid "provider"
 msgstr "Провайдер"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "Заголовок"
 
@@ -578,10 +545,9 @@ msgstr "Нет"
 msgid "one_alert"
 msgstr "1 оповещение"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "Хорошее"
 
@@ -681,10 +647,9 @@ msgstr "Маловероятно"
 msgid "alert_certainty_unknown"
 msgstr "Неизвестно"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "Все"
 
@@ -694,35 +659,14 @@ msgstr "Все диски"
 msgid "All GPUs"
 msgstr "Все процессоры"
 
-msgid "All GPUs Total Memory"
-msgstr "Общий объём памяти всех процессоров"
-
-msgid "All GPUs Usage"
-msgstr "Использование всех процессоров"
-
-msgid "All GPUs Used Memory"
-msgstr "Объём использованной памяти всех процессоров"
-
 msgid "All Network Devices"
 msgstr "Все устройства сети"
 
 msgid "Application Memory"
 msgstr "Память приложений"
 
-msgid "Application Memory Percentage"
-msgstr "Доля памяти приложений"
-
-msgid "Average CPU Frequency"
-msgstr "Средняя частота процессора"
-
-msgid "Average CPU Temperature"
-msgstr "Средняя температура процессора"
-
 msgid "Buffer Memory"
 msgstr "Память буфера"
-
-msgid "Buffer Memory Percentage"
-msgstr "Доля памяти буфера"
 
 msgid "CPU %1"
 msgstr "Процессор %1"
@@ -736,17 +680,8 @@ msgstr "Дефицит ресурсов процессора"
 msgid "Cache Memory"
 msgstr "Память кэша"
 
-msgid "Cache Memory Percentage"
-msgstr "Доля памяти кэша"
-
 msgid "Charge"
 msgstr "Заряд"
-
-msgid "Charge Percentage"
-msgstr "Процент заряда"
-
-msgid "Charging  Rate"
-msgstr "Скорость зарядки"
 
 msgid "Charging Rate"
 msgstr "Скорость зарядки"
@@ -760,9 +695,6 @@ msgstr "Текущая ёмкость"
 msgid "Current Frequency"
 msgstr "Текущая частота"
 
-msgid "Current Temperature"
-msgstr "Текущая температура"
-
 msgid "Design Capacity"
 msgstr "Расчётная ёмкость"
 
@@ -772,29 +704,11 @@ msgstr "Скорость загрузки"
 msgid "Free Physical Memory"
 msgstr "Свободная физическая память"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Доля свободной физической памяти"
-
 msgid "Free Space"
 msgstr "Свободный объём"
 
 msgid "Free Swap Memory"
 msgstr "Свободно подкачки"
-
-msgid "Free Swap Memory Percentage"
-msgstr "Доля свободного объёма подкачки"
-
-msgid "Frequency"
-msgstr "Частота"
-
-msgid "Full (1 minute average)"
-msgstr "Полный (среднее за 1 минуту)"
-
-msgid "Full (10 second average)"
-msgstr "Полный (среднее за 10 секунд)"
-
-msgid "Full (5 minute average)"
-msgstr "Полный (среднее за 5 минут)"
 
 msgid "GPU"
 msgstr "GPU"
@@ -859,18 +773,6 @@ msgstr "Имя и версия ядра"
 msgid "Kernel Version"
 msgstr "Версия ядра"
 
-msgid "Load Averages"
-msgstr "Средняя нагрузка"
-
-msgid "Load average (1 minute)"
-msgstr "Средняя нагрузка (за 1 минуту)"
-
-msgid "Load average (15 minute)"
-msgstr "Средняя нагрузка (за 15 минут)"
-
-msgid "Load average (5 minutes)"
-msgstr "Средняя нагрузка (за 5 минут)"
-
 msgid "Maximum CPU Frequency"
 msgstr "Максимальная частота процессора"
 
@@ -916,9 +818,6 @@ msgstr "Логотип операционной системы"
 msgid "Operating System Name"
 msgstr "Название операционной системы"
 
-msgid "Operating System Name and Version"
-msgstr "Название и версия операционной системы"
-
 msgid "Operating System URL"
 msgstr "Адрес сайта операционной системы"
 
@@ -949,15 +848,6 @@ msgstr "Скорость чтения"
 msgid "Signal Strength"
 msgstr "Мощность сигнала"
 
-msgid "Some (1 minute average)"
-msgstr "Частичный (среднее за 1 минуту)"
-
-msgid "Some (10 second average)"
-msgstr "Частичный (среднее за 10 секунд)"
-
-msgid "Some (5 minute average)"
-msgstr "Частичный (среднее за 5 минут)"
-
 msgid "Swap Memory"
 msgstr "Область подкачки"
 
@@ -966,9 +856,6 @@ msgstr "Система"
 
 msgid "System Usage"
 msgstr "Использование системой"
-
-msgid "Temperature"
-msgstr "Температура"
 
 msgid "Total Downloaded"
 msgstr "Всего загружено"
@@ -1009,17 +896,11 @@ msgstr "Использование"
 msgid "Used Physical Memory"
 msgstr "Использовано физической памяти"
 
-msgid "Used Physical Memory Percentage"
-msgstr "Доля использованной физической памяти"
-
 msgid "Used Space"
 msgstr "Использованный объём"
 
 msgid "Used Swap Memory"
 msgstr "Использованный объём подкачки"
-
-msgid "Used Swap Memory Percentage"
-msgstr "Доля использованного объёма подкачки"
 
 msgid "User Usage"
 msgstr "Использование пользователем"
@@ -1039,10 +920,9 @@ msgstr "Оконная система"
 msgid "Write Rate"
 msgstr "Скорость записи"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "Входящие"
 
@@ -1781,3 +1661,725 @@ msgstr "Реакция"
 msgid "React"
 msgstr "Реагировать"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "Процессор"
+
+msgid "Processor Usage"
+msgstr "Загрузка процессора"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "Загрузка CPU"
+
+msgid "Cores"
+msgstr "Ядра"
+
+msgid "Freq"
+msgstr "Част."
+
+msgid "Max Freq"
+msgstr "Макс. част."
+
+msgid "Min Freq"
+msgstr "Мин. част."
+
+msgid "Governor"
+msgstr "Губернатор"
+
+msgid "CPU Governor"
+msgstr "Губернатор CPU"
+
+msgid "Temp"
+msgstr "Темп."
+
+msgid "CPU Temp"
+msgstr "Темп. CPU"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "Память"
+
+msgid "Mem Used"
+msgstr "Используемая память"
+
+msgid "Mem Free"
+msgstr "Свободная память"
+
+msgid "Mem Total"
+msgstr "Вся память"
+
+msgid "Swap"
+msgstr "Подкачка"
+
+msgid "Swap Used"
+msgstr "Используемая подкачка"
+
+msgid "Swap Free"
+msgstr "Свободная подкачка"
+
+msgid "Swap Total"
+msgstr "Вся подкачка"
+
+msgid "Buffer"
+msgstr "Буфер"
+
+msgid "Cache"
+msgstr "Кэш"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "Диск"
+
+msgid "Disk Usage"
+msgstr "Использование диска"
+
+msgid "Disk IO"
+msgstr "Ввод-вывод диска"
+
+msgid "Disk IO Rate"
+msgstr "Скорость ввода-вывода диска"
+
+msgid "File System"
+msgstr "Файловая система"
+
+msgid "Filesystem"
+msgstr "Файловая система"
+
+msgid "HDD Temp"
+msgstr "Темп. HDD"
+
+msgid "Net"
+msgstr "Сеть"
+
+msgid "Network Usage"
+msgstr "Использование сети"
+
+msgid "Down"
+msgstr "Загрузка"
+
+msgid "Up"
+msgstr "Отдача"
+
+msgid "Total Down"
+msgstr "Всего загружено"
+
+msgid "Total Up"
+msgstr "Всего отдано"
+
+msgid "Gateway"
+msgstr "Шлюз"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Беспроводная"
+
+msgid "Access Point"
+msgstr "Точка доступа"
+
+msgid "Wireless Signal"
+msgstr "Беспроводной сигнал"
+
+msgid "Wireless Channel"
+msgstr "Беспроводной канал"
+
+msgid "Wireless Bitrate"
+msgstr "Беспроводная скорость передачи"
+
+msgid "Wireless Mode"
+msgstr "Беспроводной режим"
+
+msgid "Wireless ESSID"
+msgstr "Беспроводной ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "Видеокарта"
+
+msgid "Graphics Card"
+msgstr "Графическая карта"
+
+msgid "GPU Temp"
+msgstr "Темп. GPU"
+
+msgid "GPU Freq"
+msgstr "Част. GPU"
+
+msgid "Video Memory"
+msgstr "Видеопамять"
+
+msgid "GPU Model"
+msgstr "Модель GPU"
+
+msgid "Model Name"
+msgstr "Название модели"
+
+msgid "GPU Driver"
+msgstr "Драйвер GPU"
+
+msgid "GPU Architecture"
+msgstr "Архитектура GPU"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "Вентилятор"
+
+msgid "Fan Speed"
+msgstr "Скорость вентилятора"
+
+msgid "Voltage"
+msgstr "Напряжение"
+
+msgid "Entropy"
+msgstr "Энтропия"
+
+msgid "Entropy Pool Size"
+msgstr "Размер пула энтропии"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "Аккумулятор"
+
+msgid "Battery Status"
+msgstr "Состояние аккумулятора"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "Время работы от аккумулятора"
+
+msgid "Time Remaining"
+msgstr "Оставшееся время"
+
+msgid "Power Draw"
+msgstr "Потребляемая мощность"
+
+msgid "AC Adapter"
+msgstr "Адаптер питания"
+
+msgid "AC Power"
+msgstr "Сетевое питание"
+
+msgid "Charging"
+msgstr "Зарядка"
+
+msgid "Discharging"
+msgstr "Разрядка"
+
+msgid "Not Charging"
+msgstr "Не заряжается"
+
+msgid "Full"
+msgstr "Полная"
+
+msgid "Empty"
+msgstr "Пустая"
+
+msgid "Remaining"
+msgstr "Осталось"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "Машина"
+
+msgid "Machine Model"
+msgstr "Модель машины"
+
+msgid "Distribution"
+msgstr "Дистрибутив"
+
+msgid "Desktop"
+msgstr "Рабочий стол"
+
+msgid "Desktop Name"
+msgstr "Имя рабочего стола"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "Процессы"
+
+msgid "Running Processes"
+msgstr "Работающие процессы"
+
+msgid "Running Threads"
+msgstr "Работающие потоки"
+
+msgid "Shared Memory"
+msgstr "Общая память"
+
+msgid "Shared Memory Used"
+msgstr "Используемая общая память"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "Сейчас играет"
+
+msgid "Media Player"
+msgstr "Медиаплеер"
+
+msgid "Music"
+msgstr "Музыка"
+
+msgid "Song"
+msgstr "Песня"
+
+msgid "Artist"
+msgstr "Исполнитель"
+
+msgid "Album"
+msgstr "Альбом"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Track"
+msgstr "Трек"
+
+msgid "Track Number"
+msgstr "Номер трека"
+
+msgid "Genre"
+msgstr "Жанр"
+
+msgid "Bitrate"
+msgstr "Битрейт"
+
+msgid "Lyrics"
+msgstr "Текст песни"
+
+msgid "Play"
+msgstr "Воспроизвести"
+
+msgid "Pause"
+msgstr "Пауза"
+
+msgid "Stop"
+msgstr "Остановить"
+
+msgid "Volume"
+msgstr "Громкость"
+
+msgid "Shuffle"
+msgstr "Перемешивание"
+
+msgid "Repeat"
+msgstr "Повтор"
+
+msgid "Playing"
+msgstr "Воспроизводится"
+
+msgid "Paused"
+msgstr "На паузе"
+
+msgid "Stopped"
+msgstr "Остановлено"
+
+msgid "Not Playing"
+msgstr "Не воспроизводится"
+
+msgid "Position"
+msgstr "Позиция"
+
+msgid "Duration"
+msgstr "Длительность"
+
+msgid "Elapsed"
+msgstr "Прошло"
+
+msgid "Remaining Time"
+msgstr "Оставшееся время"
+
+msgid "Total Time"
+msgstr "Общее время"
+
+msgid "Stream"
+msgstr "Поток"
+
+msgid "Radio"
+msgstr "Радио"
+
+msgid "Podcast"
+msgstr "Подкаст"
+
+msgid "Episode"
+msgstr "Эпизод"
+
+msgid "Artwork"
+msgstr "Обложка"
+
+msgid "Cover"
+msgstr "Обложка"
+
+msgid "Track List"
+msgstr "Список треков"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "Активная память"
+
+msgid "Inactive Memory"
+msgstr "Неактивная память"
+
+msgid "Dirty Memory"
+msgstr "Грязная память"
+
+msgid "Wired Memory"
+msgstr "Закреплённая память"
+
+msgid "Available Memory"
+msgstr "Доступная память"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "Интерфейс"
+
+msgid "Interface Name"
+msgstr "Имя интерфейса"
+
+msgid "Network Interface"
+msgstr "Сетевой интерфейс"
+
+msgid "Local IP"
+msgstr "Локальный IP"
+
+msgid "Local IPv4"
+msgstr "Локальный IPv4"
+
+msgid "Local IPv6"
+msgstr "Локальный IPv6"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "MAC-адрес"
+
+msgid "Network Status"
+msgstr "Состояние сети"
+
+msgid "Online"
+msgstr "Онлайн"
+
+msgid "Unavailable"
+msgstr "Недоступно"
+
+msgid "Unknown"
+msgstr "Неизвестно"
+
+msgid "Download Speed"
+msgstr "Скорость загрузки"
+
+msgid "Upload Speed"
+msgstr "Скорость отдачи"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "ИБП"
+
+msgid "Cable"
+msgstr "Кабель"
+
+msgid "Line Voltage"
+msgstr "Напряжение сети"
+
+msgid "Last Transfer"
+msgstr "Последняя передача"
+
+msgid "Time Left"
+msgstr "Оставшееся время"
+
+msgid "UPS Mode"
+msgstr "Режим ИБП"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "Яркость"
+
+msgid "Backlight"
+msgstr "Подсветка"
+
+msgid "Laptop Mode"
+msgstr "Режим ноутбука"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "CPU Time"
+msgstr "Время CPU"
+
+msgid "I/O Scheduler"
+msgstr "Планировщик I/O"
+
+msgid "Scheduler"
+msgstr "Планировщик"
+
+msgid "Node Name"
+msgstr "Имя узла"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "Пакеты"
+
+msgid "Package"
+msgstr "Пакет"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "Текущая темп."
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "Исполнитель альбома"
+
+msgid "Codec"
+msgstr "Кодек"
+
+msgid "Composer"
+msgstr "Композитор"
+
+msgid "Disc"
+msgstr "Диск"
+
+msgid "Disc Number"
+msgstr "Номер диска"
+
+msgid "Elapsed Time"
+msgstr "Прошедшее время"
+
+msgid "Format"
+msgstr "Формат"
+
+msgid "Sample Rate"
+msgstr "Частота дискретизации"
+
+msgid "Track Position"
+msgstr "Позиция трека"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "Буферизация"
+
+msgid "Karaoke Mode"
+msgstr "Режим караоке"
+
+msgid "Live Stream"
+msgstr "Прямая трансляция"
+
+msgid "Playlist"
+msgstr "Плейлист"
+
+msgid "Progress"
+msgstr "Прогресс"
+
+msgid "Queue"
+msgstr "Очередь"
+
+msgid "Recently Played"
+msgstr "Недавно воспроизведённое"
+
+msgid "Repeat One"
+msgstr "Повторять одну"
+
+msgid "Repeat All"
+msgstr "Повторять всё"
+
+msgid "Station"
+msgstr "Станция"
+
+msgid "Streaming"
+msgstr "Стриминг"
+
+msgid "Stream Quality"
+msgstr "Качество потока"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "Следующий трек"
+
+msgid "Previous Track"
+msgstr "Предыдущий трек"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "Текущая строка"
+
+msgid "Next Line"
+msgstr "Следующая строка"
+
+msgid "Previous Line"
+msgstr "Предыдущая строка"
+
+msgid "Synced"
+msgstr "Синхронизировано"
+
+msgid "Unsynced"
+msgstr "Не синхронизировано"
+
+msgid "Synced Lyrics"
+msgstr "Синхронизированный текст"
+
+msgid "No Synced Lyrics"
+msgstr "Нет синхронизированного текста"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "Ошибка текста песни"
+
+msgid "Lyrics Loading"
+msgstr "Загрузка текста"
+
+msgid "Lyrics Not Found"
+msgstr "Текст песни не найден"
+
+msgid "Lyrics Unavailable"
+msgstr "Текст песни недоступен"
+
+msgid "No Cover"
+msgstr "Нет обложки"
+
+msgid "No Lyrics"
+msgstr "Нет текста песни"
+
+msgid "No Lyrics Available"
+msgstr "Нет доступного текста песни"
+
+msgid "Loading Cover"
+msgstr "Загрузка обложки"
+
+msgid "Loading Lyrics"
+msgstr "Загрузка текста песни"

@@ -39,7 +39,7 @@ text wrappers for ${lua} templates.
 -- - `conky_weather_day_precip_hours_text(i)` — daily precipitation hours as string
 --
 -- **Config/globals used:**
--- `W.weather`, `safe_num()`, `round()`, `get_idx()`, `fmt_unix()`, `seconds_to_hour_min()`,
+-- `W.weather`, `require_num()`, `round()`, `get_idx()`, `fmt_unix()`, `seconds_to_hour_min()`,
 -- `conky_weather_code_text()`, `conky_wind_direction_text()`
 --}}}
 
@@ -66,18 +66,18 @@ local function fv(val, units, ukey, no_round)
 end
 
 local function cur(field, no_round)
-	return fv(safe_num((W.weather.current or {})[field], "cur_" .. field), cur_units(), field, no_round)
+	return fv(require_num((W.weather.current or {})[field], "cur_" .. field), cur_units(), field, no_round)
 end
 
 local function hour(i, field, no_round)
 	local arr = (W.weather.hourly or {})[field]
-	return fv(safe_num(arr and arr[get_idx(i)], "hour_" .. field), hour_units(), field, no_round)
+	return fv(require_num(arr and arr[get_idx(i)], "hour_" .. field), hour_units(), field, no_round)
 end
 
 local function day(i, field, no_round)
 	local arr = (W.weather.daily or {})[field]
 	local idx = tonumber(i) or 1
-	return fv(safe_num(arr and arr[idx], "day_" .. field), day_units(), field, no_round)
+	return fv(require_num(arr and arr[idx], "day_" .. field), day_units(), field, no_round)
 end
 
 --{{{
@@ -85,10 +85,10 @@ end
 --}}}
 
 function conky_weather_cur_time()
-	return safe_num((W.weather.current or {}).time, "cur_time")
+	return require_num((W.weather.current or {}).time, "cur_time")
 end
 function conky_weather_cur_interval()
-	return safe_num((W.weather.current or {}).interval, "cur_interval")
+	return require_num((W.weather.current or {}).interval, "cur_interval")
 end
 function conky_weather_cur_temp()
 	return cur("temperature_2m")
@@ -100,7 +100,7 @@ function conky_weather_cur_apparent()
 	return cur("apparent_temperature")
 end
 function conky_weather_cur_is_day()
-	return safe_num((W.weather.current or {}).is_day, "cur_is_day")
+	return require_num((W.weather.current or {}).is_day, "cur_is_day")
 end
 function conky_weather_cur_precip()
 	return cur("precipitation", true)
@@ -115,7 +115,7 @@ function conky_weather_cur_snow()
 	return cur("snowfall", true)
 end
 function conky_weather_cur_code()
-	return safe_num((W.weather.current or {}).weather_code, "cur_code")
+	return require_num((W.weather.current or {}).weather_code, "cur_code")
 end
 function conky_weather_cur_clouds()
 	return cur("cloud_cover")
@@ -139,7 +139,7 @@ function conky_weather_cur_wind_speed()
 	return cur("wind_speed_10m")
 end
 function conky_weather_cur_wind_dir()
-	return safe_num((W.weather.current or {}).wind_direction_10m, "cur_wind_dir")
+	return require_num((W.weather.current or {}).wind_direction_10m, "cur_wind_dir")
 end
 function conky_weather_cur_wind_gust()
 	return cur("wind_gusts_10m")
@@ -154,7 +154,7 @@ end
 
 function conky_weather_hour_time(i)
 	local h = (W.weather.hourly or {}).time
-	return safe_num(h and h[get_idx(i)], "hour_time")
+	return require_num(h and h[get_idx(i)], "hour_time")
 end
 function conky_weather_hour_temp(i)
 	return hour(i, "temperature_2m")
@@ -182,7 +182,7 @@ function conky_weather_hour_snow(i)
 end
 function conky_weather_hour_code(i)
 	local h = (W.weather.hourly or {}).weather_code
-	return safe_num(h and h[get_idx(i)], "hour_code")
+	return require_num(h and h[get_idx(i)], "hour_code")
 end
 function conky_weather_hour_clouds(i)
 	return hour(i, "cloud_cover")
@@ -201,7 +201,7 @@ function conky_weather_hour_wind_speed(i)
 end
 function conky_weather_hour_wind_dir(i)
 	local h = (W.weather.hourly or {}).wind_direction_10m
-	return safe_num(h and h[get_idx(i)], "hour_wind_dir")
+	return require_num(h and h[get_idx(i)], "hour_wind_dir")
 end
 function conky_weather_hour_wind_gust(i)
 	return hour(i, "wind_gusts_10m")
@@ -211,7 +211,7 @@ function conky_weather_hour_uv(i)
 end
 function conky_weather_hour_is_day(i)
 	local h = (W.weather.hourly or {}).is_day
-	return safe_num(h and h[get_idx(i)], "hour_is_day")
+	return require_num(h and h[get_idx(i)], "hour_is_day")
 end
 function conky_weather_hour_radiation(i)
 	return hour(i, "direct_radiation")
@@ -223,11 +223,11 @@ end
 
 function conky_weather_day_time(i)
 	local d = (W.weather.daily or {}).time
-	return safe_num(d and d[i], "day_time")
+	return require_num(d and d[i], "day_time")
 end
 function conky_weather_day_code(i)
 	local d = (W.weather.daily or {}).weather_code
-	return safe_num(d and d[i], "day_code")
+	return require_num(d and d[i], "day_code")
 end
 function conky_weather_day_temp_max(i)
 	return day(i, "temperature_2m_max")
@@ -244,22 +244,22 @@ end
 function conky_weather_day_sunrise(i)
 	local d = (W.weather.daily or {}).sunrise
 	local idx = tonumber(i) or 1
-	return fmt_unix(safe_num(d and d[idx], "day_sunrise"))
+	return fmt_unix(require_num(d and d[idx], "day_sunrise"))
 end
 function conky_weather_day_sunset(i)
 	local d = (W.weather.daily or {}).sunset
 	local idx = tonumber(i) or 1
-	return fmt_unix(safe_num(d and d[idx], "day_sunset"))
+	return fmt_unix(require_num(d and d[idx], "day_sunset"))
 end
 function conky_weather_day_daylight(i)
 	local d = (W.weather.daily or {}).daylight_duration
 	local idx = tonumber(i) or 1
-	return seconds_to_hour_min(safe_num(d and d[idx], "day_daylight"))
+	return seconds_to_hour_min(require_num(d and d[idx], "day_daylight"))
 end
 function conky_weather_day_sunshine(i)
 	local d = (W.weather.daily or {}).sunshine_duration
 	local idx = tonumber(i) or 1
-	return seconds_to_hour_min(safe_num(d and d[idx], "day_sunshine"))
+	return seconds_to_hour_min(require_num(d and d[idx], "day_sunshine"))
 end
 function conky_weather_day_uv(i)
 	return day(i, "uv_index_max")
@@ -294,7 +294,7 @@ end
 function conky_weather_day_wind_dir(i)
 	local d = (W.weather.daily or {}).wind_direction_10m_dominant
 	local idx = tonumber(i) or 1
-	return safe_num(d and d[idx], "day_wind_dir")
+	return require_num(d and d[idx], "day_wind_dir")
 end
 function conky_weather_day_radiation(i)
 	return day(i, "shortwave_radiation_sum", true)
@@ -337,5 +337,5 @@ end
 function conky_weather_day_precip_hours_text(i)
 	local arr = (W.weather.daily or {}).precipitation_hours
 	local idx = tonumber(i) or 1
-	return tostring(round(safe_num(arr and arr[idx], "day_precip_hours")))
+	return tostring(round(require_num(arr and arr[idx], "day_precip_hours")))
 end

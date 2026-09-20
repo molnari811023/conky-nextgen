@@ -118,6 +118,7 @@ from constants import (
     WIDGET_CONFIG_BLOCK, WEATHER_ICON_SETS, weather_icon_block,
     _installed_icon_themes, WIDGET_BOOTSTRAP_TAIL, WIDGET_WEATHER_FUNC,
     _FALLBACK_THEME, _empty_widget_lua, _colors_match, _color_to_hex_list,
+    MODULE_PROFILES,
 )
 from color_picker import ColorPickButton
 from lua_helpers import (
@@ -142,6 +143,8 @@ class DesignerWindow(Gtk.Window):
         self.selected_index = None
         self.current_view = "main"
         self.current_theme = THEME_NAME
+        self.module_profiles = ["full"]
+        self._profile_loading = False
         self.save_path = WIDGET_LUA
         self.dirty = False
         self.padding = 10
@@ -212,6 +215,25 @@ class DesignerWindow(Gtk.Window):
         self.padding_spin.set_width_chars(4)
         self.padding_spin.connect("value-changed", self._on_padding_changed)
         row1.pack_start(self.padding_spin, False, False, 0)
+
+        profile_frame = Gtk.Frame(label="Profile")
+        profile_frame.set_tooltip_text(
+            "Strict module sets loaded by this widget. Missing dependencies stop the widget."
+        )
+        profile_grid = Gtk.Grid(column_spacing=6, row_spacing=2)
+        profile_grid.set_margin_start(6)
+        profile_grid.set_margin_end(6)
+        profile_grid.set_margin_top(4)
+        profile_grid.set_margin_bottom(4)
+        profile_frame.add(profile_grid)
+        self.module_profile_checks = {}
+        for index, profile in enumerate(MODULE_PROFILES):
+            check = Gtk.CheckButton(label=profile.title())
+            check.connect("toggled", self._on_module_profile_changed, profile)
+            self.module_profile_checks[profile] = check
+            profile_grid.attach(check, index % 2, index // 2, 1, 1)
+        view_bar.pack_start(profile_frame, False, False, 0)
+        self._refresh_module_profiles()
 
         # ── Conky live preview controls ──
         conky_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
@@ -981,6 +1003,8 @@ class DesignerWindow(Gtk.Window):
             s = parse_settings(self.save_path)
             self.padding = s["padding"]
             self.current_theme = s["theme"]
+            self.module_profiles = s["module_profile"]
+            self._refresh_module_profiles()
             self.mouse_actions = parse_mouse_actions(content)
             for name, _ in MOUSE_ACTIONS:
                 if name not in self.mouse_actions:
@@ -994,6 +1018,40 @@ class DesignerWindow(Gtk.Window):
             self.custom_lua_code = m.group(1) if m else ""
         except FileNotFoundError:
             pass
+
+    def _refresh_module_profiles(self):
+        self._profile_loading = True
+        try:
+            profiles = []
+            for profile in self.module_profiles:
+                if profile in MODULE_PROFILES and profile not in profiles:
+                    profiles.append(profile)
+            if "full" in profiles or not profiles:
+                profiles = ["full"]
+            self.module_profiles = profiles
+            for profile, check in self.module_profile_checks.items():
+                check.set_active(profile in profiles)
+        finally:
+            self._profile_loading = False
+
+    def _on_module_profile_changed(self, check, changed_profile):
+        if self._profile_loading:
+            return
+        profiles = [
+            profile for profile, profile_check in self.module_profile_checks.items()
+            if profile_check.get_active()
+        ]
+        if changed_profile == "full" and check.get_active():
+            profiles = ["full"]
+        else:
+            profiles = [profile for profile in profiles if profile != "full"]
+            if not profiles:
+                profiles = ["full"]
+        if profiles != self.module_profiles:
+            self.module_profiles = profiles
+            self._refresh_module_profiles()
+            self._set_dirty()
+            self._schedule_refresh()
 
     def _populate_mouse_tab(self):
         """Fill the Mouse tab with dropdown rows."""
@@ -3865,7 +3923,7 @@ class DesignerWindow(Gtk.Window):
             "--  widget.lua — Widget data (generated/edited by sh/designer/main.py)",
             "--  Loaded directly by Conky (lua_load = 'widget.lua'). Structure:",
             "--    Global paths / config (formerly settings.lua)",
-            "--    DEFAULT_THEME / _PADDING — global settings",
+            "--    DEFAULT_THEME / MODULE_PROFILE / _PADDING — global settings",
             "--    draw[#draw + 1] = { ... }        — draw items (background, clock, bar, ...)",
             "--    _GROUPS = { { name, views } }    — item groups (view switching)",
             "--    _VIEWS  = { { name } }           — view definitions",
@@ -3882,6 +3940,9 @@ class DesignerWindow(Gtk.Window):
         lines += [
             tw.serialize_themes(te.THEMES),
             f'DEFAULT_THEME = "{THEME_NAME}"',
+            "MODULE_PROFILE = { " + ", ".join(
+                f'"{profile}"' for profile in self.module_profiles
+            ) + " }",
             f"_PADDING = {self.padding}",
             "",
             'require("require")',

@@ -1,0 +1,784 @@
+string_measure — Conky NextGen
+font: Mono | size: 13px
+nyelvek (22): ar, cs, da, de, en, es, fi, fr, hr, hu, it, ja, ko, nl, pl, pt, ro, ru, sv, tr, uk, zh_CN
+
+FELHASZNÁLT SZÉLESSÉG = a leghosszabb fordítás + kb. 8% ráhagyás
+
+AC Adapter                 151 px   ar    | ar:151 fr:144 pl:136 cs:127 uk:127 es:120 ru:119 it: 96 pt: 95 de: 88 fi: 88 tr: 87 da: 80 hu: 80 hr: 80 nl: 80 en: 80 sv: 80 ro: 79 zh_CN: 56 ja: 56 ko: 48
+Accepted                   103 px   pl    | pl:103 nl: 95 cs: 95 fi: 80 da: 79 sv: 79 de: 79 it: 71 ro: 71 tr: 71 hu: 70 hr: 70 fr: 64 es: 63 en: 63 uk: 63 ru: 55 pt: 48 ar: 39 ja: 24 ko: 16 zh_CN: 16
+Accept meeting request     303 px   hu    | hu:303 it:256 uk:255 pt:247 fr:239 hr:231 sv:231 nl:230 ro:224 es:223 de:222 pl:216 ru:200 cs:198 da:192 tr:191 en:175 fi:159 ar:136 ko: 96 ja: 88 zh_CN: 48
+Access Point               127 px   hu    | hu:127 it:126 hr:118 pt:118 es:118 cs:110 ro:110 tr:110 uk:104 ru:103 pl:102 fr:102 da: 95 nl: 95 de: 95 sv: 95 en: 95 ar: 87 fi: 71 ja: 64 ko: 56 zh_CN: 24
+Account                    119 px   uk    | uk:119 ru:111 hu: 71 nl: 55 it: 55 en: 55 fr: 48 es: 47 ja: 40 tr: 40 da: 39 hr: 39 de: 39 sv: 39 pt: 39 pl: 39 ar: 32 cs: 31 fi: 31 ro: 31 zh_CN: 16 ko: 16
+Accounts                   119 px   uk    | uk:119 ru:111 tr: 64 en: 63 nl: 63 es: 55 ro: 55 it: 55 fr: 55 ar: 48 hu: 47 de: 47 hr: 47 pt: 47 sv: 47 ja: 40 pl: 39 da: 39 fi: 39 cs: 32 ko: 16 zh_CN: 16
+AC Power                   160 px   fr    | fr:160 ar:151 pl:135 uk:135 cs:128 it:128 ru:120 es:103 hu:103 ro:103 hr: 96 fi: 87 pt: 78 de: 72 nl: 72 sv: 64 da: 64 en: 64 tr: 55 ko: 40 ja: 32 zh_CN: 32
+Active Memory              135 px   fi    | fi:135 da:128 de:128 hr:127 uk:119 ru:119 nl:119 fr:112 it:111 ro:111 es:111 pl:111 ar:108 en:104 hu:103 pt:103 cs:103 sv: 96 tr: 95 ja: 64 ko: 48 zh_CN: 32
+Address                     71 px   es    | es: 71 it: 70 pt: 62 da: 56 fr: 56 de: 56 en: 55 ar: 53 fi: 48 cs: 47 ro: 47 hr: 47 sv: 47 uk: 47 pl: 39 tr: 39 nl: 39 ru: 39 hu: 24 ja: 16 zh_CN: 16 ko: 16
+Add task                   143 px   de    | de:143 hu:142 fr:136 it:135 sv:134 pt:127 ru:120 uk:119 ro:111 nl:111 pl:104 da:104 hr:104 fi:102 es: 95 cs: 86 tr: 80 ar: 77 en: 64 ja: 48 ko: 40 zh_CN: 32
+Agenda                     135 px   it    | it:135 uk:111 pl:110 fr:104 ro: 95 ar: 95 ru: 95 fi: 86 sv: 79 hr: 79 da: 71 hu: 63 tr: 48 pt: 47 nl: 47 es: 47 de: 47 en: 47 cs: 47 ja: 40 ko: 16 zh_CN: 16
+air_quality                135 px   ro    | ro:135 it:135 hu:134 fr:128 es:128 ru:127 pl:127 pt:120 hr:119 cs:118 uk:111 nl:110 tr:103 da: 94 sv: 94 de: 94 en: 88 ar: 87 fi: 78 zh_CN: 32 ja: 32 ko: 24
+Album                       48 px   uk    | uk: 48 ru: 48 fi: 47 cs: 40 da: 40 ro: 40 hu: 40 en: 40 fr: 40 it: 40 de: 40 es: 40 sv: 40 pt: 40 tr: 40 nl: 40 hr: 40 pl: 40 ar: 38 ja: 32 ko: 16 zh_CN: 16
+Album Artist               151 px   ru    | ru:151 fr:144 it:144 uk:143 ro:143 es:136 pt:128 pl:127 fi:127 tr:119 de:112 hu:111 cs:110 hr:110 da:104 ar: 97 nl: 95 en: 95 sv: 87 ja: 80 ko: 56 zh_CN: 40
+alder                       71 px   tr    | tr: 71 pt: 55 it: 47 uk: 46 ar: 44 fr: 40 en: 40 es: 39 ru: 39 pl: 39 fi: 38 ja: 32 cs: 32 ko: 32 hu: 31 ro: 31 de: 31 hr: 31 nl: 22 zh_CN: 16 da: 15 sv: 15
+alert_certainty_likely     112 px   nl    | nl:112 de:111 pl:103 fi:103 cs:103 hr: 79 da: 78 it: 71 hu: 71 uk: 63 fr: 63 es: 63 tr: 63 ro: 62 ru: 62 pt: 62 ko: 48 ja: 48 sv: 47 en: 47 ar: 39 zh_CN: 24
+alert_certainty_observed    95 px   uk    | uk: 95 pl: 88 nl: 87 tr: 87 ru: 87 da: 79 sv: 79 hu: 79 cs: 78 hr: 78 de: 78 pt: 71 es: 71 it: 71 en: 63 fi: 63 ro: 63 fr: 56 ar: 39 ja: 32 ko: 24 zh_CN: 24
+alert_certainty_possible    87 px   fi    | fi: 87 hu: 78 it: 71 nl: 64 en: 63 fr: 63 pt: 62 ru: 62 pl: 56 es: 55 uk: 55 de: 55 ro: 54 ja: 48 ko: 48 hr: 48 sv: 47 cs: 40 da: 39 tr: 39 ar: 32 zh_CN: 16
+alert_certainty_unknown     95 px   pt    | pt: 95 es: 87 it: 87 fi: 79 ro: 79 tr: 79 ru: 79 hu: 78 ar: 72 de: 71 hr: 71 pl: 64 nl: 63 uk: 63 en: 55 cs: 55 fr: 54 ko: 48 da: 46 sv: 39 zh_CN: 16 ja: 16
+alert_certainty_unlikely   144 px   pl    | pl:144 nl:128 de:127 fi:126 cs:119 hr:119 ro:110 hu:103 uk: 95 ru: 95 tr: 87 it: 87 da: 86 es: 79 fr: 79 pt: 78 sv: 72 ar: 71 en: 64 ko: 48 ja: 48 zh_CN: 32
+alert_color_orange          95 px   pl    | pl: 95 uk: 94 ro: 78 hr: 78 it: 72 ru: 71 cs: 63 ar: 56 tr: 55 fi: 55 hu: 54 pt: 54 es: 54 sv: 48 nl: 48 fr: 48 en: 48 da: 48 de: 48 ja: 32 ko: 16 zh_CN: 16
+alert_color_red             63 px   pl    | pl: 63 pt: 63 uk: 62 fi: 62 ru: 54 tr: 54 cs: 54 hr: 46 fr: 38 hu: 38 it: 37 ar: 29 ro: 29 es: 29 nl: 29 en: 21 da: 21 de: 21 sv: 21 ko: 16 zh_CN: 16 ja:  8
+alert_color_yellow          71 px   fi    | fi: 71 es: 63 pt: 55 en: 48 it: 47 ro: 47 ru: 47 uk: 47 fr: 39 pl: 39 cs: 38 hu: 38 de: 32 nl: 31 tr: 30 hr: 30 ar: 29 sv: 23 da: 23 ko: 16 zh_CN: 16 ja: 16
+alert_description          143 px   fi    | fi:143 da:128 cs:111 nl: 94 de: 94 it: 88 es: 87 en: 87 fr: 87 sv: 86 ro: 72 pt: 71 ru: 64 tr: 63 hu: 46 ar: 37 pl: 31 hr: 31 uk: 31 ko: 16 ja: 16 zh_CN: 16
+alert_effective            159 px   da    | da:159 fi:119 ar:104 pl:103 ro:102 nl: 95 sv: 87 hr: 87 ru: 87 cs: 86 tr: 80 fr: 79 en: 71 it: 71 pt: 63 hu: 62 es: 56 de: 47 uk: 39 zh_CN: 32 ja: 32 ko: 16
+alert_expires              135 px   fi    | fi:135 ar:111 da:104 uk: 95 sv: 87 cs: 86 ru: 63 de: 63 hr: 55 nl: 55 en: 54 pl: 47 fr: 47 pt: 46 es: 46 ro: 46 it: 40 hu: 39 tr: 38 ja: 32 zh_CN: 32 ko: 16
+alert_headline             151 px   fi    | fi:151 cs:128 da:119 de: 87 uk: 72 ru: 72 en: 64 pl: 64 ar: 53 hu: 48 hr: 48 sv: 48 tr: 47 pt: 47 it: 47 es: 47 fr: 40 ro: 39 ja: 24 nl: 24 ko: 16 zh_CN: 16
+alert_instruction          127 px   da    | da:127 ro: 95 sv: 86 es: 86 en: 86 it: 79 ru: 79 nl: 79 pl: 78 de: 71 pt: 70 ar: 69 fr: 64 hu: 63 uk: 62 tr: 55 fi: 47 hr: 39 cs: 38 zh_CN: 16 ja: 16 ko: 16
+alerts                     111 px   nl    | nl:111 uk: 95 fi: 87 pl: 87 hu: 80 ru: 79 hr: 79 sv: 72 de: 71 ar: 69 cs: 64 tr: 64 da: 56 it: 56 es: 55 fr: 55 pt: 55 ro: 48 en: 47 ko: 16 ja: 16 zh_CN: 16
+alert_severity_extreme     143 px   cs    | cs:143 ru:103 uk:102 pl: 87 fi: 87 hr: 70 da: 56 nl: 55 en: 55 fr: 55 it: 54 ro: 54 es: 54 pt: 54 de: 47 sv: 47 hu: 47 tr: 39 ar: 32 zh_CN: 16 ja: 16 ko: 16
+alert_severity_minor       119 px   cs    | cs:119 ru:111 pl: 80 uk: 71 fi: 63 it: 48 da: 48 hu: 48 sv: 48 fr: 48 ro: 47 de: 47 es: 40 en: 40 pt: 40 tr: 40 nl: 39 ar: 32 hr: 31 ja: 16 ko: 16 zh_CN: 16
+alert_severity_moderate    134 px   cs    | cs:134 pl: 88 fi: 87 ru: 71 hu: 71 en: 64 it: 63 ro: 63 es: 63 hr: 63 pt: 63 uk: 63 da: 55 sv: 55 fr: 48 ar: 39 nl: 39 de: 39 tr: 31 ko: 16 zh_CN: 16 ja: 16
+alert_severity_severe      119 px   cs    | cs:119 uk: 71 ru: 71 sv: 71 hr: 63 da: 63 tr: 63 pl: 55 nl: 54 fr: 48 en: 48 de: 48 es: 47 hu: 47 pt: 47 it: 47 ro: 47 fi: 47 ar: 33 ja: 16 ko: 16 zh_CN: 16
+alert_website              133 px   ar    | ar:133 da:128 cs:111 fi:103 hr: 95 pl: 80 tr: 79 es: 72 sv: 71 fr: 64 it: 64 de: 64 ro: 64 hu: 63 ru: 62 en: 56 nl: 56 uk: 54 ja: 48 pt: 32 ko: 32 zh_CN: 16
+All                         72 px   pl    | pl: 72 fi: 47 ro: 40 nl: 39 it: 39 ar: 35 da: 32 de: 32 es: 31 hu: 31 tr: 31 fr: 31 sv: 31 pt: 31 hr: 24 cs: 24 uk: 23 ru: 23 en: 23 ja: 23 zh_CN: 16 ko: 16
+All day:                   133 px   fr    | fr:133 it:124 pt:101 nl: 93 es: 93 ro: 85 da: 85 ar: 85 fi: 85 sv: 85 hr: 85 pl: 85 de: 77 ru: 76 hu: 76 uk: 76 cs: 69 tr: 61 en: 61 ko: 45 zh_CN: 24 ja: 21
+All Disks                  128 px   de    | de:128 fr:127 es:127 ro:120 pt:119 pl:119 it:111 cs:104 nl:103 ar: 96 hu: 95 fi: 95 sv: 88 tr: 88 hr: 87 da: 80 ja: 71 en: 71 uk: 71 ru: 70 ko: 48 zh_CN: 32
+All GPUs                   215 px   fi    | fi:215 pl:200 ar:183 sv:176 ro:168 pt:111 ru:111 es:103 fr: 95 it: 95 tr: 88 da: 88 cs: 87 hu: 79 nl: 79 de: 71 hr: 71 en: 63 ja: 63 uk: 47 ko: 47 zh_CN: 47
+All Mail                   135 px   fi    | fi:135 fr:135 it:127 cs:111 es:111 pt:103 ar: 95 hu: 95 ro: 95 de: 95 pl: 87 nl: 87 tr: 87 sv: 79 hr: 71 ru: 70 uk: 70 en: 63 ja: 56 da: 55 ko: 40 zh_CN: 32
+All Network Devices        255 px   fr    | fr:255 pl:232 pt:232 es:231 ro:223 it:216 cs:183 hu:175 nl:167 fi:167 sv:160 de:152 da:151 uk:151 en:151 ja:151 ru:150 hr:143 ar:135 tr:127 ko: 80 zh_CN: 48
+Anniversary                116 px   ar    | ar:116 fr:103 it: 95 en: 88 es: 87 pt: 87 ro: 80 fi: 79 hr: 79 tr: 79 nl: 71 de: 71 hu: 70 ru: 70 sv: 64 pl: 63 da: 63 uk: 54 cs: 47 zh_CN: 40 ja: 24 ko: 24
+Application Memory         231 px   fr    | fr:231 es:215 nl:207 it:207 pt:159 hr:151 en:144 ja:144 de:144 ro:135 hu:135 da:135 ru:135 pl:127 tr:127 uk:120 cs:119 ar:119 fi:111 sv: 95 zh_CN: 48 ko: 40
+Appointment                144 px   hr    | hr:144 it: 95 en: 87 fr: 87 pt: 87 fi: 79 ro: 79 hu: 78 pl: 72 nl: 64 cs: 55 uk: 55 tr: 55 ru: 54 da: 48 de: 47 sv: 32 ar: 31 es: 31 zh_CN: 16 ja: 16 ko: 16
+April                       63 px   fi    | fi: 63 pl: 62 ro: 56 hu: 55 uk: 55 hr: 53 it: 48 ru: 47 nl: 39 da: 39 tr: 39 fr: 39 pt: 39 de: 39 sv: 39 es: 39 en: 39 cs: 39 ar: 37 ko: 16 zh_CN: 16 ja: 16
+aqhi                        31 px   ro    | ro: 31 ja: 31 cs: 31 en: 31 ko: 31 ar: 31 da: 31 hu: 31 sv: 31 de: 31 hr: 31 uk: 31 tr: 31 zh_CN: 31 ru: 31 pt: 30 fr: 30 it: 30 nl: 30 es: 30 pl: 30 fi: 23
+aqi                         23 px   ro    | ro: 23 ko: 23 ja: 23 cs: 23 en: 23 da: 23 hu: 23 ar: 23 fr: 23 it: 23 de: 23 es: 23 ru: 23 pt: 23 tr: 23 sv: 23 uk: 23 zh_CN: 23 pl: 23 hr: 23 nl: 22 fi: 15
+aqi_extremely_poor         150 px   it    | it:150 fr:150 es:150 uk:143 fi:135 pt:135 hu:128 pl:126 da:119 cs:119 de:118 en:111 ro:111 nl:111 ru:104 sv:102 hr: 95 ar: 88 tr: 79 ko: 40 ja: 40 zh_CN: 16
+aqi_fair                   144 px   ru    | ru:144 fi: 87 hu: 86 ro: 79 cs: 78 nl: 64 hr: 63 uk: 63 pt: 56 es: 56 da: 55 pl: 55 sv: 55 ar: 40 fr: 39 de: 39 it: 39 en: 31 tr: 31 ja: 16 zh_CN: 16 ko: 16
+aqi_good                    56 px   ru    | ru: 56 uk: 40 hr: 39 pl: 39 cs: 39 es: 38 it: 38 fi: 31 en: 31 nl: 31 ar: 23 da: 23 de: 23 ro: 22 sv: 22 fr: 22 pt: 22 tr: 22 ja: 16 zh_CN: 16 ko: 16 hu: 15
+aqi_poor                    63 px   de    | de: 63 fr: 55 hu: 48 ru: 48 uk: 47 nl: 47 it: 47 da: 47 cs: 46 sv: 39 fi: 39 ar: 32 ro: 32 pt: 32 en: 31 es: 31 hr: 31 tr: 31 pl: 23 zh_CN: 16 ko: 16 ja: 16
+aqi_very_poor              110 px   fi    | fi:110 hu:104 de:103 ru: 96 cs: 95 da: 95 fr: 95 it: 95 sv: 95 ro: 87 uk: 87 nl: 87 pt: 80 pl: 78 hr: 72 en: 72 ar: 71 tr: 63 es: 63 ja: 40 ko: 40 zh_CN: 16
+Archive                     64 px   hu    | hu: 64 pl: 64 it: 63 en: 56 fr: 56 es: 55 nl: 55 ro: 55 pt: 55 fi: 55 cs: 48 de: 48 hr: 47 tr: 40 sv: 40 da: 40 ja: 40 uk: 39 ru: 39 ar: 38 ko: 24 zh_CN: 16
+Artist                      87 px   ru    | ru: 87 uk: 78 pl: 71 da: 64 de: 64 fi: 62 fr: 56 tr: 55 it: 55 es: 55 pt: 55 nl: 55 hr: 54 ja: 48 cs: 47 sv: 47 ro: 47 en: 47 hu: 46 ar: 45 ko: 32 zh_CN: 24
+Artwork                     96 px   da    | da: 96 tr: 95 ar: 90 uk: 79 fi: 71 sv: 71 de: 71 hu: 71 it: 71 fr: 63 es: 63 en: 56 ro: 55 ru: 55 pl: 55 ja: 48 nl: 48 ko: 40 pt: 31 hr: 31 cs: 31 zh_CN: 16
+Assigned                   143 px   fi    | fi:143 pl:126 tr:119 hu:104 hr: 87 ru: 87 nl: 79 de: 79 uk: 79 pt: 71 sv: 71 it: 71 cs: 70 fr: 64 es: 63 en: 63 da: 55 ar: 55 ro: 47 ja: 40 zh_CN: 24 ko: 24
+Attach a file              263 px   nl    | nl:263 fi:182 es:151 de:150 fr:144 ro:144 pt:143 hr:126 ru:119 cs:119 it:112 da:111 hu:110 en:104 sv:102 pl: 96 uk: 94 ja: 80 tr: 80 ko: 72 ar: 70 zh_CN: 32
+Attachment                 102 px   ro    | ro:102 fr: 95 da: 87 en: 79 pl: 72 hu: 71 uk: 71 it: 63 hr: 63 ru: 63 nl: 55 es: 55 cs: 54 tr: 54 ja: 48 de: 48 sv: 46 fi: 39 pt: 39 ar: 32 ko: 16 zh_CN: 16
+Attachment Properties      231 px   fr    | fr:231 da:206 ro:198 de:191 hu:183 it:182 es:182 pl:175 sv:174 en:167 fi:166 nl:166 pt:166 uk:158 cs:144 hr:135 ru:135 tr:110 ar:104 ja: 96 ko: 40 zh_CN: 32
+Attachments                119 px   ro    | ro:119 fr:110 da:104 hu: 88 en: 87 pl: 79 uk: 71 ar: 69 es: 63 it: 63 fi: 62 hr: 62 nl: 62 ru: 62 sv: 55 cs: 55 de: 55 ja: 48 pt: 47 tr: 39 ko: 16 zh_CN: 16
+Attendee                    95 px   es    | es: 95 it: 95 pt: 95 fi: 87 fr: 86 ro: 86 de: 80 pl: 72 sv: 72 nl: 72 uk: 71 hu: 71 tr: 71 da: 64 ru: 64 hr: 64 cs: 64 en: 64 ar: 44 ja: 24 zh_CN: 24 ko: 24
+Attendees                  102 px   es    | es:102 pt:102 tr: 96 fi: 95 fr: 94 it: 94 ro: 94 hu: 80 de: 80 pl: 80 nl: 79 da: 72 sv: 72 ru: 71 hr: 71 en: 71 cs: 71 uk: 63 ar: 44 ja: 24 ko: 24 zh_CN: 24
+August                      71 px   hu    | hu: 71 nl: 63 pl: 62 hr: 55 uk: 55 sv: 55 tr: 55 it: 47 da: 47 en: 47 de: 47 ro: 47 pt: 47 es: 47 ru: 47 fi: 46 cs: 39 ar: 38 fr: 31 ja: 16 ko: 16 zh_CN: 16
+aurora_excellent           103 px   de    | de:103 da: 87 fi: 86 fr: 79 nl: 79 it: 79 es: 71 pl: 71 pt: 71 en: 70 ro: 70 ru: 63 tr: 63 cs: 55 sv: 55 hr: 54 hu: 47 uk: 47 ja: 40 ar: 39 ko: 24 zh_CN: 16
+aurora_high                 79 px   fi    | fi: 79 ro: 63 uk: 54 ru: 54 tr: 48 cs: 47 fr: 47 pl: 47 hr: 47 ar: 40 hu: 39 pt: 31 es: 31 nl: 31 it: 31 en: 31 de: 31 sv: 23 da: 20 ko: 16 ja: 16 zh_CN:  8
+aurora_low                  64 px   hu    | hu: 64 ro: 55 uk: 55 de: 55 ru: 47 fr: 47 fi: 47 tr: 40 ar: 40 pl: 39 hr: 39 cs: 38 it: 38 pt: 38 es: 30 nl: 30 en: 23 da: 23 sv: 22 ja: 16 ko: 16 zh_CN:  8
+aurora_moderate             87 px   pl    | pl: 87 fi: 87 ru: 71 hu: 71 en: 64 es: 63 it: 63 ro: 63 hr: 63 pt: 63 uk: 63 fr: 56 da: 55 sv: 55 cs: 54 de: 39 ar: 39 nl: 39 tr: 31 ja: 24 zh_CN: 16 ko: 16
+aurora_none                102 px   fi    | fi:102 ro: 55 it: 55 es: 55 pt: 55 fr: 48 ar: 47 de: 40 uk: 39 hu: 39 da: 38 sv: 38 cs: 38 en: 32 nl: 31 hr: 31 pl: 31 tr: 24 ru: 23 ja: 16 ko: 16 zh_CN:  8
+aurora_visibility          206 px   ru    | ru:206 uk:198 cs:192 de:182 pt:175 es:167 hu:167 fi:159 nl:159 fr:152 it:152 ro:151 tr:143 ar:137 hr:136 en:136 da:134 pl:128 sv:103 ja: 64 ko: 56 zh_CN: 40
+Available Memory           183 px   fi    | fi:183 da:176 tr:168 de:160 nl:158 it:152 ro:151 sv:144 es:144 fr:144 pt:143 hr:135 en:128 ru:127 uk:127 hu:126 pl:119 ar:116 cs:111 ja: 56 ko: 48 zh_CN: 32
+Backlight                  183 px   hr    | hr:183 de:175 it:144 sv:142 es:127 ro:126 tr:119 hu:119 ar:116 fr:112 pl:103 da: 94 pt: 94 fi: 79 cs: 78 uk: 71 ru: 71 nl: 70 en: 70 ja: 48 ko: 32 zh_CN: 16
+Battery                     88 px   ru    | ru: 88 hu: 88 uk: 80 fr: 63 hr: 62 it: 62 nl: 60 ar: 60 en: 55 cs: 55 ro: 55 es: 54 pt: 54 sv: 54 da: 54 pl: 54 ja: 40 fi: 31 de: 31 ko: 24 tr: 22 zh_CN: 16
+Battery Health             168 px   hu    | hu:168 ja:110 ko:110 ro:110 cs:110 en:110 fi:110 ar:110 da:110 fr:110 it:110 de:110 es:110 ru:110 pt:110 tr:110 sv:110 uk:110 nl:110 zh_CN:110 pl:110 hr:110
+Battery Status             175 px   ru    | ru:175 it:159 hu:159 es:158 fr:151 pt:134 uk:127 hr:120 nl:110 en:110 ro:104 ar:103 da:102 sv:102 cs: 96 pl: 95 de: 79 tr: 78 fi: 71 ja: 56 ko: 48 zh_CN: 32
+Battery Time               222 px   ru    | ru:222 uk:207 fr:136 es:135 hr:128 pt:127 it:111 hu:111 ro: 96 de: 95 pl: 95 en: 95 ar: 95 nl: 94 cs: 88 tr: 78 da: 78 sv: 78 fi: 71 ja: 56 ko: 48 zh_CN: 32
+Bcc                        142 px   hr    | hr:142 hu:119 ru:103 cs: 96 pl: 95 tr: 87 fi: 86 de: 79 sv: 78 uk: 77 ar: 40 ko: 40 zh_CN: 32 fr: 23 es: 23 it: 23 ja: 22 nl: 22 pt: 22 da: 22 en: 22 ro: 22
+Bios_date                   79 px   hu    | hu: 79 ja: 71 ko: 71 ro: 71 cs: 71 en: 71 fi: 71 ar: 71 da: 71 fr: 71 it: 71 de: 71 es: 71 ru: 71 pt: 71 tr: 71 sv: 71 uk: 71 nl: 71 zh_CN: 71 pl: 71 hr: 71
+Bios_release                95 px   ro    | ro: 95 ko: 95 ja: 95 cs: 95 en: 95 fi: 95 ar: 95 da: 95 fr: 95 it: 95 de: 95 es: 95 sv: 95 pt: 95 tr: 95 uk: 95 ru: 95 nl: 95 zh_CN: 95 pl: 95 hr: 95 hu: 86
+Bios_vendor                 87 px   ro    | ro: 87 ko: 87 ja: 87 cs: 87 en: 87 fi: 87 ar: 87 da: 87 fr: 87 it: 87 de: 87 es: 87 sv: 87 pt: 87 tr: 87 uk: 87 ru: 87 nl: 87 zh_CN: 87 pl: 87 hr: 87 hu: 86
+Bios_version                94 px   ro    | ro: 94 ko: 94 ja: 94 cs: 94 en: 94 fi: 94 ar: 94 da: 94 fr: 94 it: 94 de: 94 es: 94 sv: 94 pt: 94 tr: 94 uk: 94 ru: 94 nl: 94 zh_CN: 94 pl: 94 hr: 94 hu: 86
+birch                       71 px   ro    | ro: 71 fr: 54 it: 54 ar: 50 es: 47 ru: 46 pl: 46 uk: 46 pt: 46 fi: 39 de: 39 sv: 39 en: 38 hr: 38 cs: 38 ko: 32 hu: 32 ja: 32 da: 31 nl: 31 tr: 23 zh_CN: 16
+Birthday                   143 px   pt    | pt:143 uk:119 ro:104 ru:103 fr: 96 fi: 95 hu: 88 ar: 87 cs: 80 it: 79 de: 79 tr: 79 es: 79 nl: 79 da: 78 sv: 78 pl: 64 en: 63 hr: 63 ja: 24 ko: 16 zh_CN: 16
+Bitrate                    104 px   fr    | fr:104 ro: 95 pt: 95 es: 95 pl: 94 sv: 94 da: 94 fi: 86 hu: 86 ar: 72 tr: 62 cs: 55 de: 55 hr: 55 nl: 55 en: 55 it: 55 ru: 54 uk: 54 ja: 48 ko: 40 zh_CN: 24
+Board_name                  79 px   ro    | ro: 79 ko: 79 ja: 79 cs: 79 en: 79 fi: 79 ar: 79 da: 79 fr: 79 it: 79 de: 79 es: 79 sv: 79 pt: 79 tr: 79 uk: 79 ru: 79 nl: 79 zh_CN: 79 pl: 79 hr: 79 hu: 56
+Board_vendor               127 px   hu    | hu:127 ja: 95 ko: 95 ro: 95 cs: 95 en: 95 fi: 95 ar: 95 da: 95 fr: 95 it: 95 de: 95 es: 95 ru: 95 pt: 95 tr: 95 sv: 95 uk: 95 nl: 95 zh_CN: 95 pl: 95 hr: 95
+Board_version              111 px   hu    | hu:111 ja:102 ko:102 ro:102 cs:102 en:102 fi:102 ar:102 da:102 fr:102 it:102 de:102 es:102 ru:102 pt:102 tr:102 sv:102 uk:102 nl:102 zh_CN:102 pl:102 hr:102
+Brightness                  95 px   ro    | ro: 95 nl: 79 fr: 79 uk: 79 de: 79 en: 78 it: 78 sv: 78 tr: 71 da: 71 hr: 71 fi: 63 pl: 55 ru: 55 hu: 54 pt: 46 es: 46 ar: 45 ja: 24 cs: 23 ko: 16 zh_CN: 16
+Buffer                     135 px   cs    | cs:135 ar:101 hr: 96 tr: 72 sv: 54 fi: 54 en: 47 da: 47 fr: 47 hu: 47 it: 47 de: 47 ro: 47 pt: 47 nl: 47 ru: 39 uk: 39 pl: 39 es: 39 ja: 32 ko: 16 zh_CN: 16
+Buffering                  175 px   es    | es:175 fr:175 ro:151 hr:120 ar:109 cs: 87 pl: 87 fi: 86 ru: 86 uk: 86 hu: 78 tr: 72 pt: 71 it: 70 en: 70 da: 63 nl: 62 ja: 56 sv: 55 de: 54 ko: 24 zh_CN: 24
+Buffer Memory              183 px   hr    | hr:183 nl:167 pt:143 da:135 tr:135 cs:134 pl:134 es:128 it:112 fr:111 de:111 ro:111 uk:111 ja:103 ru:103 en:103 hu:102 fi:102 sv: 95 ar: 86 ko: 48 zh_CN: 40
+Busy                        86 px   de    | de: 86 hu: 70 cs: 64 it: 63 sv: 63 uk: 63 da: 55 fi: 55 es: 55 hr: 55 pt: 55 fr: 48 pl: 48 ro: 47 tr: 47 ko: 40 ar: 39 ru: 39 nl: 38 ja: 32 en: 31 zh_CN: 16
+bz                         173 px   ar    | ar:173 fr:165 pl:165 nl:157 es:157 hr:157 it:157 pt:157 en:149 ru:149 ro:141 uk:141 tr:141 hu:133 de:117 sv:117 ko: 61 zh_CN: 47 ja: 47 fi: 14 cs: 14 da: 14
+bz_active                  102 px   fi    | fi:102 cs: 78 da: 63 uk: 63 pl: 56 hr: 55 ru: 55 en: 48 it: 47 es: 47 nl: 47 hu: 40 de: 40 ro: 40 sv: 40 pt: 39 fr: 39 tr: 39 ar: 24 ko: 16 zh_CN: 16 ja: 16
+Cable                       55 px   fi    | fi: 55 ru: 47 uk: 47 ar: 44 es: 40 en: 40 fr: 40 cs: 39 da: 39 hu: 39 ro: 39 de: 39 sv: 39 tr: 39 pl: 39 nl: 39 hr: 39 ja: 32 pt: 31 it: 31 ko: 24 zh_CN: 16
+Cache                      126 px   pl    | pl:126 ar:116 hr: 94 hu: 88 fi: 79 cs: 71 tr: 64 ja: 40 da: 40 fr: 40 en: 40 de: 40 sv: 40 it: 40 pt: 40 nl: 40 ro: 40 es: 40 ru: 24 uk: 24 ko: 16 zh_CN: 16
+Cache Memory               151 px   hu    | hu:151 da:128 fr:128 de:128 tr:127 pl:126 pt:117 it:104 es:104 ro:104 nl:103 ar:102 ja: 96 en: 96 uk: 96 hr: 94 ru: 87 sv: 80 fi: 79 cs: 71 ko: 48 zh_CN: 32
+Calendar                    79 px   it    | it: 79 pt: 79 es: 79 pl: 71 fi: 71 ru: 71 cs: 64 da: 64 en: 64 ro: 64 de: 64 hr: 64 sv: 64 uk: 64 ar: 53 hu: 48 tr: 48 nl: 47 fr: 47 ja: 40 zh_CN: 16 ko: 16
+calm                        78 px   pl    | pl: 78 hu: 70 cs: 62 hr: 48 da: 47 fi: 47 es: 40 it: 40 de: 40 ru: 40 uk: 40 pt: 40 tr: 39 fr: 39 nl: 32 ro: 32 en: 32 ar: 31 sv: 30 zh_CN: 16 ko: 16 ja: 16
+Cancel                      71 px   de    | de: 71 uk: 71 nl: 71 es: 64 da: 64 pt: 64 ro: 63 hr: 63 ru: 63 fr: 56 it: 55 sv: 47 en: 47 cs: 47 pl: 45 hu: 40 ja: 40 tr: 38 fi: 30 ar: 27 zh_CN: 16 ko: 16
+Caps Lock                  143 px   ar    | ar:143 de:111 it: 86 es: 78 cs: 72 da: 72 hu: 72 ja: 72 fi: 72 en: 72 ko: 72 ro: 72 pl: 72 pt: 72 tr: 72 sv: 72 ru: 72 hr: 72 nl: 72 uk: 72 fr: 69 zh_CN: 32
+carbon_monoxide            167 px   it    | it:167 fr:152 es:151 pt:151 ro:135 hr:135 ar:134 en:120 tr:119 fi:111 cs:104 de:103 nl: 96 hu: 95 pl: 95 ru: 87 sv: 79 uk: 79 da: 55 ja: 40 ko: 40 zh_CN: 32
+Categories                  88 px   tr    | tr: 88 nl: 87 hr: 80 sv: 80 da: 80 hu: 80 en: 79 fr: 79 es: 79 de: 79 pt: 79 it: 72 cs: 72 pl: 72 uk: 71 ru: 71 ro: 71 fi: 47 ar: 45 ja: 32 ko: 16 zh_CN: 16
+Category                    79 px   hr    | hr: 79 cs: 72 fr: 72 nl: 72 de: 72 ro: 72 pt: 71 uk: 71 it: 71 hu: 71 es: 71 ru: 71 pl: 71 en: 64 sv: 63 da: 63 tr: 63 fi: 46 ar: 36 ja: 32 ko: 16 zh_CN: 16
+Cc                          94 px   hr    | hr: 94 hu: 55 fi: 47 uk: 45 cs: 40 de: 40 ru: 39 pl: 39 sv: 39 tr: 38 ar: 24 zh_CN: 16 ko: 16 nl: 15 fr: 15 da: 15 ja: 15 en: 15 pt: 15 es: 15 it: 15 ro: 15
+Channel                     63 px   hu    | hu: 63 en: 55 it: 48 fr: 48 nl: 47 fi: 47 ja: 40 da: 39 cs: 39 ro: 39 de: 39 es: 39 sv: 39 pt: 39 tr: 39 uk: 39 ru: 39 hr: 39 pl: 39 ar: 31 zh_CN: 16 ko: 16
+Channels                    72 px   hu    | hu: 72 tr: 64 en: 63 sv: 56 da: 56 es: 55 nl: 55 fi: 55 fr: 55 cs: 48 ro: 48 de: 48 pl: 48 ru: 48 pt: 47 it: 47 uk: 47 hr: 47 ja: 40 ar: 40 ko: 16 zh_CN: 16
+Charge                      87 px   hr    | hr: 87 hu: 79 ro: 71 sv: 62 pl: 57 ar: 52 en: 48 ja: 48 da: 48 fr: 48 cs: 47 it: 47 fi: 46 de: 46 nl: 46 ru: 40 uk: 40 es: 39 pt: 39 tr: 29 ko: 24 zh_CN: 16
+Charging                    95 px   de    | de: 95 tr: 88 pt: 80 uk: 79 ro: 79 pl: 73 ar: 72 da: 71 fr: 71 it: 70 en: 63 cs: 63 hr: 63 es: 63 fi: 62 nl: 55 ru: 55 sv: 47 hu: 47 ko: 32 ja: 24 zh_CN: 24
+Charging Rate              159 px   uk    | uk:159 nl:159 it:159 fr:143 pl:143 sv:142 ro:136 cs:135 hu:127 ru:127 hr:118 en:104 ja:104 da:104 pt:103 es:103 fi: 94 ar: 80 tr: 71 de: 63 zh_CN: 40 ko: 40
+Chassis_type                96 px   ro    | ro: 96 ko: 96 ja: 96 cs: 96 en: 96 fi: 96 ar: 96 da: 96 fr: 96 it: 96 de: 96 es: 96 sv: 96 pt: 96 tr: 96 uk: 96 ru: 96 nl: 96 zh_CN: 96 pl: 96 hr: 96 hu: 71
+Chassis_vendor             112 px   ro    | ro:112 ko:112 ja:112 cs:112 en:112 fi:112 ar:112 da:112 fr:112 it:112 de:112 es:112 sv:112 pt:112 tr:112 uk:112 ru:112 nl:112 zh_CN:112 pl:112 hr:112 hu: 79
+Checklist                  166 px   es    | es:166 pt:158 ro:151 it:150 uk:144 ru:144 fr:135 cs:128 hr:119 tr:119 pl:118 fi:111 hu:110 nl:103 ar: 80 de: 80 sv: 79 da: 72 en: 71 ja: 56 ko: 40 zh_CN: 16
+city                        63 px   fi    | fi: 63 ar: 52 pt: 48 es: 47 pl: 47 fr: 40 tr: 40 it: 39 hu: 39 uk: 39 cs: 39 de: 39 ru: 39 en: 32 ro: 31 hr: 31 sv: 31 nl: 31 ko: 16 zh_CN: 16 ja: 16 da: 15
+Clear All                  152 px   hu    | hu:152 pl:127 fi:119 de:119 tr:112 it:102 ru: 96 fr: 96 uk: 96 nl: 95 pt: 94 es: 87 cs: 80 hr: 80 ro: 79 en: 71 ar: 68 sv: 63 da: 55 ja: 48 ko: 48 zh_CN: 32
+clear_night                119 px   es    | es:119 hu:111 pl:110 nl:103 ro:103 fr: 96 it: 95 en: 87 de: 87 pt: 87 sv: 79 ru: 79 ar: 79 tr: 72 fi: 71 hr: 71 cs: 70 uk: 63 da: 62 ja: 32 ko: 32 zh_CN: 32
+clear_sky                  126 px   pl    | pl:126 es:119 hu:103 de:103 nl:103 it: 95 tr: 95 fr: 88 da: 86 ar: 81 en: 72 ro: 71 pt: 71 fi: 55 sv: 39 hr: 39 cs: 38 uk: 31 ru: 31 ko: 16 ja: 16 zh_CN: 16
+Close                       71 px   de    | de: 71 uk: 55 nl: 55 ru: 55 ro: 55 hr: 55 hu: 54 pl: 53 es: 48 it: 47 fr: 47 pt: 47 cs: 47 fi: 40 en: 40 tr: 39 sv: 39 ar: 38 ja: 24 da: 23 ko: 16 zh_CN: 16
+cloud_cover                152 px   fr    | fr:152 pt:151 it:143 es:127 ro:111 ar:109 pl: 96 tr: 94 en: 88 ru: 79 cs: 71 sv: 71 uk: 71 fi: 70 de: 70 nl: 70 da: 63 hr: 63 hu: 62 zh_CN: 16 ko: 16 ja: 16
+Codec                      111 px   ar    | ar:111 fi: 63 hr: 40 pl: 40 da: 40 ja: 40 hu: 40 ru: 40 uk: 40 tr: 40 cs: 40 fr: 39 de: 39 it: 39 en: 39 pt: 39 es: 39 nl: 39 ro: 39 sv: 39 zh_CN: 32 ko: 16
+Comments                   104 px   hu    | hu:104 fr: 95 sv: 88 da: 88 es: 87 ru: 87 pt: 87 pl: 80 de: 80 ro: 79 cs: 72 uk: 71 hr: 71 fi: 71 ar: 69 tr: 64 en: 63 it: 63 nl: 63 ja: 32 zh_CN: 16 ko: 16
+Company                     79 px   cs    | cs: 79 uk: 63 ru: 63 en: 56 fr: 56 it: 55 nl: 54 sv: 54 es: 54 pt: 54 hr: 47 fi: 47 tr: 47 ar: 44 da: 38 de: 38 ro: 38 pl: 38 hu: 23 zh_CN: 16 ko: 16 ja: 16
+Complete                   103 px   de    | de:103 tr: 79 it: 79 cs: 71 hu: 71 pt: 71 ru: 71 en: 64 es: 63 ro: 63 hr: 63 nl: 63 da: 62 uk: 62 fr: 56 sv: 54 pl: 48 ja: 48 fi: 47 ar: 24 ko: 16 zh_CN: 16
+Completed                  103 px   de    | de:103 es: 79 it: 79 tr: 79 pl: 72 ru: 71 pt: 71 cs: 71 uk: 71 en: 71 hu: 71 ro: 63 nl: 63 hr: 63 da: 62 fr: 48 fi: 47 sv: 46 ar: 39 ko: 24 zh_CN: 24 ja: 16
+Completed Tasks            183 px   de    | de:183 fi:167 tr:160 hu:159 it:152 ro:144 ru:143 pt:143 es:143 uk:143 da:135 pl:135 sv:135 cs:120 fr:119 nl:119 hr:119 en:119 ar:116 ja: 56 ko: 48 zh_CN: 40
+Compose Message            214 px   nl    | nl:214 fr:176 it:175 pt:167 pl:159 es:152 de:151 uk:135 sv:128 ro:125 ru:120 en:120 hr:111 cs:103 da: 95 hu: 95 fi: 87 ko: 80 ar: 77 tr: 70 ja: 64 zh_CN: 32
+Composer                    88 px   it    | it: 88 fr: 88 ro: 80 pl: 80 es: 80 uk: 80 ru: 80 pt: 80 sv: 80 hu: 79 hr: 77 de: 71 nl: 71 fi: 71 da: 71 cs: 71 en: 64 tr: 54 ar: 45 zh_CN: 24 ko: 24 ja: 24
+condition                   87 px   sv    | sv: 87 it: 80 ru: 72 fr: 71 es: 71 en: 71 nl: 64 da: 63 pt: 63 hu: 62 de: 55 hr: 48 ar: 44 tr: 40 ro: 40 uk: 31 pl: 31 cs: 31 fi: 31 ko: 16 ja: 16 zh_CN: 16
+Connected                   87 px   hu    | hu: 87 fi: 80 ru: 79 uk: 79 de: 71 es: 71 nl: 71 en: 71 cs: 70 pl: 70 da: 70 fr: 64 ro: 63 it: 63 sv: 63 hr: 55 pt: 46 tr: 38 ja: 32 ar: 31 zh_CN: 24 ko: 24
+Contact                    103 px   da    | da:103 fi: 87 es: 63 pt: 63 it: 63 tr: 62 ar: 60 hu: 56 cs: 55 ro: 55 fr: 55 en: 55 de: 55 hr: 55 nl: 55 sv: 55 pl: 55 ru: 55 uk: 55 zh_CN: 24 ko: 24 ja: 24
+Contacts                    95 px   fi    | fi: 95 tr: 87 ar: 85 sv: 72 da: 72 hu: 72 pt: 71 nl: 71 es: 71 ro: 64 cs: 64 de: 64 ru: 64 pl: 64 it: 63 fr: 63 uk: 63 hr: 63 en: 63 ko: 24 ja: 24 zh_CN: 24
+Core %1                     96 px   tr    | tr: 96 fi: 71 ro: 71 es: 71 hr: 71 pt: 71 ar: 68 cs: 63 pl: 63 da: 63 sv: 63 de: 55 fr: 55 uk: 55 en: 55 ru: 55 it: 55 nl: 55 hu: 55 ja: 39 ko: 39 zh_CN: 39
+Cores                       88 px   tr    | tr: 88 pl: 56 pt: 55 es: 55 ar: 52 sv: 48 da: 48 ro: 48 hr: 48 fi: 47 nl: 47 hu: 40 de: 40 en: 39 fr: 39 cs: 39 it: 32 uk: 31 ru: 31 ja: 16 ko: 16 zh_CN: 16
+country                     56 px   en    | en: 56 hr: 47 ru: 47 uk: 47 hu: 47 it: 39 ar: 36 tr: 32 cs: 31 ro: 31 es: 30 da: 30 pt: 30 fr: 30 sv: 30 de: 30 nl: 30 pl: 29 fi: 23 zh_CN: 16 ko: 16 ja:  8
+Cover                       79 px   uk    | uk: 79 it: 71 fr: 63 pl: 55 ro: 55 ru: 55 es: 54 sv: 47 hu: 46 en: 40 da: 40 de: 40 tr: 40 nl: 40 fi: 39 ar: 32 pt: 31 cs: 31 hr: 31 ja: 24 ko: 16 zh_CN: 16
+cpu                         79 px   hu    | hu: 79 ja: 22 ko: 22 ro: 22 cs: 22 en: 22 fi: 22 ar: 22 da: 22 fr: 22 it: 22 de: 22 es: 22 ru: 22 pt: 22 tr: 22 sv: 22 uk: 22 nl: 22 zh_CN: 22 pl: 22 hr: 22
+cpu%                        31 px   ro    | ro: 31 ko: 31 ja: 31 cs: 31 en: 31 fi: 31 ar: 31 da: 31 fr: 31 hu: 31 it: 31 de: 31 es: 31 ru: 31 pt: 31 tr: 31 sv: 31 uk: 31 nl: 31 zh_CN: 31 pl: 31 hr: 31
+CPU                        117 px   ar    | ar:117 ro: 23 ko: 23 ja: 23 cs: 23 en: 23 fi: 23 hu: 23 da: 23 fr: 23 it: 23 de: 23 es: 23 ru: 23 pt: 23 tr: 23 sv: 23 uk: 23 nl: 23 zh_CN: 23 pl: 23 hr: 23
+CPU %1                     102 px   fr    | fr:102 ru: 95 sv: 94 de: 94 uk: 87 fi: 87 pl: 86 ro: 86 ar: 76 hu: 55 tr: 55 da: 47 es: 47 pt: 47 nl: 47 ko: 47 cs: 47 zh_CN: 47 ja: 47 it: 47 en: 47 hr: 47
+CPU %1 Core %2             168 px   tr    | tr:168 ro:166 sv:166 fr:166 uk:159 ru:159 pl:158 de:158 ar:156 fi:151 pt:127 es:127 hr:127 da:119 cs:119 hu:119 ja:111 it:111 nl:111 en:111 zh_CN: 95 ko: 95
+CPU Governor               160 px   ar    | ar:160 es:143 it:143 fr:119 pt:119 fi:112 uk:110 ru:110 hr: 96 hu: 96 da: 96 cs: 96 de: 96 nl: 96 sv: 96 tr: 96 en: 96 ro: 95 pl: 95 zh_CN: 56 ko: 56 ja: 56
+CPU Pressure               215 px   ru    | ru:215 ro:174 fr:160 it:150 de:134 sv:118 uk:111 es:110 fi:104 pl:103 hr: 96 da: 96 cs: 96 ja: 96 en: 96 pt: 96 ar: 90 tr: 87 hu: 72 nl: 64 ko: 48 zh_CN: 48
+CPU Temp                   119 px   hu    | hu:119 ar:104 tr:103 cs: 87 fi: 87 hr: 87 fr: 71 it: 71 es: 71 ro: 71 pl: 71 uk: 71 ru: 71 pt: 71 da: 69 sv: 69 de: 69 nl: 69 en: 64 ko: 48 zh_CN: 48 ja: 40
+CPU Time                   152 px   ar    | ar:152 es:103 pt: 95 hr: 88 tr: 79 fr: 71 it: 71 ru: 70 en: 64 fi: 63 de: 63 pl: 63 nl: 63 ro: 63 da: 55 uk: 55 sv: 55 cs: 55 hu: 55 zh_CN: 48 ko: 48 ja: 40
+CPU Usage                  181 px   ar    | ar:181 fr:143 hr:127 uk:126 sv:111 de:111 ro:103 hu:103 es:103 tr:103 it: 95 ru: 95 fi: 95 nl: 88 cs: 87 pt: 79 pl: 79 en: 72 da: 63 ko: 56 zh_CN: 56 ja: 48
+Current Capacity           167 px   fi    | fi:167 hu:151 ro:143 nl:143 de:143 hr:143 fr:136 pt:135 sv:135 cs:135 uk:135 pl:134 da:128 ja:128 en:128 it:128 es:127 ru:119 ar:100 tr: 95 ko: 40 zh_CN: 32
+Current Frequency          166 px   pl    | pl:166 hu:159 hr:159 nl:144 cs:144 fr:143 ja:136 en:136 it:135 de:135 es:134 pt:134 ro:134 fi:127 sv:127 tr:119 uk:119 ru:119 da:119 ar:101 ko: 48 zh_CN: 32
+Current Line               112 px   hr    | hr:112 cs:112 uk:112 de:112 pl:111 fr:111 ru:111 tr:104 it:104 nl:103 fi:103 ro:102 da: 96 hu: 96 en: 96 es: 94 ar: 93 sv: 87 pt: 86 ko: 32 ja: 32 zh_CN: 24
+Current Temp               159 px   hu    | hu:159 cs:127 tr:120 ar:116 fr:112 fi:111 hr:109 pl:109 de:109 it:104 ro:103 ru:101 uk:101 sv:101 nl:101 en: 96 es: 95 da: 93 pt: 87 ko: 40 ja: 40 zh_CN: 32
+current_weather            143 px   tr    | tr:143 hu:135 hr:128 de:128 en:120 pl:119 cs:119 sv:112 fr:112 ru:111 uk:111 ro:111 it:104 da:104 es: 95 fi: 95 ar: 93 nl: 88 pt: 87 ja: 40 ko: 40 zh_CN: 32
+Daily                       88 px   pt    | pt: 88 es: 88 it: 87 fr: 80 pl: 80 fi: 78 nl: 71 ru: 70 sv: 63 uk: 55 hu: 55 de: 55 da: 55 tr: 48 ro: 47 hr: 47 ar: 45 en: 40 cs: 40 ko: 16 zh_CN: 16 ja: 16
+daily_forecast             182 px   fr    | fr:182 it:175 nl:175 de:152 es:134 hu:127 uk:127 pl:126 ro:126 ar:124 cs:121 da:120 ru:119 hr:119 pt:118 en:111 tr:103 fi: 95 sv: 95 ja: 48 ko: 40 zh_CN: 32
+Date                        61 px   ar    | ar: 61 fi: 54 cs: 40 sv: 40 hr: 40 hu: 40 nl: 40 de: 40 tr: 39 es: 38 en: 32 fr: 32 da: 31 pt: 31 ru: 31 ro: 31 it: 31 pl: 31 uk: 31 zh_CN: 16 ja: 16 ko: 16
+date_time                  142 px   fi    | fi:142 hr:120 ar:117 pl:111 fr: 96 nl: 95 de: 95 ru: 95 tr: 95 es: 94 en: 88 pt: 87 sv: 87 hu: 87 cs: 87 uk: 79 ro: 79 it: 79 da: 63 ko: 56 ja: 40 zh_CN: 40
+day                         47 px   it    | it: 47 ar: 44 pl: 39 fi: 38 fr: 32 uk: 31 ru: 31 en: 24 hu: 24 da: 23 cs: 23 hr: 23 de: 23 pt: 23 nl: 23 sv: 23 es: 23 tr: 23 zh_CN: 16 ro: 15 ko:  8 ja:  8
+Day                         47 px   it    | it: 47 pl: 39 fi: 38 ar: 37 fr: 32 uk: 31 ru: 31 en: 24 hu: 24 da: 23 cs: 23 hr: 23 de: 23 tr: 23 sv: 23 pt: 23 nl: 23 es: 23 ko: 16 ro: 15 zh_CN:  8 ja:  8
+daylight                   103 px   hr    | hr:103 ru:103 ro: 94 es: 86 it: 86 ar: 81 de: 79 pt: 78 fi: 78 tr: 71 sv: 63 en: 63 nl: 63 da: 55 hu: 47 pl: 39 fr: 32 uk: 31 cs: 23 ja: 16 ko: 16 zh_CN: 16
+daylight_duration          247 px   ru    | ru:247 uk:199 hr:191 cs:159 it:135 en:135 fi:134 es:127 ro:127 tr:127 de:120 pt:111 fr:104 hu:103 nl: 96 pl: 95 da: 80 ar: 79 sv: 55 ko: 40 zh_CN: 32 ja: 16
+daylight_over              198 px   ro    | ro:198 hr:175 ru:167 it:166 es:166 pt:158 de:135 nl:125 ar:124 da:120 uk:119 tr:119 fi:110 en:104 sv:103 fr: 96 hu: 88 pl: 87 cs: 71 ja: 16 zh_CN: 16 ko: 16
+December                    72 px   ro    | ro: 72 es: 72 hu: 64 it: 64 fr: 64 en: 64 sv: 64 da: 64 de: 64 nl: 64 pt: 63 pl: 63 fi: 63 hr: 62 cs: 62 ru: 55 uk: 54 tr: 48 ar: 46 zh_CN: 24 ko: 23 ja: 23
+Declined                    79 px   tr    | tr: 79 hu: 78 pl: 71 de: 71 nl: 71 cs: 71 it: 71 ru: 71 uk: 70 en: 63 ro: 63 es: 63 sv: 63 pt: 63 fr: 56 fi: 56 da: 55 hr: 55 ar: 40 ja: 24 ko: 16 zh_CN: 16
+Decline meeting request    311 px   hu    | hu:311 uk:262 it:256 es:231 fr:231 tr:224 de:222 ro:216 ru:216 nl:214 hr:208 cs:207 pl:200 sv:199 pt:199 fi:199 en:183 da:168 ar:129 ko: 96 ja: 88 zh_CN: 48
+Delete                      87 px   nl    | nl: 87 fr: 72 es: 63 pt: 63 uk: 62 sv: 55 ru: 55 it: 54 de: 54 en: 48 ro: 48 hr: 47 cs: 47 hu: 47 fi: 46 ja: 32 pl: 31 da: 31 ar: 29 tr: 23 ko: 16 zh_CN: 16
+Delete Task                144 px   fr    | fr:144 uk:134 nl:127 it:126 de:119 hu:119 sv:119 pt:118 hr:112 ru:112 ro:111 es:110 fi:110 pl: 96 en: 88 da: 88 cs: 87 ar: 84 tr: 79 ja: 48 ko: 40 zh_CN: 32
+dense_drizzle              151 px   de    | de:151 pt:127 it:126 nl:119 ru:111 cs:110 es:110 en:104 fi:103 sv:103 hr:103 tr:103 hu:102 ro:102 fr: 95 pl: 95 da: 95 uk: 95 ar: 73 ko: 48 ja: 32 zh_CN: 32
+dense_freezing_drizzle     255 px   de    | de:255 fi:223 pt:215 uk:215 fr:191 sv:183 tr:183 da:183 cs:182 it:182 ro:182 en:176 ru:175 pl:167 es:166 hr:159 hu:142 ar:121 nl: 95 ko: 72 ja: 40 zh_CN: 40
+depositing_rime_fog        165 px   da    | da:165 pt:152 fr:142 ro:135 it:135 uk:127 es:103 ru:103 cs:103 hu: 95 tr: 95 hr: 94 pl: 87 fi: 87 ar: 81 de: 71 en: 63 nl: 54 sv: 54 ko: 40 ja: 24 zh_CN: 16
+Description                 95 px   nl    | nl: 95 de: 94 it: 88 en: 87 fr: 87 da: 87 es: 87 sv: 86 ro: 72 pt: 71 ru: 64 tr: 63 fi: 47 hu: 46 cs: 38 ar: 37 hr: 31 uk: 31 pl: 31 ko: 16 ja: 16 zh_CN: 16
+Design Capacity            191 px   fi    | fi:191 ro:167 pt:167 it:159 es:159 hr:159 de:151 hu:151 pl:151 fr:144 uk:143 cs:135 nl:135 sv:135 ru:134 da:120 ja:120 en:120 ar:116 tr:110 ko: 40 zh_CN: 32
+Desktop                    159 px   pt    | pt:159 cs:118 hr:111 ru: 94 uk: 94 ar: 82 da: 79 es: 78 nl: 78 sv: 71 tr: 63 fi: 63 de: 56 ro: 56 en: 56 it: 56 ja: 48 hu: 47 fr: 46 pl: 46 ko: 32 zh_CN: 16
+Desktop Name               223 px   pt    | pt:223 cs:168 es:167 uk:160 hr:160 ru:143 da:119 nl:111 fi:111 sv:111 ar:109 pl:103 fr:103 ro: 96 it: 96 en: 96 tr: 95 de: 88 hu: 72 ko: 56 ja: 56 zh_CN: 32
+Desktop session            143 px   hu    | hu:143 ja:119 ko:119 ro:119 cs:119 en:119 fi:119 ar:119 da:119 fr:119 it:119 de:119 es:119 ru:119 pt:119 tr:119 sv:119 uk:119 nl:119 zh_CN:119 pl:119 hr:119
+details                    111 px   fi    | fi:111 ru: 87 cs: 86 pl: 72 hu: 72 sv: 64 da: 64 tr: 64 es: 63 pt: 63 it: 63 ar: 60 fr: 55 ro: 55 de: 55 hr: 55 en: 55 nl: 55 uk: 47 ko: 40 zh_CN: 16 ja: 16
+Details                     87 px   ru    | ru: 87 hr: 86 cs: 86 tr: 80 pl: 72 hu: 72 uk: 71 sv: 64 da: 64 it: 63 es: 63 pt: 63 fr: 55 de: 55 ro: 55 nl: 55 en: 55 ar: 47 fi: 47 zh_CN: 32 ko: 24 ja: 16
+dew_point                  126 px   pt    | pt:126 it:126 fr:111 es:110 hr:103 ro:102 tr: 87 ru: 80 fi: 80 ar: 80 pl: 79 uk: 79 hu: 79 en: 71 sv: 71 cs: 69 nl: 63 de: 63 da: 63 ko: 24 zh_CN: 16 ja: 16
+Direct message             175 px   pl    | pl:175 uk:143 it:135 ru:128 sv:128 hu:127 es:119 pt:119 de:119 en:112 nl:111 fr:111 da:111 hr:110 tr:109 ar: 96 ro: 95 fi: 95 cs: 94 ja: 80 ko: 64 zh_CN: 16
+Direct messages            184 px   pl    | pl:184 hu:144 uk:143 tr:136 es:135 sv:135 de:135 nl:135 pt:135 da:128 fr:127 it:127 ru:127 en:119 ro:112 fi:111 hr:111 ar: 96 cs: 95 ja: 80 ko: 64 zh_CN: 16
+Dirty Memory               143 px   da    | da:143 hr:126 ro:119 fi:118 hu:118 ar:116 de:112 sv:112 it:111 ru:110 uk:110 cs:103 es:103 nl:103 pl:102 en: 96 tr: 96 fr: 96 pt: 95 ja: 56 ko: 48 zh_CN: 24
+Disc                        48 px   fr    | fr: 48 nl: 47 es: 39 pt: 39 it: 39 sv: 39 hu: 38 ja: 32 cs: 32 hr: 32 pl: 32 uk: 32 da: 32 tr: 32 ru: 32 fi: 31 de: 31 ro: 31 en: 31 ko: 24 ar: 24 zh_CN: 16
+Discharging                104 px   pt    | pt:104 tr:104 de:103 pl: 96 ar: 88 es: 87 en: 87 fr: 87 ro: 87 uk: 86 hr: 79 it: 78 da: 71 sv: 71 fi: 70 nl: 63 cs: 63 ru: 62 hu: 55 ko: 32 ja: 24 zh_CN: 24
+Disc Number                128 px   fr    | fr:128 ro:127 pt:119 tr:103 nl: 96 es: 95 it: 95 fi: 94 en: 88 de: 88 pl: 87 ru: 87 cs: 87 uk: 87 da: 80 sv: 80 hr: 78 ar: 73 hu: 71 ja: 48 ko: 48 zh_CN: 32
+Disconnected               119 px   hu    | hu:119 nl:111 es: 95 en: 95 it: 87 sv: 86 fi: 86 tr: 86 fr: 80 pl: 79 ro: 79 uk: 78 ru: 71 pt: 71 hr: 70 de: 63 ar: 63 cs: 63 da: 55 ko: 40 zh_CN: 24 ja: 24
+Disk                        88 px   de    | de: 88 fr: 48 nl: 47 it: 39 es: 39 pt: 39 hu: 38 ar: 37 cs: 32 da: 32 ja: 32 en: 32 hr: 32 pl: 32 ru: 32 tr: 32 sv: 32 uk: 32 fi: 31 ro: 31 ko: 24 zh_CN: 16
+Disk IO                    190 px   uk    | uk:190 pl:167 cs:143 ar:134 ru:126 de:112 fr:103 es:102 pt: 94 nl: 72 it: 70 sv: 64 hu: 63 tr: 63 fi: 63 ro: 62 da: 56 ko: 56 en: 56 hr: 56 ja: 56 zh_CN: 48
+Disk IO Rate               271 px   uk    | uk:271 pl:239 cs:231 ru:215 es:207 ar:176 fr:160 pt:159 de:152 it:143 nl:143 sv:143 da:135 hu:134 hr:119 fi:118 tr:103 ro:103 en: 96 ko: 80 ja: 80 zh_CN: 72
+Disk Usage                 168 px   fr    | fr:168 de:167 ru:151 uk:142 hr:127 ro:111 it:111 tr:111 sv:111 hu:110 nl:104 cs:103 es:103 ar:101 pl: 95 pt: 95 fi: 94 en: 80 da: 71 ja: 56 ko: 56 zh_CN: 40
+Distribution               104 px   it    | it:104 en: 95 hr: 95 sv: 95 fi: 95 hu: 95 da: 95 fr: 95 es: 95 de: 95 pt: 95 nl: 88 ja: 88 ro: 88 uk: 87 ru: 87 pl: 87 cs: 80 ar: 60 tr: 56 zh_CN: 24 ko: 24
+DNS                         23 px   ro    | ro: 23 ko: 23 ja: 23 cs: 23 en: 23 fi: 23 ar: 23 da: 23 fr: 23 hu: 23 it: 23 de: 23 es: 23 ru: 23 pt: 23 tr: 23 sv: 23 uk: 23 nl: 23 zh_CN: 23 pl: 23 hr: 23
+Done                        79 px   it    | it: 79 tr: 79 hr: 72 pt: 71 uk: 62 fr: 56 pl: 48 cs: 47 fi: 47 da: 46 de: 46 ru: 46 nl: 40 es: 39 en: 32 sv: 32 hu: 31 ro: 31 ar: 22 ko: 16 ja: 16 zh_CN: 16
+Down                        95 px   uk    | uk: 95 sv: 87 hr: 87 ro: 80 pl: 79 fr: 71 cs: 71 da: 63 ru: 63 de: 63 hu: 62 it: 55 tr: 55 nl: 46 fi: 46 ar: 39 pt: 38 ko: 32 en: 31 es: 30 zh_CN: 16 ja: 16
+Download                   103 px   de    | de:103 fr: 88 uk: 87 pt: 80 nl: 79 es: 72 sv: 71 en: 63 cs: 63 da: 63 ro: 63 hu: 62 ru: 55 it: 55 pl: 54 hr: 54 ja: 48 ar: 39 tr: 39 fi: 38 ko: 32 zh_CN: 16
+Download Rate              168 px   it    | it:168 sv:167 es:167 pl:151 uk:151 cs:143 hu:142 hr:142 fr:135 ru:135 pt:127 nl:127 ro:120 de:104 en:104 da:104 ar:103 tr: 94 fi: 94 ko: 56 ja: 56 zh_CN: 32
+Download Speed             199 px   fr    | fr:199 de:191 uk:175 pt:175 sv:167 es:167 ro:160 it:159 pl:150 cs:143 hu:142 hr:142 ru:135 da:135 nl:127 en:111 ar: 97 tr: 94 fi: 94 ja: 64 ko: 56 zh_CN: 32
+Drafts                      87 px   hu    | hu: 87 hr: 79 fi: 78 es: 78 fr: 78 tr: 72 ru: 71 pt: 71 nl: 71 cs: 64 de: 63 uk: 63 ar: 56 da: 56 pl: 48 ro: 48 ko: 48 sv: 47 en: 47 it: 39 ja: 24 zh_CN: 16
+Drive                       96 px   ar    | ar: 96 de: 63 hu: 63 pt: 56 nl: 55 fr: 48 es: 47 tr: 47 en: 40 fi: 39 it: 39 sv: 38 da: 32 ko: 32 hr: 32 cs: 32 ru: 32 ja: 32 uk: 32 pl: 32 ro: 31 zh_CN: 16
+Driver version             174 px   hu    | hu:174 ja:111 ko:111 ro:111 cs:111 en:111 fi:111 ar:111 da:111 fr:111 it:111 de:111 es:111 ru:111 pt:111 tr:111 sv:111 uk:111 nl:111 zh_CN:111 pl:111 hr:111
+Due                        150 px   cs    | cs:150 ru:119 sv:111 uk: 95 tr: 79 da: 71 it: 63 fr: 63 nl: 63 hu: 62 ro: 55 fi: 55 ar: 48 pt: 47 pl: 47 de: 46 es: 40 en: 24 hr: 24 zh_CN: 16 ko: 16 ja: 16
+Due date                   158 px   es    | es:158 cs:150 pl:135 tr:135 uk:127 fr:120 ar:120 hr:119 ru:119 fi:110 it:103 ro:103 sv:103 nl: 96 da: 94 pt: 88 de: 71 en: 64 hu: 63 ko: 40 zh_CN: 32 ja: 16
+Due Date:                  164 px   es    | es:164 cs:156 pl:141 tr:141 fr:133 it:133 ar:125 uk:125 ru:125 hr:125 fi:116 ro:109 sv:108 nl:101 da:100 pt: 93 de: 76 hu: 69 en: 69 ko: 45 zh_CN: 40 ja: 21
+Due today                  151 px   fr    | fr:151 ru:127 uk:119 hr:119 nl:119 fi:118 da:118 tr:118 sv:110 pl:103 cs: 95 de: 95 ar: 88 hu: 87 pt: 80 it: 79 es: 72 en: 72 ro: 71 ko: 40 ja: 32 zh_CN: 32
+Duration                    95 px   ru    | ru: 95 pl: 95 uk: 79 hu: 71 hr: 64 da: 63 en: 63 es: 63 pt: 55 it: 47 ro: 47 de: 40 fr: 40 ko: 40 cs: 39 fi: 39 sv: 38 ar: 36 tr: 32 nl: 32 ja: 16 zh_CN: 16
+dust                        78 px   fr    | fr: 78 it: 55 hr: 54 pt: 46 ar: 44 de: 40 es: 38 cs: 38 sv: 32 en: 31 da: 31 nl: 31 ru: 31 fi: 31 ro: 30 hu: 23 uk: 23 tr: 23 pl: 22 zh_CN: 16 ko: 16 ja: 16
+east                        47 px   cs    | cs: 47 ar: 26 da: 23 fi: 22 uk: 16 sv:  8 ja:  8 hu:  8 de:  8 nl:  8 tr:  8 zh_CN:  8 ko:  8 pt:  7 ru:  7 fr:  6 ro:  6 it:  6 en:  6 pl:  6 es:  6 hr:  6
+Edit task                  159 px   hu    | hu:159 uk:150 de:143 fr:136 it:135 fi:127 sv:127 ro:126 ru:120 tr:112 da:112 pl:111 hr:104 nl:103 pt:102 cs: 95 es: 94 ar: 79 en: 71 ja: 48 ko: 40 zh_CN: 32
+Elapsed                    102 px   sv    | sv:102 cs: 95 es: 95 fi: 95 de: 87 tr: 80 nl: 79 hu: 78 it: 71 pt: 71 pl: 63 da: 62 hr: 62 en: 54 ar: 53 ru: 47 uk: 47 fr: 47 zh_CN: 40 ko: 40 ro: 39 ja: 32
+Elapsed Time               151 px   pl    | pl:151 es:151 de:135 hr:127 pt:119 nl:119 ru:119 it:119 sv:102 ar:101 fr: 96 en: 95 cs: 95 fi: 95 da: 94 uk: 87 tr: 80 ro: 79 hu: 78 zh_CN: 40 ko: 40 ja: 32
+elevation                  223 px   hu    | hu:223 hr:127 cs:118 it: 80 ro: 80 tr: 72 es: 70 en: 70 fr: 64 pl: 63 pt: 62 ar: 61 fi: 55 nl: 48 uk: 46 ru: 46 da: 39 de: 32 sv: 31 ja: 16 ko: 16 zh_CN: 16
+Email                      160 px   fr    | fr:160 es:143 ar:133 pl: 95 fi: 79 ru: 71 uk: 70 hr: 54 tr: 54 da: 46 hu: 46 cs: 46 de: 46 nl: 46 pt: 46 sv: 46 en: 38 ro: 38 it: 38 zh_CN: 32 ko: 32 ja: 24
+Email address              184 px   ar    | ar:184 es:151 pt:142 ru:135 fi:128 ro:127 cs:126 it:126 uk:126 hr:112 de:111 fr:111 tr:110 da:103 en:102 pl: 95 sv: 94 nl: 86 hu: 79 ja: 56 ko: 48 zh_CN: 48
+Empty                       55 px   uk    | uk: 55 cs: 54 ru: 47 hr: 46 ar: 40 ko: 40 fi: 39 en: 39 it: 39 ro: 39 es: 39 pt: 39 pl: 38 fr: 32 hu: 31 de: 31 nl: 30 da: 24 sv: 24 tr: 22 zh_CN:  8 ja:  8
+End                         88 px   pl    | pl: 88 hr: 72 hu: 70 it: 56 es: 55 ro: 55 ar: 52 uk: 47 ru: 40 cs: 39 tr: 38 fi: 38 sv: 31 de: 31 nl: 30 pt: 23 en: 22 da: 22 fr: 22 zh_CN: 16 ja: 16 ko:  8
+Ended                       95 px   ro    | ro: 95 pl: 80 es: 78 uk: 71 it: 71 pt: 71 da: 71 ru: 71 fi: 70 nl: 70 cs: 63 hr: 63 sv: 63 fr: 56 de: 54 tr: 38 en: 38 ar: 37 hu: 32 zh_CN: 24 ko: 24 ja: 16
+ene                         98 px   ar    | ar: 98 fi: 94 uk: 48 sv: 24 de: 24 da: 24 cs: 24 ja: 24 hu: 24 zh_CN: 24 tr: 24 nl: 24 ko: 24 ru: 23 fr: 22 ro: 22 it: 22 pt: 22 en: 22 pl: 22 es: 22 hr: 22
+Entropy                     74 px   ar    | ar: 74 hr: 70 cs: 63 fr: 63 nl: 63 de: 63 ro: 63 ru: 63 fi: 62 hu: 62 pt: 62 uk: 62 it: 62 es: 62 pl: 62 en: 55 tr: 54 da: 54 sv: 54 ja: 48 ko: 32 zh_CN:  8
+Entropy Pool Size          215 px   hr    | hr:215 it:215 pt:215 es:215 fr:200 ro:192 da:191 cs:184 hu:183 pl:167 fi:158 ru:158 uk:158 tr:158 nl:151 ar:149 de:143 sv:143 en:135 ja: 96 ko: 72 zh_CN: 32
+Episode                     79 px   nl    | nl: 79 pt: 62 it: 62 es: 62 pl: 56 sv: 55 fr: 55 en: 55 hr: 54 cs: 54 ru: 48 da: 47 uk: 47 hu: 46 ro: 46 ja: 40 fi: 39 tr: 39 de: 39 ko: 32 ar: 31 zh_CN: 16
+Error                       55 px   uk    | uk: 55 it: 47 fr: 47 ro: 47 de: 47 hr: 47 ru: 47 fi: 40 en: 39 es: 39 cs: 39 tr: 31 hu: 31 pt: 30 nl: 30 pl: 30 da: 30 ja: 24 sv: 22 ar: 21 ko: 16 zh_CN: 16
+ese                         98 px   ar    | ar: 98 fi: 70 uk: 48 sv: 24 de: 24 da: 24 cs: 24 ja: 24 hu: 24 zh_CN: 24 tr: 24 nl: 24 ko: 24 ru: 23 fr: 22 ro: 22 it: 22 pt: 22 en: 22 pl: 22 es: 22 hr: 22
+Ethernet                    62 px   ro    | ro: 62 cs: 62 en: 62 it: 62 fi: 62 hu: 62 da: 62 fr: 62 sv: 62 de: 62 pl: 62 ru: 62 pt: 62 tr: 62 es: 62 uk: 62 hr: 62 nl: 62 ja: 48 ar: 46 ko: 24 zh_CN: 24
+european_aqi               200 px   ar    | ar:200 fi:135 uk:127 de:126 ru:118 pl:111 sv:110 da:103 cs: 95 ro: 95 hr: 94 fr: 94 nl: 94 en: 94 hu: 86 pt: 86 it: 86 es: 86 tr: 79 ko: 47 ja: 39 zh_CN: 39
+Event                       87 px   nl    | nl: 87 pl: 80 da: 78 fi: 71 ro: 70 sv: 70 fr: 70 ru: 56 hu: 55 cs: 55 hr: 53 de: 47 pt: 46 es: 46 it: 46 uk: 39 en: 38 tr: 32 ja: 32 ar: 24 zh_CN: 16 ko: 16
+Events                     119 px   es    | es:119 da: 95 nl: 86 pl: 79 ro: 79 fi: 79 fr: 78 hu: 71 sv: 70 cs: 63 de: 56 tr: 56 ru: 55 pt: 54 hr: 53 en: 46 it: 46 uk: 39 ar: 38 ja: 32 zh_CN: 16 ko: 16
+Export                     111 px   ru    | ru:111 cs: 95 de: 86 pl: 85 da: 80 tr: 80 nl: 78 hu: 78 sv: 70 pt: 63 fr: 63 es: 63 ro: 54 it: 54 uk: 54 ja: 48 en: 46 ar: 39 hr: 38 ko: 32 fi: 24 zh_CN: 16
+Fan                         88 px   fr    | fr: 88 es: 80 ro: 80 pl: 80 cs: 80 hu: 80 nl: 80 hr: 80 uk: 79 ru: 79 pt: 71 fi: 63 it: 55 ar: 52 da: 47 de: 47 sv: 38 ja: 24 tr: 22 en: 22 zh_CN: 16 ko:  8
+Fan Speed                  192 px   es    | es:192 hu:184 pt:183 fr:176 uk:167 cs:159 ru:159 pl:158 fi:143 nl:143 hr:142 ro:136 it:127 da:118 de:110 sv:110 ar: 97 en: 70 tr: 62 ja: 48 zh_CN: 32 ko: 32
+Fax                         63 px   pl    | pl: 63 ar: 33 uk: 31 ru: 31 tr: 30 hr: 30 fi: 23 da: 23 hu: 23 fr: 23 ja: 23 cs: 23 de: 23 it: 23 en: 23 pt: 23 es: 23 nl: 23 ro: 23 sv: 23 ko: 16 zh_CN: 16
+February                    71 px   ro    | ro: 71 pt: 70 fi: 63 en: 63 nl: 62 sv: 62 it: 62 hu: 55 fr: 55 da: 55 de: 55 hr: 55 ru: 55 es: 54 ar: 48 tr: 39 uk: 39 cs: 32 pl: 31 zh_CN: 16 ja: 16 ko: 16
+feels_like                 144 px   nl    | nl:144 es:135 pt:127 cs:126 uk:119 ru:104 fi: 87 ro: 87 hr: 87 tr: 79 pl: 79 en: 79 sv: 72 ar: 71 da: 71 it: 70 fr: 63 hu: 55 de: 55 ko: 40 zh_CN: 32 ja: 32
+Filesystem                 159 px   pt    | pt:159 fi:151 es:151 fr:151 ro:136 cs:128 hr:128 ru:127 nl:119 uk:119 pl:104 tr:103 ar: 96 hu: 95 de: 88 it: 87 en: 79 sv: 71 da: 71 ja: 64 ko: 48 zh_CN: 32
+File System                159 px   pt    | pt:159 fi:151 es:151 fr:151 ro:136 cs:128 hr:128 ru:127 nl:119 uk:119 pl:104 tr:103 ar: 96 hu: 95 de: 88 en: 87 it: 87 sv: 71 da: 71 ja: 64 ko: 48 zh_CN: 32
+First name                 103 px   cs    | cs:103 ar: 84 hu: 80 en: 79 nl: 64 de: 56 ro: 55 fi: 54 sv: 54 da: 54 es: 48 fr: 47 it: 32 pt: 32 pl: 31 uk: 30 hr: 23 ru: 23 ko: 16 tr: 15 zh_CN:  8 ja:  8
+first_quarter              166 px   fi    | fi:166 pt:128 es:128 fr:127 sv:126 ru:119 nl:119 pl:118 de:110 da:110 en:103 ro:103 uk: 95 it: 94 hu: 86 cs: 86 hr: 86 ar: 84 tr: 78 ja: 32 zh_CN: 24 ko: 24
+Flagged                    111 px   it    | it:111 uk: 88 nl: 79 pl: 72 hu: 71 fi: 64 da: 63 cs: 63 hr: 63 de: 63 ru: 63 pt: 55 es: 55 en: 54 sv: 54 fr: 48 ro: 47 ar: 40 tr: 30 zh_CN: 24 ko: 24 ja: 24
+flare_warning              192 px   ru    | ru:192 uk:184 pl:183 hr:159 cs:159 hu:158 nl:158 ro:152 es:151 it:151 ar:144 fr:135 pt:135 tr:118 fi:118 da:110 de:102 sv:102 en:102 ko: 48 ja: 40 zh_CN: 32
+fog                         78 px   fr    | fr: 78 pt: 63 es: 47 it: 47 fi: 39 sv: 39 ro: 39 de: 39 hr: 39 ru: 39 uk: 39 ar: 34 da: 32 pl: 31 nl: 31 cs: 31 tr: 23 hu: 23 en: 22 ko: 16 zh_CN:  8 ja:  8
+Folder                      63 px   it    | it: 63 fr: 56 es: 55 pl: 55 de: 48 tr: 48 fi: 47 cs: 47 en: 47 da: 40 ja: 40 ro: 40 ru: 39 hu: 39 pt: 38 sv: 32 ar: 31 hr: 31 uk: 31 nl: 24 zh_CN: 24 ko: 16
+Folders                     72 px   tr    | tr: 72 ar: 69 it: 64 pl: 63 es: 63 fr: 63 fi: 55 en: 54 cs: 48 da: 48 hu: 48 ro: 48 de: 48 sv: 48 nl: 47 pt: 46 ja: 40 ru: 39 hr: 32 uk: 31 zh_CN: 24 ko: 16
+Folder size                159 px   es    | es:159 it:151 ro:136 fr:136 pt:127 cs:120 pl:119 da:112 hr:104 tr:103 hu: 96 fi: 95 uk: 94 ru: 94 sv: 88 de: 88 en: 87 nl: 80 ar: 79 ja: 56 ko: 40 zh_CN: 40
+forecast                    87 px   nl    | nl: 87 hu: 86 de: 80 it: 78 es: 78 fr: 78 cs: 72 da: 63 en: 62 ro: 62 pl: 62 pt: 62 hr: 62 ar: 61 uk: 55 ru: 55 fi: 55 sv: 54 tr: 47 ko: 16 zh_CN: 16 ja: 16
+Format                      63 px   hu    | hu: 63 nl: 54 it: 54 es: 54 pt: 54 ar: 53 ru: 47 uk: 47 da: 46 ro: 46 fr: 46 cs: 46 de: 46 hr: 46 en: 46 sv: 46 pl: 46 tr: 39 fi: 39 ko: 16 zh_CN: 16 ja: 16
+Forums                      63 px   tr    | tr: 63 ro: 62 fi: 62 ar: 56 hu: 55 ru: 48 uk: 47 fr: 46 en: 46 hr: 46 nl: 46 pt: 46 ja: 40 it: 39 sv: 39 de: 38 es: 38 da: 30 pl: 30 cs: 30 ko: 16 zh_CN: 16
+Forward                    111 px   sv    | sv:111 ru:103 pt: 96 fr: 95 de: 95 da: 79 nl: 79 hu: 79 ro: 78 hr: 78 tr: 72 uk: 71 cs: 70 es: 64 pl: 54 en: 54 it: 54 fi: 47 ar: 31 ko: 16 zh_CN: 16 ja: 16
+Forward message            216 px   ro    | ro:216 sv:200 ru:176 de:175 pl:174 pt:168 it:159 fr:159 hr:150 hu:143 nl:142 tr:135 da:135 es:128 fi:127 cs:126 en:119 uk:111 ar: 95 ja: 56 ko: 48 zh_CN: 32
+Free                        63 px   hr    | hr: 63 ru: 63 uk: 54 ar: 48 hu: 47 it: 46 ko: 40 pl: 40 cs: 40 fi: 39 fr: 39 ro: 39 pt: 39 es: 39 tr: 39 sv: 38 da: 38 ja: 32 en: 31 de: 30 nl: 29 zh_CN: 16
+Free/Busy                  175 px   pl    | pl:175 ro:135 uk:127 hr:119 it:118 cs:111 es:111 ru:111 sv:110 fi:103 de:103 pt:102 da:102 ar: 95 fr: 95 tr: 95 hu: 86 nl: 79 en: 71 ko: 64 ja: 48 zh_CN: 24
+Free Physical Memory       263 px   de    | de:263 ru:215 nl:214 hr:199 ar:196 da:191 fr:176 hu:175 uk:174 fi:167 it:167 ro:167 pl:167 pt:160 es:160 sv:159 en:159 ja:159 tr:151 cs:151 ko: 80 zh_CN: 48
+Free Space                 158 px   de    | de:158 da:134 hr:128 pl:127 ar:124 ru:120 sv:111 it:103 es:103 ro: 96 nl: 96 uk: 95 pt: 95 fr: 95 hu: 88 cs: 87 fi: 79 en: 79 ja: 79 tr: 62 ko: 40 zh_CN: 32
+Free Swap Memory           224 px   es    | es:224 de:215 pl:192 fr:184 cs:184 hu:183 uk:182 it:175 hr:175 ar:174 pt:168 sv:159 nl:151 fi:151 ro:151 ru:135 tr:134 en:127 da:127 ja: 72 ko: 72 zh_CN: 48
+Freq                        78 px   hu    | hu: 78 pl: 45 cs: 44 sv: 44 da: 44 ar: 44 ro: 44 hr: 44 ru: 37 fi: 37 uk: 37 tr: 36 nl: 36 it: 36 pt: 36 fr: 36 es: 36 de: 30 en: 30 ja: 24 ko: 24 zh_CN: 16
+Friday                      87 px   pt    | pt: 87 fi: 70 uk: 63 fr: 63 es: 55 ru: 55 nl: 55 it: 55 de: 54 en: 47 hu: 47 ro: 47 pl: 47 sv: 46 da: 46 ar: 44 cs: 39 hr: 39 tr: 31 ko: 24 zh_CN: 24 ja: 24
+From                        70 px   fi    | fi: 70 tr: 63 hu: 46 ko: 40 ro: 39 en: 31 sv: 30 ja: 24 de: 23 nl: 23 uk: 23 da: 22 es: 16 ar: 16 zh_CN: 16 fr: 16 pt: 16 pl: 15 ru: 15 it: 15 cs: 15 hr: 15
+Full                        71 px   hu    | hu: 71 ru: 47 fi: 47 fr: 47 ar: 47 ko: 40 uk: 39 pt: 39 it: 38 es: 38 pl: 38 ro: 38 de: 31 tr: 31 da: 30 cs: 30 sv: 30 en: 30 hr: 30 ja: 24 zh_CN: 24 nl: 23
+full_moon                  103 px   uk    | uk:103 fr: 87 ru: 80 nl: 79 it: 78 es: 78 ro: 78 hr: 78 pt: 70 en: 70 de: 63 fi: 63 da: 63 hu: 63 sv: 63 tr: 56 cs: 47 pl: 46 ko: 24 ar: 23 ja: 16 zh_CN: 16
+Full name                  166 px   pl    | pl:166 de:144 sv:134 es:119 nl:112 pt:103 it:103 ro: 95 ar: 92 fr: 87 hu: 80 uk: 79 cs: 79 ru: 79 da: 78 fi: 71 en: 71 hr: 63 tr: 47 ja: 40 ko: 40 zh_CN: 16
+future_alerts              207 px   nl    | nl:207 uk:167 de:159 pl:158 ar:156 fi:151 hu:144 sv:143 da:143 ru:142 hr:134 tr:128 cs:127 fr:120 ro:120 es:119 pt:119 it:112 en:102 ja: 40 ko: 40 zh_CN: 32
+Gateway                    127 px   es    | es:127 fi: 95 fr: 79 tr: 71 it: 56 en: 56 da: 56 sv: 56 ro: 56 de: 56 nl: 56 pt: 56 pl: 56 hr: 56 ar: 52 ja: 48 hu: 47 ko: 40 cs: 38 ru: 31 uk: 31 zh_CN: 16
+Genre                       71 px   fi    | fi: 71 pl: 56 it: 48 es: 47 pt: 47 en: 40 sv: 40 de: 40 nl: 40 fr: 40 da: 40 ar: 37 hu: 37 ja: 32 hr: 32 cs: 32 uk: 32 ru: 32 tr: 24 ro: 23 zh_CN: 16 ko: 16
+geomagnetic_activity       215 px   fi    | fi:215 nl:199 pl:191 de:191 ro:183 ru:182 fr:176 da:175 sv:175 cs:175 hr:175 es:175 pt:175 uk:174 it:167 hu:167 en:160 tr:160 ar:157 ko: 48 ja: 40 zh_CN: 32
+geomagnetic_storm          183 px   pt    | pt:183 fi:176 de:168 fr:168 es:167 it:167 nl:160 cs:159 ro:158 pl:158 tr:151 da:144 sv:144 ar:143 hr:143 hu:136 en:136 ru:134 uk:126 ko: 48 zh_CN: 32 ja: 32
+Governor                    79 px   uk    | uk: 79 ru: 79 fi: 64 cs: 64 da: 64 ro: 64 hu: 64 en: 64 fr: 64 it: 64 de: 64 es: 64 sv: 64 pt: 64 tr: 64 nl: 64 hr: 64 pl: 64 ar: 45 ja: 32 ko: 24 zh_CN: 24
+GPU                        143 px   fi    | fi:143 sv:120 ar:120 pl:119 ja: 23 ko: 23 ro: 23 da: 23 cs: 23 fr: 23 hu: 23 en: 23 de: 23 es: 23 pt: 23 tr: 23 it: 23 ru: 23 zh_CN: 23 nl: 23 hr: 23 uk: 14
+GPU Architecture           160 px   ar    | ar:160 es:151 fi:151 fr:151 pt:143 hr:135 nl:128 en:128 it:127 pl:127 cs:127 hu:127 de:120 ro:119 ru:119 uk:119 da:112 sv:112 tr: 95 ja: 80 ko: 64 zh_CN: 48
+GPU Driver                 224 px   ar    | ar:224 hr:199 hu:152 es:143 nl:143 pt:119 pl:103 sv:103 tr: 95 de: 88 fi: 87 ru: 87 uk: 87 cs: 87 en: 80 da: 80 it: 79 ro: 79 fr: 78 ko: 64 ja: 64 zh_CN: 48
+GPU Freq                   160 px   ar    | ar:160 nl:112 hu:111 fi:103 cs:102 tr: 95 de: 95 hr: 94 pl: 79 ro: 78 da: 77 sv: 77 ru: 71 uk: 71 fr: 70 pt: 70 es: 70 it: 70 en: 63 ko: 56 ja: 48 zh_CN: 48
+GPU Model                  160 px   ar    | ar:160 pt:103 es:103 fr:103 it: 87 hr: 87 fi: 87 sv: 79 hu: 79 de: 79 ru: 79 tr: 79 uk: 79 nl: 71 da: 71 pl: 71 ro: 71 en: 71 cs: 71 ko: 48 ja: 48 zh_CN: 48
+GPU Temp                   168 px   ar    | ar:168 hu:119 tr:103 cs: 87 fi: 87 hr: 87 fr: 71 it: 71 es: 71 ro: 71 pl: 71 uk: 71 ru: 71 pt: 71 da: 69 sv: 69 de: 69 nl: 69 en: 64 ko: 48 zh_CN: 48 ja: 40
+GPU utilization            135 px   hu    | hu:135 ja:119 ko:119 ro:119 cs:119 en:119 fi:119 ar:119 da:119 fr:119 it:119 de:119 es:119 ru:119 pt:119 tr:119 sv:119 uk:119 nl:119 zh_CN:119 pl:119 hr:119
+Graphics Card              134 px   ru    | ru:134 hr:127 ar:120 fr:120 hu:119 es:119 nl:119 pl:119 cs:111 it:111 uk:110 en:103 ro:102 pt:102 tr: 95 fi: 95 de: 88 sv: 79 da: 79 ja: 72 ko: 48 zh_CN: 24
+grass                       80 px   it    | it: 80 fr: 71 es: 71 hu: 55 ro: 54 ar: 53 de: 48 pl: 40 ru: 40 hr: 40 uk: 39 tr: 39 pt: 39 fi: 39 cs: 39 en: 39 da: 31 sv: 31 nl: 31 zh_CN: 24 ja: 24 ko:  8
+Group chat                 160 px   fr    | fr:160 hu:143 pt:135 fi:119 it:111 cs:111 ar:103 es:103 ru:102 ro: 96 pl: 96 tr: 95 uk: 94 de: 87 hr: 87 nl: 79 da: 79 sv: 79 en: 79 ja: 64 ko: 40 zh_CN: 16
+HDD Temp                   152 px   fr    | fr:152 ar:136 hu:119 es:119 cs:103 tr:103 pl: 87 fi: 87 hr: 87 ro: 72 ru: 72 uk: 72 pt: 72 sv: 69 de: 69 nl: 69 da: 69 it: 64 en: 64 ko: 48 zh_CN: 48 ja: 40
+Health                     103 px   fr    | fr:103 nl: 79 de: 79 ru: 72 ro: 64 hr: 64 pl: 56 fi: 55 hu: 55 it: 48 tr: 48 da: 47 cs: 47 ja: 47 en: 47 pt: 40 es: 39 sv: 39 ar: 36 zh_CN: 32 uk: 31 ko: 16
+heavy_freezing_rain        239 px   fi    | fi:239 uk:216 de:207 ro:206 tr:200 fr:183 sv:183 da:182 pt:176 pl:167 ru:167 es:166 it:159 en:151 cs:150 hr:127 nl:127 ar:111 hu:102 ko: 56 ja: 32 zh_CN: 24
+heavy_rain                 126 px   ro    | ro:126 tr:120 fi:119 es:110 sv:103 it:103 de:103 ru:103 pl: 95 da: 94 pt: 88 uk: 88 nl: 87 fr: 87 en: 79 cs: 78 hr: 71 ar: 63 hu: 62 ja: 16 zh_CN: 16 ko: 16
+heavy_snowfall             159 px   fr    | fr:159 fi:151 ro:143 pl:143 de:143 tr:127 sv:127 da:126 nl:119 en:111 es:111 pt:104 cs:102 uk: 95 ru: 95 hu: 94 it: 80 ar: 79 hr: 79 ja: 16 ko: 16 zh_CN: 16
+heavy_snow_showers         223 px   pl    | pl:223 es:215 ro:207 ru:199 hr:191 fr:183 fi:183 pt:182 cs:175 uk:167 it:167 de:160 tr:143 en:143 da:135 nl:135 sv:128 ar:112 hu: 95 ko: 56 ja: 40 zh_CN: 24
+High                        55 px   ro    | ro: 55 ru: 54 uk: 54 tr: 48 fi: 47 cs: 47 pl: 47 fr: 40 ar: 40 hr: 40 hu: 39 pt: 31 it: 31 nl: 31 de: 31 en: 31 es: 31 sv: 23 da: 21 ko: 16 ja: 16 zh_CN:  8
+History                     95 px   nl    | nl: 95 fr: 80 it: 79 hu: 79 pt: 71 es: 71 sv: 64 cs: 64 da: 64 fi: 63 pl: 63 hr: 62 en: 56 de: 55 ru: 55 uk: 54 ro: 54 tr: 47 ar: 36 zh_CN: 32 ja: 16 ko: 16
+Holiday                    150 px   ru    | ru:150 uk:126 pl: 88 es: 79 fi: 70 sv: 64 nl: 64 fr: 63 cs: 63 en: 56 it: 56 ro: 55 hr: 55 pt: 54 de: 48 hu: 47 tr: 39 da: 39 ar: 31 ko: 16 zh_CN: 16 ja: 16
+Home                        71 px   es    | es: 71 fr: 64 ru: 63 hu: 55 uk: 55 cs: 47 de: 46 ar: 44 ro: 39 nl: 39 da: 32 en: 32 pt: 31 hr: 31 fi: 31 it: 31 pl: 24 sv: 24 ja: 16 zh_CN: 16 tr: 15 ko:  8
+Hostname                   224 px   cs    | cs:224 pl:127 pt:119 hr:111 fr:104 sv:103 de: 88 uk: 87 ro: 79 tr: 79 ar: 77 it: 71 da: 64 ja: 64 nl: 64 en: 64 fi: 63 ru: 63 es: 55 ko: 48 hu: 48 zh_CN: 24
+hourly_forecast            168 px   de    | de:168 hu:167 nl:167 es:158 fr:150 cs:144 uk:143 pl:142 it:135 ru:135 da:128 pt:126 ar:124 en:119 hr:111 sv:111 tr:111 ro:110 fi: 96 ja: 56 ko: 48 zh_CN: 32
+hour_short                   7 px   hu    | hu:  7 ja:  6 ko:  6 ro:  6 cs:  6 en:  6 fi:  6 ar:  6 da:  6 fr:  6 it:  6 de:  6 es:  6 ru:  6 pt:  6 tr:  6 sv:  6 uk:  6 nl:  6 zh_CN:  6 pl:  6 hr:  6
+humidity                   126 px   de    | de:126 nl:126 da:102 sv:102 hu: 95 fi: 94 pl: 79 ro: 72 ru: 70 uk: 70 en: 64 fr: 64 hr: 63 pt: 56 es: 55 it: 55 cs: 55 ar: 52 tr: 24 ja: 16 zh_CN: 16 ko: 16
+Important                   79 px   es    | es: 79 pt: 79 nl: 79 it: 79 en: 70 ro: 70 fr: 70 cs: 64 sv: 55 de: 55 uk: 54 fi: 47 ru: 47 tr: 47 da: 47 hu: 46 pl: 40 hr: 38 ar: 30 ko: 16 ja: 16 zh_CN: 16
+Inactive Memory            143 px   hr    | hr:143 da:143 de:143 fi:142 ar:140 ru:135 uk:135 pl:134 nl:134 fr:128 it:127 ro:127 es:127 pt:119 en:119 cs:119 hu:118 sv:111 tr: 95 ja: 72 ko: 56 zh_CN: 40
+Inbox                      151 px   hu    | hu:151 fr:142 es:142 hr:118 nl: 78 fi: 71 it: 70 tr: 64 pl: 64 da: 63 ru: 63 cs: 54 de: 54 pt: 54 ko: 48 uk: 46 sv: 46 ar: 44 ro: 39 en: 39 zh_CN: 24 ja: 24
+Incomplete                 103 px   de    | de:103 tr:103 fi:103 pl: 96 sv: 95 da: 95 hu: 94 ru: 87 uk: 87 cs: 87 en: 79 hr: 79 nl: 79 es: 78 it: 78 pt: 78 ar: 71 fr: 70 ro: 70 ja: 24 ko: 24 zh_CN: 24
+Interface                  104 px   de    | de:104 it: 86 sv: 79 ru: 71 en: 71 pt: 71 nl: 71 fr: 71 da: 71 hu: 70 ro: 70 pl: 70 uk: 70 ja: 64 cs: 63 fi: 62 es: 62 hr: 56 ar: 52 tr: 47 ko: 40 zh_CN: 16
+Interface Name             144 px   de    | de:144 fr:144 es:143 pt:136 uk:128 pl:127 it:127 sv:119 cs:111 en:111 ro:111 ru:111 fi:110 nl:103 hr:103 da:102 hu: 95 ar: 84 tr: 79 ja: 72 ko: 64 zh_CN: 32
+IO Pressure                231 px   ru    | ru:231 pl:197 uk:183 de:158 it:143 ar:130 es:110 fr: 95 cs: 87 da: 87 ja: 87 en: 87 ro: 87 hr: 87 pt: 87 tr: 79 sv: 78 fi: 71 hu: 63 nl: 55 zh_CN: 47 ko: 39
+I/O Scheduler              190 px   pl    | pl:190 ar:168 es:150 fr:134 uk:128 ro:127 pt:127 ru:120 tr:119 da:111 it:104 en:103 de:103 nl:103 sv:103 cs: 95 hu: 86 fi: 86 hr: 79 ja: 71 ko: 63 zh_CN: 55
+IPv4 Address               128 px   fr    | fr:128 es:112 it:111 pt:103 de: 95 ja: 94 en: 94 da: 94 cs: 88 ar: 88 ro: 88 uk: 88 fi: 87 sv: 86 tr: 86 hr: 86 pl: 80 ru: 80 nl: 78 hu: 63 ko: 55 zh_CN: 55
+IPv4 DNS                   158 px   sv    | sv:158 pt: 88 ar: 71 it: 64 es: 64 pl: 64 ro: 64 fr: 64 ru: 64 uk: 64 da: 62 hu: 62 fi: 62 ko: 62 de: 62 cs: 62 tr: 62 ja: 62 zh_CN: 62 en: 62 nl: 62 hr: 62
+IPv4 Gateway               167 px   es    | es:167 fr:151 sv:150 fi:134 pt:133 hr:119 it: 96 ja: 95 da: 95 en: 95 de: 95 nl: 95 ro: 87 hu: 86 tr: 86 ar: 80 ko: 79 pl: 79 cs: 79 ru: 72 uk: 72 zh_CN: 55
+IPv4 Subnet Mask           240 px   fr    | fr:240 it:208 ar:192 pt:192 es:176 ro:176 hu:167 uk:160 pl:152 fi:151 tr:150 ru:144 cs:144 de:135 nl:135 hr:134 ja:127 en:127 da:127 sv:119 ko: 95 zh_CN: 71
+IPv4 with Prefix Length    246 px   it    | it:246 fr:231 nl:223 pl:222 es:222 fi:214 pt:208 ro:199 uk:198 hr:190 ja:182 cs:182 en:182 da:182 de:159 sv:158 tr:152 hu:142 ru:127 ar:120 ko:112 zh_CN: 71
+IPv6 Address               128 px   fr    | fr:128 es:111 it:110 pt:102 de: 95 en: 94 da: 94 ja: 94 ar: 87 cs: 87 fi: 87 ro: 87 uk: 87 tr: 86 sv: 86 hr: 86 pl: 79 ru: 79 nl: 78 hu: 63 zh_CN: 55 ko: 55
+IPv6 DNS                   158 px   sv    | sv:158 pt: 87 ar: 71 it: 63 es: 63 pl: 63 ro: 63 fr: 63 ru: 63 uk: 63 da: 62 hu: 62 fi: 62 ko: 62 de: 62 cs: 62 tr: 62 ja: 62 zh_CN: 62 en: 62 nl: 62 hr: 62
+IPv6 Gateway               166 px   es    | es:166 fr:151 sv:150 fi:134 pt:132 hr:119 da: 95 ja: 95 it: 95 en: 95 de: 95 nl: 95 tr: 86 hu: 86 ro: 86 ar: 79 ko: 79 cs: 78 pl: 78 uk: 71 ru: 71 zh_CN: 55
+IPv6 Subnet Mask           240 px   fr    | fr:240 it:207 ar:191 pt:191 es:175 ro:175 hu:167 uk:159 fi:151 pl:151 tr:150 ru:143 cs:143 de:135 nl:135 hr:134 ja:127 en:127 da:127 sv:119 ko: 95 zh_CN: 71
+IPv6 with Prefix Length    246 px   it    | it:246 fr:231 nl:223 pl:222 es:222 fi:214 pt:207 ro:199 uk:198 hr:190 ja:182 cs:182 en:182 da:182 de:159 sv:158 tr:151 hu:142 ru:127 ar:120 ko:111 zh_CN: 63
+January                     63 px   ro    | ro: 63 fi: 63 hr: 61 fr: 56 en: 56 pt: 55 nl: 55 it: 55 sv: 54 pl: 54 hu: 48 da: 48 de: 48 ru: 47 uk: 47 ar: 39 es: 38 cs: 38 tr: 32 zh_CN: 16 ja: 15 ko: 15
+Job title                  135 px   fr    | fr:135 de:134 es:134 cs:119 ar:109 hr: 95 nl: 94 pl: 79 sv: 78 en: 72 fi: 72 it: 71 ru: 71 da: 63 hu: 62 ro: 55 uk: 47 pt: 39 tr: 39 zh_CN: 16 ko: 16 ja: 16
+Join                       111 px   ru    | ru:111 hu: 87 uk: 87 hr: 87 pt: 79 fr: 72 nl: 71 it: 70 de: 70 ro: 70 cs: 62 es: 48 da: 47 sv: 47 pl: 47 fi: 39 tr: 39 en: 31 ar: 29 ja: 16 zh_CN: 16 ko: 16
+Join now                   167 px   ru    | ru:167 fr:159 uk:135 hu:127 hr:126 pt:126 cs:126 de:119 ro:111 it:102 pl: 95 nl: 95 es: 95 tr: 87 sv: 71 da: 71 fi: 70 ar: 69 en: 64 ja: 40 ko: 40 zh_CN: 32
+July                        63 px   fi    | fi: 63 fr: 55 cs: 47 hu: 47 tr: 47 uk: 47 pl: 46 it: 46 hr: 45 ar: 39 ro: 39 pt: 39 es: 39 en: 32 ru: 31 nl: 31 da: 31 de: 31 sv: 30 ja: 16 ko: 16 zh_CN: 16
+June                        62 px   pl    | pl: 62 fi: 55 tr: 55 uk: 55 it: 47 hu: 47 cs: 46 hr: 44 ar: 39 ro: 39 es: 39 pt: 39 en: 32 fr: 31 ru: 31 da: 31 de: 31 nl: 31 sv: 30 ko: 16 ja: 16 zh_CN: 16
+Junk                       119 px   hr    | hr:119 pt:111 it: 94 de: 87 cs: 80 pl: 80 fi: 79 sv: 71 fr: 70 tr: 63 hu: 47 ar: 39 da: 32 ko: 32 uk: 32 ru: 32 ja: 32 es: 32 nl: 32 ro: 32 en: 32 zh_CN: 16
+Karaoke Mode               128 px   it    | it:128 da:127 cs:104 ar:104 hr:103 de:103 uk:103 ru:103 en: 96 fr: 96 pt: 96 es: 96 pl: 96 tr: 95 nl: 95 ro: 88 sv: 88 hu: 87 fi: 87 ja: 56 zh_CN: 48 ko: 48
+KDE Frameworks Version     231 px   pt    | pt:231 it:207 fr:199 es:199 ro:183 en:175 fi:175 da:175 de:175 nl:168 ja:168 hu:167 pl:167 tr:167 uk:166 ru:166 cs:159 sv:151 hr:143 ar:142 ko: 96 zh_CN: 80
+KDE Plasma                 119 px   ar    | ar:119 pt:102 ko: 79 hr: 79 ja: 79 fi: 79 da: 79 hu: 79 cs: 79 fr: 79 en: 79 de: 79 sv: 79 uk: 79 ru: 79 tr: 79 it: 79 zh_CN: 79 es: 79 nl: 79 pl: 78 ro: 78
+KDE Plasma Version         183 px   pt    | pt:183 it:175 es:167 fr:167 ar:155 ro:151 en:143 da:143 fi:143 sv:143 de:143 hr:143 ja:136 nl:136 hu:135 pl:135 tr:135 uk:134 ru:134 cs:127 zh_CN:104 ko:104
+Kernel                      64 px   tr    | tr: 64 pt: 58 en: 47 ro: 47 ja: 47 da: 47 hu: 47 it: 47 es: 47 de: 47 hr: 47 nl: 47 ar: 44 fr: 39 sv: 39 pl: 39 cs: 39 uk: 31 ru: 31 fi: 31 ko: 16 zh_CN: 16
+Kernel Name                135 px   es    | es:135 pt:125 it:119 ro:119 hr: 96 tr: 95 sv: 95 fr: 95 en: 88 da: 88 de: 88 ja: 88 cs: 87 fi: 87 pl: 87 nl: 80 uk: 79 ar: 76 hu: 72 ru: 63 ko: 40 zh_CN: 32
+Kernel Name and Version    215 px   ro    | ro:215 es:215 it:207 pt:197 sv:191 de:191 ja:183 da:183 fr:183 en:183 hr:176 tr:175 fi:167 nl:160 pl:159 hu:151 uk:151 cs:151 ar:140 ru:135 ko: 72 zh_CN: 56
+Kernel Version             151 px   it    | it:151 es:143 pt:141 fr:127 tr:119 sv:119 ro:119 hr:112 de:111 en:111 da:111 ja:111 ar:109 nl:104 fi:103 hu: 95 pl: 95 cs: 87 uk: 86 ru: 86 ko: 40 zh_CN: 32
+kp_active                   79 px   fi    | fi: 79 pl: 64 uk: 63 cs: 55 hr: 55 ru: 55 en: 48 es: 47 nl: 47 it: 47 da: 40 hu: 40 de: 40 ro: 40 sv: 40 pt: 39 fr: 39 tr: 39 ar: 24 ko: 16 zh_CN: 16 ja: 16
+kp_extreme                 119 px   cs    | cs:119 uk:102 pl: 95 ru: 95 fi: 87 hu: 87 hr: 70 da: 56 en: 55 fr: 55 nl: 55 es: 54 pt: 54 it: 54 de: 47 ro: 47 sv: 47 tr: 39 ar: 33 zh_CN: 16 ko: 16 ja: 16
+kp_index                    79 px   fi    | fi: 79 tr: 79 it: 71 ro: 71 da: 71 fr: 71 es: 71 pl: 71 hr: 71 uk: 71 pt: 71 ru: 71 hu: 64 nl: 64 sv: 64 de: 64 cs: 64 en: 64 ar: 56 ko: 40 zh_CN: 32 ja: 32
+kp_quiet                    79 px   it    | it: 79 fi: 71 pt: 71 es: 71 uk: 71 ru: 63 ro: 62 hu: 55 nl: 47 cs: 46 fr: 40 en: 39 de: 39 hr: 39 tr: 39 pl: 39 da: 37 sv: 31 ar: 31 ko: 24 zh_CN: 16 ja: 16
+kp_storm                    80 px   pt    | pt: 80 it: 63 es: 63 fr: 56 ro: 54 tr: 54 fi: 48 cs: 46 en: 40 hu: 40 de: 40 sv: 40 ru: 40 nl: 40 hr: 39 da: 39 pl: 38 ar: 32 uk: 30 ko: 16 zh_CN: 16 ja:  8
+kp_strong                   94 px   cs    | cs: 94 fi: 63 ro: 62 uk: 55 da: 54 pl: 48 es: 47 en: 47 ru: 47 sv: 40 de: 40 nl: 40 it: 39 pt: 39 tr: 39 hr: 31 fr: 30 hu: 30 ar: 24 ko: 16 zh_CN: 16 ja: 16
+kp_unsettled                96 px   pl    | pl: 96 ru: 87 hr: 79 en: 71 hu: 71 uk: 71 it: 71 ar: 71 es: 71 nl: 63 tr: 63 fr: 63 fi: 62 ro: 62 pt: 62 cs: 62 de: 55 sv: 55 da: 54 ja: 24 zh_CN: 24 ko: 24
+Label                       94 px   de    | de: 94 fr: 71 it: 70 uk: 63 fi: 63 es: 62 pl: 62 ro: 62 pt: 62 sv: 54 cs: 48 hr: 47 da: 46 tr: 46 hu: 40 ar: 39 ru: 39 en: 38 nl: 38 ko: 24 ja: 24 zh_CN: 16
+Labels                     110 px   de    | de:110 fr: 78 fi: 71 it: 71 sv: 71 da: 71 tr: 71 pt: 70 es: 70 ro: 63 pl: 63 uk: 63 hr: 55 ar: 48 hu: 48 cs: 48 nl: 46 en: 46 ru: 39 ko: 24 ja: 24 zh_CN: 16
+Laptop Mode                167 px   ar    | ar:167 hr:126 it:120 fi:119 cs:119 da:110 ru:110 uk:110 fr:104 pt:103 es:103 tr: 95 pl: 95 de: 94 en: 87 nl: 86 ro: 80 sv: 79 hu: 78 ja: 72 ko: 48 zh_CN: 40
+Last name                   84 px   ar    | ar: 84 hu: 80 nl: 80 en: 71 sv: 70 da: 70 de: 64 uk: 64 fi: 63 pl: 63 es: 63 cs: 62 it: 56 hr: 55 pt: 55 ru: 55 tr: 39 ro: 32 fr: 24 ja:  8 zh_CN:  8 ko:  8
+last_quarter               151 px   fi    | fi:151 ru:143 pt:128 es:128 fr:128 nl:127 pl:119 sv:119 de:118 ro:112 uk:111 cs:110 da:110 hu:103 it:103 hr:103 en: 95 ar: 92 tr: 79 ja: 32 ko: 24 zh_CN: 24
+Last Transfer              159 px   pt    | pt:159 it:159 es:159 hr:150 sv:143 ru:143 nl:142 de:142 fr:135 da:135 pl:128 ro:128 fi:127 uk:127 cs:118 hu:111 en:103 tr: 88 ar: 54 ko: 48 ja: 32 zh_CN: 32
+last_updated               182 px   cs    | cs:182 hr:167 pl:167 ru:160 fr:160 it:159 es:159 de:159 fi:150 ro:144 pt:143 sv:135 nl:134 uk:134 da:126 tr:112 en: 94 ar: 71 hu: 71 ko: 64 ja: 32 zh_CN: 32
+Last updated               167 px   pl    | pl:167 fr:160 ru:160 es:159 cs:159 it:159 de:159 fi:150 ro:144 pt:143 hr:136 sv:135 uk:135 nl:134 hu:127 da:119 tr:112 en: 94 ar: 71 ko: 64 ja: 32 zh_CN: 32
+Latest                     128 px   ro    | ro:128 pt:103 it: 86 cs: 79 pl: 72 hr: 72 ru: 72 es: 71 nl: 64 fi: 63 hu: 63 da: 56 de: 56 sv: 56 fr: 55 uk: 55 tr: 54 en: 46 ar: 45 zh_CN: 16 ko: 16 ja: 16
+latitude                   135 px   hr    | hr:135 cs:118 nl: 94 de: 86 ro: 79 it: 79 fi: 79 da: 78 hu: 71 pl: 71 ar: 64 pt: 63 en: 63 fr: 63 es: 54 sv: 54 uk: 47 ru: 47 tr: 39 ko: 16 zh_CN: 16 ja: 16
+Leave                       80 px   hr    | hr: 80 de: 71 ro: 71 ru: 63 uk: 63 nl: 63 fr: 56 hu: 55 cs: 47 ar: 47 fi: 46 da: 46 es: 40 en: 39 pl: 39 tr: 39 sv: 38 pt: 32 it: 30 ko: 24 ja: 16 zh_CN: 16
+light_drizzle              158 px   de    | de:158 it:142 es:118 nl:118 fi:111 hu:110 cs:110 ro:110 pt:104 ru:103 hr:103 en:103 fr:103 tr:103 sv:102 da: 94 pl: 94 uk: 87 ar: 73 ko: 48 ja: 32 zh_CN: 32
+light_freezing_drizzle     262 px   de    | de:262 fi:231 uk:207 fr:199 it:198 pt:192 ro:190 tr:183 da:182 sv:182 cs:182 en:175 es:174 ru:167 pl:166 hr:159 hu:150 ar:121 nl: 94 ko: 72 zh_CN: 40 ja: 40
+light_freezing_rain        239 px   fi    | fi:239 uk:232 de:214 fr:191 ro:182 tr:176 pt:168 it:167 pl:166 ru:159 es:158 da:150 cs:150 en:150 sv:150 hr:135 nl:134 ar:112 hu:110 ko: 56 ja: 32 zh_CN: 24
+Line Voltage               151 px   hu    | hu:151 pl:136 it:135 es:127 fr:120 uk:119 pt:119 ru:119 ro:112 hr:110 fi:104 cs:103 tr: 95 de: 95 en: 95 da: 87 sv: 87 nl: 87 ar: 64 ja: 40 ko: 40 zh_CN: 32
+Live Stream                151 px   pt    | pt:151 fr:151 es:151 pl:143 it:135 ru:135 ro:120 hr:111 fi:103 uk: 88 cs: 88 de: 87 da: 87 nl: 87 tr: 87 en: 87 sv: 87 ar: 63 hu: 62 ko: 56 ja: 40 zh_CN: 16
+Load                        87 px   uk    | uk: 87 ru: 71 pt: 64 hu: 62 fr: 56 ro: 54 pl: 53 es: 48 it: 47 cs: 47 sv: 46 da: 46 hr: 45 tr: 40 ar: 39 nl: 38 de: 38 fi: 38 ja: 32 ko: 32 en: 30 zh_CN: 16
+loading                    117 px   uk    | uk:117 ar:117 it:109 fr:101 ro:101 hr:101 pt:101 tr:101 pl: 94 es: 85 ru: 85 hu: 84 en: 76 ko: 69 sv: 68 da: 63 cs: 62 fi: 62 ja: 61 nl: 60 de: 52 zh_CN: 45
+Loading                     95 px   de    | de: 95 uk: 95 pl: 88 it: 87 hr: 80 tr: 80 pt: 80 ro: 79 fr: 79 da: 63 ru: 63 es: 63 cs: 63 fi: 62 hu: 62 sv: 62 ko: 56 en: 54 ja: 40 ar: 39 nl: 38 zh_CN: 16
+Loading Cover              200 px   fr    | fr:200 uk:183 it:167 pl:151 ro:143 de:143 ar:136 es:135 pt:135 tr:128 hr:127 hu:127 ru:127 fi:118 da:111 cs:111 en:103 nl: 95 sv: 95 ko: 72 ja: 64 zh_CN: 48
+Loading Lyrics             215 px   pl    | pl:215 uk:199 tr:192 hr:184 fr:175 ru:167 de:166 ro:160 cs:160 fi:158 hu:152 ar:144 pt:143 da:142 it:135 nl:119 es:111 en:110 sv: 86 ko: 72 ja: 56 zh_CN: 48
+Local IP                   111 px   fi    | fi:111 ru: 96 uk: 96 cs: 79 pl: 79 hr: 79 fr: 71 ar: 71 it: 71 de: 71 nl: 71 hu: 64 tr: 64 da: 63 en: 63 sv: 63 es: 62 pt: 62 ro: 62 ja: 48 ko: 40 zh_CN: 40
+Local IPv4                 127 px   fi    | fi:127 ru:112 uk:112 cs: 95 pl: 95 hr: 95 fr: 87 ar: 87 it: 87 de: 87 nl: 87 hu: 80 tr: 80 da: 79 en: 79 sv: 79 es: 78 pt: 78 ro: 78 ja: 64 ko: 56 zh_CN: 56
+Local IPv6                 126 px   fi    | fi:126 ru:111 uk:111 cs: 94 pl: 94 hr: 94 fr: 87 ar: 87 it: 87 de: 86 nl: 86 tr: 79 hu: 79 es: 78 pt: 78 da: 78 ro: 78 en: 78 sv: 78 ja: 63 ko: 55 zh_CN: 55
+Location                    86 px   fr    | fr: 86 pt: 86 it: 80 pl: 71 fi: 63 en: 62 nl: 55 ro: 55 hr: 47 uk: 47 ar: 45 tr: 40 cs: 39 ru: 39 es: 39 sv: 38 hu: 32 da: 31 de: 23 ja: 16 zh_CN: 16 ko: 16
+longitude                  135 px   hr    | hr:135 cs:118 it: 87 ro: 87 nl: 86 fi: 79 da: 78 de: 78 en: 71 hu: 71 pt: 71 fr: 71 ar: 63 es: 62 sv: 62 uk: 55 pl: 55 ru: 55 tr: 47 zh_CN: 16 ko: 16 ja: 16
+Low                         64 px   hu    | hu: 64 de: 55 uk: 55 fi: 47 ro: 47 ru: 47 hr: 40 ar: 40 tr: 40 cs: 39 pl: 39 fr: 39 it: 38 pt: 38 nl: 30 es: 30 da: 23 en: 23 sv: 22 ja: 16 ko: 16 zh_CN:  8
+Lyrics                     111 px   pl    | pl:111 tr:103 hr: 96 fi: 87 uk: 87 ru: 87 cs: 80 hu: 71 nl: 71 da: 71 de: 62 ro: 55 fr: 54 ar: 53 en: 46 it: 39 es: 38 pt: 38 sv: 31 ja: 16 ko: 16 zh_CN: 16
+Lyrics Error               175 px   hr    | hr:175 uk:159 pl:158 ru:151 fi:151 cs:136 tr:135 fr:134 da:126 de:119 ar:112 hu:111 es:110 ro:110 nl:103 pt:102 en: 95 it: 94 sv: 55 ja: 40 ko: 40 zh_CN: 32
+Lyrics Loading             192 px   tr    | tr:192 fr:175 de:166 ro:160 fi:158 hu:152 uk:152 ar:144 pt:143 pl:143 da:142 hr:135 it:135 nl:119 ru:119 es:111 cs:111 en:110 sv: 86 ko: 72 ja: 56 zh_CN: 40
+Lyrics Not Found           239 px   pl    | pl:239 hr:207 uk:183 fi:183 hu:183 nl:183 de:182 ru:167 tr:167 da:167 cs:159 pt:158 fr:158 es:150 sv:144 ar:140 it:135 ro:128 en:126 ko: 88 ja: 80 zh_CN: 40
+Lyrics Unavailable         247 px   fi    | fi:247 nl:208 pl:208 da:207 tr:200 de:191 hr:183 uk:183 ru:175 hu:175 cs:168 ro:168 it:168 sv:167 fr:166 es:151 en:143 pt:142 ar:132 ko: 96 ja: 80 zh_CN: 40
+MAC Address                103 px   es    | es:103 it:102 pt: 94 de: 88 da: 88 fr: 87 en: 87 fi: 80 cs: 79 sv: 79 ro: 79 hr: 79 tr: 79 uk: 79 pl: 71 ar: 71 ru: 71 nl: 71 hu: 56 ja: 56 ko: 48 zh_CN: 48
+Machine                     63 px   hr    | hr: 63 it: 63 en: 56 da: 56 fr: 56 nl: 56 de: 56 pl: 55 pt: 55 cs: 54 tr: 48 ru: 47 ro: 47 sv: 47 uk: 47 es: 46 ar: 44 fi: 32 hu: 24 ja: 24 zh_CN: 16 ko: 16
+Machine Model              160 px   fr    | fr:160 pt:135 es:135 it:127 cs:112 hr:111 pl:104 ru:104 en:103 de:103 tr:103 uk:103 nl: 95 sv: 95 fi: 95 ro: 95 da: 87 ar: 87 hu: 63 ja: 48 ko: 40 zh_CN: 16
+mainly_clear               182 px   pt    | pt:182 pl:175 it:174 ru:159 es:159 fi:150 nl:136 ro:134 da:128 de:128 hu:127 tr:120 sv:119 uk:111 hr:110 fr:103 ar: 96 en: 96 cs: 70 ja: 48 ko: 48 zh_CN: 32
+March                       71 px   fi    | fi: 71 uk: 62 hu: 55 ro: 48 hr: 48 pl: 47 cs: 46 it: 39 en: 39 pt: 39 da: 39 nl: 39 es: 39 ar: 32 fr: 31 de: 31 sv: 31 ru: 31 tr: 31 ja: 16 ko: 16 zh_CN: 16
+Mark all as read           264 px   pl    | pl:264 hu:248 ru:224 de:207 nl:207 cs:200 ro:200 fi:199 uk:192 hr:191 tr:184 it:175 sv:175 es:175 fr:167 pt:167 da:159 ar:135 en:127 ko: 80 ja: 64 zh_CN: 48
+Mark complete              208 px   tr    | tr:208 ro:183 cs:175 es:175 de:175 fr:168 pl:168 it:167 pt:167 nl:167 hu:166 ru:160 uk:152 hr:151 da:151 fi:135 sv:128 ar:119 en:104 ko: 48 ja: 40 zh_CN: 40
+max                         37 px   da    | da: 37 hr: 31 uk: 31 ru: 31 pl: 31 tr: 31 ar: 30 fi: 24 hu: 24 fr: 24 cs: 24 en: 24 de: 24 ro: 24 it: 24 pt: 24 es: 24 nl: 24 sv: 24 zh_CN: 16 ko: 16 ja: 16
+Max Freq                   119 px   hu    | hu:119 tr:116 pl: 93 hr: 93 fi: 85 da: 85 uk: 85 ru: 85 cs: 85 sv: 85 ro: 84 nl: 77 it: 76 fr: 76 es: 76 pt: 76 de: 71 ar: 69 en: 63 ko: 48 ja: 40 zh_CN: 32
+Maximum CPU Frequency      255 px   fr    | fr:255 de:247 ru:247 ro:246 uk:239 fi:215 it:214 es:214 nl:208 hr:207 sv:199 hu:191 pt:190 pl:183 cs:183 ja:168 en:168 da:167 tr:166 ar:134 ko: 80 zh_CN: 72
+Maximum CPU Temperature    279 px   ru    | ru:279 fr:272 uk:271 ro:263 de:232 it:231 fi:231 es:223 sv:216 hr:207 hu:199 pt:199 ar:198 da:184 ja:184 nl:184 en:184 tr:182 cs:167 pl:167 ko: 72 zh_CN: 72
+May                         63 px   fi    | fi: 63 uk: 55 hr: 53 it: 47 cs: 46 hu: 39 tr: 39 ar: 31 es: 31 pt: 31 en: 24 fr: 23 de: 23 ro: 23 ru: 23 nl: 23 da: 21 pl: 21 sv: 21 ko: 16 zh_CN: 16 ja: 16
+Media Player               176 px   pl    | pl:176 es:175 hr:160 it:159 fr:142 pt:134 cs:118 da:112 tr:111 hu:103 ar: 96 en: 96 de: 96 sv: 96 ro: 94 nl: 88 fi: 87 ru: 80 uk: 80 ja: 72 ko: 64 zh_CN: 40
+Medium                      71 px   fi    | fi: 71 nl: 71 uk: 63 hr: 56 hu: 55 cs: 55 ru: 55 en: 48 sv: 48 da: 47 de: 47 pl: 47 ar: 40 es: 39 fr: 39 it: 39 pt: 39 ro: 39 tr: 31 ko: 16 zh_CN:  8 ja:  8
+Meeting                     88 px   sv    | sv: 88 nl: 86 de: 86 uk: 79 hu: 71 ro: 71 ru: 64 it: 64 hr: 64 pl: 64 tr: 63 fr: 55 pt: 55 cs: 55 en: 55 es: 55 fi: 47 ar: 45 da: 32 zh_CN: 16 ko: 16 ja: 16
+Meeting code               135 px   pt    | pt:135 es:135 ro:128 de:127 it:120 fr:119 hu:118 pl:103 tr:103 ar: 97 nl: 96 en: 96 uk: 95 hr: 95 cs: 88 fi: 87 ru: 87 da: 64 sv: 63 ja: 40 ko: 40 zh_CN: 32
+mem                         24 px   ro    | ro: 24 ko: 24 ja: 24 cs: 24 en: 24 fi: 24 ar: 24 da: 24 fr: 24 hu: 24 it: 24 de: 24 es: 24 ru: 24 pt: 24 tr: 24 sv: 24 uk: 24 nl: 24 zh_CN: 24 pl: 24 hr: 24
+Mem                         80 px   da    | da: 80 de: 64 nl: 63 hr: 63 ro: 56 fr: 56 hu: 55 uk: 55 fi: 47 tr: 47 ru: 47 pl: 46 sv: 40 ar: 38 cs: 38 pt: 24 ko: 24 en: 24 ja: 24 es: 24 it: 24 zh_CN: 16
+Mem Free                   135 px   hr    | hr:135 ru:127 de:119 ro:111 hu:111 da:111 uk:110 fr:104 nl:103 ar:100 pl: 95 sv: 95 fi: 95 cs: 87 ko: 80 it: 79 tr: 79 pt: 72 es: 72 en: 64 ja: 40 zh_CN: 32
+Memory                      64 px   de    | de: 64 nl: 63 hr: 63 ro: 56 fr: 56 it: 55 pt: 55 es: 55 hu: 55 uk: 55 ar: 52 da: 48 en: 48 fi: 47 ru: 47 tr: 47 pl: 46 sv: 40 cs: 38 ja: 24 ko: 24 zh_CN: 16
+Memory Frequency           190 px   es    | es:190 fr:183 it:182 nl:182 pl:167 pt:166 hr:159 da:151 ro:142 hu:135 en:128 ja:128 de:127 cs:126 uk:119 tr:118 ru:111 sv:111 fi:103 ar: 95 ko: 56 zh_CN: 32
+Memory Pressure            183 px   ru    | ru:183 it:182 pl:151 es:142 ro:142 hr:135 nl:127 de:127 pt:120 cs:120 da:120 en:120 ja:120 fr:112 tr:110 hu: 96 sv: 95 uk: 95 ar: 89 fi: 88 ko: 48 zh_CN: 32
+Mem Total                  136 px   de    | de:136 da:136 pl:127 uk:127 nl:119 hr:119 fr:112 ro:111 hu:111 fi:111 ar:109 tr:104 cs:103 sv: 96 it: 80 ru: 78 es: 71 en: 71 pt: 71 ko: 48 ja: 32 zh_CN: 24
+Mem Used                   151 px   ru    | ru:151 uk:150 hr:143 tr:136 nl:135 de:135 ro:135 ar:132 fr:128 da:127 fi:119 hu:118 cs:102 sv: 96 pl: 95 pt: 71 it: 71 es: 71 en: 63 ko: 56 ja: 48 zh_CN: 32
+Mentions                   103 px   tr    | tr:103 nl: 95 sv: 87 hr: 87 de: 86 ru: 79 hu: 71 es: 71 fi: 71 fr: 63 it: 63 en: 63 ro: 63 pl: 63 da: 56 pt: 55 cs: 48 uk: 47 ja: 40 ar: 30 ko: 16 zh_CN: 16
+Message                     95 px   uk    | uk: 95 sv: 80 ru: 72 it: 71 de: 71 pl: 71 pt: 64 es: 56 en: 56 fr: 56 nl: 54 fi: 47 hu: 47 cs: 47 da: 46 hr: 46 ja: 40 ar: 40 tr: 37 ro: 37 ko: 24 zh_CN: 16
+min                         30 px   ar    | ar: 30 da: 29 cs: 23 en: 23 fi: 23 ro: 23 hu: 23 it: 23 fr: 23 sv: 23 de: 23 pl: 23 ru: 23 pt: 23 tr: 23 es: 23 uk: 23 hr: 23 nl: 23 zh_CN: 16 ja: 16 ko: 16
+Min Freq                   119 px   hu    | hu:119 tr:108 hr: 85 cs: 85 da: 85 sv: 85 pl: 85 ro: 84 fi: 77 uk: 77 ru: 77 nl: 77 pt: 76 fr: 76 it: 76 es: 76 de: 71 ar: 69 en: 63 ko: 48 ja: 40 zh_CN: 32
+Minimum CPU Frequency      255 px   fr    | fr:255 de:247 ro:246 ru:239 uk:231 fi:223 es:214 nl:208 it:206 sv:199 hr:199 hu:191 pt:190 pl:175 en:168 cs:168 ja:168 tr:166 da:159 ar:118 ko: 80 zh_CN: 72
+Minimum CPU Temperature    272 px   fr    | fr:272 ru:271 ro:263 uk:263 fi:239 de:232 es:223 it:223 sv:216 hr:199 hu:199 pt:199 ja:184 nl:184 en:184 ar:182 da:176 tr:174 cs:167 pl:159 ko: 72 zh_CN: 72
+minute_short                 8 px   ro    | ro:  8 ko:  8 ja:  8 cs:  8 en:  8 fi:  8 ar:  8 da:  8 fr:  8 it:  8 de:  8 es:  8 sv:  8 pt:  8 tr:  8 uk:  8 ru:  8 nl:  8 zh_CN:  8 pl:  8 hr:  8 hu:  7
+Mobile                     136 px   pl    | pl:136 tr: 95 fi: 95 it: 72 pt: 71 uk: 71 ru: 71 hr: 55 fr: 48 en: 48 nl: 47 da: 39 hu: 39 de: 39 ro: 39 sv: 39 cs: 39 es: 39 ko: 32 ja: 32 ar: 31 zh_CN: 16
+Model Name                 135 px   es    | es:135 it:127 ru:119 pt:111 fr:104 pl: 95 cs: 95 hr: 95 uk: 95 fi: 87 en: 80 de: 80 ro: 79 sv: 79 ar: 76 hu: 72 nl: 72 da: 71 tr: 71 ko: 40 ja: 32 zh_CN: 32
+moderate_drizzle           167 px   tr    | tr:167 de:151 it:150 hu:143 pl:143 fi:143 pt:135 es:134 en:128 da:127 nl:119 fr:111 cs:111 ar: 81 sv: 63 hr: 55 ro: 54 ru: 47 uk: 39 zh_CN: 24 ko: 24 ja: 16
+moderate_rain              160 px   tr    | tr:160 fi:151 pl:143 it:126 ru:119 es:118 ro:118 pt:111 en:103 fr:103 hu:103 de:103 hr:103 nl: 95 da: 95 cs: 79 ar: 72 sv: 31 uk: 24 zh_CN: 16 ko:  8 ja:  8
+moderate_rain_showers      223 px   ru    | ru:223 pl:216 pt:214 fi:183 tr:168 en:167 de:152 es:151 da:144 nl:135 ro:128 it:127 fr:127 hu:120 cs:112 hr:111 uk: 95 sv: 80 ar: 64 ja: 24 ko: 24 zh_CN: 16
+moderate_snowfall          191 px   pl    | pl:191 tr:191 fi:183 fr:176 de:143 en:135 hu:135 ro:135 nl:127 pt:127 da:119 es:119 ru:111 hr:111 cs:103 it:103 ar: 87 sv: 55 uk: 31 zh_CN: 16 ja:  8 ko:  8
+Monday                     103 px   pt    | pt:103 pl: 95 ru: 88 hr: 87 uk: 72 fi: 71 tr: 70 nl: 55 cs: 54 ar: 53 en: 48 da: 47 de: 47 sv: 47 it: 46 es: 38 hu: 38 fr: 38 ro: 30 zh_CN: 24 ko: 24 ja: 24
+Month                       63 px   fi    | fi: 63 pl: 55 hr: 47 uk: 47 ru: 40 hu: 40 en: 39 cs: 39 da: 39 sv: 39 de: 39 nl: 39 it: 32 fr: 31 ro: 30 ar: 25 ko: 24 pt: 23 es: 23 tr: 16 zh_CN:  8 ja:  8
+moon                        55 px   pl    | pl: 55 hr: 47 uk: 47 cs: 39 ar: 36 da: 32 sv: 32 en: 31 hu: 31 fr: 31 de: 31 nl: 31 ru: 31 es: 30 it: 30 ro: 30 fi: 23 pt: 22 tr: 16 zh_CN: 16 ja:  8 ko:  8
+moon_phase                 127 px   hr    | hr:127 fr:103 pl:102 cs: 87 uk: 87 it: 87 pt: 86 fi: 80 en: 80 es: 79 ro: 78 de: 72 ru: 72 ar: 71 tr: 71 hu: 71 da: 64 nl: 64 sv: 47 zh_CN: 16 ja: 16 ko: 16
+moonrise                   143 px   it    | it:143 es:135 ro:119 pl:119 hr:118 cs:104 fr:103 pt:103 nl: 87 ru: 87 uk: 87 de: 87 da: 79 sv: 79 ar: 79 fi: 79 hu: 72 tr: 71 en: 64 ja: 24 ko: 16 zh_CN: 16
+moonset                    151 px   it    | it:151 es:134 fr:120 hr:119 pl:119 nl:111 de:103 uk: 95 da: 95 cs: 95 ro: 95 ru: 80 fi: 79 hu: 79 ar: 79 sv: 79 pt: 78 tr: 71 en: 55 ja: 32 zh_CN: 16 ko: 16
+Move to                    135 px   fi    | fi:135 nl:128 de:127 hu:112 uk:103 ru:103 fr:103 cs: 94 tr: 87 sv: 86 hr: 86 pl: 86 pt: 79 it: 71 da: 62 ar: 56 en: 55 ro: 55 es: 55 ja: 24 zh_CN: 16 ko: 16
+mugwort                     71 px   it    | it: 71 pt: 71 tr: 70 es: 63 fr: 56 cs: 55 en: 55 de: 47 ru: 47 pl: 46 nl: 40 uk: 39 sv: 39 da: 39 ro: 38 hr: 38 ar: 37 hu: 32 fi: 30 ja: 24 zh_CN: 16 ko:  8
+Music                       63 px   fi    | fi: 63 ar: 61 fr: 56 nl: 48 es: 47 ro: 47 it: 47 pl: 47 hr: 47 ru: 47 uk: 47 pt: 47 tr: 40 da: 40 sv: 40 de: 40 en: 39 cs: 39 hu: 32 ja: 16 ko: 16 zh_CN: 16
+Mute                       159 px   ro    | ro:159 fr:127 it:119 ru:112 uk:103 de:103 da: 87 tr: 79 pt: 72 es: 72 ar: 72 cs: 55 fi: 55 hu: 55 pl: 47 nl: 47 hr: 45 sv: 39 en: 32 ja: 32 ko: 24 zh_CN: 16
+My Drive                   104 px   de    | de:104 ar: 96 it: 95 pt: 88 hu: 88 nl: 80 ro: 79 fi: 72 sv: 72 fr: 72 es: 71 da: 64 ru: 64 pl: 64 hr: 64 uk: 64 en: 64 cs: 64 tr: 56 ja: 48 ko: 48 zh_CN: 32
+Name                        64 px   ro    | ro: 64 es: 48 cs: 40 hr: 40 uk: 39 pl: 39 ar: 37 en: 32 it: 32 de: 32 pt: 32 nl: 32 da: 31 sv: 31 fi: 31 hu: 24 fr: 24 ru: 23 ko: 16 ja: 16 zh_CN: 16 tr: 15
+ne                          71 px   fi    | fi: 71 ar: 66 uk: 32 sv: 16 de: 16 da: 16 cs: 16 ja: 16 ko: 16 zh_CN: 16 nl: 16 ru: 16 tr: 16 fr: 15 hu: 15 ro: 15 it: 15 pt: 15 en: 15 pl: 15 es: 15 hr: 15
+Net                         55 px   hu    | hu: 55 uk: 47 fi: 47 fr: 47 ar: 44 ro: 39 hr: 39 ko: 32 pt: 32 it: 32 ru: 31 pl: 31 de: 31 ja: 24 sv: 23 es: 23 en: 23 da: 23 nl: 23 cs: 23 zh_CN: 16 tr: 15
+Network Devices            182 px   fr    | fr:182 pt:160 ro:159 it:152 pl:152 es:151 hu:136 nl:127 sv:120 uk:119 cs:119 ja:119 en:119 ru:119 da:119 de:112 hr:111 fi:111 tr: 95 ar: 93 ko: 56 zh_CN: 32
+Network Interface          168 px   de    | de:168 uk:151 it:151 sv:143 hu:143 pl:143 ro:142 da:136 en:136 ru:135 pt:135 nl:128 fr:126 cs:119 es:118 ja:112 hr:112 fi:111 ar: 95 ko: 80 tr: 79 zh_CN: 32
+Network Name               127 px   es    | es:127 ro:111 fr:103 en: 96 ja: 96 da: 96 de: 96 pt: 96 uk: 95 sv: 95 nl: 88 hr: 88 pl: 87 cs: 80 hu: 80 fi: 79 ar: 76 it: 72 ru: 63 ko: 56 tr: 47 zh_CN: 32
+Network Status             128 px   it    | it:128 hu:127 es:126 sv:111 en:111 da:111 de:111 pt:111 ru:111 fr:110 nl:103 hr: 96 ro: 87 fi: 87 ar: 87 uk: 87 pl: 79 cs: 72 tr: 71 ja: 64 ko: 56 zh_CN: 32
+Network Usage              167 px   fr    | fr:167 uk:150 ru:143 sv:143 de:143 hr:128 hu:127 ro:119 nl:112 ar:108 en:104 it:104 fi:103 cs: 96 pl: 95 tr: 95 da: 95 pt: 88 es: 79 ja: 72 ko: 64 zh_CN: 40
+New                         63 px   uk    | uk: 63 ru: 55 fr: 55 ko: 48 nl: 40 it: 39 es: 39 cs: 32 pl: 32 ar: 31 hr: 31 fi: 31 sv: 31 tr: 31 pt: 31 en: 24 de: 23 ro: 23 da: 16 zh_CN: 16 ja: 16 hu: 13
+new_moon                   104 px   fr    | fr:104 nl: 87 es: 78 it: 78 ru: 72 ro: 70 en: 63 pt: 62 tr: 56 uk: 56 fi: 55 de: 55 hr: 48 sv: 48 hu: 47 da: 47 ar: 32 pl: 24 cs: 23 zh_CN: 16 ja: 16 ko:  8
+New task                   112 px   fr    | fr:112 it:111 uk:103 pl: 96 hr: 96 de: 96 ro: 95 ru: 95 fi: 95 nl: 88 pt: 87 es: 87 tr: 80 ar: 79 sv: 79 hu: 79 da: 72 cs: 71 en: 64 ja: 48 ko: 32 zh_CN: 24
+Next                        79 px   it    | it: 79 es: 72 ru: 72 hu: 71 nl: 64 pl: 64 pt: 64 hr: 63 fi: 63 fr: 55 ro: 55 ar: 53 de: 48 da: 40 cs: 39 sv: 39 tr: 38 uk: 31 en: 31 zh_CN: 24 ja: 16 ko: 16
+Next Line                  128 px   ro    | ro:128 ru:127 uk:120 it:119 es:119 hr:112 nl:111 pl:111 fr:111 hu:104 tr:104 de:104 fi:103 pt:102 ar: 93 cs: 88 da: 88 en: 72 sv: 71 ko: 32 zh_CN: 24 ja: 24
+Next Track                 143 px   it    | it:143 ro:127 es:119 hr:119 uk:112 hu:112 nl:112 pl:112 ru:112 fi:111 fr:111 de:111 tr:103 pt:102 ar:101 cs: 87 en: 80 sv: 80 da: 80 ja: 48 ko: 40 zh_CN: 32
+night                       54 px   hu    | hu: 54 ro: 48 es: 40 pt: 40 it: 40 en: 39 nl: 39 de: 39 ar: 36 tr: 32 fr: 31 sv: 31 ru: 31 pl: 23 hr: 23 uk: 23 da: 22 cs: 22 ko: 16 zh_CN: 16 fi: 15 ja:  8
+nitrogen_dioxide           168 px   ar    | ar:168 pt:167 es:159 it:134 en:128 de:127 nl:120 fr:120 hu:119 hr:119 pl:119 ro:111 da:110 uk:104 cs:104 fi:103 ru:103 tr: 95 sv: 87 ja: 40 ko: 40 zh_CN: 32
+nne                        126 px   fi    | fi:126 ar:106 uk: 48 sv: 24 de: 24 da: 24 cs: 24 ja: 24 ko: 24 zh_CN: 24 nl: 24 ru: 24 tr: 24 fr: 23 hu: 23 ro: 23 it: 23 pt: 23 en: 23 pl: 23 es: 23 hr: 23
+nnw                        106 px   ar    | ar:106 fi: 95 uk: 48 hu: 31 ja: 24 ko: 24 ro: 24 da: 24 fr: 24 cs: 24 en: 24 de: 24 sv: 24 pt: 24 tr: 24 it: 24 zh_CN: 24 hr: 24 nl: 24 es: 24 pl: 24 ru: 23
+No                          40 px   tr    | tr: 40 de: 31 pl: 24 ko: 24 ja: 24 hu: 24 nl: 24 ru: 23 pt: 23 fr: 23 sv: 21 da: 21 cs: 16 hr: 16 it: 15 uk: 15 en: 15 ro: 15 es: 15 fi: 14 ar: 13 zh_CN:  8
+no_alerts                  119 px   de    | de:119 hu:111 cs:111 fi:110 da:103 ro: 95 it: 55 ar: 55 es: 55 pt: 48 fr: 48 uk: 39 sv: 38 en: 32 nl: 31 hr: 31 pl: 31 tr: 24 ru: 23 ko: 16 ja: 16 zh_CN:  8
+No Cover                   135 px   it    | it:135 uk:127 fr:119 ro:103 ar: 96 hu: 95 es: 95 pl: 94 nl: 87 sv: 87 ru: 87 da: 87 de: 80 hr: 79 cs: 79 tr: 72 fi: 70 en: 64 pt: 63 ja: 40 ko: 40 zh_CN: 24
+no_data                    112 px   ar    | ar:112 fr:104 hr:103 nl:103 uk: 88 it: 87 de: 87 pl: 86 ru: 80 hu: 79 cs: 78 sv: 78 fi: 78 da: 78 pt: 71 ro: 71 es: 71 tr: 64 en: 55 ko: 48 ja: 40 zh_CN: 24
+Node Name                  119 px   es    | es:119 it:103 hu: 96 hr: 87 fi: 87 fr: 87 pl: 87 de: 80 pt: 79 cs: 79 uk: 78 ar: 76 en: 72 tr: 71 nl: 64 ru: 63 da: 63 ro: 63 sv: 55 ko: 40 ja: 32 zh_CN: 32
+no_location                215 px   it    | it:215 pl:199 hr:198 ru:191 nl:175 es:175 pt:167 hu:159 ar:152 de:151 sv:150 tr:143 fr:135 uk:127 ro:126 en:119 da:118 ja: 96 cs: 95 fi: 94 ko: 88 zh_CN: 40
+No Lyrics                  158 px   pl    | pl:158 hr:144 uk:143 cs:128 ru:127 hu:119 da:118 tr:112 nl:111 fr:110 fi:110 ar:104 de:103 it: 95 ro: 94 sv: 78 pt: 71 en: 71 es: 71 ko: 40 ja: 32 zh_CN: 24
+No Lyrics Available        247 px   hu    | hu:247 pl:246 tr:232 uk:231 hr:224 cs:215 ru:215 da:214 nl:208 fi:198 fr:192 it:192 ro:191 de:184 es:184 sv:174 pt:159 en:152 ar:112 ja:104 ko: 96 zh_CN: 40
+No messages                135 px   de    | de:135 uk:135 it:127 sv:126 es:119 pl:118 da:111 nl:111 fr:104 pt:103 ru:103 cs: 96 hu: 95 ro: 93 ja: 88 hr: 87 en: 87 fi: 86 tr: 72 ar: 63 ko: 48 zh_CN: 32
+No new mail                175 px   it    | it:175 pl:174 fr:168 fi:158 de:151 es:151 nl:143 uk:143 cs:135 ro:135 tr:128 hr:120 ru:120 pt:119 sv:118 ar:111 hu:111 da:102 ja: 96 en: 87 ko: 56 zh_CN: 40
+north                       70 px   fi    | fi: 70 cs: 39 ar: 33 da: 30 uk: 15 zh_CN:  8 tr:  8 ja:  8 ko:  8 ro:  7 fr:  7 en:  7 de:  7 sv:  7 it:  7 pt:  7 nl:  7 ru:  7 hr:  7 pl:  7 es:  7 hu:  6
+No Synced Lyrics           255 px   nl    | nl:255 de:239 ru:239 pl:238 uk:232 hu:231 da:230 fr:222 fi:222 hr:215 it:207 cs:207 tr:200 ro:199 sv:190 es:175 pt:175 ar:167 en:127 ko: 80 ja: 72 zh_CN: 40
+Not Charging               159 px   nl    | nl:159 pt:152 de:143 uk:119 pl:112 ar:104 fr:103 it:103 ro:103 ru:103 tr: 96 da: 96 en: 95 hu: 95 cs: 88 sv: 87 hr: 80 es: 80 fi: 78 ko: 56 ja: 48 zh_CN: 24
+Notes                       96 px   sv    | sv: 96 da: 88 ru: 79 hu: 72 nl: 63 uk: 63 hr: 63 cs: 63 ar: 56 fi: 55 de: 55 pl: 55 tr: 48 en: 39 fr: 39 es: 39 pt: 39 ro: 32 it: 32 ko: 16 ja: 16 zh_CN: 16
+Nothing scheduled          184 px   hu    | hu:184 ru:183 tr:183 uk:167 hr:151 it:151 fi:142 en:135 pl:135 cs:119 ro:119 es:119 de:111 da:110 sv:110 pt:103 fr:103 nl:103 ar: 95 ja: 72 zh_CN: 48 ko: 40
+Not Playing                191 px   de    | de:191 nl:167 it:160 ru:143 hr:136 cs:135 uk:127 pl:126 hu:119 es:112 fr:111 pt:111 ar:103 da: 96 sv: 88 en: 87 ro: 79 fi: 70 tr: 64 ko: 56 ja: 32 zh_CN: 24
+No upcoming events         215 px   nl    | nl:215 da:215 cs:215 pl:214 de:200 hr:199 ro:184 fr:184 it:184 sv:183 es:183 ru:183 hu:168 tr:168 uk:167 fi:166 pt:159 en:143 ar:111 zh_CN: 72 ko: 72 ja: 64
+November                    72 px   ro    | ro: 72 es: 72 fi: 71 en: 64 fr: 64 hu: 64 it: 64 da: 64 de: 64 uk: 64 nl: 64 pt: 63 sv: 63 cs: 62 pl: 62 hr: 55 ru: 47 ar: 47 tr: 40 zh_CN: 24 ko: 23 ja: 23
+Now                         79 px   fr    | fr: 79 it: 47 ru: 47 de: 39 pl: 39 es: 39 tr: 39 pt: 39 uk: 38 ro: 32 hr: 31 hu: 31 cs: 31 ar: 29 en: 24 fi: 23 zh_CN: 16 ko: 16 da: 15 nl: 15 sv: 15 ja:  8
+Now Playing                183 px   hr    | hr:183 nl:151 uk:151 es:151 fr:151 cs:134 pl:127 it:119 hu:118 ro:111 tr:104 ru:103 pt: 96 de: 95 en: 87 ar: 87 da: 79 sv: 71 fi: 55 zh_CN: 32 ko: 32 ja: 24
+Number of Cores            135 px   es    | es:135 pt:135 de:128 ru:120 ro:120 ja:119 tr:119 en:119 fr:119 uk:112 it:112 nl:103 pl:102 sv: 96 da: 96 ar: 87 cs: 87 hr: 86 hu: 56 fi: 47 ko: 40 zh_CN: 32
+Number of CPUs             175 px   de    | de:175 ru:175 ro:168 fr:167 uk:159 sv:136 pl:135 pt:119 en:111 ja:111 ar:104 it:103 es:103 da: 96 nl: 95 fi: 87 hu: 87 tr: 79 hr: 78 cs: 70 ko: 48 zh_CN: 48
+Num Lock                    88 px   ar    | ar: 88 tr: 87 fr: 72 de: 72 ja: 64 ko: 64 fi: 64 da: 64 hu: 64 cs: 64 en: 64 ro: 64 sv: 64 ru: 64 pt: 64 uk: 64 hr: 64 nl: 64 pl: 64 it: 63 es: 63 zh_CN: 32
+nw                          66 px   ar    | ar: 66 fi: 39 uk: 32 hu: 23 ja: 16 ko: 16 ro: 16 da: 16 fr: 16 cs: 16 en: 16 de: 16 sv: 16 pt: 16 tr: 16 it: 16 zh_CN: 16 hr: 16 nl: 16 es: 16 pl: 16 ru: 15
+October                     87 px   pl    | pl: 87 ro: 72 hr: 62 de: 56 es: 56 sv: 56 it: 56 en: 56 da: 56 hu: 56 nl: 56 fr: 56 pt: 55 ru: 55 uk: 55 fi: 54 ar: 45 cs: 37 tr: 31 ja: 23 ko: 23 zh_CN: 16
+Offline                    127 px   hu    | hu:127 fi:119 uk: 96 es: 95 tr: 87 sv: 86 fr: 80 it: 79 ro: 79 hr: 79 ru: 71 ar: 63 da: 56 nl: 56 pt: 56 pl: 56 de: 56 en: 56 cs: 55 ko: 40 ja: 40 zh_CN: 16
+OK                          56 px   pt    | pt: 56 es: 56 fr: 56 hr: 47 uk: 47 ar: 40 tr: 40 cs: 38 ko: 16 hu: 16 fi: 16 da: 16 ja: 16 de: 16 it: 16 zh_CN: 16 ru: 16 en: 16 nl: 16 sv: 16 pl: 16 ro: 16
+olive                       63 px   pt    | pt: 63 fr: 56 hr: 55 ar: 53 da: 47 hu: 47 fi: 47 pl: 47 ro: 47 tr: 47 de: 40 en: 40 ru: 39 uk: 39 es: 39 nl: 39 cs: 39 it: 39 sv: 32 ja: 32 ko: 24 zh_CN: 16
+one_alert                  110 px   uk    | uk:110 nl:110 cs:110 pl:103 fi:103 hr: 95 ru: 95 ar: 79 hu: 78 it: 70 de: 70 sv: 70 da: 64 fr: 63 pt: 62 ro: 62 es: 62 en: 54 tr: 54 ja: 39 ko: 39 zh_CN: 31
+Ongoing                    111 px   ro    | ro:111 tr: 96 hu: 86 fi: 71 hr: 63 fr: 62 es: 62 it: 62 pt: 62 en: 55 cs: 54 pl: 47 uk: 47 da: 46 nl: 46 sv: 39 de: 38 ar: 32 ko: 32 ru: 31 ja: 24 zh_CN: 24
+Online                      71 px   tr    | tr: 71 hr: 63 fr: 63 es: 62 en: 48 cs: 48 da: 48 hu: 48 fi: 48 it: 48 de: 48 pl: 48 pt: 48 sv: 48 ro: 48 nl: 48 uk: 47 ru: 47 ja: 40 ar: 31 ko: 24 zh_CN: 16
+Open                        71 px   hu    | hu: 71 ro: 64 uk: 62 cs: 55 ru: 55 fr: 48 pl: 47 de: 47 hr: 47 nl: 47 pt: 40 es: 40 sv: 39 en: 31 it: 31 fi: 31 ar: 29 da: 23 zh_CN: 16 ko: 16 ja: 16 tr: 15
+Operating System           175 px   fr    | fr:175 ru:159 hu:144 uk:143 ro:136 pl:136 hr:136 fi:135 it:135 pt:135 es:135 nl:135 en:128 da:128 ja:128 cs:120 tr:118 sv:112 de:111 ar: 95 ko: 40 zh_CN: 32
+Operating System Logo      238 px   es    | es:238 fr:238 pt:230 ru:224 uk:215 hr:214 it:206 hu:199 ro:199 pl:198 fi:183 cs:182 tr:174 sv:168 da:167 en:167 ja:167 nl:166 de:150 ar:137 ko: 64 zh_CN: 48
+Operating System Name      232 px   ru    | ru:232 fr:231 es:223 nl:216 ro:208 pl:207 it:207 cs:199 hr:199 pt:199 uk:199 de:191 hu:184 fi:183 en:168 ja:168 da:168 tr:150 sv:143 ar:124 ko: 64 zh_CN: 48
+Operating System URL       256 px   fi    | fi:256 ru:256 uk:255 pl:239 fr:231 hu:215 it:199 es:199 pt:191 sv:191 hr:183 cs:175 tr:174 ro:168 nl:167 ja:160 da:160 en:160 de:143 ar:143 ko: 72 zh_CN: 64
+Operating System Version   263 px   fr    | fr:263 it:239 es:231 nl:224 hu:215 pl:215 hr:215 de:215 ru:215 pt:215 ro:208 uk:206 fi:199 en:191 cs:191 da:191 ja:191 tr:174 sv:167 ar:149 ko: 64 zh_CN: 48
+Other                       56 px   de    | de: 56 nl: 56 cs: 55 ru: 47 hr: 47 en: 40 tr: 40 fr: 40 da: 39 it: 39 hu: 39 sv: 39 pt: 39 ar: 38 ro: 32 fi: 31 es: 31 pl: 31 uk: 30 ja: 24 ko: 16 zh_CN: 16
+Out of Office              150 px   es    | es:150 fi:142 pt:142 ro:127 fr:127 sv:126 uk:120 cs:104 en:104 de:103 ru: 96 ar: 88 pl: 87 hr: 86 it: 79 hu: 79 tr: 71 nl: 55 zh_CN: 40 ko: 32 ja: 24 da: 24
+overcast                    78 px   ar    | ar: 78 da: 71 pl: 70 en: 63 ro: 63 ru: 63 cs: 62 fi: 62 fr: 55 it: 55 hr: 55 es: 55 pt: 55 uk: 55 de: 54 nl: 54 tr: 47 hu: 46 sv: 39 ja: 16 zh_CN: 16 ko: 16
+Overdue                    111 px   uk    | uk:111 hr: 79 ru: 79 de: 79 cs: 78 it: 78 pt: 70 fr: 70 da: 70 ro: 70 tr: 63 fi: 63 sv: 62 en: 56 pl: 56 nl: 55 es: 55 hu: 46 ko: 40 ar: 39 ja: 32 zh_CN: 24
+Overdue Tasks              303 px   da    | da:303 sv:271 hu:215 tr:184 fi:167 es:167 uk:159 de:159 ar:154 ru:151 hr:143 pt:135 ro:128 it:128 fr:127 pl:119 cs:119 nl:111 en:103 ja: 72 ko: 72 zh_CN: 32
+ozone                       53 px   ar    | ar: 53 fi: 47 pt: 47 en: 40 fr: 40 it: 39 es: 39 cs: 31 da: 31 hu: 31 ro: 31 de: 31 pl: 31 uk: 31 ru: 31 tr: 31 sv: 31 hr: 31 nl: 31 ja: 24 ko: 16 zh_CN: 16
+package                     55 px   ro    | ro: 55 ko: 55 ja: 55 cs: 55 en: 55 fi: 55 ar: 55 da: 55 fr: 55 it: 55 de: 55 es: 55 sv: 55 pt: 55 tr: 55 uk: 55 ru: 55 nl: 55 zh_CN: 55 pl: 55 hr: 55 hu: 46
+Package                     70 px   it    | it: 70 es: 55 en: 55 cs: 55 fi: 54 pt: 47 hu: 47 pl: 46 nl: 46 fr: 46 ro: 46 ja: 40 uk: 39 da: 39 ru: 39 de: 38 sv: 38 tr: 38 hr: 38 ar: 31 ko: 24 zh_CN: 24
+packages                    62 px   ro    | ro: 62 ko: 62 ja: 62 cs: 62 en: 62 fi: 62 ar: 62 da: 62 fr: 62 it: 62 de: 62 es: 62 sv: 62 pt: 62 tr: 62 uk: 62 ru: 62 nl: 62 zh_CN: 62 pl: 62 hr: 62 hu: 46
+Packages                    70 px   nl    | nl: 70 it: 70 hu: 64 tr: 63 en: 62 es: 62 pl: 55 ro: 55 cs: 55 pt: 54 fr: 54 fi: 54 ru: 48 da: 47 de: 47 uk: 47 hr: 46 ja: 40 sv: 38 ar: 37 ko: 24 zh_CN: 24
+Participants               102 px   es    | es:102 pt:102 tr: 96 fi: 95 en: 94 ro: 94 fr: 94 it: 94 hu: 80 de: 80 pl: 80 nl: 79 da: 72 sv: 72 ru: 71 hr: 71 cs: 71 ar: 69 uk: 63 ja: 24 ko: 24 zh_CN: 24
+partly_cloudy              176 px   pl    | pl:176 fr:167 ru:167 it:166 es:158 pt:158 sv:143 hr:143 de:135 uk:135 tr:118 hu:111 en:103 ro:102 fi:102 nl: 95 da: 95 ar: 86 ko: 64 cs: 55 zh_CN: 32 ja: 24
+Past calls                 166 px   pl    | pl:166 pt:151 es:150 ro:144 de:136 ar:132 it:128 da:127 nl:126 tr:120 hu:120 sv:119 fi:119 uk:111 ru:111 cs:104 fr:103 hr:102 en: 78 ja: 40 ko: 40 zh_CN: 40
+Pause                       78 px   cs    | cs: 78 ar: 78 tr: 63 nl: 62 hu: 47 fi: 39 da: 39 de: 39 ru: 39 uk: 39 fr: 39 en: 39 ro: 38 hr: 38 it: 38 pt: 38 es: 38 pl: 38 ja: 32 ko: 32 sv: 30 zh_CN: 16
+Paused                     104 px   hu    | hu:104 da: 96 tr: 95 ar: 93 cs: 86 pl: 79 nl: 79 hr: 70 ru: 64 uk: 63 fr: 63 de: 62 it: 62 pt: 62 es: 62 fi: 55 en: 46 sv: 46 ja: 40 ko: 40 ro: 38 zh_CN: 24
+Percentage Free            142 px   it    | it:142 pt:135 fr:135 hr:134 da:134 es:127 hu:120 en:119 ja:119 ro:119 ru:119 uk:119 pl:118 nl:116 sv:110 ar: 96 de: 94 fi: 87 cs: 87 ko: 72 tr: 71 zh_CN: 40
+Percentage Used            159 px   hu    | hu:159 hr:158 fr:151 uk:151 nl:150 ru:143 it:134 ro:134 pt:134 tr:128 es:126 da:126 en:118 ja:118 pl:110 de:110 sv:110 ar:104 cs:103 fi: 79 ko: 56 zh_CN: 40
+Phone                       72 px   fr    | fr: 72 pt: 64 it: 63 nl: 63 es: 63 ro: 55 da: 55 hu: 55 cs: 55 sv: 55 de: 55 hr: 55 ru: 55 tr: 55 pl: 55 uk: 55 fi: 54 en: 39 ar: 31 zh_CN: 16 ja: 16 ko: 16
+Physical Memory            207 px   de    | de:207 ar:140 ru:135 da:135 fr:128 hr:126 ja:119 uk:119 en:119 tr:119 fi:118 hu:118 nl:118 pl:118 ro:111 es:111 pt:111 it:111 sv:103 cs:102 ko: 56 zh_CN: 32
+PID                         23 px   ro    | ro: 23 ko: 23 ja: 23 cs: 23 en: 23 fi: 23 ar: 23 da: 23 fr: 23 hu: 23 it: 23 de: 23 es: 23 ru: 23 pt: 23 tr: 23 sv: 23 uk: 23 nl: 23 zh_CN: 23 pl: 23 hr: 23
+Pin                         79 px   nl    | nl: 79 ru: 71 uk: 71 de: 63 hu: 63 fi: 63 fr: 63 cs: 62 pl: 60 tr: 56 da: 55 pt: 48 ro: 47 hr: 47 ar: 40 es: 39 it: 38 ja: 32 sv: 30 en: 22 ko: 16 zh_CN: 16
+Pinned                      88 px   fi    | fi: 88 de: 79 ru: 79 uk: 79 tr: 79 pl: 71 nl: 71 da: 70 sv: 70 hu: 64 hr: 63 cs: 62 pt: 55 fr: 55 it: 54 ja: 48 en: 46 es: 46 ar: 40 ro: 38 ko: 24 zh_CN: 24
+Play                       102 px   ru    | ru:102 hr: 93 de: 87 es: 80 pt: 80 uk: 78 it: 71 hu: 70 nl: 63 pl: 55 cs: 54 ro: 48 da: 47 fi: 47 ar: 39 sv: 39 en: 31 fr: 31 tr: 23 ja: 16 ko: 16 zh_CN: 16
+Playing                    167 px   hr    | hr:167 it:167 de:143 fr:126 ru:118 hu:118 es:103 uk:102 pt: 96 pl: 88 ar: 87 cs: 87 da: 72 nl: 63 tr: 56 fi: 55 ro: 55 en: 54 sv: 48 ko: 32 zh_CN: 24 ja: 24
+Playlist                   166 px   hr    | hr:166 es:166 pt:150 uk:143 pl:134 da:128 fr:127 hu:126 de:120 ro:119 cs:112 ar:103 tr:103 nl: 95 fi: 87 sv: 71 ru: 63 en: 62 it: 62 ja: 48 ko: 40 zh_CN: 32
+Playlists                  174 px   hr    | hr:174 es:174 pt:158 hu:135 fr:135 tr:135 pl:134 de:127 ro:119 nl:111 ar:103 cs:103 fi: 95 sv: 80 da: 79 ru: 72 uk: 71 en: 70 it: 62 ja: 48 ko: 32 zh_CN: 32
+pm10                        30 px   ro    | ro: 30 ko: 30 ja: 30 cs: 30 en: 30 fi: 30 ar: 30 da: 30 fr: 30 hu: 30 it: 30 de: 30 es: 30 ru: 30 pt: 30 tr: 30 sv: 30 uk: 30 nl: 30 zh_CN: 30 pl: 30 hr: 30
+pm2_5                       38 px   ro    | ro: 38 ko: 38 ja: 38 cs: 38 en: 38 fi: 38 ar: 38 da: 38 fr: 38 hu: 38 it: 38 de: 38 es: 38 ru: 38 pt: 38 tr: 38 sv: 38 uk: 38 nl: 38 zh_CN: 38 pl: 38 hr: 38
+Podcast                     56 px   ar    | ar: 56 ja: 56 uk: 55 ru: 55 fi: 54 da: 54 ro: 54 hu: 54 cs: 54 fr: 54 en: 54 de: 54 sv: 54 pt: 54 tr: 54 it: 54 nl: 54 hr: 54 pl: 54 es: 54 ko: 32 zh_CN: 16
+pollen                      88 px   ar    | ar: 88 fi: 72 nl: 71 it: 55 ru: 47 da: 46 sv: 46 hu: 46 de: 46 fr: 46 en: 46 uk: 40 pl: 39 ro: 38 hr: 38 es: 38 tr: 38 pt: 38 ko: 24 cs: 22 ja: 16 zh_CN: 16
+pollen_high                 55 px   ro    | ro: 55 uk: 54 ru: 54 cs: 48 tr: 48 fi: 47 pl: 47 ar: 40 hr: 40 hu: 39 fr: 39 de: 31 es: 31 nl: 31 it: 31 en: 31 pt: 31 sv: 23 da: 20 ko: 16 ja: 16 zh_CN:  8
+pollen_low                  64 px   hu    | hu: 64 fi: 63 de: 55 uk: 55 fr: 47 ro: 47 ru: 47 ar: 40 tr: 40 hr: 40 pl: 39 cs: 39 it: 38 pt: 38 nl: 30 es: 30 ja: 24 en: 23 da: 23 sv: 22 ko: 16 zh_CN:  8
+pollen_moderate             88 px   pl    | pl: 88 fi: 87 hu: 71 ru: 71 en: 64 it: 63 uk: 63 pt: 63 es: 63 da: 55 ro: 55 hr: 55 sv: 55 cs: 54 fr: 48 ar: 39 de: 39 nl: 39 tr: 31 ja: 24 ko: 16 zh_CN: 16
+pollen_very_high           118 px   fi    | fi:118 ro:110 ru:103 pl:102 cs: 96 hu: 95 uk: 95 fr: 80 hr: 80 tr: 80 pt: 79 sv: 79 it: 79 ar: 78 de: 71 nl: 71 en: 71 da: 69 es: 63 ja: 40 ko: 40 zh_CN: 16
+population                  95 px   hr    | hr: 95 cs: 95 it: 87 de: 86 sv: 78 en: 78 da: 78 fr: 78 ru: 72 uk: 71 ro: 71 es: 70 pt: 70 nl: 70 pl: 70 hu: 63 fi: 63 ar: 45 tr: 39 zh_CN: 16 ja: 16 ko: 16
+Position                    71 px   it    | it: 71 fi: 63 en: 62 sv: 62 hr: 62 fr: 62 da: 62 es: 62 de: 62 nl: 55 uk: 55 ru: 55 ro: 55 hu: 54 pl: 54 pt: 54 cs: 47 ar: 45 tr: 40 ja: 16 ko: 16 zh_CN: 16
+Power                       96 px   hu    | hu: 96 da: 95 uk: 79 ru: 63 cs: 63 es: 62 de: 62 pt: 62 nl: 55 fr: 55 it: 54 ro: 47 sv: 46 ar: 44 en: 39 fi: 39 hr: 39 ja: 39 tr: 23 pl: 23 zh_CN: 16 ko: 16
+Power Draw                 184 px   fr    | fr:184 it:183 ru:167 hu:159 uk:143 hr:143 pt:143 es:143 de:135 sv:134 nl:112 ro:112 ar:108 cs:104 tr: 95 da: 95 fi: 95 pl: 79 en: 79 ko: 40 ja: 32 zh_CN: 16
+precipitation              110 px   fr    | fr:110 it:110 es:102 en:102 de: 95 ar: 94 ro: 94 pt: 94 fi: 71 sv: 71 hu: 64 nl: 63 hr: 56 da: 47 cs: 47 ru: 47 pl: 40 uk: 39 tr: 39 ja: 24 zh_CN: 24 ko: 24
+precipitation_hours        183 px   fr    | fr:183 es:175 it:168 pt:167 de:159 ro:151 en:150 cs:142 sv:128 pl:112 tr:111 uk:102 ar: 97 hu: 96 nl: 95 da: 95 hr: 95 ru: 95 fi: 95 ko: 40 zh_CN: 32 ja: 32
+precipitation_probability   230 px   it    | it:230 es:230 pt:230 fr:230 ro:206 en:199 pl:199 de:183 cs:175 sv:167 fi:167 hr:159 da:158 ru:150 ar:148 uk:143 hu:120 tr:119 nl: 95 ko: 40 ja: 32 zh_CN: 32
+precip_sum                 160 px   ro    | ro:160 fi:143 de:133 nl:119 hr:111 it:110 hu:109 sv:103 ru:103 es:102 ar:101 pt:101 fr:101 da: 94 pl: 88 uk: 87 cs: 87 tr: 79 en: 79 ko: 40 ja: 40 zh_CN: 32
+Preferences                103 px   da    | da:103 sv:103 de:102 uk: 95 es: 94 pt: 94 hu: 87 pl: 87 en: 86 fr: 86 it: 79 ro: 79 hr: 79 nl: 79 ru: 72 tr: 72 cs: 71 fi: 71 ar: 69 ko: 40 ja: 32 zh_CN: 24
+pressure                    79 px   fi    | fi: 79 pl: 72 it: 71 nl: 71 de: 71 sv: 71 hu: 70 ru: 64 en: 63 ro: 63 fr: 62 pt: 54 es: 54 tr: 46 ar: 37 da: 32 hr: 32 uk: 32 cs: 32 ko: 16 ja: 16 zh_CN: 16
+Pressure                    72 px   pl    | pl: 72 it: 71 en: 63 ja: 63 da: 63 ro: 63 de: 63 hr: 63 pt: 63 ru: 55 es: 54 fr: 48 sv: 47 tr: 46 fi: 39 hu: 39 ar: 37 uk: 32 cs: 32 nl: 32 ko: 16 zh_CN: 16
+Previous                    80 px   ru    | ru: 80 it: 79 sv: 79 de: 72 uk: 71 fi: 70 cs: 70 fr: 70 hr: 70 pl: 70 es: 64 pt: 64 en: 62 da: 55 nl: 48 ro: 46 ar: 45 hu: 38 tr: 31 zh_CN: 24 ko: 16 ja: 16
+Previous Line              135 px   ru    | ru:135 uk:128 fr:127 ro:126 pl:126 it:120 de:120 hr:119 cs:119 es:111 pt:111 sv:110 fi:110 da:103 en:103 tr: 96 nl: 95 ar: 93 hu: 71 ko: 32 ja: 24 zh_CN: 24
+Previous Track             144 px   it    | it:144 fr:127 de:127 ro:126 hr:126 ru:120 uk:120 pl:119 sv:119 fi:118 cs:118 en:111 es:111 pt:111 ar:101 nl: 96 tr: 95 da: 95 hu: 79 ja: 48 ko: 40 zh_CN: 32
+Primary                     94 px   fi    | fi: 94 it: 79 pl: 79 hu: 78 es: 70 fr: 70 ro: 70 pt: 70 ru: 64 tr: 62 en: 55 uk: 55 nl: 55 da: 47 de: 47 hr: 47 cs: 47 sv: 47 ar: 38 ko: 16 zh_CN: 16 ja: 16
+Print…                    96 px   uk    | uk: 96 nl: 80 ro: 80 hu: 80 sv: 72 cs: 72 da: 72 pl: 72 de: 72 pt: 71 es: 71 fr: 71 fi: 64 tr: 56 it: 56 ru: 56 ar: 48 hr: 47 en: 47 ko: 24 ja: 24 zh_CN: 24
+Priority                    94 px   fi    | fi: 94 ro: 79 pt: 79 cs: 79 nl: 78 uk: 71 ru: 71 da: 70 hu: 70 sv: 70 de: 70 hr: 70 es: 70 pl: 70 ar: 68 fr: 63 en: 63 it: 62 tr: 56 ko: 32 ja: 24 zh_CN: 24
+Priority: High             158 px   ro    | ro:158 fi:158 uk:143 ru:143 pl:134 fr:127 hr:127 hu:126 pt:126 nl:126 cs:126 tr:120 de:118 es:118 it:110 sv:110 en:110 da:108 ar:101 ko: 64 ja: 48 zh_CN: 40
+Priority: Low              158 px   fi    | fi:158 hu:151 ro:150 uk:143 de:142 ru:135 pt:134 hr:127 fr:127 nl:126 pl:126 es:118 cs:118 it:118 tr:112 da:111 sv:110 ar:109 en:103 ko: 64 ja: 48 zh_CN: 40
+Priority: Medium           151 px   uk    | uk:151 fi:150 nl:143 ru:143 fr:143 hu:142 hr:142 ro:135 de:134 cs:134 da:134 pl:134 pt:134 en:127 es:126 sv:126 it:118 ar:109 tr:103 ko: 64 ja: 48 zh_CN: 40
+Private                    127 px   fi    | fi:127 hu: 95 uk: 64 cs: 64 pl: 63 ro: 62 hr: 62 en: 55 pt: 54 it: 54 es: 54 ru: 48 da: 46 de: 46 fr: 46 sv: 46 nl: 39 tr: 31 ar: 24 ja: 24 ko: 16 zh_CN: 16
+Processes                   79 px   hu    | hu: 79 da: 71 sv: 71 en: 70 fi: 70 nl: 70 pt: 70 fr: 70 ru: 64 de: 63 tr: 63 es: 62 it: 62 ar: 61 ro: 55 uk: 55 pl: 55 cs: 55 hr: 54 ja: 32 ko: 32 zh_CN: 16
+Processor                   87 px   pt    | pt: 87 hu: 79 es: 79 fr: 79 it: 79 ru: 72 sv: 71 de: 71 nl: 71 en: 71 da: 71 uk: 64 fi: 63 ro: 63 hr: 63 pl: 63 cs: 63 tr: 54 ar: 40 ja: 40 ko: 32 zh_CN: 24
+Processor Usage            200 px   fr    | fr:200 it:184 uk:174 hr:159 ru:151 hu:150 sv:150 de:150 es:144 pt:144 ro:144 fi:143 cs:135 tr:134 nl:127 pl:127 en:119 ar:117 da:110 ja: 64 ko: 64 zh_CN: 48
+Product_family             111 px   ro    | ro:111 ko:111 ja:111 cs:111 en:111 fi:111 ar:111 da:111 fr:111 it:111 de:111 es:111 sv:111 pt:111 tr:111 uk:111 ru:111 nl:111 zh_CN:111 pl:111 hr:111 hu: 95
+Product_name                95 px   ro    | ro: 95 ko: 95 ja: 95 cs: 95 en: 95 fi: 95 ar: 95 da: 95 fr: 95 it: 95 de: 95 es: 95 sv: 95 pt: 95 tr: 95 uk: 95 ru: 95 nl: 95 zh_CN: 95 pl: 95 hr: 95 hu: 72
+Product_sku                120 px   hu    | hu:120 ja: 86 ko: 86 ro: 86 cs: 86 en: 86 fi: 86 ar: 86 da: 86 fr: 86 it: 86 de: 86 es: 86 ru: 86 pt: 86 tr: 86 sv: 86 uk: 86 nl: 86 zh_CN: 86 pl: 86 hr: 86
+Progress                    94 px   hu    | hu: 94 it: 87 de: 86 fi: 86 fr: 86 da: 78 nl: 71 pt: 70 hr: 64 ru: 63 tr: 63 es: 62 en: 62 uk: 55 sv: 55 ro: 54 pl: 47 cs: 46 ar: 45 ko: 40 ja: 32 zh_CN: 16
+Promotions                  95 px   tr    | tr: 95 es: 86 fi: 79 fr: 78 it: 78 en: 78 da: 72 sv: 72 hr: 71 cs: 71 hu: 71 pt: 70 nl: 70 pl: 63 ro: 62 ja: 56 de: 55 uk: 39 ru: 39 ar: 32 ko: 32 zh_CN: 16
+provider                   126 px   fi    | fi:126 uk: 96 cs: 94 hu: 87 fr: 87 sv: 79 ru: 72 it: 71 tr: 71 es: 71 de: 64 en: 63 ro: 63 pl: 63 pt: 63 nl: 63 hr: 61 da: 55 ja: 48 ar: 44 zh_CN: 24 ko: 24
+Public                      96 px   tr    | tr: 96 de: 79 pl: 71 da: 71 hu: 71 nl: 64 uk: 64 fi: 63 it: 62 cs: 56 sv: 54 es: 54 pt: 54 fr: 46 ro: 46 en: 46 ru: 40 hr: 39 ar: 24 zh_CN: 16 ko: 16 ja: 16
+Qt Version                 111 px   it    | it:111 fr:103 es:103 pt: 95 ro: 87 sv: 79 en: 79 da: 79 de: 79 hr: 79 ar: 78 ja: 72 nl: 72 fi: 71 pl: 71 tr: 71 hu: 71 uk: 70 ru: 70 cs: 63 ko: 40 zh_CN: 40
+Queue                      111 px   ar    | ar:111 fr:111 de:104 nl: 61 pl: 55 ru: 55 tr: 48 cs: 46 en: 40 ro: 39 uk: 39 it: 31 fi: 31 es: 31 pt: 30 hu: 24 ja: 24 ko: 24 hr: 23 da: 16 zh_CN: 16 sv: 15
+Quota                      100 px   ar    | ar:100 de: 79 fi: 55 da: 40 en: 39 hu: 39 cs: 39 fr: 39 it: 39 hr: 39 es: 39 uk: 39 nl: 39 ru: 39 pl: 38 ja: 32 pt: 31 tr: 31 ro: 31 sv: 31 ko: 24 zh_CN: 16
+radar                       88 px   hu    | hu: 88 ar: 52 it: 40 en: 40 ro: 40 fr: 40 sv: 40 es: 40 de: 40 nl: 40 pt: 40 tr: 40 pl: 40 hr: 40 fi: 39 uk: 39 ru: 39 da: 38 cs: 38 ja: 32 ko: 24 zh_CN: 16
+Radio                       40 px   ar    | ar: 40 ro: 39 cs: 39 en: 39 fi: 39 da: 39 hu: 39 it: 39 fr: 39 sv: 39 de: 39 pl: 39 pt: 39 tr: 39 es: 39 hr: 39 nl: 39 ru: 38 uk: 38 ja: 24 ko: 24 zh_CN: 16
+ragweed                     72 px   fr    | fr: 72 hr: 71 fi: 71 tr: 71 da: 64 cs: 64 it: 63 sv: 63 es: 63 de: 63 nl: 63 ru: 63 pt: 63 pl: 63 uk: 63 ro: 63 hu: 62 ar: 60 en: 55 ja: 32 ko: 24 zh_CN: 16
+React                       95 px   ro    | ro: 95 ru: 86 es: 80 tr: 72 de: 71 uk: 70 hu: 63 it: 63 cs: 63 nl: 63 pl: 61 hr: 61 sv: 55 fr: 48 da: 48 ja: 48 pt: 48 fi: 47 ar: 39 en: 39 ko: 16 zh_CN: 16
+Reaction                    64 px   it    | it: 64 hr: 63 sv: 63 en: 63 fr: 63 da: 63 es: 63 de: 63 nl: 56 ro: 56 fi: 55 hu: 55 pl: 55 uk: 54 ru: 54 ja: 48 cs: 48 pt: 47 tr: 39 ar: 39 zh_CN: 16 ko: 16
+Read                        55 px   hu    | hu: 55 ja: 31 ko: 31 ro: 31 cs: 31 en: 31 fi: 31 ar: 31 da: 31 fr: 31 it: 31 de: 31 es: 31 ru: 31 pt: 31 tr: 31 sv: 31 uk: 31 nl: 31 zh_CN: 31 pl: 31 hr: 31
+Read Rate                  151 px   it    | it:151 hu:135 uk:135 pl:127 fr:120 pt:119 es:119 ru:119 ro:112 cs:111 hr:110 da:102 ar: 95 nl: 94 sv: 86 tr: 79 fi: 78 en: 72 ja: 72 de: 63 ko: 48 zh_CN: 32
+Recent                     135 px   de    | de:135 pl:128 fi: 95 uk: 71 es: 71 hu: 70 ru: 64 pt: 63 da: 56 cs: 56 it: 56 ro: 56 sv: 56 hr: 55 ar: 52 fr: 47 en: 47 nl: 47 tr: 23 ko: 16 ja: 16 zh_CN: 16
+Recent files               207 px   de    | de:207 fi:175 es:143 pt:142 nl:135 hr:128 hu:127 fr:126 cs:120 uk:119 ro:119 sv:119 ar:116 ru:112 pl:111 da:104 tr: 96 en: 95 it: 94 ja: 56 ko: 40 zh_CN: 32
+Recently Played            200 px   es    | es:200 pt:192 ru:192 it:168 hr:167 uk:159 pl:152 fi:143 nl:135 fr:135 hu:135 da:127 cs:127 de:127 ar:125 sv:120 en:119 tr:112 ro:103 ko: 64 ja: 56 zh_CN: 32
+Recurrence                  95 px   de    | de: 95 pl: 87 pt: 87 hr: 87 en: 80 ru: 80 fr: 80 da: 80 uk: 79 it: 79 es: 79 fi: 79 sv: 79 hu: 78 cs: 71 ro: 71 tr: 71 nl: 71 ar: 39 ja: 32 zh_CN: 16 ko: 16
+Recurring                  120 px   da    | da:120 de:103 sv: 96 hr: 94 pl: 87 nl: 87 pt: 80 it: 80 ru: 80 es: 79 uk: 79 cs: 72 en: 71 fr: 71 hu: 70 tr: 64 ro: 63 fi: 63 ar: 47 ja: 32 ko: 24 zh_CN: 16
+refresh                    112 px   ro    | ro:112 de:103 es: 80 fr: 80 pt: 72 sv: 71 nl: 71 hu: 70 ru: 63 it: 63 da: 56 cs: 55 en: 55 hr: 55 uk: 55 pl: 55 fi: 54 tr: 48 ar: 40 ko: 32 zh_CN: 16 ja: 16
+Refresh                    103 px   de    | de:103 cs: 95 ro: 88 da: 80 es: 80 fr: 80 pl: 79 nl: 71 sv: 71 hu: 70 ru: 63 hr: 63 it: 63 uk: 63 en: 55 pt: 55 fi: 54 ko: 48 tr: 48 ar: 40 ja: 16 zh_CN: 16
+region                      56 px   ro    | ro: 56 it: 56 ar: 52 sv: 47 en: 47 fr: 47 es: 47 pl: 47 de: 47 hr: 47 pt: 47 ru: 46 uk: 46 da: 45 cs: 45 nl: 39 hu: 39 tr: 39 fi: 32 ja: 16 ko: 16 zh_CN: 16
+remaining                  112 px   da    | da:112 uk: 78 hu: 71 pl: 70 hr: 70 it: 70 ru: 63 fi: 63 es: 62 pt: 62 fr: 53 ar: 40 cs: 38 de: 38 tr: 38 ro: 37 nl: 32 sv: 31 en: 30 ja: 16 zh_CN: 16 ko: 16
+Remaining                   87 px   de    | de: 87 uk: 79 it: 72 pl: 71 en: 71 hu: 71 nl: 71 hr: 70 es: 64 sv: 64 pt: 64 ru: 63 fi: 63 da: 56 fr: 55 ar: 53 tr: 39 ro: 39 cs: 39 zh_CN: 16 ja: 16 ko: 16
+Remaining Time             151 px   fi    | fi:151 da:143 hr:135 de:135 ru:127 it:120 es:120 nl:119 sv:119 en:112 pt:112 pl:110 hu:103 fr:103 uk:103 cs:103 ar:101 tr: 80 ro: 79 ko: 40 zh_CN: 32 ja: 32
+Reminder                   103 px   pl    | pl:103 es: 95 ru: 88 uk: 87 nl: 87 hu: 86 hr: 79 da: 79 tr: 79 sv: 79 cs: 78 de: 78 it: 78 fi: 71 en: 64 pt: 63 ro: 55 ja: 48 fr: 47 ar: 39 ko: 16 zh_CN: 16
+Reminders                  104 px   tr    | tr:104 es:103 nl:103 pl:102 hu: 95 fi: 95 de: 94 sv: 87 da: 87 ru: 87 uk: 87 cs: 86 hr: 86 ro: 79 it: 78 en: 71 pt: 70 ar: 69 fr: 55 ja: 48 ko: 24 zh_CN: 16
+Remove                      87 px   nl    | nl: 87 hu: 86 de: 70 es: 63 uk: 62 pt: 56 ru: 55 cs: 55 fr: 55 sv: 55 it: 55 ro: 54 tr: 48 en: 48 hr: 47 fi: 46 da: 38 ar: 37 pl: 31 ko: 16 zh_CN: 16 ja: 16
+Repeat                     127 px   fi    | fi:127 hr: 87 pl: 87 de: 87 uk: 79 cs: 71 ro: 64 tr: 63 nl: 63 hu: 62 pt: 56 fr: 56 es: 56 sv: 55 ru: 48 en: 47 it: 47 da: 47 ar: 37 ja: 32 zh_CN: 16 ko: 16
+Repeat All                 151 px   pl    | pl:151 de:127 tr:119 nl:111 hu:110 ru:104 fi:103 uk:103 fr: 96 cs: 96 it: 95 es: 95 pt: 95 sv: 95 da: 88 ar: 79 ro: 79 hr: 79 en: 79 ja: 56 ko: 40 zh_CN: 32
+Repeat One                 126 px   de    | de:126 ar:119 pl:118 ru:112 uk:112 cs:111 hu:103 hr: 94 es: 87 pt: 87 fi: 87 nl: 87 en: 80 tr: 80 fr: 79 ro: 79 it: 79 sv: 79 da: 71 ko: 48 ja: 47 zh_CN: 32
+Reply                       94 px   nl    | nl: 94 uk: 78 pt: 72 es: 72 de: 71 cs: 71 pl: 71 fr: 64 ro: 64 hr: 63 it: 63 ru: 63 tr: 55 hu: 47 fi: 47 en: 40 sv: 39 da: 32 ko: 16 ja: 16 ar: 16 zh_CN: 16
+Reply to All               152 px   pl    | pl:152 hu:144 nl:143 pt:135 es:135 ro:128 it:127 fi:120 de:120 sv:119 uk:119 fr:119 cs:112 tr:111 hr:111 ar:105 ru:104 da:104 en: 95 ja: 40 ko: 40 zh_CN: 32
+Retry                      128 px   pt    | pt:128 pl:128 nl:127 de:126 fi:119 hr:118 ar:109 tr: 96 cs: 95 sv: 86 es: 80 ro: 79 fr: 72 uk: 71 ru: 71 da: 70 it: 55 ko: 40 en: 40 hu: 31 ja: 24 zh_CN: 16
+Running Processes          207 px   fi    | fi:207 it:175 pt:166 es:166 pl:152 ru:151 fr:142 da:136 nl:135 en:135 de:135 hr:134 cs:128 tr:128 sv:128 uk:127 ar:124 hu:119 ro:111 ko: 80 ja: 56 zh_CN: 48
+Running Threads            191 px   fi    | fi:191 tr:183 it:160 pt:151 es:143 pl:135 ru:134 de:126 nl:119 cs:119 en:119 uk:119 fr:111 hr:110 ar:108 da:104 sv:104 hu: 87 ro: 87 ko: 72 ja: 56 zh_CN: 48
+Sample Rate                215 px   fr    | fr:215 it:206 pl:199 ro:191 hr:182 hu:175 es:174 ru:167 uk:167 cs:160 fi:151 pt:144 sv:135 tr:119 da:119 ar: 96 en: 88 nl: 80 de: 80 ja: 56 ko: 48 zh_CN: 24
+Saturday                    71 px   tr    | tr: 71 en: 64 nl: 63 fi: 62 ro: 55 de: 55 ru: 55 hu: 54 pt: 47 fr: 47 uk: 47 hr: 47 it: 47 es: 46 pl: 46 cs: 46 da: 46 sv: 46 ar: 45 zh_CN: 24 ko: 24 ja: 24
+Save                        87 px   fr    | fr: 87 de: 71 ru: 71 fi: 63 uk: 63 ro: 63 es: 56 pt: 56 nl: 55 hu: 47 tr: 47 cs: 47 hr: 47 pl: 47 sv: 39 it: 39 en: 32 da: 24 ar: 24 zh_CN: 16 ko: 16 ja: 16
+Scheduler                  103 px   fr    | fr:103 uk: 96 ro: 95 es: 95 ru: 88 tr: 87 da: 79 it: 72 en: 72 de: 72 pt: 72 nl: 72 sv: 71 cs: 62 pl: 62 hu: 55 fi: 55 ar: 52 ja: 48 hr: 47 ko: 32 zh_CN: 24
+Scroll Lock                119 px   tr    | tr:119 ro: 88 ja: 88 cs: 88 ko: 88 fi: 88 da: 88 en: 88 hu: 88 sv: 88 hr: 88 ru: 88 uk: 88 nl: 88 pt: 88 pl: 88 ar: 87 fr: 87 it: 79 es: 78 de: 47 zh_CN: 32
+se                          64 px   ar    | ar: 64 fi: 47 uk: 32 sv: 16 de: 16 da: 16 cs: 16 ja: 16 hu: 16 zh_CN: 16 tr: 16 nl: 16 ko: 16 ru: 16 fr: 15 ro: 15 it: 15 pt: 15 en: 15 pl: 15 es: 15 hr: 15
+Search                      96 px   pl    | pl: 96 fr: 72 pt: 63 hr: 62 hu: 55 es: 47 en: 47 cs: 47 de: 47 nl: 47 uk: 40 ru: 40 it: 39 ro: 39 fi: 30 sv: 24 ar: 24 da: 23 tr: 23 zh_CN: 16 ko: 16 ja: 16
+second_short                16 px   hu    | hu: 16 ja:  6 ko:  6 ro:  6 cs:  6 en:  6 fi:  6 ar:  6 da:  6 fr:  6 it:  6 de:  6 es:  6 ru:  6 pt:  6 tr:  6 sv:  6 uk:  6 nl:  6 zh_CN:  6 pl:  6 hr:  6
+Select All                 136 px   hu    | hu:136 fr:136 pl:127 es:127 pt:127 nl:127 it:119 fi:111 ro:111 de:111 uk: 95 ru: 95 sv: 95 hr: 88 cs: 80 en: 79 tr: 79 da: 79 ar: 68 ko: 40 ja: 40 zh_CN: 16
+Sent                       104 px   tr    | tr:104 ru: 96 uk: 71 nl: 71 fi: 70 hu: 70 cs: 64 de: 63 pt: 62 ro: 56 pl: 56 sv: 55 es: 54 it: 54 ko: 48 hr: 48 fr: 47 da: 39 ar: 37 ja: 32 en: 31 zh_CN: 24
+September                   80 px   ro    | ro: 80 hu: 80 es: 80 it: 72 fr: 72 en: 72 da: 72 de: 72 nl: 72 sv: 71 pl: 63 pt: 63 ru: 63 uk: 62 fi: 55 ar: 49 hr: 39 tr: 38 cs: 30 ja: 16 zh_CN: 16 ko: 16
+Settings                   103 px   es    | es:103 da:103 sv:103 de:102 uk: 95 it: 94 nl: 94 hu: 87 pl: 79 pt: 79 fr: 78 ru: 71 cs: 71 fi: 71 hr: 63 en: 63 ar: 61 tr: 56 ro: 47 zh_CN: 16 ko: 16 ja: 16
+Shared Memory              160 px   de    | de:160 pl:158 es:143 hr:143 pt:143 tr:135 it:135 ro:135 fr:128 nl:127 ar:124 da:120 uk:119 en:104 cs:103 fi:103 hu:103 ru: 95 sv: 88 ko: 48 ja: 40 zh_CN: 32
+Shared Memory Used         256 px   de    | de:256 tr:224 hr:223 ro:215 uk:214 pl:207 ar:204 fr:200 ru:199 nl:199 pt:191 es:191 it:183 fi:175 da:167 cs:167 hu:166 sv:144 en:143 ko: 80 ja: 64 zh_CN: 48
+Shared with me             151 px   hr    | hr:151 es:143 tr:142 pt:134 it:128 ro:127 fr:126 hu:119 fi:119 de:119 pl:119 cs:119 nl:117 en:112 ru:104 sv:103 uk:103 da: 95 ar: 80 ja: 48 ko: 48 zh_CN: 32
+Show                       109 px   tr    | tr:109 pl: 96 hu: 95 cs: 79 fr: 64 uk: 63 ru: 63 pt: 56 es: 56 hr: 54 ko: 53 it: 47 de: 40 ro: 39 nl: 39 fi: 39 en: 32 sv: 31 ar: 24 da: 23 zh_CN: 16 ja: 16
+Shuffle                    144 px   pl    | pl:144 cs:143 de:136 ru:104 uk:103 fi: 87 ro: 80 hr: 72 fr: 72 pt: 71 es: 71 tr: 64 it: 56 nl: 56 en: 56 hu: 55 da: 54 sv: 46 ja: 40 zh_CN: 32 ar: 24 ko: 16
+Signal Strength            159 px   fi    | fi:159 es:158 it:151 uk:144 ro:142 pt:134 ru:127 ja:119 da:119 en:119 fr:118 nl:112 hr:111 de: 96 cs: 95 pl: 95 ar: 95 sv: 95 tr: 87 hu: 79 ko: 40 zh_CN: 32
+Sign in                    119 px   fi    | fi:119 ro:112 pt:110 es:110 hu:102 fr: 96 ar: 95 cs: 95 pl: 88 nl: 71 tr: 71 de: 63 sv: 62 en: 55 hr: 54 da: 54 it: 47 uk: 47 ru: 38 ja: 32 ko: 24 zh_CN: 16
+Sign out                   120 px   ro    | ro:120 pt:119 fr:112 es:103 tr:103 hu:103 fi:103 ar: 96 cs: 88 pl: 88 en: 63 de: 63 nl: 63 sv: 62 hr: 47 da: 46 ja: 40 uk: 38 ru: 38 zh_CN: 32 ko: 32 it: 30
+Size                        80 px   ro    | ro: 80 it: 80 da: 72 cs: 63 hr: 63 sv: 56 nl: 56 pl: 56 pt: 55 fr: 48 ru: 47 uk: 47 es: 47 de: 40 hu: 39 tr: 38 ar: 37 en: 32 fi: 31 ja: 24 ko: 16 zh_CN: 16
+slight_rain                119 px   ru    | ru:119 fi:119 it:111 de:110 uk:104 es:102 ro:102 tr: 96 fr: 95 pl: 95 nl: 94 pt: 80 hr: 79 cs: 78 en: 78 hu: 70 sv: 70 ar: 64 da: 62 ko: 32 zh_CN: 16 ja: 16
+slight_rain_showers        223 px   ru    | ru:223 ro:184 pt:182 pl:168 uk:167 hr:160 de:159 fi:159 en:142 es:135 nl:134 sv:127 it:119 da:119 fr:118 ar:112 cs:111 tr:104 hu: 87 ko: 48 ja: 40 zh_CN: 24
+slight_snowfall            167 px   fr    | fr:167 fi:151 de:150 pl:143 tr:127 nl:126 ro:119 uk:111 ru:111 en:110 es:103 hu:102 cs:102 pt: 96 sv: 94 it: 88 hr: 87 da: 86 ar: 79 ko: 32 zh_CN: 16 ja: 16
+slight_snow_showers        223 px   pl    | pl:223 ru:215 es:207 fr:191 it:183 ro:183 hr:183 uk:183 cs:175 pt:174 de:167 fi:159 tr:143 en:142 nl:142 ar:112 da:111 sv:103 hu:103 ko: 56 ja: 32 zh_CN: 24
+Snooze                      79 px   de    | de: 79 it: 70 uk: 70 fr: 64 ru: 63 es: 63 nl: 55 cs: 55 en: 48 hu: 47 fi: 47 da: 47 hr: 47 tr: 47 pt: 40 pl: 39 ro: 39 ja: 32 zh_CN: 32 sv: 31 ar: 31 ko: 24
+Snoozed                     95 px   de    | de: 95 it: 86 fi: 79 uk: 78 nl: 71 tr: 70 es: 70 pl: 64 cs: 63 hr: 63 ru: 63 hu: 62 fr: 56 en: 55 da: 55 ja: 48 ro: 47 ar: 47 pt: 47 sv: 46 zh_CN: 40 ko: 32
+snow_cover                 152 px   fr    | fr:152 pt:136 es:136 hr:127 it:127 cs:126 nl:119 ro:119 uk:119 pl:118 ru:111 ar:101 de: 88 hu: 87 en: 80 tr: 79 fi: 71 sv: 64 da: 63 ko: 16 ja: 16 zh_CN: 16
+snowfall                   120 px   fr    | fr:120 pt:104 ar: 96 pl: 95 de: 79 tr: 79 nl: 71 uk: 64 ru: 64 fi: 63 en: 63 hu: 55 ro: 55 sv: 55 cs: 54 da: 54 es: 47 hr: 47 it: 32 ko: 24 zh_CN: 24 ja: 24
+snow_grains                135 px   ro    | ro:135 it:128 es:120 fr:120 pt:104 pl:103 nl:103 hr:103 uk:103 ru:103 de: 96 ar: 95 tr: 95 cs: 94 en: 87 fi: 86 hu: 80 sv: 55 da: 54 ko: 24 zh_CN: 16 ja:  8
+Social                     120 px   hr    | hr:120 fr:120 pl: 95 fi: 87 ru: 80 hu: 71 uk: 71 cs: 63 de: 63 sv: 55 da: 55 nl: 55 ar: 53 pt: 47 tr: 47 es: 47 ro: 47 it: 47 en: 47 ja: 40 ko: 16 zh_CN: 16
+solar_wind                 120 px   ru    | ru:120 pl:120 uk:112 ar:108 hr:104 cs:103 tr:103 fr: 96 it: 96 es: 96 fi: 95 pt: 88 ro: 80 de: 79 en: 79 nl: 71 hu: 55 sv: 55 da: 54 zh_CN: 24 ko: 24 ja: 24
+Song                        62 px   pl    | pl: 62 it: 56 es: 55 fr: 55 pt: 47 ro: 47 hr: 46 ru: 39 tr: 39 uk: 39 cs: 38 fi: 38 ar: 37 hu: 32 da: 31 en: 31 nl: 30 de: 30 sv: 22 ko: 16 zh_CN: 16 ja:  8
+south                       38 px   fi    | fi: 38 ar: 32 cs: 22 da: 22 uk: 16 ja:  8 ko:  8 hu:  8 nl:  8 ru:  8 zh_CN:  8 tr:  8 fr:  7 ro:  7 de:  7 it:  7 pt:  7 en:  7 pl:  7 sv:  7 es:  7 hr:  7
+Space                       95 px   ru    | ru: 95 pl: 78 sv: 56 uk: 56 cs: 55 hr: 55 es: 54 de: 54 nl: 48 ro: 47 it: 47 fr: 47 pt: 46 en: 40 ar: 39 ja: 32 fi: 31 tr: 31 da: 24 hu: 24 ko: 16 zh_CN: 16
+Spaces                      95 px   pl    | pl: 95 ru: 95 uk: 64 cs: 63 sv: 63 de: 63 es: 62 hr: 62 tr: 56 nl: 55 fr: 54 pt: 54 ar: 48 ro: 47 en: 47 hu: 40 fi: 39 it: 39 ja: 32 da: 24 ko: 16 zh_CN: 16
+space_weather              143 px   ru    | ru:143 hr:136 pl:126 uk:119 cs:118 it:112 fr:112 de:112 es:111 pt:111 ro:111 en:104 tr: 87 nl: 80 hu: 79 fi: 79 ar: 79 sv: 72 da: 54 ko: 40 zh_CN: 32 ja: 32
+sse                        104 px   ar    | ar:104 fi: 86 uk: 48 sv: 24 de: 24 da: 24 cs: 24 ja: 24 hu: 24 zh_CN: 24 tr: 24 nl: 24 ko: 24 ru: 24 fr: 23 ro: 23 it: 23 pt: 23 en: 23 pl: 23 es: 23 hr: 23
+ssw                        104 px   ar    | ar:104 fi: 86 uk: 48 hu: 32 ja: 24 ko: 24 ro: 24 da: 24 fr: 24 cs: 24 en: 24 de: 24 sv: 24 pt: 24 tr: 24 it: 24 zh_CN: 24 hr: 24 nl: 24 es: 24 pl: 24 ru: 23
+Star                       144 px   fr    | fr:144 hr: 71 cs: 71 es: 64 pl: 63 da: 56 sv: 55 hu: 55 pt: 54 it: 47 ru: 47 tr: 47 fi: 39 de: 39 uk: 39 nl: 32 en: 32 ro: 31 ar: 31 ja: 24 zh_CN: 24 ko:  8
+Starred                    152 px   hr    | hr:152 fi:136 uk:128 cs: 95 da: 88 pt: 87 ar: 87 sv: 87 pl: 80 it: 79 es: 71 hu: 71 nl: 64 de: 63 ru: 63 tr: 63 ro: 55 en: 55 ja: 40 fr: 39 zh_CN: 32 ko: 16
+Start                       88 px   pl    | pl: 88 uk: 87 tr: 70 cs: 56 hr: 55 es: 54 ro: 54 ar: 52 de: 47 hu: 47 ru: 47 it: 46 pt: 46 fr: 39 da: 39 en: 39 fi: 39 sv: 39 nl: 38 ko: 16 ja: 16 zh_CN: 16
+Station                     64 px   it    | it: 64 tr: 62 cs: 56 hu: 55 en: 55 sv: 55 da: 55 nl: 55 ru: 55 fr: 55 uk: 55 pt: 54 es: 54 hr: 54 de: 48 ro: 48 ja: 48 pl: 47 fi: 39 ar: 31 ko: 24 zh_CN: 16
+Status                      72 px   ru    | ru: 72 hu: 55 hr: 48 sv: 47 da: 47 en: 47 nl: 47 de: 47 uk: 47 es: 46 pt: 46 ar: 44 tr: 40 ro: 40 it: 39 cs: 32 pl: 31 fi: 31 fr: 30 ja: 16 zh_CN: 16 ko: 16
+status_estimated           103 px   tr    | tr:103 hr: 94 cs: 79 sv: 79 ru: 72 pl: 72 da: 71 de: 71 en: 70 fi: 63 es: 62 pt: 62 uk: 55 nl: 55 it: 55 hu: 54 ro: 54 fr: 47 ar: 31 ja: 24 zh_CN: 24 ko: 24
+status_observed            103 px   hr    | hr:103 uk: 95 pl: 88 ru: 88 tr: 87 nl: 87 hu: 79 da: 79 sv: 79 cs: 78 de: 78 pt: 71 es: 71 it: 71 en: 63 fi: 63 ro: 63 fr: 56 ar: 39 ko: 24 ja: 24 zh_CN: 24
+status_predicted           112 px   ru    | ru:112 uk: 95 de: 95 pl: 95 hu: 94 cs: 94 fi: 78 hr: 78 nl: 71 tr: 71 da: 70 en: 70 sv: 70 pt: 62 es: 62 ro: 62 it: 62 ar: 40 fr: 38 zh_CN: 24 ja: 24 ko: 24
+Stop                        79 px   ru    | ru: 79 hu: 70 pl: 69 hr: 63 uk: 63 cs: 63 fr: 56 es: 56 de: 55 nl: 55 fi: 54 tr: 48 ro: 48 sv: 47 pt: 39 ar: 38 da: 32 it: 32 en: 32 ko: 16 zh_CN: 16 ja: 16
+Stopped                     95 px   hr    | hr: 95 ru: 87 pl: 79 fi: 79 tr: 79 cs: 71 it: 71 hu: 70 da: 63 de: 63 es: 63 uk: 63 nl: 55 en: 55 sv: 55 fr: 48 pt: 46 ar: 40 ro: 39 ja: 24 ko: 24 zh_CN: 24
+Storage                    111 px   es    | es:111 it:104 pt:103 da: 78 ru: 72 fi: 71 de: 64 fr: 64 cs: 64 tr: 63 hu: 56 en: 56 ro: 56 uk: 56 hr: 54 sv: 54 ar: 53 nl: 47 pl: 46 ja: 40 zh_CN: 32 ko: 32
+Stream                      87 px   fi    | fi: 87 es: 87 pt: 87 it: 71 hu: 64 pl: 63 hr: 62 cs: 48 da: 48 en: 48 de: 48 nl: 48 sv: 40 uk: 40 ru: 40 ja: 40 fr: 31 tr: 31 ro: 31 ko: 24 ar: 16 zh_CN:  8
+Streaming                  159 px   fr    | fr:159 pl:120 pt: 94 cs: 87 tr: 87 es: 87 fi: 87 hr: 72 da: 71 hu: 71 en: 71 de: 71 sv: 71 it: 71 nl: 71 ro: 71 uk: 63 ru: 63 ja: 56 zh_CN: 40 ko: 32 ar: 29
+Stream Quality             191 px   pt    | pt:191 it:183 es:175 hr:151 fi:143 ro:143 pl:135 fr:120 hu:120 nl:119 da:119 cs:119 de:119 ru:119 en:112 sv:111 tr:111 uk:104 ar: 72 ja: 56 ko: 48 zh_CN: 24
+Subject                    136 px   nl    | nl:136 sv: 79 it: 55 ro: 55 en: 55 pt: 55 cs: 54 pl: 54 de: 54 hr: 54 ar: 53 es: 47 hu: 40 zh_CN: 40 fr: 39 fi: 32 uk: 31 ru: 31 da: 31 tr: 31 ja: 16 ko: 16
+Subscription               102 px   sv    | sv:102 en: 95 hu: 94 es: 87 pl: 87 it: 87 nl: 79 da: 79 fr: 79 pt: 79 de: 79 ro: 71 hr: 70 tr: 64 ru: 63 uk: 63 fi: 47 ar: 45 cs: 40 ja: 16 ko: 16 zh_CN: 16
+Subscriptions              119 px   sv    | sv:119 hu:111 es:103 en:103 da: 96 nl: 95 pl: 88 tr: 88 it: 87 pt: 87 fr: 87 de: 87 ro: 80 hr: 71 fi: 71 ru: 63 uk: 63 ar: 61 ja: 56 cs: 48 ko: 16 zh_CN: 16
+Subtasks                   103 px   de    | de:103 it:103 da: 96 sv: 96 tr: 96 cs: 88 hu: 88 fi: 87 fr: 87 uk: 87 ar: 79 ro: 79 pt: 79 pl: 78 ru: 71 es: 71 hr: 70 nl: 63 en: 63 ja: 40 ko: 40 zh_CN: 24
+sulphur_dioxide            144 px   ar    | ar:144 pt:144 es:136 fr:136 it:134 hr:127 pl:127 en:120 de:111 ro:111 tr:111 nl:104 cs:104 fi:103 uk:103 ru: 96 sv: 95 da: 86 hu: 79 ja: 40 zh_CN: 32 ko: 32
+Summary                    119 px   de    | de:119 sv:111 nl: 95 pl: 95 fi: 79 da: 79 hu: 71 it: 71 fr: 63 uk: 63 en: 56 hr: 56 ro: 55 es: 55 cs: 54 ar: 53 ru: 47 pt: 47 tr: 31 ja: 24 ko: 16 zh_CN: 16
+sun                         55 px   fi    | fi: 55 ru: 48 pl: 48 fr: 47 cs: 47 ro: 40 de: 40 hr: 40 uk: 40 tr: 39 ar: 37 it: 32 hu: 24 es: 23 en: 23 pt: 23 sv: 23 nl: 23 da: 22 ko: 16 ja: 16 zh_CN: 16
+Sunday                      87 px   ru    | ru: 87 fi: 71 pl: 70 fr: 64 hu: 64 it: 63 ro: 63 hr: 63 es: 55 pt: 55 de: 55 en: 48 uk: 47 nl: 47 da: 47 cs: 47 sv: 46 tr: 39 ar: 36 zh_CN: 24 ja: 24 ko: 24
+sunrise                    118 px   fr    | fr:118 cs:104 de:103 fi:103 pt:103 pl:103 hr:102 tr: 79 uk: 79 sv: 79 nl: 79 da: 70 hu: 64 es: 64 en: 56 ro: 55 ru: 47 ar: 45 it: 31 ja: 24 ko: 16 zh_CN: 16
+sunset                     135 px   fr    | fr:135 uk:119 de:119 pl:103 sv:103 fi:103 nl:103 hr:103 cs: 95 tr: 79 pt: 78 da: 78 es: 72 hu: 71 it: 63 en: 47 ar: 45 ru: 39 ja: 32 ro: 31 zh_CN: 16 ko: 16
+sunshine_duration          207 px   uk    | uk:207 ru:191 pl:183 cs:175 fr:175 fi:175 de:136 en:135 tr:135 es:127 da:126 hu:120 ro:120 nl:120 it:120 ar:112 pt:111 hr:111 sv: 87 ko: 40 zh_CN: 32 ja: 32
+sw                          64 px   ar    | ar: 64 fi: 46 uk: 32 hu: 24 ja: 16 ko: 16 ro: 16 da: 16 fr: 16 cs: 16 en: 16 de: 16 sv: 16 pt: 16 tr: 16 it: 16 zh_CN: 16 hr: 16 nl: 16 es: 16 pl: 16 ru: 15
+Swap                       136 px   cs    | cs:136 fi: 87 de: 87 ru: 63 hu: 54 ar: 52 tr: 39 da: 32 fr: 32 ja: 32 en: 32 ro: 32 sv: 32 it: 32 pt: 32 pl: 32 nl: 32 hr: 32 es: 32 uk: 31 ko: 16 zh_CN: 16
+Swap Free                  184 px   cs    | cs:184 ru:143 nl:143 fi:135 hu:111 hr:104 uk: 94 ar: 92 it: 87 sv: 87 de: 87 ro: 80 pt: 80 fr: 80 pl: 80 es: 80 en: 72 ko: 72 tr: 70 da: 63 ja: 48 zh_CN: 32
+Swap Memory                175 px   es    | es:175 de:160 cs:136 fr:136 uk:128 ru:127 hu:126 da:120 it:120 pt:119 nl:111 pl:111 sv:104 fi:103 hr:103 tr:103 ar:102 ro: 96 ja: 88 en: 88 ko: 48 zh_CN: 32
+Swap Total                 200 px   cs    | cs:200 nl:159 fi:151 pl:112 uk:111 hu:111 ar:109 de:104 tr: 95 ru: 94 da: 88 hr: 88 it: 88 sv: 88 pt: 79 fr: 79 en: 79 es: 79 ro: 79 ja: 40 ko: 40 zh_CN: 24
+Swap Used                  199 px   cs    | cs:199 nl:175 ru:167 fi:159 uk:134 tr:127 ar:125 hu:118 hr:112 de:103 ro:103 fr: 96 sv: 88 pl: 80 it: 79 pt: 79 da: 79 es: 79 en: 71 ja: 56 ko: 48 zh_CN: 32
+swind_extreme              103 px   ru    | ru:103 uk:102 hu: 87 pl: 87 fi: 87 hr: 70 cs: 63 da: 56 nl: 55 en: 55 fr: 55 it: 54 pt: 54 es: 54 de: 47 ro: 47 sv: 47 tr: 39 ar: 33 zh_CN: 16 ko: 16 ja: 16
+swind_high                  55 px   ro    | ro: 55 uk: 54 ru: 54 tr: 48 cs: 47 fi: 47 pl: 47 ar: 40 hr: 40 hu: 39 fr: 39 de: 31 es: 31 nl: 31 it: 31 en: 31 pt: 31 sv: 23 da: 20 ko: 16 ja: 16 zh_CN:  8
+swind_low                   64 px   hu    | hu: 64 fi: 63 de: 55 uk: 55 fr: 47 ro: 47 ru: 47 ar: 40 tr: 40 hr: 40 pl: 39 cs: 38 it: 38 pt: 38 nl: 30 es: 30 en: 23 da: 23 sv: 22 ja: 16 ko: 16 zh_CN:  8
+swind_moderate              88 px   pl    | pl: 88 fi: 87 hu: 71 ru: 71 en: 64 it: 63 uk: 63 pt: 63 es: 63 da: 55 ro: 55 hr: 55 sv: 55 cs: 54 fr: 48 ar: 39 de: 39 nl: 39 tr: 31 ja: 24 ko: 16 zh_CN: 16
+Sync                       128 px   it    | it:128 de:127 fr:119 nl:112 sv:111 da:111 hu:111 es:111 hr:111 pl:111 tr:111 cs:104 ru:103 uk:103 pt:103 ro: 96 fi: 95 ar: 47 en: 31 ko: 24 ja: 16 zh_CN: 16
+Synced                     135 px   tr    | tr:135 pl:128 nl:127 ru:127 cs:119 hu:111 hr:111 de:111 uk:111 it:103 sv:103 da:103 es: 95 pt: 95 fr: 88 fi: 87 ro: 87 ar: 48 en: 47 ko: 32 ja: 32 zh_CN: 24
+Synced Lyrics              215 px   nl    | nl:215 de:199 ru:191 fi:191 tr:191 hu:183 da:183 pl:175 uk:167 fr:166 ro:160 hr:159 cs:159 it:151 sv:143 pt:142 es:142 ar:103 en:103 ko: 56 ja: 56 zh_CN: 32
+System                      87 px   fi    | fi: 87 hu: 64 nl: 56 fr: 56 it: 55 uk: 55 pt: 55 ru: 55 es: 55 ro: 48 ja: 48 da: 48 cs: 48 de: 48 hr: 48 en: 48 pl: 48 sv: 48 tr: 48 ar: 45 ko: 24 zh_CN: 16
+System Usage               208 px   pl    | pl:208 fr:176 ru:175 uk:167 pt:167 nl:160 hr:143 fi:135 hu:135 it:135 ro:128 de:127 tr:127 sv:127 cs:119 es:119 ar:109 da:103 en: 96 ja: 96 ko: 56 zh_CN: 40
+System_vendor              104 px   ro    | ro:104 ko:104 ja:104 cs:104 en:104 fi:104 ar:104 da:104 fr:104 it:104 de:104 es:104 sv:104 pt:104 tr:104 uk:104 ru:104 nl:104 zh_CN:104 pl:104 hr:104 hu: 47
+Task                        63 px   uk    | uk: 63 it: 63 pl: 56 hr: 56 de: 56 ru: 56 ro: 55 fi: 55 sv: 55 hu: 54 da: 48 pt: 47 ar: 47 tr: 40 fr: 40 es: 39 nl: 32 en: 32 cs: 31 ja: 24 ko: 16 zh_CN: 16
+Task details               159 px   es    | es:159 fr:152 pt:143 pl:135 it:135 tr:135 hu:134 cs:134 sv:128 fi:119 ro:119 de:119 hr:119 uk:119 da:112 ru:103 ar:103 en: 95 nl: 87 ko: 56 ja: 48 zh_CN: 32
+Task list                  126 px   ro    | ro:126 pt:126 es:118 fr:118 it:118 uk:111 hr:110 de:104 tr:103 sv:103 ar: 96 cs: 95 fi: 95 ru: 95 hu: 94 da: 88 pl: 86 nl: 79 en: 71 ja: 48 ko: 40 zh_CN: 32
+Task List                  126 px   ro    | ro:126 pt:126 es:118 fr:118 it:118 uk:111 hr:110 de:104 tr:103 sv:103 ar: 96 cs: 95 fi: 95 ru: 95 hu: 94 da: 88 pl: 86 nl: 79 en: 71 ja: 48 ko: 40 zh_CN: 32
+Tasks                       72 px   sv    | sv: 72 hu: 71 tr: 64 fi: 63 uk: 63 de: 63 it: 63 da: 56 ro: 55 pl: 55 pt: 55 ru: 47 fr: 47 es: 47 hr: 47 ar: 45 cs: 40 en: 39 nl: 39 ja: 24 ko: 16 zh_CN: 16
+Temp                        87 px   hu    | hu: 87 fi: 70 tr: 64 cs: 55 ar: 39 da: 37 ro: 37 fr: 37 it: 37 sv: 37 de: 37 hr: 37 ru: 37 uk: 37 pt: 37 pl: 37 es: 37 en: 32 nl: 32 ko: 16 ja: 16 zh_CN: 16
+temperature                 94 px   ar    | ar: 94 nl: 88 en: 88 fr: 88 it: 87 ro: 87 hu: 87 es: 87 hr: 87 pl: 87 ru: 87 uk: 87 pt: 87 da: 80 sv: 80 de: 80 fi: 70 tr: 64 cs: 55 zh_CN: 16 ko: 16 ja: 16
+Tentative                  119 px   uk    | uk:119 it: 86 sv: 86 es: 86 fr: 79 hu: 78 hr: 78 en: 72 cs: 71 de: 71 nl: 71 pt: 71 ro: 71 da: 70 pl: 64 fi: 63 tr: 62 ru: 55 ar: 40 ko: 24 zh_CN: 24 ja: 24
+Thread                      88 px   it    | it: 88 nl: 72 ro: 64 cs: 47 en: 47 de: 47 pt: 47 ar: 41 pl: 40 fi: 39 ru: 38 uk: 38 ja: 32 es: 31 da: 31 tr: 31 sv: 31 hu: 31 ko: 24 hr: 23 fr: 22 zh_CN: 16
+Threads                     87 px   it    | it: 87 nl: 79 ro: 63 tr: 56 en: 55 de: 55 pt: 55 sv: 48 hu: 48 fi: 47 cs: 47 ar: 41 da: 40 es: 39 pl: 39 ru: 38 uk: 38 ja: 32 hr: 31 fr: 30 ko: 24 zh_CN: 16
+thunderstorm               176 px   hr    | hr:176 tr:167 en: 96 ar: 87 da: 80 pt: 80 it: 72 de: 64 es: 63 hu: 56 fi: 55 ro: 54 nl: 48 cs: 46 fr: 40 ru: 38 uk: 38 pl: 38 sv: 31 zh_CN: 16 ja: 16 ko: 16
+thunderstorm_with_heavy_hail   304 px   hr    | hr:304 fi:239 pt:232 it:231 da:223 en:223 es:216 de:207 cs:206 ro:191 sv:183 ar:183 fr:176 ru:175 nl:175 uk:175 tr:174 pl:159 hu:151 ko:104 ja: 72 zh_CN: 40
+thunderstorm_with_slight_hail   304 px   hr    | hr:304 it:239 pt:239 en:223 es:223 fi:207 de:207 cs:206 uk:191 ro:190 fr:184 ar:183 nl:183 da:183 tr:175 ru:167 pl:159 sv:151 hu:151 ko:104 ja: 72 zh_CN: 40
+Thursday                    95 px   pt    | pt: 95 de: 79 nl: 71 hu: 71 en: 64 hr: 64 tr: 63 pl: 63 da: 55 it: 55 sv: 55 fi: 55 cs: 55 ru: 55 uk: 48 es: 46 ar: 45 fr: 39 ja: 24 zh_CN: 24 ko: 24 ro: 23
+Time Left                  151 px   fi    | fi:151 de:135 hr:134 ru:127 it:120 es:120 nl:119 pl:118 pt:112 fr:103 uk:103 hu:103 ar:101 da: 88 tr: 80 cs: 79 ro: 79 en: 71 sv: 64 ko: 40 zh_CN: 32 ja: 32
+Time Remaining             151 px   fi    | fi:151 da:143 hr:135 de:135 ru:127 es:120 it:120 nl:119 sv:119 pt:112 en:111 pl:110 hu:103 fr:103 uk:103 cs:103 ar:101 tr: 80 ro: 79 ko: 40 zh_CN: 32 ja: 32
+Timezone                   132 px   ar    | ar:132 pl:111 fr:111 hr:111 uk: 95 ru: 95 es: 95 cs: 95 pt: 94 fi: 88 tr: 87 it: 86 da: 64 de: 64 nl: 64 en: 64 ro: 63 sv: 55 hu: 54 ja: 48 ko: 48 zh_CN: 16
+Title                       64 px   ru    | ru: 64 ar: 53 es: 47 it: 47 pt: 47 tr: 47 fr: 40 cs: 40 en: 40 hr: 40 da: 39 de: 39 pl: 39 uk: 39 sv: 39 nl: 39 ro: 39 ja: 32 fi: 31 hu: 24 zh_CN: 16 ko: 16
+To                         103 px   fi    | fi:103 hu: 55 ro: 40 ko: 40 tr: 39 hr: 38 ru: 32 uk: 32 sv: 31 cs: 31 es: 30 pt: 30 zh_CN: 24 nl: 23 da: 23 ar: 22 ja: 16 de: 15 pl: 15 en: 15 fr:  8 it:  8
+today                       87 px   fr    | fr: 87 uk: 63 nl: 55 ru: 55 fi: 47 ro: 47 en: 40 de: 40 hr: 39 tr: 38 da: 38 ar: 37 pt: 32 pl: 31 cs: 31 it: 31 sv: 30 es: 24 ko: 16 ja: 16 zh_CN: 16 hu: 15
+Today                       87 px   fr    | fr: 87 uk: 63 ru: 55 nl: 55 pl: 53 ro: 47 fi: 47 en: 40 de: 40 hr: 39 tr: 38 da: 38 sv: 38 ar: 37 pt: 32 it: 31 cs: 31 es: 24 ko: 16 ja: 16 zh_CN: 16 hu: 15
+To Do                      135 px   es    | es:135 tr: 96 pl: 95 cs: 79 sv: 63 ro: 63 pt: 56 it: 56 fr: 56 fi: 55 uk: 55 da: 55 hu: 47 hr: 47 de: 39 nl: 39 en: 39 ja: 39 ar: 32 ru: 31 ko: 24 zh_CN: 16
+To Do list                 159 px   tr    | tr:159 pt:126 ro:126 it:118 fr:118 es:118 sv:111 hr:110 de:104 da:104 ar: 96 fi: 95 uk: 95 cs: 95 hu: 87 pl: 86 ru: 79 nl: 79 en: 79 ja: 64 ko: 48 zh_CN: 32
+Top cpu usage              190 px   hu    | hu:190 ja:104 ko:104 ro:104 cs:104 en:104 fi:104 ar:104 da:104 fr:104 it:104 de:104 es:104 ru:104 pt:104 tr:104 sv:104 uk:104 nl:104 zh_CN:104 pl:104 hr:104
+Top memory usage           214 px   hu    | hu:214 ja:128 ko:128 ro:128 cs:128 en:128 fi:128 ar:128 da:128 fr:128 it:128 de:128 es:128 ru:128 pt:128 tr:128 sv:128 uk:128 nl:128 zh_CN:128 pl:128 hr:128
+Total Down                 150 px   fi    | fi:150 uk:142 nl:127 sv:127 it:120 da:119 fr:119 hu:119 ro:119 de:119 pl:119 hr:119 ru:118 tr:112 pt:111 es:111 cs:111 ar:109 en: 79 ja: 64 ko: 48 zh_CN: 32
+Total Downloaded           175 px   de    | de:175 hu:143 pl:136 nl:135 sv:127 es:127 en:127 uk:127 ja:127 tr:127 da:127 fi:126 ro:119 it:119 hr:119 ru:118 pt:111 cs:111 ar: 95 fr: 79 ko: 48 zh_CN: 32
+Total Full Stall Time      319 px   fr    | fr:319 de:279 nl:271 es:271 uk:271 pl:256 sv:255 ru:247 hr:240 fi:239 it:239 ar:205 tr:199 da:168 pt:168 ro:168 cs:168 ja:168 en:168 hu:167 ko: 88 zh_CN: 64
+Total Physical Memory      280 px   de    | de:280 fr:248 pl:198 da:192 uk:191 fi:190 hr:183 ru:182 tr:176 ar:175 hu:175 nl:175 en:168 it:168 cs:167 ro:167 sv:160 pt:159 es:159 ko: 72 ja: 64 zh_CN: 40
+Total Some Stall Time      303 px   fr    | fr:303 es:287 pl:280 ru:271 hr:264 de:255 uk:255 it:247 fi:239 tr:215 sv:199 da:168 ro:168 ja:168 en:168 cs:168 pt:168 nl:167 hu:167 ar:166 ko: 88 zh_CN: 64
+Total Space                175 px   de    | de:175 pl:152 da:126 sv:112 hr:112 it:104 nl:104 ar:103 fi:103 cs:103 es:102 uk: 95 ro: 95 pt: 94 fr: 94 en: 88 hu: 88 tr: 87 ru: 86 ja: 32 ko: 32 zh_CN: 24
+Total Swap Memory          286 px   de    | de:286 pl:281 fr:256 es:223 cs:200 uk:199 nl:199 hu:183 it:176 fi:174 pt:167 sv:160 hr:159 ru:159 tr:159 ro:151 ar:151 en:136 da:136 ja:136 ko: 64 zh_CN: 40
+Total Time                 112 px   hr    | hr:112 pl:111 uk:103 it: 96 fi: 95 es: 95 ar: 94 tr: 88 cs: 87 nl: 87 fr: 87 ru: 87 pt: 87 en: 80 da: 79 hu: 79 de: 79 ro: 79 sv: 71 ko: 32 ja: 32 zh_CN: 24
+Total Up                   142 px   uk    | uk:142 fi:142 nl:127 sv:127 hu:127 pl:120 tr:112 cs:111 ro:111 hr:111 it:104 da:103 de:103 es: 95 pt: 95 ru: 94 ar: 94 fr: 87 en: 64 ja: 64 ko: 40 zh_CN: 32
+Total Uploaded             183 px   tr    | tr:183 hu:151 uk:151 hr:143 de:143 fi:142 pl:136 sv:127 nl:119 cs:119 da:111 ro:111 ja:111 en:111 ru:110 it:110 ar:104 es:103 pt:103 fr: 96 ko: 40 zh_CN: 32
+Total Usage                168 px   pl    | pl:168 uk:167 ru:152 fr:144 nl:136 hr:136 hu:127 sv:127 de:127 pt:127 tr:120 cs:119 fi:118 ar:117 da:111 ro:103 en: 88 it: 80 es: 71 ko: 40 ja: 40 zh_CN: 32
+Total Video Memory         223 px   fr    | fr:223 de:184 pl:184 da:176 es:175 pt:175 hr:167 fi:166 it:160 nl:159 ro:159 uk:159 tr:159 cs:151 hu:151 ar:151 en:144 sv:136 ru:134 ko: 80 ja: 72 zh_CN: 24
+Track                       55 px   it    | it: 55 nl: 48 hr: 46 en: 40 pl: 40 fr: 39 fi: 39 cs: 39 de: 39 ro: 38 tr: 38 es: 38 pt: 38 ja: 32 ru: 32 hu: 32 da: 32 sv: 32 uk: 32 ar: 31 zh_CN: 16 ko: 16
+Track List                 126 px   fr    | fr:126 pt:118 es:118 cs:112 ar:112 hu:111 ro:111 fi:103 it:103 ru:103 pl:103 uk:103 hr:102 tr:102 de: 80 en: 79 nl: 79 da: 72 sv: 71 ja: 56 ko: 40 zh_CN: 32
+Track Number               120 px   fr    | fr:120 pt:119 ro:111 it:111 tr:110 hu:103 fi:103 en: 96 es: 95 pl: 95 cs: 88 de: 88 nl: 88 uk: 88 ru: 87 hr: 87 sv: 80 ar: 80 da: 80 ja: 48 ko: 40 zh_CN: 32
+Track Position             182 px   it    | it:182 fr:159 es:158 pt:126 fi:119 hr:119 en:111 hu:111 ro:110 pl:110 uk:104 ru:103 de:103 nl: 96 da: 95 sv: 95 cs: 95 tr: 94 ar: 87 ja: 48 ko: 40 zh_CN: 32
+Trash                      111 px   ro    | ro:111 sv: 86 nl: 79 de: 79 fr: 72 fi: 71 es: 62 ar: 61 uk: 56 ru: 55 it: 55 ko: 48 da: 47 hr: 40 en: 39 hu: 31 pl: 31 pt: 30 tr: 24 ja: 24 zh_CN: 24 cs: 23
+Tuesday                     87 px   pt    | pt: 87 ar: 68 de: 63 uk: 63 en: 56 fi: 55 ru: 55 nl: 55 da: 55 it: 55 hr: 48 pl: 48 sv: 47 es: 47 fr: 39 ro: 39 cs: 39 tr: 31 hu: 30 ja: 24 ko: 24 zh_CN: 24
+Unavailable                128 px   nl    | nl:128 sv:126 fi:126 it:120 de:120 tr:112 es:104 hu: 95 fr: 95 da: 95 ro: 94 pt: 94 en: 88 pl: 88 cs: 80 ru: 79 uk: 79 hr: 79 ko: 64 ar: 64 ja: 32 zh_CN: 24
+Undo                       111 px   nl    | nl:111 hu: 87 de: 79 uk: 71 es: 64 pt: 64 ro: 63 ru: 63 fr: 56 it: 55 tr: 55 da: 54 pl: 45 ar: 40 ko: 40 fi: 39 sv: 39 hr: 39 ja: 32 cs: 31 en: 31 zh_CN: 16
+unknown                     95 px   pt    | pt: 95 es: 87 it: 87 fi: 79 ro: 79 tr: 79 ru: 79 hu: 78 ar: 72 de: 71 hr: 71 pl: 64 nl: 63 uk: 63 en: 55 cs: 55 fr: 54 ko: 48 da: 46 sv: 39 zh_CN: 16 ja: 16
+Unknown                     95 px   pt    | pt: 95 es: 87 it: 87 fi: 79 ro: 79 tr: 79 ru: 79 hu: 78 ar: 72 de: 71 hr: 71 pl: 64 nl: 63 uk: 63 cs: 56 en: 55 fr: 54 ko: 48 da: 47 sv: 39 zh_CN: 16 ja: 16
+Unread Messages            199 px   pl    | pl:199 uk:191 de:175 fi:158 ar:156 hu:152 nl:151 hr:144 tr:144 sv:143 it:143 es:143 cs:136 pt:136 fr:127 da:120 ro:120 en:119 ru:104 ko: 72 ja: 64 zh_CN: 32
+Unsynced                   167 px   nl    | nl:167 de:159 pl:152 tr:151 ru:151 hu:143 da:142 sv:142 uk:135 cs:135 it:135 hr:127 pt:127 es:120 fr:120 fi:111 ro:103 ar: 80 en: 63 ko: 56 ja: 24 zh_CN: 24
+Up                          87 px   sv    | sv: 87 pl: 72 cs: 71 ro: 71 uk: 70 hu: 70 tr: 56 fi: 54 hr: 48 de: 47 da: 47 pt: 47 es: 47 ru: 47 it: 47 nl: 46 fr: 38 ar: 25 ko: 24 ja: 16 zh_CN: 16 en: 16
+Updated                    111 px   pl    | pl:111 cs:103 de: 95 fr: 88 es: 87 ro: 87 tr: 87 ar: 80 hr: 79 it: 79 sv: 79 fi: 79 pt: 79 nl: 78 ru: 71 da: 71 hu: 71 uk: 63 en: 55 ko: 40 ja: 24 zh_CN: 16
+Updates                    104 px   sv    | sv:104 tr:104 it:103 pl: 96 da: 96 fr: 96 pt: 95 cs: 88 hu: 87 fi: 86 ru: 79 es: 71 uk: 71 ar: 56 ro: 55 de: 55 hr: 55 en: 55 nl: 55 ja: 48 ko: 32 zh_CN: 16
+updating                   141 px   ro    | ro:141 pl:133 it:125 tr:125 es:117 ar:117 de:117 fr:109 pt:109 sv:101 ru:101 hr:101 uk: 93 nl: 92 hu: 92 cs: 88 fi: 86 en: 85 da: 72 ko: 69 ja: 45 zh_CN: 45
+Upload                      87 px   uk    | uk: 87 sv: 71 de: 71 ru: 71 hu: 70 nl: 63 fr: 63 pl: 60 ro: 54 hr: 54 ja: 48 en: 47 it: 47 da: 47 pt: 47 cs: 47 es: 40 tr: 40 fi: 38 ar: 25 ko: 24 zh_CN: 16
+Upload Rate                175 px   uk    | uk:175 sv:167 tr:159 hu:150 pl:143 cs:143 es:143 it:135 ru:135 hr:134 ro:112 nl:111 pt:103 fi:102 fr: 95 ar: 88 en: 88 da: 88 de: 88 ja: 56 ko: 48 zh_CN: 32
+Uploads                    104 px   sv    | sv:104 uk: 95 fr: 94 it: 87 hu: 87 tr: 80 fi: 70 pl: 70 ro: 70 ar: 69 ru: 63 hr: 62 cs: 55 en: 55 nl: 55 es: 55 da: 55 de: 55 ja: 48 pt: 46 ko: 24 zh_CN: 16
+Upload Speed               175 px   de    | de:175 sv:167 pt:159 ro:152 uk:151 es:151 hu:150 it:143 cs:143 pl:142 ru:119 da:119 fr:119 nl:111 hr:102 fi:102 tr: 95 en: 95 ar: 82 ja: 64 ko: 48 zh_CN: 32
+UPS                        184 px   ar    | ar:184 fr: 64 zh_CN: 40 de: 24 da: 23 ja: 23 hu: 23 ko: 23 cs: 23 fi: 23 en: 23 ro: 23 sv: 23 ru: 23 pt: 23 tr: 23 it: 23 uk: 23 pl: 23 nl: 23 es: 23 hr: 23
+UPS Mode                   216 px   ar    | ar:216 fr:104 it: 95 da: 95 cs: 71 hr: 71 nl: 71 de: 71 uk: 70 ru: 70 sv: 64 en: 64 fi: 63 pl: 63 es: 63 tr: 63 pt: 63 hu: 55 ro: 55 zh_CN: 48 ja: 48 ko: 48
+Uptime                     159 px   pl    | pl:159 pt:152 es:151 fr:151 uk:135 it:135 tr:135 fi:127 nl:119 ro:112 hu: 95 hr: 95 ru: 95 de: 94 ar: 88 cs: 63 en: 48 ja: 48 da: 48 sv: 47 ko: 40 zh_CN: 32
+Usage                      104 px   ru    | ru:104 uk: 94 fr: 87 hr: 80 sv: 79 de: 79 pt: 79 ro: 72 hu: 71 ar: 69 tr: 64 nl: 56 cs: 55 da: 54 pl: 48 fi: 47 en: 40 ja: 40 ko: 24 zh_CN: 24 es: 23 it: 23
+us_aqi                     200 px   ar    | ar:200 ru:127 pl:120 nl:119 da:111 cs: 95 hr: 95 es: 84 fi: 64 ro: 56 it: 55 tr: 55 hu: 55 pt: 55 uk: 55 sv: 47 ko: 47 en: 47 de: 47 fr: 46 zh_CN: 39 ja: 39
+% used                      79 px   hu    | hu: 79 ja: 47 ko: 47 ro: 47 cs: 47 en: 47 fi: 47 ar: 47 da: 47 fr: 47 it: 47 de: 47 es: 47 ru: 47 pt: 47 tr: 47 sv: 47 uk: 47 nl: 47 zh_CN: 47 pl: 47 hr: 47
+Used                        95 px   ru    | ru: 95 uk: 86 hr: 86 tr: 79 de: 71 fi: 64 nl: 63 hu: 63 fr: 56 cs: 54 ro: 54 ar: 48 sv: 47 pl: 39 it: 39 es: 39 pt: 39 da: 38 en: 31 ja: 24 ko: 24 zh_CN: 16
+Used Physical Memory       279 px   de    | de:279 ru:239 uk:222 tr:208 ar:204 fr:200 nl:191 hr:191 fi:190 pl:183 ro:183 da:183 hu:182 cs:166 en:160 sv:160 pt:159 es:159 it:159 ja: 96 ko: 88 zh_CN: 48
+Used Space                 174 px   de    | de:174 ru:160 ar:148 pl:143 uk:135 nl:128 da:126 hr:120 tr:119 sv:112 ro:111 fr:111 fi:102 es:102 cs:102 hu: 95 it: 95 pt: 94 en: 80 ko: 48 ja: 48 zh_CN: 32
+Used Swap Memory           231 px   de    | de:231 ru:231 es:223 uk:222 fr:208 cs:200 tr:191 hu:190 nl:183 ar:182 pl:176 fi:174 ro:167 hr:167 pt:167 it:167 sv:160 en:128 da:128 ja:112 ko: 80 zh_CN: 48
+User                        95 px   ru    | ru: 95 fr: 88 hu: 86 pt: 80 pl: 80 ro: 80 uk: 79 sv: 72 nl: 72 tr: 71 hr: 64 de: 63 fi: 63 cs: 63 ar: 61 es: 55 it: 48 da: 47 ja: 32 en: 32 ko: 24 zh_CN: 16
+Username:                  149 px   fr    | fr:149 cs:141 pl:141 es:141 ru:133 uk:132 ro:125 fi:117 hr:117 nl:117 hu:116 tr:109 sv:101 de:100 ar: 98 it: 93 pt: 85 da: 84 en: 69 ja: 45 ko: 45 zh_CN: 32
+User Usage                 247 px   pl    | pl:247 fr:216 ru:216 uk:199 pt:192 hu:174 nl:168 ro:160 hr:159 cs:151 tr:151 sv:143 de:142 it:136 ar:125 es:119 fi:111 da:102 en: 80 ja: 80 ko: 56 zh_CN: 40
+UTC                         23 px   ro    | ro: 23 ko: 23 ja: 23 cs: 23 en: 23 fi: 23 ar: 23 da: 23 fr: 23 hu: 23 it: 23 de: 23 es: 23 ru: 23 pt: 23 tr: 23 sv: 23 uk: 23 nl: 23 zh_CN: 23 pl: 23 hr: 23
+uv_extreme                 103 px   ru    | ru:103 uk:102 hu: 87 pl: 87 fi: 87 hr: 70 cs: 63 da: 56 nl: 55 en: 55 fr: 55 it: 54 pt: 54 es: 54 de: 47 ro: 47 sv: 47 tr: 39 ar: 33 zh_CN: 16 ko: 16 ja: 16
+uv_high                     55 px   ro    | ro: 55 uk: 54 ru: 54 cs: 48 tr: 48 fi: 47 pl: 47 ar: 40 hr: 40 hu: 39 fr: 39 de: 31 es: 31 nl: 31 it: 31 en: 31 pt: 31 sv: 23 da: 20 ko: 16 ja: 16 zh_CN:  8
+uv_index                   199 px   ar    | ar:199 fi: 79 tr: 79 da: 71 ro: 71 fr: 71 it: 71 es: 71 hr: 71 pl: 71 uk: 71 pt: 71 ru: 71 hu: 64 sv: 64 de: 64 en: 64 cs: 64 nl: 64 ko: 48 zh_CN: 40 ja: 32
+uv_low                      64 px   hu    | hu: 64 fi: 63 de: 55 uk: 55 fr: 47 ro: 47 ru: 47 ar: 40 tr: 40 hr: 40 pl: 39 cs: 39 it: 38 pt: 38 nl: 30 es: 30 en: 23 da: 23 sv: 22 ja: 16 ko: 16 zh_CN:  8
+uv_moderate                 88 px   pl    | pl: 88 fi: 87 hu: 71 ru: 71 en: 64 it: 63 uk: 63 pt: 63 es: 63 da: 55 ro: 55 hr: 55 sv: 55 fr: 48 cs: 40 ar: 39 de: 39 nl: 39 tr: 31 ja: 24 ko: 16 zh_CN: 16
+uv_very_high               118 px   fi    | fi:118 ro:110 ru:103 pl:102 cs: 96 hu: 95 uk: 95 fr: 80 hr: 80 tr: 80 pt: 79 sv: 79 it: 79 ar: 78 de: 71 nl: 71 en: 71 da: 69 es: 63 ja: 40 ko: 40 zh_CN: 16
+variable                    79 px   cs    | cs: 79 fi: 79 da: 63 hu: 55 ja: 48 pl: 45 ar: 39 zh_CN: 32 hr: 31 tr: 29 fr: 24 en: 24 de: 24 ro: 24 nl: 24 it: 24 es: 24 pt: 24 ru: 24 uk: 16 ko: 16 sv:  8
+Video                       79 px   hr    | hr: 79 ar: 40 cs: 39 en: 39 fi: 39 da: 39 hu: 39 it: 39 fr: 39 sv: 39 de: 39 pl: 39 pt: 39 tr: 39 es: 39 ro: 39 nl: 39 ru: 38 uk: 38 ko: 24 zh_CN: 16 ja: 16
+Video Card                 127 px   hr    | hr:127 es:127 pl:119 cs:111 pt:110 ar:103 it: 95 fi: 95 de: 88 hu: 87 fr: 87 tr: 86 ro: 86 nl: 79 sv: 79 en: 79 uk: 78 ru: 78 da: 71 ko: 48 ja: 48 zh_CN: 16
+Video Memory               127 px   es    | es:127 pt:127 da:120 hr:111 de:104 ro:103 tr:103 it:103 fr:103 nl:103 ar:102 en: 96 hu: 95 uk: 94 pl: 94 fi: 87 ru: 86 sv: 80 cs: 79 ko: 56 ja: 48 zh_CN: 16
+Video Memory Used          191 px   hr    | hr:191 tr:191 ru:191 uk:190 de:183 ar:182 fr:176 pl:175 pt:175 nl:175 ro:175 es:175 da:167 fi:166 hu:158 it:151 cs:150 sv:136 ja:135 en:135 ko: 88 zh_CN: 32
+Videos                      95 px   ro    | ro: 95 hr: 87 ar: 65 tr: 64 da: 56 nl: 55 sv: 48 hu: 48 fi: 47 fr: 47 pt: 47 en: 47 de: 47 es: 47 it: 39 pl: 39 cs: 39 ru: 38 uk: 38 ko: 24 zh_CN: 16 ja: 16
+Video Usage                183 px   fr    | fr:183 ru:151 uk:142 pl:135 hr:127 sv:119 de:119 ro:119 tr:119 ar:116 hu:111 fi:103 cs:102 nl: 96 es: 95 da: 95 pt: 88 ja: 88 en: 88 it: 71 ko: 56 zh_CN: 40
+Views                      119 px   it    | it:119 es:111 hu:104 pt:103 tr: 96 pl: 95 ro: 87 da: 72 sv: 72 ru: 72 nl: 71 uk: 71 cs: 71 ar: 69 fi: 63 hr: 62 de: 56 en: 39 zh_CN: 32 ja: 32 fr: 31 ko: 24
+violent_rain_showers       214 px   pt    | pt:214 ro:200 pl:200 fi:183 hr:168 de:160 en:159 da:152 sv:152 uk:151 es:151 nl:135 fr:135 tr:128 it:127 cs:119 ar:112 ru:111 hu: 88 ja: 48 ko: 48 zh_CN: 24
+visibility                 111 px   tr    | tr:111 nl:103 ro: 96 pt: 96 hu: 94 es: 87 en: 80 fr: 80 de: 80 hr: 79 it: 79 cs: 79 pl: 79 da: 78 ru: 70 uk: 70 fi: 63 ar: 44 ko: 32 sv: 31 zh_CN: 24 ja: 16
+Voltage                     80 px   ru    | ru: 80 hu: 78 it: 64 ro: 64 pl: 64 sv: 63 da: 63 de: 63 nl: 63 fi: 56 tr: 56 en: 56 es: 56 uk: 55 fr: 55 cs: 47 pt: 47 hr: 39 ar: 36 ja: 16 zh_CN: 16 ko: 16
+Volume                     119 px   fi    | fi:119 ar: 88 de: 79 tr: 79 cs: 71 da: 71 ru: 70 pl: 63 hr: 63 uk: 62 hu: 55 es: 55 pt: 48 fr: 48 en: 48 nl: 48 it: 48 sv: 40 ro: 40 ja: 16 ko: 16 zh_CN: 16
+Wait Usage                 248 px   pl    | pl:248 ru:191 uk:191 fr:176 hu:159 ro:152 nl:151 hr:143 tr:134 ar:125 pt:119 it:119 sv:119 de:119 es:103 fi: 95 da: 95 en: 80 cs: 80 ja: 80 ko: 48 zh_CN: 40
+waning_crescent            184 px   ro    | ro:184 hr:159 da:143 fr:135 de:135 pl:120 cs:119 fi:119 sv:119 en:119 hu:118 es:111 uk:111 nl:111 pt:103 tr:102 it: 95 ar: 87 ru: 87 ko: 24 ja: 16 zh_CN: 16
+waning_gibbous             223 px   ro    | ro:223 uk:191 fr:168 sv:144 pl:136 tr:135 pt:128 es:128 de:127 hr:127 it:120 fi:119 cs:118 da:112 en:111 nl:111 ru:111 ar: 86 hu: 78 ko: 72 ja: 24 zh_CN: 24
+Warning                    112 px   ru    | ru:112 hu:110 fr:103 uk: 95 nl: 95 es: 87 ro: 87 pl: 87 hr: 80 fi: 63 da: 63 cs: 63 sv: 55 de: 55 en: 55 it: 47 tr: 39 pt: 39 ar: 39 ko: 16 zh_CN: 16 ja: 16
+Watch                       87 px   hu    | hu: 87 ro: 79 fr: 64 uk: 63 ru: 63 cs: 63 de: 55 pl: 53 nl: 47 it: 47 hr: 45 en: 39 fi: 39 sv: 39 ar: 33 tr: 31 pt: 24 es: 24 da: 16 zh_CN: 16 ja: 16 ko: 16
+waxing_crescent            160 px   ro    | ro:160 da:151 pl:144 hr:143 cs:136 sv:135 de:135 fr:134 uk:119 en:119 hu:111 it:111 es:111 fi:111 nl:103 pt:103 ru: 95 ar: 86 tr: 39 zh_CN: 24 ja: 24 ko: 24
+waxing_gibbous             199 px   ro    | ro:199 uk:199 sv:160 pl:159 fr:152 it:136 cs:135 pt:128 es:128 de:127 ru:127 da:120 hr:111 fi:111 en:111 nl:103 ar: 85 tr: 72 hu: 71 ko: 24 ja: 24 zh_CN: 24
+weather_provider           216 px   hr    | hr:216 tr:183 es:182 pt:174 hu:166 uk:151 cs:150 ru:128 en:128 sv:120 de:112 ro:110 fi:104 pl:104 nl: 96 fr: 95 da: 88 it: 86 ar: 80 ja: 64 ko: 48 zh_CN: 40
+Website                    111 px   cs    | cs:111 fi:103 de:103 hr: 95 es: 87 tr: 79 ro: 79 pt: 79 sv: 71 ar: 64 fr: 64 it: 64 hu: 63 ru: 62 nl: 56 en: 56 pl: 55 da: 55 ja: 48 ko: 32 uk: 31 zh_CN: 16
+Wednesday                   95 px   pt    | pt: 95 fi: 87 en: 72 it: 71 es: 71 fr: 63 ro: 63 de: 63 nl: 63 tr: 63 ar: 60 hr: 55 da: 47 sv: 47 uk: 47 hu: 46 cs: 46 ru: 39 pl: 38 zh_CN: 24 ja: 24 ko: 24
+Week                        71 px   ro    | ro: 71 it: 71 fr: 56 pl: 55 uk: 55 es: 47 fi: 47 hr: 47 pt: 47 ru: 47 de: 40 tr: 39 sv: 39 cs: 39 ar: 38 ko: 32 nl: 32 en: 32 da: 24 hu: 23 ja:  8 zh_CN:  8
+Weekly                      96 px   pt    | pt: 96 fr: 96 es: 96 it: 88 fi: 87 de: 87 ru: 86 pl: 79 ro: 79 nl: 71 da: 71 sv: 70 tr: 64 ar: 59 hu: 56 uk: 55 en: 48 hr: 47 cs: 40 ko: 16 zh_CN: 16 ja: 16
+west                        38 px   fi    | fi: 38 cs: 38 da: 31 ar: 24 uk: 16 hu: 16 ja:  8 ko:  8 ro:  8 fr:  8 en:  8 de:  8 sv:  8 it:  8 pt:  8 nl:  8 zh_CN:  8 hr:  8 es:  8 pl:  8 tr:  7 ru:  7
+Wi-Fi                       56 px   ar    | ar: 56 ro: 39 ko: 39 ja: 39 cs: 39 en: 39 fi: 39 hu: 39 da: 39 fr: 39 it: 39 hr: 39 es: 39 ru: 39 pt: 39 tr: 39 sv: 39 uk: 39 nl: 39 zh_CN: 39 pl: 39 de: 31
+wind                        48 px   hr    | hr: 48 tr: 48 es: 47 ar: 45 pl: 40 it: 39 fi: 39 pt: 39 uk: 39 ru: 39 cs: 32 da: 31 fr: 31 hu: 31 de: 31 ro: 31 sv: 31 nl: 31 en: 31 ko: 16 zh_CN:  8 ja:  8
+wind_direction             159 px   es    | es:159 it:151 ru:135 ro:135 fr:135 pt:127 pl:119 en:111 fi:103 uk: 96 de: 95 nl: 95 sv: 95 hr: 95 ar: 93 tr: 87 da: 87 cs: 78 hu: 72 ja: 16 zh_CN: 16 ko: 16
+wind_gusts                 135 px   es    | es:135 it:135 pt:127 tr:127 fr:119 ro:111 hr:111 pl:102 uk: 96 ru: 95 cs: 94 hu: 88 ar: 87 nl: 79 en: 79 sv: 64 da: 63 fi: 54 de: 30 zh_CN: 16 ja: 16 ko: 16
+Window System              191 px   uk    | uk:191 fi:166 hu:160 it:152 es:151 fr:151 ro:144 pt:143 hr:127 ru:119 tr:118 nl:112 ar:108 ja:104 da:104 en:104 sv:103 de:103 pl: 95 cs: 87 ko: 40 zh_CN: 32
+wind_speed                 159 px   es    | es:159 pt:151 de:151 it:143 uk:120 fr:119 ro:119 pl:118 ru:111 cs:109 da:103 fi:103 sv:103 hr:102 nl: 95 hu: 95 ar: 90 tr: 87 en: 79 zh_CN: 16 ja: 16 ko: 16
+Wired Memory               176 px   it    | it:176 fr:152 de:152 da:151 hr:151 ru:151 nl:143 uk:143 pl:142 hu:135 ar:116 cs:111 ro:111 fi:110 tr: 96 en: 96 pt: 95 es: 95 sv: 79 ja: 64 ko: 64 zh_CN: 32
+Wireless                   119 px   hu    | hu:119 pl:103 ru: 94 es: 86 cs: 79 uk: 78 nl: 71 ro: 63 da: 63 fr: 63 en: 63 de: 63 sv: 63 tr: 63 pt: 63 it: 63 fi: 62 hr: 54 ar: 48 ja: 40 ko: 16 zh_CN: 16
+Wireless Bitrate           269 px   pl    | pl:269 ru:238 cs:231 uk:230 hu:215 es:191 hr:190 pt:167 sv:159 da:159 fi:158 ar:144 ro:144 de:136 nl:136 tr:135 en:128 it:126 fr:111 ja: 88 ko: 64 zh_CN: 40
+Wireless Channel           191 px   hu    | hu:191 pl:152 ru:142 es:135 uk:134 en:127 nl:127 cs:126 ar:124 it:119 fi:118 ro:112 fr:111 pt:111 tr:111 sv:103 da:103 hr:102 ja: 80 de: 70 ko: 40 zh_CN: 32
+Wireless ESSID             168 px   hu    | hu:168 ar:156 pl:151 ru:143 uk:135 es:134 de:127 cs:127 nl:120 en:112 tr:112 fi:111 ro:111 pt:110 it:110 fr:110 da:104 sv:104 hr:103 ja: 80 ko: 64 zh_CN: 64
+Wireless Mode              151 px   hu    | hu:151 pl:144 ru:143 it:135 uk:135 es:127 cs:127 da:127 nl:119 ar:109 en:104 sv:104 fr:103 pt:103 hr:102 fi:102 ro: 96 tr: 95 de: 70 ja: 64 ko: 40 zh_CN: 32
+Wireless Signal            160 px   pl    | pl:160 hu:151 ru:150 uk:142 nl:135 de:135 es:135 cs:134 fi:134 it:127 ro:120 en:119 fr:119 tr:119 da:119 pt:111 sv:111 hr:110 ar:101 ja: 56 ko: 40 zh_CN: 32
+wnw                         96 px   ar    | ar: 96 fi: 79 uk: 48 hu: 40 ja: 24 ko: 24 ro: 24 da: 24 fr: 24 cs: 24 en: 24 de: 24 sv: 24 it: 24 pt: 24 nl: 24 zh_CN: 24 hr: 24 es: 24 pl: 24 tr: 23 ru: 23
+Work                        95 px   de    | de: 95 ro: 94 hu: 79 cs: 62 da: 56 es: 55 ru: 54 pt: 54 sv: 48 it: 46 fr: 46 uk: 46 hr: 38 pl: 38 ar: 36 nl: 32 en: 32 fi: 23 ja: 16 zh_CN: 16 ko: 16 tr: 14
+Write                       40 px   ro    | ro: 40 ko: 40 ja: 40 cs: 40 en: 40 fi: 40 ar: 40 da: 40 fr: 40 it: 40 de: 40 es: 40 sv: 40 pt: 40 tr: 40 uk: 40 ru: 40 nl: 40 zh_CN: 40 pl: 40 hr: 40 hu: 30
+Write Rate                 167 px   it    | it:167 es:135 uk:128 fr:128 ro:120 da:119 pl:119 nl:119 cs:119 fi:119 pt:119 ru:119 hu:110 hr:110 sv:103 ar: 95 de: 88 ja: 80 en: 80 tr: 79 ko: 48 zh_CN: 32
+wsw                         96 px   ar    | ar: 96 fi: 86 uk: 48 hu: 40 ja: 24 ko: 24 ro: 24 da: 24 fr: 24 cs: 24 en: 24 de: 24 sv: 24 it: 24 pt: 24 nl: 24 zh_CN: 24 hr: 24 es: 24 pl: 24 tr: 23 ru: 23
+Year                        47 px   hr    | hr: 47 fr: 40 fi: 39 en: 32 nl: 32 de: 32 es: 31 it: 31 ar: 25 cs: 24 pl: 24 tr: 23 pt: 23 uk: 23 ru: 23 ko: 16 da: 16 sv: 16 hu: 15 ro: 15 zh_CN:  8 ja:  8
+Yes                         39 px   fi    | fi: 39 tr: 30 hu: 30 uk: 24 ar: 24 pt: 24 pl: 24 cs: 23 en: 23 fr: 23 ja: 16 da: 15 ro: 15 de: 15 hr: 15 ru: 15 it: 15 nl: 15 sv: 15 es: 15 zh_CN:  8 ko:  8
+Yesterday                   72 px   en    | en: 72 nl: 63 de: 55 pl: 53 hu: 48 ar: 48 hr: 40 pt: 40 da: 39 cs: 39 sv: 39 uk: 38 ru: 38 fi: 38 fr: 32 es: 32 ro: 30 it: 30 tr: 23 zh_CN: 16 ja: 16 ko: 16
+
+LEGGYAKRABBAN A LEGHOSSZABB NYELV:
+  fi     73 kulcs
+  fr     66 kulcs
+  ro     65 kulcs
+  hu     63 kulcs
+  de     58 kulcs
+  pl     56 kulcs
+  ar     52 kulcs
+  ru     44 kulcs
+  it     44 kulcs
+  hr     40 kulcs
+  es     37 kulcs
+  pt     31 kulcs
+  tr     29 kulcs
+  uk     28 kulcs
+  nl     24 kulcs
+  cs     20 kulcs
+  sv     13 kulcs
+  da     12 kulcs
+  en     2 kulcs

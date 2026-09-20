@@ -27,10 +27,13 @@ conditions (speed color + compass direction).
 -- - `conky_icon_moon()` — moon phase icon path
 -- - `conky_icon_current_wind()` — current wind icon path
 -- - `conky_icon_hour_wind(i)` — hourly wind icon path
+-- - `conky_icon_img_line(path, x, y, w, h)` — generic ${image} template line
+-- - `conky_icon_img_*_weather/wind/moon(x, y, w, h)` — ${image} template lines
+--   ready for Conky ${lua_parse} / conky_parse() injection (Cairo-free icons).
 --
 -- **Config/globals used:**
 -- `ICON_BASE`, `ICON_THEME`, `MOON_ICON_BASE`, `WIND_ICON_BASE`, `W.weather`, `W.city`,
--- `safe_num()`, `moon_phase_fraction()`, `wind_color()`, `get_wind_dir_code()`, `get_idx()`,
+-- `require_num()`, `moon_phase_fraction()`, `wind_color()`, `get_wind_dir_code()`, `get_idx()`,
 -- and the `conky_weather_*` / `conky_city_lat` accessors
 --}}}
 
@@ -78,13 +81,55 @@ end
 --}}}
 
 function conky_icon_current_wind()
-	local s = safe_num((W.weather.current or {}).wind_speed_10m, 0)
+	local s = require_num((W.weather.current or {}).wind_speed_10m, "cur_wind_speed")
 	if s <= 0.2 then return WIND_ICON_BASE .. "no_wind.png" end
 	return WIND_ICON_BASE .. wind_color(s) .. "_" .. get_wind_dir_code(conky_weather_cur_wind_dir and conky_weather_cur_wind_dir()) .. ".png"
 end
 
 function conky_icon_hour_wind(i)
-	local s = safe_num((W.weather.hourly or {}).wind_speed_10m and (W.weather.hourly or {}).wind_speed_10m[get_idx(i)], 0)
+	local s = require_num((W.weather.hourly or {}).wind_speed_10m and (W.weather.hourly or {}).wind_speed_10m[get_idx(i)], "hour_wind_speed")
 	if s <= 0.2 then return WIND_ICON_BASE .. "no_wind.png" end
 	return WIND_ICON_BASE .. wind_color(s) .. "_" .. get_wind_dir_code(conky_weather_hour_wind_dir and conky_weather_hour_wind_dir(i)) .. ".png"
+end
+
+--{{{
+-- Image template lines (Cairo-free ${image} injection)
+--
+-- Build a full Conky ${image} template line for a resolved icon path. The
+-- `-n` (no-cache) flag makes Conky re-read the PNG from disk on every update,
+-- so a freshly rendered icon file is picked up immediately. These lines are
+-- meant to be injected via `${lua_parse}` in conky.text or `conky_parse()`
+-- from inside a Lua hook.
+--}}}
+
+local function image_line(path, x, y, w, h)
+	return "${image " .. path .. " -p " .. x .. "," .. y .. " -s " .. w .. "x" .. h .. " -n}"
+end
+
+function conky_icon_img_line(path, x, y, w, h)
+	return image_line(path, x, y, w, h)
+end
+
+function conky_icon_img_current_weather(x, y, w, h)
+	return image_line(conky_icon_current_weather(), x, y, w, h)
+end
+
+function conky_icon_img_hour_weather(i, x, y, w, h)
+	return image_line(conky_icon_hour_weather(i), x, y, w, h)
+end
+
+function conky_icon_img_day_weather(i, x, y, w, h)
+	return image_line(conky_icon_day_weather(i), x, y, w, h)
+end
+
+function conky_icon_img_moon(x, y, w, h)
+	return image_line(conky_icon_moon(), x, y, w, h)
+end
+
+function conky_icon_img_current_wind(x, y, w, h)
+	return image_line(conky_icon_current_wind(), x, y, w, h)
+end
+
+function conky_icon_img_hour_wind(i, x, y, w, h)
+	return image_line(conky_icon_hour_wind(i), x, y, w, h)
 end

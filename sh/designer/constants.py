@@ -31,6 +31,8 @@ import os
 import engine.theme_writer as tw
 from utils import THEME_NAME, HERE
 
+MODULE_PROFILES = ("basic", "weather", "system", "media", "panel", "google", "full")
+
 
 WIDGET_CONFIG_BLOCK = r'''------------------------------------------------------------
 -- Global paths / config (formerly settings.lua)
@@ -133,6 +135,7 @@ _FALLBACK_THEME = {
             "color_today": [[1, "#3daee9", 1]],
             "color_outside": [[1, "#4a4d52", 1]],
             "color_weeknums": [[1, "#3daee9", 1]],
+            "color_popup": [[1, "#a9b1d6", 1]],
         },
     },
 }
@@ -156,6 +159,7 @@ def _empty_widget_lua():
 --}}}
 
 ''' + themes_block + '\n' + r'''DEFAULT_THEME = "theme"
+MODULE_PROFILE = { "full" }
 _PADDING = 10
 
 _GROUPS = {}

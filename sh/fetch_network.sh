@@ -19,11 +19,11 @@
 # - fetch_ipinfo(): over HTTPS → $TMP_DIR/network_ip.json
 # - When run directly, starts both fetchers as background jobs
 #
-# **Environment/requirements:** needs 0_common.sh (curl_cmd, TMP_DIR) and
+# **Environment/requirements:** needs common.sh (curl_cmd, TMP_DIR) and
 # the system `ping` command
 #}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-source "$_SCRIPT_DIR/0_common.sh"
+source "$_SCRIPT_DIR/common.sh"
 
 NETWORK_DIR="$TMP_DIR"
 

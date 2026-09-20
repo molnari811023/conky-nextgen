@@ -79,6 +79,38 @@ function conky_battery_health_data()
 	end)
 end
 
+function conky_battery_status()
+	local s = cached("battery_status", 5, function()
+		return pread("acpi -b 2>/dev/null") or ""
+	end)
+	s = s:match(":%s*([^,]+)") or ""
+	if s == "" then return "" end
+	local key
+	if s == "Full" then
+		key = "Full"
+	elseif s == "Charging" then
+		key = "Charging"
+	elseif s == "Discharging" then
+		key = "Discharging"
+	elseif s:lower() == "not charging" then
+		key = "Not Charging"
+	else
+		key = "Unknown"
+	end
+	return conky_get_tr(key)
+end
+
+function conky_battery_time()
+	local s = cached("battery_time", 5, function()
+		return pread("acpi -b 2>/dev/null") or ""
+	end)
+	local h, m, s = s:match("(%d+):(%d+):(%d+)")
+	if not h then return "" end
+	return h .. conky_get_tr("hour_short")
+		.. " " .. m .. conky_get_tr("minute_short")
+		.. " " .. s .. conky_get_tr("second_short")
+end
+
 local function get_headset_plasma()
 	local dev = pread(
 		"dbus-send --system --dest=org.bluez --print-reply / org.freedesktop.DBus.ObjectManager.GetManagedObjects "

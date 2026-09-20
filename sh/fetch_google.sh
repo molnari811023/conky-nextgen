@@ -24,12 +24,12 @@
 #   youtube_subs.json and meet_history.json
 #
 # **Environment/requirements:** needs the `gog` binary present (skips
-# otherwise) and 0_common.sh. Overridable env vars: GOG_KEYRING_BACKEND,
+# otherwise) and common.sh. Overridable env vars: GOG_KEYRING_BACKEND,
 # GOG_KEYRING_PASSWORD, GOG_ACCOUNT, GOOGLE_CALENDAR_DAYS,
 # GOOGLE_GMAIL_MAX, GOOGLE_TASKS_MAX, GOOGLE_MEET_CODE
 #}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-source "$_SCRIPT_DIR/0_common.sh"
+source "$_SCRIPT_DIR/common.sh"
 
 # gog needs the file keyring backend + password. Values can be overridden
 # by environment variables (GOG_KEYRING_PASSWORD, GOG_ACCOUNT).

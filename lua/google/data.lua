@@ -33,7 +33,7 @@ Calendar, Tasks, Contacts, Drive, YouTube and Meet metrics inline.
 -- - **YouTube** — `conky_google_youtube_count()`, `_title(idx)`
 -- - **Meet** — `conky_google_meet_count()`
 --
--- Local helpers `*_raw()` wrap `load_google_data()`. Uses `safe_str`,
+--- Local helpers `*_raw()` wrap `load_google_data()`. Uses `optional_str`,
 -- `google_sender_name`, `google_date_str`, `google_msg_label` and `get_tr`
 -- (translated labels) from the shared core modules.
 --}}}
@@ -85,12 +85,12 @@ function conky_google_gmail_count()
 end
 
 function conky_google_gmail_subject(idx)
-	return safe_str((gmail_raw()[tonumber(idx) or 1] or {}).subject, "gmail_subject")
+	return optional_str((gmail_raw()[tonumber(idx) or 1] or {}).subject, "N/A", "gmail_subject")
 end
 
 function conky_google_gmail_from(idx)
 	local m = gmail_raw()[tonumber(idx) or 1] or {}
-	return safe_str(google_sender_name(m.from), "gmail_from")
+	return optional_str(google_sender_name(m.from), "N/A", "gmail_from")
 end
 
 function conky_google_gmail_date(idx)
@@ -123,7 +123,7 @@ function conky_google_calendar_count()
 end
 
 function conky_google_calendar_summary(idx)
-	return safe_str((cal_raw()[tonumber(idx) or 1] or {}).summary, "cal_summary")
+	return optional_str((cal_raw()[tonumber(idx) or 1] or {}).summary, "N/A", "cal_summary")
 end
 
 function conky_google_calendar_start(idx)
@@ -150,7 +150,7 @@ function conky_google_calendar_end(idx)
 end
 
 function conky_google_calendar_location(idx)
-	return safe_str((cal_raw()[tonumber(idx) or 1] or {}).location, "cal_location")
+	return optional_str((cal_raw()[tonumber(idx) or 1] or {}).location, "N/A", "cal_location")
 end
 
 function conky_google_calendar_hangout(idx)
@@ -172,7 +172,7 @@ function conky_google_tasks_count()
 end
 
 function conky_google_tasks_title(idx)
-	return safe_str((tasks_raw()[tonumber(idx) or 1] or {}).title, "tasks_title")
+	return optional_str((tasks_raw()[tonumber(idx) or 1] or {}).title, "N/A", "tasks_title")
 end
 
 function conky_google_tasks_due(idx)
@@ -189,7 +189,7 @@ function conky_google_tasks_status(idx)
 end
 
 function conky_google_tasks_list_title(idx)
-	return safe_str((tlists_raw()[tonumber(idx) or 1] or {}).title, "tasks_list_title")
+	return optional_str((tlists_raw()[tonumber(idx) or 1] or {}).title, "N/A", "tasks_list_title")
 end
 
 -- ═══ CONTACTS ═══
@@ -199,11 +199,11 @@ function conky_google_contacts_count()
 end
 
 function conky_google_contacts_name(idx)
-	return safe_str((contacts_raw()[tonumber(idx) or 1] or {}).name, "contacts_name")
+	return optional_str((contacts_raw()[tonumber(idx) or 1] or {}).name, "N/A", "contacts_name")
 end
 
 function conky_google_contacts_phone(idx)
-	return safe_str((contacts_raw()[tonumber(idx) or 1] or {}).phone, "contacts_phone")
+	return optional_str((contacts_raw()[tonumber(idx) or 1] or {}).phone, "N/A", "contacts_phone")
 end
 
 -- ═══ DRIVE ═══
@@ -222,7 +222,7 @@ function conky_google_drive_filesize(idx)
 end
 
 function conky_google_drive_name(idx)
-	return safe_str((drive_raw()[tonumber(idx) or 1] or {}).name, "drive_name")
+	return optional_str((drive_raw()[tonumber(idx) or 1] or {}).name, "N/A", "drive_name")
 end
 
 function conky_google_drive_doctype(idx)
@@ -243,7 +243,7 @@ function conky_google_youtube_count()
 end
 
 function conky_google_youtube_title(idx)
-	return safe_str((youtube_raw()[tonumber(idx) or 1] or {}).title, "youtube_title")
+	return optional_str((youtube_raw()[tonumber(idx) or 1] or {}).title, "N/A", "youtube_title")
 end
 
 -- ═══ MEET ═══

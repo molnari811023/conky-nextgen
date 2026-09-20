@@ -36,7 +36,7 @@ coordinates (for drawing the moon along the sky path), and a visibility check fo
 -- - `need_to_draw_moon_icon()` — true if the moon is above the horizon
 --
 -- **Config/globals used:**
--- `W.moon`, `safe_str()`, `safe_num()`, `iso_to_mins()`, `arc_x()`, `arc_y()`, `round()`,
+-- `W.moon`, `optional_str()`, `optional_num()`, `iso_to_mins()`, `arc_x()`, `arc_y()`, `round()`,
 -- `load_weather_data()`
 --}}}
 
@@ -56,22 +56,22 @@ end
 
 function conky_moon_rise_time()
 	local m = moon_data()
-	return fmt_time(safe_str(m.moonrise and m.moonrise.time, "moon_rise_time"))
+	return fmt_time(optional_str(m.moonrise and m.moonrise.time, "", "moon_rise_time"))
 end
 
 function conky_moon_rise_azimuth()
 	local m = moon_data()
-	return safe_num(m.moonrise and m.moonrise.azimuth, "moon_rise_az")
+	return optional_num(m.moonrise and m.moonrise.azimuth, 0, "moon_rise_az")
 end
 
 function conky_moon_set_time()
 	local m = moon_data()
-	return fmt_time(safe_str(m.moonset and m.moonset.time, "moon_set_time"))
+	return fmt_time(optional_str(m.moonset and m.moonset.time, "", "moon_set_time"))
 end
 
 function conky_moon_set_azimuth()
 	local m = moon_data()
-	return safe_num(m.moonset and m.moonset.azimuth, "moon_set_az")
+	return optional_num(m.moonset and m.moonset.azimuth, 0, "moon_set_az")
 end
 
 --{{{
@@ -80,22 +80,22 @@ end
 
 function conky_moon_high_time()
 	local m = moon_data()
-	return fmt_time(safe_str(m.high_moon and m.high_moon.time, "moon_high_time"))
+	return fmt_time(optional_str(m.high_moon and m.high_moon.time, "", "moon_high_time"))
 end
 
 function conky_moon_high_elevation()
 	local m = moon_data()
-	return safe_num(m.high_moon and m.high_moon.disc_centre_elevation, "moon_high_elev")
+	return optional_num(m.high_moon and m.high_moon.disc_centre_elevation, 0, "moon_high_elev")
 end
 
 function conky_moon_low_time()
 	local m = moon_data()
-	return fmt_time(safe_str(m.low_moon and m.low_moon.time, "moon_low_time"))
+	return fmt_time(optional_str(m.low_moon and m.low_moon.time, "", "moon_low_time"))
 end
 
 function conky_moon_low_elevation()
 	local m = moon_data()
-	return safe_num(m.low_moon and m.low_moon.disc_centre_elevation, "moon_low_elev")
+	return optional_num(m.low_moon and m.low_moon.disc_centre_elevation, 0, "moon_low_elev")
 end
 
 --{{{
@@ -104,7 +104,7 @@ end
 
 function conky_moon_phase()
 	local m = moon_data()
-	local deg = tonumber(safe_num(m.moonphase, "moon_phase")) or 0
+	local deg = optional_num(m.moonphase, 0, "moon_phase")
 	return ((deg % 360) / 360) * 100
 end
 

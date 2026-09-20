@@ -1,0 +1,7 @@
+lfs type=table tostring=table: 0x55d80023b630
+dir type=function
+ - ja.po
+ - hu.po
+ - en.po
+ - hr.mo
+MO!

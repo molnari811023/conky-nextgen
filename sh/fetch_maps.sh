@@ -6,7 +6,7 @@
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
 #}}}
 #{{{
-# ## 13_fetch_maps — weather radar / temperature / wind map image builder
+# ## fetch_maps — weather radar / temperature / wind map image builder
 #
 # Defines fetch_maps(), which uses ImageMagick (`magick` or legacy `convert`)
 # to download a 3x3 grid of tiles centered on the city from TMP_DIR/city.json
@@ -23,11 +23,11 @@
 # - Removes the 0..8 per-tile pngs afterwards
 #
 # **Environment/requirements:** needs ImageMagick (magick or convert),
-# python3, 0_common.sh (curl_cmd, log, TMP_DIR) and an existing
+# python3, common.sh (curl_cmd, log, TMP_DIR) and an existing
 # $TMP_DIR/city.json
 #}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-source "$_SCRIPT_DIR/0_common.sh"
+source "$_SCRIPT_DIR/common.sh"
 
 fetch_maps() {
 	local MAGICK="magick"

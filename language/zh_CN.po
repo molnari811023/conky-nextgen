@@ -1,31 +1,28 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/zh_CN.po — Chinese (Simplified) translations
 #  Compiled to language/zh_CN.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "空气质量"
 
@@ -122,10 +119,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "城市"
 
@@ -147,10 +146,9 @@ msgstr "海拔"
 msgid "population"
 msgstr "人口"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "欧洲AQI"
 
@@ -199,10 +197,9 @@ msgstr "豚草"
 msgid "pollen"
 msgstr "花粉"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "晴天"
 
@@ -287,10 +284,9 @@ msgstr "小冰雹雷暴"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "大冰雹雷暴"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "北"
 
@@ -345,10 +341,9 @@ msgstr "风向多变"
 msgid "calm"
 msgstr "无风"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "新月"
 
@@ -373,20 +368,18 @@ msgstr "下弦月"
 msgid "waning_crescent"
 msgstr "残月"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "太阳"
 
 msgid "moon"
 msgstr "月亮"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "空间天气"
 
@@ -398,9 +391,6 @@ msgstr "太阳风"
 
 msgid "aurora_visibility"
 msgstr "极光可见度"
-
-msgid "xray_class"
-msgstr "X射线耀斑级别"
 
 msgid "geomagnetic_activity"
 msgstr "地磁活动"
@@ -458,28 +448,6 @@ msgstr "高"
 
 msgid "aurora_excellent"
 msgstr "极佳"
-
-msgid "g0_desc"
-msgstr "无地磁风暴活动。"
-
-msgid "g1_desc"
-msgstr "轻微地磁风暴。"
-
-msgid "g2_desc"
-msgstr "中等强度地磁风暴。"
-
-msgid "g3_desc"
-msgstr "强烈地磁风暴。"
-
-msgid "g4_desc"
-msgstr "严重地磁风暴。"
-
-msgid "g5_desc"
-msgstr "极端地磁风暴。"
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "风"
@@ -547,10 +515,9 @@ msgstr "未设置位置"
 msgid "provider"
 msgstr "提供商"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "标题"
 
@@ -578,10 +545,9 @@ msgstr "无"
 msgid "one_alert"
 msgstr "1条警报"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "良好"
 
@@ -681,10 +647,9 @@ msgstr "不太可能"
 msgid "alert_certainty_unknown"
 msgstr "未知"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "全部"
 
@@ -694,35 +659,14 @@ msgstr "所有磁盘"
 msgid "All GPUs"
 msgstr "所有 GPU"
 
-msgid "All GPUs Total Memory"
-msgstr "所有 GPU 总显存"
-
-msgid "All GPUs Usage"
-msgstr "所有 GPU 使用率"
-
-msgid "All GPUs Used Memory"
-msgstr "所有 GPU 已用显存"
-
 msgid "All Network Devices"
 msgstr "所有网络设备"
 
 msgid "Application Memory"
 msgstr "应用程序内存"
 
-msgid "Application Memory Percentage"
-msgstr "应用程序内存百分比"
-
-msgid "Average CPU Frequency"
-msgstr "平均 CPU 频率"
-
-msgid "Average CPU Temperature"
-msgstr "平均 CPU 温度"
-
 msgid "Buffer Memory"
 msgstr "缓冲区内存"
-
-msgid "Buffer Memory Percentage"
-msgstr "缓冲区内存百分比"
 
 msgid "CPU %1"
 msgstr "CPU %1"
@@ -736,17 +680,8 @@ msgstr "CPU 压力"
 msgid "Cache Memory"
 msgstr "缓存内存"
 
-msgid "Cache Memory Percentage"
-msgstr "缓存内存百分比"
-
 msgid "Charge"
 msgstr "电量"
-
-msgid "Charge Percentage"
-msgstr "电量百分比"
-
-msgid "Charging  Rate"
-msgstr "充放电速率"
 
 msgid "Charging Rate"
 msgstr "充放电速率"
@@ -760,9 +695,6 @@ msgstr "当前容量"
 msgid "Current Frequency"
 msgstr "当前频率"
 
-msgid "Current Temperature"
-msgstr "当前温度"
-
 msgid "Design Capacity"
 msgstr "设计容量"
 
@@ -772,29 +704,11 @@ msgstr "下载速率"
 msgid "Free Physical Memory"
 msgstr "空闲物理内存"
 
-msgid "Free Physical Memory Percentage"
-msgstr "空闲物理内存百分比"
-
 msgid "Free Space"
 msgstr "剩余空间"
 
 msgid "Free Swap Memory"
 msgstr "空闲交换内存"
-
-msgid "Free Swap Memory Percentage"
-msgstr "空闲交换内存百分比"
-
-msgid "Frequency"
-msgstr "频率"
-
-msgid "Full (1 minute average)"
-msgstr "完全 (1 分钟平均值)"
-
-msgid "Full (10 second average)"
-msgstr "完全 (10 秒平均值)"
-
-msgid "Full (5 minute average)"
-msgstr "完全 (5 分钟平均值)"
 
 msgid "GPU"
 msgstr "GPU"
@@ -859,18 +773,6 @@ msgstr "内核名称和版本"
 msgid "Kernel Version"
 msgstr "内核版本"
 
-msgid "Load Averages"
-msgstr "平均负载"
-
-msgid "Load average (1 minute)"
-msgstr "平均负载 (1 分钟)"
-
-msgid "Load average (15 minute)"
-msgstr "平均负载 (15 分钟)"
-
-msgid "Load average (5 minutes)"
-msgstr "平均负载 (5 分钟)"
-
 msgid "Maximum CPU Frequency"
 msgstr "最高 CPU 频率"
 
@@ -916,9 +818,6 @@ msgstr "操作系统标志"
 msgid "Operating System Name"
 msgstr "操作系统名称"
 
-msgid "Operating System Name and Version"
-msgstr "操作系统名称和版本"
-
 msgid "Operating System URL"
 msgstr "操作系统 URL"
 
@@ -949,15 +848,6 @@ msgstr "读取速率"
 msgid "Signal Strength"
 msgstr "信号强度"
 
-msgid "Some (1 minute average)"
-msgstr "部分 (1 分钟平均值)"
-
-msgid "Some (10 second average)"
-msgstr "部分 (10 秒平均值)"
-
-msgid "Some (5 minute average)"
-msgstr "部分 (5 分钟平均值)"
-
 msgid "Swap Memory"
 msgstr "交换内存"
 
@@ -966,9 +856,6 @@ msgstr "系统"
 
 msgid "System Usage"
 msgstr "系统使用率"
-
-msgid "Temperature"
-msgstr "温度"
 
 msgid "Total Downloaded"
 msgstr "总下载量"
@@ -1009,17 +896,11 @@ msgstr "使用率"
 msgid "Used Physical Memory"
 msgstr "已用物理内存"
 
-msgid "Used Physical Memory Percentage"
-msgstr "已用物理内存百分比"
-
 msgid "Used Space"
 msgstr "已用空间"
 
 msgid "Used Swap Memory"
 msgstr "已用交换内存"
-
-msgid "Used Swap Memory Percentage"
-msgstr "已用交换内存百分比"
 
 msgid "User Usage"
 msgstr "用户使用率"
@@ -1039,10 +920,9 @@ msgstr "窗口系统"
 msgid "Write Rate"
 msgstr "写入速率"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "收件箱"
 
@@ -1781,3 +1661,725 @@ msgstr "回应"
 msgid "React"
 msgstr "回应"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "处理器"
+
+msgid "Processor Usage"
+msgstr "处理器使用率"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "CPU 使用率"
+
+msgid "Cores"
+msgstr "核心"
+
+msgid "Freq"
+msgstr "频率"
+
+msgid "Max Freq"
+msgstr "最大频率"
+
+msgid "Min Freq"
+msgstr "最小频率"
+
+msgid "Governor"
+msgstr "调速器"
+
+msgid "CPU Governor"
+msgstr "CPU 调速器"
+
+msgid "Temp"
+msgstr "温度"
+
+msgid "CPU Temp"
+msgstr "CPU 温度"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "内存"
+
+msgid "Mem Used"
+msgstr "已用内存"
+
+msgid "Mem Free"
+msgstr "可用内存"
+
+msgid "Mem Total"
+msgstr "总内存"
+
+msgid "Swap"
+msgstr "交换"
+
+msgid "Swap Used"
+msgstr "已用交换"
+
+msgid "Swap Free"
+msgstr "可用交换"
+
+msgid "Swap Total"
+msgstr "总交换"
+
+msgid "Buffer"
+msgstr "缓冲"
+
+msgid "Cache"
+msgstr "缓存"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "磁盘"
+
+msgid "Disk Usage"
+msgstr "磁盘使用率"
+
+msgid "Disk IO"
+msgstr "磁盘 I/O"
+
+msgid "Disk IO Rate"
+msgstr "磁盘 I/O 速率"
+
+msgid "File System"
+msgstr "文件系统"
+
+msgid "Filesystem"
+msgstr "文件系统"
+
+msgid "HDD Temp"
+msgstr "HDD 温度"
+
+msgid "Net"
+msgstr "网络"
+
+msgid "Network Usage"
+msgstr "网络使用率"
+
+msgid "Down"
+msgstr "下载"
+
+msgid "Up"
+msgstr "上传"
+
+msgid "Total Down"
+msgstr "总下载量"
+
+msgid "Total Up"
+msgstr "总上传量"
+
+msgid "Gateway"
+msgstr "网关"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "无线"
+
+msgid "Access Point"
+msgstr "接入点"
+
+msgid "Wireless Signal"
+msgstr "无线信号"
+
+msgid "Wireless Channel"
+msgstr "无线信道"
+
+msgid "Wireless Bitrate"
+msgstr "无线比特率"
+
+msgid "Wireless Mode"
+msgstr "无线模式"
+
+msgid "Wireless ESSID"
+msgstr "无线 ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "显卡"
+
+msgid "Graphics Card"
+msgstr "图形卡"
+
+msgid "GPU Temp"
+msgstr "GPU 温度"
+
+msgid "GPU Freq"
+msgstr "GPU 频率"
+
+msgid "Video Memory"
+msgstr "显存"
+
+msgid "GPU Model"
+msgstr "GPU 型号"
+
+msgid "Model Name"
+msgstr "型号名称"
+
+msgid "GPU Driver"
+msgstr "GPU 驱动"
+
+msgid "GPU Architecture"
+msgstr "GPU 架构"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "风扇"
+
+msgid "Fan Speed"
+msgstr "风扇转速"
+
+msgid "Voltage"
+msgstr "电压"
+
+msgid "Entropy"
+msgstr "熵"
+
+msgid "Entropy Pool Size"
+msgstr "熵池大小"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "电池"
+
+msgid "Battery Status"
+msgstr "电池状态"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "电池时间"
+
+msgid "Time Remaining"
+msgstr "剩余时间"
+
+msgid "Power Draw"
+msgstr "功耗"
+
+msgid "AC Adapter"
+msgstr "交流电源适配器"
+
+msgid "AC Power"
+msgstr "交流电源"
+
+msgid "Charging"
+msgstr "充电中"
+
+msgid "Discharging"
+msgstr "放电中"
+
+msgid "Not Charging"
+msgstr "未充电"
+
+msgid "Full"
+msgstr "已充满"
+
+msgid "Empty"
+msgstr "空"
+
+msgid "Remaining"
+msgstr "剩余"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "机器"
+
+msgid "Machine Model"
+msgstr "机型"
+
+msgid "Distribution"
+msgstr "发行版"
+
+msgid "Desktop"
+msgstr "桌面"
+
+msgid "Desktop Name"
+msgstr "桌面名称"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "进程"
+
+msgid "Running Processes"
+msgstr "运行中的进程"
+
+msgid "Running Threads"
+msgstr "运行中的线程"
+
+msgid "Shared Memory"
+msgstr "共享内存"
+
+msgid "Shared Memory Used"
+msgstr "已用共享内存"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "正在播放"
+
+msgid "Media Player"
+msgstr "媒体播放器"
+
+msgid "Music"
+msgstr "音乐"
+
+msgid "Song"
+msgstr "歌曲"
+
+msgid "Artist"
+msgstr "艺术家"
+
+msgid "Album"
+msgstr "专辑"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Track"
+msgstr "曲目"
+
+msgid "Track Number"
+msgstr "曲目编号"
+
+msgid "Genre"
+msgstr "流派"
+
+msgid "Bitrate"
+msgstr "比特率"
+
+msgid "Lyrics"
+msgstr "歌词"
+
+msgid "Play"
+msgstr "播放"
+
+msgid "Pause"
+msgstr "暂停"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Volume"
+msgstr "音量"
+
+msgid "Shuffle"
+msgstr "随机播放"
+
+msgid "Repeat"
+msgstr "重复"
+
+msgid "Playing"
+msgstr "播放中"
+
+msgid "Paused"
+msgstr "已暂停"
+
+msgid "Stopped"
+msgstr "已停止"
+
+msgid "Not Playing"
+msgstr "未播放"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "Duration"
+msgstr "时长"
+
+msgid "Elapsed"
+msgstr "已播放时间"
+
+msgid "Remaining Time"
+msgstr "剩余时间"
+
+msgid "Total Time"
+msgstr "总时长"
+
+msgid "Stream"
+msgstr "流"
+
+msgid "Radio"
+msgstr "广播"
+
+msgid "Podcast"
+msgstr "播客"
+
+msgid "Episode"
+msgstr "剧集"
+
+msgid "Artwork"
+msgstr "封面"
+
+msgid "Cover"
+msgstr "封面"
+
+msgid "Track List"
+msgstr "曲目列表"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "活动内存"
+
+msgid "Inactive Memory"
+msgstr "非活动内存"
+
+msgid "Dirty Memory"
+msgstr "脏内存"
+
+msgid "Wired Memory"
+msgstr "固定内存"
+
+msgid "Available Memory"
+msgstr "可用内存"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "接口"
+
+msgid "Interface Name"
+msgstr "接口名称"
+
+msgid "Network Interface"
+msgstr "网络接口"
+
+msgid "Local IP"
+msgstr "本地 IP"
+
+msgid "Local IPv4"
+msgstr "本地 IPv4"
+
+msgid "Local IPv6"
+msgstr "本地 IPv6"
+
+msgid "Ethernet"
+msgstr "以太网"
+
+msgid "MAC Address"
+msgstr "MAC 地址"
+
+msgid "Network Status"
+msgstr "网络状态"
+
+msgid "Online"
+msgstr "在线"
+
+msgid "Unavailable"
+msgstr "不可用"
+
+msgid "Unknown"
+msgstr "未知"
+
+msgid "Download Speed"
+msgstr "下载速度"
+
+msgid "Upload Speed"
+msgstr "上传速度"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "不间断电源"
+
+msgid "Cable"
+msgstr "电缆"
+
+msgid "Line Voltage"
+msgstr "线路电压"
+
+msgid "Last Transfer"
+msgstr "上次传输"
+
+msgid "Time Left"
+msgstr "剩余时间"
+
+msgid "UPS Mode"
+msgstr "UPS 模式"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "大写锁定"
+
+msgid "Num Lock"
+msgstr "数字锁定"
+
+msgid "Scroll Lock"
+msgstr "滚动锁定"
+
+msgid "Brightness"
+msgstr "亮度"
+
+msgid "Backlight"
+msgstr "背光"
+
+msgid "Laptop Mode"
+msgstr "笔记本模式"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "用户"
+
+msgid "CPU Time"
+msgstr "CPU 时间"
+
+msgid "I/O Scheduler"
+msgstr "I/O 调度器"
+
+msgid "Scheduler"
+msgstr "调度器"
+
+msgid "Node Name"
+msgstr "节点名称"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "软件包"
+
+msgid "Package"
+msgstr "软件包"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "当前温度"
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "专辑艺术家"
+
+msgid "Codec"
+msgstr "编解码器"
+
+msgid "Composer"
+msgstr "作曲家"
+
+msgid "Disc"
+msgstr "光盘"
+
+msgid "Disc Number"
+msgstr "光盘编号"
+
+msgid "Elapsed Time"
+msgstr "已播放时间"
+
+msgid "Format"
+msgstr "格式"
+
+msgid "Sample Rate"
+msgstr "采样率"
+
+msgid "Track Position"
+msgstr "曲目位置"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "缓冲中"
+
+msgid "Karaoke Mode"
+msgstr "卡拉OK模式"
+
+msgid "Live Stream"
+msgstr "直播"
+
+msgid "Playlist"
+msgstr "播放列表"
+
+msgid "Progress"
+msgstr "进度"
+
+msgid "Queue"
+msgstr "队列"
+
+msgid "Recently Played"
+msgstr "最近播放"
+
+msgid "Repeat One"
+msgstr "单曲循环"
+
+msgid "Repeat All"
+msgstr "全部循环"
+
+msgid "Station"
+msgstr "电台"
+
+msgid "Streaming"
+msgstr "流媒体播放"
+
+msgid "Stream Quality"
+msgstr "流质量"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "下一曲目"
+
+msgid "Previous Track"
+msgstr "上一曲目"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "当前行"
+
+msgid "Next Line"
+msgstr "下一行"
+
+msgid "Previous Line"
+msgstr "上一行"
+
+msgid "Synced"
+msgstr "已同步"
+
+msgid "Unsynced"
+msgstr "未同步"
+
+msgid "Synced Lyrics"
+msgstr "同步歌词"
+
+msgid "No Synced Lyrics"
+msgstr "无同步歌词"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "歌词错误"
+
+msgid "Lyrics Loading"
+msgstr "歌词加载中"
+
+msgid "Lyrics Not Found"
+msgstr "未找到歌词"
+
+msgid "Lyrics Unavailable"
+msgstr "歌词不可用"
+
+msgid "No Cover"
+msgstr "无封面"
+
+msgid "No Lyrics"
+msgstr "无歌词"
+
+msgid "No Lyrics Available"
+msgstr "无可用歌词"
+
+msgid "Loading Cover"
+msgstr "正在加载封面"
+
+msgid "Loading Lyrics"
+msgstr "正在加载歌词"

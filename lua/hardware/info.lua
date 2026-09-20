@@ -49,3 +49,20 @@ function conky_install_date()
 	static.inst_dt = pread("head -n1 /var/log/pacman.log | cut -c 2-11")
 	return static.inst_dt ~= "" and static.inst_dt or "N/A"
 end
+
+function conky_uptime_fmt()
+	local f = io.open("/proc/uptime", "r")
+	local sec = f and tonumber(f:read("*a"):match("^(%d+%.?%d*)")) or 0
+	if f then f:close() end
+	local total = math.floor(sec)
+	local h = math.floor(total / 3600)
+	local m = math.floor((total % 3600) / 60)
+	local hr = conky_get_tr("hour_short")
+	local mn = conky_get_tr("minute_short")
+	if h > 0 then
+		if m > 0 then return h .. hr .. " " .. m .. mn end
+		return h .. hr
+	end
+	if m > 0 then return m .. mn end
+	return "0" .. mn
+end

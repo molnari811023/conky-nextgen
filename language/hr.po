@@ -1,31 +1,28 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/hr.po — Croatian translations
 #  Compiled to language/hr.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "Kvaliteta zraka"
 
@@ -122,10 +119,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "Grad"
 
@@ -147,10 +146,9 @@ msgstr "Nadmorska visina"
 msgid "population"
 msgstr "Stanovništvo"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "Europski AQI"
 
@@ -199,10 +197,9 @@ msgstr "Ambrozija"
 msgid "pollen"
 msgstr "Pelud"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "Vedro"
 
@@ -287,10 +284,9 @@ msgstr "Grmljavinsko nevrijeme sa sitnom tučom"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "Grmljavinsko nevrijeme s krupnom tučom"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "S"
 
@@ -345,10 +341,9 @@ msgstr "PROM"
 msgid "calm"
 msgstr "TIŠINA"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "Mlađak"
 
@@ -373,20 +368,18 @@ msgstr "Zadnja četvrt"
 msgid "waning_crescent"
 msgstr "Opadajući polumjesec"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "Sunce"
 
 msgid "moon"
 msgstr "Mjesec"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "Svemirsko vrijeme"
 
@@ -398,9 +391,6 @@ msgstr "Sunčev vjetar"
 
 msgid "aurora_visibility"
 msgstr "Vidljivost aurore"
-
-msgid "xray_class"
-msgstr "Klasa X-zraka baklje"
 
 msgid "geomagnetic_activity"
 msgstr "Geomagnetska aktivnost"
@@ -458,28 +448,6 @@ msgstr "Visoka"
 
 msgid "aurora_excellent"
 msgstr "Izvrsna"
-
-msgid "g0_desc"
-msgstr "Nema geomagnetske oluje."
-
-msgid "g1_desc"
-msgstr "Mala geomagnetska oluja."
-
-msgid "g2_desc"
-msgstr "Umjerena geomagnetska oluja."
-
-msgid "g3_desc"
-msgstr "Jaka geomagnetska oluja."
-
-msgid "g4_desc"
-msgstr "Snažna geomagnetska oluja."
-
-msgid "g5_desc"
-msgstr "Ekstremna geomagnetska oluja."
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "Vjetar"
@@ -547,10 +515,9 @@ msgstr "Lokacija nije postavljena"
 msgid "provider"
 msgstr "Davatelj"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "Naslov"
 
@@ -578,10 +545,9 @@ msgstr "Nema"
 msgid "one_alert"
 msgstr "1 upozorenje"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "Dobro"
 
@@ -681,10 +647,9 @@ msgstr "Malo vjerojatno"
 msgid "alert_certainty_unknown"
 msgstr "Nepoznato"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "Sve"
 
@@ -694,35 +659,14 @@ msgstr "Svi diskovi"
 msgid "All GPUs"
 msgstr "Svi GPU-i"
 
-msgid "All GPUs Total Memory"
-msgstr "Ukupna memorija svih GPU-a"
-
-msgid "All GPUs Usage"
-msgstr "Korištenje svih GPU-a"
-
-msgid "All GPUs Used Memory"
-msgstr "Zauzeta memorija svih GPU-a"
-
 msgid "All Network Devices"
 msgstr "Svi mrežni uređaji"
 
 msgid "Application Memory"
 msgstr "Memorija aplikacija"
 
-msgid "Application Memory Percentage"
-msgstr "Postotak memorije aplikacija"
-
-msgid "Average CPU Frequency"
-msgstr "Prosječna CPU frekvencija"
-
-msgid "Average CPU Temperature"
-msgstr "Prosječna CPU temperatura"
-
 msgid "Buffer Memory"
 msgstr "Međuspremnička memorija"
-
-msgid "Buffer Memory Percentage"
-msgstr "Postotak međuspremničke memorije"
 
 msgid "CPU %1"
 msgstr "CPU %1"
@@ -736,17 +680,8 @@ msgstr "CPU pritisak"
 msgid "Cache Memory"
 msgstr "Predmemorija"
 
-msgid "Cache Memory Percentage"
-msgstr "Postotak predmemorije"
-
 msgid "Charge"
 msgstr "Napunjenost"
-
-msgid "Charge Percentage"
-msgstr "Postotak napunjenosti"
-
-msgid "Charging  Rate"
-msgstr "Brzina punjenja"
 
 msgid "Charging Rate"
 msgstr "Brzina punjenja"
@@ -760,9 +695,6 @@ msgstr "Trenutni kapacitet"
 msgid "Current Frequency"
 msgstr "Trenutna frekvencija"
 
-msgid "Current Temperature"
-msgstr "Trenutna temperatura"
-
 msgid "Design Capacity"
 msgstr "Dizajniran kapacitet"
 
@@ -772,29 +704,11 @@ msgstr "Brzina preuzimanja"
 msgid "Free Physical Memory"
 msgstr "Slobodna fizička memorija"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Postotak slobodne fizičke memorije"
-
 msgid "Free Space"
 msgstr "Slobodni prostor"
 
 msgid "Free Swap Memory"
 msgstr "Slobodna swap memorija"
-
-msgid "Free Swap Memory Percentage"
-msgstr "Postotak slobodne swap memorije"
-
-msgid "Frequency"
-msgstr "Frekvencija"
-
-msgid "Full (1 minute average)"
-msgstr "Puno (prosjek 1 minuta)"
-
-msgid "Full (10 second average)"
-msgstr "Puno (prosjek 10 sekundi)"
-
-msgid "Full (5 minute average)"
-msgstr "Puno (prosjek 5 minuta)"
 
 msgid "GPU"
 msgstr "GPU"
@@ -859,18 +773,6 @@ msgstr "Naziv i verzija jezgre"
 msgid "Kernel Version"
 msgstr "Verzija jezgre"
 
-msgid "Load Averages"
-msgstr "Prosjeci opterećenja"
-
-msgid "Load average (1 minute)"
-msgstr "Prosjek opterećenja (1 minuta)"
-
-msgid "Load average (15 minute)"
-msgstr "Prosjek opterećenja (15 minuta)"
-
-msgid "Load average (5 minutes)"
-msgstr "Prosjek opterećenja (5 minuta)"
-
 msgid "Maximum CPU Frequency"
 msgstr "Maksimalna CPU frekvencija"
 
@@ -916,9 +818,6 @@ msgstr "Logotip operativnog sustava"
 msgid "Operating System Name"
 msgstr "Naziv operativnog sustava"
 
-msgid "Operating System Name and Version"
-msgstr "Naziv i verzija operativnog sustava"
-
 msgid "Operating System URL"
 msgstr "URL operativnog sustava"
 
@@ -949,15 +848,6 @@ msgstr "Brzina čitanja"
 msgid "Signal Strength"
 msgstr "Jačina signala"
 
-msgid "Some (1 minute average)"
-msgstr "Djelomično (prosjek 1 minuta)"
-
-msgid "Some (10 second average)"
-msgstr "Djelomično (prosjek 10 sekundi)"
-
-msgid "Some (5 minute average)"
-msgstr "Djelomično (prosjek 5 minuta)"
-
 msgid "Swap Memory"
 msgstr "Swap memorija"
 
@@ -966,9 +856,6 @@ msgstr "Sustav"
 
 msgid "System Usage"
 msgstr "Korištenje sustava"
-
-msgid "Temperature"
-msgstr "Temperatura"
 
 msgid "Total Downloaded"
 msgstr "Ukupno preuzeto"
@@ -1009,17 +896,11 @@ msgstr "Korištenje"
 msgid "Used Physical Memory"
 msgstr "Zauzeta fizička memorija"
 
-msgid "Used Physical Memory Percentage"
-msgstr "Postotak zauzete fizičke memorije"
-
 msgid "Used Space"
 msgstr "Zauzeti prostor"
 
 msgid "Used Swap Memory"
 msgstr "Zauzeta swap memorija"
-
-msgid "Used Swap Memory Percentage"
-msgstr "Postotak zauzete swap memorije"
 
 msgid "User Usage"
 msgstr "Korištenje korisnika"
@@ -1039,10 +920,9 @@ msgstr "Prozorski sustav"
 msgid "Write Rate"
 msgstr "Brzina pisanja"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "Pristigla pošta"
 
@@ -1781,3 +1661,725 @@ msgstr "Reakcija"
 msgid "React"
 msgstr "Reagiraj"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "Procesor"
+
+msgid "Processor Usage"
+msgstr "Korištenje procesora"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "Korištenje CPU-a"
+
+msgid "Cores"
+msgstr "Jezgre"
+
+msgid "Freq"
+msgstr "Frekv."
+
+msgid "Max Freq"
+msgstr "Maks. frekv."
+
+msgid "Min Freq"
+msgstr "Min. frekv."
+
+msgid "Governor"
+msgstr "Governor"
+
+msgid "CPU Governor"
+msgstr "CPU governor"
+
+msgid "Temp"
+msgstr "Temp."
+
+msgid "CPU Temp"
+msgstr "Temp. CPU-a"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "Memorija"
+
+msgid "Mem Used"
+msgstr "Korištena memorija"
+
+msgid "Mem Free"
+msgstr "Slobodna memorija"
+
+msgid "Mem Total"
+msgstr "Ukupna memorija"
+
+msgid "Swap"
+msgstr "Swap"
+
+msgid "Swap Used"
+msgstr "Korišteni swap"
+
+msgid "Swap Free"
+msgstr "Slobodan swap"
+
+msgid "Swap Total"
+msgstr "Ukupni swap"
+
+msgid "Buffer"
+msgstr "Međuspremnik"
+
+msgid "Cache"
+msgstr "Predmemorija"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "Disk"
+
+msgid "Disk Usage"
+msgstr "Korištenje diska"
+
+msgid "Disk IO"
+msgstr "Disk IO"
+
+msgid "Disk IO Rate"
+msgstr "Brzina diska IO"
+
+msgid "File System"
+msgstr "Datotečni sustav"
+
+msgid "Filesystem"
+msgstr "Datotečni sustav"
+
+msgid "HDD Temp"
+msgstr "Temp. HDD-a"
+
+msgid "Net"
+msgstr "Mreža"
+
+msgid "Network Usage"
+msgstr "Korištenje mreže"
+
+msgid "Down"
+msgstr "Preuzimanje"
+
+msgid "Up"
+msgstr "Slanje"
+
+msgid "Total Down"
+msgstr "Ukupno preuzeto"
+
+msgid "Total Up"
+msgstr "Ukupno poslano"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Bežično"
+
+msgid "Access Point"
+msgstr "Pristupna točka"
+
+msgid "Wireless Signal"
+msgstr "Bežični signal"
+
+msgid "Wireless Channel"
+msgstr "Bežični kanal"
+
+msgid "Wireless Bitrate"
+msgstr "Bežična brzina prijenosa"
+
+msgid "Wireless Mode"
+msgstr "Bežični način"
+
+msgid "Wireless ESSID"
+msgstr "Bežični ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "Grafička kartica"
+
+msgid "Graphics Card"
+msgstr "Grafička kartica"
+
+msgid "GPU Temp"
+msgstr "Temp. GPU-a"
+
+msgid "GPU Freq"
+msgstr "Frekv. GPU-a"
+
+msgid "Video Memory"
+msgstr "Video memorija"
+
+msgid "GPU Model"
+msgstr "Model GPU-a"
+
+msgid "Model Name"
+msgstr "Naziv modela"
+
+msgid "GPU Driver"
+msgstr "Upravljački program GPU-a"
+
+msgid "GPU Architecture"
+msgstr "Arhitektura GPU-a"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "Ventilator"
+
+msgid "Fan Speed"
+msgstr "Brzina ventilatora"
+
+msgid "Voltage"
+msgstr "Napon"
+
+msgid "Entropy"
+msgstr "Entropija"
+
+msgid "Entropy Pool Size"
+msgstr "Veličina entropijskog fonda"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "Baterija"
+
+msgid "Battery Status"
+msgstr "Stanje baterije"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "Vrijeme baterije"
+
+msgid "Time Remaining"
+msgstr "Preostalo vrijeme"
+
+msgid "Power Draw"
+msgstr "Potrošnja energije"
+
+msgid "AC Adapter"
+msgstr "AC adapter"
+
+msgid "AC Power"
+msgstr "AC napajanje"
+
+msgid "Charging"
+msgstr "Punjenje"
+
+msgid "Discharging"
+msgstr "Pražnjenje"
+
+msgid "Not Charging"
+msgstr "Ne puni se"
+
+msgid "Full"
+msgstr "Puna"
+
+msgid "Empty"
+msgstr "Prazna"
+
+msgid "Remaining"
+msgstr "Preostalo"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "Računalo"
+
+msgid "Machine Model"
+msgstr "Model računala"
+
+msgid "Distribution"
+msgstr "Distribucija"
+
+msgid "Desktop"
+msgstr "Radna površina"
+
+msgid "Desktop Name"
+msgstr "Naziv radne površine"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "Procesi"
+
+msgid "Running Processes"
+msgstr "Pokrenuti procesi"
+
+msgid "Running Threads"
+msgstr "Pokrenute niti"
+
+msgid "Shared Memory"
+msgstr "Dijeljena memorija"
+
+msgid "Shared Memory Used"
+msgstr "Korištena dijeljena memorija"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "Trenutno se reproducira"
+
+msgid "Media Player"
+msgstr "Medijski reproduktor"
+
+msgid "Music"
+msgstr "Glazba"
+
+msgid "Song"
+msgstr "Pjesma"
+
+msgid "Artist"
+msgstr "Izvođač"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Title"
+msgstr "Naziv"
+
+msgid "Track"
+msgstr "Pjesma"
+
+msgid "Track Number"
+msgstr "Broj pjesme"
+
+msgid "Genre"
+msgstr "Žanr"
+
+msgid "Bitrate"
+msgstr "Bitrate"
+
+msgid "Lyrics"
+msgstr "Tekst pjesme"
+
+msgid "Play"
+msgstr "Reproduciraj"
+
+msgid "Pause"
+msgstr "Pauza"
+
+msgid "Stop"
+msgstr "Zaustavi"
+
+msgid "Volume"
+msgstr "Glasnoća"
+
+msgid "Shuffle"
+msgstr "Miješanje"
+
+msgid "Repeat"
+msgstr "Ponavljanje"
+
+msgid "Playing"
+msgstr "Reprodukcija u tijeku"
+
+msgid "Paused"
+msgstr "Pauzirano"
+
+msgid "Stopped"
+msgstr "Zaustavljeno"
+
+msgid "Not Playing"
+msgstr "Nema reprodukcije"
+
+msgid "Position"
+msgstr "Pozicija"
+
+msgid "Duration"
+msgstr "Trajanje"
+
+msgid "Elapsed"
+msgstr "Proteklo"
+
+msgid "Remaining Time"
+msgstr "Preostalo vrijeme"
+
+msgid "Total Time"
+msgstr "Ukupno vrijeme"
+
+msgid "Stream"
+msgstr "Prijenos"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Podcast"
+msgstr "Podkast"
+
+msgid "Episode"
+msgstr "Epizoda"
+
+msgid "Artwork"
+msgstr "Omot"
+
+msgid "Cover"
+msgstr "Omot"
+
+msgid "Track List"
+msgstr "Popis pjesama"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "Aktivna memorija"
+
+msgid "Inactive Memory"
+msgstr "Neaktivna memorija"
+
+msgid "Dirty Memory"
+msgstr "Prljava memorija"
+
+msgid "Wired Memory"
+msgstr "Zaključana memorija"
+
+msgid "Available Memory"
+msgstr "Dostupna memorija"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "Sučelje"
+
+msgid "Interface Name"
+msgstr "Naziv sučelja"
+
+msgid "Network Interface"
+msgstr "Mrežno sučelje"
+
+msgid "Local IP"
+msgstr "Lokalni IP"
+
+msgid "Local IPv4"
+msgstr "Lokalni IPv4"
+
+msgid "Local IPv6"
+msgstr "Lokalni IPv6"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "MAC adresa"
+
+msgid "Network Status"
+msgstr "Stanje mreže"
+
+msgid "Online"
+msgstr "Na mreži"
+
+msgid "Unavailable"
+msgstr "Nedostupno"
+
+msgid "Unknown"
+msgstr "Nepoznato"
+
+msgid "Download Speed"
+msgstr "Brzina preuzimanja"
+
+msgid "Upload Speed"
+msgstr "Brzina slanja"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "Kabel"
+
+msgid "Line Voltage"
+msgstr "Linijski napon"
+
+msgid "Last Transfer"
+msgstr "Posljednji prijenos"
+
+msgid "Time Left"
+msgstr "Preostalo vremena"
+
+msgid "UPS Mode"
+msgstr "UPS način"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "Svjetlina"
+
+msgid "Backlight"
+msgstr "Pozadinsko osvjetljenje"
+
+msgid "Laptop Mode"
+msgstr "Prijenosni način"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Korisnik"
+
+msgid "CPU Time"
+msgstr "CPU vrijeme"
+
+msgid "I/O Scheduler"
+msgstr "I/O planer"
+
+msgid "Scheduler"
+msgstr "Planer"
+
+msgid "Node Name"
+msgstr "Naziv čvora"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "Paketi"
+
+msgid "Package"
+msgstr "Paket"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "Trenutna temp."
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "Izvođač albuma"
+
+msgid "Codec"
+msgstr "Kodek"
+
+msgid "Composer"
+msgstr "Skladatelj"
+
+msgid "Disc"
+msgstr "Disk"
+
+msgid "Disc Number"
+msgstr "Broj diska"
+
+msgid "Elapsed Time"
+msgstr "Proteklo vrijeme"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Sample Rate"
+msgstr "Frekvencija uzorkovanja"
+
+msgid "Track Position"
+msgstr "Pozicija pjesme"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "Međuspremljanje"
+
+msgid "Karaoke Mode"
+msgstr "Karaoke način"
+
+msgid "Live Stream"
+msgstr "Uživo prijenos"
+
+msgid "Playlist"
+msgstr "Popis za reprodukciju"
+
+msgid "Progress"
+msgstr "Napredak"
+
+msgid "Queue"
+msgstr "Red"
+
+msgid "Recently Played"
+msgstr "Nedavno reproducirano"
+
+msgid "Repeat One"
+msgstr "Ponovi jednu"
+
+msgid "Repeat All"
+msgstr "Ponovi sve"
+
+msgid "Station"
+msgstr "Postaja"
+
+msgid "Streaming"
+msgstr "Strujanje"
+
+msgid "Stream Quality"
+msgstr "Kvaliteta strujanja"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "Sljedeća pjesma"
+
+msgid "Previous Track"
+msgstr "Prethodna pjesma"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "Trenutni redak"
+
+msgid "Next Line"
+msgstr "Sljedeći redak"
+
+msgid "Previous Line"
+msgstr "Prethodni redak"
+
+msgid "Synced"
+msgstr "Sinkronizirano"
+
+msgid "Unsynced"
+msgstr "Nesinkronizirano"
+
+msgid "Synced Lyrics"
+msgstr "Sinkronizirani tekst"
+
+msgid "No Synced Lyrics"
+msgstr "Nema sinkroniziranog teksta"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "Pogreška teksta pjesme"
+
+msgid "Lyrics Loading"
+msgstr "Učitavanje teksta"
+
+msgid "Lyrics Not Found"
+msgstr "Tekst pjesme nije pronađen"
+
+msgid "Lyrics Unavailable"
+msgstr "Tekst pjesme nedostupan"
+
+msgid "No Cover"
+msgstr "Nema omota"
+
+msgid "No Lyrics"
+msgstr "Nema teksta pjesme"
+
+msgid "No Lyrics Available"
+msgstr "Nema dostupnog teksta pjesme"
+
+msgid "Loading Cover"
+msgstr "Učitavanje omota"
+
+msgid "Loading Lyrics"
+msgstr "Učitavanje tekst pjesme"

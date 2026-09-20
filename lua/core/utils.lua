@@ -38,8 +38,10 @@ expressions.
 -- - `format_value(v, opts)` — format a number with decimals/suffix/multiplier
 -- - `round(v)` — round to nearest integer
 -- - `read_file(path)` — read a file's contents ("" if missing), trimming trailing space
--- - `safe_num(v, name)` — coerce to a number, logging and defaulting to 0 on bad input
--- - `safe_str(v, name)` — coerce to a string, logging and defaulting to "N/A"
+-- - `require_num(v, name)` — validate a required numeric value
+-- - `require_str(v, name)` — validate a required string value
+-- - `optional_num(v, default, name)` — use a default for an absent optional number
+-- - `optional_str(v, default, name)` — use a default for an absent optional string
 -- - `draw_get_value(m)` — resolve a widget's value to a plain string
 -- - `interpret_name(name)` — interpret a name with "()" as Lua, otherwise Conky template
 --
@@ -69,9 +71,10 @@ expressions.
 --   normalize_with_suffix(raw)     → number (K/M/G suffix)
 --
 -- Safe functions:
---   safe_num(v, name)  → number (0 if nil/NaN/invalid)
---   safe_str(v, name)  → string ("N/A" if nil/empty)
---   safe_tbl(v, name)  → table  ({} if nil)
+--   require_num(v, name) → validated number (fails on missing/invalid input)
+--   require_str(v, name) → validated non-empty string (fails on missing input)
+--   optional_num(v, default, name) → default only when the value is absent
+--   optional_str(v, default, name) → default only when the value is absent
 --
 -- Auto-interpretation:
 --   interpret_name(name) → { type, value, exec }
@@ -87,7 +90,7 @@ expressions.
 -- Usage:
 --   local r,g,b,a = hex_to_rgba("#7aa2f7", 0.8)
 --   local val = normalize_with_suffix("4.2G")  -- → 4509715660.8
---   safe_num(nil, "test")  -- → 0 + log
+--   require_num(nil, "test")  -- → error
 --   interpret_name("os.date('%H:%M')") → { type="lua", exec=fn }
 --   interpret_name("${cpu}")           → { type="conky", exec=fn }
 --}}}
@@ -318,7 +321,7 @@ function format_value(v, opts)
     local decimals = opts.decimals or 0
     local suffix = opts.suffix or ""
     local multiplier = opts.multiplier or 1
-    local n = safe_num(v, "format_value") * multiplier
+    local n = require_num(v, "format_value") * multiplier
     if decimals == 0 then
         n = round(n)
         return tostring(n) .. suffix
@@ -344,46 +347,34 @@ function read_file(path)
     return out:gsub("%s+$", "")
 end
 
--- ═══ SAFE FUNCTIONS ═══
+-- ═══ REQUIRED AND OPTIONAL VALUES ═══
 
-local function _safe_log(msg)
-    if conky_log then conky_log(msg) end
+local function value_name(name)
+    return name and tostring(name) or "value"
 end
 
-function safe_num(v, name)
-    if v == nil then
-        _safe_log("missing num: " .. tostring(name))
-        return 0
-    end
-    if type(v) == "number" then
-        if v ~= v then
-            _safe_log("NaN num: " .. tostring(name))
-            return 0
-        end
-        return v
-    end
-    local n = tonumber((tostring(v):gsub(",", ".")))
-    if not n then
-        _safe_log("invalid num: " .. tostring(name) .. " = " .. tostring(v))
-        return 0
-    end
+function require_num(v, name)
+    assert(v ~= nil, "Missing required number: " .. value_name(name))
+    local n = type(v) == "number" and v or tonumber((tostring(v):gsub(",", ".")))
+    assert(n ~= nil and n == n,
+        "Invalid required number " .. value_name(name) .. ": " .. tostring(v))
     return n
 end
 
-function safe_str(v, name)
-    if v == nil or v == "" then
-        _safe_log("missing str: " .. tostring(name))
-        return "N/A"
-    end
-    return tostring(v)
+function require_str(v, name)
+    assert(type(v) == "string" and v ~= "",
+        "Missing required string: " .. value_name(name))
+    return v
 end
 
-local function safe_tbl(v, name)
-    if v == nil then
-        _safe_log("missing tbl: " .. tostring(name))
-        return {}
-    end
-    return v
+function optional_num(v, default, name)
+    if v == nil then return default end
+    return require_num(v, name)
+end
+
+function optional_str(v, default, name)
+    if v == nil or v == "" then return default end
+    return require_str(v, name)
 end
 
 function draw_get_value(m)
@@ -414,14 +405,13 @@ function interpret_name(name)
 
     -- 1) Lua function (contains parentheses) → load
     if name:find("%(") and name:find("%)") then
-        local fn = load("return " .. name)
-        if fn then
-            return {
-                type = "lua",
-                value = name,
-                exec = fn,
-            }
-        end
+        local fn, err = load("return " .. name)
+        assert(fn, "Invalid Lua expression '" .. name .. "': " .. err)
+        return {
+            type = "lua",
+            value = name,
+            exec = fn,
+        }
     end
 
     -- 2) Everything else → conky_parse (Conky handles it)

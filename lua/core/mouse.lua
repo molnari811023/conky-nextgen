@@ -59,12 +59,20 @@ local dbg_file = io.open("/tmp/conky_mouse.log", "w")
 
 local last_hovered_group = nil
 
+-- Last item under the cursor (for item-level hover/leave transitions).
+local last_hovered_item = nil
+local last_hovered_owner = nil
+
 -- Clickable areas for Cairo-free widgets (window-relative rectangles).
 local CLICKABLE_AREAS = {}
 
 -- Left button press: if an element handled the click (click_view/click),
 -- then on release the global MOUSE_CLICK_* must not fire too.
 local left_down_handled = false
+
+-- Active drag state: item being dragged + the item's drag function.
+local drag_item = nil
+local drag_fn = nil
 
 local function log(msg)
     if dbg_file then
@@ -120,20 +128,30 @@ local function hit_test(ex, ey)
     for i = #draw, 1, -1 do
         local item = draw[i]
 
-        if item.click or item.click_view then
+        if item.click or item.click_view or item.drag or item.rclick or item.hover or item.leave then
             if not evaluate_draw_me(item.draw_me) then goto continue end
             if not draw_allowed(item.view, item.group) then goto continue end
 
             local gname = item.group
             local gy = GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].y or 0
 
-            local ix = item.x or 0
-            local iy = (item.y or 0) + gy
-            local iw = item.w or item.width or 100
-            local ih = item.h or item.height or (item.radius and item.radius * 2) or 20
+            local function val(v, def)
+                if type(v) == "function" then v = v() end
+                return v ~= nil and v or def
+            end
+
+            local ix = val(item.x, 0)
+            local iy = val(item.y, 0) + gy
+            local iw = val(item.w, val(item.width, 100))
+            local ih = val(item.h, val(item.height, 0))
+            if ih == 0 or ih == nil then
+                ih = (item.radius and item.radius * 2) or 20
+            end
             if item.type == "background" then
-                if (item.w or item.width) == 0 and conky_window then iw = conky_window.width end
-                if (item.h or item.height or 0) == 0 then
+                local bw = val(item.w, val(item.width, 0))
+                local bh = val(item.h, val(item.height, 0))
+                if bw == 0 and conky_window then iw = conky_window.width end
+                if bh == 0 then
                     ih = (GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].height) or ih
                 end
             end
@@ -193,6 +211,12 @@ local function handle_left_click(event)
         elseif item.click then
             log("running click action")
             call_action(item.click, event)
+            return true
+        elseif item.drag then
+            drag_item = item
+            drag_fn = item.drag
+            log("starting drag on item")
+            call_action(drag_fn, event)
             return true
         end
     end
@@ -255,10 +279,21 @@ local function on_event(event)
     -- mouse_leave
     --------------------------------------------------------
     if event.type == "mouse_leave" then
+        if drag_item and drag_item.drag_end then
+            call_action(drag_item.drag_end, event)
+        end
+        drag_item = nil
+        drag_fn = nil
         if last_hovered_group then
             event.group = last_hovered_group
             call_action(MOUSE_HOVER_LEAVE_GROUP_ACTION, event)
         end
+        -- item-level leave
+        if last_hovered_owner and last_hovered_owner.leave then
+            call_action(last_hovered_owner.leave, event)
+        end
+        last_hovered_item = nil
+        last_hovered_owner = nil
         call_action(MOUSE_LEAVE_ACTION, event)
         last_hovered_group = nil
         return false
@@ -268,6 +303,27 @@ local function on_event(event)
     -- mouse_move
     --------------------------------------------------------
     if event.type == "mouse_move" then
+        if drag_item and drag_fn then
+            log("drag move x=" .. tostring(event.x) .. " y=" .. tostring(event.y))
+            call_action(drag_fn, event)
+            return true
+        end
+        -- item-level hover/leave transitions; items may share a hover_group
+        -- so moving within a popup+trigger keep the group active.
+        local hovered = hit_test(event.x, event.y)
+        local ident = hovered and (hovered.hover_group or hovered) or nil
+        if ident ~= last_hovered_item then
+            if last_hovered_owner and last_hovered_owner.leave then
+                log("hover leave item")
+                call_action(last_hovered_owner.leave, event)
+            end
+            last_hovered_item = ident
+            last_hovered_owner = hovered
+            if hovered and hovered.hover then
+                log("hover in item")
+                call_action(hovered.hover, event)
+            end
+        end
         local new_group = get_group_at(event.x, event.y)
         if new_group ~= last_hovered_group then
             if last_hovered_group then
@@ -309,21 +365,36 @@ local function on_event(event)
         end
 
         -- other button → global action
+        if event.button == "right" then
+            local ri = hit_test(event.x, event.y)
+            if ri and ri.rclick then
+                log("running right-click on item")
+                call_action(ri.rclick, event)
+                return true
+            end
+        end
         return handle_global_click(event)
     end
 
     --------------------------------------------------------
-    -- button_up (right, middle, back, forward → global click)
+    -- button_up (release)
     --------------------------------------------------------
     if event.type == "button_up" then
         if event.button == "left" then
+            if drag_item and drag_item.drag_end then
+                call_action(drag_item.drag_end, event)
+            end
+            drag_item = nil
+            drag_fn = nil
             local handled = left_down_handled
             left_down_handled = false
             -- element already handled the left click (button_down) → do not fire globally
             if handled then return false end
             return handle_global_click(event)
         end
-        return handle_global_click(event)
+        -- non-left buttons already fired their global action on button_down;
+        -- firing again on release would double-toggle (e.g. mute).
+        return false
     end
 
     return false

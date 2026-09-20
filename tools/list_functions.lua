@@ -4,11 +4,13 @@
 --  GitHub: https://github.com/molnari811023/conky-nextgen
 --  Description: Modular Conky UI framework (Lua engine + Bash backend)
 --}}}
--- list_functions.lua
+-- tools/list_functions.lua
 -- Recursively lists local and non-local functions of the lua/ modules.
--- Usage: lua list_functions.lua [dir]
+-- Usage: lua tools/list_functions.lua [dir]
 
 local lfs = require("lfs")
+local tool_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"
+local project_dir = tool_dir .. "../"
 
 -- ANSI colors (disabled when piped or NO_COLOR is set)
 local TERM = os.getenv("TERM") or ""
@@ -79,7 +81,7 @@ local function scan_dir(dir, out)
     end
 end
 
-local root = arg[1] or "./lua"
+local root = arg[1] or project_dir .. "lua"
 local files = {}
 scan_dir(root, files)
 table.sort(files, function(a, b) return a.path < b.path end)

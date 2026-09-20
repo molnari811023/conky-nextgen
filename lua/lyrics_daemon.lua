@@ -124,8 +124,8 @@ local function fetch_synced(artist, title)
 	local body = table.concat(chunk)
 	if body == "" then return nil, nil end
 
-	local ok, js = pcall(dkjson.decode, body)
-	if not ok or type(js) ~= "table" then return nil, "bad json" end
+	local js, _, err = dkjson.decode(body)
+	assert(type(js) == "table", err or "bad json")
 
 	local synced = js.syncedLyrics
 	if type(synced) ~= "string" or synced == "" then
@@ -228,8 +228,10 @@ while true do
 			lines = {}
 			snapshot(state, lines, 0, "Loading")
 
-			local ok, fetched = pcall(fetch_synced, artist, title)
-			if ok and fetched then
+			local fetched, err = fetch_synced(artist, title)
+			assert(not err, "LYRICS fetch failed for '"
+				.. artist .. " - " .. title .. "': " .. err)
+			if fetched then
 				lines = fetched
 				-- the fetch may have taken a while; re-read position so
 				-- the first idx matches the new track
@@ -238,11 +240,6 @@ while true do
 				position_ms = tonumber(pos2) or 0
 				duration_ms = tonumber(dur2) or duration_ms
 				state.duration_ms = duration_ms
-			else
-				if not ok or fetched ~= nil then
-					io.stderr:write("LYRICS fetch failed for '"
-						.. artist .. " - " .. title .. "': " .. tostring(fetched) .. "\n")
-				end
 			end
 		end
 

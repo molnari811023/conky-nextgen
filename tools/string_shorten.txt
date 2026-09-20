@@ -1,0 +1,117 @@
+string_shorten — hol lehet rövidíteni a fordításokban?
+nyelvek: ar, cs, da, de, en, es, fi, fr, hr, hu, it, ja, ko, nl, pl, pt, ro, ru, sv, tr, uk, zh_CN
+
+══ 1) A 40 LEGHOSSZABB FORDÍTÁS (karakter) ══
+  1.  468  fi     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nReport-Msgid-Bugs-To: \nPO-Revision-…
+  2.  444  da     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nReport-Msgid-Bugs-To: \nPO-Revision-…
+  3.  426  cs     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nReport-Msgid-Bugs-To: \nPO-Revision-…
+  4.  332  zh_CN  (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: zh_CN\nMIME-Version: 1.0\n…
+  5.  329  es     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: es\nMIME-Version: 1.0\nCon…
+  6.  329  tr     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: tr\nMIME-Version: 1.0\nCon…
+  7.  329  hu     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: hu\nX-Framework: Conky Nex…
+  8.  329  fr     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: fr\nMIME-Version: 1.0\nCon…
+  9.  329  ar     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: ar\nMIME-Version: 1.0\nCon…
+ 10.  329  sv     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: sv\nMIME-Version: 1.0\nCon…
+ 11.  329  hr     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: hr\nMIME-Version: 1.0\nCon…
+ 12.  329  ru     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: ru\nMIME-Version: 1.0\nCon…
+ 13.  329  ro     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: ro\nMIME-Version: 1.0\nCon…
+ 14.  329  pl     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: pl\nMIME-Version: 1.0\nCon…
+ 15.  329  ja     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: ja\nMIME-Version: 1.0\nCon…
+ 16.  329  ko     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: ko\nMIME-Version: 1.0\nCon…
+ 17.  329  en     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: en\nMIME-Version: 1.0\nCon…
+ 18.  329  de     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: de\nMIME-Version: 1.0\nCon…
+ 19.  329  pt     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: pt\nMIME-Version: 1.0\nCon…
+ 20.  329  it     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: it\nMIME-Version: 1.0\nCon…
+ 21.  329  uk     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: uk\nMIME-Version: 1.0\nCon…
+ 22.  329  nl     (fejléc)                Project-Id-Version: conky-nextgen 1.0\nLanguage: nl\nMIME-Version: 1.0\nCon…
+ 23.   40  fr     Total Full Stall Time    Total de toutes les durées de suspension
+ 24.   39  hu     Decline meeting request  Találkozó-összehívási kérés elutasítása
+ 25.   38  da     Overdue Tasks            Opgaver der tidsmæssigt er overskredet
+ 26.   38  hr     thunderstorm_with_slight_hail Grmljavinsko nevrijeme sa sitnom tučom
+ 27.   38  hr     thunderstorm_with_heavy_hail Grmljavinsko nevrijeme s krupnom tučom
+ 28.   38  hu     Accept meeting request   Találkozó-összehívási kérés elfogadása
+ 29.   38  fr     Total Some Stall Time    Total de quelques durées de suspension
+ 30.   36  de     Total Swap Memory        Gesamter Auslagerungsspeicher (Swap)
+ 31.   36  es     Total Some Stall Time    Tiempo total de detención de algunas
+ 32.   35  de     Used Physical Memory     Belegter physischer Arbeitsspeicher
+ 33.   35  ru     Maximum CPU Temperature  Максимальная температура процессора
+ 34.   35  pl     Total Some Stall Time    Łączny czas niektórych zblokowanych
+ 35.   35  de     Total Physical Memory    Gesamter physischer Arbeitsspeicher
+ 36.   35  de     Total Full Stall Time    Akkumulierte vollständige Wartezeit
+ 37.   35  pl     Total Swap Memory        Łącznie pamięci przestrzeni wymiany
+ 38.   34  sv     Overdue Tasks            Uppgifter som skulle ha genomförts
+ 39.   34  uk     Maximum CPU Temperature  Максимальна температура процесорів
+ 40.   34  fr     Maximum CPU Temperature  Température maximale du processeur
+
+══ 2) A LEEGHOSSZABB (30+ karakteres) KULCSOK — rövidítés jelöltjei ══
+  40  fr     Total Full Stall Time    Total de toutes les durées de suspension
+  39  hu     Decline meeting request  Találkozó-összehívási kérés elutasítása
+  38  da     Overdue Tasks            Opgaver der tidsmæssigt er overskredet
+  38  hr     thunderstorm_with_slight_hail Grmljavinsko nevrijeme sa sitnom tučom
+  38  hu     Accept meeting request   Találkozó-összehívási kérés elfogadása
+  38  fr     Total Some Stall Time    Total de quelques durées de suspension
+  38  hr     thunderstorm_with_heavy_hail Grmljavinsko nevrijeme s krupnom tučom
+  36  de     Total Swap Memory        Gesamter Auslagerungsspeicher (Swap)
+  35  ru     Maximum CPU Temperature  Максимальная температура процессора
+  35  de     Used Physical Memory     Belegter physischer Arbeitsspeicher
+  35  de     Total Physical Memory    Gesamter physischer Arbeitsspeicher
+  34  fr     Minimum CPU Temperature  Température minimale du processeur
+  34  uk     Disk IO Rate             Швидкість введення/виведення диска
+  34  pl     Wireless Bitrate         Szybkość transmisji bezprzewodowej
+  33  nl     Attach a file            Een bestand toevoegen als bijlage
+  33  pl     Mark all as read         Oznacz wszystkie jako przeczytane
+  33  de     light_freezing_drizzle   Leichter gefrierender Nieselregen
+  33  fr     Operating System Version Version du système d'exploitation
+  33  de     Free Physical Memory     Freier physischer Arbeitsspeicher
+  32  fr     Minimum CPU Frequency    Fréquence minimale du processeur
+  32  de     Shared Memory Used       Verwendeter gemeinsamer Speicher
+  32  fi     Operating System URL     Käyttöjärjestelmän verkko-osoite
+  32  de     dense_freezing_drizzle   Starker gefrierender Nieselregen
+  32  fr     Maximum CPU Frequency    Fréquence maximale du processeur
+  32  fr     All Network Devices      Tous les périphériques de réseau
+  32  nl     No Synced Lyrics         Geen gesynchroniseerde songtekst
+  31  pl     User Usage               Wykorzystanie przez użytkownika
+  31  fi     Lyrics Unavailable       Sanoitukset eivät käytettävissä
+  31  it     IPv4 with Prefix Length  IPv4 con lunghezza del prefisso
+  31  hu     No Lyrics Available      Nem áll rendelkezésre dalszöveg
+  31  it     IPv6 with Prefix Length  IPv6 con lunghezza del prefisso
+  31  pl     Wait Usage               Wykorzystanie przez oczekiwanie
+  31  ru     daylight_duration        Продолжительность светового дня
+  30  fi     light_freezing_rain      Heikkoa alijäähtynyttä sadetta
+  30  pl     Lyrics Not Found         Nie znaleziono tekstu piosenki
+  30  fr     Operating System Logo    Logo du système d'exploitation
+  30  fr     IPv6 Subnet Mask         Masque de sous-réseau « IPv6 »
+  30  fr     IPv4 Subnet Mask         Masque de sous-réseau « IPv4 »
+  30  fi     heavy_freezing_rain      Rankkaa alijäähtynyttä sadetta
+
+══ 3) MENNYIVEL HOSSZABB A LEGHOSSZABB AZ EN-NÉL (kulcsonként) ══
++  25  (max   38 vs en   13)  da     Overdue Tasks            Opgaver der tidsmæssigt er overskredet
++  22  (max   34 vs en   12)  uk     Disk IO Rate             Швидкість введення/виведення д…
++  21  (max   31 vs en   10)  pl     User Usage               Wykorzystanie przez użytkownika
++  21  (max   31 vs en   10)  pl     Wait Usage               Wykorzystanie przez oczekiwanie
++  20  (max   28 vs en    8)  cs     Hostname                 Název hostitelského počítače
++  20  (max   33 vs en   13)  nl     Attach a file            Een bestand toevoegen als bijlage
++  20  (max   23 vs en    3)  ar     UPS                      مزود الطاقة غير المنقطع
++  19  (max   40 vs en   21)  fr     Total Full Stall Time    Total de toutes les durées de suspension
++  19  (max   25 vs en    6)  ar     us_aqi                   مؤشر جودة الهواء الأمريكي
++  19  (max   27 vs en    8)  ar     UPS Mode                 وضع مزود الطاقة غير المنقطع
++  19  (max   36 vs en   17)  de     Total Swap Memory        Gesamter Auslagerungsspeicher (Swap)
++  19  (max   28 vs en    9)  hu     elevation                Tengerszint feletti magasság
++  19  (max   27 vs en    8)  fi     All GPUs                 Kaikki grafiikkasuorittimet
++  18  (max   34 vs en   16)  pl     Wireless Bitrate         Szybkość transmisji bezprzewodowej
++  18  (max   29 vs en   11)  ru     IO Pressure              Дефицит ресурсов ввода-вывода
++  18  (max   28 vs en   10)  ar     GPU Driver               برنامج تشغيل معالج الرسوميات
++  17  (max   33 vs en   16)  pl     Mark all as read         Oznacz wszystkie jako przeczytane
++  17  (max   24 vs en    7)  uk     Disk IO                  Введення/виведення диска
++  17  (max   25 vs en    8)  ar     uv_index                 مؤشر الأشعة فوق البنفسجية
++  17  (max   38 vs en   21)  fr     Total Some Stall Time    Total de quelques durées de suspension
++  16  (max   39 vs en   23)  hu     Decline meeting request  Találkozó-összehívási kérés elutasítása
++  16  (max   19 vs en    3)  cs     Due                      Plánované dokončení
++  16  (max   27 vs en   11)  fr     Sample Rate              Fréquence d'échantillonnage
++  16  (max   20 vs en    4)  ro     Mute                     Dezactivează sunetul
++  16  (max   28 vs en   12)  ru     Battery Time             Время работы от аккумулятора
++  16  (max   28 vs en   12)  pt     Desktop Name             Nome do ambiente de trabalho
++  16  (max   32 vs en   16)  nl     No Synced Lyrics         Geen gesynchroniseerde songtekst
++  16  (max   25 vs en    9)  cs     Swap Used                Použitý odkládací prostor
++  16  (max   38 vs en   22)  hu     Accept meeting request   Találkozó-összehívási kérés elfogadása
++  15  (max   25 vs en   10)  cs     Swap Total               Celkový odkládací prostor

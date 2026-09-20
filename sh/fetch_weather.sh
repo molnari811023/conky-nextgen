@@ -6,7 +6,7 @@
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
 #}}}
 #{{{
-# ## 4_fetch_weather — weather, air quality, sun and moon data fetcher
+# ## fetch_weather — weather, air quality, sun and moon data fetcher
 #
 # Defines fetch_weather(), which geocodes a city (default Vienna) via the
 # Open-Meteo geocoding API and uses the resulting lat/lon/timezone to fetch
@@ -23,11 +23,11 @@
 #   → $TMP_DIR/moon.json and $TMP_DIR/moon_next.json
 # - Writes each to a .tmp file first, then renames it on success
 #
-# **Environment/requirements:** needs 0_common.sh (curl_cmd, urlencode, log,
+# **Environment/requirements:** needs common.sh (curl_cmd, urlencode, log,
 # TMP_DIR). Optional WEATHER_LANG env var (default en)
 #}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-source "$_SCRIPT_DIR/0_common.sh"
+source "$_SCRIPT_DIR/common.sh"
 
 fetch_weather() {
 	local city_raw="${1:-Vienna}"

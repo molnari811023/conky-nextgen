@@ -53,7 +53,7 @@ mugwort, olive, ragweed). Both current-condition and 24-hourly variants are expo
 --
 -- **Config/globals used:**
 -- `W.air` (table), `W.air.current`, `W.air.hourly`, `W.air.current_units`, `W.air.hourly_units`,
--- `safe_num()`, `get_idx()`
+-- `require_num()`, `get_idx()`
 --}}}
 
 --{{{
@@ -61,12 +61,12 @@ mugwort, olive, ragweed). Both current-condition and 24-hourly variants are expo
 --}}}
 
 local function a_cur(key)
-	return safe_num((W.air.current or {})[key])
+	return require_num((W.air.current or {})[key], "air_current_" .. key)
 end
 
 local function a_hour(i, key)
 	local d = (W.air.hourly or {})[key]
-	return safe_num(d and d[get_idx(i)])
+	return require_num(d and d[get_idx(i)], "air_hour_" .. key)
 end
 
 local function a_units_cur(key)

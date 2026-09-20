@@ -220,6 +220,7 @@ def parse_settings(filepath):
     settings = {
         "padding": 10,
         "theme": "theme",
+        "module_profile": ["full"],
         "width": 420,
         "height": 1020,
         "mouse_enabled": True,
@@ -238,6 +239,15 @@ def parse_settings(filepath):
     if m: settings["padding"] = int(m.group(1))
     m = re.search(r'DEFAULT_THEME\s*=\s*"(\w+)"', content)
     if m: settings["theme"] = m.group(1)
+    m = re.search(r'MODULE_PROFILE\s*=\s*"(\w+)"', content)
+    if m:
+        settings["module_profile"] = [m.group(1)]
+    else:
+        m = re.search(r'MODULE_PROFILE\s*=\s*(\{.*?\})', content, re.DOTALL)
+        if m:
+            profiles = parse_lua_value(m.group(1))
+            if isinstance(profiles, list) and all(isinstance(profile, str) for profile in profiles):
+                settings["module_profile"] = profiles
     m = re.search(r'WINDOW_WIDTH\s*=\s*(\d+)', content)
     if m: settings["width"] = int(m.group(1))
     m = re.search(r'WINDOW_HEIGHT\s*=\s*(\d+)', content)

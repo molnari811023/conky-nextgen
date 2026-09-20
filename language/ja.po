@@ -1,31 +1,28 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/ja.po — Japanese translations
 #  Compiled to language/ja.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "空気品質"
 
@@ -122,10 +119,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "都市"
 
@@ -147,10 +146,9 @@ msgstr "標高"
 msgid "population"
 msgstr "人口"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "欧州AQI"
 
@@ -199,10 +197,9 @@ msgstr "ブタクサ"
 msgid "pollen"
 msgstr "花粉"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "快晴"
 
@@ -287,10 +284,9 @@ msgstr "小さな雹を伴う雷雨"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "大きな雹を伴う雷雨"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "北"
 
@@ -345,10 +341,9 @@ msgstr "変わりやすい"
 msgid "calm"
 msgstr "無風"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "新月"
 
@@ -373,20 +368,18 @@ msgstr "下弦の月"
 msgid "waning_crescent"
 msgstr "晦月"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "太陽"
 
 msgid "moon"
 msgstr "月"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "宇宙天気"
 
@@ -398,9 +391,6 @@ msgstr "太陽風"
 
 msgid "aurora_visibility"
 msgstr "オーロラの見え方"
-
-msgid "xray_class"
-msgstr "X線フレアクラス"
 
 msgid "geomagnetic_activity"
 msgstr "地磁気活動"
@@ -458,28 +448,6 @@ msgstr "高い"
 
 msgid "aurora_excellent"
 msgstr "素晴らしい"
-
-msgid "g0_desc"
-msgstr "地磁気嵐の活動なし。"
-
-msgid "g1_desc"
-msgstr "軽度の地磁気嵐。"
-
-msgid "g2_desc"
-msgstr "中程度の地磁気嵐。"
-
-msgid "g3_desc"
-msgstr "強い地磁気嵐。"
-
-msgid "g4_desc"
-msgstr "深刻な地磁気嵐。"
-
-msgid "g5_desc"
-msgstr "極端な地磁気嵐。"
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "風"
@@ -547,10 +515,9 @@ msgstr "場所が設定されていません"
 msgid "provider"
 msgstr "プロバイダー"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "見出し"
 
@@ -578,10 +545,9 @@ msgstr "なし"
 msgid "one_alert"
 msgstr "1件の警報"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "良好"
 
@@ -681,39 +647,236 @@ msgstr "可能性が低い"
 msgid "alert_certainty_unknown"
 msgstr "不明"
 
-############################################
+msgid "All"
+msgstr ""
+
+msgid "All Disks"
+msgstr ""
+
+msgid "All GPUs"
+msgstr ""
+
+msgid "All Network Devices"
+msgstr ""
+
+msgid "Application Memory"
+msgstr ""
+
+msgid "Buffer Memory"
+msgstr ""
+
+msgid "CPU %1"
+msgstr ""
+
+msgid "CPU %1 Core %2"
+msgstr ""
+
+msgid "CPU Pressure"
+msgstr ""
+
+msgid "Cache Memory"
+msgstr ""
+
+msgid "Charge"
+msgstr ""
+
+msgid "Charging Rate"
+msgstr ""
+
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
-msgid "All GPUs Total Memory"
-msgstr "すべての GPU の合計メモリ"
-
+# ###########################################
 msgid "Core %1"
 msgstr "コア %1"
+
+msgid "Current Capacity"
+msgstr ""
+
+msgid "Current Frequency"
+msgstr ""
+
+msgid "Design Capacity"
+msgstr ""
 
 msgid "Download Rate"
 msgstr "ダウンロード量"
 
+msgid "Free Physical Memory"
+msgstr ""
+
+msgid "Free Space"
+msgstr ""
+
 msgid "Free Swap Memory"
 msgstr "空きスワップメモリ"
+
+msgid "GPU"
+msgstr ""
+
+msgid "Health"
+msgstr ""
+
+msgid "Hostname"
+msgstr ""
+
+msgid "IO Pressure"
+msgstr ""
+
+msgid "IPv4 Address"
+msgstr ""
+
+msgid "IPv4 DNS"
+msgstr ""
+
+msgid "IPv4 Gateway"
+msgstr ""
+
+msgid "IPv4 Subnet Mask"
+msgstr ""
+
+msgid "IPv4 with Prefix Length"
+msgstr ""
+
+msgid "IPv6 Address"
+msgstr ""
+
+msgid "IPv6 DNS"
+msgstr ""
+
+msgid "IPv6 Gateway"
+msgstr ""
+
+msgid "IPv6 Subnet Mask"
+msgstr ""
+
+msgid "IPv6 with Prefix Length"
+msgstr ""
 
 msgid "KDE Frameworks Version"
 msgstr "KDE Frameworks のバージョン"
 
+msgid "KDE Plasma"
+msgstr ""
+
 msgid "KDE Plasma Version"
 msgstr "KDE Plasma のバージョン"
+
+msgid "Kernel"
+msgstr ""
+
+msgid "Kernel Name"
+msgstr ""
+
+msgid "Kernel Name and Version"
+msgstr ""
+
+msgid "Kernel Version"
+msgstr ""
+
+msgid "Maximum CPU Frequency"
+msgstr ""
+
+msgid "Maximum CPU Temperature"
+msgstr ""
 
 msgid "Memory"
 msgstr "メモリ"
 
+msgid "Memory Frequency"
+msgstr ""
+
+msgid "Memory Pressure"
+msgstr ""
+
+msgid "Minimum CPU Frequency"
+msgstr ""
+
+msgid "Minimum CPU Temperature"
+msgstr ""
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Network Devices"
+msgstr ""
+
+msgid "Network Name"
+msgstr ""
+
+msgid "Number of CPUs"
+msgstr ""
+
+msgid "Number of Cores"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "Operating System Logo"
+msgstr ""
+
+msgid "Operating System Name"
+msgstr ""
+
+msgid "Operating System URL"
+msgstr ""
+
+msgid "Operating System Version"
+msgstr ""
+
+msgid "Percentage Free"
+msgstr ""
+
+msgid "Percentage Used"
+msgstr ""
+
+msgid "Physical Memory"
+msgstr ""
+
+msgid "Power"
+msgstr ""
+
+msgid "Pressure"
+msgstr ""
+
 msgid "Qt Version"
 msgstr "Qt のバージョン"
+
+msgid "Read Rate"
+msgstr ""
+
+msgid "Signal Strength"
+msgstr ""
+
+msgid "Swap Memory"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "System Usage"
+msgstr ""
+
+msgid "Total Downloaded"
+msgstr ""
+
+msgid "Total Full Stall Time"
+msgstr ""
 
 msgid "Total Physical Memory"
 msgstr "物理メモリの合計"
 
+msgid "Total Some Stall Time"
+msgstr ""
+
 msgid "Total Space"
 msgstr "合計容量"
+
+msgid "Total Swap Memory"
+msgstr ""
+
+msgid "Total Uploaded"
+msgstr ""
 
 msgid "Total Usage"
 msgstr "合計使用率"
@@ -724,6 +887,12 @@ msgstr "ビデオメモリの合計"
 msgid "Upload Rate"
 msgstr "アップロード量"
 
+msgid "Uptime"
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
 msgid "Used Physical Memory"
 msgstr "使用されている物理メモリ"
 
@@ -733,12 +902,23 @@ msgstr "使用した容量"
 msgid "Used Swap Memory"
 msgstr "使用されているスワップメモリ"
 
-msgid "Used Swap Memory Percentage"
-msgstr "使用済みスワップメモリのパーセンテージ"
+msgid "User Usage"
+msgstr ""
 
-############################################
-# GOOGLE DASHBOARD
-############################################
+msgid "Video Memory Used"
+msgstr ""
+
+msgid "Video Usage"
+msgstr ""
+
+msgid "Wait Usage"
+msgstr ""
+
+msgid "Window System"
+msgstr ""
+
+msgid "Write Rate"
+msgstr ""
 
 msgid "Inbox"
 msgstr "受信箱"
@@ -1172,9 +1352,6 @@ msgstr "連絡先"
 msgid "Contacts"
 msgstr "連絡先"
 
-msgid "Name"
-msgstr "名前"
-
 msgid "Phone"
 msgstr "電話"
 
@@ -1481,3 +1658,725 @@ msgstr "リアクション"
 msgid "React"
 msgstr "リアクション"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "プロセッサ"
+
+msgid "Processor Usage"
+msgstr "プロセッサ使用率"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "CPU使用率"
+
+msgid "Cores"
+msgstr "コア"
+
+msgid "Freq"
+msgstr "周波数"
+
+msgid "Max Freq"
+msgstr "最大周波数"
+
+msgid "Min Freq"
+msgstr "最小周波数"
+
+msgid "Governor"
+msgstr "ガバナー"
+
+msgid "CPU Governor"
+msgstr "CPUガバナー"
+
+msgid "Temp"
+msgstr "温度"
+
+msgid "CPU Temp"
+msgstr "CPU温度"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "メモリ"
+
+msgid "Mem Used"
+msgstr "使用中メモリ"
+
+msgid "Mem Free"
+msgstr "空きメモリ"
+
+msgid "Mem Total"
+msgstr "総メモリ"
+
+msgid "Swap"
+msgstr "スワップ"
+
+msgid "Swap Used"
+msgstr "使用中スワップ"
+
+msgid "Swap Free"
+msgstr "空きスワップ"
+
+msgid "Swap Total"
+msgstr "総スワップ"
+
+msgid "Buffer"
+msgstr "バッファ"
+
+msgid "Cache"
+msgstr "キャッシュ"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "ディスク"
+
+msgid "Disk Usage"
+msgstr "ディスク使用量"
+
+msgid "Disk IO"
+msgstr "ディスクI/O"
+
+msgid "Disk IO Rate"
+msgstr "ディスクI/Oレート"
+
+msgid "File System"
+msgstr "ファイルシステム"
+
+msgid "Filesystem"
+msgstr "ファイルシステム"
+
+msgid "HDD Temp"
+msgstr "HDD温度"
+
+msgid "Net"
+msgstr "ネット"
+
+msgid "Network Usage"
+msgstr "ネットワーク使用量"
+
+msgid "Down"
+msgstr "下り"
+
+msgid "Up"
+msgstr "上り"
+
+msgid "Total Down"
+msgstr "総ダウンロード量"
+
+msgid "Total Up"
+msgstr "総アップロード量"
+
+msgid "Gateway"
+msgstr "ゲートウェイ"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "ワイヤレス"
+
+msgid "Access Point"
+msgstr "アクセスポイント"
+
+msgid "Wireless Signal"
+msgstr "ワイヤレス信号"
+
+msgid "Wireless Channel"
+msgstr "ワイヤレスチャンネル"
+
+msgid "Wireless Bitrate"
+msgstr "ワイヤレスビットレート"
+
+msgid "Wireless Mode"
+msgstr "ワイヤレスモード"
+
+msgid "Wireless ESSID"
+msgstr "ワイヤレスESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "ビデオカード"
+
+msgid "Graphics Card"
+msgstr "グラフィックカード"
+
+msgid "GPU Temp"
+msgstr "GPU温度"
+
+msgid "GPU Freq"
+msgstr "GPU周波数"
+
+msgid "Video Memory"
+msgstr "ビデオメモリ"
+
+msgid "GPU Model"
+msgstr "GPUモデル"
+
+msgid "Model Name"
+msgstr "モデル名"
+
+msgid "GPU Driver"
+msgstr "GPUドライバー"
+
+msgid "GPU Architecture"
+msgstr "GPUアーキテクチャ"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "ファン"
+
+msgid "Fan Speed"
+msgstr "ファン回転数"
+
+msgid "Voltage"
+msgstr "電圧"
+
+msgid "Entropy"
+msgstr "エントロピー"
+
+msgid "Entropy Pool Size"
+msgstr "エントロピープールサイズ"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "バッテリー"
+
+msgid "Battery Status"
+msgstr "バッテリー状態"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "バッテリー時間"
+
+msgid "Time Remaining"
+msgstr "残り時間"
+
+msgid "Power Draw"
+msgstr "消費電力"
+
+msgid "AC Adapter"
+msgstr "ACアダプター"
+
+msgid "AC Power"
+msgstr "AC電源"
+
+msgid "Charging"
+msgstr "充電中"
+
+msgid "Discharging"
+msgstr "放電中"
+
+msgid "Not Charging"
+msgstr "充電中でない"
+
+msgid "Full"
+msgstr "満充電"
+
+msgid "Empty"
+msgstr "空"
+
+msgid "Remaining"
+msgstr "残り"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "マシン"
+
+msgid "Machine Model"
+msgstr "マシンモデル"
+
+msgid "Distribution"
+msgstr "ディストリビューション"
+
+msgid "Desktop"
+msgstr "デスクトップ"
+
+msgid "Desktop Name"
+msgstr "デスクトップ名"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "プロセス"
+
+msgid "Running Processes"
+msgstr "実行中プロセス"
+
+msgid "Running Threads"
+msgstr "実行中スレッド"
+
+msgid "Shared Memory"
+msgstr "共有メモリ"
+
+msgid "Shared Memory Used"
+msgstr "使用中共有メモリ"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "再生中"
+
+msgid "Media Player"
+msgstr "メディアプレーヤー"
+
+msgid "Music"
+msgstr "音楽"
+
+msgid "Song"
+msgstr "曲"
+
+msgid "Artist"
+msgstr "アーティスト"
+
+msgid "Album"
+msgstr "アルバム"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "Track"
+msgstr "トラック"
+
+msgid "Track Number"
+msgstr "トラック番号"
+
+msgid "Genre"
+msgstr "ジャンル"
+
+msgid "Bitrate"
+msgstr "ビットレート"
+
+msgid "Lyrics"
+msgstr "歌詞"
+
+msgid "Play"
+msgstr "再生"
+
+msgid "Pause"
+msgstr "一時停止"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Volume"
+msgstr "音量"
+
+msgid "Shuffle"
+msgstr "シャッフル"
+
+msgid "Repeat"
+msgstr "リピート"
+
+msgid "Playing"
+msgstr "再生中"
+
+msgid "Paused"
+msgstr "一時停止中"
+
+msgid "Stopped"
+msgstr "停止中"
+
+msgid "Not Playing"
+msgstr "再生なし"
+
+msgid "Position"
+msgstr "位置"
+
+msgid "Duration"
+msgstr "時間"
+
+msgid "Elapsed"
+msgstr "経過時間"
+
+msgid "Remaining Time"
+msgstr "残り時間"
+
+msgid "Total Time"
+msgstr "合計時間"
+
+msgid "Stream"
+msgstr "ストリーム"
+
+msgid "Radio"
+msgstr "ラジオ"
+
+msgid "Podcast"
+msgstr "ポッドキャスト"
+
+msgid "Episode"
+msgstr "エピソード"
+
+msgid "Artwork"
+msgstr "アートワーク"
+
+msgid "Cover"
+msgstr "カバー"
+
+msgid "Track List"
+msgstr "トラックリスト"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "アクティブメモリ"
+
+msgid "Inactive Memory"
+msgstr "非アクティブメモリ"
+
+msgid "Dirty Memory"
+msgstr "ダーティメモリ"
+
+msgid "Wired Memory"
+msgstr "ワイアードメモリ"
+
+msgid "Available Memory"
+msgstr "利用可能メモリ"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "インターフェース"
+
+msgid "Interface Name"
+msgstr "インターフェース名"
+
+msgid "Network Interface"
+msgstr "ネットワークインターフェース"
+
+msgid "Local IP"
+msgstr "ローカルIP"
+
+msgid "Local IPv4"
+msgstr "ローカルIPv4"
+
+msgid "Local IPv6"
+msgstr "ローカルIPv6"
+
+msgid "Ethernet"
+msgstr "イーサネット"
+
+msgid "MAC Address"
+msgstr "MACアドレス"
+
+msgid "Network Status"
+msgstr "ネットワーク状態"
+
+msgid "Online"
+msgstr "オンライン"
+
+msgid "Unavailable"
+msgstr "利用不可"
+
+msgid "Unknown"
+msgstr "不明"
+
+msgid "Download Speed"
+msgstr "ダウンロード速度"
+
+msgid "Upload Speed"
+msgstr "アップロード速度"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "ケーブル"
+
+msgid "Line Voltage"
+msgstr "ライン電圧"
+
+msgid "Last Transfer"
+msgstr "最終転送"
+
+msgid "Time Left"
+msgstr "残り時間"
+
+msgid "UPS Mode"
+msgstr "UPSモード"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "明るさ"
+
+msgid "Backlight"
+msgstr "バックライト"
+
+msgid "Laptop Mode"
+msgstr "ラップトップモード"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "ユーザー"
+
+msgid "CPU Time"
+msgstr "CPU時間"
+
+msgid "I/O Scheduler"
+msgstr "I/Oスケジューラ"
+
+msgid "Scheduler"
+msgstr "スケジューラ"
+
+msgid "Node Name"
+msgstr "ノード名"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "パッケージ"
+
+msgid "Package"
+msgstr "パッケージ"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "現在の温度"
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "アルバムアーティスト"
+
+msgid "Codec"
+msgstr "コーデック"
+
+msgid "Composer"
+msgstr "作曲家"
+
+msgid "Disc"
+msgstr "ディスク"
+
+msgid "Disc Number"
+msgstr "ディスク番号"
+
+msgid "Elapsed Time"
+msgstr "経過時間"
+
+msgid "Format"
+msgstr "形式"
+
+msgid "Sample Rate"
+msgstr "サンプルレート"
+
+msgid "Track Position"
+msgstr "トラック位置"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "バッファリング"
+
+msgid "Karaoke Mode"
+msgstr "カラオケモード"
+
+msgid "Live Stream"
+msgstr "ライブ配信"
+
+msgid "Playlist"
+msgstr "プレイリスト"
+
+msgid "Progress"
+msgstr "進行状況"
+
+msgid "Queue"
+msgstr "キュー"
+
+msgid "Recently Played"
+msgstr "最近再生した曲"
+
+msgid "Repeat One"
+msgstr "1曲リピート"
+
+msgid "Repeat All"
+msgstr "すべてリピート"
+
+msgid "Station"
+msgstr "ステーション"
+
+msgid "Streaming"
+msgstr "ストリーミング"
+
+msgid "Stream Quality"
+msgstr "ストリーム品質"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "次のトラック"
+
+msgid "Previous Track"
+msgstr "前のトラック"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "現在の行"
+
+msgid "Next Line"
+msgstr "次の行"
+
+msgid "Previous Line"
+msgstr "前の行"
+
+msgid "Synced"
+msgstr "同期済み"
+
+msgid "Unsynced"
+msgstr "未同期"
+
+msgid "Synced Lyrics"
+msgstr "同期された歌詞"
+
+msgid "No Synced Lyrics"
+msgstr "同期された歌詞なし"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "歌詞エラー"
+
+msgid "Lyrics Loading"
+msgstr "歌詞読み込み中"
+
+msgid "Lyrics Not Found"
+msgstr "歌詞が見つかりません"
+
+msgid "Lyrics Unavailable"
+msgstr "歌詞が利用できません"
+
+msgid "No Cover"
+msgstr "カバーなし"
+
+msgid "No Lyrics"
+msgstr "歌詞なし"
+
+msgid "No Lyrics Available"
+msgstr "利用可能な歌詞はありません"
+
+msgid "Loading Cover"
+msgstr "カバー読み込み中"
+
+msgid "Loading Lyrics"
+msgstr "歌詞読み込み中"

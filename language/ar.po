@@ -1,31 +1,28 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/ar.po — Arabic translations
 #  Compiled to language/ar.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "جودة الهواء"
 
@@ -122,10 +119,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "المدينة"
 
@@ -147,10 +146,9 @@ msgstr "الارتفاع"
 msgid "population"
 msgstr "السكان"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "مؤشر جودة الهواء الأوروبي"
 
@@ -199,10 +197,9 @@ msgstr "الراجويد"
 msgid "pollen"
 msgstr "حبوب اللقاح"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "سماء صافية"
 
@@ -287,10 +284,9 @@ msgstr "عاصفة رعدية مع برد صغير"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "عاصفة رعدية مع برد كبير"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "شمال"
 
@@ -345,10 +341,9 @@ msgstr "متغير"
 msgid "calm"
 msgstr "هادئ"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "محاق"
 
@@ -373,20 +368,18 @@ msgstr "الربع الأخير"
 msgid "waning_crescent"
 msgstr "هلال متناقص"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "الشمس"
 
 msgid "moon"
 msgstr "القمر"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "طقس الفضاء"
 
@@ -398,9 +391,6 @@ msgstr "الرياح الشمسية"
 
 msgid "aurora_visibility"
 msgstr "رؤية الشفق القطبي"
-
-msgid "xray_class"
-msgstr "فئة التوهج بالأشعة السينية"
 
 msgid "geomagnetic_activity"
 msgstr "النشاط الجيومغناطيسي"
@@ -458,28 +448,6 @@ msgstr "مرتفع"
 
 msgid "aurora_excellent"
 msgstr "ممتاز"
-
-msgid "g0_desc"
-msgstr "لا يوجد نشاط عاصفي جيومغناطيسي."
-
-msgid "g1_desc"
-msgstr "عاصفة جيومغناطيسية طفيفة."
-
-msgid "g2_desc"
-msgstr "عاصفة جيومغناطيسية معتدلة."
-
-msgid "g3_desc"
-msgstr "عاصفة جيومغناطيسية قوية."
-
-msgid "g4_desc"
-msgstr "عاصفة جيومغناطيسية شديدة."
-
-msgid "g5_desc"
-msgstr "عاصفة جيومغناطيسية قصوى."
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "الرياح"
@@ -547,10 +515,9 @@ msgstr "لم يتم تعيين الموقع"
 msgid "provider"
 msgstr "المزود"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "العنوان"
 
@@ -578,10 +545,9 @@ msgstr "لا يوجد"
 msgid "one_alert"
 msgstr "تنبيه واحد"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "جيد"
 
@@ -681,10 +647,9 @@ msgstr "غير محتمل"
 msgid "alert_certainty_unknown"
 msgstr "غير معروف"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "الكلّ"
 
@@ -694,35 +659,14 @@ msgstr "جميع الأقراص"
 msgid "All GPUs"
 msgstr "جميع المعالجات الرسومية"
 
-msgid "All GPUs Total Memory"
-msgstr "مجموع ذواكر المعالجات الرسومية"
-
-msgid "All GPUs Usage"
-msgstr "استخدام جميع المعالجات الرسومية"
-
-msgid "All GPUs Used Memory"
-msgstr "مجموع ذواكر المعالجات الرسومية المستخدمة"
-
 msgid "All Network Devices"
 msgstr "جميع أجهزة الشبكة"
 
 msgid "Application Memory"
 msgstr "ذاكرة التطبيقات"
 
-msgid "Application Memory Percentage"
-msgstr "نسبة ذاكرة التطبيقات"
-
-msgid "Average CPU Frequency"
-msgstr "متوسط سرعة المعالج"
-
-msgid "Average CPU Temperature"
-msgstr "متوسط حرارة المعالج"
-
 msgid "Buffer Memory"
 msgstr "ذاكرة مؤقتة"
-
-msgid "Buffer Memory Percentage"
-msgstr "نسبة الذاكرة المؤقتة"
 
 msgid "CPU %1"
 msgstr "المعالج %1"
@@ -736,17 +680,8 @@ msgstr "ضغط المعالج"
 msgid "Cache Memory"
 msgstr "ذاكرة الخبيئة"
 
-msgid "Cache Memory Percentage"
-msgstr "نسبة ذاكرة الخبيئة"
-
 msgid "Charge"
 msgstr "التعبئة"
-
-msgid "Charge Percentage"
-msgstr "نسبة الشّحن"
-
-msgid "Charging  Rate"
-msgstr "معدل الشحن"
 
 msgid "Charging Rate"
 msgstr "معدل الشحن"
@@ -760,9 +695,6 @@ msgstr "السعة الحالية"
 msgid "Current Frequency"
 msgstr "التردد الحالي"
 
-msgid "Current Temperature"
-msgstr "الحرارة الحالية"
-
 msgid "Design Capacity"
 msgstr "السعة التصميمية"
 
@@ -772,29 +704,11 @@ msgstr "معدّل التنزيل"
 msgid "Free Physical Memory"
 msgstr "الذاكرة الحقيقية المتبقية"
 
-msgid "Free Physical Memory Percentage"
-msgstr "نسبة الذاكرة الحقيقية المتبقية"
-
 msgid "Free Space"
 msgstr "المساحة المتبقية"
 
 msgid "Free Swap Memory"
 msgstr "ذاكرة التبادل المتبقية"
-
-msgid "Free Swap Memory Percentage"
-msgstr "نسبة ذاكرة التبديل المتبقية"
-
-msgid "Frequency"
-msgstr "التردّد"
-
-msgid "Full (1 minute average)"
-msgstr "كامل (متوسط دقيقة)"
-
-msgid "Full (10 second average)"
-msgstr "كامل (متوسط 10 ثواني)"
-
-msgid "Full (5 minute average)"
-msgstr "كامل (متوسط 5 دقائق)"
 
 msgid "GPU"
 msgstr "معالج الرسوميات"
@@ -859,18 +773,6 @@ msgstr "اسم وإصدارة النواة"
 msgid "Kernel Version"
 msgstr "إصدارة النّواة"
 
-msgid "Load Averages"
-msgstr "معدلات الحمل"
-
-msgid "Load average (1 minute)"
-msgstr "معدّل الحِمْل (دقيقة واحدة)"
-
-msgid "Load average (15 minute)"
-msgstr "معدّل الحِمْل (15 دقيقة)"
-
-msgid "Load average (5 minutes)"
-msgstr "معدّل الحِمْل (5 دقائق)"
-
 msgid "Maximum CPU Frequency"
 msgstr "أقصى سرعة للمعالج"
 
@@ -916,9 +818,6 @@ msgstr "شعار نظام التشغيل"
 msgid "Operating System Name"
 msgstr "اسم نظام التشغيل"
 
-msgid "Operating System Name and Version"
-msgstr "اسم وإصدارة نظام التشغيل"
-
 msgid "Operating System URL"
 msgstr "عنوان نظام التشغيل"
 
@@ -949,15 +848,6 @@ msgstr "معدل القراءة"
 msgid "Signal Strength"
 msgstr "قوّة الإشارة"
 
-msgid "Some (1 minute average)"
-msgstr "البعض (متوسط دقيقة)"
-
-msgid "Some (10 second average)"
-msgstr "البعض (متوسط 10 ثواني)"
-
-msgid "Some (5 minute average)"
-msgstr "البعض (متوسط دقيقة)"
-
 msgid "Swap Memory"
 msgstr "ذاكرة الإبدال"
 
@@ -966,9 +856,6 @@ msgstr "النظام"
 
 msgid "System Usage"
 msgstr "استخدام النظام"
-
-msgid "Temperature"
-msgstr "درجة الحرارة"
 
 msgid "Total Downloaded"
 msgstr "مجموع المنزل"
@@ -1009,17 +896,11 @@ msgstr "الاستخدام"
 msgid "Used Physical Memory"
 msgstr "الذاكرة الحقيقية المستخدمة"
 
-msgid "Used Physical Memory Percentage"
-msgstr "نسبة الذاكرة الحقيقية المستخدمة"
-
 msgid "Used Space"
 msgstr "المساحة المُستخدَمة"
 
 msgid "Used Swap Memory"
 msgstr "ذاكرة التبديل المستخدمة"
-
-msgid "Used Swap Memory Percentage"
-msgstr "نسبة ذاكرة التبديل المستخدمة"
 
 msgid "User Usage"
 msgstr "استخدام المستخدم"
@@ -1039,10 +920,9 @@ msgstr "النظام النوافذ"
 msgid "Write Rate"
 msgstr "معدل الكتابة"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "الوارد"
 
@@ -1781,3 +1661,725 @@ msgstr "تفاعل"
 msgid "React"
 msgstr "تفاعل"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "معالج"
+
+msgid "Processor Usage"
+msgstr "استخدام المعالج"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "المعالج المركزي"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "استخدام المعالج المركزي"
+
+msgid "Cores"
+msgstr "الأنوية"
+
+msgid "Freq"
+msgstr "التردد"
+
+msgid "Max Freq"
+msgstr "أقصى تردد"
+
+msgid "Min Freq"
+msgstr "أدنى تردد"
+
+msgid "Governor"
+msgstr "المحكم"
+
+msgid "CPU Governor"
+msgstr "محكم المعالج المركزي"
+
+msgid "Temp"
+msgstr "حرارة"
+
+msgid "CPU Temp"
+msgstr "حرارة المعالج"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "ذاكرة"
+
+msgid "Mem Used"
+msgstr "الذاكرة المستخدمة"
+
+msgid "Mem Free"
+msgstr "الذاكرة الحرة"
+
+msgid "Mem Total"
+msgstr "إجمالي الذاكرة"
+
+msgid "Swap"
+msgstr "الإبدال"
+
+msgid "Swap Used"
+msgstr "الإبدال المستخدم"
+
+msgid "Swap Free"
+msgstr "الإبدال الحر"
+
+msgid "Swap Total"
+msgstr "إجمالي الإبدال"
+
+msgid "Buffer"
+msgstr "المخزن المؤقت"
+
+msgid "Cache"
+msgstr "الذاكرة المؤقتة"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "القرص"
+
+msgid "Disk Usage"
+msgstr "استخدام القرص"
+
+msgid "Disk IO"
+msgstr "إدخال/إخراج القرص"
+
+msgid "Disk IO Rate"
+msgstr "معدل إدخال/إخراج القرص"
+
+msgid "File System"
+msgstr "نظام الملفات"
+
+msgid "Filesystem"
+msgstr "نظام الملفات"
+
+msgid "HDD Temp"
+msgstr "حرارة القرص الصلب"
+
+msgid "Net"
+msgstr "الشبكة"
+
+msgid "Network Usage"
+msgstr "استخدام الشبكة"
+
+msgid "Down"
+msgstr "تنزيل"
+
+msgid "Up"
+msgstr "رفع"
+
+msgid "Total Down"
+msgstr "إجمالي التنزيل"
+
+msgid "Total Up"
+msgstr "إجمالي الرفع"
+
+msgid "Gateway"
+msgstr "البوابة"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "واي-فاي"
+
+msgid "Wireless"
+msgstr "لاسلكي"
+
+msgid "Access Point"
+msgstr "نقطة الوصول"
+
+msgid "Wireless Signal"
+msgstr "إشارة لاسلكية"
+
+msgid "Wireless Channel"
+msgstr "القناة اللاسلكية"
+
+msgid "Wireless Bitrate"
+msgstr "معدل البت اللاسلكي"
+
+msgid "Wireless Mode"
+msgstr "الوضع اللاسلكي"
+
+msgid "Wireless ESSID"
+msgstr "اسم الشبكة اللاسلكية"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "بطاقة الفيديو"
+
+msgid "Graphics Card"
+msgstr "بطاقة الرسوميات"
+
+msgid "GPU Temp"
+msgstr "حرارة معالج الرسوميات"
+
+msgid "GPU Freq"
+msgstr "تردد معالج الرسوميات"
+
+msgid "Video Memory"
+msgstr "ذاكرة الفيديو"
+
+msgid "GPU Model"
+msgstr "طراز معالج الرسوميات"
+
+msgid "Model Name"
+msgstr "اسم الطراز"
+
+msgid "GPU Driver"
+msgstr "برنامج تشغيل معالج الرسوميات"
+
+msgid "GPU Architecture"
+msgstr "بنية معالج الرسوميات"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "المروحة"
+
+msgid "Fan Speed"
+msgstr "سرعة المروحة"
+
+msgid "Voltage"
+msgstr "الجهد"
+
+msgid "Entropy"
+msgstr "الإنتروبيا"
+
+msgid "Entropy Pool Size"
+msgstr "حجم مجمع الإنتروبيا"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "البطارية"
+
+msgid "Battery Status"
+msgstr "حالة البطارية"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "وقت البطارية"
+
+msgid "Time Remaining"
+msgstr "الوقت المتبقي"
+
+msgid "Power Draw"
+msgstr "استهلاك الطاقة"
+
+msgid "AC Adapter"
+msgstr "محول التيار المتردد"
+
+msgid "AC Power"
+msgstr "طاقة التيار المتردد"
+
+msgid "Charging"
+msgstr "قيد الشحن"
+
+msgid "Discharging"
+msgstr "قيد التفريغ"
+
+msgid "Not Charging"
+msgstr "غير قيد الشحن"
+
+msgid "Full"
+msgstr "ممتلئة"
+
+msgid "Empty"
+msgstr "فارغة"
+
+msgid "Remaining"
+msgstr "المتبقي"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "الجهاز"
+
+msgid "Machine Model"
+msgstr "طراز الجهاز"
+
+msgid "Distribution"
+msgstr "التوزيعة"
+
+msgid "Desktop"
+msgstr "سطح المكتب"
+
+msgid "Desktop Name"
+msgstr "اسم سطح المكتب"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "العمليات"
+
+msgid "Running Processes"
+msgstr "العمليات الجارية"
+
+msgid "Running Threads"
+msgstr "الخيوط الجارية"
+
+msgid "Shared Memory"
+msgstr "الذاكرة المشتركة"
+
+msgid "Shared Memory Used"
+msgstr "الذاكرة المشتركة المستخدمة"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "قيد التشغيل"
+
+msgid "Media Player"
+msgstr "مشغل الوسائط"
+
+msgid "Music"
+msgstr "الموسيقى"
+
+msgid "Song"
+msgstr "أغنية"
+
+msgid "Artist"
+msgstr "الفنان"
+
+msgid "Album"
+msgstr "ألبوم"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Track"
+msgstr "مسار"
+
+msgid "Track Number"
+msgstr "رقم المسار"
+
+msgid "Genre"
+msgstr "النوع"
+
+msgid "Bitrate"
+msgstr "معدل البت"
+
+msgid "Lyrics"
+msgstr "الكلمات"
+
+msgid "Play"
+msgstr "تشغيل"
+
+msgid "Pause"
+msgstr "إيقاف مؤقت"
+
+msgid "Stop"
+msgstr "إيقاف"
+
+msgid "Volume"
+msgstr "مستوى الصوت"
+
+msgid "Shuffle"
+msgstr "خلط"
+
+msgid "Repeat"
+msgstr "إعادة"
+
+msgid "Playing"
+msgstr "قيد التشغيل"
+
+msgid "Paused"
+msgstr "متوقف مؤقتًا"
+
+msgid "Stopped"
+msgstr "متوقف"
+
+msgid "Not Playing"
+msgstr "لا يوجد تشغيل"
+
+msgid "Position"
+msgstr "الموضع"
+
+msgid "Duration"
+msgstr "المدة"
+
+msgid "Elapsed"
+msgstr "المنقضي"
+
+msgid "Remaining Time"
+msgstr "الوقت المتبقي"
+
+msgid "Total Time"
+msgstr "إجمالي الوقت"
+
+msgid "Stream"
+msgstr "بث"
+
+msgid "Radio"
+msgstr "راديو"
+
+msgid "Podcast"
+msgstr "بودكاست"
+
+msgid "Episode"
+msgstr "حلقة"
+
+msgid "Artwork"
+msgstr "صورة الغلاف"
+
+msgid "Cover"
+msgstr "غلاف"
+
+msgid "Track List"
+msgstr "قائمة المسارات"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "الذاكرة النشطة"
+
+msgid "Inactive Memory"
+msgstr "الذاكرة غير النشطة"
+
+msgid "Dirty Memory"
+msgstr "الذاكرة المتسخة"
+
+msgid "Wired Memory"
+msgstr "الذاكرة المثبتة"
+
+msgid "Available Memory"
+msgstr "الذاكرة المتاحة"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "الواجهة"
+
+msgid "Interface Name"
+msgstr "اسم الواجهة"
+
+msgid "Network Interface"
+msgstr "واجهة الشبكة"
+
+msgid "Local IP"
+msgstr "IP المحلي"
+
+msgid "Local IPv4"
+msgstr "IPv4 المحلي"
+
+msgid "Local IPv6"
+msgstr "IPv6 المحلي"
+
+msgid "Ethernet"
+msgstr "إيثرنت"
+
+msgid "MAC Address"
+msgstr "عنوان MAC"
+
+msgid "Network Status"
+msgstr "حالة الشبكة"
+
+msgid "Online"
+msgstr "متصل"
+
+msgid "Unavailable"
+msgstr "غير متاح"
+
+msgid "Unknown"
+msgstr "غير معروف"
+
+msgid "Download Speed"
+msgstr "سرعة التنزيل"
+
+msgid "Upload Speed"
+msgstr "سرعة الرفع"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "مزود الطاقة غير المنقطع"
+
+msgid "Cable"
+msgstr "الكابل"
+
+msgid "Line Voltage"
+msgstr "جهد الخط"
+
+msgid "Last Transfer"
+msgstr "آخر نقل"
+
+msgid "Time Left"
+msgstr "الوقت المتبقي"
+
+msgid "UPS Mode"
+msgstr "وضع مزود الطاقة غير المنقطع"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "قفل الحروف الكبيرة"
+
+msgid "Num Lock"
+msgstr "قفل الأرقام"
+
+msgid "Scroll Lock"
+msgstr "قفل التمرير"
+
+msgid "Brightness"
+msgstr "السطوع"
+
+msgid "Backlight"
+msgstr "الإضاءة الخلفية"
+
+msgid "Laptop Mode"
+msgstr "وضع الكمبيوتر المحمول"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "CPU Time"
+msgstr "وقت المعالج المركزي"
+
+msgid "I/O Scheduler"
+msgstr "جدولة الإدخال/الإخراج"
+
+msgid "Scheduler"
+msgstr "المجدول"
+
+msgid "Node Name"
+msgstr "اسم العقدة"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "الحزم"
+
+msgid "Package"
+msgstr "حزمة"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "الحرارة الحالية"
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "فنان الألبوم"
+
+msgid "Codec"
+msgstr "برنامج الترميز"
+
+msgid "Composer"
+msgstr "الملحن"
+
+msgid "Disc"
+msgstr "قرص"
+
+msgid "Disc Number"
+msgstr "رقم القرص"
+
+msgid "Elapsed Time"
+msgstr "الوقت المنقضي"
+
+msgid "Format"
+msgstr "التنسيق"
+
+msgid "Sample Rate"
+msgstr "معدل العينات"
+
+msgid "Track Position"
+msgstr "موضع المسار"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "التخزين المؤقت"
+
+msgid "Karaoke Mode"
+msgstr "وضع الكاريوكي"
+
+msgid "Live Stream"
+msgstr "بث مباشر"
+
+msgid "Playlist"
+msgstr "قائمة التشغيل"
+
+msgid "Progress"
+msgstr "التقدم"
+
+msgid "Queue"
+msgstr "قائمة الانتظار"
+
+msgid "Recently Played"
+msgstr "تم تشغيله مؤخرًا"
+
+msgid "Repeat One"
+msgstr "تكرار مسار واحد"
+
+msgid "Repeat All"
+msgstr "تكرار الكل"
+
+msgid "Station"
+msgstr "محطة"
+
+msgid "Streaming"
+msgstr "البث"
+
+msgid "Stream Quality"
+msgstr "جودة البث"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "المسار التالي"
+
+msgid "Previous Track"
+msgstr "المسار السابق"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "السطر الحالي"
+
+msgid "Next Line"
+msgstr "السطر التالي"
+
+msgid "Previous Line"
+msgstr "السطر السابق"
+
+msgid "Synced"
+msgstr "متزامن"
+
+msgid "Unsynced"
+msgstr "غير متزامن"
+
+msgid "Synced Lyrics"
+msgstr "كلمات متزامنة"
+
+msgid "No Synced Lyrics"
+msgstr "لا توجد كلمات متزامنة"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "خطأ في الكلمات"
+
+msgid "Lyrics Loading"
+msgstr "جارٍ تحميل الكلمات"
+
+msgid "Lyrics Not Found"
+msgstr "الكلمات غير موجودة"
+
+msgid "Lyrics Unavailable"
+msgstr "الكلمات غير متاحة"
+
+msgid "No Cover"
+msgstr "لا يوجد غلاف"
+
+msgid "No Lyrics"
+msgstr "لا توجد كلمات"
+
+msgid "No Lyrics Available"
+msgstr "لا تتوفر كلمات"
+
+msgid "Loading Cover"
+msgstr "جارٍ تحميل الغلاف"
+
+msgid "Loading Lyrics"
+msgstr "جارٍ تحميل الكلمات"

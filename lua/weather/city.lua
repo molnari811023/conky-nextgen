@@ -16,11 +16,11 @@ and postal codes.
 -- ## City Module
 --
 -- Reads city metadata from the first entry of `W.city.results` (loaded from city.json) and
--- surfaces it through individually named Conky functions. String fields go through `safe_str`
--- for translation or fallback handling; numeric fields go through `safe_num`.
+-- surfaces it through individually named Conky functions. Required identity and coordinate fields
+-- use strict accessors; optional administrative fields use explicit display defaults.
 --
 -- **Exposed/global functions:**
--- - `conky_city_name()` — city display name (defaults to "Unknown City")
+-- - `conky_city_name()` — required city display name
 -- - `conky_city_country()` — country name/code (translated)
 -- - `conky_city_timezone()` — IANA timezone string
 -- - `conky_city_admin1()` — first administrative division
@@ -33,7 +33,7 @@ and postal codes.
 -- - `conky_city_postcode_count()` — number of postal codes
 --
 -- **Config/globals used:**
--- `W.city`, `safe_str()`, `safe_num()`
+-- `W.city`, `require_str()`, `require_num()`, `optional_str()`, `optional_num()`
 --}}}
 
 local function city_data()
@@ -44,20 +44,20 @@ end
 -- City — String fields
 --}}}
 
-function conky_city_name()      local c = city_data() return c.name or "Unknown City" end
-function conky_city_country()   return safe_str(city_data().country, "city_country") end
-function conky_city_timezone()  return safe_str(city_data().timezone, "city_timezone") end
-function conky_city_admin1()    return safe_str(city_data().admin1, "city_admin1") end
-function conky_city_admin2()    return safe_str(city_data().admin2, "city_admin2") end
+function conky_city_name()      return require_str(city_data().name, "city_name") end
+function conky_city_country()   return require_str(city_data().country, "city_country") end
+function conky_city_timezone()  return require_str(city_data().timezone, "city_timezone") end
+function conky_city_admin1()    return optional_str(city_data().admin1, "N/A", "city_admin1") end
+function conky_city_admin2()    return optional_str(city_data().admin2, "N/A", "city_admin2") end
 
 --{{{
 -- City — Number fields
 --}}}
 
-function conky_city_lat()         return safe_num(city_data().latitude, "city_lat") end
-function conky_city_lon()         return safe_num(city_data().longitude, "city_lon") end
-function conky_city_elevation()   return safe_num(city_data().elevation, "city_elevation") end
-function conky_city_population()  return safe_num(city_data().population, "city_population") end
+function conky_city_lat()         return require_num(city_data().latitude, "city_lat") end
+function conky_city_lon()         return require_num(city_data().longitude, "city_lon") end
+function conky_city_elevation()   return optional_num(city_data().elevation, 0, "city_elevation") end
+function conky_city_population()  return optional_num(city_data().population, 0, "city_population") end
 
 --{{{
 -- City — Postcodes

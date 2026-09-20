@@ -48,17 +48,20 @@ sys.path.insert(0, os.path.dirname(_HERE))
 
 from engine import widget_schema as ws
 from engine.widget_schema import Kind, PropertySpec, WidgetSpec
+from engine.lua_parser import parse_settings
 
 
 # ── frozen legacy values (from main.py before migration) ──
 
 LEGACY_WIDGET_TYPES = ["background", "text", "bar", "graph", "ring", "line",
-                       "clock", "calendar", "image", "svg"]
+                       "clock", "calendar", "image", "svg", "arc"]
 
 LEGACY_FIELD_ORDER = ["view", "group", "draw_me", "x", "y", "x1", "y1", "x2", "y2", "w", "h",
                       "width", "height", "radius", "thickness", "size", "font",
                       "weight", "max", "value", "text", "fg", "bg", "border",
                       "border_width", "dash", "style_type", "path",
+                      "segments", "arc_color", "arc_alpha", "arc_width",
+                      "horizon", "horizon_color",
                       "click", "click_view"]
 
 LEGACY_WIDGET_DEFAULTS = {
@@ -70,9 +73,13 @@ LEGACY_WIDGET_DEFAULTS = {
                    "sectors": 6, "mode": "ring", "sides": 6},
     "line":       {"x1": 20, "y1": 15, "x2": 380, "y2": 15, "thickness": 2},
     "clock":      {"x": 200, "y": 80, "radius": 60, "show_seconds": True},
-    "calendar":   {"x": 20, "y": 10, "cell_w": 48, "row_h": 22, "font": "Mono", "size": 10},
+    "calendar":   {"x": 20, "y": 10, "cell_w": 48, "row_h": 22, "font": "Mono", "size": 10,
+                   "weeknum_size": 16, "popup_size": 17, "show_weeknums": True},
     "image":      {"x": 20, "y": 10, "width": 48, "height": 48, "path": ""},
     "svg":        {"x": 20, "y": 10, "w": 48, "h": 48, "path": ""},
+    "arc":        {"x": 200, "y": 80, "radius": 80, "segments": 20,
+                   "arc_color": "#a1a9b1", "arc_alpha": 0.4, "arc_width": 2,
+                   "horizon": True, "horizon_color": "#4a4d52"},
 }
 
 LEGACY_WIDGET_TYPE_FIELDS = {
@@ -101,14 +108,19 @@ LEGACY_WIDGET_TYPE_FIELDS = {
                    "hour_color", "minute_color", "second_color", "center_color",
                    "click", "click_view"],
     "calendar":   ["view", "group", "draw_me", "x", "y", "cell_w", "row_h", "font", "size",
+                   "weeknum_size", "popup_size",
                    "color_month", "color_weekdays", "color_days",
-                   "color_today", "color_outside", "color_weeknums",
+                   "color_today", "color_outside", "color_weeknums", "color_popup",
                    "show_weeknums", "click", "click_view"],
     "image":      ["view", "group", "draw_me", "x", "y", "width", "height", "path", "alpha",
                    "radius", "scale_mode", "shape", "rotate",
                    "crop", "tint", "tint_alpha", "click", "click_view"],
     "svg":        ["view", "group", "draw_me", "x", "y", "w", "h", "path", "alpha",
                    "radius", "shape", "rotate", "tint", "tint_alpha",
+                   "click", "click_view"],
+    "arc":        ["view", "group", "draw_me", "x", "y", "radius", "segments",
+                   "arc_color", "arc_alpha", "arc_width",
+                   "horizon", "horizon_color",
                    "click", "click_view"],
 }
 
@@ -198,6 +210,19 @@ def test_spec_for():
     check("spec_for(unknown) is None", ws.spec_for("nope") is None)
 
 
+def test_module_profile_setting():
+    tmp = tempfile.mkdtemp(prefix="profile_setting_")
+    path = os.path.join(tmp, "widget.lua")
+    with open(path, "w") as f:
+        f.write('MODULE_PROFILE = { "weather", "media" }\n')
+    check("combined module profiles parsed",
+          parse_settings(path)["module_profile"] == ["weather", "media"])
+    with open(path, "w") as f:
+        f.write('MODULE_PROFILE = "weather"\n')
+    check("legacy module profile parsed",
+          parse_settings(path)["module_profile"] == ["weather"])
+
+
 def test_roundtrip():
     """Parse a sample widget.lua → generate_lua_entry → parse → equal."""
     try:
@@ -278,7 +303,7 @@ def main():
     for fn in [test_widget_types, test_field_order_prefix, test_defaults_parity,
                test_props_parity, test_string_fields_parity, test_schema_integrity,
                test_string_kind_consistency, test_spec_for, test_roundtrip,
-               test_generate_empty_group]:
+               test_generate_empty_group, test_module_profile_setting]:
         fn()
     if _FAILED:
         print(f"\n{len(_FAILED)} FAILURES")

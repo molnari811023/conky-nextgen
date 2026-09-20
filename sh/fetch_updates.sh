@@ -6,7 +6,7 @@
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
 #}}}
 #{{{
-# ## updates — Arch package update counter
+# ## fetch_updates — Arch package update counter
 #
 # Counts the number of available updates from the official repositories
 # (via `checkupdates`) and from the AUR (via the AUR RPC, comparing each

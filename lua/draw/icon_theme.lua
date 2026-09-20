@@ -64,17 +64,18 @@ local function read_file(path)
     return data
 end
 
-local function find_best_size(sizes, target)
-    if not sizes or #sizes == 0 then return nil end
+local function find_best_sizes(sizes, target)
+    if not sizes or #sizes == 0 then return {} end
     target = tonumber(target) or sizes[1]
-    local best, best_diff = sizes[1], math.abs(sizes[1] - target)
-    for i = 2, #sizes do
-        local diff = math.abs(sizes[i] - target)
-        if diff < best_diff then
-            best, best_diff = sizes[i], diff
-        end
-    end
-    return best
+    -- sort sizes by proximity to target (stable for equal diffs)
+    local ordered = {}
+    for i = 1, #sizes do ordered[i] = sizes[i] end
+    table.sort(ordered, function(a, b)
+        local da, db = math.abs(a - target), math.abs(b - target)
+        if da == db then return a < b end
+        return da < db
+    end)
+    return ordered
 end
 
 local function parse_index_theme(theme_name)
@@ -125,7 +126,7 @@ local function parse_index_theme(theme_name)
     return result
 end
 
-local function icon_resolve(name, target_size, theme_name)
+local function icon_resolve_impl(name, target_size, theme_name)
     if not name or name == "" then return nil end
     target_size = target_size or 48
     theme_name = theme_name or XDG_ICON_THEME or "Papirus"
@@ -138,7 +139,7 @@ local function icon_resolve(name, target_size, theme_name)
     local theme = parse_index_theme(theme_name)
     if not theme.path then return nil end
 
-    local best_size = find_best_size(theme.sizes, target_size)
+    local best_sizes = find_best_sizes(theme.sizes, target_size)
 
     local function try_theme(tname)
         local t = parse_index_theme(tname)
@@ -159,8 +160,10 @@ local function icon_resolve(name, target_size, theme_name)
             return nil
         end
 
-        local sz = find_best_size(t.sizes, target_size)
-        if sz then
+        -- walk the sizes from closest to farthest; some dirs exist but miss
+        -- a given icon (e.g. 42x42 without com.mitchellh.ghostty), so keep
+        -- trying the next closest size before falling back to scalable.
+        for _, sz in ipairs(find_best_sizes(t.sizes, target_size)) do
             local found = find_in(t.path .. sz .. "x" .. sz)
             if found then return found end
         end
@@ -187,4 +190,10 @@ local function icon_resolve(name, target_size, theme_name)
 
     cache_set(ICON_PATH_CACHE, cache_key, false, 512)
     return nil
+end
+
+-- Export as a global so other modules (e.g. the panel's tasklist) can
+-- resolve app icons to SVG/PNG paths at draw time.
+function icon_resolve(name, target_size, theme_name)
+    return icon_resolve_impl(name, target_size, theme_name)
 end

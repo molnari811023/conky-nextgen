@@ -1,15 +1,13 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/fi.po — Finnish translations
 #  Compiled to language/fi.mo (msgfmt)
-#}}}
-
+# }}}
 # Conky Weather Module – Finnish Translation
 # Copyright (C) 2026
 # This file is distributed under the same license as the Conky Weather Module.
@@ -23,18 +21,17 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "Ilmanlaatu"
 
@@ -131,10 +128,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "Kaupunki"
 
@@ -156,10 +155,9 @@ msgstr "Korkeus"
 msgid "population"
 msgstr "Väkiluku"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "Eurooppalainen IL"
 
@@ -208,10 +206,9 @@ msgstr "Tuoksukki"
 msgid "pollen"
 msgstr "Siitepöly"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "Selkeää"
 
@@ -296,10 +293,9 @@ msgstr "Ukkonen heikon rakeen kera"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "Ukkonen voimakkaan rakeen kera"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "Pohjoinen"
 
@@ -354,10 +350,9 @@ msgstr "Vaihteleva"
 msgid "calm"
 msgstr "Tyyntä"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "Uusikuu"
 
@@ -382,20 +377,18 @@ msgstr "Viimeinen neljännes"
 msgid "waning_crescent"
 msgstr "Vähenevä sirppi"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "Aurinko"
 
 msgid "moon"
 msgstr "Kuu"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "Avaruussää"
 
@@ -407,9 +400,6 @@ msgstr "Aurinkotuuli"
 
 msgid "aurora_visibility"
 msgstr "Revontulien näkyvyys"
-
-msgid "xray_class"
-msgstr "Röntgenluokka"
 
 msgid "geomagnetic_activity"
 msgstr "Geomagneettinen aktiivisuus"
@@ -467,28 +457,6 @@ msgstr "Voimakkaat"
 
 msgid "aurora_excellent"
 msgstr "Erinomaiset"
-
-msgid "g0_desc"
-msgstr "Ei myrskyä"
-
-msgid "g1_desc"
-msgstr "Heikko myrsky"
-
-msgid "g2_desc"
-msgstr "Kohtalainen myrsky"
-
-msgid "g3_desc"
-msgstr "Voimakas myrsky"
-
-msgid "g4_desc"
-msgstr "Ankara myrsky"
-
-msgid "g5_desc"
-msgstr "Äärimmäinen myrsky"
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "Tuuli"
@@ -556,10 +524,9 @@ msgstr "Ei sijaintia"
 msgid "provider"
 msgstr "Palveluntarjoaja"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "Varoituksen otsikko"
 
@@ -587,10 +554,9 @@ msgstr "Ei varoituksia"
 msgid "one_alert"
 msgstr "Yksi varoitus"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "Hyvä"
 
@@ -690,10 +656,9 @@ msgstr "Epätodennäköinen"
 msgid "alert_certainty_unknown"
 msgstr "Tuntematon"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "Kaikki"
 
@@ -703,35 +668,14 @@ msgstr "Kaikki levyt"
 msgid "All GPUs"
 msgstr "Kaikki grafiikkasuorittimet"
 
-msgid "All GPUs Total Memory"
-msgstr "kaikkien grafiikkasuoritinten muisti yhteensä"
-
-msgid "All GPUs Usage"
-msgstr "Kaikkien graafisten suoritinten käyttö"
-
-msgid "All GPUs Used Memory"
-msgstr "Kaikkien grafiikkasuoritinten käyttämä muisti"
-
 msgid "All Network Devices"
 msgstr "Kaikki verkkolaitteet"
 
 msgid "Application Memory"
 msgstr "Sovellusmuisti"
 
-msgid "Application Memory Percentage"
-msgstr "Sovellusmuistin osuus"
-
-msgid "Average CPU Frequency"
-msgstr "Suorittimen keskitaajuus"
-
-msgid "Average CPU Temperature"
-msgstr "Suorittimen keskilämpötila"
-
 msgid "Buffer Memory"
 msgstr "Puskurimuisti"
-
-msgid "Buffer Memory Percentage"
-msgstr "Puskurimuistin osuus"
 
 msgid "CPU %1"
 msgstr "Suoritin %1"
@@ -745,17 +689,8 @@ msgstr "Suoritinpaine"
 msgid "Cache Memory"
 msgstr "Välimuisti"
 
-msgid "Cache Memory Percentage"
-msgstr "Välimuistin osuus"
-
 msgid "Charge"
 msgstr "Lataus"
-
-msgid "Charge Percentage"
-msgstr "lataus-%"
-
-msgid "Charging  Rate"
-msgstr "latausnopeus"
 
 msgid "Charging Rate"
 msgstr "latausnopeus"
@@ -769,9 +704,6 @@ msgstr "Nykyinen kapasiteetti"
 msgid "Current Frequency"
 msgstr "Nykyinen taajuus"
 
-msgid "Current Temperature"
-msgstr "Nykyinen lämpötila"
-
 msgid "Design Capacity"
 msgstr "Suunniteltu kapasiteetti"
 
@@ -781,29 +713,11 @@ msgstr "latausnopeus"
 msgid "Free Physical Memory"
 msgstr "Vapaa fyysinen muisti"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Vapaan fyysisen muistin osuus"
-
 msgid "Free Space"
 msgstr "Vapaa tila"
 
 msgid "Free Swap Memory"
 msgstr "Vapaa sivutusmuisti"
-
-msgid "Free Swap Memory Percentage"
-msgstr "Vapaan sivutusmuistin osuus"
-
-msgid "Frequency"
-msgstr "Taajuus"
-
-msgid "Full (1 minute average)"
-msgstr "Täysi (1 minuutin keskiarvo)"
-
-msgid "Full (10 second average)"
-msgstr "Täysi (10 sekunnin keskiarvo)"
-
-msgid "Full (5 minute average)"
-msgstr "Täysi (5 minuutin keskiarvo)"
 
 msgid "GPU"
 msgstr "Graafinen suoritin"
@@ -868,18 +782,6 @@ msgstr "Ytimen nimi ja versio"
 msgid "Kernel Version"
 msgstr "Ytimen versio"
 
-msgid "Load Averages"
-msgstr "Keskiarvokuorma"
-
-msgid "Load average (1 minute)"
-msgstr "Keskiarvokuorma (1 min)"
-
-msgid "Load average (15 minute)"
-msgstr "Keskiarvokuorma (15 min)"
-
-msgid "Load average (5 minutes)"
-msgstr "Keskiarvokuorma (5 min)"
-
 msgid "Maximum CPU Frequency"
 msgstr "Suorittimen enimmäistaajuus"
 
@@ -925,9 +827,6 @@ msgstr "Käyttöjärjestelmän logo"
 msgid "Operating System Name"
 msgstr "Käyttöjärjestelmän nimi"
 
-msgid "Operating System Name and Version"
-msgstr "Käyttöjärjestelmän nimi ja versio"
-
 msgid "Operating System URL"
 msgstr "Käyttöjärjestelmän verkko-osoite"
 
@@ -958,15 +857,6 @@ msgstr "Lukunopeus"
 msgid "Signal Strength"
 msgstr "Signaalin voimakkuus"
 
-msgid "Some (1 minute average)"
-msgstr "Jonkin verran (1 minuutin keskiarvo)"
-
-msgid "Some (10 second average)"
-msgstr "Jonkin verran (10 sekunnin keskiarvo)"
-
-msgid "Some (5 minute average)"
-msgstr "Jonkin verran (5 minuutin keskiarvo)"
-
 msgid "Swap Memory"
 msgstr "Sivutusmuisti"
 
@@ -975,9 +865,6 @@ msgstr "Järjestelmä"
 
 msgid "System Usage"
 msgstr "Järjestelmäkäyttö"
-
-msgid "Temperature"
-msgstr "Lämpötila"
 
 msgid "Total Downloaded"
 msgstr "ladattu yhteensä"
@@ -1018,17 +905,11 @@ msgstr "Käyttö"
 msgid "Used Physical Memory"
 msgstr "käytetty fyysinen muisti"
 
-msgid "Used Physical Memory Percentage"
-msgstr "% fyysistä muistia käytössä"
-
 msgid "Used Space"
 msgstr "käytetty tila"
 
 msgid "Used Swap Memory"
 msgstr "käytetty sivutusmuisti"
-
-msgid "Used Swap Memory Percentage"
-msgstr "Käytetyn sivutusmuistin osuus"
 
 msgid "User Usage"
 msgstr "Käyttäjäkäyttö"
@@ -1048,10 +929,9 @@ msgstr "Ikkunointijärjestelmä"
 msgid "Write Rate"
 msgstr "Kirjoitusnopeus"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "Saapuneet"
 
@@ -1790,3 +1670,725 @@ msgstr "Reaktio"
 msgid "React"
 msgstr "Reagoi"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "Suoritin"
+
+msgid "Processor Usage"
+msgstr "Suorittimen käyttö"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "CPU:n käyttö"
+
+msgid "Cores"
+msgstr "Ytimet"
+
+msgid "Freq"
+msgstr "Taaj."
+
+msgid "Max Freq"
+msgstr "Maks. taaj."
+
+msgid "Min Freq"
+msgstr "Min. taaj."
+
+msgid "Governor"
+msgstr "Governor"
+
+msgid "CPU Governor"
+msgstr "CPU:n governor"
+
+msgid "Temp"
+msgstr "Lämpötila"
+
+msgid "CPU Temp"
+msgstr "CPU:n lämpö"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "Muisti"
+
+msgid "Mem Used"
+msgstr "Käytetty muisti"
+
+msgid "Mem Free"
+msgstr "Vapaa muisti"
+
+msgid "Mem Total"
+msgstr "Kokonaismuisti"
+
+msgid "Swap"
+msgstr "Sivutustila"
+
+msgid "Swap Used"
+msgstr "Käytetty sivutustila"
+
+msgid "Swap Free"
+msgstr "Vapaa sivutustila"
+
+msgid "Swap Total"
+msgstr "Kokonaissivutustila"
+
+msgid "Buffer"
+msgstr "Puskuri"
+
+msgid "Cache"
+msgstr "Välimuisti"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "Levy"
+
+msgid "Disk Usage"
+msgstr "Levyn käyttö"
+
+msgid "Disk IO"
+msgstr "Levyn IO"
+
+msgid "Disk IO Rate"
+msgstr "Levyn IO-nopeus"
+
+msgid "File System"
+msgstr "Tiedostojärjestelmä"
+
+msgid "Filesystem"
+msgstr "Tiedostojärjestelmä"
+
+msgid "HDD Temp"
+msgstr "HDD:n lämpö"
+
+msgid "Net"
+msgstr "Verkko"
+
+msgid "Network Usage"
+msgstr "Verkon käyttö"
+
+msgid "Down"
+msgstr "Lataus"
+
+msgid "Up"
+msgstr "Lähetys"
+
+msgid "Total Down"
+msgstr "Latautunut yhteensä"
+
+msgid "Total Up"
+msgstr "Lähetetty yhteensä"
+
+msgid "Gateway"
+msgstr "Yhdyskäytävä"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Langaton"
+
+msgid "Access Point"
+msgstr "Tukiasema"
+
+msgid "Wireless Signal"
+msgstr "Langaton signaali"
+
+msgid "Wireless Channel"
+msgstr "Langaton kanava"
+
+msgid "Wireless Bitrate"
+msgstr "Langaton bittinopeus"
+
+msgid "Wireless Mode"
+msgstr "Langaton tila"
+
+msgid "Wireless ESSID"
+msgstr "Langaton ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "Näytönohjain"
+
+msgid "Graphics Card"
+msgstr "Näytönohjain"
+
+msgid "GPU Temp"
+msgstr "GPU:n lämpö"
+
+msgid "GPU Freq"
+msgstr "GPU:n taajuus"
+
+msgid "Video Memory"
+msgstr "Videomuisti"
+
+msgid "GPU Model"
+msgstr "GPU:n malli"
+
+msgid "Model Name"
+msgstr "Mallin nimi"
+
+msgid "GPU Driver"
+msgstr "GPU:n ajuri"
+
+msgid "GPU Architecture"
+msgstr "GPU:n arkkitehtuuri"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "Tuuletin"
+
+msgid "Fan Speed"
+msgstr "Tuulettimen nopeus"
+
+msgid "Voltage"
+msgstr "Jännite"
+
+msgid "Entropy"
+msgstr "Entropia"
+
+msgid "Entropy Pool Size"
+msgstr "Entropia-altaan koko"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "Akku"
+
+msgid "Battery Status"
+msgstr "Akun tila"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "Akunkesto"
+
+msgid "Time Remaining"
+msgstr "Jäljellä oleva aika"
+
+msgid "Power Draw"
+msgstr "Tehonkulutus"
+
+msgid "AC Adapter"
+msgstr "Verkkolaite"
+
+msgid "AC Power"
+msgstr "Verkkovirta"
+
+msgid "Charging"
+msgstr "Latautuu"
+
+msgid "Discharging"
+msgstr "Purkautuu"
+
+msgid "Not Charging"
+msgstr "Ei lataudu"
+
+msgid "Full"
+msgstr "Täynnä"
+
+msgid "Empty"
+msgstr "Tyhjä"
+
+msgid "Remaining"
+msgstr "Jäljellä"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "Kone"
+
+msgid "Machine Model"
+msgstr "Koneen malli"
+
+msgid "Distribution"
+msgstr "Distribuutio"
+
+msgid "Desktop"
+msgstr "Työpöytä"
+
+msgid "Desktop Name"
+msgstr "Työpöydän nimi"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "Prosessit"
+
+msgid "Running Processes"
+msgstr "Käynnissä olevat prosessit"
+
+msgid "Running Threads"
+msgstr "Käynnissä olevat säikeet"
+
+msgid "Shared Memory"
+msgstr "Jaettu muisti"
+
+msgid "Shared Memory Used"
+msgstr "Käytetty jaettu muisti"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "Nyt soi"
+
+msgid "Media Player"
+msgstr "Mediasoitin"
+
+msgid "Music"
+msgstr "Musiikki"
+
+msgid "Song"
+msgstr "Laulu"
+
+msgid "Artist"
+msgstr "Esittäjä"
+
+msgid "Album"
+msgstr "Albumi"
+
+msgid "Title"
+msgstr "Nimi"
+
+msgid "Track"
+msgstr "Raita"
+
+msgid "Track Number"
+msgstr "Raidan numero"
+
+msgid "Genre"
+msgstr "Tyylilaji"
+
+msgid "Bitrate"
+msgstr "Bittinopeus"
+
+msgid "Lyrics"
+msgstr "Sanoitukset"
+
+msgid "Play"
+msgstr "Toista"
+
+msgid "Pause"
+msgstr "Tauko"
+
+msgid "Stop"
+msgstr "Pysäytä"
+
+msgid "Volume"
+msgstr "Äänenvoimakkuus"
+
+msgid "Shuffle"
+msgstr "Satunnainen"
+
+msgid "Repeat"
+msgstr "Toista uudelleen"
+
+msgid "Playing"
+msgstr "Soittaa"
+
+msgid "Paused"
+msgstr "Tauolla"
+
+msgid "Stopped"
+msgstr "Pysäytetty"
+
+msgid "Not Playing"
+msgstr "Ei toisto"
+
+msgid "Position"
+msgstr "Sijainti"
+
+msgid "Duration"
+msgstr "Kesto"
+
+msgid "Elapsed"
+msgstr "Kulunut aika"
+
+msgid "Remaining Time"
+msgstr "Jäljellä oleva aika"
+
+msgid "Total Time"
+msgstr "Kokonaisaika"
+
+msgid "Stream"
+msgstr "Suoratoisto"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Podcast"
+msgstr "Podcast"
+
+msgid "Episode"
+msgstr "Jakso"
+
+msgid "Artwork"
+msgstr "Kansikuva"
+
+msgid "Cover"
+msgstr "Kansi"
+
+msgid "Track List"
+msgstr "Raitaluettelo"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "Aktiivinen muisti"
+
+msgid "Inactive Memory"
+msgstr "Passiivinen muisti"
+
+msgid "Dirty Memory"
+msgstr "Likainen muisti"
+
+msgid "Wired Memory"
+msgstr "Lukittu muisti"
+
+msgid "Available Memory"
+msgstr "Saatavilla oleva muisti"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "Liitäntä"
+
+msgid "Interface Name"
+msgstr "Liitännän nimi"
+
+msgid "Network Interface"
+msgstr "Verkkoliitäntä"
+
+msgid "Local IP"
+msgstr "Paikallinen IP"
+
+msgid "Local IPv4"
+msgstr "Paikallinen IPv4"
+
+msgid "Local IPv6"
+msgstr "Paikallinen IPv6"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "MAC-osoite"
+
+msgid "Network Status"
+msgstr "Verkon tila"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Unavailable"
+msgstr "Ei käytettävissä"
+
+msgid "Unknown"
+msgstr "Tuntematon"
+
+msgid "Download Speed"
+msgstr "Latausnopeus"
+
+msgid "Upload Speed"
+msgstr "Lähetysnopeus"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "Kaapeli"
+
+msgid "Line Voltage"
+msgstr "Verkkojännite"
+
+msgid "Last Transfer"
+msgstr "Viimeinen siirto"
+
+msgid "Time Left"
+msgstr "Jäljellä oleva aika"
+
+msgid "UPS Mode"
+msgstr "UPS-tila"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "Kirkkaus"
+
+msgid "Backlight"
+msgstr "Taustavalo"
+
+msgid "Laptop Mode"
+msgstr "Kannettava-tila"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Käyttäjä"
+
+msgid "CPU Time"
+msgstr "CPU-aika"
+
+msgid "I/O Scheduler"
+msgstr "I/O-ajastin"
+
+msgid "Scheduler"
+msgstr "Ajastin"
+
+msgid "Node Name"
+msgstr "Solmun nimi"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "Paketit"
+
+msgid "Package"
+msgstr "Paketti"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "Nykyinen lämpö"
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "Albumin esittäjä"
+
+msgid "Codec"
+msgstr "Koodekki"
+
+msgid "Composer"
+msgstr "Säveltäjä"
+
+msgid "Disc"
+msgstr "Levy"
+
+msgid "Disc Number"
+msgstr "Levyn numero"
+
+msgid "Elapsed Time"
+msgstr "Kulunut aika"
+
+msgid "Format"
+msgstr "Muoto"
+
+msgid "Sample Rate"
+msgstr "Näytteenottotaajuus"
+
+msgid "Track Position"
+msgstr "Raidan sijainti"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "Puskurointi"
+
+msgid "Karaoke Mode"
+msgstr "Karaoketila"
+
+msgid "Live Stream"
+msgstr "Suora lähetys"
+
+msgid "Playlist"
+msgstr "Soittolista"
+
+msgid "Progress"
+msgstr "Edistyminen"
+
+msgid "Queue"
+msgstr "Jono"
+
+msgid "Recently Played"
+msgstr "Äskettäin soitetut"
+
+msgid "Repeat One"
+msgstr "Toista yksi"
+
+msgid "Repeat All"
+msgstr "Toista kaikki"
+
+msgid "Station"
+msgstr "Asema"
+
+msgid "Streaming"
+msgstr "Suoratoisto"
+
+msgid "Stream Quality"
+msgstr "Suoratoiston laatu"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "Seuraava raita"
+
+msgid "Previous Track"
+msgstr "Edellinen raita"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "Nykyinen rivi"
+
+msgid "Next Line"
+msgstr "Seuraava rivi"
+
+msgid "Previous Line"
+msgstr "Edellinen rivi"
+
+msgid "Synced"
+msgstr "Synkronoitu"
+
+msgid "Unsynced"
+msgstr "Synkronoimaton"
+
+msgid "Synced Lyrics"
+msgstr "Synkronoidut sanoitukset"
+
+msgid "No Synced Lyrics"
+msgstr "Ei synkronoituja sanoituksia"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "Virhe sanoituksissa"
+
+msgid "Lyrics Loading"
+msgstr "Ladataan sanoituksia"
+
+msgid "Lyrics Not Found"
+msgstr "Sanoituksia ei löytynyt"
+
+msgid "Lyrics Unavailable"
+msgstr "Sanoitukset eivät käytettävissä"
+
+msgid "No Cover"
+msgstr "Ei kantta"
+
+msgid "No Lyrics"
+msgstr "Ei sanoituksia"
+
+msgid "No Lyrics Available"
+msgstr "Ei sanoituksia saatavilla"
+
+msgid "Loading Cover"
+msgstr "Ladataan kantta"
+
+msgid "Loading Lyrics"
+msgstr "Ladataan sanoituksia"

@@ -6,7 +6,7 @@
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
 #}}}
 #{{{
-# ## 0_common — shared shell environment for all fetch scripts
+# ## common — shared shell environment for all fetch scripts
 #
 # Common bootstrap imported by the other fetch scripts. Defines the script,
 # project and tmp directories, an idempotent include guard, a DEBUG/log()

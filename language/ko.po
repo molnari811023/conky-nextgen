@@ -1,31 +1,28 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/ko.po — Korean translations
 #  Compiled to language/ko.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "대기질"
 
@@ -122,10 +119,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "도시"
 
@@ -147,10 +146,9 @@ msgstr "고도"
 msgid "population"
 msgstr "인구"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "유럽 AQI"
 
@@ -199,10 +197,9 @@ msgstr "돼지풀"
 msgid "pollen"
 msgstr "꽃가루"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "맑음"
 
@@ -287,10 +284,9 @@ msgstr "약한 우박을 동반한 뇌우"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "강한 우박을 동반한 뇌우"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS (SHORT)
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "북"
 
@@ -345,10 +341,9 @@ msgstr "변화"
 msgid "calm"
 msgstr "고요"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "삭"
 
@@ -373,20 +368,18 @@ msgstr "하현달"
 msgid "waning_crescent"
 msgstr "그믐달"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "태양"
 
 msgid "moon"
 msgstr "달"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "우주 날씨"
 
@@ -398,9 +391,6 @@ msgstr "태양풍"
 
 msgid "aurora_visibility"
 msgstr "오로라 가시성"
-
-msgid "xray_class"
-msgstr "X선 플레어 등급"
 
 msgid "geomagnetic_activity"
 msgstr "지자기 활동"
@@ -458,28 +448,6 @@ msgstr "높음"
 
 msgid "aurora_excellent"
 msgstr "훌륭함"
-
-msgid "g0_desc"
-msgstr "지자기 폭풍 활동 없음."
-
-msgid "g1_desc"
-msgstr "약한 지자기 폭풍."
-
-msgid "g2_desc"
-msgstr "중간 지자기 폭풍."
-
-msgid "g3_desc"
-msgstr "강한 지자기 폭풍."
-
-msgid "g4_desc"
-msgstr "심각한 지자기 폭풍."
-
-msgid "g5_desc"
-msgstr "극심한 지자기 폭풍."
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "바람"
@@ -547,10 +515,9 @@ msgstr "위치가 설정되지 않음"
 msgid "provider"
 msgstr "제공처"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "제목"
 
@@ -578,10 +545,9 @@ msgstr "없음"
 msgid "one_alert"
 msgstr "1개 경보"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "좋음"
 
@@ -681,10 +647,9 @@ msgstr "가능성 낮음"
 msgid "alert_certainty_unknown"
 msgstr "알 수 없음"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "모두"
 
@@ -694,35 +659,14 @@ msgstr "모든 디스크"
 msgid "All GPUs"
 msgstr "모든 GPU"
 
-msgid "All GPUs Total Memory"
-msgstr "모든 GPU 총 메모리"
-
-msgid "All GPUs Usage"
-msgstr "모든 GPU 사용량"
-
-msgid "All GPUs Used Memory"
-msgstr "모든 GPU 사용한 메모리"
-
 msgid "All Network Devices"
 msgstr "모든 네트워크 장치"
 
 msgid "Application Memory"
 msgstr "앱 메모리"
 
-msgid "Application Memory Percentage"
-msgstr "앱 메모리 백분율"
-
-msgid "Average CPU Frequency"
-msgstr "평균 CPU 주파수"
-
-msgid "Average CPU Temperature"
-msgstr "평균 CPU 온도"
-
 msgid "Buffer Memory"
 msgstr "버퍼 메모리"
-
-msgid "Buffer Memory Percentage"
-msgstr "버퍼 메모리 백분율"
 
 msgid "CPU %1"
 msgstr "CPU %1"
@@ -736,17 +680,8 @@ msgstr "CPU 압박"
 msgid "Cache Memory"
 msgstr "캐시 메모리"
 
-msgid "Cache Memory Percentage"
-msgstr "캐시 메모리 백분율"
-
 msgid "Charge"
 msgstr "충전량"
-
-msgid "Charge Percentage"
-msgstr "충전 비율"
-
-msgid "Charging  Rate"
-msgstr "충전 속도"
 
 msgid "Charging Rate"
 msgstr "충전 속도"
@@ -760,9 +695,6 @@ msgstr "현재 용량"
 msgid "Current Frequency"
 msgstr "현재 주파수"
 
-msgid "Current Temperature"
-msgstr "현재 온도"
-
 msgid "Design Capacity"
 msgstr "설계 용량"
 
@@ -772,29 +704,11 @@ msgstr "다운로드 속도"
 msgid "Free Physical Memory"
 msgstr "남은 물리적 메모리"
 
-msgid "Free Physical Memory Percentage"
-msgstr "남은 물리적 메모리 백분율"
-
 msgid "Free Space"
 msgstr "남은 공간"
 
 msgid "Free Swap Memory"
 msgstr "남은 스왑 메모리"
-
-msgid "Free Swap Memory Percentage"
-msgstr "남은 스왑 메모리 백분율"
-
-msgid "Frequency"
-msgstr "주파수"
-
-msgid "Full (1 minute average)"
-msgstr "전체(1분 평균)"
-
-msgid "Full (10 second average)"
-msgstr "전체(10초 평균)"
-
-msgid "Full (5 minute average)"
-msgstr "전체(5분 평균)"
 
 msgid "GPU"
 msgstr "GPU"
@@ -859,18 +773,6 @@ msgstr "커널 이름과 버전"
 msgid "Kernel Version"
 msgstr "커널 버전"
 
-msgid "Load Averages"
-msgstr "평균 부하"
-
-msgid "Load average (1 minute)"
-msgstr "평균 부하(1분)"
-
-msgid "Load average (15 minute)"
-msgstr "평균 부하(15분)"
-
-msgid "Load average (5 minutes)"
-msgstr "평균 부하(5분)"
-
 msgid "Maximum CPU Frequency"
 msgstr "최대 CPU 주파수"
 
@@ -916,9 +818,6 @@ msgstr "운영 체제 로고"
 msgid "Operating System Name"
 msgstr "운영 체제 이름"
 
-msgid "Operating System Name and Version"
-msgstr "운영 체제 이름과 버전"
-
 msgid "Operating System URL"
 msgstr "운영 체제 URL"
 
@@ -949,15 +848,6 @@ msgstr "읽기 전송률"
 msgid "Signal Strength"
 msgstr "신호 강도"
 
-msgid "Some (1 minute average)"
-msgstr "약간(1분 평균)"
-
-msgid "Some (10 second average)"
-msgstr "약간(10초 평균)"
-
-msgid "Some (5 minute average)"
-msgstr "약간(5분 평균)"
-
 msgid "Swap Memory"
 msgstr "스왑 메모리"
 
@@ -966,9 +856,6 @@ msgstr "시스템"
 
 msgid "System Usage"
 msgstr "시스템 사용량"
-
-msgid "Temperature"
-msgstr "온도"
 
 msgid "Total Downloaded"
 msgstr "총 다운로드"
@@ -1009,17 +896,11 @@ msgstr "사용량"
 msgid "Used Physical Memory"
 msgstr "사용한 물리적 메모리"
 
-msgid "Used Physical Memory Percentage"
-msgstr "사용한 물리적 메모리 백분율"
-
 msgid "Used Space"
 msgstr "사용한 공간"
 
 msgid "Used Swap Memory"
 msgstr "사용한 스왑 메모리"
-
-msgid "Used Swap Memory Percentage"
-msgstr "사용한 스왑 메모리 백분율"
 
 msgid "User Usage"
 msgstr "사용자 사용량"
@@ -1039,10 +920,9 @@ msgstr "창 시스템"
 msgid "Write Rate"
 msgstr "쓰기 전송률"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "받은 편지함"
 
@@ -1781,3 +1661,725 @@ msgstr "반응"
 msgid "React"
 msgstr "반응"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "프로세서"
+
+msgid "Processor Usage"
+msgstr "프로세서 사용률"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "CPU 사용률"
+
+msgid "Cores"
+msgstr "코어"
+
+msgid "Freq"
+msgstr "주파수"
+
+msgid "Max Freq"
+msgstr "최대 주파수"
+
+msgid "Min Freq"
+msgstr "최소 주파수"
+
+msgid "Governor"
+msgstr "거버너"
+
+msgid "CPU Governor"
+msgstr "CPU 거버너"
+
+msgid "Temp"
+msgstr "온도"
+
+msgid "CPU Temp"
+msgstr "CPU 온도"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "메모리"
+
+msgid "Mem Used"
+msgstr "사용된 메모리"
+
+msgid "Mem Free"
+msgstr "사용 가능한 메모리"
+
+msgid "Mem Total"
+msgstr "전체 메모리"
+
+msgid "Swap"
+msgstr "스왑"
+
+msgid "Swap Used"
+msgstr "사용된 스왑"
+
+msgid "Swap Free"
+msgstr "사용 가능한 스왑"
+
+msgid "Swap Total"
+msgstr "전체 스왑"
+
+msgid "Buffer"
+msgstr "버퍼"
+
+msgid "Cache"
+msgstr "캐시"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "디스크"
+
+msgid "Disk Usage"
+msgstr "디스크 사용량"
+
+msgid "Disk IO"
+msgstr "디스크 I/O"
+
+msgid "Disk IO Rate"
+msgstr "디스크 I/O 속도"
+
+msgid "File System"
+msgstr "파일 시스템"
+
+msgid "Filesystem"
+msgstr "파일 시스템"
+
+msgid "HDD Temp"
+msgstr "HDD 온도"
+
+msgid "Net"
+msgstr "네트워크"
+
+msgid "Network Usage"
+msgstr "네트워크 사용량"
+
+msgid "Down"
+msgstr "다운로드"
+
+msgid "Up"
+msgstr "업로드"
+
+msgid "Total Down"
+msgstr "총 다운로드"
+
+msgid "Total Up"
+msgstr "총 업로드"
+
+msgid "Gateway"
+msgstr "게이트웨이"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "무선"
+
+msgid "Access Point"
+msgstr "액세스 포인트"
+
+msgid "Wireless Signal"
+msgstr "무선 신호"
+
+msgid "Wireless Channel"
+msgstr "무선 채널"
+
+msgid "Wireless Bitrate"
+msgstr "무선 비트레이트"
+
+msgid "Wireless Mode"
+msgstr "무선 모드"
+
+msgid "Wireless ESSID"
+msgstr "무선 ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "비디오 카드"
+
+msgid "Graphics Card"
+msgstr "그래픽 카드"
+
+msgid "GPU Temp"
+msgstr "GPU 온도"
+
+msgid "GPU Freq"
+msgstr "GPU 주파수"
+
+msgid "Video Memory"
+msgstr "비디오 메모리"
+
+msgid "GPU Model"
+msgstr "GPU 모델"
+
+msgid "Model Name"
+msgstr "모델 이름"
+
+msgid "GPU Driver"
+msgstr "GPU 드라이버"
+
+msgid "GPU Architecture"
+msgstr "GPU 아키텍처"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "팬"
+
+msgid "Fan Speed"
+msgstr "팬 속도"
+
+msgid "Voltage"
+msgstr "전압"
+
+msgid "Entropy"
+msgstr "엔트로피"
+
+msgid "Entropy Pool Size"
+msgstr "엔트로피 풀 크기"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "배터리"
+
+msgid "Battery Status"
+msgstr "배터리 상태"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "배터리 시간"
+
+msgid "Time Remaining"
+msgstr "남은 시간"
+
+msgid "Power Draw"
+msgstr "전력 소모"
+
+msgid "AC Adapter"
+msgstr "AC 어댑터"
+
+msgid "AC Power"
+msgstr "AC 전원"
+
+msgid "Charging"
+msgstr "충전 중"
+
+msgid "Discharging"
+msgstr "방전 중"
+
+msgid "Not Charging"
+msgstr "충전 중 아님"
+
+msgid "Full"
+msgstr "완전 충전"
+
+msgid "Empty"
+msgstr "비어 있음"
+
+msgid "Remaining"
+msgstr "남음"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "머신"
+
+msgid "Machine Model"
+msgstr "머신 모델"
+
+msgid "Distribution"
+msgstr "배포판"
+
+msgid "Desktop"
+msgstr "데스크톱"
+
+msgid "Desktop Name"
+msgstr "데스크톱 이름"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "프로세스"
+
+msgid "Running Processes"
+msgstr "실행 중인 프로세스"
+
+msgid "Running Threads"
+msgstr "실행 중인 스레드"
+
+msgid "Shared Memory"
+msgstr "공유 메모리"
+
+msgid "Shared Memory Used"
+msgstr "사용된 공유 메모리"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "재생 중"
+
+msgid "Media Player"
+msgstr "미디어 플레이어"
+
+msgid "Music"
+msgstr "음악"
+
+msgid "Song"
+msgstr "노래"
+
+msgid "Artist"
+msgstr "아티스트"
+
+msgid "Album"
+msgstr "앨범"
+
+msgid "Title"
+msgstr "제목"
+
+msgid "Track"
+msgstr "트랙"
+
+msgid "Track Number"
+msgstr "트랙 번호"
+
+msgid "Genre"
+msgstr "장르"
+
+msgid "Bitrate"
+msgstr "비트레이트"
+
+msgid "Lyrics"
+msgstr "가사"
+
+msgid "Play"
+msgstr "재생"
+
+msgid "Pause"
+msgstr "일시정지"
+
+msgid "Stop"
+msgstr "정지"
+
+msgid "Volume"
+msgstr "음량"
+
+msgid "Shuffle"
+msgstr "셔플"
+
+msgid "Repeat"
+msgstr "반복"
+
+msgid "Playing"
+msgstr "재생 중"
+
+msgid "Paused"
+msgstr "일시정지됨"
+
+msgid "Stopped"
+msgstr "정지됨"
+
+msgid "Not Playing"
+msgstr "재생 중 아님"
+
+msgid "Position"
+msgstr "위치"
+
+msgid "Duration"
+msgstr "재생 시간"
+
+msgid "Elapsed"
+msgstr "경과 시간"
+
+msgid "Remaining Time"
+msgstr "남은 시간"
+
+msgid "Total Time"
+msgstr "총 시간"
+
+msgid "Stream"
+msgstr "스트림"
+
+msgid "Radio"
+msgstr "라디오"
+
+msgid "Podcast"
+msgstr "팟캐스트"
+
+msgid "Episode"
+msgstr "에피소드"
+
+msgid "Artwork"
+msgstr "앨범 아트"
+
+msgid "Cover"
+msgstr "커버"
+
+msgid "Track List"
+msgstr "트랙 목록"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "활성 메모리"
+
+msgid "Inactive Memory"
+msgstr "비활성 메모리"
+
+msgid "Dirty Memory"
+msgstr "더티 메모리"
+
+msgid "Wired Memory"
+msgstr "와이어드 메모리"
+
+msgid "Available Memory"
+msgstr "가용 메모리"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "인터페이스"
+
+msgid "Interface Name"
+msgstr "인터페이스 이름"
+
+msgid "Network Interface"
+msgstr "네트워크 인터페이스"
+
+msgid "Local IP"
+msgstr "로컬 IP"
+
+msgid "Local IPv4"
+msgstr "로컬 IPv4"
+
+msgid "Local IPv6"
+msgstr "로컬 IPv6"
+
+msgid "Ethernet"
+msgstr "이더넷"
+
+msgid "MAC Address"
+msgstr "MAC 주소"
+
+msgid "Network Status"
+msgstr "네트워크 상태"
+
+msgid "Online"
+msgstr "온라인"
+
+msgid "Unavailable"
+msgstr "사용할 수 없음"
+
+msgid "Unknown"
+msgstr "알 수 없음"
+
+msgid "Download Speed"
+msgstr "다운로드 속도"
+
+msgid "Upload Speed"
+msgstr "업로드 속도"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "케이블"
+
+msgid "Line Voltage"
+msgstr "라인 전압"
+
+msgid "Last Transfer"
+msgstr "마지막 전송"
+
+msgid "Time Left"
+msgstr "남은 시간"
+
+msgid "UPS Mode"
+msgstr "UPS 모드"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "밝기"
+
+msgid "Backlight"
+msgstr "백라이트"
+
+msgid "Laptop Mode"
+msgstr "노트북 모드"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "사용자"
+
+msgid "CPU Time"
+msgstr "CPU 시간"
+
+msgid "I/O Scheduler"
+msgstr "I/O 스케줄러"
+
+msgid "Scheduler"
+msgstr "스케줄러"
+
+msgid "Node Name"
+msgstr "노드 이름"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "패키지"
+
+msgid "Package"
+msgstr "패키지"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "현재 온도"
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "앨범 아티스트"
+
+msgid "Codec"
+msgstr "코덱"
+
+msgid "Composer"
+msgstr "작곡가"
+
+msgid "Disc"
+msgstr "디스크"
+
+msgid "Disc Number"
+msgstr "디스크 번호"
+
+msgid "Elapsed Time"
+msgstr "경과 시간"
+
+msgid "Format"
+msgstr "형식"
+
+msgid "Sample Rate"
+msgstr "샘플 레이트"
+
+msgid "Track Position"
+msgstr "트랙 위치"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "버퍼링"
+
+msgid "Karaoke Mode"
+msgstr "노래방 모드"
+
+msgid "Live Stream"
+msgstr "라이브 스트림"
+
+msgid "Playlist"
+msgstr "재생 목록"
+
+msgid "Progress"
+msgstr "진행 상황"
+
+msgid "Queue"
+msgstr "대기열"
+
+msgid "Recently Played"
+msgstr "최근 재생 목록"
+
+msgid "Repeat One"
+msgstr "한 곡 반복"
+
+msgid "Repeat All"
+msgstr "전체 반복"
+
+msgid "Station"
+msgstr "방송국"
+
+msgid "Streaming"
+msgstr "스트리밍"
+
+msgid "Stream Quality"
+msgstr "스트림 품질"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "다음 트랙"
+
+msgid "Previous Track"
+msgstr "이전 트랙"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "현재 줄"
+
+msgid "Next Line"
+msgstr "다음 줄"
+
+msgid "Previous Line"
+msgstr "이전 줄"
+
+msgid "Synced"
+msgstr "동기화됨"
+
+msgid "Unsynced"
+msgstr "동기화 안 됨"
+
+msgid "Synced Lyrics"
+msgstr "동기화된 가사"
+
+msgid "No Synced Lyrics"
+msgstr "동기화된 가사 없음"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "가사 오류"
+
+msgid "Lyrics Loading"
+msgstr "가사 불러오는 중"
+
+msgid "Lyrics Not Found"
+msgstr "가사를 찾을 수 없음"
+
+msgid "Lyrics Unavailable"
+msgstr "가사를 사용할 수 없음"
+
+msgid "No Cover"
+msgstr "커버 없음"
+
+msgid "No Lyrics"
+msgstr "가사 없음"
+
+msgid "No Lyrics Available"
+msgstr "사용 가능한 가사 없음"
+
+msgid "Loading Cover"
+msgstr "커버 불러오는 중"
+
+msgid "Loading Lyrics"
+msgstr "가사 불러오는 중"

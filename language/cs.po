@@ -1,15 +1,13 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/cs.po — Czech translations
 #  Compiled to language/cs.mo (msgfmt)
-#}}}
-
+# }}}
 # Conky Weather Module – Czech Translation
 # Copyright (C) 2026
 # This file is distributed under the same license as the Conky Weather Module.
@@ -23,18 +21,17 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "kvalita ovzduší"
 
@@ -131,10 +128,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "město"
 
@@ -156,10 +155,9 @@ msgstr "nadmořská výška"
 msgid "population"
 msgstr "obyvatelstvo"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "evropský AQI"
 
@@ -208,10 +206,9 @@ msgstr "ambrózie"
 msgid "pollen"
 msgstr "pyl"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "jasno"
 
@@ -296,10 +293,9 @@ msgstr "bouřka se slabými kroupami"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "bouřka se silnými kroupami"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "sever"
 
@@ -354,10 +350,9 @@ msgstr "proměnlivý"
 msgid "calm"
 msgstr "bezvětří"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "nov"
 
@@ -382,20 +377,18 @@ msgstr "poslední čtvrť"
 msgid "waning_crescent"
 msgstr "ubývající srpek"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "slunce"
 
 msgid "moon"
 msgstr "měsíc"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "kosmické počasí"
 
@@ -407,9 +400,6 @@ msgstr "sluneční vítr"
 
 msgid "aurora_visibility"
 msgstr "viditelnost polární záře"
-
-msgid "xray_class"
-msgstr "třída rentgenového záření"
 
 msgid "geomagnetic_activity"
 msgstr "geomagnetická aktivita"
@@ -467,28 +457,6 @@ msgstr "vysoká"
 
 msgid "aurora_excellent"
 msgstr "výborná"
-
-msgid "g0_desc"
-msgstr "G0 – žádná geomagnetická bouřka"
-
-msgid "g1_desc"
-msgstr "G1 – mírná geomagnetická bouřka"
-
-msgid "g2_desc"
-msgstr "G2 – střední geomagnetická bouřka"
-
-msgid "g3_desc"
-msgstr "G3 – silná geomagnetická bouřka"
-
-msgid "g4_desc"
-msgstr "G4 – velmi silná geomagnetická bouřka"
-
-msgid "g5_desc"
-msgstr "G5 – extrémní geomagnetická bouřka"
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "vítr"
@@ -556,10 +524,9 @@ msgstr "žádná lokace"
 msgid "provider"
 msgstr "poskytovatel"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "titulek výstrahy"
 
@@ -587,10 +554,9 @@ msgstr "žádné výstrahy"
 msgid "one_alert"
 msgstr "jedna výstraha"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "dobrá"
 
@@ -690,10 +656,9 @@ msgstr "nepravděpodobné"
 msgid "alert_certainty_unknown"
 msgstr "neznámé"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "Vše"
 
@@ -703,26 +668,11 @@ msgstr "Všechny disky"
 msgid "All GPUs"
 msgstr "Všechna GPU"
 
-msgid "All GPUs Total Memory"
-msgstr "Celková paměť všech GPU"
-
-msgid "All GPUs Usage"
-msgstr "Využití všech GPU"
-
-msgid "All GPUs Used Memory"
-msgstr "Použitá paměť všech grafických karet"
-
 msgid "All Network Devices"
 msgstr "Všechna síťová zařízení"
 
 msgid "Application Memory"
 msgstr "Aplikační paměť"
-
-msgid "Average CPU Frequency"
-msgstr "Průměrná frekvence CPU"
-
-msgid "Average CPU Temperature"
-msgstr "Průměrná teplota CPU"
 
 msgid "Buffer Memory"
 msgstr "Paměť v zásobníku"
@@ -733,17 +683,14 @@ msgstr "CPU %1"
 msgid "CPU %1 Core %2"
 msgstr "CPU %1 Jádro %2"
 
+msgid "CPU Pressure"
+msgstr ""
+
 msgid "Cache Memory"
 msgstr "Mezipaměť"
 
 msgid "Charge"
 msgstr "Nabití"
-
-msgid "Charge Percentage"
-msgstr "Procento nabití"
-
-msgid "Charging  Rate"
-msgstr "Rychlost nabíjení"
 
 msgid "Charging Rate"
 msgstr "Rychlost nabíjení"
@@ -757,9 +704,6 @@ msgstr "Současná kapacita"
 msgid "Current Frequency"
 msgstr "Současná frekvence"
 
-msgid "Current Temperature"
-msgstr "Současná teplota"
-
 msgid "Design Capacity"
 msgstr "Navržená kapacita "
 
@@ -769,20 +713,11 @@ msgstr "Rychlost stahování"
 msgid "Free Physical Memory"
 msgstr "Volná fyzická paměť"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Podíl volné fyzické paměti"
-
 msgid "Free Space"
 msgstr "Volné místo"
 
 msgid "Free Swap Memory"
 msgstr "Volný odkládací prostor"
-
-msgid "Free Swap Memory Percentage"
-msgstr "Podíl volného odkládacího prostoru"
-
-msgid "Frequency"
-msgstr "Frekvence"
 
 msgid "GPU"
 msgstr "GPU "
@@ -792,6 +727,9 @@ msgstr "Zdraví"
 
 msgid "Hostname"
 msgstr "Název hostitelského počítače"
+
+msgid "IO Pressure"
+msgstr ""
 
 msgid "IPv4 Address"
 msgstr "Adresa IPv4"
@@ -805,6 +743,9 @@ msgstr "Brána IPv4"
 msgid "IPv4 Subnet Mask"
 msgstr "Maska podsítě IPv4"
 
+msgid "IPv4 with Prefix Length"
+msgstr ""
+
 msgid "IPv6 Address"
 msgstr "Adresa IPv6"
 
@@ -816,6 +757,9 @@ msgstr "Brána IPv6"
 
 msgid "IPv6 Subnet Mask"
 msgstr "Maska podsítě IPv6"
+
+msgid "IPv6 with Prefix Length"
+msgstr ""
 
 msgid "KDE Frameworks Version"
 msgstr "Verze KDE Frameworks"
@@ -838,18 +782,6 @@ msgstr "Název a verze jádra"
 msgid "Kernel Version"
 msgstr "Verze jádra"
 
-msgid "Load Averages"
-msgstr "Průměrné zatížení"
-
-msgid "Load average (1 minute)"
-msgstr "Průměrné zatížení (1 min)"
-
-msgid "Load average (15 minute)"
-msgstr "Průměrné zatížení (15 min)"
-
-msgid "Load average (5 minutes)"
-msgstr "Průměrné zatížení (5 min)"
-
 msgid "Maximum CPU Frequency"
 msgstr "Maximální frekvence CPU"
 
@@ -861,6 +793,12 @@ msgstr "Paměť"
 
 msgid "Memory Frequency"
 msgstr "Frekvence paměti"
+
+msgid "Memory Pressure"
+msgstr ""
+
+msgid "Minimum CPU Frequency"
+msgstr ""
 
 msgid "Minimum CPU Temperature"
 msgstr "Minimální teplota CPU"
@@ -888,9 +826,6 @@ msgstr "Logo operačního systému"
 
 msgid "Operating System Name"
 msgstr "Název operačního s&ystému"
-
-msgid "Operating System Name and Version"
-msgstr "Název a verze operačního systému"
 
 msgid "Operating System URL"
 msgstr "URL operačního systému"
@@ -931,14 +866,17 @@ msgstr "Systém"
 msgid "System Usage"
 msgstr "Využití systému"
 
-msgid "Temperature"
-msgstr "Teplota"
-
 msgid "Total Downloaded"
 msgstr "Celkem staženo"
 
+msgid "Total Full Stall Time"
+msgstr ""
+
 msgid "Total Physical Memory"
 msgstr "Celková fyzická paměť"
+
+msgid "Total Some Stall Time"
+msgstr ""
 
 msgid "Total Space"
 msgstr "Celkové místo"
@@ -967,17 +905,11 @@ msgstr "Využití"
 msgid "Used Physical Memory"
 msgstr "Použitá fyzická paměť"
 
-msgid "Used Physical Memory Percentage"
-msgstr "Podíl využití fyzické paměti"
-
 msgid "Used Space"
 msgstr "Použité místo"
 
 msgid "Used Swap Memory"
 msgstr "Využitý odkládací prostor"
-
-msgid "Used Swap Memory Percentage"
-msgstr "Podíl  využitého odkládacího prostoru"
 
 msgid "User Usage"
 msgstr "Uživatelské využití"
@@ -988,16 +920,18 @@ msgstr "Použitá paměť video"
 msgid "Video Usage"
 msgstr "Použití videa"
 
+msgid "Wait Usage"
+msgstr ""
+
 msgid "Window System"
 msgstr "Systém Oken"
 
 msgid "Write Rate"
 msgstr "Rychlost zápisu"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "Přijatá"
 
@@ -1736,3 +1670,725 @@ msgstr "Reakce"
 msgid "React"
 msgstr "Reagovat"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "Procesor"
+
+msgid "Processor Usage"
+msgstr "Využití procesoru"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "Využití CPU"
+
+msgid "Cores"
+msgstr "Jádra"
+
+msgid "Freq"
+msgstr "Frekv."
+
+msgid "Max Freq"
+msgstr "Max. frekv."
+
+msgid "Min Freq"
+msgstr "Min. frekv."
+
+msgid "Governor"
+msgstr "Governor"
+
+msgid "CPU Governor"
+msgstr "CPU Governor"
+
+msgid "Temp"
+msgstr "Teplota"
+
+msgid "CPU Temp"
+msgstr "Teplota CPU"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "Paměť"
+
+msgid "Mem Used"
+msgstr "Použitá paměť"
+
+msgid "Mem Free"
+msgstr "Volná paměť"
+
+msgid "Mem Total"
+msgstr "Celková paměť"
+
+msgid "Swap"
+msgstr "Odkládací prostor"
+
+msgid "Swap Used"
+msgstr "Použitý odkládací prostor"
+
+msgid "Swap Free"
+msgstr "Volný odkládací prostor"
+
+msgid "Swap Total"
+msgstr "Celkový odkládací prostor"
+
+msgid "Buffer"
+msgstr "Vyrovnávací paměť"
+
+msgid "Cache"
+msgstr "Mezipaměť"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "Disk"
+
+msgid "Disk Usage"
+msgstr "Využití disku"
+
+msgid "Disk IO"
+msgstr "Vstup/výstup disku"
+
+msgid "Disk IO Rate"
+msgstr "Rychlost vstupu/výstupu disku"
+
+msgid "File System"
+msgstr "Souborový systém"
+
+msgid "Filesystem"
+msgstr "Souborový systém"
+
+msgid "HDD Temp"
+msgstr "Teplota disku"
+
+msgid "Net"
+msgstr "Síť"
+
+msgid "Network Usage"
+msgstr "Využití sítě"
+
+msgid "Down"
+msgstr "Stahování"
+
+msgid "Up"
+msgstr "Nahrávání"
+
+msgid "Total Down"
+msgstr "Celkem staženo"
+
+msgid "Total Up"
+msgstr "Celkem nahráno"
+
+msgid "Gateway"
+msgstr "Brána"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Bezdrátové"
+
+msgid "Access Point"
+msgstr "Přístupový bod"
+
+msgid "Wireless Signal"
+msgstr "Bezdrátový signál"
+
+msgid "Wireless Channel"
+msgstr "Bezdrátový kanál"
+
+msgid "Wireless Bitrate"
+msgstr "Rychlost bezdrátového přenosu"
+
+msgid "Wireless Mode"
+msgstr "Bezdrátový režim"
+
+msgid "Wireless ESSID"
+msgstr "Bezdrátová ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "Grafická karta"
+
+msgid "Graphics Card"
+msgstr "Grafická karta"
+
+msgid "GPU Temp"
+msgstr "Teplota GPU"
+
+msgid "GPU Freq"
+msgstr "Frekvence GPU"
+
+msgid "Video Memory"
+msgstr "Videopaměť"
+
+msgid "GPU Model"
+msgstr "Model GPU"
+
+msgid "Model Name"
+msgstr "Název modelu"
+
+msgid "GPU Driver"
+msgstr "Ovladač GPU"
+
+msgid "GPU Architecture"
+msgstr "Architektura GPU"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "Ventilátor"
+
+msgid "Fan Speed"
+msgstr "Rychlost ventilátoru"
+
+msgid "Voltage"
+msgstr "Napětí"
+
+msgid "Entropy"
+msgstr "Entropie"
+
+msgid "Entropy Pool Size"
+msgstr "Velikost fondu entropie"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "Baterie"
+
+msgid "Battery Status"
+msgstr "Stav baterie"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "Čas baterie"
+
+msgid "Time Remaining"
+msgstr "Zbývající čas"
+
+msgid "Power Draw"
+msgstr "Odběr energie"
+
+msgid "AC Adapter"
+msgstr "Adaptér napájení"
+
+msgid "AC Power"
+msgstr "Napájení ze sítě"
+
+msgid "Charging"
+msgstr "Nabíjení"
+
+msgid "Discharging"
+msgstr "Vybíjení"
+
+msgid "Not Charging"
+msgstr "Nenabíjí se"
+
+msgid "Full"
+msgstr "Plná"
+
+msgid "Empty"
+msgstr "Prázdná"
+
+msgid "Remaining"
+msgstr "Zbývá"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "Počítač"
+
+msgid "Machine Model"
+msgstr "Model počítače"
+
+msgid "Distribution"
+msgstr "Distribuce"
+
+msgid "Desktop"
+msgstr "Pracovní plocha"
+
+msgid "Desktop Name"
+msgstr "Název pracovní plochy"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "Procesy"
+
+msgid "Running Processes"
+msgstr "Spuštěné procesy"
+
+msgid "Running Threads"
+msgstr "Spuštěná vlákna"
+
+msgid "Shared Memory"
+msgstr "Sdílená paměť"
+
+msgid "Shared Memory Used"
+msgstr "Využitá sdílená paměť"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "Právě se přehrává"
+
+msgid "Media Player"
+msgstr "Přehrávač médií"
+
+msgid "Music"
+msgstr "Hudba"
+
+msgid "Song"
+msgstr "Píseň"
+
+msgid "Artist"
+msgstr "Umělec"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Title"
+msgstr "Název"
+
+msgid "Track"
+msgstr "Stopa"
+
+msgid "Track Number"
+msgstr "Číslo stopy"
+
+msgid "Genre"
+msgstr "Žánr"
+
+msgid "Bitrate"
+msgstr "Bitrate"
+
+msgid "Lyrics"
+msgstr "Text písně"
+
+msgid "Play"
+msgstr "Přehrát"
+
+msgid "Pause"
+msgstr "Pozastavit"
+
+msgid "Stop"
+msgstr "Zastavit"
+
+msgid "Volume"
+msgstr "Hlasitost"
+
+msgid "Shuffle"
+msgstr "Náhodné přehrávání"
+
+msgid "Repeat"
+msgstr "Opakování"
+
+msgid "Playing"
+msgstr "Přehrává se"
+
+msgid "Paused"
+msgstr "Pozastaveno"
+
+msgid "Stopped"
+msgstr "Zastaveno"
+
+msgid "Not Playing"
+msgstr "Nic se nepřehrává"
+
+msgid "Position"
+msgstr "Pozice"
+
+msgid "Duration"
+msgstr "Délka"
+
+msgid "Elapsed"
+msgstr "Uplynulý čas"
+
+msgid "Remaining Time"
+msgstr "Zbývající čas"
+
+msgid "Total Time"
+msgstr "Celkový čas"
+
+msgid "Stream"
+msgstr "Stream"
+
+msgid "Radio"
+msgstr "Rádio"
+
+msgid "Podcast"
+msgstr "Podcast"
+
+msgid "Episode"
+msgstr "Epizoda"
+
+msgid "Artwork"
+msgstr "Obal"
+
+msgid "Cover"
+msgstr "Obal"
+
+msgid "Track List"
+msgstr "Seznam skladeb"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "Aktivní paměť"
+
+msgid "Inactive Memory"
+msgstr "Neaktivní paměť"
+
+msgid "Dirty Memory"
+msgstr "Špinavá paměť"
+
+msgid "Wired Memory"
+msgstr "Uzamčená paměť"
+
+msgid "Available Memory"
+msgstr "Dostupná paměť"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "Rozhraní"
+
+msgid "Interface Name"
+msgstr "Název rozhraní"
+
+msgid "Network Interface"
+msgstr "Síťové rozhraní"
+
+msgid "Local IP"
+msgstr "Lokální IP"
+
+msgid "Local IPv4"
+msgstr "Lokální IPv4"
+
+msgid "Local IPv6"
+msgstr "Lokální IPv6"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "MAC adresa"
+
+msgid "Network Status"
+msgstr "Stav sítě"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Unavailable"
+msgstr "Nedostupné"
+
+msgid "Unknown"
+msgstr "Neznámé"
+
+msgid "Download Speed"
+msgstr "Rychlost stahování"
+
+msgid "Upload Speed"
+msgstr "Rychlost nahrávání"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "Kabel"
+
+msgid "Line Voltage"
+msgstr "Síťové napětí"
+
+msgid "Last Transfer"
+msgstr "Poslední přenos"
+
+msgid "Time Left"
+msgstr "Zbývá času"
+
+msgid "UPS Mode"
+msgstr "Režim UPS"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "Jas"
+
+msgid "Backlight"
+msgstr "Podsvícení"
+
+msgid "Laptop Mode"
+msgstr "Režim notebooku"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Uživatel"
+
+msgid "CPU Time"
+msgstr "Čas CPU"
+
+msgid "I/O Scheduler"
+msgstr "Plánovač I/O"
+
+msgid "Scheduler"
+msgstr "Plánovač"
+
+msgid "Node Name"
+msgstr "Název uzlu"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "Balíčky"
+
+msgid "Package"
+msgstr "Balíček"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "Aktuální teplota"
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "Interpret alba"
+
+msgid "Codec"
+msgstr "Kodek"
+
+msgid "Composer"
+msgstr "Skladatel"
+
+msgid "Disc"
+msgstr "Disk"
+
+msgid "Disc Number"
+msgstr "Číslo disku"
+
+msgid "Elapsed Time"
+msgstr "Uplynulý čas"
+
+msgid "Format"
+msgstr "Formát"
+
+msgid "Sample Rate"
+msgstr "Vzorkovací frekvence"
+
+msgid "Track Position"
+msgstr "Pozice stopy"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "Vyrovnávání"
+
+msgid "Karaoke Mode"
+msgstr "Karaoke režim"
+
+msgid "Live Stream"
+msgstr "Živý stream"
+
+msgid "Playlist"
+msgstr "Seznam skladeb"
+
+msgid "Progress"
+msgstr "Průběh"
+
+msgid "Queue"
+msgstr "Fronta"
+
+msgid "Recently Played"
+msgstr "Nedávno přehráno"
+
+msgid "Repeat One"
+msgstr "Opakovat jednu"
+
+msgid "Repeat All"
+msgstr "Opakovat vše"
+
+msgid "Station"
+msgstr "Stanice"
+
+msgid "Streaming"
+msgstr "Streamování"
+
+msgid "Stream Quality"
+msgstr "Kvalita streamu"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "Další stopa"
+
+msgid "Previous Track"
+msgstr "Předchozí stopa"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "Aktuální řádek"
+
+msgid "Next Line"
+msgstr "Další řádek"
+
+msgid "Previous Line"
+msgstr "Předchozí řádek"
+
+msgid "Synced"
+msgstr "Synchronizováno"
+
+msgid "Unsynced"
+msgstr "Nesynchronizováno"
+
+msgid "Synced Lyrics"
+msgstr "Synchronizovaný text"
+
+msgid "No Synced Lyrics"
+msgstr "Žádný synchronizovaný text"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "Chyba textu písně"
+
+msgid "Lyrics Loading"
+msgstr "Načítání textu"
+
+msgid "Lyrics Not Found"
+msgstr "Text písně nenalezen"
+
+msgid "Lyrics Unavailable"
+msgstr "Text písně nedostupný"
+
+msgid "No Cover"
+msgstr "Žádný obal"
+
+msgid "No Lyrics"
+msgstr "Žádný text písně"
+
+msgid "No Lyrics Available"
+msgstr "Žádný text není k dispozici"
+
+msgid "Loading Cover"
+msgstr "Načítání obalu"
+
+msgid "Loading Lyrics"
+msgstr "Načítání textu písně"

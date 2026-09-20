@@ -1,31 +1,28 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/ro.po — Romanian translations
 #  Compiled to language/ro.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "Calitatea aerului"
 
@@ -122,10 +119,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "Oraș"
 
@@ -147,10 +146,9 @@ msgstr "Altitudine"
 msgid "population"
 msgstr "Populație"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "AQI European"
 
@@ -199,10 +197,9 @@ msgstr "Ambrosia"
 msgid "pollen"
 msgstr "Polen"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "Cer senin"
 
@@ -287,10 +284,9 @@ msgstr "Furtună cu grindină mică"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "Furtună cu grindină mare"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "N"
 
@@ -345,10 +341,9 @@ msgstr "VAR"
 msgid "calm"
 msgstr "CALM"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "Lună nouă"
 
@@ -373,20 +368,18 @@ msgstr "Ultimul pătrar"
 msgid "waning_crescent"
 msgstr "Semilună descrescătoare"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "Soare"
 
 msgid "moon"
 msgstr "Lună"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "Vreme spațială"
 
@@ -398,9 +391,6 @@ msgstr "Vânt solar"
 
 msgid "aurora_visibility"
 msgstr "Vizibilitate auroră"
-
-msgid "xray_class"
-msgstr "Clasa erupției cu raze X"
 
 msgid "geomagnetic_activity"
 msgstr "Activitate geomagnetică"
@@ -458,28 +448,6 @@ msgstr "Ridicată"
 
 msgid "aurora_excellent"
 msgstr "Excelentă"
-
-msgid "g0_desc"
-msgstr "Nicio activitate de furtună geomagnetică."
-
-msgid "g1_desc"
-msgstr "Furtună geomagnetică minoră."
-
-msgid "g2_desc"
-msgstr "Furtună geomagnetică moderată."
-
-msgid "g3_desc"
-msgstr "Furtună geomagnetică puternică."
-
-msgid "g4_desc"
-msgstr "Furtună geomagnetică severă."
-
-msgid "g5_desc"
-msgstr "Furtună geomagnetică extremă."
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "Vânt"
@@ -547,10 +515,9 @@ msgstr "Locație nesetată"
 msgid "provider"
 msgstr "Furnizor"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "Titlu"
 
@@ -578,10 +545,9 @@ msgstr "Nicio alertă"
 msgid "one_alert"
 msgstr "1 Alertă"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "Bun"
 
@@ -681,10 +647,9 @@ msgstr "Puțin probabil"
 msgid "alert_certainty_unknown"
 msgstr "Necunoscut"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "Toate"
 
@@ -694,35 +659,14 @@ msgstr "Toate discurile"
 msgid "All GPUs"
 msgstr "Toate plăcile grafice"
 
-msgid "All GPUs Total Memory"
-msgstr "Memoria totală a tuturor plăcilor grafice"
-
-msgid "All GPUs Usage"
-msgstr "Utilizarea tuturor plăcilor grafice"
-
-msgid "All GPUs Used Memory"
-msgstr "Memoria folosită a tuturor plăcilor grafice"
-
 msgid "All Network Devices"
 msgstr "Toate dispozitivele de rețea"
 
 msgid "Application Memory"
 msgstr "Memorie aplicații"
 
-msgid "Application Memory Percentage"
-msgstr "Procentaj memorie aplicații"
-
-msgid "Average CPU Frequency"
-msgstr "Frecvența medie a procesorului"
-
-msgid "Average CPU Temperature"
-msgstr "Temperatura medie a procesorului"
-
 msgid "Buffer Memory"
 msgstr "Memorie-tampon"
-
-msgid "Buffer Memory Percentage"
-msgstr "Procentaj memorie-tampon"
 
 msgid "CPU %1"
 msgstr "Procesor %1"
@@ -736,17 +680,8 @@ msgstr "Presiunea procesorului"
 msgid "Cache Memory"
 msgstr "Memorie cache"
 
-msgid "Cache Memory Percentage"
-msgstr "Procentaj memorie cache"
-
 msgid "Charge"
 msgstr "Încărcare"
-
-msgid "Charge Percentage"
-msgstr "Procentaj încărcare"
-
-msgid "Charging  Rate"
-msgstr "Rată de încărcare"
 
 msgid "Charging Rate"
 msgstr "Rată de încărcare"
@@ -760,9 +695,6 @@ msgstr "Capacitate actuală"
 msgid "Current Frequency"
 msgstr "Frecvență actuală"
 
-msgid "Current Temperature"
-msgstr "Temperatură actuală"
-
 msgid "Design Capacity"
 msgstr "Capacitate proiectată"
 
@@ -772,20 +704,11 @@ msgstr "Rată descărcare"
 msgid "Free Physical Memory"
 msgstr "Memorie fizică liberă"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Procentaj memorie fizică liberă"
-
 msgid "Free Space"
 msgstr "Spațiu liber"
 
 msgid "Free Swap Memory"
 msgstr "Memorie swap liberă"
-
-msgid "Free Swap Memory Percentage"
-msgstr "Procentaj memorie swap liberă"
-
-msgid "Frequency"
-msgstr "Frecvență"
 
 msgid "GPU"
 msgstr "GPU"
@@ -795,6 +718,9 @@ msgstr "Sănătate"
 
 msgid "Hostname"
 msgstr "Nume gazdă"
+
+msgid "IO Pressure"
+msgstr ""
 
 msgid "IPv4 Address"
 msgstr "Adresă IPv4"
@@ -847,18 +773,6 @@ msgstr "Denumire și versiune nucleu"
 msgid "Kernel Version"
 msgstr "Versiune nucleu"
 
-msgid "Load Averages"
-msgstr "Încărcări medii"
-
-msgid "Load average (1 minute)"
-msgstr "Încărcare medie (1 min)"
-
-msgid "Load average (15 minute)"
-msgstr "Încărcare medie (15 min)"
-
-msgid "Load average (5 minutes)"
-msgstr "Încărcare medie (5 min)"
-
 msgid "Maximum CPU Frequency"
 msgstr "Frecvența maximă a procesorului"
 
@@ -904,9 +818,6 @@ msgstr "Logotip sistem de operare"
 msgid "Operating System Name"
 msgstr "Denumire sistem de operare"
 
-msgid "Operating System Name and Version"
-msgstr "Denumire și versiune sistem de operare"
-
 msgid "Operating System URL"
 msgstr "URL sistem de operare"
 
@@ -946,14 +857,17 @@ msgstr "Sistem"
 msgid "System Usage"
 msgstr "Utilizare sistem"
 
-msgid "Temperature"
-msgstr "Temperatură"
-
 msgid "Total Downloaded"
 msgstr "Total descărcat"
 
+msgid "Total Full Stall Time"
+msgstr ""
+
 msgid "Total Physical Memory"
 msgstr "Memorie fizică totală"
+
+msgid "Total Some Stall Time"
+msgstr ""
 
 msgid "Total Space"
 msgstr "Spațiu total"
@@ -982,17 +896,11 @@ msgstr "Utilizare"
 msgid "Used Physical Memory"
 msgstr "Memorie fizică folosită"
 
-msgid "Used Physical Memory Percentage"
-msgstr "Procentaj memorie fizică folosită"
-
 msgid "Used Space"
 msgstr "Spațiu folosit"
 
 msgid "Used Swap Memory"
 msgstr "Memorie swap folosită"
-
-msgid "Used Swap Memory Percentage"
-msgstr "Procentaj memorie cache folosită"
 
 msgid "User Usage"
 msgstr "Utilizare utilizator"
@@ -1012,10 +920,9 @@ msgstr "Sistem de ferestre"
 msgid "Write Rate"
 msgstr "Rată de scriere"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "Inbox"
 
@@ -1754,3 +1661,725 @@ msgstr "Reacție"
 msgid "React"
 msgstr "Reacționează"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "Procesor"
+
+msgid "Processor Usage"
+msgstr "Utilizare procesor"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "Utilizare CPU"
+
+msgid "Cores"
+msgstr "Nuclee"
+
+msgid "Freq"
+msgstr "Frecv."
+
+msgid "Max Freq"
+msgstr "Frecv. max."
+
+msgid "Min Freq"
+msgstr "Frecv. min."
+
+msgid "Governor"
+msgstr "Governor"
+
+msgid "CPU Governor"
+msgstr "Governor CPU"
+
+msgid "Temp"
+msgstr "Temp."
+
+msgid "CPU Temp"
+msgstr "Temp. CPU"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "Memorie"
+
+msgid "Mem Used"
+msgstr "Memorie utilizată"
+
+msgid "Mem Free"
+msgstr "Memorie liberă"
+
+msgid "Mem Total"
+msgstr "Memorie totală"
+
+msgid "Swap"
+msgstr "Swap"
+
+msgid "Swap Used"
+msgstr "Swap utilizat"
+
+msgid "Swap Free"
+msgstr "Swap liber"
+
+msgid "Swap Total"
+msgstr "Swap total"
+
+msgid "Buffer"
+msgstr "Buffer"
+
+msgid "Cache"
+msgstr "Cache"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "Disc"
+
+msgid "Disk Usage"
+msgstr "Utilizare disc"
+
+msgid "Disk IO"
+msgstr "I/O disc"
+
+msgid "Disk IO Rate"
+msgstr "Rată I/O disc"
+
+msgid "File System"
+msgstr "Sistem de fișiere"
+
+msgid "Filesystem"
+msgstr "Sistem de fișiere"
+
+msgid "HDD Temp"
+msgstr "Temp. HDD"
+
+msgid "Net"
+msgstr "Rețea"
+
+msgid "Network Usage"
+msgstr "Utilizare rețea"
+
+msgid "Down"
+msgstr "Descărcare"
+
+msgid "Up"
+msgstr "Încărcare"
+
+msgid "Total Down"
+msgstr "Total descărcat"
+
+msgid "Total Up"
+msgstr "Total încărcat"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Fără fir"
+
+msgid "Access Point"
+msgstr "Punct de acces"
+
+msgid "Wireless Signal"
+msgstr "Semnal fără fir"
+
+msgid "Wireless Channel"
+msgstr "Canal fără fir"
+
+msgid "Wireless Bitrate"
+msgstr "Rată biți fără fir"
+
+msgid "Wireless Mode"
+msgstr "Mod fără fir"
+
+msgid "Wireless ESSID"
+msgstr "ESSID fără fir"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "Placă video"
+
+msgid "Graphics Card"
+msgstr "Placă grafică"
+
+msgid "GPU Temp"
+msgstr "Temp. GPU"
+
+msgid "GPU Freq"
+msgstr "Frecv. GPU"
+
+msgid "Video Memory"
+msgstr "Memorie video"
+
+msgid "GPU Model"
+msgstr "Model GPU"
+
+msgid "Model Name"
+msgstr "Nume model"
+
+msgid "GPU Driver"
+msgstr "Driver GPU"
+
+msgid "GPU Architecture"
+msgstr "Arhitectură GPU"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "Ventilator"
+
+msgid "Fan Speed"
+msgstr "Viteză ventilator"
+
+msgid "Voltage"
+msgstr "Tensiune"
+
+msgid "Entropy"
+msgstr "Entropie"
+
+msgid "Entropy Pool Size"
+msgstr "Dimensiune pool entropie"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "Baterie"
+
+msgid "Battery Status"
+msgstr "Stare baterie"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "Timp baterie"
+
+msgid "Time Remaining"
+msgstr "Timp rămas"
+
+msgid "Power Draw"
+msgstr "Consum energie"
+
+msgid "AC Adapter"
+msgstr "Adaptor AC"
+
+msgid "AC Power"
+msgstr "Alimentare AC"
+
+msgid "Charging"
+msgstr "Se încarcă"
+
+msgid "Discharging"
+msgstr "Se descarcă"
+
+msgid "Not Charging"
+msgstr "Nu se încarcă"
+
+msgid "Full"
+msgstr "Plină"
+
+msgid "Empty"
+msgstr "Goală"
+
+msgid "Remaining"
+msgstr "Rămas"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "Mașină"
+
+msgid "Machine Model"
+msgstr "Model mașină"
+
+msgid "Distribution"
+msgstr "Distribuție"
+
+msgid "Desktop"
+msgstr "Desktop"
+
+msgid "Desktop Name"
+msgstr "Nume desktop"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "Procese"
+
+msgid "Running Processes"
+msgstr "Procese active"
+
+msgid "Running Threads"
+msgstr "Fire active"
+
+msgid "Shared Memory"
+msgstr "Memorie partajată"
+
+msgid "Shared Memory Used"
+msgstr "Memorie partajată utilizată"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "Redare în curs"
+
+msgid "Media Player"
+msgstr "Player media"
+
+msgid "Music"
+msgstr "Muzică"
+
+msgid "Song"
+msgstr "Cântec"
+
+msgid "Artist"
+msgstr "Artist"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Title"
+msgstr "Titlu"
+
+msgid "Track"
+msgstr "Piesă"
+
+msgid "Track Number"
+msgstr "Numărul piesei"
+
+msgid "Genre"
+msgstr "Gen"
+
+msgid "Bitrate"
+msgstr "Rata de biți"
+
+msgid "Lyrics"
+msgstr "Versuri"
+
+msgid "Play"
+msgstr "Redare"
+
+msgid "Pause"
+msgstr "Pauză"
+
+msgid "Stop"
+msgstr "Oprire"
+
+msgid "Volume"
+msgstr "Volum"
+
+msgid "Shuffle"
+msgstr "Amestecare"
+
+msgid "Repeat"
+msgstr "Repetare"
+
+msgid "Playing"
+msgstr "Se redă"
+
+msgid "Paused"
+msgstr "Pauză"
+
+msgid "Stopped"
+msgstr "Oprit"
+
+msgid "Not Playing"
+msgstr "Nu se redă"
+
+msgid "Position"
+msgstr "Poziție"
+
+msgid "Duration"
+msgstr "Durată"
+
+msgid "Elapsed"
+msgstr "Scurs"
+
+msgid "Remaining Time"
+msgstr "Timp rămas"
+
+msgid "Total Time"
+msgstr "Timp total"
+
+msgid "Stream"
+msgstr "Flux"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Podcast"
+msgstr "Podcast"
+
+msgid "Episode"
+msgstr "Episod"
+
+msgid "Artwork"
+msgstr "Copertă"
+
+msgid "Cover"
+msgstr "Copertă"
+
+msgid "Track List"
+msgstr "Lista pieselor"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "Memorie activă"
+
+msgid "Inactive Memory"
+msgstr "Memorie inactivă"
+
+msgid "Dirty Memory"
+msgstr "Memorie murdară"
+
+msgid "Wired Memory"
+msgstr "Memorie fixată"
+
+msgid "Available Memory"
+msgstr "Memorie disponibilă"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "Interfață"
+
+msgid "Interface Name"
+msgstr "Nume interfață"
+
+msgid "Network Interface"
+msgstr "Interfață de rețea"
+
+msgid "Local IP"
+msgstr "IP local"
+
+msgid "Local IPv4"
+msgstr "IPv4 local"
+
+msgid "Local IPv6"
+msgstr "IPv6 local"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "Adresă MAC"
+
+msgid "Network Status"
+msgstr "Stare rețea"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Unavailable"
+msgstr "Indisponibil"
+
+msgid "Unknown"
+msgstr "Necunoscut"
+
+msgid "Download Speed"
+msgstr "Viteză de descărcare"
+
+msgid "Upload Speed"
+msgstr "Viteză de încărcare"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "Cablu"
+
+msgid "Line Voltage"
+msgstr "Tensiune linie"
+
+msgid "Last Transfer"
+msgstr "Ultimul transfer"
+
+msgid "Time Left"
+msgstr "Timp rămas"
+
+msgid "UPS Mode"
+msgstr "Mod UPS"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "Luminozitate"
+
+msgid "Backlight"
+msgstr "Iluminare fundal"
+
+msgid "Laptop Mode"
+msgstr "Mod laptop"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Utilizator"
+
+msgid "CPU Time"
+msgstr "Timp CPU"
+
+msgid "I/O Scheduler"
+msgstr "Planificator I/O"
+
+msgid "Scheduler"
+msgstr "Planificator"
+
+msgid "Node Name"
+msgstr "Nume nod"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "Pachete"
+
+msgid "Package"
+msgstr "Pachet"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "Temp. curentă"
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "Artistul albumului"
+
+msgid "Codec"
+msgstr "Codec"
+
+msgid "Composer"
+msgstr "Compozitor"
+
+msgid "Disc"
+msgstr "Disc"
+
+msgid "Disc Number"
+msgstr "Numărul discului"
+
+msgid "Elapsed Time"
+msgstr "Timp scurs"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Sample Rate"
+msgstr "Frecvență de eșantionare"
+
+msgid "Track Position"
+msgstr "Poziția piesei"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "Încărcare în buffer"
+
+msgid "Karaoke Mode"
+msgstr "Mod karaoke"
+
+msgid "Live Stream"
+msgstr "Transmisie live"
+
+msgid "Playlist"
+msgstr "Listă de redare"
+
+msgid "Progress"
+msgstr "Progres"
+
+msgid "Queue"
+msgstr "Coadă"
+
+msgid "Recently Played"
+msgstr "Redate recent"
+
+msgid "Repeat One"
+msgstr "Repetă una"
+
+msgid "Repeat All"
+msgstr "Repetă tot"
+
+msgid "Station"
+msgstr "Stație"
+
+msgid "Streaming"
+msgstr "Streaming"
+
+msgid "Stream Quality"
+msgstr "Calitatea fluxului"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "Următoarea piesă"
+
+msgid "Previous Track"
+msgstr "Piesa anterioară"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "Linia curentă"
+
+msgid "Next Line"
+msgstr "Următoarea linie"
+
+msgid "Previous Line"
+msgstr "Linia anterioară"
+
+msgid "Synced"
+msgstr "Sincronizat"
+
+msgid "Unsynced"
+msgstr "Nesincronizat"
+
+msgid "Synced Lyrics"
+msgstr "Versuri sincronizate"
+
+msgid "No Synced Lyrics"
+msgstr "Fără versuri sincronizate"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "Eroare versuri"
+
+msgid "Lyrics Loading"
+msgstr "Se încarcă versurile"
+
+msgid "Lyrics Not Found"
+msgstr "Versuri negăsite"
+
+msgid "Lyrics Unavailable"
+msgstr "Versuri indisponibile"
+
+msgid "No Cover"
+msgstr "Nicio copertă"
+
+msgid "No Lyrics"
+msgstr "Fără versuri"
+
+msgid "No Lyrics Available"
+msgstr "Fără versuri disponibile"
+
+msgid "Loading Cover"
+msgstr "Se încarcă coperta"
+
+msgid "Loading Lyrics"
+msgstr "Se încarcă versurile"

@@ -1,15 +1,13 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/da.po — Danish translations
 #  Compiled to language/da.mo (msgfmt)
-#}}}
-
+# }}}
 # Danish translation for Conky Weather Module
 # Copyright (C) 2026
 # This file is distributed under the same license as the Conky Weather Module.
@@ -23,18 +21,17 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: Danish <da@li.org>\n"
 "Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-############################################
+# ###########################################
 # UI SECTIONS
-############################################
-
+# ###########################################
 msgid "air_quality"
 msgstr "luftkvalitet"
 
@@ -131,10 +128,12 @@ msgstr "h"
 msgid "minute_short"
 msgstr "m"
 
-############################################
-# CITY METADATA
-############################################
+msgid "second_short"
+msgstr ""
 
+# ###########################################
+# CITY METADATA
+# ###########################################
 msgid "city"
 msgstr "by"
 
@@ -156,10 +155,9 @@ msgstr "højde"
 msgid "population"
 msgstr "befolkning"
 
-############################################
+# ###########################################
 # AIR QUALITY + POLLEN
-############################################
-
+# ###########################################
 msgid "european_aqi"
 msgstr "europæisk AQI"
 
@@ -208,10 +206,9 @@ msgstr "ambrosie"
 msgid "pollen"
 msgstr "pollen"
 
-############################################
+# ###########################################
 # WMO WEATHER CODES
-############################################
-
+# ###########################################
 msgid "clear_sky"
 msgstr "klar himmel"
 
@@ -296,10 +293,9 @@ msgstr "tordenvejr med let hagl"
 msgid "thunderstorm_with_heavy_hail"
 msgstr "tordenvejr med kraftigt hagl"
 
-############################################
+# ###########################################
 # WIND DIRECTIONS
-############################################
-
+# ###########################################
 msgid "north"
 msgstr "nord"
 
@@ -354,10 +350,9 @@ msgstr "variabel"
 msgid "calm"
 msgstr "stille"
 
-############################################
+# ###########################################
 # MOON PHASES
-############################################
-
+# ###########################################
 msgid "new_moon"
 msgstr "nymåne"
 
@@ -382,20 +377,18 @@ msgstr "sidste kvartal"
 msgid "waning_crescent"
 msgstr "aftagende månesigd"
 
-############################################
+# ###########################################
 # SUN / MOON CATEGORY LABELS
-############################################
-
+# ###########################################
 msgid "sun"
 msgstr "sol"
 
 msgid "moon"
 msgstr "måne"
 
-############################################
+# ###########################################
 # SPACE WEATHER
-############################################
-
+# ###########################################
 msgid "space_weather"
 msgstr "rumvejr"
 
@@ -407,9 +400,6 @@ msgstr "solvind"
 
 msgid "aurora_visibility"
 msgstr "nordlyssigtbarhed"
-
-msgid "xray_class"
-msgstr "røntgenklasse"
 
 msgid "geomagnetic_activity"
 msgstr "geomagnetisk aktivitet"
@@ -467,28 +457,6 @@ msgstr "høj"
 
 msgid "aurora_excellent"
 msgstr "fremragende"
-
-msgid "g0_desc"
-msgstr "G0 – Rolig"
-
-msgid "g1_desc"
-msgstr "G1 – Mindre storm"
-
-msgid "g2_desc"
-msgstr "G2 – Moderat storm"
-
-msgid "g3_desc"
-msgstr "G3 – Kraftig storm"
-
-msgid "g4_desc"
-msgstr "G4 – Voldsom storm"
-
-msgid "g5_desc"
-msgstr "G5 – Ekstrem storm"
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "vind"
@@ -556,10 +524,9 @@ msgstr "ingen placering"
 msgid "provider"
 msgstr "udbyder"
 
-############################################
+# ###########################################
 # ALERT DETAILS
-############################################
-
+# ###########################################
 msgid "alert_headline"
 msgstr "alarmoverskrift"
 
@@ -587,10 +554,9 @@ msgstr "ingen alarmer"
 msgid "one_alert"
 msgstr "én alarm"
 
-############################################
+# ###########################################
 # VALUE LEVELS + ABBREVIATIONS
-############################################
-
+# ###########################################
 msgid "aqi_good"
 msgstr "god"
 
@@ -690,10 +656,9 @@ msgstr "usandsynlig"
 msgid "alert_certainty_unknown"
 msgstr "ukendt"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "Alle"
 
@@ -703,26 +668,11 @@ msgstr "Alle diske"
 msgid "All GPUs"
 msgstr "Alle GPU'er"
 
-msgid "All GPUs Total Memory"
-msgstr "Samlet hukommelse over alle GPU'er"
-
-msgid "All GPUs Usage"
-msgstr "Forbrug af alle GPU'er"
-
-msgid "All GPUs Used Memory"
-msgstr "Brugt hukommelse for alle GPU'er"
+msgid "All Network Devices"
+msgstr ""
 
 msgid "Application Memory"
 msgstr "Programhukommelse"
-
-msgid "Application Memory Percentage"
-msgstr "Procentdel programhukommelse"
-
-msgid "Average CPU Frequency"
-msgstr "Gennemsnitlig CPU-frekvens"
-
-msgid "Average CPU Temperature"
-msgstr "Gennemsnitlig CPU-temperatur"
 
 msgid "Buffer Memory"
 msgstr "Buffer-hukommelse"
@@ -733,47 +683,104 @@ msgstr "CPU %1"
 msgid "CPU %1 Core %2"
 msgstr "CPU %1 kerne %2"
 
+msgid "CPU Pressure"
+msgstr ""
+
 msgid "Cache Memory"
 msgstr "Cache-hukommelse"
 
-msgid "Cache Memory Percentage"
-msgstr "Procentdel cache-hukommelse"
+msgid "Charge"
+msgstr ""
+
+msgid "Charging Rate"
+msgstr ""
 
 msgid "Core %1"
 msgstr "Kerne %1"
 
+msgid "Current Capacity"
+msgstr ""
+
 msgid "Current Frequency"
 msgstr "Aktuel frekvens"
 
-msgid "Current Temperature"
-msgstr "Nuværende temperature"
+msgid "Design Capacity"
+msgstr ""
+
+msgid "Download Rate"
+msgstr ""
 
 msgid "Free Physical Memory"
 msgstr "Ledigt fysisk hukommelse"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Procentdel ledigt fysisk hukommelse"
-
 msgid "Free Space"
 msgstr "Ledigt lagerplads"
 
-msgid "Frequency"
-msgstr "Frekvens"
+msgid "Free Swap Memory"
+msgstr ""
 
 msgid "GPU"
 msgstr "GPU"
 
-msgid "Load Averages"
-msgstr "Systembelastning"
+msgid "Health"
+msgstr ""
 
-msgid "Load average (1 minute)"
-msgstr "Systembelastning (1 minut)"
+msgid "Hostname"
+msgstr ""
 
-msgid "Load average (15 minute)"
-msgstr "Systembelastning (15 minutter)"
+msgid "IO Pressure"
+msgstr ""
 
-msgid "Load average (5 minutes)"
-msgstr "Systembelastning (5 minutter)"
+msgid "IPv4 Address"
+msgstr ""
+
+msgid "IPv4 DNS"
+msgstr ""
+
+msgid "IPv4 Gateway"
+msgstr ""
+
+msgid "IPv4 Subnet Mask"
+msgstr ""
+
+msgid "IPv4 with Prefix Length"
+msgstr ""
+
+msgid "IPv6 Address"
+msgstr ""
+
+msgid "IPv6 DNS"
+msgstr ""
+
+msgid "IPv6 Gateway"
+msgstr ""
+
+msgid "IPv6 Subnet Mask"
+msgstr ""
+
+msgid "IPv6 with Prefix Length"
+msgstr ""
+
+msgid "KDE Frameworks Version"
+msgstr ""
+
+msgid "KDE Plasma"
+msgstr ""
+
+msgid "KDE Plasma Version"
+msgstr ""
+
+msgid "Kernel"
+msgstr ""
+
+msgid "Kernel Name"
+msgstr ""
+
+msgid "Kernel Name and Version"
+msgstr ""
+
+msgid "Kernel Version"
+msgstr ""
 
 msgid "Maximum CPU Frequency"
 msgstr "Maksimal CPU-frekvens"
@@ -781,8 +788,14 @@ msgstr "Maksimal CPU-frekvens"
 msgid "Maximum CPU Temperature"
 msgstr "Maksimal CPU-temperatur"
 
+msgid "Memory"
+msgstr ""
+
 msgid "Memory Frequency"
 msgstr "Hukommelsesfrekvens"
+
+msgid "Memory Pressure"
+msgstr ""
 
 msgid "Minimum CPU Frequency"
 msgstr "Minimum CPU-frekvens"
@@ -793,11 +806,32 @@ msgstr "Minimum CPU-temperatur"
 msgid "Name"
 msgstr "Navn"
 
+msgid "Network Devices"
+msgstr ""
+
+msgid "Network Name"
+msgstr ""
+
 msgid "Number of CPUs"
 msgstr "Antal CPU'er"
 
 msgid "Number of Cores"
 msgstr "Antal kerner"
+
+msgid "Operating System"
+msgstr ""
+
+msgid "Operating System Logo"
+msgstr ""
+
+msgid "Operating System Name"
+msgstr ""
+
+msgid "Operating System URL"
+msgstr ""
+
+msgid "Operating System Version"
+msgstr ""
 
 msgid "Percentage Free"
 msgstr "Procentdel ledigt"
@@ -811,23 +845,47 @@ msgstr "Fysisk hukommelse"
 msgid "Power"
 msgstr "Strømforbrug"
 
+msgid "Pressure"
+msgstr ""
+
+msgid "Qt Version"
+msgstr ""
+
 msgid "Read Rate"
 msgstr "Læsehastighed"
+
+msgid "Signal Strength"
+msgstr ""
 
 msgid "Swap Memory"
 msgstr "Swap-hukommelse"
 
+msgid "System"
+msgstr ""
+
 msgid "System Usage"
 msgstr "Systemforbrug"
 
-msgid "Temperature"
-msgstr "Temperatur"
+msgid "Total Downloaded"
+msgstr ""
+
+msgid "Total Full Stall Time"
+msgstr ""
 
 msgid "Total Physical Memory"
 msgstr "Samlet fysisk hukommelse"
 
+msgid "Total Some Stall Time"
+msgstr ""
+
 msgid "Total Space"
 msgstr "Lagerplads i alt"
+
+msgid "Total Swap Memory"
+msgstr ""
+
+msgid "Total Uploaded"
+msgstr ""
 
 msgid "Total Usage"
 msgstr "Totalt forbrug"
@@ -835,17 +893,23 @@ msgstr "Totalt forbrug"
 msgid "Total Video Memory"
 msgstr "Samlet videohukommelse"
 
+msgid "Upload Rate"
+msgstr ""
+
+msgid "Uptime"
+msgstr ""
+
 msgid "Usage"
 msgstr "Forbrug"
 
 msgid "Used Physical Memory"
 msgstr "Brugt fysisk hukommelse"
 
-msgid "Used Physical Memory Percentage"
-msgstr "Procentdel af brugt fysisk hukommelse"
-
 msgid "Used Space"
 msgstr "Brugt lagerplads"
+
+msgid "Used Swap Memory"
+msgstr ""
 
 msgid "User Usage"
 msgstr "Brugerforbrug"
@@ -859,13 +923,15 @@ msgstr "Videoforbrug"
 msgid "Wait Usage"
 msgstr "Venteforbrug"
 
+msgid "Window System"
+msgstr ""
+
 msgid "Write Rate"
 msgstr "Skrivehastighed"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "Indbakke"
 
@@ -1604,3 +1670,725 @@ msgstr "Reaktion"
 msgid "React"
 msgstr "Reager"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "Processor"
+
+msgid "Processor Usage"
+msgstr "Processor-brug"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "CPU-brug"
+
+msgid "Cores"
+msgstr "Kerner"
+
+msgid "Freq"
+msgstr "Frekv."
+
+msgid "Max Freq"
+msgstr "Max. frekv."
+
+msgid "Min Freq"
+msgstr "Min. frekv."
+
+msgid "Governor"
+msgstr "Governor"
+
+msgid "CPU Governor"
+msgstr "CPU-governor"
+
+msgid "Temp"
+msgstr "Temp."
+
+msgid "CPU Temp"
+msgstr "CPU-temp."
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "Hukommelse"
+
+msgid "Mem Used"
+msgstr "Brugt hukommelse"
+
+msgid "Mem Free"
+msgstr "Fri hukommelse"
+
+msgid "Mem Total"
+msgstr "Samlet hukommelse"
+
+msgid "Swap"
+msgstr "Swap"
+
+msgid "Swap Used"
+msgstr "Brugt swap"
+
+msgid "Swap Free"
+msgstr "Fri swap"
+
+msgid "Swap Total"
+msgstr "Samlet swap"
+
+msgid "Buffer"
+msgstr "Buffer"
+
+msgid "Cache"
+msgstr "Cache"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "Disk"
+
+msgid "Disk Usage"
+msgstr "Disk-brug"
+
+msgid "Disk IO"
+msgstr "Disk-IO"
+
+msgid "Disk IO Rate"
+msgstr "Disk-IO-hastighed"
+
+msgid "File System"
+msgstr "Filsystem"
+
+msgid "Filesystem"
+msgstr "Filsystem"
+
+msgid "HDD Temp"
+msgstr "HDD-temp."
+
+msgid "Net"
+msgstr "Net"
+
+msgid "Network Usage"
+msgstr "Netværksbrug"
+
+msgid "Down"
+msgstr "Download"
+
+msgid "Up"
+msgstr "Upload"
+
+msgid "Total Down"
+msgstr "Samlet download"
+
+msgid "Total Up"
+msgstr "Samlet upload"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Trådløst"
+
+msgid "Access Point"
+msgstr "Adgangspunkt"
+
+msgid "Wireless Signal"
+msgstr "Trådløst signal"
+
+msgid "Wireless Channel"
+msgstr "Trådløs kanal"
+
+msgid "Wireless Bitrate"
+msgstr "Trådløs bithastighed"
+
+msgid "Wireless Mode"
+msgstr "Trådløs tilstand"
+
+msgid "Wireless ESSID"
+msgstr "Trådløs ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "Videokort"
+
+msgid "Graphics Card"
+msgstr "Grafikkort"
+
+msgid "GPU Temp"
+msgstr "GPU-temp."
+
+msgid "GPU Freq"
+msgstr "GPU-frekv."
+
+msgid "Video Memory"
+msgstr "Videohukommelse"
+
+msgid "GPU Model"
+msgstr "GPU-model"
+
+msgid "Model Name"
+msgstr "Modelnavn"
+
+msgid "GPU Driver"
+msgstr "GPU-driver"
+
+msgid "GPU Architecture"
+msgstr "GPU-arkitektur"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "Blæser"
+
+msgid "Fan Speed"
+msgstr "Blæserhastighed"
+
+msgid "Voltage"
+msgstr "Spænding"
+
+msgid "Entropy"
+msgstr "Entropi"
+
+msgid "Entropy Pool Size"
+msgstr "Entropipuljens størrelse"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "Batteri"
+
+msgid "Battery Status"
+msgstr "Batteristatus"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "Batteritid"
+
+msgid "Time Remaining"
+msgstr "Tilbageværende tid"
+
+msgid "Power Draw"
+msgstr "Strømforbrug"
+
+msgid "AC Adapter"
+msgstr "AC-adapter"
+
+msgid "AC Power"
+msgstr "AC-strøm"
+
+msgid "Charging"
+msgstr "Opladning"
+
+msgid "Discharging"
+msgstr "Afladning"
+
+msgid "Not Charging"
+msgstr "Oplader ikke"
+
+msgid "Full"
+msgstr "Fuld"
+
+msgid "Empty"
+msgstr "Tom"
+
+msgid "Remaining"
+msgstr "Tilbage"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "Maskine"
+
+msgid "Machine Model"
+msgstr "Maskinmodel"
+
+msgid "Distribution"
+msgstr "Distribution"
+
+msgid "Desktop"
+msgstr "Skrivebord"
+
+msgid "Desktop Name"
+msgstr "Skrivebordsnavn"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "Processer"
+
+msgid "Running Processes"
+msgstr "Kørende processer"
+
+msgid "Running Threads"
+msgstr "Kørende tråde"
+
+msgid "Shared Memory"
+msgstr "Delt hukommelse"
+
+msgid "Shared Memory Used"
+msgstr "Brugt delt hukommelse"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "Spiller nu"
+
+msgid "Media Player"
+msgstr "Medieafspiller"
+
+msgid "Music"
+msgstr "Musik"
+
+msgid "Song"
+msgstr "Sang"
+
+msgid "Artist"
+msgstr "Kunstner"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Track"
+msgstr "Spor"
+
+msgid "Track Number"
+msgstr "Spornummer"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "Bitrate"
+msgstr "Bithastighed"
+
+msgid "Lyrics"
+msgstr "Sangtekst"
+
+msgid "Play"
+msgstr "Afspil"
+
+msgid "Pause"
+msgstr "Pause"
+
+msgid "Stop"
+msgstr "Stop"
+
+msgid "Volume"
+msgstr "Lydstyrke"
+
+msgid "Shuffle"
+msgstr "Blandet"
+
+msgid "Repeat"
+msgstr "Gentag"
+
+msgid "Playing"
+msgstr "Afspiller"
+
+msgid "Paused"
+msgstr "Sat på pause"
+
+msgid "Stopped"
+msgstr "Standset"
+
+msgid "Not Playing"
+msgstr "Spiller ikke"
+
+msgid "Position"
+msgstr "Position"
+
+msgid "Duration"
+msgstr "Varighed"
+
+msgid "Elapsed"
+msgstr "Forløbet"
+
+msgid "Remaining Time"
+msgstr "Tilbageværende tid"
+
+msgid "Total Time"
+msgstr "Samlet tid"
+
+msgid "Stream"
+msgstr "Stream"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Podcast"
+msgstr "Podcast"
+
+msgid "Episode"
+msgstr "Afsnit"
+
+msgid "Artwork"
+msgstr "Albumbillede"
+
+msgid "Cover"
+msgstr "Cover"
+
+msgid "Track List"
+msgstr "Sporliste"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "Aktiv hukommelse"
+
+msgid "Inactive Memory"
+msgstr "Inaktiv hukommelse"
+
+msgid "Dirty Memory"
+msgstr "Beskidt hukommelse"
+
+msgid "Wired Memory"
+msgstr "Fastlåst hukommelse"
+
+msgid "Available Memory"
+msgstr "Tilgængelig hukommelse"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "Interface"
+
+msgid "Interface Name"
+msgstr "Interfacenavn"
+
+msgid "Network Interface"
+msgstr "Netværksinterface"
+
+msgid "Local IP"
+msgstr "Lokal IP"
+
+msgid "Local IPv4"
+msgstr "Lokal IPv4"
+
+msgid "Local IPv6"
+msgstr "Lokal IPv6"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "MAC-adresse"
+
+msgid "Network Status"
+msgstr "Netværksstatus"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Unavailable"
+msgstr "Utilgængelig"
+
+msgid "Unknown"
+msgstr "Ukendt"
+
+msgid "Download Speed"
+msgstr "Downloadhastighed"
+
+msgid "Upload Speed"
+msgstr "Uploadhastighed"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "Kabel"
+
+msgid "Line Voltage"
+msgstr "Netspænding"
+
+msgid "Last Transfer"
+msgstr "Sidste overførsel"
+
+msgid "Time Left"
+msgstr "Tid tilbage"
+
+msgid "UPS Mode"
+msgstr "UPS-tilstand"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "Lysstyrke"
+
+msgid "Backlight"
+msgstr "Bagbelysning"
+
+msgid "Laptop Mode"
+msgstr "Laptoptilstand"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "CPU Time"
+msgstr "CPU-tid"
+
+msgid "I/O Scheduler"
+msgstr "I/O-planlægger"
+
+msgid "Scheduler"
+msgstr "Planlægger"
+
+msgid "Node Name"
+msgstr "Nodenavn"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "Pakker"
+
+msgid "Package"
+msgstr "Pakke"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "Aktuel temp."
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "Albumkunstner"
+
+msgid "Codec"
+msgstr "Kodek"
+
+msgid "Composer"
+msgstr "Komponist"
+
+msgid "Disc"
+msgstr "Disk"
+
+msgid "Disc Number"
+msgstr "Disknummer"
+
+msgid "Elapsed Time"
+msgstr "Forløbet tid"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Sample Rate"
+msgstr "Samplehastighed"
+
+msgid "Track Position"
+msgstr "Sporposition"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "Bufferer"
+
+msgid "Karaoke Mode"
+msgstr "Karaoke-tilstand"
+
+msgid "Live Stream"
+msgstr "Live-stream"
+
+msgid "Playlist"
+msgstr "Afspilningsliste"
+
+msgid "Progress"
+msgstr "Fremskridt"
+
+msgid "Queue"
+msgstr "Kø"
+
+msgid "Recently Played"
+msgstr "Nyligt afspillet"
+
+msgid "Repeat One"
+msgstr "Gentag én"
+
+msgid "Repeat All"
+msgstr "Gentag alle"
+
+msgid "Station"
+msgstr "Station"
+
+msgid "Streaming"
+msgstr "Streaming"
+
+msgid "Stream Quality"
+msgstr "Stream-kvalitet"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "Næste spor"
+
+msgid "Previous Track"
+msgstr "Forrige spor"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "Aktuel linje"
+
+msgid "Next Line"
+msgstr "Næste linje"
+
+msgid "Previous Line"
+msgstr "Forrige linje"
+
+msgid "Synced"
+msgstr "Synkroniseret"
+
+msgid "Unsynced"
+msgstr "Ikke synkroniseret"
+
+msgid "Synced Lyrics"
+msgstr "Synkroniseret sangtekst"
+
+msgid "No Synced Lyrics"
+msgstr "Ingen synkroniseret sangtekst"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "Fejl i sangtekst"
+
+msgid "Lyrics Loading"
+msgstr "Indlæser sangtekst"
+
+msgid "Lyrics Not Found"
+msgstr "Sangtekst ikke fundet"
+
+msgid "Lyrics Unavailable"
+msgstr "Sangtekst ikke tilgængelig"
+
+msgid "No Cover"
+msgstr "Intet cover"
+
+msgid "No Lyrics"
+msgstr "Ingen sangtekst"
+
+msgid "No Lyrics Available"
+msgstr "Ingen sangtekst tilgængelig"
+
+msgid "Loading Cover"
+msgstr "Indlæser cover"
+
+msgid "Loading Lyrics"
+msgstr "Indlæser sangtekst"

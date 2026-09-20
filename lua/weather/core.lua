@@ -46,7 +46,6 @@ phase calculation, and day-name lookup.
 
 local weather_cache_storage = nil
 local weather_cache_mtimes = {}
-local last_mtime_check = 0
 
 local cached_files = {
 	"weather_data.json",
@@ -85,10 +84,7 @@ end
 W = W or { weather = {}, air = {}, city = {}, moon = {}, sun = {} }
 
 function load_weather_data()
-	local now = os.time()
-	local diff = now - last_mtime_check
-	if not weather_cache_storage or (diff > 5) then
-		last_mtime_check = now
+	if json_changed() or not weather_cache_storage then
 		local data = {
 			weather = read_j(JSON_PATH .. "weather_data.json"),
 			air     = read_j(JSON_PATH .. "airquality.json"),

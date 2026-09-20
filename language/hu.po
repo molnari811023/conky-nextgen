@@ -122,6 +122,9 @@ msgstr "ó"
 msgid "minute_short"
 msgstr "p"
 
+msgid "second_short"
+msgstr "mp"
+
 ############################################
 # CITY METADATA
 ############################################
@@ -399,9 +402,6 @@ msgstr "Napszél"
 msgid "aurora_visibility"
 msgstr "Sarki fény láthatóság"
 
-msgid "xray_class"
-msgstr "Röntgen-flare osztály"
-
 msgid "geomagnetic_activity"
 msgstr "Geomágneses aktivitás"
 
@@ -458,28 +458,6 @@ msgstr "Magas"
 
 msgid "aurora_excellent"
 msgstr "Kiváló"
-
-msgid "g0_desc"
-msgstr "Nincs geomágneses vihar."
-
-msgid "g1_desc"
-msgstr "Enyhe geomágneses vihar."
-
-msgid "g2_desc"
-msgstr "Mérsékelt geomágneses vihar."
-
-msgid "g3_desc"
-msgstr "Erős geomágneses vihar."
-
-msgid "g4_desc"
-msgstr "Súlyos geomágneses vihar."
-
-msgid "g5_desc"
-msgstr "Szélsőséges geomágneses vihar."
-
-############################################
-# UI LABELS
-############################################
 
 msgid "wind"
 msgstr "Szél"
@@ -694,35 +672,14 @@ msgstr "Összes lemez"
 msgid "All GPUs"
 msgstr "Összes GPU"
 
-msgid "All GPUs Total Memory"
-msgstr "Összes GPU teljes memóriája"
-
-msgid "All GPUs Usage"
-msgstr "Összes GPU-használat"
-
-msgid "All GPUs Used Memory"
-msgstr "Összes GPU foglalt memóriája"
-
 msgid "All Network Devices"
 msgstr "Összes hálózati eszköz"
 
 msgid "Application Memory"
 msgstr "Alkalmazásmemória"
 
-msgid "Application Memory Percentage"
-msgstr "Alkalmazásmemória százalékos aránya"
-
-msgid "Average CPU Frequency"
-msgstr "Átlagos CPU-frekvencia"
-
-msgid "Average CPU Temperature"
-msgstr "Átlagus CPU-hőmérséklet"
-
 msgid "Buffer Memory"
 msgstr "Puffermemória"
-
-msgid "Buffer Memory Percentage"
-msgstr "Puffermemória százalékos aránya"
 
 msgid "CPU %1"
 msgstr "%1. CPU"
@@ -736,17 +693,8 @@ msgstr "CPU-igény"
 msgid "Cache Memory"
 msgstr "Gyorsítótár-memória"
 
-msgid "Cache Memory Percentage"
-msgstr "Gyorsítótár-memória százalékos aránya"
-
 msgid "Charge"
 msgstr "Töltöttség"
-
-msgid "Charge Percentage"
-msgstr "Töltöttségi százalék"
-
-msgid "Charging  Rate"
-msgstr "Töltési sebesség"
 
 msgid "Charging Rate"
 msgstr "Töltési sebesség"
@@ -760,9 +708,6 @@ msgstr "Jelenlegi kapacitás"
 msgid "Current Frequency"
 msgstr "Jelenlegi frekvencia"
 
-msgid "Current Temperature"
-msgstr "Jelenlegi hőmérséklet"
-
 msgid "Design Capacity"
 msgstr "Tervezett kapacitás"
 
@@ -772,29 +717,11 @@ msgstr "Letöltési sebesség"
 msgid "Free Physical Memory"
 msgstr "Szabad fizikai memória"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Szabad fizikai memória százalékos aránya"
-
 msgid "Free Space"
 msgstr "Szabad hely"
 
 msgid "Free Swap Memory"
 msgstr "Szabad lapozási memória"
-
-msgid "Free Swap Memory Percentage"
-msgstr "Szabad lapozási memória százalékos aránya"
-
-msgid "Frequency"
-msgstr "Frekvencia"
-
-msgid "Full (1 minute average)"
-msgstr "Teljes (1 perces átlag)"
-
-msgid "Full (10 second average)"
-msgstr "Teljes (10 másodperces átlag)"
-
-msgid "Full (5 minute average)"
-msgstr "Teljes (5 perces átlag)"
 
 msgid "GPU"
 msgstr "GPU"
@@ -859,18 +786,6 @@ msgstr "Kernelnév és verzió"
 msgid "Kernel Version"
 msgstr "Kernelverzió"
 
-msgid "Load Averages"
-msgstr "Átlagos terhelések"
-
-msgid "Load average (1 minute)"
-msgstr "Átlagos terhelés (1 perc)"
-
-msgid "Load average (15 minute)"
-msgstr "Átlagos terhelés (15 perc)"
-
-msgid "Load average (5 minutes)"
-msgstr "Átlagos terhelés (5 perc)"
-
 msgid "Maximum CPU Frequency"
 msgstr "Maximális CPU-frekvencia"
 
@@ -916,9 +831,6 @@ msgstr "Operációs rendszer logója"
 msgid "Operating System Name"
 msgstr "Operációs rendszer neve"
 
-msgid "Operating System Name and Version"
-msgstr "Operációs rendszer neve és verziója"
-
 msgid "Operating System URL"
 msgstr "Operációs rendszer honlapja"
 
@@ -949,15 +861,6 @@ msgstr "Olvasási sebesség"
 msgid "Signal Strength"
 msgstr "Jelerősség"
 
-msgid "Some (1 minute average)"
-msgstr "Alacsony (1 perces átlag)"
-
-msgid "Some (10 second average)"
-msgstr "Alacsony (10 másodperces átlag)"
-
-msgid "Some (5 minute average)"
-msgstr "Alacsony (5 perces átlag)"
-
 msgid "Swap Memory"
 msgstr "Lapozási memória"
 
@@ -966,9 +869,6 @@ msgstr "Rendszer"
 
 msgid "System Usage"
 msgstr "Rendszerhasználat"
-
-msgid "Temperature"
-msgstr "Hőmérséklet"
 
 msgid "Total Downloaded"
 msgstr "Összesen letöltött"
@@ -1009,17 +909,11 @@ msgstr "Használat"
 msgid "Used Physical Memory"
 msgstr "Foglalt fizikai memória"
 
-msgid "Used Physical Memory Percentage"
-msgstr "Foglalt fizikai memória százalékos aránya"
-
 msgid "Used Space"
 msgstr "Foglalt hely"
 
 msgid "Used Swap Memory"
 msgstr "Foglalt lapozási memória"
-
-msgid "Used Swap Memory Percentage"
-msgstr "Foglalt lapozási memória százalékos aránya"
 
 msgid "User Usage"
 msgstr "Felhasználói használat"
@@ -1780,4 +1674,745 @@ msgstr "Reakció"
 
 msgid "React"
 msgstr "Reagálás"
+############################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+############################################
 
+msgid "Processor"
+msgstr "Processzor"
+
+msgid "Processor Usage"
+msgstr "Processzorhasználat"
+
+msgid "Product_name"
+msgstr "Terméknév"
+
+############################################
+# DMI (hardware identity labels)
+############################################
+
+msgid "System_vendor"
+msgstr "Gyártó"
+
+msgid "Product_family"
+msgstr "Termékcsalád"
+
+msgid "Product_sku"
+msgstr "Termék-cikkszám"
+
+msgid "Board_name"
+msgstr "Alaplap"
+
+msgid "Board_vendor"
+msgstr "Alaplap gyártója"
+
+msgid "Board_version"
+msgstr "Alaplap verzió"
+
+msgid "Bios_vendor"
+msgstr "Bios gyártó"
+
+msgid "Bios_version"
+msgstr "Bios verzió"
+
+msgid "Bios_date"
+msgstr "Bios dátum"
+
+msgid "Bios_release"
+msgstr "Bios kiadás"
+
+msgid "Chassis_vendor"
+msgstr "Ház gyártó"
+
+msgid "Chassis_type"
+msgstr "Ház típus"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr "Processzor"
+
+msgid "CPU Usage"
+msgstr "CPU-használat"
+
+msgid "Cores"
+msgstr "Magok"
+
+msgid "Freq"
+msgstr "Frekvencia"
+
+msgid "Max Freq"
+msgstr "Max. frekvencia"
+
+msgid "Min Freq"
+msgstr "Min. frekvencia"
+
+msgid "Governor"
+msgstr "Governor"
+
+msgid "CPU Governor"
+msgstr "CPU-governor"
+
+msgid "Temp"
+msgstr "Hőmérséklet"
+
+msgid "CPU Temp"
+msgstr "CPU-hőmérséklet"
+
+############################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+############################################
+
+msgid "Mem"
+msgstr "Memória"
+
+msgid "Mem Used"
+msgstr "Foglalt memória"
+
+msgid "Mem Free"
+msgstr "Szabad memória"
+
+msgid "Mem Total"
+msgstr "Teljes memória"
+
+msgid "Swap"
+msgstr "Lapozás"
+
+msgid "Swap Used"
+msgstr "Foglalt lapozás"
+
+msgid "Swap Free"
+msgstr "Szabad lapozás"
+
+msgid "Swap Total"
+msgstr "Teljes lapozás"
+
+msgid "Buffer"
+msgstr "Puffer"
+
+msgid "Cache"
+msgstr "Gyorsítótár"
+
+############################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+############################################
+
+msgid "Disk"
+msgstr "Lemez"
+
+msgid "Disk Usage"
+msgstr "Lemezhasználat"
+
+msgid "Disk IO"
+msgstr "Lemez-IO"
+
+msgid "Disk IO Rate"
+msgstr "Lemez-IO sebesség"
+
+msgid "File System"
+msgstr "Fájlrendszer"
+
+msgid "Filesystem"
+msgstr "Fájlrendszer"
+
+msgid "HDD Temp"
+msgstr "HDD-hőmérséklet"
+
+msgid "Net"
+msgstr "Hálózat"
+
+msgid "Network Usage"
+msgstr "Hálózathasználat"
+
+msgid "Down"
+msgstr "Letöltés"
+
+msgid "Up"
+msgstr "Feltöltés"
+
+msgid "Total Down"
+msgstr "Összes letöltés"
+
+msgid "Total Up"
+msgstr "Összes feltöltés"
+
+msgid "Gateway"
+msgstr "Átjáró"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Vezeték nélküli"
+
+msgid "Access Point"
+msgstr "Hozzáférési pont"
+
+msgid "Wireless Signal"
+msgstr "Vezeték nélküli jel"
+
+msgid "Wireless Channel"
+msgstr "Vezeték nélküli csatorna"
+
+msgid "Wireless Bitrate"
+msgstr "Vezeték nélküli bitsebesség"
+
+msgid "Wireless Mode"
+msgstr "Vezeték nélküli mód"
+
+msgid "Wireless ESSID"
+msgstr "Vezeték nélküli ESSID"
+
+############################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+############################################
+
+msgid "Video Card"
+msgstr "Videokártya"
+
+msgid "Graphics Card"
+msgstr "Grafikus kártya"
+
+msgid "GPU Temp"
+msgstr "GPU-hőmérséklet"
+
+msgid "GPU Freq"
+msgstr "GPU-frekvencia"
+
+msgid "Video Memory"
+msgstr "Videómemória"
+
+msgid "GPU Model"
+msgstr "GPU-modell"
+
+msgid "Model Name"
+msgstr "Modellnév"
+
+msgid "GPU Driver"
+msgstr "GPU-illesztőprogram"
+
+msgid "GPU Architecture"
+msgstr "GPU-architektúra"
+
+msgid "GPU utilization"
+msgstr "GPU kihasználtság"
+
+msgid "Driver version"
+msgstr "Illesztőprogram verzió"
+
+msgid "% used"
+msgstr "% használt"
+
+msgid "Read"
+msgstr "Olvasás"
+
+msgid "Write"
+msgstr "Írás"
+
+msgid "Top cpu usage"
+msgstr "Legnagyobb CPU-használat"
+
+msgid "Top memory usage"
+msgstr "Legnagyobb memóriahasználat"
+
+msgid "cpu%"
+msgstr "cpu%"
+
+msgid "mem"
+msgstr "mem"
+
+############################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+############################################
+
+msgid "Fan"
+msgstr "Ventilátor"
+
+msgid "Fan Speed"
+msgstr "Ventilátor-fordulatszám"
+
+msgid "Voltage"
+msgstr "Feszültség"
+
+msgid "Entropy"
+msgstr "Entrópia"
+
+msgid "Entropy Pool Size"
+msgstr "Entrópia-készlet mérete"
+
+############################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+############################################
+
+msgid "Battery"
+msgstr "Akkumulátor"
+
+msgid "Battery Status"
+msgstr "Akkumulátor állapota"
+
+msgid "Battery Health"
+msgstr "Akkumulátor egészsége"
+
+msgid "Battery Time"
+msgstr "Akkumulátoridő"
+
+msgid "Time Remaining"
+msgstr "Hátralévő idő"
+
+msgid "Power Draw"
+msgstr "Teljesítményfelvétel"
+
+msgid "AC Adapter"
+msgstr "AC-adapter"
+
+msgid "AC Power"
+msgstr "AC-tápellátás"
+
+msgid "Charging"
+msgstr "Töltés"
+
+msgid "Discharging"
+msgstr "Kisütés"
+
+msgid "Not Charging"
+msgstr "Nincs töltés"
+
+msgid "Full"
+msgstr "Feltöltve"
+
+msgid "Empty"
+msgstr "Üres"
+
+msgid "Remaining"
+msgstr "Hátralévő"
+
+############################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+############################################
+
+msgid "Machine"
+msgstr "Gép"
+
+msgid "Machine Model"
+msgstr "Géptípus"
+
+msgid "Distribution"
+msgstr "Disztribúció"
+
+msgid "Desktop"
+msgstr "Asztal"
+
+msgid "Desktop Name"
+msgstr "Asztalnév"
+
+msgid "Desktop session"
+msgstr "Asztali munkamenet"
+
+msgid "Processes"
+msgstr "Folyamatok"
+
+msgid "Running Processes"
+msgstr "Futó folyamatok"
+
+msgid "Running Threads"
+msgstr "Futó szálak"
+
+msgid "Shared Memory"
+msgstr "Közös memória"
+
+msgid "Shared Memory Used"
+msgstr "Foglalt közös memória"
+############################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+############################################
+
+msgid "Now Playing"
+msgstr "Éppen lejátszás"
+
+msgid "Media Player"
+msgstr "Médialejátszó"
+
+msgid "Music"
+msgstr "Zene"
+
+msgid "Song"
+msgstr "Szám"
+
+msgid "Artist"
+msgstr "Előadó"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Title"
+msgstr "Cím"
+
+msgid "Track"
+msgstr "Szám"
+
+msgid "Track Number"
+msgstr "Szám sorszáma"
+
+msgid "Genre"
+msgstr "Műfaj"
+
+msgid "Bitrate"
+msgstr "Bitsebesség"
+
+msgid "Lyrics"
+msgstr "Dalszöveg"
+
+msgid "Play"
+msgstr "Lejátszás"
+
+msgid "Pause"
+msgstr "Szünet"
+
+msgid "Stop"
+msgstr "Leállítás"
+
+msgid "Volume"
+msgstr "Hangerő"
+
+msgid "Shuffle"
+msgstr "Keverés"
+
+msgid "Repeat"
+msgstr "Ismétlés"
+
+msgid "Playing"
+msgstr "Lejátszás alatt"
+
+msgid "Paused"
+msgstr "Szüneteltetve"
+
+msgid "Stopped"
+msgstr "Leállítva"
+
+msgid "Not Playing"
+msgstr "Nincs lejátszás"
+
+msgid "Position"
+msgstr "Pozíció"
+
+msgid "Duration"
+msgstr "Időtartam"
+
+msgid "Elapsed"
+msgstr "Eltelt idő"
+
+msgid "Remaining Time"
+msgstr "Hátralévő idő"
+
+msgid "Total Time"
+msgstr "Teljes idő"
+
+msgid "Stream"
+msgstr "Streamek"
+
+msgid "Radio"
+msgstr "Rádió"
+
+msgid "Podcast"
+msgstr "Podcast"
+
+msgid "Episode"
+msgstr "Epizód"
+
+msgid "Artwork"
+msgstr "Borítókép"
+
+msgid "Cover"
+msgstr "Borító"
+
+msgid "Track List"
+msgstr "Számok listája"
+############################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+############################################
+
+msgid "Active Memory"
+msgstr "Aktív memória"
+
+msgid "Inactive Memory"
+msgstr "Inaktív memória"
+
+msgid "Dirty Memory"
+msgstr "Piszkos memória"
+
+msgid "Wired Memory"
+msgstr "Rögzített memória"
+
+msgid "Available Memory"
+msgstr "Elérhető memória"
+
+############################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+############################################
+
+msgid "Interface"
+msgstr "Interfész"
+
+msgid "Interface Name"
+msgstr "Interfésznév"
+
+msgid "Network Interface"
+msgstr "Hálózati interfész"
+
+msgid "Local IP"
+msgstr "Helyi IP"
+
+msgid "Local IPv4"
+msgstr "Helyi IPv4"
+
+msgid "Local IPv6"
+msgstr "Helyi IPv6"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "MAC-cím"
+
+msgid "Network Status"
+msgstr "Hálózati állapot"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Unavailable"
+msgstr "Nem elérhető"
+
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+msgid "Download Speed"
+msgstr "Letöltési sebesség"
+
+msgid "Upload Speed"
+msgstr "Feltöltési sebesség"
+
+############################################
+# UPS + APCUPSD (conky: apcupsd_*)
+############################################
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "Kábel"
+
+msgid "Line Voltage"
+msgstr "Hálózati feszültség"
+
+msgid "Last Transfer"
+msgstr "Utolsó átvitel"
+
+msgid "Time Left"
+msgstr "Hátralévő idő"
+
+msgid "UPS Mode"
+msgstr "UPS-mód"
+
+############################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+############################################
+
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "Fényerő"
+
+msgid "Backlight"
+msgstr "Háttérvilágítás"
+
+msgid "Laptop Mode"
+msgstr "Laptop-mód"
+
+############################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+############################################
+
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Felhasználó"
+
+msgid "CPU Time"
+msgstr "CPU-idő"
+
+msgid "I/O Scheduler"
+msgstr "I/O-ütemező"
+
+msgid "Scheduler"
+msgstr "Ütemező"
+
+msgid "Node Name"
+msgstr "Csomópontnév"
+
+############################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+############################################
+
+msgid "Packages"
+msgstr "Csomagok"
+
+msgid "Package"
+msgstr "Csomag"
+
+msgid "package"
+msgstr "csomag"
+
+msgid "packages"
+msgstr "csomag"
+
+msgid "Current Temp"
+msgstr "Aktuális hőmérséklet"
+############################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+############################################
+
+msgid "Album Artist"
+msgstr "Album előadója"
+
+msgid "Codec"
+msgstr "Kodek"
+
+msgid "Composer"
+msgstr "Zeneszerző"
+
+msgid "Disc"
+msgstr "Lemez"
+
+msgid "Disc Number"
+msgstr "Lemezszám"
+
+msgid "Elapsed Time"
+msgstr "Eltelt idő"
+
+msgid "Format"
+msgstr "Formátum"
+
+msgid "Sample Rate"
+msgstr "Mintavételi frekvencia"
+
+msgid "Track Position"
+msgstr "Szám pozíciója"
+
+############################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+############################################
+
+msgid "Buffering"
+msgstr "Pufferelés"
+
+msgid "Karaoke Mode"
+msgstr "Karaoke mód"
+
+msgid "Live Stream"
+msgstr "Élő adás"
+
+msgid "Playlist"
+msgstr "Lejátszási lista"
+
+msgid "Progress"
+msgstr "Előrehaladás"
+
+msgid "Queue"
+msgstr "Sor"
+
+msgid "Recently Played"
+msgstr "Nemrég lejátszott"
+
+msgid "Repeat One"
+msgstr "Ismétlés: egy"
+
+msgid "Repeat All"
+msgstr "Ismétlés: mind"
+
+msgid "Station"
+msgstr "Állomás"
+
+msgid "Streaming"
+msgstr "Streaming"
+
+msgid "Stream Quality"
+msgstr "Stream minősége"
+
+############################################
+# PLAYER NAVIGATION (next/previous track)
+############################################
+
+msgid "Next Track"
+msgstr "Következő szám"
+
+msgid "Previous Track"
+msgstr "Előző szám"
+
+############################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+############################################
+
+msgid "Current Line"
+msgstr "Aktuális sor"
+
+msgid "Next Line"
+msgstr "Következő sor"
+
+msgid "Previous Line"
+msgstr "Előző sor"
+
+msgid "Synced"
+msgstr "Szinkronizálva"
+
+msgid "Unsynced"
+msgstr "Nem szinkronizálva"
+
+msgid "Synced Lyrics"
+msgstr "Szinkronizált dalszöveg"
+
+msgid "No Synced Lyrics"
+msgstr "Nincs szinkronizált dalszöveg"
+
+############################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+############################################
+
+msgid "Lyrics Error"
+msgstr "Dalszöveg hiba"
+
+msgid "Lyrics Loading"
+msgstr "Dalszöveg betöltése"
+
+msgid "Lyrics Not Found"
+msgstr "Dalszöveg nem található"
+
+msgid "Lyrics Unavailable"
+msgstr "Dalszöveg nem elérhető"
+
+msgid "No Cover"
+msgstr "Nincs borító"
+
+msgid "No Lyrics"
+msgstr "Nincs dalszöveg"
+
+msgid "No Lyrics Available"
+msgstr "Nem áll rendelkezésre dalszöveg"
+
+msgid "Loading Cover"
+msgstr "Borító betöltése"
+
+msgid "Loading Lyrics"
+msgstr "Dalszöveg betöltése"

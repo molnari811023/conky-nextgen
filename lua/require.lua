@@ -7,11 +7,11 @@
 --[[[
 require.lua — central module loader for the ConkyNextGen engine
 
-Single registration point for every module the engine needs: the
+Single registration point for the profile-selected engine modules: the
 external Lua libraries (cairo, rsvg, imlib2, lfs, dkjson), the core
 modules (theme, translation, drawing, capture, groups, mouse), the
-weather, hardware and nowplaying modules, an optional google module
-set and every draw.* renderer. A widget root file calls
+weather, hardware, media and Google modules, plus every draw.* renderer.
+A widget root file sets MODULE_PROFILE before calling
 require("require") right after setting package.path so the dependency
 order stays in one place.
 ]]--
@@ -19,12 +19,10 @@ order stays in one place.
 --{{{
 -- ## Central module loader
 --
--- Central require() hub (not a widget). Orders and registers all
--- engine modules: system libraries, core rendering, mouse handling,
--- weather data, hardware sensors, nowplaying, optional google data and
--- every draw.* renderer. The hyphen renderer is kept in the global
--- `hyphen`. The google modules are loaded under pcall so layouts that
--- lack the lua/google path entry stay unaffected.
+-- Central require() hub (not a widget). Every profile loads system
+-- libraries, core rendering, mouse handling and every draw renderer. The
+-- selected MODULE_PROFILE additionally loads only its required data modules;
+-- each require remains strict and fails immediately on a missing dependency.
 --
 -- **Exposed/global functions:**
 -- (none defined; registers modules only)
@@ -32,7 +30,6 @@ order stays in one place.
 -- **Config/globals used:**
 -- `cairo`, `rsvg`, `imlib2`, `lfs`, `json` — bound system libraries
 -- `hyphen` — draw.hyphen module exposed globally
--- `pcall(require, "google.core")` — optional google loading guard
 --}}}
 
 cairo = require("cairo")
@@ -51,38 +48,56 @@ require("core.draw_group")
 require("mouse_actions")
 require("core.mouse")
 
--- ═══ WEATHER ═══
-require("weather.core")
-require("weather.weather_data")
-require("weather.sun")
-require("weather.moon")
-require("weather.airquality")
-require("weather.city")
-require("weather.weather_icons")
-require("weather.weather_translations")
-require("weather.alerts")
+local MODULE_PROFILES = {
+    basic = {},
+    weather = {
+        "weather.core", "weather.weather_data", "weather.sun", "weather.moon",
+        "weather.airquality", "weather.city", "weather.weather_icons",
+        "weather.weather_translations", "weather.alerts",
+    },
+    system = {
+        "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
+        "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
+    },
+    media = { "nowplaying", "songtext" },
+    panel = {
+        "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
+        "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
+    },
+    google = { "google.core", "google.data" },
+    full = {
+        "weather.core", "weather.weather_data", "weather.sun", "weather.moon",
+        "weather.airquality", "weather.city", "weather.weather_icons",
+        "weather.weather_translations", "weather.alerts",
+        "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
+        "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
+        "nowplaying", "songtext", "google.core", "google.data",
+    },
+}
 
--- ═══ HARDWARE ═══
-require("hardware.core")
-require("hardware.battery")
-require("hardware.dmi")
-require("hardware.info")
-require("hardware.mtp")
-require("hardware.network")
-require("hardware.sensors")
-require("hardware.usb")
+local selected_profiles = MODULE_PROFILE or "full"
+if type(selected_profiles) == "string" then
+    selected_profiles = { selected_profiles }
+end
 
--- ═══ EXTRAS ═══
-require("nowplaying")
-require("songtext")
+assert(type(selected_profiles) == "table" and #selected_profiles > 0,
+    "MODULE_PROFILE must be a profile name or a non-empty profile list")
+if #selected_profiles > 1 then
+    for _, profile in ipairs(selected_profiles) do
+        assert(profile ~= "full", "The full profile cannot be combined with other profiles")
+    end
+end
 
--- ═══ GOOGLE ═══
--- The google modules need tmp/ JSONs (from sh/fetch_google.sh) and the
--- lua/google/?.lua path entry. Loaded with pcall so configs that don't
--- include that path (e.g. some secondary widgets) stay unaffected.
-local ok_google, _ = pcall(require, "google.core")
-if ok_google then
-	require("google.data")
+local loaded_modules = {}
+for _, profile in ipairs(selected_profiles) do
+    assert(type(profile) == "string", "MODULE_PROFILE entries must be strings")
+    local modules = assert(MODULE_PROFILES[profile], "Unknown MODULE_PROFILE: " .. profile)
+    for _, module in ipairs(modules) do
+        if not loaded_modules[module] then
+            require(module)
+            loaded_modules[module] = true
+        end
+    end
 end
 
 -- ═══ DRAW MODULES ═══

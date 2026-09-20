@@ -6,9 +6,9 @@
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
 #}}}
 #{{{
-# ## 0_fetch_all — orchestrator for all fetch sub-scripts
+# ## fetch_all — orchestrator for all fetch sub-scripts
 #
-# Sources 0_common.sh together with the weather, alerts, maps, nowplaying,
+# Sources common.sh together with the weather, alerts, maps, nowplaying,
 # network and google fetchers and dispatches them based on the first
 # command-line argument (default `all`). In `all` mode weather, alerts, maps
 # and nowplaying run sequentially while google, ping and ipinfo run as
@@ -22,14 +22,14 @@
 #   the matching fetcher
 # - Any other argument is passed as a city to fetch_weather
 #
-# **Environment/requirements:** depends on 0_common.sh and the sourced
+# **Environment/requirements:** depends on common.sh and the sourced
 # fetch scripts
 #}}}
 _SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-source "$_SCRIPT_DIR/0_common.sh"
-source "$_SCRIPT_DIR/4_fetch_weather.sh"
-source "$_SCRIPT_DIR/11_fetch_alerts.sh"
-source "$_SCRIPT_DIR/13_fetch_maps.sh"
+source "$_SCRIPT_DIR/common.sh"
+source "$_SCRIPT_DIR/fetch_weather.sh"
+source "$_SCRIPT_DIR/fetch_alerts.sh"
+source "$_SCRIPT_DIR/fetch_maps.sh"
 source "$_SCRIPT_DIR/fetch_nowplaying.sh"
 source "$_SCRIPT_DIR/fetch_network.sh"
 source "$_SCRIPT_DIR/fetch_google.sh"

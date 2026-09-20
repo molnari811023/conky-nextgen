@@ -1,26 +1,24 @@
-#{{{
+# {{{
 #  Conky NextGen Framework
 #  Author: István Molnár
 #  GitHub: https://github.com/molnari811023/conky-nextgen
 #  Description: Modular Conky UI framework (Lua engine + Bash backend)
-#}}}
-
-#{{{
+# }}}
+# {{{
 #  language/pl.po — Polish translations
 #  Compiled to language/pl.mo (msgfmt)
-#}}}
-
+# }}}
 msgid ""
 msgstr ""
 "Project-Id-Version: conky-nextgen 1.0\n"
 "Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Framework: Conky NextGen Framework\n"
 "X-Author: István Molnár\n"
 "X-GitHub: https://github.com/molnari811023/conky-nextgen\n"
 "X-Description: Modular Conky UI framework (Lua engine + Bash backend)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 msgid "air_quality"
 msgstr "Jakość powietrza"
@@ -117,6 +115,9 @@ msgstr "h"
 
 msgid "minute_short"
 msgstr "m"
+
+msgid "second_short"
+msgstr ""
 
 msgid "city"
 msgstr "Miasto"
@@ -367,9 +368,6 @@ msgstr "Wiatr słoneczny"
 msgid "aurora_visibility"
 msgstr "Widoczność zorzy"
 
-msgid "xray_class"
-msgstr "Klasa rozbłysku X"
-
 msgid "geomagnetic_activity"
 msgstr "Aktywność geomagnetyczna"
 
@@ -426,24 +424,6 @@ msgstr "Wysoka"
 
 msgid "aurora_excellent"
 msgstr "Doskonała"
-
-msgid "g0_desc"
-msgstr "Brak aktywności burzy geomagnetycznej."
-
-msgid "g1_desc"
-msgstr "Niewielka burza geomagnetyczna."
-
-msgid "g2_desc"
-msgstr "Umiarkowana burza geomagnetyczna."
-
-msgid "g3_desc"
-msgstr "Silna burza geomagnetyczna."
-
-msgid "g4_desc"
-msgstr "Poważna burza geomagnetyczna."
-
-msgid "g5_desc"
-msgstr "Ekstremalna burza geomagnetyczna."
 
 msgid "wind"
 msgstr "Wiatr"
@@ -637,10 +617,9 @@ msgstr "Mało prawdopodobne"
 msgid "alert_certainty_unknown"
 msgstr "Nieznane"
 
-############################################
+# ###########################################
 # KDE SYSTEM STATS (short labels)
-############################################
-
+# ###########################################
 msgid "All"
 msgstr "Wszystkie"
 
@@ -650,35 +629,14 @@ msgstr "Wszystkie dyski"
 msgid "All GPUs"
 msgstr "Wszystkie karty graficzne"
 
-msgid "All GPUs Total Memory"
-msgstr "Łącznie pamięci wszystkich kart graficznych"
-
-msgid "All GPUs Usage"
-msgstr "Wykorzystanie wszystkich kart graficznych"
-
-msgid "All GPUs Used Memory"
-msgstr "Użycie pamięci wszystkich kart graficznych"
-
 msgid "All Network Devices"
 msgstr "Wszystkie urządzenia sieciowe"
 
 msgid "Application Memory"
 msgstr "Pamięć programów"
 
-msgid "Application Memory Percentage"
-msgstr "Procent pamięci programu"
-
-msgid "Average CPU Frequency"
-msgstr "Śr. częstotliwość CPU"
-
-msgid "Average CPU Temperature"
-msgstr "Przeciętna temperatura procesora"
-
 msgid "Buffer Memory"
 msgstr "Pamięć buforowana"
-
-msgid "Buffer Memory Percentage"
-msgstr "Procent pamięci buforowanej"
 
 msgid "CPU %1"
 msgstr "Procesor %1"
@@ -692,17 +650,8 @@ msgstr "Ciśnienie CPU"
 msgid "Cache Memory"
 msgstr "Pamięć podręczna"
 
-msgid "Cache Memory Percentage"
-msgstr "Procent pamięci podręcznej"
-
 msgid "Charge"
 msgstr "Ładunek"
-
-msgid "Charge Percentage"
-msgstr "Procent naładowania"
-
-msgid "Charging  Rate"
-msgstr "Szybkość ładowania"
 
 msgid "Charging Rate"
 msgstr "Szybkość ładowania"
@@ -716,9 +665,6 @@ msgstr "Bieżąca pojemność"
 msgid "Current Frequency"
 msgstr "Bieżąca częstotliwość"
 
-msgid "Current Temperature"
-msgstr "Bieżąca temperatura"
-
 msgid "Design Capacity"
 msgstr "Zakładana pojemność"
 
@@ -728,29 +674,11 @@ msgstr "Szybkość pobierania"
 msgid "Free Physical Memory"
 msgstr "Wolna pamięć fizyczna"
 
-msgid "Free Physical Memory Percentage"
-msgstr "Procent niezajęcia pamięci fizycznej"
-
 msgid "Free Space"
 msgstr "Wolna przestrzeń"
 
 msgid "Free Swap Memory"
 msgstr "Wolna przestrzeń wymiany"
-
-msgid "Free Swap Memory Percentage"
-msgstr "Procent wolnej przestrzeni wymiany"
-
-msgid "Frequency"
-msgstr "Częstotliwość"
-
-msgid "Full (1 minute average)"
-msgstr "Pełne (średnia z 1 minuty)"
-
-msgid "Full (10 second average)"
-msgstr "Pełne (średnia z 10 sekund)"
-
-msgid "Full (5 minute average)"
-msgstr "Pełne (średnia z 5 minut)"
 
 msgid "GPU"
 msgstr "Karta graficzna"
@@ -815,18 +743,6 @@ msgstr "Nazwa i wersja jądra"
 msgid "Kernel Version"
 msgstr "Wersja jądra"
 
-msgid "Load Averages"
-msgstr "Wczytaj przeciętne"
-
-msgid "Load average (1 minute)"
-msgstr "Przeciętna obciążenia (1 minuta)"
-
-msgid "Load average (15 minute)"
-msgstr "Przeciętna obciążenia (15 minut)"
-
-msgid "Load average (5 minutes)"
-msgstr "Przeciętna obciążenia (5 minut)"
-
 msgid "Maximum CPU Frequency"
 msgstr "Maks. częstotliwość CPU"
 
@@ -872,9 +788,6 @@ msgstr "Logo systemu operacyjnego"
 msgid "Operating System Name"
 msgstr "Nazwa systemu operacyjnego"
 
-msgid "Operating System Name and Version"
-msgstr "Nazwa i wersja systemu operacyjnego"
-
 msgid "Operating System URL"
 msgstr "Adres URL systemu operacyjnego"
 
@@ -905,15 +818,6 @@ msgstr "Szybkość odczytu"
 msgid "Signal Strength"
 msgstr "Siła sygnału"
 
-msgid "Some (1 minute average)"
-msgstr "Niektóre (średnia z 1 minuty)"
-
-msgid "Some (10 second average)"
-msgstr "Niektóre (średnia z 10 sekund)"
-
-msgid "Some (5 minute average)"
-msgstr "Niektóre (średnia z 5 minut)"
-
 msgid "Swap Memory"
 msgstr "Pamięć wymiany"
 
@@ -922,9 +826,6 @@ msgstr "System"
 
 msgid "System Usage"
 msgstr "Wykorzystanie przez system"
-
-msgid "Temperature"
-msgstr "Temperatura"
 
 msgid "Total Downloaded"
 msgstr "Łącznie pobranych"
@@ -965,17 +866,11 @@ msgstr "Użycie"
 msgid "Used Physical Memory"
 msgstr "Używana pamięć fizyczna"
 
-msgid "Used Physical Memory Percentage"
-msgstr "Procent używania pamięci fizycznej"
-
 msgid "Used Space"
 msgstr "Używana przestrzeń"
 
 msgid "Used Swap Memory"
 msgstr "Używana pamięć wymiany"
-
-msgid "Used Swap Memory Percentage"
-msgstr "Procent użycia pamięci wymiany"
 
 msgid "User Usage"
 msgstr "Wykorzystanie przez użytkownika"
@@ -995,10 +890,9 @@ msgstr "System okien"
 msgid "Write Rate"
 msgstr "Szybkość zapisu"
 
-############################################
+# ###########################################
 # GOOGLE DASHBOARD
-############################################
-
+# ###########################################
 msgid "Inbox"
 msgstr "Odebrane"
 
@@ -1737,3 +1631,725 @@ msgstr "Reakcja"
 msgid "React"
 msgstr "Zareaguj"
 
+# ###########################################
+# PROCESSOR + CPU (conky: cpu, cpugovernor, freq, hwmon)
+# ###########################################
+msgid "Processor"
+msgstr "Procesor"
+
+msgid "Processor Usage"
+msgstr "Użycie procesora"
+
+msgid "Product_name"
+msgstr ""
+
+msgid "System_vendor"
+msgstr ""
+
+msgid "Product_family"
+msgstr ""
+
+msgid "Product_sku"
+msgstr ""
+
+msgid "Board_name"
+msgstr ""
+
+msgid "Board_vendor"
+msgstr ""
+
+msgid "Board_version"
+msgstr ""
+
+msgid "Bios_vendor"
+msgstr ""
+
+msgid "Bios_version"
+msgstr ""
+
+msgid "Bios_date"
+msgstr ""
+
+msgid "Bios_release"
+msgstr ""
+
+msgid "Chassis_vendor"
+msgstr ""
+
+msgid "Chassis_type"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "cpu"
+msgstr ""
+
+msgid "CPU Usage"
+msgstr "Użycie CPU"
+
+msgid "Cores"
+msgstr "Rdzenie"
+
+msgid "Freq"
+msgstr "Częst."
+
+msgid "Max Freq"
+msgstr "Maks. częst."
+
+msgid "Min Freq"
+msgstr "Min. częst."
+
+msgid "Governor"
+msgstr "Governor"
+
+msgid "CPU Governor"
+msgstr "Governor CPU"
+
+msgid "Temp"
+msgstr "Temp."
+
+msgid "CPU Temp"
+msgstr "Temp. CPU"
+
+# ###########################################
+# MEMORY + SWAP (conky: mem, membar, memmax, swap, swapperc)
+# ###########################################
+msgid "Mem"
+msgstr "Pamięć"
+
+msgid "Mem Used"
+msgstr "Użyta pamięć"
+
+msgid "Mem Free"
+msgstr "Wolna pamięć"
+
+msgid "Mem Total"
+msgstr "Całkowita pamięć"
+
+msgid "Swap"
+msgstr "Swap"
+
+msgid "Swap Used"
+msgstr "Użyty swap"
+
+msgid "Swap Free"
+msgstr "Wolny swap"
+
+msgid "Swap Total"
+msgstr "Całkowity swap"
+
+msgid "Buffer"
+msgstr "Bufor"
+
+msgid "Cache"
+msgstr "Pamięć podręczna"
+
+# ###########################################
+# DISK + FILESYSTEM (conky: diskio, fs_*, hddtemp)
+# ###########################################
+msgid "Disk"
+msgstr "Dysk"
+
+msgid "Disk Usage"
+msgstr "Użycie dysku"
+
+msgid "Disk IO"
+msgstr "Wejście/wyjście dysku"
+
+msgid "Disk IO Rate"
+msgstr "Szybkość wejścia/wyjścia dysku"
+
+msgid "File System"
+msgstr "System plików"
+
+msgid "Filesystem"
+msgstr "System plików"
+
+msgid "HDD Temp"
+msgstr "Temp. dysku"
+
+msgid "Net"
+msgstr "Sieć"
+
+msgid "Network Usage"
+msgstr "Użycie sieci"
+
+msgid "Down"
+msgstr "Pobieranie"
+
+msgid "Up"
+msgstr "Wysyłanie"
+
+msgid "Total Down"
+msgstr "Pobrano łącznie"
+
+msgid "Total Up"
+msgstr "Wysłano łącznie"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wireless"
+msgstr "Bezprzewodowe"
+
+msgid "Access Point"
+msgstr "Punkt dostępu"
+
+msgid "Wireless Signal"
+msgstr "Sygnał bezprzewodowy"
+
+msgid "Wireless Channel"
+msgstr "Kanał bezprzewodowy"
+
+msgid "Wireless Bitrate"
+msgstr "Szybkość transmisji bezprzewodowej"
+
+msgid "Wireless Mode"
+msgstr "Tryb bezprzewodowy"
+
+msgid "Wireless ESSID"
+msgstr "Bezprzewodowe ESSID"
+
+# ###########################################
+# GPU + GRAPHICS (conky: nvidia_*, gpu objects)
+# ###########################################
+msgid "Video Card"
+msgstr "Karta graficzna"
+
+msgid "Graphics Card"
+msgstr "Karta graficzna"
+
+msgid "GPU Temp"
+msgstr "Temp. GPU"
+
+msgid "GPU Freq"
+msgstr "Częst. GPU"
+
+msgid "Video Memory"
+msgstr "Pamięć wideo"
+
+msgid "GPU Model"
+msgstr "Model GPU"
+
+msgid "Model Name"
+msgstr "Nazwa modelu"
+
+msgid "GPU Driver"
+msgstr "Sterownik GPU"
+
+msgid "GPU Architecture"
+msgstr "Architektura GPU"
+
+msgid "GPU utilization"
+msgstr ""
+
+msgid "Driver version"
+msgstr ""
+
+msgid "% used"
+msgstr ""
+
+msgid "Read"
+msgstr ""
+
+msgid "Write"
+msgstr ""
+
+msgid "Top cpu usage"
+msgstr ""
+
+msgid "Top memory usage"
+msgstr ""
+
+msgid "cpu%"
+msgstr ""
+
+msgid "mem"
+msgstr ""
+
+# ###########################################
+# SENSORS (conky: hwmon volt/fan/temp, entropy_*)
+# ###########################################
+msgid "Fan"
+msgstr "Wentylator"
+
+msgid "Fan Speed"
+msgstr "Prędkość wentylatora"
+
+msgid "Voltage"
+msgstr "Napięcie"
+
+msgid "Entropy"
+msgstr "Entropia"
+
+msgid "Entropy Pool Size"
+msgstr "Rozmiar puli entropii"
+
+# ###########################################
+# BATTERY + ACPI (conky: battery*, acpiacadapter, apm_*)
+# ###########################################
+msgid "Battery"
+msgstr "Bateria"
+
+msgid "Battery Status"
+msgstr "Stan baterii"
+
+msgid "Battery Health"
+msgstr ""
+
+msgid "Battery Time"
+msgstr "Czas baterii"
+
+msgid "Time Remaining"
+msgstr "Pozostały czas"
+
+msgid "Power Draw"
+msgstr "Pobór mocy"
+
+msgid "AC Adapter"
+msgstr "Zasilacz sieciowy"
+
+msgid "AC Power"
+msgstr "Zasilanie z sieci"
+
+msgid "Charging"
+msgstr "Ładowanie"
+
+msgid "Discharging"
+msgstr "Rozładowanie"
+
+msgid "Not Charging"
+msgstr "Nie ładuje się"
+
+msgid "Full"
+msgstr "Pełna"
+
+msgid "Empty"
+msgstr "Pusta"
+
+msgid "Remaining"
+msgstr "Pozostałe"
+
+# ###########################################
+# SYSTEM (conky: machine, distribution, processes, threads, shmem)
+# ###########################################
+msgid "Machine"
+msgstr "Maszyna"
+
+msgid "Machine Model"
+msgstr "Model maszyny"
+
+msgid "Distribution"
+msgstr "Dystrybucja"
+
+msgid "Desktop"
+msgstr "Pulpit"
+
+msgid "Desktop Name"
+msgstr "Nazwa pulpitu"
+
+msgid "Desktop session"
+msgstr ""
+
+msgid "Processes"
+msgstr "Procesy"
+
+msgid "Running Processes"
+msgstr "Uruchomione procesy"
+
+msgid "Running Threads"
+msgstr "Uruchomione wątki"
+
+msgid "Shared Memory"
+msgstr "Pamięć współdzielona"
+
+msgid "Shared Memory Used"
+msgstr "Użyta pamięć współdzielona"
+
+# ###########################################
+# MEDIA PLAYER + NOW PLAYING (conky: mpd_*, moc_*, audacious_*, cmus_*, xmms2_*, lyrics)
+# ###########################################
+msgid "Now Playing"
+msgstr "Odtwarzane teraz"
+
+msgid "Media Player"
+msgstr "Odtwarzacz multimediów"
+
+msgid "Music"
+msgstr "Muzyka"
+
+msgid "Song"
+msgstr "Piosenka"
+
+msgid "Artist"
+msgstr "Wykonawca"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Title"
+msgstr "Tytuł"
+
+msgid "Track"
+msgstr "Utwór"
+
+msgid "Track Number"
+msgstr "Numer utworu"
+
+msgid "Genre"
+msgstr "Gatunek"
+
+msgid "Bitrate"
+msgstr "Przepływność"
+
+msgid "Lyrics"
+msgstr "Tekst piosenki"
+
+msgid "Play"
+msgstr "Odtwórz"
+
+msgid "Pause"
+msgstr "Pauza"
+
+msgid "Stop"
+msgstr "Zatrzymaj"
+
+msgid "Volume"
+msgstr "Głośność"
+
+msgid "Shuffle"
+msgstr "Odtwarzanie losowe"
+
+msgid "Repeat"
+msgstr "Powtarzanie"
+
+msgid "Playing"
+msgstr "Odtwarzanie"
+
+msgid "Paused"
+msgstr "Wstrzymano"
+
+msgid "Stopped"
+msgstr "Zatrzymano"
+
+msgid "Not Playing"
+msgstr "Brak odtwarzania"
+
+msgid "Position"
+msgstr "Pozycja"
+
+msgid "Duration"
+msgstr "Czas trwania"
+
+msgid "Elapsed"
+msgstr "Upłynęło"
+
+msgid "Remaining Time"
+msgstr "Pozostały czas"
+
+msgid "Total Time"
+msgstr "Całkowity czas"
+
+msgid "Stream"
+msgstr "Strumień"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Podcast"
+msgstr "Podcast"
+
+msgid "Episode"
+msgstr "Odcinek"
+
+msgid "Artwork"
+msgstr "Okładka"
+
+msgid "Cover"
+msgstr "Okładka"
+
+msgid "Track List"
+msgstr "Lista utworów"
+
+# ###########################################
+# MEMORY DETAILS (conky: memactive, meminactive, memdirty, memwired, memavail, memwithbuffers)
+# ###########################################
+msgid "Active Memory"
+msgstr "Aktywna pamięć"
+
+msgid "Inactive Memory"
+msgstr "Pamięć nieaktywna"
+
+msgid "Dirty Memory"
+msgstr "Brudna pamięć"
+
+msgid "Wired Memory"
+msgstr "Pamięć zablokowana"
+
+msgid "Available Memory"
+msgstr "Dostępna pamięć"
+
+# ###########################################
+# NETWORK INTERFACE (conky: iface, addr, v6addrs, gw_ip)
+# ###########################################
+msgid "Interface"
+msgstr "Interfejs"
+
+msgid "Interface Name"
+msgstr "Nazwa interfejsu"
+
+msgid "Network Interface"
+msgstr "Interfejs sieciowy"
+
+msgid "Local IP"
+msgstr "Lokalne IP"
+
+msgid "Local IPv4"
+msgstr "Lokalne IPv4"
+
+msgid "Local IPv6"
+msgstr "Lokalne IPv6"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "MAC Address"
+msgstr "Adres MAC"
+
+msgid "Network Status"
+msgstr "Stan sieci"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Unavailable"
+msgstr "Niedostępne"
+
+msgid "Unknown"
+msgstr "Nieznane"
+
+msgid "Download Speed"
+msgstr "Prędkość pobierania"
+
+msgid "Upload Speed"
+msgstr "Prędkość wysyłania"
+
+# ###########################################
+# UPS + APCUPSD (conky: apcupsd_*)
+# ###########################################
+msgid "UPS"
+msgstr "UPS"
+
+msgid "Cable"
+msgstr "Kabel"
+
+msgid "Line Voltage"
+msgstr "Napięcie sieciowe"
+
+msgid "Last Transfer"
+msgstr "Ostatni transfer"
+
+msgid "Time Left"
+msgstr "Pozostało czasu"
+
+msgid "UPS Mode"
+msgstr "Tryb UPS"
+
+# ###########################################
+# KEYBOARD + BRIGHTNESS + LAPTOP (conky: key_*, intel_backlight, laptop_mode)
+# ###########################################
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgid "Num Lock"
+msgstr "Num Lock"
+
+msgid "Scroll Lock"
+msgstr "Scroll Lock"
+
+msgid "Brightness"
+msgstr "Jasność"
+
+msgid "Backlight"
+msgstr "Podświetlenie"
+
+msgid "Laptop Mode"
+msgstr "Tryb laptopa"
+
+# ###########################################
+# PROCESS + SCHEDULER (conky: pid_*, top, ioscheduler)
+# ###########################################
+msgid "PID"
+msgstr "PID"
+
+msgid "User"
+msgstr "Użytkownik"
+
+msgid "CPU Time"
+msgstr "Czas CPU"
+
+msgid "I/O Scheduler"
+msgstr "Planista wejścia/wyjścia"
+
+msgid "Scheduler"
+msgstr "Planista"
+
+msgid "Node Name"
+msgstr "Nazwa węzła"
+
+# ###########################################
+# PACKAGES + TEMPERATURE (conky: pacman/apt updates, temp)
+# ###########################################
+msgid "Packages"
+msgstr "Pakiety"
+
+msgid "Package"
+msgstr "Pakiet"
+
+msgid "package"
+msgstr ""
+
+msgid "packages"
+msgstr ""
+
+msgid "Current Temp"
+msgstr "Aktualna temp."
+
+# ###########################################
+# PLAYER METADATA (conky: mpd_*, audacious_*, moc_*, cmus_*, xmms2_*)
+# ###########################################
+msgid "Album Artist"
+msgstr "Wykonawca albumu"
+
+msgid "Codec"
+msgstr "Kodek"
+
+msgid "Composer"
+msgstr "Kompozytor"
+
+msgid "Disc"
+msgstr "Dysk"
+
+msgid "Disc Number"
+msgstr "Numer dysku"
+
+msgid "Elapsed Time"
+msgstr "Czas, który upłynął"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Sample Rate"
+msgstr "Częstotliwość próbkowania"
+
+msgid "Track Position"
+msgstr "Pozycja utworu"
+
+# ###########################################
+# PLAYER MODES + QUEUE (buffering, streaming, playlist, repeat)
+# ###########################################
+msgid "Buffering"
+msgstr "Buforowanie"
+
+msgid "Karaoke Mode"
+msgstr "Tryb karaoke"
+
+msgid "Live Stream"
+msgstr "Transmisja na żywo"
+
+msgid "Playlist"
+msgstr "Lista odtwarzania"
+
+msgid "Progress"
+msgstr "Postęp"
+
+msgid "Queue"
+msgstr "Kolejka"
+
+msgid "Recently Played"
+msgstr "Ostatnio odtwarzane"
+
+msgid "Repeat One"
+msgstr "Powtarzaj jeden"
+
+msgid "Repeat All"
+msgstr "Powtarzaj wszystkie"
+
+msgid "Station"
+msgstr "Stacja"
+
+msgid "Streaming"
+msgstr "Strumieniowanie"
+
+msgid "Stream Quality"
+msgstr "Jakość strumienia"
+
+# ###########################################
+# PLAYER NAVIGATION (next/previous track)
+# ###########################################
+msgid "Next Track"
+msgstr "Następny utwór"
+
+msgid "Previous Track"
+msgstr "Poprzedni utwór"
+
+# ###########################################
+# SYNCED LYRICS + KARAOKE (lines, sync state)
+# ###########################################
+msgid "Current Line"
+msgstr "Aktualna linia"
+
+msgid "Next Line"
+msgstr "Następna linia"
+
+msgid "Previous Line"
+msgstr "Poprzednia linia"
+
+msgid "Synced"
+msgstr "Zsynchronizowane"
+
+msgid "Unsynced"
+msgstr "Niezsynchronizowane"
+
+msgid "Synced Lyrics"
+msgstr "Zsynchronizowany tekst"
+
+msgid "No Synced Lyrics"
+msgstr "Brak zsynchronizowanego tekstu"
+
+# ###########################################
+# LYRICS STATUS (loading, error, not found, unavailable)
+# ###########################################
+msgid "Lyrics Error"
+msgstr "Błąd tekstu piosenki"
+
+msgid "Lyrics Loading"
+msgstr "Wczytywanie tekstu"
+
+msgid "Lyrics Not Found"
+msgstr "Nie znaleziono tekstu piosenki"
+
+msgid "Lyrics Unavailable"
+msgstr "Tekst piosenki niedostępny"
+
+msgid "No Cover"
+msgstr "Brak okładki"
+
+msgid "No Lyrics"
+msgstr "Brak tekstu piosenki"
+
+msgid "No Lyrics Available"
+msgstr "Brak dostępnego tekstu piosenki"
+
+msgid "Loading Cover"
+msgstr "Wczytywanie okładki"
+
+msgid "Loading Lyrics"
+msgstr "Wczytywanie tekstu piosenki"

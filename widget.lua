@@ -4,39 +4,17 @@
 --  GitHub: https://github.com/molnari811023/conky-nextgen
 --  Description: Modular Conky UI framework (Lua engine + Bash backend)
 --}}}
---[[[
-widget.lua — main entry / loader of the whole ConkyNextGen system
-
-This root file is the system entry point. It computes the project root
-(script_dir), extends package.path with the lua/, lua/core/, lua/draw/,
-lua/weather/, lua/hardware/ and lua/google/ module directories, sets
-JSON_PATH to the tmp/ cache folder and the icon-base globals, declares
-the THEMES/DEFAULT_THEME configuration and loads the entire engine by
-calling require("require"). It then registers the draw items of the
-bundled widget (a small network panel with download/upload speed
-graphs using ${lua conky_wifi_downspeed} / ${lua conky_wifi_upspeed}),
-defines the lua_hook_exec refresh hook (conky_weather_update) and
-boots the renderer via init_groups(_GROUPS).
-]]--
 
 --{{{
--- ## Main entry / loader
---
--- Sets up global paths and the module search path, defines the theme
--- configuration and loads every engine module through require("require")
--- before initializing the item groups with init_groups(). Its own draw
--- list configures a network/wifi panel in a single "main" view.
---
--- **Exposed/global functions:**
--- - `conky_weather_update()` — lua_hook_exec refresh hook (weather data + alerts)
---
--- **Config/globals used:**
--- `script_dir`, `package.path`, `JSON_PATH`, `ICON_BASE`, `ICON_THEME`,
--- `MOON_ICON_BASE`, `WIND_ICON_BASE`, `draw`, `THEMES`, `DEFAULT_THEME`,
--- `_PADDING`, `_GROUPS`, `_VIEWS`, `_MOUSE_ENABLED`
--- `require("require")` — central module loader
--- `conky_load_weather_data()` / `conky_update_alerts()` — used by the refresh hook
--- `init_groups(_GROUPS)` — final bootstrap of the renderer
+--  widget.lua — Widget data (generated/edited by sh/designer/main.py)
+--  Loaded directly by Conky (lua_load = 'widget.lua'). Structure:
+--    Global paths / config (formerly settings.lua)
+--    DEFAULT_THEME / MODULE_PROFILE / _PADDING — global settings
+--    draw[#draw + 1] = { ... }        — draw items (background, clock, bar, ...)
+--    _GROUPS = { { name, views } }    — item groups (view switching)
+--    _VIEWS  = { { name } }           — view definitions
+--    MOUSE_*_ACTION = ...             — mouse event callbacks
+--    Bootstrap (formerly init.lua)    — loads the modules, inits the groups
 --}}}
 
 ------------------------------------------------------------
@@ -51,7 +29,6 @@ package.path = package.path
     .. ";" .. script_dir .. "lua/draw/?.lua"
     .. ";" .. script_dir .. "lua/weather/?.lua"
     .. ";" .. script_dir .. "lua/hardware/?.lua"
-    .. ";" .. script_dir .. "lua/google/?.lua"
 
 -- JSON_PATH is always needed (weather, hardware/network, nowplaying data)
 JSON_PATH      = script_dir .. "tmp/"
@@ -148,81 +125,17 @@ THEMES = {
                 color_today = { { 1, "#3daee9", 1 } },
                 color_outside = { { 1, "#4a4d52", 1 } },
                 color_weeknums = { { 1, "#3daee9", 1 } },
+                color_popup = { { 1, "#a9b1d6", 1 } },
             },
         },
     },
 }
 
 DEFAULT_THEME = "theme"
+MODULE_PROFILE = { "weather", "media", "google" }
 _PADDING = 10
 
 require("require")
-
-draw[#draw + 1] = {
-    type = "background",
-    x = 0,
-    y = 0,
-    w = 0,
-    h = 0,
-    radius = 12,
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 10,
-    y = 10,
-    font = "Mono",
-    size = 12,
-    text = "Wifi",
-}
-
-draw[#draw + 1] = {
-    type = "line",
-    x1 = 50,
-    y1 = 20,
-    x2 = 330,
-    y2 = 20,
-    thickness = 2,
-}
-
-draw[#draw + 1] = {
-    type = "graph",
-    x = 10,
-    y = 45,
-    width = 150,
-    height = 40,
-    value = "${lua conky_wifi_downspeed}",
-    max = 100,
-}
-
-draw[#draw + 1] = {
-    type = "graph",
-    x = 180,
-    y = 45,
-    width = 150,
-    height = 40,
-    value = "${lua conky_wifi_upspeed}",
-    max = 100,
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 10,
-    y = 25,
-    font = "Mono",
-    size = 12,
-    text = "Download:${lua conky_wifi_downspeed}/s",
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 330,
-    y = 25,
-    font = "Mono",
-    size = 12,
-    text = "Upload:${lua conky_wifi_upspeed}/s",
-    align = "right",
-}
 
 
 _GROUPS = {
@@ -230,7 +143,6 @@ _GROUPS = {
 
 _VIEWS = {
     { name = "main" },
-    { name = "view_1" },
 }
 
 ------------------------------------------------------------
