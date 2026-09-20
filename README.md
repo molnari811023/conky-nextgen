@@ -2,322 +2,170 @@
   <img src="screenshots/banner.png" alt="Conky NextGen">
 </p>
 
-A modular, theme-driven Conky UI framework with a Lua/Cairo rendering engine, Bash data backend, and a full visual Designer.
-Built for modern desktops (KDE Plasma Wayland/X11), with clean SIGUSR1 reloads and zero window flashing.
+# Conky NextGen
 
-![Desktop](screenshots/desktop.png)
+Conky NextGen is a modular Conky framework with a Lua/Cairo renderer, Bash
+data fetchers, self-contained themed widgets, and a GTK3 visual Designer. It
+supports X11 and Wayland-capable Conky builds.
 
----
+![NextGen desktop](screenshots/desktop.png)
 
-## Install
+## Quick start
 
 ```bash
-# Clone into ~/.conky
 git clone git@github.com:molnari811023/conky-nextgen.git ~/.conky
+cd ~/.conky
 
-# Desktop entry (optional — adds NextGen Designer to app menu)
-cp ~/.conky/nextgen-designer.desktop ~/.local/share/applications/
+# Fetch weather, alerts, maps, media, network, and optional Google data.
+bash sh/fetch_all.sh
 
-# Fetch weather/system data
-bash ~/.conky/sh/0_fetch_all.sh
+# Start a widget.
+conky -c clock_cal.conf
 
-# Launch the Designer
-python3 ~/.conky/sh/designer/main.py
-
-# Or run a widget directly
-conky -c ~/.conky/clock_cal.conf
+# Start the visual Designer.
+python3 sh/designer/main.py
 ```
 
-The Designer auto-saves and triggers SIGUSR1 reloads — Conky updates instantly without restarting.
+The default weather location is Vienna. Supply a city name to fetch weather
+for another location:
 
----
+```bash
+bash sh/fetch_all.sh Budapest
+```
+
+The Designer writes widget files atomically and sends `SIGUSR1` to reload the
+live preview without restarting the Conky process.
+
+## Included widgets
+
+Every root-level `.conf` file starts the matching `.lua` widget. The current
+bundles are:
+
+| Widget | Purpose |
+|---|---|
+| `clock_cal` | analog clock and calendar |
+| `cpu`, `mem_swap`, `disk`, `nvidia` | system, memory, storage, and GPU information |
+| `info`, `top`, `left` | system dashboards and multi-view layouts |
+| `weather` | current, hourly, and daily weather views |
+| `lyrics` | synchronized lyric display |
+| `widget` | Designer-managed general-purpose widget |
+
+## Screenshots
+
+| Clock and calendar | Calendar view | System information |
+|:---:|:---:|:---:|
+| ![Clock and calendar](screenshots/clock_cal.png) | ![Calendar](screenshots/clock_cal_calendar.png) | ![System information](screenshots/info.png) |
+
+| CPU | CPU alternative view | Memory and swap |
+|:---:|:---:|:---:|
+| ![CPU](screenshots/cpu_main.png) | ![CPU alternative view](screenshots/cpu_view_1.png) | ![Memory and swap](screenshots/mem_swap.png) |
+
+| Disk | NVIDIA GPU | Top processes | Top processes alternative view |
+|:---:|:---:|:---:|:---:|
+| ![Disk](screenshots/disk.png) | ![NVIDIA GPU](screenshots/nvidia.png) | ![Top processes](screenshots/top.png) | ![Top processes alternative view](screenshots/top_view_1.png) |
+
+| Current weather | Hourly forecast | Daily forecast |
+|:---:|:---:|:---:|
+| ![Current weather](screenshots/weather.png) | ![Hourly forecast](screenshots/weather_view_1.png) | ![Daily forecast](screenshots/weather_view_2.png) |
 
 ![Designer](screenshots/designer.png)
-*The NextGen Designer — live preview, property editor, theme controls*
 
-### Widgets
+## Designer
 
-| Clock + Calendar | Clock + Calendar (calendar) | System Info |
-|:---:|:---:|:---:|
-| ![clock_cal](screenshots/clock_cal.png) | ![clock_cal_calendar](screenshots/clock_cal_calendar.png) | ![info](screenshots/info.png) |
+Run the GTK3 Designer with:
 
-| CPU | CPU — View 1 | Memory + Swap |
-|:---:|:---:|:---:|
-| ![cpu_main](screenshots/cpu_main.png) | ![cpu_view_1](screenshots/cpu_view_1.png) | ![mem_swap](screenshots/mem_swap.png) |
-
-| Disk | NVIDIA GPU | Top (Multi-View) | Top — View 1 |
-|:---:|:---:|:---:|:---:|
-| ![disk](screenshots/disk.png) | ![nvidia](screenshots/nvidia.png) | ![top](screenshots/top.png) | ![top_view_1](screenshots/top_view_1.png) |
-
-### Weather (Multi-View + Interactive)
-
-The weather widget supports 3 views with clickable labels — click any label to switch views:
-
-| Current Weather | Hourly Forecast | Daily Forecast |
-|:---:|:---:|:---:|
-| ![weather](screenshots/weather.png) | ![weather_hourly](screenshots/weather_view_1.png) | ![weather_daily](screenshots/weather_view_2.png) |
-
-**Features:**
-- **Current** — temperature, feels-like, wind, UV index, sunrise/sunset, moon phase, AQI
-- **Hourly** — 4-hour forecast with precipitation, wind, temperature
-- **Daily** — 4-day forecast with high/low, precipitation probability, UV
-- **Interactive** — mouse click switches between views
-- **22 languages** — full i18n: Hungarian, English, German, French, Spanish, and 17 more
-
----
-
-## Google Dashboard (experimental)
-
-A Google widget showing Gmail, Calendar, Tasks, Contacts, Drive, YouTube and Meet
-in a compact dashboard. Data is pulled with **gogcli** (`gog`) — a command-line
-Google API client that stores OAuth credentials in a local keyring, so no API
-keys are embedded in the config.
-
-```
-# First-time setup (once)
-gog auth login --client default
-export GOG_KEYRING_BACKEND=file GOG_KEYRING_PASSWORD=conky-google-dashboard
-
-# Fetch all Google data into tmp/ (JSON)
-bash sh/0_fetch_all.sh google
+```bash
+python3 sh/designer/main.py
 ```
 
-- **Gmail** — recent messages (subject, sender, date, label), unread count
-- **Calendar** — upcoming events
-- **Tasks** — task lists and items
-- **Contacts** — name + phone list
-- **Drive** — file listing and sizes
-- **YouTube** — subscriptions
-- **Meet** — meeting history (needs a meeting code)
+It edits `widget.lua` and `widget.conf`, provides a live Conky preview, and
+includes widget, theme, view, group, mouse, weather, and Conky configuration
+controls. Module profiles are fixed checkboxes in the left-side **Profile**
+panel, so selecting them does not cover any other control.
 
-Clicking an email opens the thread in the browser via `sh/gog_open_mail.sh`.
+Profiles choose data modules while every visual renderer remains available:
 
-> **Status: under testing** — the data fetching and Lua processing modules work,
-> the dashboard widget is still being developed. Watch this space.
+| Profile | Loads data for |
+|---|---|
+| `basic` | no additional data source |
+| `weather` | weather, alerts, air quality, sun, moon, city, and icons |
+| `system` | hardware, battery, DMI, MTP, network, sensors, and USB |
+| `media` | now-playing and song-text data |
+| `panel` | panel system data |
+| `google` | Google cache data |
+| `full` | weather, system, media, and Google data |
 
----
-
-## What NextGen Provides
-
-- **Desktop widgets** — clocks, calendars, bars, rings, graphs, images, SVG
-- **Multi-view layouts** — switch between views with a single click (see `top` widget)
-- **System info** — CPU, RAM, NVMe, sensors, network, battery, DMI
-- **Advanced weather** — current, hourly, daily, AQI, MeteoAlerts, sun/moon
-- **Themes** — palette → gradients → per-widget defaults; every color resolves automatically
-- **Views & groups** — switchable layouts, clickable regions, mouse-driven navigation
-- **Visual editing** — no Lua coding required; everything is editable in the Designer
-- **22 languages** — full weather i18n with `.po`/`.mo` translation files
-- **X11 + Wayland** — runs on both; SIGUSR1 reload patch eliminates window flashing on X11
-
-## Multi-View
-
-Widgets can define multiple views and switch between them with a mouse click. The `top` widget demonstrates this:
-
-- **Main view** — top CPU processes
-- **View 1** — top memory processes
-
-Click anywhere on the widget to toggle views. Configure in the Designer with the **Views** tab, or in `widget.lua`:
+Profiles can be combined, for example:
 
 ```lua
--- Views
-_VIEWS = {
-    { name = "main" },
-    { name = "view_1" },
-}
-
--- Mouse click toggles between views
-MOUSE_CLICK_LEFT = function() view_toggle("view_1") end
-
--- Items belong to a view
-draw[#draw + 1] = { type = "text", view = "main", ... }
-draw[#draw + 1] = { type = "text", view = "view_1", ... }
+MODULE_PROFILE = { "weather", "media" }
 ```
 
-## Designer (GTK3)
+`full` is exclusive. Invalid profile definitions, missing required modules,
+and invalid Lua renderer expressions fail explicitly instead of being silently
+ignored.
 
-A Python/GTK3 application that edits `widget.lua` and `widget.conf`:
+## Fetching data
 
-- **Live preview** — renders inside a real Conky window; what you see is what you get
-- **Property editor** — tabs for widgets, themes, colors, and Conky configuration
-- **Auto-save** — writes files and triggers SIGUSR1 reload; Conky updates in place
-- **Log console** — tails the Conky log for real-time debugging
-- **Theme editor** — adjust palette, gradients, and defaults with instant visual feedback
+All fetchers are Bash scripts. Run them with `bash`, not a generic `sh`
+wrapper. They update the generated `tmp/` cache, which is intentionally not
+stored in Git.
 
-### Designer Architecture
+| Command | Purpose |
+|---|---|
+| `bash sh/fetch_all.sh` | fetch all regular data |
+| `bash sh/fetch_all.sh weather` | fetch weather only |
+| `bash sh/fetch_all.sh alerts` | fetch MeteoAlarm alerts |
+| `bash sh/fetch_all.sh map` | fetch weather maps |
+| `bash sh/fetch_all.sh nowplaying` | fetch media-player data |
+| `bash sh/fetch_all.sh network` | fetch ping and public-IP data |
+| `bash sh/fetch_all.sh google` | fetch optional Google data through `gog` |
+| `bash sh/fetch_updates.sh` | fetch the optional Arch update counter |
 
+For periodic refreshes, use Bash explicitly in cron:
+
+```cron
+0 * * * * /bin/bash /path/to/conky-nextgen/sh/fetch_all.sh && /bin/bash /path/to/conky-nextgen/sh/fetch_updates.sh
 ```
-sh/designer/
-├── main.py                 # GTK application entry point
-├── engine/
-│   ├── lua_parser.py       # Parse widget.lua structure
-│   ├── lua_data.py         # Read/write widget properties
-│   ├── theme_engine.py     # Theme resolution (palette → gradients → defaults)
-│   ├── theme_writer.py     # Write theme block back to widget.lua
-│   ├── gradient_gen.py     # Auto-generate gradients from palette colors
-│   ├── activity_log.py     # Action history for undo
-│   └── widget_schema.py    # Widget type definitions & validation
-├── ui/                     # GTK window, tabs, property widgets
-├── tests/                  # Unit tests
-└── icons/                  # App icons (SVG + PNG)
-```
-
-## Lua Framework
-
-All rendering logic lives in `lua/`.
-A single `widget.lua` file defines:
-
-- the `THEMES` block (palette, gradients, defaults)
-- the `draw` list (widget order and properties)
-
-### Load Order
-
-```
-widget.lua → require.lua → lua/core/* → lua/draw/* → lua/hardware/* → lua/weather/* → lua/google/*
-```
-
-### Core Modules
-
-| Module | Purpose |
-|---|---|
-| `draw_core.lua` | Main render loop, auto-interpretation, visibility control |
-| `draw_group.lua` | Group offsets, view filtering, layout stacking |
-| `mouse.lua` | Mouse event dispatching, hit-testing, click regions |
-| `theme_engine.lua` | Runtime palette/gradient/default resolution |
-| `translate.lua` | `.mo` translation loader for weather data (22 languages) |
-| `utils.lua` | Safe math, hex colors, gradient interpolation, Conky variable parsing |
-| `capture.lua` | Shell command execution with result caching |
-
-### Draw Modules
-
-| Module | Renders |
-|---|---|
-| `background.lua` | Rounded rectangles with gradient fills and borders |
-| `bar.lua` | Progress bars — smooth, block, dot, and polygon modes |
-| `calendar.lua` | Month calendar grid with day highlighting |
-| `clock.lua` | Analog clock with hour/minute/second hands |
-| `graph.lua` | Scrolling time-series graphs with configurable scales |
-| `rings.lua` | Circular gauges with alarm thresholds |
-| `svg.lua` | SVG rasterization via librsvg |
-| `image.lua` | PNG display with crop, tint, and rotate |
-| `text.lua` | Text with alignment, line wrapping, and hyphenation |
-| `lines.lua` | Lines — solid, dash, dot patterns |
-| `hyphen.lua` | LibreOffice `.dic` hyphenation for language-aware text wrapping |
-| `icon_theme.lua` | XDG icon resolver for system tray-style icons |
-
-### Hardware Modules
-
-| Module | Data Source |
-|---|---|
-| `battery.lua` | Battery level, headset/mouse battery via UPower |
-| `core.lua` | DMI info, shell cache, system identity |
-| `dmi.lua` | BIOS, board, chassis details from `/sys/class/dmi/id/` |
-| `info.lua` | CPU model, NVMe SMART data, install date |
-| `sensors.lua` | CPU/NVMe/WiFi temperature, fan speeds via lm-sensors |
-| `network.lua` | WiFi SSID/signal, public IP, ping latency |
-| `usb.lua` | USB device mount detection |
-| `mtp.lua` | MTP device detection (KDE Plasma) |
-
-### Weather Modules
-
-| Module | Data |
-|---|---|
-| `current.lua` | Current conditions — 35 accessors for every field |
-| `hourly.lua` | Hourly forecast (1–24 hours) |
-| `daily.lua` | Daily forecast (1–7 days) |
-| `air.lua` | Air quality — PM2.5/10, gases, pollen, AQI index |
-| `alerts.lua` | MeteoAlarm XML parser — 26 functions for warning data |
- | `sunmoon.lua` | Sunrise/sunset, moon phase, golden hour |
- | `units.lua` | Unit labels, city names, locale-aware formatting |
-| `core.lua` | Data loader, WMO weather codes, icon mapping |
-
-## Widget Structure
-
-Each widget consists of three files:
-
-| File | Purpose |
-|---|---|
-| `widget.conf` | Conky configuration (Designer-generated) |
-| `widget.lua` | Theme block + draw list (Designer-edited) |
-| `widget.png` | Preview icon (for Conky Manager) |
-
-Included widgets: `clock_cal` (analog clock + calendar), `cpu` (multi-view CPU stats), `disk` (NVMe/disk health), `weather` (multi-view with current/hourly/daily), `top` (multi-view system stats), `info` (system dashboard), `mem_swap` (memory + swap), `nvidia` (GPU stats).
-
-## SIGUSR1 Reload Patch (X11)
-
-NextGen includes a patch for clean X11 reloads (`pkg/sigusr1-reload.patch`):
-
-- **Keeps the X window alive** — no destroy/recreate cycle
-- **Preserves the X11 display connection** — no reconnect overhead
-- **Queries real window attributes** via `XGetWindowAttributes()` — correct visual, colormap, and geometry
-- **No flash, no content loss** — widget content stays visible through the reload
-- **Wayland unaffected** — already reloads cleanly by default
-
-The patch is applied automatically when building via the included `PKGBUILD`.
-
-## Shell Backend (`sh/`)
-
-Bash scripts fetch all external data into `tmp/`:
-
-| Script | Data |
-|---|---|
-| `all_in_one.sh` | Single-call fetcher (weather + hardware + network) |
-| `0_fetch_all.sh` | Full data fetch (all modules) |
-| `4_fetch_weather.sh` | Open-Meteo weather API |
- | `11_fetch_alerts.sh` | MeteoAlarm XML feeds |
- | `13_fetch_maps.sh` | Weather map tiles |
-| `fetch_network.sh` | Public IP, ping latency tests |
-| `fetch_nowplaying.sh` | MPRIS player data via playerctl |
-| `fetch_google.sh` | Gmail, Calendar, Tasks, Contacts, Drive, YouTube, Meet via `gog` |
-| `gog_open_mail.sh` | Open a Gmail thread in the browser from a message id |
-| `updates.sh` | Arch Linux package update checks |
-
-Data is cached as JSON in `tmp/` and read directly by the Lua modules — no database required.
-
-## Themes
-
-Themes are defined in the `THEMES` block of `widget.lua`:
-
-```lua
-THEMES = {
-  theme = {
-    palette   = { bg_dark="#202326", fg="#fcfcfc", accent="#3daee9", ... },
-    gradients = { bar_cpu = { {1,"#3daee9",1} }, ... },
-    defaults  = { bar={fg="bar_cpu",bg="bg"}, ring={radius=35}, ... },
-  },
-}
-```
-
-- **Palette** — named colors; the building blocks for everything else
-- **Gradients** — named color ramps; color fields reference them by name (e.g. `fg = "bar_cpu"`)
-- **Defaults** — per-widget-type fallback values; a bare `type = "bar"` still looks right
-
-Themes can be switched at runtime from the Designer's Theme tab. Widgets can override per-item with `theme = "other_theme"`.
 
 ## Requirements
 
-- **Conky 1.24.3+** (Lua 5.5, Cairo, Xft, Imlib2, RSVG)
-- **Python 3.10+** with PyGObject (GTK3) — for the Designer
-- **Bash** + curl + jq — for data fetchers
-- **Lua modules**: dkjson, lfs, lua-utf8 (optional: lpeg for faster JSON decoding)
-- **System tools**: lm-sensors, playerctl, upower, lsblk
-- **Optional**: XDG icon themes, `kio-extras` (MTP support under KDE Plasma), `gog` (Google dashboard)
+Package names vary between distributions. The project needs:
 
-## Documentation Status
+- Conky built with Lua, Cairo, Xft, Imlib2, and RSVG support;
+- Python 3 with PyGObject/GTK3 for the Designer;
+- Bash, `curl`, `jq`, and `python3` for the fetcher framework;
+- Lua bindings including `cairo`, `rsvg`, `imlib2`, `lfs`, and `dkjson`;
+- `ImageMagick` for map images and `ping` for network latency;
+- optional tools according to enabled modules: `playerctl`, `cmus-remote`,
+  `mpc`, `mocp`, `gog`, `lm-sensors`, `upower`, and Arch package tools.
 
-This project has been under active development for the past 8 months. During
-this time many modules have been rewritten from scratch — some of them more
-than 50 times — and the internal architecture has evolved significantly.
+## Project layout
 
-Because of this rapid development, the current documentation is outdated and
-no longer reflects the actual state of the NextGen system. The codebase is
-stable and up to date, but the manual still describes older versions of the
-designer, the modules, and several features that have since been removed or
-replaced.
+```text
+.
+├── *.lua / *.conf   standalone widget bundles
+├── debug/           renderer stress tests and diagnostics
+├── icons/           weather, moon, wind, and UI assets
+├── language/        gettext catalogs and translation template
+├── lua/             core engine, renderers, and data modules
+├── panel_systray/   panel and systray helper sources/configuration
+├── pkg/             package build files and patches
+├── sh/              fetchers and the GTK3 Designer
+├── tools/           development utilities
+└── tmp/             generated runtime cache
+```
 
-A complete rewrite of the documentation is in progress.
+## Documentation and validation
 
----
+The detailed, source-derived reference is in
+[NextGen.md](NextGen.md). It documents the renderer properties, Lua modules,
+fetchers, Designer components, profiles, translations, panel integration, and
+debug tooling.
 
-## Documentation
+Run the Designer schema and round-trip regression test with:
 
-- [NextGen.md](NextGen.md) — full reference (themes, configuration, troubleshooting, shell backend, Lua engine internals)
+```bash
+cd sh/designer
+python3 tests/test_widget_schema.py
+```
