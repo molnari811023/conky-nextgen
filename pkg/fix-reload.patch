@@ -1,0 +1,17 @@
+--- src/output/display-output.cc
++++ src/output/display-output.cc
+@@ -73,10 +73,14 @@
+     if (primary_it == registered_outputs().end()) continue;
+     auto output = primary_it->second;
+ 
+     LOG_DEBUG("initializing '{}' display output", output->name);
+-    if (output->initialize()) {
++    conky::current_display_outputs.push_back(output);
++    bool success = output->initialize();
++    conky::current_display_outputs.clear();
++
++    if (success) {
+       LOG_DEBUG("initialized display output '{}'", output->name);
+       initialized_selection.insert(output_type);
+     }
+   }

@@ -2,8 +2,8 @@
 # Based on Arch Linux conky (1.22.3) and AUR conky-git PKGBUILDs
 
 pkgname=conky-mng
-pkgver=1.24.2.r19.gef154d5
-pkgrel=2
+pkgver=1.25.1.r4.gab873ce
+pkgrel=1
 pkgdesc='Light-weight system monitor for X, Wayland, and other things, too — with mouse events'
 arch=('x86_64')
 url='https://github.com/brndnmtthws/conky'
@@ -56,13 +56,11 @@ makedepends=(
 
 provides=('conky')
 conflicts=('conky' 'conky-git')
-source=(
+source=("fix-reload.patch"
+        
   "git+https://github.com/brndnmtthws/conky.git"
-  "sigusr1-reload.patch"
-  "rsvg-bindings-fix.patch"
 )
-sha256sums=('SKIP'
-            'SKIP'
+sha256sums=('f783184ad27dd713ff39b555ef1ae2c17faf70b801b8f96eb721e72ab11d056d'
             'SKIP')
 
 pkgver() {
@@ -71,13 +69,8 @@ pkgver() {
 }
 
 prepare() {
+  patch -d conky -p0 < ../fix-reload.patch
   cd conky
-
-  # SIGUSR1 reload: skip window+display teardown on X11 during reload
-  patch -Np1 -i "${srcdir}/sigusr1-reload.patch"
-
-  # RSVG Lua bindings: fix set/get typo, GError leak, add positioning helper
-  patch -Np1 -i "${srcdir}/rsvg-bindings-fix.patch"
 
   # unbundle catch2 to fix build with glibc >= 2.35
   if [ -d tests/catch2 ]; then
