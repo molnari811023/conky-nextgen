@@ -24,30 +24,32 @@ lua/hardware/info.lua — Hardware identification: CPU model, NVMe model, and OS
 --}}}
 
 function conky_cpu_name()
-	return cached("cpu_model", 86400, function()
-		local name = read_file("/proc/cpuinfo"):match("model name%s+:%s+(.-)\n") or "Unknown CPU"
-		return name:gsub("[™®]", "")
-			:gsub("CPU", "")
-			:gsub("Processor", "")
-			:gsub("%s+", " ")
-			:gsub("^%s+", "")
-			:gsub("%s+$", "")
-	end)
+    return cached("cpu_model", 86400, function()
+        local name = read_file("/proc/cpuinfo"):match("model name%s+:%s+(.-)\n") or "Unknown CPU"
+        return name:gsub("[™®]", "")
+            :gsub("%(R%)", "")
+            :gsub("%(TM%)", "")
+            :gsub("CPU", "")
+            :gsub("Processor", "")
+            :gsub("%s+", " ")
+            :gsub("^%s+", "")
+            :gsub("%s+$", "")
+    end)
 end
 
 function conky_nvme_model()
-	return cached("nvme_model", 86400, function()
-		local v = read_file("/sys/class/nvme/nvme0/model")
-		return (v ~= "") and v or "Unknown NVMe"
-	end)
+    return cached("nvme_model", 86400, function()
+        local v = read_file("/sys/class/nvme/nvme0/model")
+        return (v ~= "") and v or "Unknown NVMe"
+    end)
 end
 
 function conky_install_date()
-	if static.inst_dt then
-		return static.inst_dt
-	end
-	static.inst_dt = pread("head -n1 /var/log/pacman.log | cut -c 2-11")
-	return static.inst_dt ~= "" and static.inst_dt or "N/A"
+    if static.inst_dt then
+        return static.inst_dt
+    end
+    static.inst_dt = pread("head -n1 /var/log/pacman.log | cut -c 2-11")
+    return static.inst_dt ~= "" and static.inst_dt or "N/A"
 end
 
 function conky_uptime_fmt()

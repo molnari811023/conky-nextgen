@@ -1,9 +1,13 @@
+.vscode
+.luacheckrc
+*kopie*
 .env
 __pycache__/
 *.pyc
 *.pkg.tar.zst
 examples/multi_view/
 tmp/
+Temp/
 pkg/src/
 pkg/pkg/
 pkg/conky/

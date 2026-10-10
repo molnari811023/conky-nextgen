@@ -83,7 +83,7 @@ for _root, _dirs, _files in os.walk(_here):
 
 import gi
 gi.require_version("Gtk", "3.0")
-gi.require_version("GtkSource", "3.0")
+gi.require_version("GtkSource", "4")
 from gi.repository import Gtk, Gdk, GdkPixbuf, GLib, GObject, Pango, GtkSource
 
 GLib.set_prgname("nextgen-designer")
@@ -712,7 +712,7 @@ class DesignerWindow(Gtk.Window):
         _row(2, "alignment", self.conky_align_combo)
 
         self.conky_hints_entry = Gtk.Entry()
-        self.conky_hints_entry.set_text("below,sticky,skip_taskbar,skip_pager")
+        self.conky_hints_entry.set_text("undecorated,below,sticky,skip_taskbar,skip_pager")
         self.conky_hints_entry.connect("changed", self._on_conky_changed)
         _row(3, "own_window_hints", self.conky_hints_entry)
 
@@ -1739,7 +1739,7 @@ class DesignerWindow(Gtk.Window):
             "gap_x": "",
             "gap_y": "",
             "alignment": "top_left",
-            "own_window_hints": "below,sticky,skip_taskbar,skip_pager",
+            "own_window_hints": "undecorated,below,sticky,skip_taskbar,skip_pager",
             "own_window_type": "normal",
             "minimum_width": 420,
             "minimum_height": 1020,
@@ -1890,14 +1890,12 @@ class DesignerWindow(Gtk.Window):
             "",
             "conky.config = {",
             "  background = true,",
-            "  out_to_x = true,",
-            "  out_to_wayland = true,",
             "  double_buffer = true,",
             "  use_xft = true,",
             "  font = 'Sans:size=10',",
             "  own_window = true,",
             "  own_window_type = '{}',".format(s.get("own_window_type", "normal")),
-            "  own_window_hints = '{}',".format(s.get("own_window_hints", "below,sticky,skip_taskbar,skip_pager")),
+            "  own_window_hints = '{}',".format(s.get("own_window_hints", "undecorated,below,sticky,skip_taskbar,skip_pager")),
             "  alignment = '{}',".format(s.get("alignment", "top_left")),
         ]
         for key in ("gap_x", "gap_y"):

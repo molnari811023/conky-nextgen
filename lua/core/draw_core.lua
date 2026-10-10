@@ -3,6 +3,7 @@
 --  Author: István Molnár
 --  GitHub: https://github.com/molnari811023/conky-nextgen
 --  Description: Modular Conky UI framework (Lua engine + Bash backend)
+-- edited by wim66
 --}}}
 --[[[
 lua/core/draw_core.lua — the main per-frame draw driver: dispatch, view/group gating, layout
@@ -301,6 +302,7 @@ function conky_core_main()
             clock      = draw_clock,
             arc        = draw_arc,
             lyrics     = draw_lyrics,
+            spectrum   = draw_spectrum,
         }
     end
 

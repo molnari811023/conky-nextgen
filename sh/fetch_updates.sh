@@ -31,7 +31,7 @@ CONKY_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 TMP_DIR="$CONKY_DIR/tmp"
 OUT="$TMP_DIR/updates.txt"
 mkdir -p "$TMP_DIR"
-repo=$(checkupdates 2>/dev/null | wc -l)
+repo=$(/usr/bin/checkupdates 2>/dev/null | wc -l)
 aur=0
 aur_pkgs=$(pacman -Qm 2>/dev/null | awk '{print $1}')
 if [ -n "$aur_pkgs" ]; then
@@ -39,9 +39,9 @@ if [ -n "$aur_pkgs" ]; then
 	for pkg in $aur_pkgs; do
 		args="$args&arg[]=$pkg"
 	done
-	json=$(curl -s -f --max-time 10 "https://aur.archlinux.org/rpc?v=5&type=info$args" 2>/dev/null)
+	json=$(/usr/bin/curl -s -f --max-time 10 "https://aur.archlinux.org/rpc?v=5&type=info$args" 2>/dev/null)
 	if [ -n "$json" ]; then
-		names_json=$(echo "$json" | jq -r '.results[] | "\(.Name) \(.Version)"' 2>/dev/null)
+		names_json=$(echo "$json" | /usr/bin/jq -r '.results[] | "\(.Name) \(.Version)"' 2>/dev/null)
 		if [ -n "$names_json" ]; then
 			while read -r name ver; do
 				[ -z "$name" ] && continue

@@ -32,7 +32,7 @@ source "$_SCRIPT_DIR/common.sh"
 fetch_weather() {
 	local city_raw="${1:-Vienna}"
 	local city=$(urlencode "$city_raw")
-	local lang="${WEATHER_LANG:-en}" forecast_days=7 air_forecast_days=4
+	local lang="${WEATHER_LANG:-nl}" forecast_days=7 air_forecast_days=4
 	local cj="$TMP_DIR/city.json"
 
 	log "[geo] Geocoding $city_raw"

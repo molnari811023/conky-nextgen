@@ -39,7 +39,7 @@ bars and ${freq N} frequencies.
 -- Global paths / config (formerly settings.lua)
 -- script_dir is widget.lua's own directory (the project root)
 ------------------------------------------------------------
-script_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"
+script_dir   = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"
 
 package.path = package.path
     .. ";" .. script_dir .. "lua/?.lua"
@@ -49,9 +49,9 @@ package.path = package.path
     .. ";" .. script_dir .. "lua/hardware/?.lua"
 
 -- JSON_PATH is always needed (weather, hardware/network, nowplaying data)
-JSON_PATH      = script_dir .. "tmp/"
+JSON_PATH    = script_dir .. "tmp/"
 
-draw = {}
+draw         = {}
 
 
 ICON_BASE      = script_dir .. "icons/"
@@ -82,7 +82,7 @@ WIND_ICON_BASE = script_dir .. "icons/wind/"
 -- }
 --}}}
 
-THEMES = {
+THEMES         = {
 
     -- ═══ THEME ═══
 
@@ -152,10 +152,71 @@ THEMES = {
             },
         },
     },
+
+    slot = {
+
+        palette = {
+            bg_dark = "#202326",
+            bg_mid = "#292c30",
+            bg_light = "#31363c",
+            fg = "#fcfcfc",
+            fg_dim = "#a1a9b1",
+            blue = "#3daee9",
+            green = "#27ae60",
+            yellow = "#f67400",
+            red = "#da4453",
+        },
+
+        defaults = {
+            background = {
+                bg = { { 1, "#151d2b", 1 } },
+                border = { { 0.00, "#8899EE", 1 }, { 0.50, "#ece5ff", 1 }, { 1.00, "#8899EE", 1 } },
+                border_width = 2,
+            },
+            bar = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
+            line = {
+                fg = { { 1, "#a1a9b1", 1 } },
+            },
+            graph = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                grid_color = { { 1, "#31363c", 1 } },
+            },
+            ring = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
+            text = {
+                color = { { 1, "#fcfcfc", 1 } },
+            },
+            clock = {
+                bg = { { 1, "#31363c", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                tick_color = { { 1, "#a1a9b1", 1 } },
+                number_color = { { 1, "#fcfcfc", 1 } },
+                hour_color = { { 1, "#fcfcfc", 1 } },
+                minute_color = { { 1, "#3daee9", 1 } },
+                second_color = { { 1, "#f67400", 1 } },
+                center_color = { { 1, "#3daee9", 1 } },
+            },
+            calendar = {
+                color_month = { { 1, "#fcfcfc", 1 } },
+                color_weekdays = { { 1, "#a1a9b1", 1 } },
+                color_days = { { 1, "#a1a9b1", 1 } },
+                color_today = { { 1, "#3daee9", 1 } },
+                color_outside = { { 1, "#4a4d52", 1 } },
+                color_weeknums = { { 1, "#3daee9", 1 } },
+            },
+        },
+    },
 }
 
-DEFAULT_THEME = "theme"
-_PADDING = 10
+DEFAULT_THEME  = "slot"
+_PADDING       = 10
 
 require("require")
 
@@ -175,7 +236,7 @@ draw[#draw + 1] = {
     y = 10,
     font = "Mono",
     size = 12,
-    text = "Cpu: ${cpu}%",
+    text = "Cpu:",
 }
 
 draw[#draw + 1] = {
@@ -202,11 +263,22 @@ draw[#draw + 1] = {
 draw[#draw + 1] = {
     type = "text",
     view = "main",
-    x = 330,
+    x = 140,
     y = 25,
     font = "Mono",
     size = 12,
     text = "${lua conky_cpu_temp}°C",
+    align = "right",
+}
+
+draw[#draw + 1] = {
+    type = "text",
+    view = "main",
+    x = 330,
+    y = 25,
+    font = "Mono",
+    size = 12,
+    text = "${cpu}%",
     align = "right",
 }
 
@@ -223,10 +295,17 @@ draw[#draw + 1] = {
     grid = true,
     grid_steps = 5,
     grid_color = { { 1, "#aaaaaa", 1 } },
-    autoscale = true,
+    autoscale = false,
 }
 
-for i = 1, 12 do
+-- Detect actual logical CPU count instead of assuming a fixed number —
+-- a hardcoded core count (e.g. 12) would request ${cpu cpuN} for cores
+-- that don't exist on smaller CPUs, and conky exits entirely on the
+-- first out-of-range request (e.g. "requested CPU 9, but only 8
+-- available" on a 4-core/8-thread CPU).
+local NUM_CPUS = tonumber((pread("nproc"))) or 4
+
+for i = 1, NUM_CPUS do
     local current_y = 10 + (i - 1) * 15
 
     draw[#draw + 1] = {
@@ -260,7 +339,7 @@ for i = 1, 12 do
         value = "${cpu cpu" .. i .. "}",
         max = 100,
     }
-    end
+end
 
 
 _GROUPS = {

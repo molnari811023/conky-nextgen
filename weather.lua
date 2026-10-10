@@ -129,9 +129,70 @@ THEMES = {
             },
         },
     },
+
+    slot = {
+
+        palette = {
+            bg_dark = "#202326",
+            bg_mid = "#292c30",
+            bg_light = "#31363c",
+            fg = "#fcfcfc",
+            fg_dim = "#a1a9b1",
+            blue = "#3daee9",
+            green = "#27ae60",
+            yellow = "#f67400",
+            red = "#da4453",
+        },
+
+        defaults = {
+            background = {
+                bg = { { 1, "#151d2b", 1 } },
+                border = { { 0.00, "#8899EE", 1 }, { 0.50, "#ece5ff", 1 }, { 1.00, "#8899EE", 1 } },
+                border_width = 2,
+            },
+            bar = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
+            line = {
+                fg = { { 1, "#a1a9b1", 1 } },
+            },
+            graph = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                grid_color = { { 1, "#31363c", 1 } },
+            },
+            ring = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
+            text = {
+                color = { { 1, "#fcfcfc", 1 } },
+            },
+            clock = {
+                bg = { { 1, "#31363c", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                tick_color = { { 1, "#a1a9b1", 1 } },
+                number_color = { { 1, "#fcfcfc", 1 } },
+                hour_color = { { 1, "#fcfcfc", 1 } },
+                minute_color = { { 1, "#3daee9", 1 } },
+                second_color = { { 1, "#f67400", 1 } },
+                center_color = { { 1, "#3daee9", 1 } },
+            },
+            calendar = {
+                color_month = { { 1, "#fcfcfc", 1 } },
+                color_weekdays = { { 1, "#a1a9b1", 1 } },
+                color_days = { { 1, "#a1a9b1", 1 } },
+                color_today = { { 1, "#3daee9", 1 } },
+                color_outside = { { 1, "#4a4d52", 1 } },
+                color_weeknums = { { 1, "#3daee9", 1 } },
+            },
+        },
+    },
 }
 
-DEFAULT_THEME = "theme"
+DEFAULT_THEME = "slot"
 _PADDING = 10
 
 -- SIGUSR1 hot-reload: clear cached modules so require() re-executes them
@@ -278,7 +339,7 @@ draw[#draw + 1] = {
     type = "text",
     view = "main",
     x = 245,
-    y = 76,
+    y = 60,
     font = "Mono",
     size = 42,
     weight = "bold",
@@ -819,8 +880,18 @@ init_groups(_GROUPS)
 ------------------------------------------------------------
 -- Weather data refresh hook — called via lua_hook_exec in .conf
 ------------------------------------------------------------
+local WEATHER_FETCH_INTERVAL = 900  -- seconds (15 min)
+local last_weather_fetch = 0
+
 function conky_weather_update()
     conky_load_weather_data()
     conky_update_alerts()
+
+    local now = os.time()
+    if now - last_weather_fetch > WEATHER_FETCH_INTERVAL then
+        last_weather_fetch = now
+        os.execute(script_dir .. "sh/0_fetch_all.sh weather \"Amsterdam\" >/dev/null 2>&1 &")
+    end
+
     return ""
 end

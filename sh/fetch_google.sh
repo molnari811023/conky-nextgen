@@ -17,9 +17,11 @@
 # **What it does:**
 # - Exports GOG_KEYRING_BACKEND/file, GOG_KEYRING_PASSWORD and GOG_ACCOUNT
 # - gog_emit(): runs `gog --json --results-only` into <out>.json (+ <out>.err)
+# - gog_count_emit(): runs an exact `gog --json --count` query into <out>.json
 # - fetch_google_gmail/contacts/drive/youtube run in parallel, then
 #   calendar, tasks and meet run sequentially
-# - Outputs $TMP_DIR/gmail_emails.json, calendar_events.json,
+# - Outputs $TMP_DIR/gmail_emails.json, gmail_count.json, gmail_unread_count.json,
+#   calendar_events.json,
 #   tasks_lists.json, tasks.json, contacts.json, drive_files.json,
 #   youtube_subs.json and meet_history.json
 #
@@ -48,6 +50,8 @@ GOOGLE_CALENDAR_DAYS="${GOOGLE_CALENDAR_DAYS:-14}"
 GOOGLE_GMAIL_MAX="${GOOGLE_GMAIL_MAX:-15}"
 # Max Tasks to fetch (default 20).
 GOOGLE_TASKS_MAX="${GOOGLE_TASKS_MAX:-20}"
+# Maximum time allowed for one gog API request.
+GOOGLE_GOG_TIMEOUT="${GOOGLE_GOG_TIMEOUT:-45}"
 
 require_gog() {
 	command -v gog >/dev/null 2>&1 || { log "[google] gog not found — skipping"; return 1; }
@@ -57,7 +61,18 @@ require_gog() {
 # gog_emit <outfile> <cmd...>: run gog with JSON output into <outfile>.
 gog_emit() {
 	local out="$1"; shift
-	if gog "${GOG_ARGS[@]}" --json --results-only "$@" >"$TMP_DIR/$out.tmp" 2>"$TMP_DIR/$out.err"; then
+	if timeout "$GOOGLE_GOG_TIMEOUT" gog "${GOG_ARGS[@]}" --json --results-only "$@" >"$TMP_DIR/$out.tmp" 2>"$TMP_DIR/$out.err"; then
+		mv "$TMP_DIR/$out.tmp" "$TMP_DIR/$out"
+		log "[google] $out OK"
+	else
+		rm -f "$TMP_DIR/$out.tmp"
+		log "[warn] $out failed: $(head -c 120 "$TMP_DIR/$out.err")"
+	fi
+}
+
+gog_count_emit() {
+	local out="$1"; shift
+	if timeout "$GOOGLE_GOG_TIMEOUT" gog "${GOG_ARGS[@]}" --json "$@" --count >"$TMP_DIR/$out.tmp" 2>"$TMP_DIR/$out.err"; then
 		mv "$TMP_DIR/$out.tmp" "$TMP_DIR/$out"
 		log "[google] $out OK"
 	else
@@ -68,6 +83,8 @@ gog_emit() {
 
 fetch_google_gmail() {
 	gog_emit gmail_emails.json gmail search "in:anywhere" --max "$GOOGLE_GMAIL_MAX"
+	gog_count_emit gmail_count.json gmail search "in:anywhere" --max 1
+	gog_count_emit gmail_unread_count.json gmail search "is:unread in:anywhere" --max 1
 }
 
 fetch_google_calendar() {
@@ -115,6 +132,8 @@ fetch_google_meet() {
 
 fetch_google() {
 	require_gog || return 0
+	exec 9>"$TMP_DIR/google_fetch.lock"
+	flock -n 9 || { log "[google] refresh already running — skipping"; return 0; }
 	# gmail, contacts, drive, youtube can run in parallel
 	fetch_google_gmail &
 	fetch_google_contacts &

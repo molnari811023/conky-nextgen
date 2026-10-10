@@ -61,6 +61,7 @@ end
 local function youtube_raw()
 	return (load_google_data().youtube) or {}
 end
+
 local function meet_raw()
 	return (load_google_data().meet) or {}
 end
@@ -68,6 +69,14 @@ end
 -- ═══ GMAIL ═══
 
 function conky_google_unread_count()
+	local count_data = load_google_data().gmail_unread_count
+	if type(count_data) == "table" then
+		local exact_count = count_data.totalMatches or count_data.totalMatchesAtLeast
+		if exact_count ~= nil then return tostring(exact_count) end
+	elseif type(count_data) == "number" then
+		return tostring(count_data)
+	end
+
 	local n = 0
 	for _, m in ipairs(gmail_raw()) do
 		local labels = m.labels or {}
@@ -81,6 +90,14 @@ function conky_google_unread_count()
 end
 
 function conky_google_gmail_count()
+	local count_data = load_google_data().gmail_count
+	if type(count_data) == "table" then
+		local exact_count = count_data.totalMatches or count_data.totalMatchesAtLeast
+		if exact_count ~= nil then return tostring(exact_count) end
+	elseif type(count_data) == "number" then
+		return tostring(count_data)
+	end
+
 	return tostring(#gmail_raw())
 end
 

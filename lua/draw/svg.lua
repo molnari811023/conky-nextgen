@@ -59,10 +59,17 @@ function draw_svg(cr, opts)
     elseif type(path) == "function" then path = path() end
     if not path then return nil end
 
-    if type(opts.x) == "function" then opts.x = opts.x() end
-    if type(opts.y) == "function" then opts.y = opts.y() end
+    -- resolve into LOCAL variables — never write back into opts.x/opts.y:
+    -- opts is the persistent item table from draw[], shared across every
+    -- frame. Mutating it here would permanently replace the function with
+    -- its first-resolved value (e.g. the sun-position-on-arc indicator
+    -- would freeze in place after the first frame instead of moving).
+    local x, y = opts.x, opts.y
+    if type(x) == "function" then x = x() end
+    if type(y) == "function" then y = y() end
 
     local c = apply_defaults(opts, _SVG_DEFAULT)
+    c.x, c.y = x, y
     local w = math.floor(tonumber(c.w) or 32)
     local h = math.floor(tonumber(c.h) or 32)
     if w <= 0 or h <= 0 then return nil end

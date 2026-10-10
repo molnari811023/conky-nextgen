@@ -142,16 +142,20 @@ art_url = os.environ.get('NEXTGEN_ART_URL', '').strip()
 tmp_art = art_path_target + '.tmp'
 if art_url:
     try:
+        from PIL import Image
+        import io
         if art_url.startswith('file://'):
             local_path = urllib.parse.unquote(art_url.replace('file://', ''))
-            import shutil
-            shutil.copy2(local_path, tmp_art)
+            with Image.open(local_path) as im:
+                im.convert('RGBA').save(tmp_art, 'PNG')
             os.replace(tmp_art, art_path_target)
             curr_data['art'] = art_path_target
         elif art_url.startswith('http://') or art_url.startswith('https://'):
             req = urllib.request.Request(art_url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=2) as response, open(tmp_art, 'wb') as out_file:
-                out_file.write(response.read())
+            with urllib.request.urlopen(req, timeout=2) as response:
+                raw = response.read()
+            with Image.open(io.BytesIO(raw)) as im:
+                im.convert('RGBA').save(tmp_art, 'PNG')
             os.replace(tmp_art, art_path_target)
             curr_data['art'] = art_path_target
     except:

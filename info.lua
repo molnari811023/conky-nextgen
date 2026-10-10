@@ -148,9 +148,70 @@ THEMES = {
             },
         },
     },
+
+    slot = {
+
+        palette = {
+            bg_dark = "#202326",
+            bg_mid = "#292c30",
+            bg_light = "#31363c",
+            fg = "#fcfcfc",
+            fg_dim = "#a1a9b1",
+            blue = "#3daee9",
+            green = "#27ae60",
+            yellow = "#f67400",
+            red = "#da4453",
+        },
+
+        defaults = {
+            background = {
+                bg = { { 1, "#151d2b", 1 } },
+                border = { { 0.00, "#8899EE", 1 }, { 0.50, "#ece5ff", 1 }, { 1.00, "#8899EE", 1 } },
+                border_width = 2,
+            },
+            bar = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
+            line = {
+                fg = { { 1, "#a1a9b1", 1 } },
+            },
+            graph = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                grid_color = { { 1, "#31363c", 1 } },
+            },
+            ring = {
+                fg = { { 1, "#3daee9", 1 } },
+                bg = { { 1, "#3a3d41", 1 } },
+            },
+            text = {
+                color = { { 1, "#d9d9d9", 1 } },
+            },
+            clock = {
+                bg = { { 1, "#31363c", 1 } },
+                border = { { 1, "#4a4d52", 1 } },
+                tick_color = { { 1, "#a1a9b1", 1 } },
+                number_color = { { 1, "#fcfcfc", 1 } },
+                hour_color = { { 1, "#fcfcfc", 1 } },
+                minute_color = { { 1, "#3daee9", 1 } },
+                second_color = { { 1, "#f67400", 1 } },
+                center_color = { { 1, "#3daee9", 1 } },
+            },
+            calendar = {
+                color_month = { { 1, "#fcfcfc", 1 } },
+                color_weekdays = { { 1, "#a1a9b1", 1 } },
+                color_days = { { 1, "#a1a9b1", 1 } },
+                color_today = { { 1, "#3daee9", 1 } },
+                color_outside = { { 1, "#4a4d52", 1 } },
+                color_weeknums = { { 1, "#3daee9", 1 } },
+            },
+        },
+    },
 }
 
-DEFAULT_THEME = "theme"
+DEFAULT_THEME = "slot"
 _PADDING = 10
 
 draw[#draw + 1] = {
@@ -169,7 +230,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 12,
     text = "Os:",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -180,7 +241,7 @@ draw[#draw + 1] = {
     size = 12,
     text = "${execpi 3600 lsb_release -ds | tr -d '\"'}",
     align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -190,7 +251,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 12,
     text = "Kernel:",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -201,7 +262,7 @@ draw[#draw + 1] = {
     size = 12,
     text = "${kernel}",
     align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -211,7 +272,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 12,
     text = "Uptime:",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -222,7 +283,7 @@ draw[#draw + 1] = {
     size = 12,
     text = "${uptime_short}",
     align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -232,7 +293,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 12,
     text = "Desktop session:",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -243,7 +304,7 @@ draw[#draw + 1] = {
     size = 12,
     text = "${execpi 3600 echo $DESKTOP_SESSION/$XDG_SESSION_TYPE}",
     align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -253,7 +314,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 12,
     text = "Repo updates:",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -264,7 +325,7 @@ draw[#draw + 1] = {
     size = 12,
     text = "${lua conky_updates_repo}",
     align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -274,7 +335,7 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 12,
     text = "Aur updates:",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 draw[#draw + 1] = {
@@ -285,7 +346,7 @@ draw[#draw + 1] = {
     size = 12,
     text = "${lua conky_updates_aur}",
     align = "right",
-    color = { { 1, "#a1a9b1", 1 } },
+
 }
 
 
@@ -313,5 +374,23 @@ _MOUSE_ENABLED = true
 -- Bootstrap (formerly init.lua): load the modules, then
 -- initialize the item groups.
 ------------------------------------------------------------
+------------------------------------------------------------
+-- Package-updates refresh hook — called via ${lua conky_updates_check}
+-- in conky.text. Uses script_dir (portable: resolves to wherever this
+-- .lua file itself was loaded from, independent of the launcher's cwd
+-- or the user's home directory) so it works for any user/clone/launcher.
+------------------------------------------------------------
+local UPDATES_CHECK_INTERVAL = 1800  -- seconds (30 min)
+local last_updates_check = 0
+
+function conky_updates_check()
+    local now = os.time()
+    if now - last_updates_check > UPDATES_CHECK_INTERVAL then
+        last_updates_check = now
+        os.execute(script_dir .. "sh/updates.sh >/dev/null 2>&1 &")
+    end
+    return ""
+end
+
 require("require")
 init_groups(_GROUPS)

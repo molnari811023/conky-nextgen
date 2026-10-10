@@ -148,7 +148,9 @@ function read_num(path)
 	return tonumber(v and v:match("(%d+)"))
 end
 
-local tmp_dir = os.getenv("HOME") .. "/.conky/tmp/"
+local source = debug.getinfo(1, "S").source:sub(2)
+local conky_dir = source:match("(.*/)") or "./"
+local tmp_dir = conky_dir .. "../../tmp/"
 local updates_file = tmp_dir .. "updates.txt"
 
 function conky_updates_repo()

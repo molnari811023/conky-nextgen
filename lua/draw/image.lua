@@ -61,25 +61,46 @@ function draw_png(cr, m)
     if not conky_window then return end
     if not m.path then return nil end
 
-    -- resolve function / exec table path at draw time
+    -- resolve function / exec table path at draw time — into LOCAL
+    -- variables only. Never write back into `m`: it is the actual
+    -- persistent item table from draw[], shared across every frame.
+    -- Overwriting m.path/m.x/m.y here would permanently replace the
+    -- function with its first-resolved value, so it would never be
+    -- called again (icon/position frozen until the widget restarts).
     local path = m.path
     if type(path) == "table" and path.exec then path = path.exec()
     elseif type(path) == "function" then path = path() end
     if not path then return nil end
-    m.path = path
 
-    -- resolve function x/y at draw time
-    if type(m.x) == "function" then m.x = m.x() end
-    if type(m.y) == "function" then m.y = m.y() end
+    local x, y = m.x, m.y
+    if type(x) == "function" then x = x() end
+    if type(y) == "function" then y = y() end
 
     local c = apply_defaults(m, PNG_DEFAULT)
+    c.path = path
+    c.x = x
+    c.y = y
 
+    -- PNG_CACHE is keyed by path string only, which is correct for
+    -- static per-code assets (weather icons: 2d.png never changes
+    -- content) but wrong for a reused filename whose CONTENT changes
+    -- (e.g. album_art.png gets overwritten on every song change while
+    -- keeping the same path) — without an mtime check, a cache hit on
+    -- that unchanged path would keep serving the previous song's art
+    -- forever. lfs is already a global (loaded by require.lua), so we
+    -- can cheaply stat() the file each draw and invalidate on change.
     local cached = PNG_CACHE[c.path]
+    local mtime
+    if lfs then
+        local attr = lfs.attributes(c.path)
+        mtime = attr and attr.modification
+    end
     local reload = (not cached) or not is_surface_valid(cached.surface)
+        or (mtime and cached.mtime ~= mtime)
     if reload then
         local img = cairo_image_surface_create_from_png(c.path)
         if cairo_surface_status(img) == 0 then
-            cache_set(PNG_CACHE, c.path, { surface = img }, 256)
+            cache_set(PNG_CACHE, c.path, { surface = img, mtime = mtime }, 256)
         else
             cairo_surface_destroy(img)
             return
@@ -96,11 +117,11 @@ function draw_png(cr, m)
     local sw = c.crop and (c.crop.w or (iw - crop_x)) or iw
     local sh = c.crop and (c.crop.h or (ih - crop_y)) or ih
 
-    if c.width and not c.height then
-        if sw > 0 then c.height = c.width * (sh / sw) end
-    elseif c.height and not c.width then
+    -- Altijd de breedte automatisch berekenen op basis van de ingestelde hoogte en aspect ratio
+    if c.height then
         if sh > 0 then c.width = c.height * (sw / sh) end
     end
+    
     local w = c.width or sw
     local h = c.height or sh
 

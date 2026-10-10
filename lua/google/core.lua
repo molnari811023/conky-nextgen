@@ -37,6 +37,8 @@ local last_google_mtime_check = 0
 
 local google_cached_files = {
 	"gmail_emails.json",
+	"gmail_count.json",
+	"gmail_unread_count.json",
 	"calendar_events.json",
 	"tasks_lists.json",
 	"tasks.json",
@@ -77,6 +79,8 @@ G = G or {}
 function G.populate()
 	local data = {
 		gmail   = gread_j(JSON_PATH .. "gmail_emails.json"),
+		gmail_count = gread_j(JSON_PATH .. "gmail_count.json"),
+		gmail_unread_count = gread_j(JSON_PATH .. "gmail_unread_count.json"),
 		calendar= gread_j(JSON_PATH .. "calendar_events.json"),
 		tlists  = gread_j(JSON_PATH .. "tasks_lists.json"),
 		tasks   = gread_j(JSON_PATH .. "tasks.json"),
