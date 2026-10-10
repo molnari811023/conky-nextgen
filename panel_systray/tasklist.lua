@@ -52,6 +52,7 @@ TASKLIST_CFG = {
     icon_pos      = "left",     -- left|right
     -- display mode: "full" (icon+title), "icon" (icon only), "name" (title only)
     mode          = "icon",
+    fallback_icon = "application-default-icon",
     -- per-field size override (wins over the defaults above):
     --   size_override = { slot_width = 120, slot_height = 22,
     --                     icon_size = 14, font_size = 10, title_max = 16 }
@@ -67,6 +68,12 @@ TASKLIST_CFG = {
         ["conky.conky"] = true,
         ["panel_conky.panel_conky"] = true,
         ["panel_conky"] = true,
+        ["xfce4-notifyd.Xfce4-notifyd"] = true,
+        ["xfce4-notifyd"] = true,
+        ["dunst.Dunst"] = true,
+        ["dunst"] = true,
+        ["notify-osd.Notify-osd"] = true,
+        ["notify-osd"] = true,
     },
 }
 
@@ -148,19 +155,37 @@ local function parse_wmctrl_line(line)
     }
 end
 
---- Read the EWMH state atoms (active/hidden/urgent/…) of one window.
+--- Check if a window's class matches the excluded list or contains notify
+local function is_excluded(w)
+    if not w then return true end
+    local k = w.klass
+    if not k or k == "" then return true end
+    if TASKLIST_CFG.class_exclude[k] then return true end
+    local k_lower = k:lower()
+    if TASKLIST_CFG.class_exclude[k_lower] then return true end
+    for seg in k_lower:gmatch("[^%.]+") do
+        if TASKLIST_CFG.class_exclude[seg] then return true end
+        if seg:find("notify") then return true end
+    end
+    return false
+end
+
+--- Read the EWMH state atoms (active/hidden/urgent/…) and window type of one window.
 -- @tparam number win the window id
 -- @treturn table map of atom-name → true
 local function window_state(win)
     local state = {}
     local p = io.popen("xprop -id " .. q(string.format("0x%x", win)) ..
-                       " _NET_WM_STATE 2>/dev/null")
+                       " _NET_WM_STATE _NET_WM_WINDOW_TYPE 2>/dev/null")
     if not p then return state end
     local data = p:read("*a")
     p:close()
     if not data then return state end
-    for atom in data:gmatch("_NET_WM_STATE_([A-Za-z]+)") do
+    for atom in data:gmatch("_NET_WM_STATE_([A-Za-z0-9_]+)") do
         state[atom] = true
+    end
+    for wtype in data:gmatch("_NET_WM_WINDOW_TYPE_([A-Za-z0-9_]+)") do
+        state["TYPE_" .. wtype] = true
     end
     return state
 end
@@ -172,17 +197,13 @@ function tasklist_update()
     if not changed() then return TASKLIST end
     if not draw or #draw == 0 then return TASKLIST end
 
-    local wins, by_id = {}, {}
+    local wins = {}
     local p = io.popen("wmctrl -lx 2>/dev/null")
     if p then
         for line in p:lines() do
             local w = parse_wmctrl_line(line)
-            if w then
-                local excl = w.klass and TASKLIST_CFG.class_exclude[w.klass]
-                if not excl and w.title ~= "" then
-                    wins[#wins + 1] = w
-                    by_id[w.win] = w
-                end
+            if w and not is_excluded(w) and w.title ~= "" then
+                wins[#wins + 1] = w
             end
         end
         p:close()
@@ -199,18 +220,26 @@ function tasklist_update()
         end
     end
 
-    local tab = {}
-    for i = 1, math.min(#wins, TL_MAX) do
+    local tab, by_id = {}, {}
+    for i = 1, #wins do
         local w = wins[i]
         local st = window_state(w.win)
-        tab[i] = {
-            win      = w.win,
-            title    = w.title,
-            klass    = w.klass,
-            app      = apps_by_wmclass(w.klass),
-            state    = st,
-            active   = (w.win == active),
-        }
+        local skip = st.SKIP_TASKBAR or st.TYPE_NOTIFICATION or st.TYPE_DOCK or
+                     st.TYPE_DESKTOP or st.TYPE_SPLASH or st.TYPE_TOOLTIP or
+                     st.TYPE_POPUP_MENU
+        if not skip then
+            local entry = {
+                win      = w.win,
+                title    = w.title,
+                klass    = w.klass,
+                app      = apps_by_wmclass(w.klass),
+                state    = st,
+                active   = (w.win == active),
+            }
+            tab[#tab + 1] = entry
+            by_id[w.win] = entry
+            if #tab >= TL_MAX then break end
+        end
     end
 
     TASKLIST.wins    = tab
@@ -270,7 +299,10 @@ function tasklist_paint()
             s.icon.h    = is
             s.icon.click = s.bg.click
         else
-            s.icon.path = nil
+            s.icon.path  = nil
+            s.icon.click = nil
+            s.icon.w     = 0
+            s.icon.h     = 0
         end
 
         if show_text then
@@ -295,7 +327,8 @@ function tasklist_paint()
             s.text.color = { { 1, TASKLIST_CFG.states[st].fg, 1 } }
             s.text.click = s.bg.click
         else
-            s.text.text = nil
+            s.text.text  = nil
+            s.text.click = nil
         end
     end
 end
@@ -326,11 +359,7 @@ end
 function slot_icon(w)
     if not w then return nil end
     local klass = w.klass or ""
-    local instance, class_part = klass:match("^([^%.]+)%.(.+)$")
     local candidates = {}
-    if w.app and w.app.icon and w.app.icon ~= "" then
-        candidates[#candidates + 1] = w.app.icon
-    end
     local seen = {}
     local function push(name)
         if name and name ~= "" and not seen[name] then
@@ -338,10 +367,51 @@ function slot_icon(w)
             candidates[#candidates + 1] = name
         end
     end
-    push(class_part)
-    push(instance)
-    push(klass:match("[^%.]+$"))
-    if #candidates == 0 then return nil end
+
+    if w.app and w.app.icon and w.app.icon ~= "" then
+        push(w.app.icon)
+    end
+
+    -- Reverse-DNS instance: "nl.hjdskes.gcolor3" from "nl.hjdskes.gcolor3.Gcolor3"
+    local instance_part = klass:match("^(.-)%.[^%.]+$")
+    if instance_part then
+        push(instance_part)
+        push(instance_part:lower())
+    end
+
+    -- Reverse-DNS class: "com.mitchellh.ghostty" from "ghostty.com.mitchellh.ghostty"
+    local class_part = klass:match("^[^%.]+%.(.+)$")
+    if class_part then
+        push(class_part)
+        push(class_part:lower())
+    end
+
+    -- First segment (instance if simple)
+    local first = klass:match("^([^%.]+)")
+    if first then push(first); push(first:lower()) end
+
+    -- Last segment (class if simple)
+    local last = klass:match("[^%.]+$")
+    if last then push(last); push(last:lower()) end
+
+    -- Full wmclass
+    push(klass)
+    push(klass:lower())
+
+    -- Each dot-separated segment
+    for p in klass:gmatch("[^%.]+") do
+        push(p)
+        push(p:lower())
+    end
+
+    -- Fallback icons
+    if TASKLIST_CFG.fallback_icon then
+        push(TASKLIST_CFG.fallback_icon)
+    end
+    push("application-default-icon")
+    push("application-x-executable")
+    push("application-x-generic")
+
     for _, name in ipairs(candidates) do
         local path = icon_resolve(name, eff_icon_size(), XDG_ICON_THEME or "Papirus")
         if path then return path end

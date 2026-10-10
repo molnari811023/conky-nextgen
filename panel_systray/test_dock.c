@@ -52,7 +52,7 @@ int main(void)
     xcb_window_t win = xcb_generate_id(c);
     xcb_create_window(c, screen->root_depth, win, screen->root, 0, 0, 16, 16, 0,
                       XCB_COPY_FROM_PARENT, screen->root_visual,
-                      XCB_CW_BACK_PIXEL, (uint32_t[]) { screen->black_pixel });
+                      XCB_CW_BACK_PIXEL | XCB_CW_OVERRIDE_REDIRECT, (uint32_t[]) { screen->black_pixel, 1 });
 
     /* XEMBED info: version=0, flags=XEMBED_MAPPED */
     uint32_t info[2] = { 0, 1 };

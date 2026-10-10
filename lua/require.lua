@@ -59,11 +59,13 @@ local MODULE_PROFILES = {
     system = {
         "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
         "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
+        "hardware.arch", "hardware.ubuntu",
     },
     media = { "nowplaying", "songtext" },
     panel = {
         "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
         "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
+        "hardware.arch", "hardware.ubuntu",
     },
     google = { "google.core", "google.data" },
     full = {
@@ -72,6 +74,7 @@ local MODULE_PROFILES = {
         "weather.weather_translations", "weather.alerts",
         "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
         "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
+        "hardware.arch", "hardware.ubuntu",
         "nowplaying", "songtext", "google.core", "google.data",
     },
 }

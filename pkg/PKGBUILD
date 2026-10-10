@@ -56,12 +56,10 @@ makedepends=(
 
 provides=('conky')
 conflicts=('conky' 'conky-git')
-source=("fix-reload.patch"
-        
+source=(
   "git+https://github.com/brndnmtthws/conky.git"
 )
-sha256sums=('f783184ad27dd713ff39b555ef1ae2c17faf70b801b8f96eb721e72ab11d056d'
-            'SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
   cd conky
@@ -69,7 +67,6 @@ pkgver() {
 }
 
 prepare() {
-  patch -d conky -p0 < ../fix-reload.patch
   cd conky
 
   # unbundle catch2 to fix build with glibc >= 2.35

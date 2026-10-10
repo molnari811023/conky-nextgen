@@ -43,15 +43,15 @@ updates, RSS, VmPeak, CPU% and render time to stdout.
 local src = debug.getinfo(1, 'S').source or ''
 src = src:gsub('^@', '')
 local here = src:match('^(.*[/\\])[^/\\]*$') or './'
-script_dir = here:gsub('[/\\]debug[/\\]?$', '')
+script_dir = here:gsub('[/\\]debug[/\\]?$', '/')
 if script_dir == '' then script_dir = here end
 
 package.path      = package.path
-    .. ';' .. script_dir .. '/lua/?.lua'
-    .. ';' .. script_dir .. '/lua/core/?.lua'
-    .. ';' .. script_dir .. '/lua/draw/?.lua'
-    .. ';' .. script_dir .. '/lua/weather/?.lua'
-    .. ';' .. script_dir .. '/lua/hardware/?.lua'
+    .. ';' .. script_dir .. 'lua/?.lua'
+    .. ';' .. script_dir .. 'lua/core/?.lua'
+    .. ';' .. script_dir .. 'lua/draw/?.lua'
+    .. ';' .. script_dir .. 'lua/weather/?.lua'
+    .. ';' .. script_dir .. 'lua/hardware/?.lua'
 
 JSON_PATH         = script_dir .. 'tmp/'
 ICON_BASE         = script_dir .. 'icons/'
@@ -102,15 +102,15 @@ local cpu_vars    = { "${cpu}", "${cpu cpu1}", "${cpu cpu2}", "${cpu cpu3}", "${
 local mem_vars    = { "${memperc}", "${swapperc}", "${mem}", "${memfree}" }
 local fs_vars     = { "${fs_used_perc /}", "${fs_used_perc /home}", "${fs_free /}", "${fs_size /}" }
 
--- Különböző PNG-k a te mappáidból / cache-edből
+-- Különböző PNG-k a projektből és a rendszerből
 local png_pool    = {
     script_dir .. 'icons/open-meteo.png',
+    script_dir .. 'left.png',
+    script_dir .. 'icons/default/0d.png',
+    script_dir .. 'icons/default/61d.png',
+    script_dir .. 'icons/default/2n.png',
+    script_dir .. 'icons/moon/6n.png',
     '/boot/grub/themes/starfield/starfield.png',
-    '/boot/grub/themes/starfield/blob_w.png',
-    '/boot/grub/themes/starfield/slider_n.png',
-    '/home/molnar/.cache/discover/icons/app.lith.Lith.desktop.png',
-    '/home/molnar/.cache/discover/icons/com.dropbox.Client.desktop.png',
-    '/home/molnar/.cache/discover/icons/com.jagex.RuneScape.desktop.png',
 }
 
 -- Papirus SVG ikonok listája az 50 darabos stresszteszthez
@@ -239,13 +239,17 @@ end
 -- Pontosan 50 darab SVG generálása a Papirus poolból
 for i = 1, N do
     local svg_file = svg_pool[((i - 1) % #svg_pool) + 1]
+    local svg_path = "/usr/share/icons/Papirus/48x48/apps/" .. svg_file
+    if not (lfs and lfs.attributes(svg_path, "mode")) then
+        svg_path = here .. "extreme_icon.svg"
+    end
     draw[#draw + 1] = {
         type = "svg",
         x = X0 + (i - 1) * CELL,
         y = 385,
         w = 32,
         h = 32,
-        path = "/usr/share/icons/Papirus/48x48/apps/" .. svg_file,
+        path = svg_path,
     }
 end
 

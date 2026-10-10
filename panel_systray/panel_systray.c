@@ -97,11 +97,14 @@ static int cfg_spacing  = 3;
 static int cfg_rows     = 1;
 static bool cfg_horizontal = true;
 static int cfg_padding  = 10;  /* gap between the clock and the tray's right edge */
+static uint32_t cfg_bg_color = 0x1d2022; /* match panel background */
 
 static char cfg_conky_class[256] = "";
 
 /* the Conky window the tray is embedded in (for right-alignment) */
 static xcb_window_t tray_host = XCB_NONE;
+static xcb_window_t tray_toplevel = XCB_NONE;
+static xcb_window_t find_window_by_class(const char *class_name);
 
 /* ---- atoms ---- */
 static xcb_atom_t intern_atom(const char *name)
@@ -201,17 +204,28 @@ static bool xembed_info_get_reply(xcb_get_property_cookie_t cookie, xembed_info_
 
 /* ---- layout the tray icons in a grid ---- */
 
-/* fetch the host window's geometry (height used for vertical centering) */
+/* fetch the host window's geometry in root coordinates */
 static bool host_geometry(xcb_rectangle_t *out)
 {
     if (tray_host == XCB_NONE) return false;
     xcb_get_geometry_cookie_t hg = xcb_get_geometry_unchecked(conn, tray_host);
     xcb_get_geometry_reply_t *gr = xcb_get_geometry_reply(conn, hg, NULL);
     if (!gr) return false;
+
+    int root_x = gr->x, root_y = gr->y;
+    xcb_translate_coordinates_cookie_t tc =
+        xcb_translate_coordinates_unchecked(conn, tray_host, screen->root, 0, 0);
+    xcb_translate_coordinates_reply_t *tr = xcb_translate_coordinates_reply(conn, tc, NULL);
+    if (tr)
+    {
+        root_x = tr->dst_x;
+        root_y = tr->dst_y;
+        free(tr);
+    }
     if (out)
     {
-        out->x = gr->x;
-        out->y = gr->y;
+        out->x = root_x;
+        out->y = root_y;
         out->width  = gr->width;
         out->height = gr->height;
     }
@@ -219,7 +233,38 @@ static bool host_geometry(xcb_rectangle_t *out)
     return true;
 }
 
-/* effective tray Y: cfg_y normally; centered within the host when configured */
+/* Walk ancestor chain of a window until reaching a direct child of root */
+static xcb_window_t get_toplevel_ancestor(xcb_window_t win)
+{
+    if (win == XCB_NONE || win == screen->root)
+        return XCB_NONE;
+
+    while (win != XCB_NONE && win != screen->root)
+    {
+        xcb_query_tree_cookie_t c = xcb_query_tree(conn, win);
+        xcb_query_tree_reply_t *r = xcb_query_tree_reply(conn, c, NULL);
+        if (!r) return XCB_NONE;
+        xcb_window_t parent = r->parent;
+        free(r);
+        if (parent == screen->root)
+            return win;
+        win = parent;
+    }
+    return XCB_NONE;
+}
+
+static void update_toplevel_ancestor(void)
+{
+    xcb_window_t old_top = tray_toplevel;
+    tray_toplevel = (tray_host != XCB_NONE) ? get_toplevel_ancestor(tray_host) : XCB_NONE;
+    if (tray_toplevel != XCB_NONE && tray_toplevel != old_top && tray_toplevel != tray_host)
+    {
+        const uint32_t top_mask = XCB_EVENT_MASK_STRUCTURE_NOTIFY;
+        xcb_change_window_attributes(conn, tray_toplevel, XCB_CW_EVENT_MASK, &top_mask);
+    }
+}
+
+/* effective tray Y offset inside the host: cfg_y normally; centered when configured */
 static int effective_tray_y(int tray_h)
 {
     if (!cfg_center_y || tray_host == XCB_NONE) return cfg_y;
@@ -229,6 +274,9 @@ static int effective_tray_y(int tray_h)
     if (y < 0) y = 0;
     return y;
 }
+
+/* absolute root coordinates for the tray window */
+static void get_tray_position(int w, int h, int *out_x, int *out_y);
 
 /* find the left x (host coords) of the clock text drawn by Conky into the
  * host window, by scanning the right end of the host window for the rightmost
@@ -309,47 +357,70 @@ static uint32_t tray_right_x(int w)
     return (uint32_t) (cfg_x > 0 ? cfg_x : 0);
 }
 
+static void get_tray_position(int w, int h, int *out_x, int *out_y)
+{
+    xcb_rectangle_t hv;
+    if (tray_host != XCB_NONE && host_geometry(&hv))
+    {
+        int x_off = cfg_right ? (int) tray_right_x(w) : cfg_x;
+        int y_off = effective_tray_y(h);
+        *out_x = hv.x + x_off;
+        *out_y = hv.y + y_off;
+    }
+    else
+    {
+        *out_x = cfg_x;
+        *out_y = cfg_y;
+    }
+}
+
 static void systray_update(void)
 {
     int num_entries = emb_num_visible();
-    int cols = (num_entries + cfg_rows - 1) / cfg_rows;
-    /* NOTE: xcb_configure_window value order follows the mask BITS:
-     *   X, Y, WIDTH, HEIGHT (mask bits 0..3). */
-    uint32_t cfg[4] = { 0, 0, 0, 0 };
+    int rows = cfg_rows > 0 ? cfg_rows : 1;
+    int cols = (num_entries + rows - 1) / rows;
+    if (cols < 1) cols = 1;
 
     int w, h;
     if (cfg_horizontal)
     {
         w = cfg_icon_size * cols + cfg_spacing * (cols - 1);
-        h = cfg_icon_size * cfg_rows + cfg_spacing * (cfg_rows - 1);
+        h = cfg_icon_size * rows + cfg_spacing * (rows - 1);
     }
     else
     {
-        w = cfg_icon_size * cfg_rows + cfg_spacing * (cfg_rows - 1);
+        w = cfg_icon_size * rows + cfg_spacing * (rows - 1);
         h = cfg_icon_size * cols + cfg_spacing * (cols - 1);
     }
 
-    if (w < 0) w = 0;
-    if (h < 0) h = 0;
+    if (w < 1) w = 1;
+    if (h < 1) h = 1;
 
-    /* right-aligned: pin the tray next to the clock (or the host's right edge) */
-    if (cfg_right && tray_host != XCB_NONE)
+    int tx = 0, ty = 0;
+    get_tray_position(w, h, &tx, &ty);
+    update_toplevel_ancestor();
+
+    uint32_t cfg[6];
+    uint16_t mask = XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y |
+                    XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT;
+    int idx = 0;
+    cfg[idx++] = (uint32_t) tx;
+    cfg[idx++] = (uint32_t) ty;
+    cfg[idx++] = (uint32_t) w;
+    cfg[idx++] = (uint32_t) h;
+    if (tray_toplevel != XCB_NONE && tray_toplevel != screen->root)
     {
-        cfg[0] = tray_right_x(w);
-        cfg[1] = (uint32_t) effective_tray_y(h);
-        cfg[2] = (uint32_t) w;
-        cfg[3] = (uint32_t) h;
-        xcb_configure_window(conn, tray_win,
-                             XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y |
-                             XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT, cfg);
+        mask |= XCB_CONFIG_WINDOW_SIBLING | XCB_CONFIG_WINDOW_STACK_MODE;
+        cfg[idx++] = tray_toplevel;
+        cfg[idx++] = XCB_STACK_MODE_ABOVE;
     }
     else
     {
-        cfg[0] = (uint32_t) w;
-        cfg[1] = (uint32_t) h;
-        xcb_configure_window(conn, tray_win,
-                             XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT, cfg);
+        mask |= XCB_CONFIG_WINDOW_STACK_MODE;
+        cfg[idx++] = XCB_STACK_MODE_ABOVE;
     }
+    xcb_configure_window(conn, tray_win, mask, cfg);
+    xcb_clear_area(conn, 0, tray_win, 0, 0, 0, 0);
 
     if (num_entries == 0)
     {
@@ -359,34 +430,46 @@ static void systray_update(void)
     }
     xcb_map_window(conn, tray_win);
 
-    cfg[0] = cfg[1] = 0;
-    cfg[2] = cfg[3] = cfg_icon_size;
+    int cur_x = 0;
+    int cur_y = 0;
     int pos = 0;
     for (int i = 0; i < embedded.len; i++)
     {
-        int idx = i; /* no reverse option in this build */
+        int idx = i;
         xembed_window_t *em = &embedded.tab[idx];
         if (!(em->info.flags & XEMBED_MAPPED))
         {
             xcb_unmap_window(conn, em->win);
             continue;
         }
+        uint32_t icon_cfg[4] = { (uint32_t) cur_x, (uint32_t) cur_y, (uint32_t) cfg_icon_size, (uint32_t) cfg_icon_size };
         xcb_configure_window(conn, em->win,
                              XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y |
                              XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT,
-                             (uint32_t[]) { cfg[0], cfg[1], cfg_icon_size, cfg_icon_size });
+                             icon_cfg);
         xcb_map_window(conn, em->win);
 
         pos++;
-        if (pos % cfg_rows == 0)
+        if (rows == 1)
         {
-            if (cfg_horizontal) { cfg[0] += cfg_icon_size + cfg_spacing; cfg[1] = 0; }
-            else                { cfg[0] = 0; cfg[1] += cfg_icon_size + cfg_spacing; }
+            /* Strictly 1 single row */
+            if (cfg_horizontal)
+                cur_x += cfg_icon_size + cfg_spacing;
+            else
+                cur_y += cfg_icon_size + cfg_spacing;
         }
         else
         {
-            if (cfg_horizontal) { cfg[1] += cfg_icon_size + cfg_spacing; }
-            else                { cfg[0] += cfg_icon_size + cfg_spacing; }
+            if (pos % rows == 0)
+            {
+                if (cfg_horizontal) { cur_x += cfg_icon_size + cfg_spacing; cur_y = 0; }
+                else                { cur_x = 0; cur_y += cfg_icon_size + cfg_spacing; }
+            }
+            else
+            {
+                if (cfg_horizontal) { cur_y += cfg_icon_size + cfg_spacing; }
+                else                { cur_x += cfg_icon_size + cfg_spacing; }
+            }
         }
     }
     xcb_flush(conn);
@@ -407,6 +490,8 @@ static int systray_request_handle(xcb_window_t embed_win)
     xcb_get_property_cookie_t em_cookie = xembed_info_get_unchecked(embed_win);
 
     xcb_change_window_attributes(conn, embed_win, XCB_CW_EVENT_MASK, select_input);
+    const uint32_t bg_val = cfg_bg_color;
+    xcb_change_window_attributes(conn, embed_win, XCB_CW_BACK_PIXEL, &bg_val);
     /* auto-reparent back to root if we die */
     xcb_change_save_set(conn, XCB_SET_MODE_INSERT, embed_win);
     xcb_reparent_window(conn, embed_win, tray_win, 0, 0);
@@ -461,13 +546,9 @@ static void systray_process_client_message(xcb_client_message_event_t *ev)
 {
     if (ev->data.data32[1] == SYSTEM_TRAY_REQUEST_DOCK)
     {
-        xcb_get_geometry_cookie_t geom_c = xcb_get_geometry_unchecked(conn, ev->window);
-        xcb_get_geometry_reply_t *geom_r = xcb_get_geometry_reply(conn, geom_c, NULL);
-        if (!geom_r) return;
-        bool on_root = (screen->root == geom_r->root);
-        free(geom_r);
-        if (on_root)
-            systray_request_handle(ev->data.data32[2]);
+        xcb_window_t dock_win = (xcb_window_t) ev->data.data32[2];
+        if (dock_win != XCB_NONE)
+            systray_request_handle(dock_win);
     }
 }
 
@@ -548,9 +629,54 @@ static void handle_event(xcb_generic_event_t *ev)
             send_synthetic_configure(e->window);
         break;
       }
+      case XCB_CONFIGURE_NOTIFY:
+      {
+        xcb_configure_notify_event_t *e = (void *) ev;
+        if (tray_host == XCB_NONE && cfg_conky_class[0])
+        {
+            xcb_window_t h = find_window_by_class(cfg_conky_class);
+            if (h != XCB_NONE)
+            {
+                tray_host = h;
+                update_toplevel_ancestor();
+                systray_update();
+            }
+        }
+        else if ((tray_host != XCB_NONE && e->window == tray_host) ||
+                 (tray_toplevel != XCB_NONE && e->window == tray_toplevel))
+        {
+            systray_update();
+        }
+        break;
+      }
+      case XCB_MAP_NOTIFY:
+      {
+        xcb_map_notify_event_t *e = (void *) ev;
+        if (tray_host == XCB_NONE && cfg_conky_class[0])
+        {
+            xcb_window_t h = find_window_by_class(cfg_conky_class);
+            if (h != XCB_NONE)
+            {
+                tray_host = h;
+                update_toplevel_ancestor();
+                systray_update();
+            }
+        }
+        else if (tray_host != XCB_NONE && (e->window == tray_host || e->window == tray_toplevel))
+        {
+            systray_update();
+        }
+        break;
+      }
       case XCB_DESTROY_NOTIFY:
       {
         xcb_destroy_notify_event_t *e = (void *) ev;
+        if (tray_host != XCB_NONE && (e->window == tray_host || e->window == tray_toplevel))
+        {
+            fprintf(stderr, "panel_systray: host window destroyed\n");
+            tray_host = XCB_NONE;
+            tray_toplevel = XCB_NONE;
+        }
         for (int i = 0; i < embedded.len; i++)
             if (embedded.tab[i].win == e->window)
             {
@@ -563,6 +689,11 @@ static void handle_event(xcb_generic_event_t *ev)
       case XCB_REPARENT_NOTIFY:
       {
         xcb_reparent_notify_event_t *e = (void *) ev;
+        if (tray_host != XCB_NONE && e->window == tray_host)
+        {
+            update_toplevel_ancestor();
+            systray_update();
+        }
         if (e->parent != tray_win)
             for (int i = 0; i < embedded.len; i++)
                 if (embedded.tab[i].win == e->window)
@@ -728,6 +859,12 @@ static int cfg_load(const char *path)
         else if (!strcmp(key, "spacing"))     cfg_spacing = atoi(val);
         else if (!strcmp(key, "rows"))        cfg_rows = atoi(val);
         else if (!strcmp(key, "orientation")) cfg_horizontal = (val[0] == 'h');
+        else if (!strcmp(key, "bg_color"))
+        {
+            if (val[0] == '#') cfg_bg_color = (uint32_t) strtoul(val + 1, NULL, 16);
+            else if (val[0] == '0' && (val[1] == 'x' || val[1] == 'X')) cfg_bg_color = (uint32_t) strtoul(val + 2, NULL, 16);
+            else cfg_bg_color = (uint32_t) strtoul(val, NULL, 16);
+        }
         else
             fprintf(stderr, "panel_systray: ignoring unknown config key '%s'\n", key);
     }
@@ -769,11 +906,21 @@ int main(int argc, char **argv)
     while (i < argc)
     {
         if (strcmp(argv[i], "--conky-class") == 0 && i + 1 < argc)
+        {
             conky_class = argv[++i];
+            snprintf(cfg_conky_class, sizeof(cfg_conky_class), "%s", conky_class);
+        }
         else if (strcmp(argv[i], "--config") == 0 && i + 1 < argc)
             i++;
         else if (strcmp(argv[i], "--right") == 0)
             cfg_right = true;
+        else if (strcmp(argv[i], "--bg-color") == 0 && i + 1 < argc)
+        {
+            const char *val = argv[++i];
+            if (val[0] == '#') cfg_bg_color = (uint32_t) strtoul(val + 1, NULL, 16);
+            else if (val[0] == '0' && (val[1] == 'x' || val[1] == 'X')) cfg_bg_color = (uint32_t) strtoul(val + 2, NULL, 16);
+            else cfg_bg_color = (uint32_t) strtoul(val, NULL, 16);
+        }
         else if (argv[i][0] == '-')
             fprintf(stderr, "ignoring unknown option %s\n", argv[i]);
         else
@@ -834,39 +981,100 @@ int main(int argc, char **argv)
     }
     tray_host = host;
 
+    int init_x = 0, init_y = 0;
+    get_tray_position(cfg_icon_size, cfg_icon_size, &init_x, &init_y);
+
     tray_win = xcb_generate_id(conn);
-    const uint32_t tray_mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK | XCB_CW_OVERRIDE_REDIRECT;
-    const uint32_t tray_vals[] = { 0x222427,
-                                   XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT,
-                                   1 };
+    const uint32_t tray_mask = XCB_CW_BACK_PIXEL | XCB_CW_OVERRIDE_REDIRECT | XCB_CW_EVENT_MASK;
+    const uint32_t tray_vals[] = {
+        cfg_bg_color,                           /* BACK_PIXEL (bit 1) */
+        1,                                      /* OVERRIDE_REDIRECT (bit 9) */
+        XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT    /* EVENT_MASK (bit 11) */
+    };
     xcb_create_window(conn, screen->root_depth, tray_win,
-                      host != XCB_NONE ? host : screen->root,
-                      cfg_x, cfg_y, cfg_icon_size, cfg_icon_size, 0,
+                      screen->root,
+                      init_x, init_y, cfg_icon_size, cfg_icon_size, 0,
                       XCB_COPY_FROM_PARENT, screen->root_visual,
                       tray_mask, tray_vals);
+
+    /* Enforce override-redirect explicitly */
+    const uint32_t one = 1;
+    xcb_change_window_attributes(conn, tray_win, XCB_CW_OVERRIDE_REDIRECT, &one);
 
     const char *title = "panel_systray";
     xcb_change_property(conn, XCB_PROP_MODE_REPLACE, tray_win,
                         XCB_ATOM_WM_NAME, XCB_ATOM_STRING, 8,
                         (uint32_t) strlen(title), title);
-    /* sanity: place the window exactly where Conky draws around it */
-    if (cfg_right && host != XCB_NONE)
+
+    const char *wm_class = "panel_systray\0panel_systray";
+    xcb_change_property(conn, XCB_PROP_MODE_REPLACE, tray_win,
+                        XCB_ATOM_WM_CLASS, XCB_ATOM_STRING, 8,
+                        28, wm_class);
+
+    /* Disable picom/compton shadow so no black/dark frame is drawn around the tray */
+    uint32_t val_shadow = 0;
+    xcb_change_property(conn, XCB_PROP_MODE_REPLACE, tray_win,
+                        intern_atom("_COMPTON_SHADOW"),
+                        XCB_ATOM_CARDINAL, 32, 1, &val_shadow);
+
+    /* Motif WM hints: explicitly no decorations / borderless */
+    uint32_t motif_hints[5] = { 2, 0, 0, 0, 0 };
+    xcb_change_property(conn, XCB_PROP_MODE_REPLACE, tray_win,
+                        intern_atom("_MOTIF_WM_HINTS"),
+                        intern_atom("_MOTIF_WM_HINTS"), 32, 5, motif_hints);
+
+    /* EWMH: window type DOCK so window managers don't manage it */
+    xcb_atom_t a_wm_type = intern_atom("_NET_WM_WINDOW_TYPE");
+    xcb_atom_t a_type_dock = intern_atom("_NET_WM_WINDOW_TYPE_DOCK");
+    xcb_change_property(conn, XCB_PROP_MODE_REPLACE, tray_win,
+                        a_wm_type, XCB_ATOM_ATOM, 32, 1, &a_type_dock);
+
+    /* EWMH: exclude from Alt+Tab and taskbars */
+    xcb_atom_t a_wm_state = intern_atom("_NET_WM_STATE");
+    xcb_atom_t state_atoms[2] = {
+        intern_atom("_NET_WM_STATE_SKIP_TASKBAR"),
+        intern_atom("_NET_WM_STATE_SKIP_PAGER")
+    };
+    xcb_change_property(conn, XCB_PROP_MODE_REPLACE, tray_win,
+                        a_wm_state, XCB_ATOM_ATOM, 32, 2, state_atoms);
+
+    uint32_t orientation = cfg_horizontal ? 0 : 1;
+    xcb_change_property(conn, XCB_PROP_MODE_REPLACE, tray_win,
+                        intern_atom("_NET_SYSTEM_TRAY_ORIENTATION"),
+                        XCB_ATOM_CARDINAL, 32, 1, &orientation);
+
+    uint32_t visual_id = screen->root_visual;
+    xcb_change_property(conn, XCB_PROP_MODE_REPLACE, tray_win,
+                        intern_atom("_NET_SYSTEM_TRAY_VISUAL"),
+                        XCB_ATOM_VISUALID, 32, 1, &visual_id);
+
+    update_toplevel_ancestor();
+
+    uint32_t init_cfg[6];
+    uint16_t init_mask = XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y |
+                         XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT;
+    int init_idx = 0;
+    init_cfg[init_idx++] = (uint32_t) init_x;
+    init_cfg[init_idx++] = (uint32_t) init_y;
+    init_cfg[init_idx++] = (uint32_t) cfg_icon_size;
+    init_cfg[init_idx++] = (uint32_t) cfg_icon_size;
+    if (tray_toplevel != XCB_NONE && tray_toplevel != screen->root)
     {
-        uint32_t y = (uint32_t) cfg_y;
-        if (cfg_center_y)
-            y = (uint32_t) effective_tray_y(cfg_icon_size);
-        xcb_configure_window(conn, tray_win,
-                             XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y,
-                             (uint32_t[]) { tray_right_x(cfg_icon_size), y });
+        init_mask |= XCB_CONFIG_WINDOW_SIBLING | XCB_CONFIG_WINDOW_STACK_MODE;
+        init_cfg[init_idx++] = tray_toplevel;
+        init_cfg[init_idx++] = XCB_STACK_MODE_ABOVE;
     }
     else
     {
-        uint32_t y = (uint32_t) cfg_y;
-        if (cfg_center_y)
-            y = (uint32_t) effective_tray_y(cfg_icon_size);
-        xcb_configure_window(conn, tray_win,
-                             XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y,
-                             (uint32_t[]) { (uint32_t) cfg_x, y });
+        init_mask |= XCB_CONFIG_WINDOW_STACK_MODE;
+        init_cfg[init_idx++] = XCB_STACK_MODE_ABOVE;
+    }
+    xcb_configure_window(conn, tray_win, init_mask, init_cfg);
+
+    if (host != XCB_NONE)
+    {
+        const uint32_t host_mask = XCB_EVENT_MASK_STRUCTURE_NOTIFY;
+        xcb_change_window_attributes(conn, host, XCB_CW_EVENT_MASK, &host_mask);
     }
 
     /* Subscribe to root events so dock requests (_NET_SYSTEM_TRAY_OPCODE

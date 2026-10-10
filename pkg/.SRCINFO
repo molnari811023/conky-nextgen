@@ -53,7 +53,6 @@ pkgbase = conky-mng
 	provides = conky
 	conflicts = conky
 	conflicts = conky-git
-	source = fix-reload.patch
 	source = git+https://github.com/brndnmtthws/conky.git
 	sha256sums = SKIP
 

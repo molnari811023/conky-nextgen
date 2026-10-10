@@ -45,11 +45,25 @@ function conky_nvme_model()
 end
 
 function conky_install_date()
-    if static.inst_dt then
-        return static.inst_dt
-    end
-    static.inst_dt = pread("head -n1 /var/log/pacman.log | cut -c 2-11")
-    return static.inst_dt ~= "" and static.inst_dt or "N/A"
+	if static.inst_dt then
+		return static.inst_dt
+	end
+	-- Arch Linux: pacman.log
+	local dt = pread("head -n1 /var/log/pacman.log 2>/dev/null | cut -c 2-11")
+	if dt and dt ~= "" then
+		static.inst_dt = dt
+		return static.inst_dt
+	end
+	-- Ubuntu / Debian: dpkg.log (debootstrap / initial install)
+	dt = pread("head -n1 /var/log/dpkg.log 2>/dev/null | awk '{print $1}'")
+	if dt and dt ~= "" then
+		static.inst_dt = dt
+		return static.inst_dt
+	end
+	-- Fallback: /etc/machine-id timestamp
+	dt = pread("ls -ld --time-style=+%Y-%m-%d /etc/machine-id 2>/dev/null | awk '{print $6}'")
+	static.inst_dt = (dt and dt ~= "") and dt or "N/A"
+	return static.inst_dt
 end
 
 function conky_uptime_fmt()

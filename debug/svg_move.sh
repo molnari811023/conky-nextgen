@@ -1,5 +1,5 @@
 #!/bin/bash
-CONF="${1:-$HOME/.conky/svg_test.conf}"
+CONF="${1:-$HOME/.conky/debug/svg_test.conf}"
 positions=(
     "100:50"
     "800:50"

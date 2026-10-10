@@ -286,6 +286,17 @@ function apps_by_wmclass(wmclass)
             wanted[s] = true
         end
     end
+    -- the instance part proper: everything before ".class"
+    -- for reverse-DNS instance ids (e.g. "nl.hjdskes.gcolor3.Gcolor3")
+    local instance_part = w:match("^(.-)%.[^%.]+$")
+    if instance_part then
+        wanted[instance_part] = true
+        local s = instance_part
+        while s:match("^[^%.]+%.(.+)$") do
+            s = s:match("^[^%.]+%.(.+)$")
+            wanted[s] = true
+        end
+    end
 
     for _, app in ipairs(apps_list()) do
         local swc = app.startupwmclass
