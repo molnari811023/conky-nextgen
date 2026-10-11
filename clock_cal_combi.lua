@@ -30,7 +30,7 @@ package.path = package.path
     .. ";" .. script_dir .. "lua/core/?.lua"
     .. ";" .. script_dir .. "lua/draw/?.lua"
 
-JSON_PATH      = script_dir .. "tmp/"
+JSON_PATH      = script_dir:match("^/usr") and ((os.getenv("HOME") or "/tmp") .. "/.conky/tmp/") or (script_dir .. "tmp/")
 
 draw = {}
 

@@ -189,6 +189,7 @@ cmd_designer() {
 }
 
 cmd_fetch() {
+    mkdir -p "$HOME/.conky/tmp"
     local fetch_scripts=(
         "$HOME/.conky/sh/fetch_all.sh"
         "$BASE_DIR/sh/0_fetch_all.sh"
@@ -208,6 +209,7 @@ cmd_fetch() {
 cmd_init() {
     local target_dir="${1:-$HOME/.conky}"
     mkdir -p "$target_dir"
+    mkdir -p "$target_dir/tmp"
     local src_dir="$BASE_DIR"
     [ ! -f "$src_dir/clock_cal.conf" ] && src_dir="$SYSTEM_DIR"
 

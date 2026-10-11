@@ -61,6 +61,12 @@ local network_ip_cache = ""
 local function read_network_file(filename)
     local path = JSON_PATH .. filename
     local f = io.open(path, "r")
+    if not f then
+        local user_path = (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/" .. filename
+        if user_path ~= path then
+            f = io.open(user_path, "r")
+        end
+    end
     if not f then return "" end
     local data = f:read("*a")
     f:close()

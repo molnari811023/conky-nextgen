@@ -31,6 +31,10 @@ fetch_ping() {
 	local out="$NETWORK_DIR/network_ping.json"
 	ping -c 3 -q 1.1.1.1 2>/dev/null > "$out.tmp" || true
 	mv "$out.tmp" "$out"
+	if [ "$NETWORK_DIR" != "$HOME/.conky/tmp" ] && [ -f "$out" ]; then
+		mkdir -p "$HOME/.conky/tmp" 2>/dev/null || true
+		cp -f "$out" "$HOME/.conky/tmp/network_ping.json" 2>/dev/null || true
+	fi
 }
 
 fetch_ipinfo() {
@@ -38,6 +42,10 @@ fetch_ipinfo() {
 	curl_cmd "https://ipinfo.io/json" > "$out.tmp" || { rm -f "$out.tmp"; return 1; }
 	[ -s "$out.tmp" ] || { rm -f "$out.tmp"; return 1; }
 	mv "$out.tmp" "$out"
+	if [ "$NETWORK_DIR" != "$HOME/.conky/tmp" ] && [ -f "$out" ]; then
+		mkdir -p "$HOME/.conky/tmp" 2>/dev/null || true
+		cp -f "$out" "$HOME/.conky/tmp/network_ip.json" 2>/dev/null || true
+	fi
 }
 
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then

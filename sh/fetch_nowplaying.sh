@@ -172,4 +172,10 @@ os.replace(json_path + '.tmp', json_path)
 
 	# Cleanup environment
 	unset NEXTGEN_PLAYER NEXTGEN_STATUS NEXTGEN_TITLE NEXTGEN_ARTIST NEXTGEN_ALBUM NEXTGEN_ART_URL NEXTGEN_JSON_PATH NEXTGEN_ART_PATH
+
+	if [ "$TMP_DIR" != "$HOME/.conky/tmp" ] && [ -f "$json" ]; then
+		mkdir -p "$HOME/.conky/tmp" 2>/dev/null || true
+		cp -f "$json" "$HOME/.conky/tmp/nowplaying.json" 2>/dev/null || true
+		[ -f "$art" ] && cp -f "$art" "$HOME/.conky/tmp/album_art.png" 2>/dev/null || true
+	fi
 }

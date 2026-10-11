@@ -74,10 +74,10 @@ def _find_conky_dir():
             pass
 
     tree_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    if not os.access(tree_dir, os.W_OK):
+    if not os.access(tree_dir, os.W_OK) or tree_dir.startswith("/usr"):
         user_conky = os.path.expanduser("~/.conky")
-        if os.path.isdir(user_conky):
-            return user_conky
+        os.makedirs(user_conky, exist_ok=True)
+        return user_conky
     return tree_dir
 
 
@@ -119,6 +119,7 @@ MAIN_LUA = os.path.join(CONKY_DIR, "main.lua")
 ICON_PATH = next(
     (p for p in (
         os.path.join(CONKY_DIR, "nd.svg"),
+        "/usr/share/conky-nextgen/nd.svg",
         os.path.join(HERE, "icons", "conky_128.png"),
     ) if os.path.exists(p)),
     None,
@@ -133,7 +134,13 @@ LIVE_CLEAR_LUA = os.path.join(HERE, "live_clear.lua")
 HELP_DIR = os.path.join(tempfile.gettempdir(), "conky-designer-help")
 CONKY_MAN_GZ = "/usr/share/man/man1/conky.1.gz"
 CONKY_MANUAL_HTML = os.path.join(HELP_DIR, "conky-manual.html")
-NEXTGEN_MD = os.path.join(CONKY_DIR, "NextGen.md")
+NEXTGEN_MD = next(
+    (p for p in (
+        os.path.join(CONKY_DIR, "NextGen.md"),
+        "/usr/share/conky-nextgen/NextGen.md",
+    ) if os.path.exists(p)),
+    os.path.join(CONKY_DIR, "NextGen.md"),
+)
 NEXTGEN_HANDBOOK_HTML = os.path.join(HELP_DIR, "nextgen-handbook.html")
 
 

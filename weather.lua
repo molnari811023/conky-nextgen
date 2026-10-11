@@ -52,17 +52,32 @@ package.path = package.path
     .. ";" .. script_dir .. "lua/weather/?.lua"
     .. ";" .. script_dir .. "lua/hardware/?.lua"
     .. ";" .. script_dir .. "lua/google/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/core/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/draw/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/weather/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/hardware/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/google/?.lua"
 
 -- JSON_PATH is always needed (weather, hardware/network, nowplaying data)
-JSON_PATH      = script_dir .. "tmp/"
+JSON_PATH      = script_dir:match("^/usr") and ((os.getenv("HOME") or "/tmp") .. "/.conky/tmp/") or (script_dir .. "tmp/")
 
 draw = {}
 
+local _lfs_ok, _lfs = pcall(require, "lfs")
+local function _find_icons(sub)
+    local sub_dir = sub or ""
+    local local_p = script_dir .. "icons/" .. sub_dir
+    if _lfs_ok and _lfs and _lfs.attributes(local_p, "mode") == "directory" then
+        return local_p
+    end
+    return "/usr/share/conky-nextgen/icons/" .. sub_dir
+end
 
-ICON_BASE      = script_dir .. "icons/"
+ICON_BASE      = _find_icons()
 ICON_THEME     = "default"
-MOON_ICON_BASE = script_dir .. "icons/moon/"
-WIND_ICON_BASE = script_dir .. "icons/wind/"
+MOON_ICON_BASE = _find_icons("moon/")
+WIND_ICON_BASE = _find_icons("wind/")
 
 --{{{
 -- THEMES — Theme definitions (palette, gradients, widget defaults).

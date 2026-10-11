@@ -5,6 +5,8 @@
 __pycache__/
 *.pyc
 *.pkg.tar.zst
+*.deb
+pkg/*.deb
 examples/multi_view/
 tmp/
 Temp/

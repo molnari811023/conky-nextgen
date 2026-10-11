@@ -341,6 +341,15 @@ end
 
 function read_file(path)
     local f = io.open(path, "r")
+    if not f then
+        local fname = path and path:match("([^/]+)$")
+        if fname then
+            local user_tmp = (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/" .. fname
+            if user_tmp ~= path then
+                f = io.open(user_tmp, "r")
+            end
+        end
+    end
     if not f then return "" end
     local out = f:read("*a") or ""
     f:close()

@@ -55,18 +55,30 @@ local cached_files = {
 	"city.json"
 }
 
-local function file_mtime(path)
+local function resolve_cache_file(path)
 	local attrs = lfs.attributes(path)
-	return attrs and attrs.modification or 0
+	local m = attrs and attrs.modification or 0
+	local fname = path and path:match("([^/]+)$")
+	if fname then
+		local user_path = (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/" .. fname
+		if user_path ~= path then
+			local uattrs = lfs.attributes(user_path)
+			local um = uattrs and uattrs.modification or 0
+			if um > m then
+				return user_path, um
+			end
+		end
+	end
+	return path, m
 end
 
 local function json_changed()
 	local changed = false
 	for i = 1, #cached_files do
-		local path = JSON_PATH .. cached_files[i]
-		local m = file_mtime(path)
-		if (weather_cache_mtimes[path] or 0) ~= m then
-			weather_cache_mtimes[path] = m
+		local initial_path = JSON_PATH .. cached_files[i]
+		local _, m = resolve_cache_file(initial_path)
+		if (weather_cache_mtimes[initial_path] or 0) ~= m then
+			weather_cache_mtimes[initial_path] = m
 			changed = true
 		end
 	end
@@ -74,7 +86,8 @@ local function json_changed()
 end
 
 function read_j(path)
-	local f = io.open(path, "r")
+	local active_path = resolve_cache_file(path)
+	local f = io.open(active_path, "r")
 	if not f then return {} end
 	local c = f:read("*all")
 	f:close()

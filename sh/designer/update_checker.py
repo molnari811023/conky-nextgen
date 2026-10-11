@@ -45,7 +45,14 @@ import urllib.error
 
 from utils import CONKY_DIR
 
-VERSION_FILE = os.path.join(CONKY_DIR, "nextgen_version.txt")
+VERSION_FILE = next(
+    (p for p in (
+        os.path.join(CONKY_DIR, "nextgen_version.txt"),
+        os.path.expanduser("~/.conky/nextgen_version.txt"),
+        "/usr/share/conky-nextgen/nextgen_version.txt",
+    ) if os.path.exists(p)),
+    os.path.join(CONKY_DIR, "nextgen_version.txt"),
+)
 GITHUB_API = "https://api.github.com/repos/molnari811023/conky-nextgen/commits?per_page=1"
 REPO_URL = "https://github.com/molnari811023/conky-nextgen"
 

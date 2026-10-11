@@ -154,7 +154,11 @@ MOUSE_ACTIONS = [
 ]
 
 MOUSE_ACTIONS_LUA = os.path.join(CONKY_DIR, "lua", "mouse_actions.lua")
-FUNCTION_SOURCES = [MOUSE_ACTIONS_LUA]
+SYSTEM_MOUSE_ACTIONS_LUA = "/usr/share/conky-nextgen/lua/mouse_actions.lua"
+FUNCTION_SOURCES = [
+    p for p in (MOUSE_ACTIONS_LUA, SYSTEM_MOUSE_ACTIONS_LUA)
+    if os.path.exists(p)
+] or [MOUSE_ACTIONS_LUA]
 
 
 def parse_mouse_functions(filepaths=FUNCTION_SOURCES):

@@ -28,6 +28,9 @@ source "$_SCRIPT_DIR/common.sh"
 
 fetch_alerts() {
 	local cj="$TMP_DIR/city.json"
+	if [ ! -f "$cj" ] && [ -f "$HOME/.conky/tmp/city.json" ]; then
+		cj="$HOME/.conky/tmp/city.json"
+	fi
 	if [ ! -f "$cj" ]; then
 		rm -f "$TMP_DIR/alerts.xml"
 		return 0
@@ -60,6 +63,10 @@ fetch_alerts() {
 	curl_cmd "https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-${slug}" >"$TMP_DIR/alerts.xml.tmp" || { rm -f "$TMP_DIR/alerts.xml.tmp"; log "[warn] Alerts download failed"; }
 	[ -s "$TMP_DIR/alerts.xml.tmp" ] && mv "$TMP_DIR/alerts.xml.tmp" "$TMP_DIR/alerts.xml" || { rm -f "$TMP_DIR/alerts.xml.tmp"; log "[warn] Alerts empty response"; }
 	log "[alerts] Done → alerts.xml"
+	if [ "$TMP_DIR" != "$HOME/.conky/tmp" ] && [ -f "$TMP_DIR/alerts.xml" ]; then
+		mkdir -p "$HOME/.conky/tmp" 2>/dev/null || true
+		cp -f "$TMP_DIR/alerts.xml" "$HOME/.conky/tmp/alerts.xml" 2>/dev/null || true
+	fi
 }
 
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then

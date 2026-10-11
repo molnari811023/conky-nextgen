@@ -8,7 +8,7 @@
 lua/hardware/arch.lua — Arch Linux distribution-specific metrics: pacman install date, repo/AUR updates, package count.
 ]]--
 
--- 1. Arch telepítési dátum a pacman.log-ból
+-- 1. Arch installation date from pacman.log
 function conky_install_date_arch()
 	return cached("arch_inst_dt", 86400, function()
 		local dt = pread("head -n1 /var/log/pacman.log 2>/dev/null | cut -c 2-11")
@@ -16,7 +16,7 @@ function conky_install_date_arch()
 	end)
 end
 
--- 2. Telepített pacman csomagok száma
+-- 2. Installed pacman package count
 function conky_packages_arch()
 	return cached("arch_pkgs", 60, function()
 		local count = pread("pacman -Q 2>/dev/null | wc -l")
@@ -24,18 +24,22 @@ function conky_packages_arch()
 	end)
 end
 
--- 3. Hivatalos repo és AUR frissítések száma (tmp/updates.txt-ből)
-local tmp_dir = os.getenv("HOME") .. "/.conky/tmp/"
-local updates_file = tmp_dir .. "updates.txt"
+-- 3. Official repository and AUR update count (from updates.txt)
+local function get_updates_file()
+	local path = (JSON_PATH or "") .. "updates.txt"
+	local f = io.open(path, "r")
+	if f then f:close(); return path end
+	return (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/updates.txt"
+end
 
 function conky_updates_repo()
-	local s = read_file(updates_file)
+	local s = read_file(get_updates_file())
 	local n = tonumber(s:match("^(%d+)"))
 	return tostring(n or 0) .. " " .. conky_get_tr((n == 1) and "package" or "packages")
 end
 
 function conky_updates_aur()
-	local s = read_file(updates_file)
+	local s = read_file(get_updates_file())
 	local n = tonumber(s:match("%s(%d+)$"))
 	return tostring(n or 0) .. " " .. conky_get_tr((n == 1) and "package" or "packages")
 end

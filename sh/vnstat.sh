@@ -10,10 +10,20 @@
 
 # Required tools: vnstat, jq, bc, awk, grep, date
 
-# Set script directory
-cd "$(dirname "$0")" || exit
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+CONKY_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 
-output="../tmp/vnstat.txt"
+if [ -n "${NEXTGEN_TMP_DIR:-}" ]; then
+	TMP_DIR="$NEXTGEN_TMP_DIR"
+elif [[ "$CONKY_DIR" != /usr* ]] && [ -d "$CONKY_DIR/tmp" ] && [ -w "$CONKY_DIR/tmp" ]; then
+	TMP_DIR="$CONKY_DIR/tmp"
+elif [[ "$CONKY_DIR" != /usr* ]] && [ -w "$CONKY_DIR" ]; then
+	TMP_DIR="$CONKY_DIR/tmp"
+else
+	TMP_DIR="$HOME/.conky/tmp"
+fi
+mkdir -p "$TMP_DIR"
+output="$TMP_DIR/vnstat.txt"
 
 # Step 1: interface passed in explicitly (preferred — keeps this in
 # sync with whatever the network widget considers "active")
@@ -146,3 +156,9 @@ format_bytes() {
     format_bytes "$down_month"
     format_bytes "$up_month"
 } > "$output"
+
+USER_OUTPUT="$HOME/.conky/tmp/vnstat.txt"
+if [ "$output" != "$USER_OUTPUT" ]; then
+    mkdir -p "$HOME/.conky/tmp" 2>/dev/null || true
+    cp -f "$output" "$USER_OUTPUT" 2>/dev/null || true
+fi

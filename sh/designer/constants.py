@@ -46,9 +46,14 @@ package.path = package.path
     .. ";" .. script_dir .. "lua/draw/?.lua"
     .. ";" .. script_dir .. "lua/weather/?.lua"
     .. ";" .. script_dir .. "lua/hardware/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/core/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/draw/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/weather/?.lua"
+    .. ";/usr/share/conky-nextgen/lua/hardware/?.lua"
 
 -- JSON_PATH is always needed (weather, hardware/network, nowplaying data)
-JSON_PATH      = script_dir .. "tmp/"
+JSON_PATH      = script_dir:match("^/usr") and ((os.getenv("HOME") or "/tmp") .. "/.conky/tmp/") or (script_dir .. "tmp/")
 
 draw = {}
 
@@ -60,10 +65,19 @@ WEATHER_ICON_SETS = ["default", "metno", "weathermap", "wmo"]
 def weather_icon_block(icon_theme):
     """The weather-only icon path globals (emitted only when weather is on)."""
     return (
-        "ICON_BASE      = script_dir .. \"icons/\"\n"
+        'local _lfs_ok, _lfs = pcall(require, "lfs")\n'
+        'local function _find_icons(sub)\n'
+        '    local sub_dir = sub or ""\n'
+        '    local local_p = script_dir .. "icons/" .. sub_dir\n'
+        '    if _lfs_ok and _lfs and _lfs.attributes(local_p, "mode") == "directory" then\n'
+        '        return local_p\n'
+        '    end\n'
+        '    return "/usr/share/conky-nextgen/icons/" .. sub_dir\n'
+        'end\n\n'
+        'ICON_BASE      = _find_icons()\n'
         f'ICON_THEME     = "{icon_theme or "default"}"\n'
-        "MOON_ICON_BASE = script_dir .. \"icons/moon/\"\n"
-        "WIND_ICON_BASE = script_dir .. \"icons/wind/\"\n"
+        'MOON_ICON_BASE = _find_icons("moon/")\n'
+        'WIND_ICON_BASE = _find_icons("wind/")\n'
     )
 
 

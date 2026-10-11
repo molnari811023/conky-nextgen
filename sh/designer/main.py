@@ -1697,7 +1697,8 @@ class DesignerWindow(Gtk.Window):
     def _request_capture(self, view, out_path):
         """Ask the running conky to draw one frame of `view` and save the
         whole surface to `out_path` (see lua/core/capture.lua)."""
-        req = os.path.join(CONKY_DIR, "tmp", "capture_request")
+        tmp_dir = os.path.join(CONKY_DIR, "tmp") if not CONKY_DIR.startswith("/usr") and os.access(CONKY_DIR, os.W_OK) else os.path.expanduser("~/.conky/tmp")
+        req = os.path.join(tmp_dir, "capture_request")
         try:
             os.makedirs(os.path.dirname(req), exist_ok=True)
             with open(req + ".tmp", "w") as f:

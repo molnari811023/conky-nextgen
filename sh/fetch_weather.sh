@@ -75,6 +75,13 @@ fetch_weather() {
 		curl_cmd "https://api.met.no/weatherapi/sunrise/3.0/moon?lat=${lat}&lon=${lon}&date=${next_date}&offset=${offset}" >"$TMP_DIR/moon_next.json.tmp" || { rm -f "$TMP_DIR/moon_next.json.tmp"; log "[warn] Moon next download failed"; }
 		[ -s "$TMP_DIR/moon_next.json.tmp" ] && mv "$TMP_DIR/moon_next.json.tmp" "$TMP_DIR/moon_next.json" || { rm -f "$TMP_DIR/moon_next.json.tmp"; log "[warn] Moon next empty response"; }
 	fi
+
+	if [ "$TMP_DIR" != "$HOME/.conky/tmp" ]; then
+		mkdir -p "$HOME/.conky/tmp" 2>/dev/null || true
+		for f in city.json weather_data.json airquality.json sun.json moon.json moon_next.json; do
+			[ -f "$TMP_DIR/$f" ] && cp -f "$TMP_DIR/$f" "$HOME/.conky/tmp/$f" 2>/dev/null || true
+		done
+	fi
 }
 
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then

@@ -38,6 +38,15 @@ local SEVERITY_WEIGHT = { Minor = 1, Moderate = 2, Severe = 3, Extreme = 4 }
 
 local function alerts_file_mtime(path)
 	local attrs = lfs.attributes(path)
+	if not attrs then
+		local fname = path and path:match("([^/]+)$")
+		if fname then
+			local user_path = (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/" .. fname
+			if user_path ~= path then
+				attrs = lfs.attributes(user_path)
+			end
+		end
+	end
 	return attrs and attrs.modification or 0
 end
 

@@ -48,6 +48,13 @@ local function load()
 	local path = base_path .. "lyrics.json"
 
 	local attr = lfs.attributes(path)
+	local user_path = (os.getenv("HOME") or "") .. "/.conky/tmp/lyrics.json"
+	local uattr = lfs.attributes(user_path)
+	if uattr and (not attr or uattr.modification > attr.modification) then
+		path = user_path
+		attr = uattr
+	end
+
 	if not attr then
 		cache = {}
 		return

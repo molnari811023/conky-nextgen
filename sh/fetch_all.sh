@@ -46,10 +46,14 @@ if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 		fetch_google &
 		fetch_ping &
 		fetch_ipinfo &
+		[ -f "$_SCRIPT_DIR/updates.sh" ] && "$_SCRIPT_DIR/updates.sh" &
 		wait
 		;;
 	weather)
 		fetch_weather "${2:-Vienna}"
+		;;
+	updates)
+		[ -f "$_SCRIPT_DIR/updates.sh" ] && exec "$_SCRIPT_DIR/updates.sh" "$@"
 		;;
 	google)
 		fetch_google

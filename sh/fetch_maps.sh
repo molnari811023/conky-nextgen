@@ -35,6 +35,9 @@ fetch_maps() {
 	command -v "$MAGICK" >/dev/null 2>&1 || { echo "[error] ImageMagick not found"; return 1; }
 
 	local cj="$TMP_DIR/city.json"
+	if [ ! -f "$cj" ] && [ -f "$HOME/.conky/tmp/city.json" ]; then
+		cj="$HOME/.conky/tmp/city.json"
+	fi
 	if [ ! -f "$cj" ]; then
 		echo "[error] city.json missing — run 'weather' first!"
 		return 1
@@ -143,6 +146,12 @@ print(xmin, ymin, xmax, ymax)
 	stitch wind  wind_big.png
 
 	rm -f "$TMP_DIR"/{osm,temp,radar,wind}_[0-8].png
+	if [ "$TMP_DIR" != "$HOME/.conky/tmp" ]; then
+		mkdir -p "$HOME/.conky/tmp" 2>/dev/null || true
+		for img in osm_big.png rain_big.png temp_big.png wind_big.png; do
+			[ -f "$TMP_DIR/$img" ] && cp -f "$TMP_DIR/$img" "$HOME/.conky/tmp/$img" 2>/dev/null || true
+		done
+	fi
 	log "[map] Done"
 }
 

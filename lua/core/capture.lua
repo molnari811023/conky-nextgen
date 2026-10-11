@@ -41,7 +41,9 @@ writes the conky surface to the requested PNG before removing the request.
 --     only when the file exists afterwards.
 --}}}
 
-local _CAPTURE_REQUEST = script_dir .. "tmp/capture_request"
+local _user_tmp = (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/"
+local _CAPTURE_REQUEST = (script_dir:match("^/usr") and _user_tmp or (script_dir .. "tmp/")) .. "capture_request"
+local _active_capture_request = _CAPTURE_REQUEST
 
 local _pending_path = nil
 local _skip_frames = 0          -- delay after view switch for data to settle
@@ -49,9 +51,15 @@ local _skip_frames = 0          -- delay after view switch for data to settle
 function capture_poll()
     _pending_path = nil
     if not lfs then return nil end
-    if not lfs.attributes(_CAPTURE_REQUEST, "modification") then return nil end
 
-    local f = io.open(_CAPTURE_REQUEST, "r")
+    local req_path = _CAPTURE_REQUEST
+    if not lfs.attributes(req_path, "modification") then
+        req_path = _user_tmp .. "capture_request"
+        if not lfs.attributes(req_path, "modification") then return nil end
+    end
+    _active_capture_request = req_path
+
+    local f = io.open(req_path, "r")
     if not f then return nil end
     local view = f:read("*l")
     local path = f:read("*l")
@@ -83,7 +91,7 @@ function capture_finish()
         cairo_surface_write_to_png(cs, _pending_path)
         cairo_surface_flush(cs)
         if lfs.attributes(_pending_path, "modification") then
-            os.remove(_CAPTURE_REQUEST)
+            os.remove(_active_capture_request or _CAPTURE_REQUEST)
             _pending_path = nil
         end
     end

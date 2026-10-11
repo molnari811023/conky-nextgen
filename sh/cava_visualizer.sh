@@ -20,7 +20,16 @@
 
 SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
 CONKY_DIR="$(readlink -f "$SCRIPT_DIR/..")"
-TMP_DIR="$CONKY_DIR/tmp"
+
+if [ -n "${NEXTGEN_TMP_DIR:-}" ]; then
+	TMP_DIR="$NEXTGEN_TMP_DIR"
+elif [[ "$CONKY_DIR" != /usr* ]] && [ -d "$CONKY_DIR/tmp" ] && [ -w "$CONKY_DIR/tmp" ]; then
+	TMP_DIR="$CONKY_DIR/tmp"
+elif [[ "$CONKY_DIR" != /usr* ]] && [ -w "$CONKY_DIR" ]; then
+	TMP_DIR="$CONKY_DIR/tmp"
+else
+	TMP_DIR="$HOME/.conky/tmp"
+fi
 CONF="$CONKY_DIR/cava_visualizer.ini"
 OUT="$TMP_DIR/cava_bars.txt"
 PID_FILE="$TMP_DIR/cava_visualizer.pid"
