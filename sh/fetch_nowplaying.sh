@@ -44,15 +44,59 @@ fetch_nowplaying() {
 
 	# A) Modern players (MPRIS / playerctl)
 	if command -v playerctl &>/dev/null && playerctl -l 2>/dev/null | grep -q .; then
-		player=$(playerctl -l 2>/dev/null | head -1)
-		status=$(playerctl status 2>/dev/null || echo "Stopped")
-		title=$(playerctl metadata xesam:title 2>/dev/null || echo "")
-		artist=$(playerctl metadata xesam:artist 2>/dev/null || echo "")
-		album=$(playerctl metadata xesam:album 2>/dev/null || echo "")
-		art_url=$(playerctl metadata mpris:artUrl 2>/dev/null || echo "")
+		local p_list
+		p_list=$(playerctl -l 2>/dev/null || true)
+		local active_player=""
+		for p in $p_list; do
+			local st
+			st=$(playerctl -p "$p" status 2>/dev/null || echo "Stopped")
+			if [ "$st" = "Playing" ]; then
+				active_player="$p"
+				status="Playing"
+				break
+			elif [ "$st" = "Paused" ] && [ -z "$active_player" ]; then
+				active_player="$p"
+				status="Paused"
+			fi
+		done
+		[ -z "$active_player" ] && active_player=$(echo "$p_list" | head -1)
 
-	# B) CMUS
-	elif command -v cmus-remote &>/dev/null && pgrep -x cmus &>/dev/null; then
+		if [ -n "$active_player" ]; then
+			player="$active_player"
+			status=$(playerctl -p "$player" status 2>/dev/null || echo "Stopped")
+			title=$(playerctl -p "$player" metadata xesam:title 2>/dev/null || echo "")
+			artist=$(playerctl -p "$player" metadata xesam:artist 2>/dev/null || echo "")
+			album=$(playerctl -p "$player" metadata xesam:album 2>/dev/null || echo "")
+			art_url=$(playerctl -p "$player" metadata mpris:artUrl 2>/dev/null || echo "")
+		fi
+	fi
+
+	# B) Native Audacious via audtool (fallback if playerctl is not Playing)
+	if [ "$status" != "Playing" ] && command -v audtool &>/dev/null && pgrep -x audacious &>/dev/null; then
+		local aud_st
+		aud_st=$(audtool playback-status 2>/dev/null || echo "stopped")
+		if [ "$aud_st" = "playing" ] || [ "$aud_st" = "paused" ]; then
+			player="Audacious"
+			status="${aud_st^}"
+			title=$(audtool current-song-tuple-data title 2>/dev/null || true)
+			[ -z "$title" ] && title=$(audtool current-song 2>/dev/null || echo "")
+			artist=$(audtool current-song-tuple-data artist 2>/dev/null || echo "")
+			album=$(audtool current-song-tuple-data album 2>/dev/null || echo "")
+			local fn
+			fn=$(audtool current-song-filename 2>/dev/null || echo "")
+			if [ -n "$fn" ]; then
+				local dir
+				dir=$(dirname "$fn")
+				for cov in "$dir/cover.jpg" "$dir/cover.png" "$dir/folder.jpg" "$dir/folder.png"; do
+					if [ -f "$cov" ]; then
+						art_url="file://$cov"
+						break
+					fi
+				done
+			fi
+		fi
+	# C) CMUS
+	elif [ "$status" != "Playing" ] && command -v cmus-remote &>/dev/null && pgrep -x cmus &>/dev/null; then
 		player="CMUS"
 		cmus_out=$(cmus-remote -Q 2>/dev/null)
 		status=$(echo "$cmus_out" | grep '^status ' | sed 's/^status //')
@@ -64,8 +108,8 @@ fetch_nowplaying() {
 			title=$(basename "$file_path")
 		fi
 
-	# C) MPD
-	elif command -v mpc &>/dev/null && pgrep -x mpd &>/dev/null; then
+	# D) MPD
+	elif [ "$status" != "Playing" ] && command -v mpc &>/dev/null && pgrep -x mpd &>/dev/null; then
 		player="MPD"
 		mpc_out=$(mpc status 2>/dev/null)
 		if echo "$mpc_out" | grep -q "playing"; then status="Playing"
@@ -79,8 +123,8 @@ fetch_nowplaying() {
 			[ -z "$title" ] && title=$(mpc current -f "%file%" 2>/dev/null)
 		fi
 
-	# D) MOC
-	elif command -v mocp &>/dev/null && pgrep -x mocp &>/dev/null; then
+	# E) MOC
+	elif [ "$status" != "Playing" ] && command -v mocp &>/dev/null && pgrep -x mocp &>/dev/null; then
 		player="MOC"
 		moc_out=$(mocp -i 2>/dev/null)
 		status=$(echo "$moc_out" | grep '^State: ' | sed 's/^State: //')

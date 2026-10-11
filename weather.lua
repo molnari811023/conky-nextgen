@@ -898,6 +898,13 @@ init_groups(_GROUPS)
 local WEATHER_FETCH_INTERVAL = 900  -- seconds (15 min)
 local last_weather_fetch = 0
 
+local function find_sh(name)
+    local p = script_dir .. "sh/" .. name
+    local f = io.open(p, "r")
+    if f then f:close(); return p end
+    return "/usr/share/conky-nextgen/sh/" .. name
+end
+
 function conky_weather_update()
     conky_load_weather_data()
     conky_update_alerts()
@@ -905,7 +912,9 @@ function conky_weather_update()
     local now = os.time()
     if now - last_weather_fetch > WEATHER_FETCH_INTERVAL then
         last_weather_fetch = now
-        os.execute(script_dir .. "sh/0_fetch_all.sh weather \"Amsterdam\" >/dev/null 2>&1 &")
+        local city = (W and W.city and W.city.results and W.city.results[1] and W.city.results[1].name) or ""
+        local city_arg = (city ~= "") and (' "' .. city .. '"') or ""
+        os.execute(find_sh("fetch_all.sh") .. " weather" .. city_arg .. " >/dev/null 2>&1 &")
     end
 
     return ""

@@ -357,14 +357,21 @@ end
 -- in conky.text. Uses script_dir (portable, no hardcoded path) so
 -- it works regardless of user, clone location, or launcher cwd.
 ------------------------------------------------------------
-local MUSIC_FETCH_INTERVAL = 5  -- seconds
+local MUSIC_FETCH_INTERVAL = 3  -- seconds
 local last_music_fetch = 0
+
+local function find_sh(name)
+    local p = script_dir .. "sh/" .. name
+    local f = io.open(p, "r")
+    if f then f:close(); return p end
+    return "/usr/share/conky-nextgen/sh/" .. name
+end
 
 function conky_music_update()
     local now = os.time()
     if now - last_music_fetch > MUSIC_FETCH_INTERVAL then
         last_music_fetch = now
-        os.execute(script_dir .. "sh/0_fetch_all.sh nowplaying >/dev/null 2>&1 &")
+        os.execute(find_sh("fetch_all.sh") .. " nowplaying >/dev/null 2>&1 &")
     end
     return ""
 end

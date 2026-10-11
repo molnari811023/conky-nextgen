@@ -33,7 +33,14 @@ local lfs        = require("lfs")
 
 -- {{{ Config
 local script_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"
-local JSON_PATH  = script_dir .. "tmp/"
+local JSON_PATH  = (script_dir:match("^/usr") or not script_dir:match("^/home")) and ((os.getenv("HOME") or "/tmp") .. "/.conky/tmp/") or (script_dir .. "tmp/")
+local f_test = io.open(JSON_PATH .. ".test", "w")
+if not f_test then
+	JSON_PATH = (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/"
+else
+	f_test:close()
+	os.remove(JSON_PATH .. ".test")
+end
 local OUT_FILE   = JSON_PATH .. "lyrics.json"
 
 local QBASE      = "https://lrclib.net/api/get?"
@@ -229,8 +236,9 @@ while true do
 			snapshot(state, lines, 0, "Loading")
 
 			local fetched, err = fetch_synced(artist, title)
-			assert(not err, "LYRICS fetch failed for '"
-				.. artist .. " - " .. title .. "': " .. err)
+			if err then
+				io.stderr:write("[lyrics_daemon] fetch failed for '" .. artist .. " - " .. title .. "': " .. tostring(err) .. "\n")
+			end
 			if fetched then
 				lines = fetched
 				-- the fetch may have taken a while; re-read position so

@@ -1,0 +1,1 @@
+fetch_all.sh
