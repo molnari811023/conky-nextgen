@@ -68,6 +68,12 @@ Once installed, it provides:
 
 ### Customizing Widgets & Fixing "Show Desktop" (Win + D)
 
+> [!TIP]
+> **Conky Configuration Reference:**
+> For the complete reference of all Conky window and layout settings, run **`man conky`**.
+>
+> In Conky 1.25+ (`conky-mng`), legacy options `own_window_argb_visual` (removed) and `own_window_transparent` (deprecated) are no longer needed. ARGB support is always enabled automatically, and background transparency is controlled directly with `own_window_color` using an alpha channel (e.g. `'#0000'` for fully transparent background, or `'#8000'` for semi-transparent).
+
 System widgets installed under `/usr/share/conky-nextgen/` are read-only templates. To customize widget positions or window behavior:
 
 1. **Copy the widget to your home directory:**
@@ -76,19 +82,18 @@ System widgets installed under `/usr/share/conky-nextgen/` are read-only templat
    conky-nextgen init ~/.conky
 
    # Or copy an individual widget:
-   cp /usr/share/conky-nextgen/clock_cal.conf ~/.conky/my_clock.conf
+   cp /usr/share/conky-nextgen/clock_cal.conf ~/.conky/akarmi.conf
    ```
 
 2. **Prevent disappearing on "Show Desktop" (`Win + D` / `Super + D`):**
    In desktop environments like MATE, XFCE, or GNOME, pressing `Win+D` may minimize Conky if `own_window_type` is not tailored to your compositor.
    
-   Edit your `~/.conky/*.conf` file:
+   Edit your `~/.conky/akarmi.conf` file:
    ```lua
    conky.config = {
-       -- Window behavior settings:
+       -- Window behavior settings (see man conky for all options):
        own_window = true,
-       own_window_transparent = true,
-       own_window_argb_visual = true,
+       own_window_color = '#0000',  -- fully transparent background in Conky 1.25+
        own_window_class = 'Conky',
 
        -- Option A: 'normal' with below/sticky hints (best for mouse clicks in MATE / XFCE)
@@ -110,9 +115,9 @@ System widgets installed under `/usr/share/conky-nextgen/` are read-only templat
 
 3. **Launch your customized widget:**
    ```bash
-   conky -c ~/.conky/my_clock.conf
+   conky -c ~/.conky/akarmi.conf
    # Or using the CLI:
-   conky-nextgen start my_clock
+   conky-nextgen start akarmi
    ```
 
 The Designer writes widget files atomically and sends `SIGUSR1` to reload the

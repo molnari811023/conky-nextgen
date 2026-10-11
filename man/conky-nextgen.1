@@ -106,9 +106,11 @@ System widgets located under \fI/usr/share/conky-nextgen/\fR are read-only. To m
 \fBconky-nextgen init ~/.conky\fR
 
 \fB# Or copy a single widget configuration:\fR
-\fBcp /usr/share/conky-nextgen/clock_cal.conf ~/.conky/my_clock.conf\fR
+\fBcp /usr/share/conky-nextgen/clock_cal.conf ~/.conky/akarmi.conf\fR
 .fi
 .RE
+.PP
+For a comprehensive manual of all window options, consult \fBman conky\fR(1). Note that in modern Conky 1.25+ (\fBconky-mng\fR), legacy options \fBown_window_argb_visual\fR (removed) and \fBown_window_transparent\fR (deprecated) are no longer used. ARGB support is always enabled, and background opacity is set natively via \fBown_window_color\fR with an alpha channel (e.g. \fB'#0000'\fR for complete transparency).
 .PP
 .SS Preventing Window Disappearing on "Show Desktop" (Super+D / Win+D)
 In different desktop environments (MATE, GNOME, XFCE, KDE Plasma) or window managers, pressing the "Show Desktop" keyboard shortcut (\fBSuper+D\fR / \fBWin+D\fR) can minimize or hide Conky windows if the window type is not recognized by the compositor.
@@ -120,6 +122,7 @@ To fix this, adjust the \fBown_window_type\fR and \fBown_window_hints\fR propert
 .RS
 .nf
 \fBown_window = true,\fR
+\fBown_window_color = '#0000',\fR
 \fBown_window_type = 'normal',\fR
 \fBown_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',\fR
 .fi
@@ -130,6 +133,7 @@ This mode allows full mouse event handling while preventing the widget from appe
 .RS
 .nf
 \fBown_window = true,\fR
+\fBown_window_color = '#0000',\fR
 \fBown_window_type = 'desktop',\fR
 .fi
 This attaches the window directly to the desktop root background.
@@ -139,6 +143,7 @@ This attaches the window directly to the desktop root background.
 .RS
 .nf
 \fBown_window = true,\fR
+\fBown_window_color = '#0000',\fR
 \fBown_window_type = 'dock',\fR
 \fBown_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',\fR
 .fi
@@ -148,7 +153,7 @@ Once customized, launch your tailored configuration using:
 .PP
 .RS
 .nf
-\fBconky -c ~/.conky/my_clock.conf\fR
+\fBconky -c ~/.conky/akarmi.conf\fR
 .fi
 .RE
 .SH COMMANDS
