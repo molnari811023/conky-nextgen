@@ -1,0 +1,289 @@
+.TH CONKY-NEXTGEN 1 "October 2026" "conky-nextgen 1.0.0" "User Commands"
+.SH NAME
+conky-nextgen \- modular Conky theme framework, widget manager, and visual designer
+.SH SYNOPSIS
+.B conky-nextgen
+[\fICOMMAND\fR] [\fIWIDGET\fR...]
+.br
+.B conky-nextgen
+[\fIOPTIONS\fR]
+.br
+.B nextgen-designer
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+\fBconky-nextgen\fR is an extensible desktop monitoring framework and modular widget suite built for \fBconky\fR(1). It integrates a high-performance Cairo-based Lua 5.4 graphics engine, asynchronous Bash backend data fetchers, responsive mouse event handling, and an integrated GTK3 visual designer.
+.PP
+Unlike monolithic Conky themes, \fBconky-nextgen\fR is designed like a set of \fBLEGO building blocks\fR. You can run the out-of-the-box widgets, reconfigure existing ones, or assemble entirely new widgets by snapping together modular drawing components and combining multiple Lua scripts.
+.SH MODULAR ARCHITECTURE (THE LEGO SYSTEM)
+The foundation of Conky NextGen is a declarative, component-driven Lua rendering pipeline.
+.SS The Declarative Draw List
+In any NextGen widget script (\fIwidget.lua\fR), visual components are appended as table objects into a global \fBdraw\fR list. The engine iterates over this list on every update cycle and renders each item using hardware-accelerated Cairo routines:
+.PP
+.RS
+.nf
+\fBdraw[#draw + 1] = {\fR
+    \fBtype   = "background",\fR
+    \fBx = 0, y = 0, w = 340, h = 200, radius = 12,\fR
+\fB}\fR
+\fBdraw[#draw + 1] = {\fR
+    \fBtype   = "bar",\fR
+    \fBconky_value = "${cpu cpu0}",\fR
+    \fBx = 20, y = 60, w = 300, h = 10,\fR
+\fB}\fR
+.fi
+.RE
+.PP
+Available modular building blocks include:
+.TP
+.B background
+Rounded rectangle window container with solid, gradient, or bordered backgrounds.
+.TP
+.B clock
+Customizable analog clock face with hour/minute/seconds hands, dial ticks, center cap, and optional numerals.
+.TP
+.B calendar
+Clickable monthly calendar grid with navigable 4\(mu4 year and 3\(mu4 month selection popups, ISO week numbers, and date picking.
+.TP
+.B bar
+Linear progress and metric bars with gradient color stops and background tracks.
+.TP
+.B graph
+Real-time time-series telemetry graphs with custom grid lines, border styles, and color fills.
+.TP
+.B rings \fR/ \fBarc
+Circular gauges and radial indicators with adjustable sweep angles and thickness.
+.TP
+.B text
+Cairo text elements with font family, size, weight, alignment (left/center/right), and theme-driven colors.
+.TP
+.B lines
+Horizontal and vertical decorative dividers or coordinate connection lines.
+.TP
+.B image \fR/ \fBsvg
+Raster images (PNG/JPEG) with aspect scaling and mtime caching, or scalable vector graphics (SVG) rendered via \fBlibrsvg\fR.
+.TP
+.B spectrum
+Dynamic multi-band audio spectrum bars connected to \fBcava\fR(1).
+.TP
+.B lyrics
+Synchronized, scrolling song lyrics synchronized with active media players.
+.SS Chaining Multiple Lua Scripts in lua_load
+Conky allows loading \fBmultiple Lua scripts\fR simultaneously within a single configuration. In your \fIwidget.conf\fR, you can chain scripts in the \fIlua_load\fR property by separating their paths with spaces:
+.PP
+.RS
+.nf
+\fBlocal conf_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"\fR
+
+\fBconky.config = {\fR
+    \fB...\fR
+    \fBlua_load = conf_dir .. 'base.lua ' .. conf_dir .. 'custom_hooks.lua',\fR
+    \fBlua_draw_hook_pre = 'conky_core_main',\fR
+\fB}\fR
+.fi
+.RE
+.PP
+This architecture allows you to:
+.IP \(bu 2
+Reuse the core NextGen drawing engine while writing your own custom Lua logic, data scrapers, or Cairo renderers in a separate file.
+.IP \(bu 2
+Attach external Lua extensions without modifying the upstream widget code.
+.IP \(bu 2
+Override theme definitions or inject custom mouse handlers on the fly.
+.SS Multi-View Navigation and Mouse Hooks
+Widgets support multiple views (e.g. \fImain\fR, \fIview_1\fR, \fIview_2\fR) within the same window. Drawing elements can declare a \fBview\fR property to only show when that view is active. Mouse clicks can seamlessly flip between views (as demonstrated in \fIclock_cal\fR where clicking the clock toggles the full calendar view):
+.PP
+.RS
+.nf
+\fBMOUSE_CLICK_LEFT = function() view_toggle("view_1") end\fR
+.fi
+.RE
+.SH CUSTOMIZING WIDGETS & DESKTOP INTEGRATION (WIN+D FIX)
+System widgets located under \fI/usr/share/conky-nextgen/\fR are read-only. To modify widget dimensions, screen alignments, or window behavior, copy the configuration to your user directory:
+.PP
+.RS
+.nf
+\fB# Copy all templates into ~/.conky:\fR
+\fBconky-nextgen init ~/.conky\fR
+
+\fB# Or copy a single widget configuration:\fR
+\fBcp /usr/share/conky-nextgen/clock_cal.conf ~/.conky/my_clock.conf\fR
+.fi
+.RE
+.PP
+.SS Preventing Window Disappearing on "Show Desktop" (Super+D / Win+D)
+In different desktop environments (MATE, GNOME, XFCE, KDE Plasma) or window managers, pressing the "Show Desktop" keyboard shortcut (\fBSuper+D\fR / \fBWin+D\fR) can minimize or hide Conky windows if the window type is not recognized by the compositor.
+.PP
+To fix this, adjust the \fBown_window_type\fR and \fBown_window_hints\fR properties in your user configuration:
+.PP
+.TP
+.B 1. "normal" with below and sticky hints (Recommended for interactive mouse widgets in MATE and XFCE)
+.RS
+.nf
+\fBown_window = true,\fR
+\fBown_window_type = 'normal',\fR
+\fBown_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',\fR
+.fi
+This mode allows full mouse event handling while preventing the widget from appearing in taskbars or pagers.
+.RE
+.TP
+.B 2. "desktop" mode (Immune to Win+D in most compositors)
+.RS
+.nf
+\fBown_window = true,\fR
+\fBown_window_type = 'desktop',\fR
+.fi
+This attaches the window directly to the desktop root background.
+.RE
+.TP
+.B 3. "dock" mode (Treated as an immutable desktop dock)
+.RS
+.nf
+\fBown_window = true,\fR
+\fBown_window_type = 'dock',\fR
+\fBown_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',\fR
+.fi
+.RE
+.PP
+Once customized, launch your tailored configuration using:
+.PP
+.RS
+.nf
+\fBconky -c ~/.conky/my_clock.conf\fR
+.fi
+.RE
+.SH COMMANDS
+.TP
+.B start \fR[\fIWIDGET\fR...]
+Starts one or more widgets. If no widget names are supplied, starts the default suite (\fIclock_cal\fR, \fIcpu\fR, \fImem_swap\fR, \fIdisk_2_bars\fR, \fInetwork\fR, \fIweather\fR, \fIinfo\fR, \fItop\fR, \fInow-playing\fR, \fIvnstat\fR, \fIgoogle\fR).
+.TP
+.B stop \fR[\fIWIDGET\fR...]
+Stops specified widgets by name, or terminates all active Conky instances if no names are provided.
+.TP
+.B restart \fR[\fIWIDGET\fR...]
+Restarts specified widgets or all active widgets.
+.TP
+.B status
+Displays the execution status and process IDs (PIDs) of running NextGen widgets.
+.TP
+.B list
+Lists all installed and user-available widget configurations along with their live state.
+.TP
+.B designer
+Launches the \fBNextGen Designer\fR GTK3 visual editor.
+.TP
+.B fetch \fR[\fITARGET\fR] [\fICITY\fR]
+Triggers background data collection scripts for weather, hardware metrics, network bandwidth, or media player metadata.
+.TP
+.B init \fR[\fIDIR\fR]
+Initializes user configuration directory by copying default template configurations from \fI/usr/share/conky-nextgen/\fR into \fI~/.conky/\fR (or the specified target directory).
+.SH AVAILABLE WIDGETS
+.TP
+.B clock_cal
+Interactive analog clock and full monthly calendar. Left-clicking the clock toggles the calendar view. The calendar header features navigable 4\(mu4 year and 3\(mu4 month selection grids, ISO week numbers, and date pickers.
+.TP
+.B clock_cal_combi
+Compact side-by-side analog clock and monthly calendar widget.
+.TP
+.B cpu
+Real-time CPU monitoring showing multi-core usage bars, frequency graphs, and sensor temperatures.
+.TP
+.B mem_swap
+Physical RAM and Swap memory utilization bars, percentage displays, and active allocations.
+.TP
+.B disk_2_bars
+Storage monitoring with dual usage gauges for root (\fI/\fR) and user home (\fI/home\fR) partitions.
+.TP
+.B network
+Network telemetry displaying dynamic upload/download speed graphs, active IP addresses, and link status.
+.TP
+.B weather
+Comprehensive meteorological widget featuring Open-Meteo forecasts, WMO condition iconography, temperature gradients, hourly predictions, air quality indices, and weather alerts.
+.TP
+.B info
+System dashboard showing OS release, Linux kernel version, host uptime, and package update counts.
+.TP
+.B top
+Process monitor tracking highest consumers of CPU time and physical memory.
+.TP
+.B now-playing
+Media player display supporting MPRIS2, Spotify, and Playerctl with synchronized track title, artist, progress, and album artwork.
+.TP
+.B vnstat
+Bandwidth usage tracker utilizing \fBvnstat\fR(1) historical daily and monthly network logs.
+.TP
+.B google
+Google account integration displaying upcoming Google Calendar appointments and Google Tasks.
+.TP
+.B visualizer
+Audio spectrum bar visualizer synchronized with desktop audio streams via \fBcava\fR(1).
+.TP
+.B lyrics
+Synchronized song lyric reader displaying time-stamped LRC lyrics.
+.TP
+.B nvidia
+Hardware telemetry for systems equipped with dedicated NVIDIA graphics processors (utilization, VRAM, and thermal sensors).
+.SH OPTIONS
+.TP
+.BR \-h ", " \-\-help
+Displays brief command-line syntax and usage summary.
+.TP
+.BR \-v ", " \-\-version
+Displays the installed version of conky-nextgen.
+.SH FILES
+.TP
+.I /usr/share/conky-nextgen/
+System framework directory containing the shared Lua engine (\fIlua/\fR), icon sets (\fIicons/\fR), graphics (\fIimages/\fR), translations (\fIlanguage/\fR), backend scripts (\fIsh/\fR), and widget templates.
+.TP
+.I ~/.conky/
+Default user configuration directory for customized \fI.conf\fR and \fI.lua\fR widget files.
+.TP
+.I ~/.config/conky-nextgen/
+Persistent user preferences, geocoding language choices, and user-agent settings.
+.TP
+.I ${XDG_RUNTIME_DIR:-/tmp}/conky-nextgen/
+Runtime in-memory temporary cache for fetched JSON metrics and weather forecasts.
+.SH ENVIRONMENT
+.TP
+.B CONKY_NEXTGEN_DIR
+Overrides the system path to the NextGen framework (defaults to \fI/usr/share/conky-nextgen\fR).
+.TP
+.B XDG_RUNTIME_DIR
+Specifies the directory for ephemeral runtime data (defaults to \fI/run/user/$UID\fR or \fI/tmp\fR).
+.SH EXAMPLES
+.PP
+Start the flagship interactive clock and calendar:
+.RS
+.B conky-nextgen start clock_cal
+.RE
+.PP
+Start CPU and memory monitors:
+.RS
+.B conky-nextgen start cpu mem_swap
+.RE
+.PP
+Start the standard full desktop monitoring suite:
+.RS
+.B conky-nextgen start
+.RE
+.PP
+Check active widget status:
+.RS
+.B conky-nextgen status
+.RE
+.PP
+Stop all running Conky widgets:
+.RS
+.B conky-nextgen stop
+.RE
+.PP
+Launch the graphical NextGen Designer:
+.RS
+.B conky-nextgen designer
+.RE
+.SH AUTHOR
+Created by Istv\('an Moln\('ar <molnari811023@gmail.com>.
+.SH SEE ALSO
+.BR conky (1),
+.BR cava (1),
+.BR vnstat (1),
+.BR playerctl (1)

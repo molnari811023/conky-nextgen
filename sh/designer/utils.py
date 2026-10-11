@@ -39,6 +39,8 @@ import re
 import json
 import tempfile
 
+import gi
+gi.require_version("Gdk", "3.0")
 from gi.repository import Gdk
 
 
@@ -71,7 +73,12 @@ def _find_conky_dir():
         except OSError:
             pass
 
-    return os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    tree_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    if not os.access(tree_dir, os.W_OK):
+        user_conky = os.path.expanduser("~/.conky")
+        if os.path.isdir(user_conky):
+            return user_conky
+    return tree_dir
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))

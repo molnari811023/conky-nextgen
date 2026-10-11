@@ -1,0 +1,287 @@
+#!/usr/bin/env bash
+#{{{
+#  Conky NextGen Framework — CLI Controller
+#  Author: István Molnár <molnari811023@gmail.com>
+#  Description: Command-line manager for Conky NextGen widgets
+#}}}
+set -eo pipefail
+
+VERSION="1.0.0"
+SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+BASE_DIR="$(readlink -f "$SCRIPT_DIR/..")"
+SYSTEM_DIR="/usr/share/conky-nextgen"
+
+# Default widget suite
+DEFAULT_SUITE=(
+    "clock_cal"
+    "cpu"
+    "mem_swap"
+    "disk_2_bars"
+    "network"
+    "weather"
+    "info"
+    "top"
+    "now-playing"
+    "vnstat"
+    "google"
+)
+
+# Search config across user and system paths
+find_conf() {
+    local name="${1%.conf}"
+    local candidates=(
+        "$HOME/.conky/${name}.conf"
+        "$HOME/.config/conky/${name}.conf"
+        "$BASE_DIR/${name}.conf"
+        "$SYSTEM_DIR/${name}.conf"
+    )
+    for c in "${candidates[@]}"; do
+        if [ -f "$c" ]; then
+            echo "$c"
+            return 0
+        fi
+    done
+    return 1
+}
+
+# Check if widget is running
+is_running() {
+    local name="${1%.conf}"
+    pgrep -f "conky.*${name}\.conf" >/dev/null 2>&1
+}
+
+get_pids() {
+    local name="${1%.conf}"
+    pgrep -f "conky.*${name}\.conf" 2>/dev/null || true
+}
+
+cmd_start() {
+    local targets=("$@")
+    if [ ${#targets[@]} -eq 0 ] || [ "${targets[0]}" = "default" ]; then
+        targets=("${DEFAULT_SUITE[@]}")
+    fi
+
+    echo "==> Starting Conky NextGen widgets..."
+    for w in "${targets[@]}"; do
+        local name="${w%.conf}"
+        if is_running "$name"; then
+            local pids
+            pids=$(get_pids "$name" | tr '\n' ' ')
+            echo "  [running] $name (PID: $pids)"
+        else
+            local conf
+            if conf=$(find_conf "$name"); then
+                nohup conky -c "$conf" >/dev/null 2>&1 &
+                sleep 0.2
+                local pids
+                pids=$(get_pids "$name" | tr '\n' ' ')
+                echo "  [ok]      $name started (PID: ${pids:-background}, conf: $conf)"
+            else
+                echo "  [error]   $name configuration not found!"
+            fi
+        fi
+    done
+}
+
+cmd_stop() {
+    local targets=("$@")
+    if [ ${#targets[@]} -eq 0 ] || [ "${targets[0]}" = "all" ]; then
+        echo "==> Stopping all Conky widgets..."
+        killall conky 2>/dev/null || true
+        echo "  [done] All Conky processes stopped."
+        return 0
+    fi
+
+    echo "==> Stopping selected widgets..."
+    for w in "${targets[@]}"; do
+        local name="${w%.conf}"
+        local pids
+        pids=$(get_pids "$name")
+        if [ -n "$pids" ]; then
+            pkill -f "conky.*${name}\.conf" 2>/dev/null || true
+            echo "  [stopped]     $name (PID: $(echo "$pids" | tr '\n' ' '))"
+        else
+            echo "  [not running] $name"
+        fi
+    done
+}
+
+cmd_restart() {
+    local targets=("$@")
+    cmd_stop "${targets[@]}"
+    sleep 0.5
+    cmd_start "${targets[@]}"
+}
+
+cmd_status() {
+    echo "=========================================================="
+    echo " Conky NextGen — Active Widget Status"
+    echo "=========================================================="
+    local active_found=0
+    declare -A seen_widgets
+
+    while IFS= read -r line; do
+        if [[ -n "$line" ]]; then
+            local pid conf_path widget_name
+            pid=$(awk '{print $1}' <<< "$line")
+            conf_path=$(grep -oE '\S+\.conf' <<< "$line" | head -n 1)
+            if [[ -n "$conf_path" ]]; then
+                widget_name=$(basename "$conf_path" .conf)
+                seen_widgets["$widget_name"]+="$pid "
+            fi
+        fi
+    done < <(pgrep -a conky 2>/dev/null | grep -E '\.conf')
+
+    for w in $(printf '%s\n' "${!seen_widgets[@]}" | sort); do
+        active_found=1
+        printf "  ● %-18s [RUNNING]  PID: %s\n" "$w" "${seen_widgets[$w]}"
+    done
+
+    if [ $active_found -eq 0 ]; then
+        echo "  No NextGen widgets are currently running."
+    fi
+    echo "=========================================================="
+}
+
+cmd_list() {
+    echo "=========================================================="
+    echo " Conky NextGen — Available Widgets"
+    echo "=========================================================="
+    local search_dirs=("$HOME/.conky" "$BASE_DIR" "$SYSTEM_DIR")
+    declare -A seen
+
+    for dir in "${search_dirs[@]}"; do
+        if [ -d "$dir" ]; then
+            for conf in "$dir"/*.conf; do
+                if [ -f "$conf" ]; then
+                    local base
+                    base="$(basename "$conf" .conf)"
+                    if [ -z "${seen[$base]:-}" ]; then
+                        seen[$base]=1
+                        local status="[stopped]"
+                        if is_running "$base"; then
+                            status="[RUNNING]"
+                        fi
+                        printf "  %-18s %-10s (%s)\n" "$base" "$status" "$conf"
+                    fi
+                fi
+            done
+        fi
+    done
+    echo "=========================================================="
+}
+
+cmd_designer() {
+    local des_paths=(
+        "$HOME/.conky/sh/designer/main.py"
+        "$BASE_DIR/sh/designer/main.py"
+        "$SYSTEM_DIR/sh/designer/main.py"
+    )
+    for p in "${des_paths[@]}"; do
+        if [ -f "$p" ]; then
+            echo "==> Starting NextGen Designer..."
+            nohup python3 "$p" "$@" >/dev/null 2>&1 &
+            return 0
+        fi
+    done
+    echo "[error] NextGen Designer executable not found!"
+    exit 1
+}
+
+cmd_fetch() {
+    local fetch_scripts=(
+        "$HOME/.conky/sh/fetch_all.sh"
+        "$BASE_DIR/sh/0_fetch_all.sh"
+        "$BASE_DIR/sh/fetch_all.sh"
+        "$SYSTEM_DIR/sh/0_fetch_all.sh"
+        "$SYSTEM_DIR/sh/fetch_all.sh"
+    )
+    for s in "${fetch_scripts[@]}"; do
+        if [ -f "$s" ]; then
+            exec bash "$s" "$@"
+        fi
+    done
+    echo "[error] Data fetch script not found!"
+    exit 1
+}
+
+cmd_init() {
+    local target_dir="${1:-$HOME/.conky}"
+    mkdir -p "$target_dir"
+    local src_dir="$BASE_DIR"
+    [ ! -f "$src_dir/clock_cal.conf" ] && src_dir="$SYSTEM_DIR"
+
+    if [ ! -f "$src_dir/clock_cal.conf" ]; then
+        echo "[error] Source directory not found for initialization!"
+        exit 1
+    fi
+
+    echo "==> Copying widget templates to: $target_dir ..."
+    cp -vn "$src_dir"/*.conf "$target_dir/" 2>/dev/null || true
+    cp -vn "$src_dir"/*.lua "$target_dir/" 2>/dev/null || true
+    [ -f "$src_dir/cava_visualizer.ini" ] && cp -vn "$src_dir/cava_visualizer.ini" "$target_dir/" 2>/dev/null || true
+    echo "  [done] Widget templates ready in user directory."
+}
+
+show_help() {
+    cat << EOF
+Usage: conky-nextgen [COMMAND] [WIDGET...]
+
+Commands:
+  start [WIDGET...]   Start specified widgets or default suite
+  stop [WIDGET...]    Stop specified widgets (or 'all' for all)
+  restart [WIDGET...] Restart widgets
+  status              Show active widgets and their PIDs
+  list                List all available widgets and status
+  designer            Launch the GTK3 NextGen Designer
+  fetch [TARGET] [CITY] Fetch background data (weather, hardware, network)
+  init [DIR]          Initialize widget templates into user directory (~/.conky)
+
+Options:
+  -h, --help          Show this help message
+  -v, --version       Show version information
+
+For more details, see: man conky-nextgen
+EOF
+}
+
+ACTION="${1:-}"
+shift || true
+
+case "$ACTION" in
+    start)
+        cmd_start "$@"
+        ;;
+    stop)
+        cmd_stop "$@"
+        ;;
+    restart)
+        cmd_restart "$@"
+        ;;
+    status)
+        cmd_status
+        ;;
+    list)
+        cmd_list
+        ;;
+    designer)
+        cmd_designer "$@"
+        ;;
+    fetch)
+        cmd_fetch "$@"
+        ;;
+    init)
+        cmd_init "$@"
+        ;;
+    -v|--version|version)
+        echo "conky-nextgen version $VERSION"
+        ;;
+    -h|--help|help|"")
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $ACTION"
+        echo "Use 'conky-nextgen --help' for available commands."
+        exit 1
+        ;;
+esac

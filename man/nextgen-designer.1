@@ -1,0 +1,163 @@
+.TH NEXTGEN-DESIGNER 1 "October 2026" "conky-nextgen 1.0.0" "User Commands"
+.SH NAME
+nextgen-designer \- visual GTK3 editor and live preview tool for Conky NextGen widgets
+.SH SYNOPSIS
+.B nextgen-designer
+[\fIWIDGET_FILE\fR]
+.br
+.B conky-nextgen designer
+[\fIWIDGET_FILE\fR]
+.SH DESCRIPTION
+\fBnextgen-designer\fR is an interactive, graphical GTK3 development environment for creating, styling, and customizing Conky desktop widgets without writing complex Lua scripts or raw Cairo drawing code by hand.
+.PP
+Instead of calculating pixel coordinates, color tables, and Cairo matrices in a text editor, \fBnextgen-designer\fR allows you to assemble widgets visually like \fBLEGO building blocks\fR. You add components (such as rounded backgrounds, gauges, clocks, calendars, graphs, and weather icons), adjust their geometry and styling with intuitive controls, and immediately see the results rendered on your desktop via an integrated live Conky preview engine.
+.PP
+When you save your work, the Designer generates cleanly formatted, self-contained, and performant \fIwidget.lua\fR and \fIwidget.conf\fR files compatible with standard \fBconky\fR(1) and Conky Manager.
+
+.SH INTERFACE OVERVIEW
+The Designer main window is organized into three principal areas:
+.TP
+.B Left Control Panel
+Contains global widget controls:
+.RS
+.IP \(bu 2
+\fBView & Padding Selector:\fR Switch between widget views (\fImain\fR, \fIview_1\fR, etc.) and set overall border padding.
+.IP \(bu 2
+\fBModule Profiles Frame:\fR Checkboxes to select which backend engine modules are loaded: \fIsystem\fR (CPU, RAM, disks, network, sensors), \fIweather\fR (Open-Meteo forecasts, alerts, astronomy), \fImedia\fR (MPRIS player info, lyrics), and \fIgoogle\fR (Calendar events, tasks).
+.IP \(bu 2
+\fBConky Process Controls:\fR Buttons to start (\fIRun\fR), pause (\fIStop\fR), or restart (\fIRestart\fR) the live preview process on your desktop, reload all active Conky instances, and take a PNG screenshot of the rendered widget (\fICapture\fR).
+.RE
+.TP
+.B Top Menu Bar
+Provides \fBFile\fR operations (New Widget, Open, Save, Save As, Export Capture, Quit), \fBView\fR diagnostics (Live Log Console), and \fBHelp\fR resources.
+.TP
+.B Right Tabbed Workspace
+The primary editor area organized into dedicated notebook tabs: \fBItems\fR, \fBGroups\fR, \fBViews\fR, \fBMouse\fR, \fBTheme\fR, and \fBConky\fR.
+
+.SH WORKSPACE TABS & FEATURES
+.SS 1. Items Tab (Draw List)
+The heart of widget construction. Displays the ordered list of drawing elements currently in the widget:
+.TP
+.B Add Item
+Opens the component selector to add a new visual block. Supported types include:
+.RS
+.IP \(bu 2
+\fBbackground:\fR Window container with configurable corner radius, solid fill, gradient, and outer border.
+.IP \(bu 2
+\fBtext:\fR Static labels or dynamic Conky variables (e.g. \fI${cpu}\fR, \fI${mem}\fR) with font, size, weight, and alignment.
+.IP \(bu 2
+\fBbar:\fR Linear usage meters for CPU cores, filesystems, and memory.
+.IP \(bu 2
+\fBgraph:\fR Time-series telemetry graphs with custom grid lines and gradients.
+.IP \(bu 2
+\fBrings / arc:\fR Circular progress dials and curved meters.
+.IP \(bu 2
+\fBclock:\fR Analog clock with hour, minute, and second hands, dial ticks, and numbers.
+.IP \(bu 2
+\fBcalendar:\fR Navigable monthly calendar grid with interactive year/month popups.
+.IP \(bu 2
+\fBimage / svg:\fR Icons, logos, and vector illustrations.
+.IP \(bu 2
+\fBspectrum:\fR Audio frequency equalizer bars (integrated with cava).
+.IP \(bu 2
+\fBlyrics:\fR Synchronized scrolling song lyric view.
+.RE
+.TP
+.B Edit Props
+Opens the floating \fBProperty Inspector\fR window for the selected element, allowing fine-tuning of coordinates (\fIx\fR, \fIy\fR), dimensions (\fIw\fR, \fIh\fR), values, fonts, and colors.
+.TP
+.B Delete
+Removes the selected element from the widget.
+
+.SS 2. Groups Tab
+Allows grouping multiple draw items together under a single logical name. Entire groups can be assigned to specific views, enabling clean multi-state widgets (e.g. swapping an entire dashboard section with one toggle).
+
+.SS 3. Views Tab
+Defines the different display pages or modes of a widget (e.g. \fImain\fR for regular dashboard, \fIview_1\fR for detailed statistics or full calendar). You can create new views, delete existing ones, and specify which element groups are visible in each view.
+
+.SS 4. Mouse Tab
+Configures interactive mouse actions for the widget window:
+.IP \(bu 2
+\fBMouse Actions Checkbox:\fR Enables or disables mouse event capturing.
+.IP \(bu 2
+\fBButton Bindings:\fR Assign actions to Left Click, Right Click, Middle Click, Scroll Up, Scroll Down, Button 4, and Button 5.
+.IP \(bu 2
+\fBActions:\fR Switch between views (e.g. \fIview_toggle("view_1")\fR), open external applications, refresh data fetchers, or execute custom Lua functions.
+
+.SS 5. Theme Tab
+Provides complete visual styling without editing hex color codes in scripts:
+.TP
+.B Palette Sub-Tab
+Create and name reusable color swatches (e.g. \fIbg_dark\fR, \fIblue\fR, \fIgreen\fR, \fIfg_dim\fR) with a built-in visual color picker and eye-dropper.
+.TP
+.B Gradients Sub-Tab
+Build multi-stop linear color gradients with customizable percentage stops and opacity levels.
+.TP
+.B Defaults Sub-Tab
+Define global default styles for each widget type, ensuring that all bars, graphs, or text elements share a cohesive look across your desktop.
+
+.SS 6. Conky Tab (Window & Desktop Placement)
+Sets the window properties written into the accompanying \fI.conf\fR file:
+.TP
+.B alignment
+Desktop screen anchor: \fItop_left\fR, \fItop_right\fR, \fIbottom_left\fR, \fIbottom_right\fR, \fImiddle_middle\fR, etc.
+.TP
+.B gap_x / gap_y
+Horizontal and vertical pixel distances from the screen edges.
+.TP
+.B own_window_type
+Window behavior: \fInormal\fR, \fIdesktop\fR, \fIdock\fR (recommended for panels/widgets), \fIoverride\fR, or \fIpanel\fR.
+.TP
+.B own_window_hints
+Window manager flags, typically \fIundecorated,below,sticky,skip_taskbar,skip_pager\fR so the widget sits cleanly on your wallpaper behind application windows.
+
+.SH STEP-BY-STEP: CREATING A WIDGET IN 5 MINUTES
+.SS Step 1: Launch the Designer
+Open a terminal and run:
+.PP
+.RS
+.B nextgen-designer
+.RE
+.PP
+Or open it from your desktop Application Menu under \fBPreferences\fR or \fBAccessories\fR \(-> \fBNextGen Designer\fR.
+.SS Step 2: Choose Module Profiles
+In the left sidebar under \fBProfile\fR, check the data modules your widget will need (e.g. check \fIsystem\fR for CPU/RAM monitoring, or \fIweather\fR for climate forecasts).
+.SS Step 3: Add a Background
+Go to the \fBItems\fR tab, click \fBAdd Item\fR, select \fBbackground\fR, and click \fBEdit Props\fR. Set \fIw = 340\fR, \fIh = 180\fR, and \fIradius = 12\fR.
+.SS Step 4: Add Monitoring Elements
+Click \fBAdd Item\fR again:
+.IP \(bu 2
+Add a \fBtext\fR element for the title (e.g. "SYSTEM STATUS").
+.IP \(bu 2
+Add a \fBbar\fR element, set \fIconky_value\fR to \fI${cpu}\fR, and adjust width to fit inside the background.
+.IP \(bu 2
+Add a \fBrings\fR or \fBclock\fR element to add circular meters or an analog clock face.
+.SS Step 5: Test Live Preview
+Click the \fBRun\fR button in the left panel. Your widget will immediately appear on your desktop. Move sliders or change colors in the Designer\(emthe preview updates instantly!
+.SS Step 6: Save and Enjoy
+Click \fBFile\fR \(-> \fBSave As\fR, choose a name (e.g. \fImy_monitor.lua\fR). The Designer writes both \fImy_monitor.lua\fR and \fImy_monitor.conf\fR. You can now launch it anytime with:
+.PP
+.RS
+.B conky-nextgen start my_monitor
+.RE
+
+.SH LIVE PREVIEW ENGINE
+The Designer uses a zero-flicker live reload mechanism. When you modify properties, the Designer writes temporary state atomically and signals the live Conky instance via \fBSIGUSR1\fR. Conky re-reads the updated Lua script on the fly without closing or reopening the X11 window.
+
+.SH FILES
+.TP
+.I ~/.config/conky-designer-state.json
+Remembers window geometry, position, and recently opened widget paths between sessions.
+.TP
+.I /usr/share/conky-nextgen/sh/designer/main.py
+The core Python GTK3 implementation of the Designer.
+.TP
+.I /usr/share/conky-nextgen/sh/designer/engine/widget_schema.py
+The schema definition governing all editable properties and defaults.
+
+.SH AUTHOR
+Created by Istv\('an Moln\('ar <molnari811023@gmail.com>.
+
+.SH SEE ALSO
+.BR conky-nextgen (1),
+.BR conky (1)

@@ -1,0 +1,83 @@
+# bash completion for conky-nextgen                        -*- shell-script -*-
+# Author: István Molnár <molnari811023@gmail.com>
+
+_conky_nextgen_available() {
+    local dirs=("$HOME/.conky" "$HOME/.config/conky" "." "/usr/share/conky-nextgen")
+    local d f
+    for d in "${dirs[@]}"; do
+        if [[ -d "$d" ]]; then
+            for f in "$d"/*.conf; do
+                [[ -f "$f" ]] && basename "$f" .conf
+            done
+        fi
+    done 2>/dev/null | sort -u
+}
+
+_conky_nextgen_running() {
+    pgrep -a conky 2>/dev/null | grep -oE '[a-zA-Z0-9_-]+\.conf' | sed 's/\.conf$//' | sort -u
+}
+
+_conky_nextgen() {
+    local cur prev words cword
+    if declare -F _init_completion >/dev/null 2>&1; then
+        _init_completion || return
+    else
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        prev="${COMP_WORDS[COMP_CWORD-1]}"
+        words=("${COMP_WORDS[@]}")
+        cword=$COMP_CWORD
+    fi
+
+    local commands="start stop restart status list designer fetch init"
+    local options="-h --help -v --version"
+
+    # Subcommand or top-level option completion
+    if [[ $cword -eq 1 ]]; then
+        if [[ "$cur" == -* ]]; then
+            COMPREPLY=($(compgen -W "$options" -- "$cur"))
+        else
+            COMPREPLY=($(compgen -W "$commands" -- "$cur"))
+        fi
+        return 0
+    fi
+
+    local subcmd="${words[1]}"
+
+    case "$subcmd" in
+        start)
+            local available
+            available=$(_conky_nextgen_available)
+            COMPREPLY=($(compgen -W "default $available" -- "$cur"))
+            ;;
+        stop)
+            local running
+            running=$(_conky_nextgen_running)
+            COMPREPLY=($(compgen -W "all $running" -- "$cur"))
+            ;;
+        restart)
+            local available
+            available=$(_conky_nextgen_available)
+            COMPREPLY=($(compgen -W "all default $available" -- "$cur"))
+            ;;
+        fetch)
+            if [[ $cword -eq 2 ]]; then
+                local fetch_targets="all weather alerts map nowplaying network google"
+                COMPREPLY=($(compgen -W "$fetch_targets" -- "$cur"))
+            fi
+            ;;
+        init)
+            if declare -F _filedir >/dev/null 2>&1; then
+                _filedir -d
+            else
+                COMPREPLY=($(compgen -d -- "$cur"))
+            fi
+            ;;
+        status|list|designer)
+            # No additional arguments needed
+            ;;
+        *)
+            ;;
+    esac
+}
+
+complete -F _conky_nextgen conky-nextgen

@@ -1,0 +1,122 @@
+# Maintainer: István Molnár <molnari811023@gmail.com>
+
+pkgname=conky-nextgen-git
+_pkgname=conky-nextgen
+pkgver=1.0.0.r150.gb053d02
+pkgrel=1
+pkgdesc="Modular Conky theme framework, widget manager, and GTK3 visual designer"
+arch=('any')
+url="https://github.com/molnari811023/conky-nextgen"
+license=('GPL-3.0-or-later')
+
+depends=(
+  'conky-mng'
+  'lua'
+  'lua-filesystem'
+  'lua-dkjson'
+  'lua-expat'
+  'lua-sec'
+  'lua-socket'
+  'python'
+  'python-gobject'
+  'gtk3'
+  'gtksourceview4'
+  'python-pillow'
+  'curl'
+  'jq'
+  'bc'
+  'lm_sensors'
+  'procps-ng'
+  'psmisc'
+  'libcanberra'
+)
+
+optdepends=(
+  'cava: audio spectrum visualizer widget'
+  'vnstat: network bandwidth traffic tracker'
+  'playerctl: media player status and controls'
+  'pacman-contrib: Arch package updates monitor'
+)
+
+provides=("${_pkgname}")
+conflicts=("${_pkgname}")
+
+source=("${_pkgname}::git+https://github.com/molnari811023/conky-nextgen.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}/${_pkgname}"
+  git describe --long --tags --abbrev=7 2>/dev/null | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g' || \
+    printf "1.0.0.r%s.g%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "${srcdir}/${_pkgname}"
+
+  local dest="${pkgdir}/usr/share/${_pkgname}"
+  mkdir -p "${dest}"
+  mkdir -p "${pkgdir}/usr/bin"
+  mkdir -p "${pkgdir}/usr/share/applications"
+  mkdir -p "${pkgdir}/usr/share/icons/hicolor/scalable/apps"
+  mkdir -p "${pkgdir}/usr/share/man/man1"
+
+  # Core framework directories
+  cp -a lua icons images language sh "${dest}/"
+
+  # Root widgets, configs, and assets
+  cp -a *.conf *.lua "${dest}/"
+  [ -f cava_visualizer.ini ] && cp -a cava_visualizer.ini "${dest}/"
+  [ -f left.png ] && cp -a left.png "${dest}/"
+  [ -f nd.svg ] && cp -a nd.svg "${dest}/"
+  [ -f NextGen.md ] && cp -a NextGen.md "${dest}/"
+  [ -f README.md ] && cp -a README.md "${dest}/"
+
+  # Clean python byte-caches and dev artifacts
+  find "${dest}" -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+  find "${dest}" -type f -name "*.pyc" -delete
+
+  # Permissions
+  find "${dest}" -type d -exec chmod 755 {} +
+  find "${dest}" -type f -exec chmod 644 {} +
+  find "${dest}/sh" -type f -name "*.sh" -exec chmod 755 {} +
+  [ -f "${dest}/sh/designer/main.py" ] && chmod 755 "${dest}/sh/designer/main.py"
+
+  # Install CLI tool
+  install -Dm 755 sh/conky-nextgen "${pkgdir}/usr/bin/conky-nextgen"
+
+  # Install Designer wrapper
+  cat << 'EOF' > "${pkgdir}/usr/bin/nextgen-designer"
+#!/bin/sh
+exec python3 /usr/share/conky-nextgen/sh/designer/main.py "$@"
+EOF
+  chmod 755 "${pkgdir}/usr/bin/nextgen-designer"
+
+  # Desktop launcher and icon
+  install -Dm 644 nd.svg "${pkgdir}/usr/share/icons/hicolor/scalable/apps/nd.svg"
+  cat << 'EOF' > "${pkgdir}/usr/share/applications/nextgen-designer.desktop"
+[Desktop Entry]
+Name=NextGen Designer
+GenericName=Conky Widget Designer
+Comment=Visual GTK3 editor and live preview tool for Conky NextGen widgets
+Exec=nextgen-designer
+Icon=nd
+Terminal=false
+Type=Application
+Categories=Settings;DesktopSettings;Utility;
+Keywords=conky;designer;widget;monitor;nextgen;
+EOF
+  chmod 644 "${pkgdir}/usr/share/applications/nextgen-designer.desktop"
+
+  # Man pages
+  if [ -f man/conky-nextgen.1 ]; then
+    install -Dm 644 man/conky-nextgen.1 "${pkgdir}/usr/share/man/man1/conky-nextgen.1"
+  fi
+  if [ -f man/nextgen-designer.1 ]; then
+    install -Dm 644 man/nextgen-designer.1 "${pkgdir}/usr/share/man/man1/nextgen-designer.1"
+  fi
+
+  # Bash completion
+  if [ -f completion/conky-nextgen ]; then
+    install -Dm 644 completion/conky-nextgen "${pkgdir}/usr/share/bash-completion/completions/conky-nextgen"
+  fi
+}
