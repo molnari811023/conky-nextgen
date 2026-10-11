@@ -91,6 +91,9 @@ System widgets installed under `/usr/share/conky-nextgen/` are read-only templat
    Edit your `~/.conky/akarmi.conf` file:
    ```lua
    conky.config = {
+       -- Output backend (Conky 1.25+):
+       output_backend = 'x11',
+
        -- Window behavior settings (see man conky for all options):
        own_window = true,
        own_window_color = '#0000',  -- fully transparent background in Conky 1.25+

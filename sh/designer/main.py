@@ -729,15 +729,28 @@ class DesignerWindow(Gtk.Window):
         self.conky_type_combo.connect("changed", self._on_conky_changed)
         _row(4, "own_window_type", self.conky_type_combo)
 
+        self.conky_color_entry = Gtk.Entry()
+        self.conky_color_entry.set_text("#0000")
+        self.conky_color_entry.set_placeholder_text("#0000")
+        self.conky_color_entry.connect("changed", self._on_conky_changed)
+        _row(5, "own_window_color", self.conky_color_entry)
+
+        self.conky_backend_combo = Gtk.ComboBoxText()
+        for b in ("x11", "wayland"):
+            self.conky_backend_combo.append_text(b)
+        self.conky_backend_combo.set_active(0)
+        self.conky_backend_combo.connect("changed", self._on_conky_changed)
+        _row(6, "output_backend", self.conky_backend_combo)
+
         self.conky_min_w_spin = Gtk.SpinButton.new_with_range(0, 10000, 1)
         self.conky_min_w_spin.set_value(420)
         self.conky_min_w_spin.connect("value-changed", self._on_conky_size_changed)
-        _row(5, "minimum_width", self.conky_min_w_spin)
+        _row(7, "minimum_width", self.conky_min_w_spin)
 
         self.conky_min_h_spin = Gtk.SpinButton.new_with_range(0, 10000, 1)
         self.conky_min_h_spin.set_value(1020)
         self.conky_min_h_spin.connect("value-changed", self._on_conky_size_changed)
-        _row(6, "minimum_height", self.conky_min_h_spin)
+        _row(8, "minimum_height", self.conky_min_h_spin)
 
         self._conky_loading = False
 
@@ -1747,6 +1760,8 @@ class DesignerWindow(Gtk.Window):
             "alignment": "top_left",
             "own_window_hints": "undecorated,below,sticky,skip_taskbar,skip_pager",
             "own_window_type": "normal",
+            "own_window_color": "#0000",
+            "output_backend": "x11",
             "minimum_width": 420,
             "minimum_height": 1020,
         }
@@ -1827,6 +1842,8 @@ class DesignerWindow(Gtk.Window):
         s["alignment"] = self.conky_align_combo.get_active_text() or "top_left"
         s["own_window_hints"] = self.conky_hints_entry.get_text().strip()
         s["own_window_type"] = self.conky_type_combo.get_active_text() or "normal"
+        s["own_window_color"] = self.conky_color_entry.get_text().strip() or "#0000"
+        s["output_backend"] = self.conky_backend_combo.get_active_text() or "x11"
         s["minimum_width"] = int(self.conky_min_w_spin.get_value())
         s["minimum_height"] = int(self.conky_min_h_spin.get_value())
 
@@ -1853,6 +1870,14 @@ class DesignerWindow(Gtk.Window):
                     idx = i
                     break
             self.conky_type_combo.set_active(idx)
+            self.conky_color_entry.set_text(s.get("own_window_color", "#0000"))
+            backend = s.get("output_backend", "x11")
+            b_idx = 0
+            for i, row in enumerate(self.conky_backend_combo.get_model()):
+                if row[0] == backend:
+                    b_idx = i
+                    break
+            self.conky_backend_combo.set_active(b_idx)
             self.conky_min_w_spin.set_value(int(s.get("minimum_width", 420)))
             self.conky_min_h_spin.set_value(int(s.get("minimum_height", 1020)))
         finally:
@@ -1878,6 +1903,10 @@ class DesignerWindow(Gtk.Window):
                 s["own_window_hints"] = val
             elif key == "own_window_type":
                 s["own_window_type"] = val
+            elif key == "own_window_color":
+                s["own_window_color"] = val
+            elif key == "output_backend":
+                s["output_backend"] = val
             elif key in ("gap_x", "gap_y", "x", "y", "minimum_width", "minimum_height"):
                 try:
                     # legacy x/y (old designer output) → gap_x/gap_y
@@ -1904,12 +1933,12 @@ class DesignerWindow(Gtk.Window):
             "",
             "conky.config = {",
             "  background = true,",
-            "  output_backend = 'x11',",
+            "  output_backend = '{}',".format(s.get("output_backend", "x11")),
             "  double_buffer = true,",
             "  use_xft = true,",
             "  font = 'Sans:size=10',",
             "  own_window = true,",
-            "  own_window_color = '#0000',",
+            "  own_window_color = '{}',".format(s.get("own_window_color", "#0000")),
             "  own_window_type = '{}',".format(s.get("own_window_type", "normal")),
             "  own_window_hints = '{}',".format(s.get("own_window_hints", "undecorated,below,sticky,skip_taskbar,skip_pager")),
             "  alignment = '{}',".format(s.get("alignment", "top_left")),

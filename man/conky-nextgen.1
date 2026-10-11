@@ -121,6 +121,7 @@ To fix this, adjust the \fBown_window_type\fR and \fBown_window_hints\fR propert
 .B 1. "normal" with below and sticky hints (Recommended for interactive mouse widgets in MATE and XFCE)
 .RS
 .nf
+\fBoutput_backend = 'x11',\fR
 \fBown_window = true,\fR
 \fBown_window_color = '#0000',\fR
 \fBown_window_type = 'normal',\fR
@@ -132,6 +133,7 @@ This mode allows full mouse event handling while preventing the widget from appe
 .B 2. "desktop" mode (Immune to Win+D in most compositors)
 .RS
 .nf
+\fBoutput_backend = 'x11',\fR
 \fBown_window = true,\fR
 \fBown_window_color = '#0000',\fR
 \fBown_window_type = 'desktop',\fR
@@ -142,6 +144,7 @@ This attaches the window directly to the desktop root background.
 .B 3. "dock" mode (Treated as an immutable desktop dock)
 .RS
 .nf
+\fBoutput_backend = 'x11',\fR
 \fBown_window = true,\fR
 \fBown_window_color = '#0000',\fR
 \fBown_window_type = 'dock',\fR
