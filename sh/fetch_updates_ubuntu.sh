@@ -29,10 +29,10 @@ OUT="$TMP_DIR/updates.txt"
 mkdir -p "$TMP_DIR"
 
 if [ -x /usr/lib/update-notifier/apt-check ]; then
-    # apt-check kimenete: "összes;biztonsági"
+    # apt-check output: "<total> <security>"
     /usr/lib/update-notifier/apt-check 2>&1 | tr ';' ' ' > "$OUT"
 else
-    # Fallback sima apt szimulációval
+    # Fallback using standard apt simulation
     TOTAL=$(apt-get -s upgrade 2>/dev/null | grep -P '^\d+ upgraded' | awk '{print $1}')
     echo "${TOTAL:-0} 0" > "$OUT"
 fi

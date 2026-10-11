@@ -274,7 +274,7 @@ function draw_lyrics(cr, opts)
 	elseif #header > 0 and status == "Loading" then
 		footer = "· · ·"
 	elseif #header > 0 and current == "" then
-		footer = "nincs szinkronizált dalszöveg"
+		footer = (conky_get_tr and conky_get_tr("no synced lyrics")) or "no synced lyrics"
 	end
 	if #footer > 0 then
 		local te = _text_ext
