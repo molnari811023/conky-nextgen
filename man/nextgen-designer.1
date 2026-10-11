@@ -32,7 +32,7 @@ Contains global widget controls:
 Provides \fBFile\fR operations (New Widget, Open, Save, Save As, Export Capture, Quit), \fBView\fR diagnostics (Live Log Console), and \fBHelp\fR resources.
 .TP
 .B Right Tabbed Workspace
-The primary editor area organized into dedicated notebook tabs: \fBItems\fR, \fBGroups\fR, \fBViews\fR, \fBMouse\fR, \fBTheme\fR, and \fBConky\fR.
+The primary editor area organized into dedicated notebook tabs: \fBItems\fR, \fBGroups\fR, \fBViews\fR, \fBMouse\fR, \fBTheme\fR, \fBConky\fR, \fBCustom Lua\fR, and \fBWeather & Icons\fR.
 
 .SH WORKSPACE TABS & FEATURES
 .SS 1. Items Tab (Draw List)
@@ -110,6 +110,15 @@ Window behavior: \fInormal\fR, \fIdesktop\fR, \fIdock\fR (recommended for panels
 .TP
 .B own_window_hints
 Window manager flags, typically \fIundecorated,below,sticky,skip_taskbar,skip_pager\fR so the widget sits cleanly on your wallpaper behind application windows.
+
+.SS 7. Custom Lua Tab (GtkSourceView Code Editor)
+Embedded code editor with syntax highlighting for inserting custom helper functions, calculation logic, and loops into widget scripts:
+.TP
+.B Editor Theme Selector
+Live dropdown menu to switch syntax highlighting color schemes instantly (e.g. \fIOblivion\fR, \fISolarized Dark\fR, \fIKate\fR, \fIKobalt\fR, \fITango\fR, \fIYaru\fR). Selected theme preference is saved persistently.
+
+.SS 8. Weather & Icons Tab
+Toggle weather monitoring integration and choose between available weather icon sets (flat, oxygen, modern, etc.) and system XDG icon themes.
 
 .SH STEP-BY-STEP: CREATING A WIDGET IN 5 MINUTES
 .SS Step 1: Launch the Designer

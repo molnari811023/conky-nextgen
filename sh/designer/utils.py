@@ -95,12 +95,13 @@ def _load_window_state():
 
 
 def _save_window_state(win):
+    state = _load_window_state()
     win_win = win.get_window()
     maximized = bool(
         win_win is not None
         and (win_win.get_state() & Gdk.WindowState.MAXIMIZED)
     )
-    state = {"maximized": maximized}
+    state["maximized"] = maximized
     if not maximized:
         w, h = win.get_size()
         state["width"] = w

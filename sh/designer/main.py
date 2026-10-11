@@ -773,6 +773,31 @@ class DesignerWindow(Gtk.Window):
         )
         custom_page.pack_start(custom_info, False, False, 0)
 
+        theme_bar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        theme_bar.set_margin_top(2)
+        theme_bar.set_margin_bottom(2)
+        lbl = Gtk.Label(label="Editor theme:")
+        theme_bar.pack_start(lbl, False, False, 0)
+
+        self.custom_lua_theme_combo = Gtk.ComboBoxText()
+        sm = GtkSource.StyleSchemeManager.get_default()
+        available_schemes = sorted(sm.get_scheme_ids())
+        for sid in available_schemes:
+            sch = sm.get_scheme(sid)
+            name = sch.get_name() if sch else sid
+            self.custom_lua_theme_combo.append(sid, name)
+
+        saved_theme = _load_window_state().get("custom_lua_theme", "oblivion")
+        if saved_theme not in available_schemes:
+            saved_theme = "oblivion" if "oblivion" in available_schemes else (available_schemes[0] if available_schemes else "")
+
+        if saved_theme:
+            self.custom_lua_theme_combo.set_active_id(saved_theme)
+
+        self.custom_lua_theme_combo.connect("changed", self._on_custom_lua_theme_changed)
+        theme_bar.pack_start(self.custom_lua_theme_combo, False, False, 0)
+        custom_page.pack_start(theme_bar, False, False, 0)
+
         sw = Gtk.ScrolledWindow()
         sw.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         custom_page.pack_start(sw, True, True, 0)
@@ -790,9 +815,10 @@ class DesignerWindow(Gtk.Window):
         lang = lm.get_language("lua")
         if lang:
             self.custom_lua_view.get_buffer().set_language(lang)
-        scheme = GtkSource.StyleSchemeManager.get_default().get_scheme("oblivion")
-        if scheme:
-            self.custom_lua_view.get_buffer().set_style_scheme(scheme)
+        if saved_theme:
+            sch = sm.get_scheme(saved_theme)
+            if sch:
+                self.custom_lua_view.get_buffer().set_style_scheme(sch)
         buf = self.custom_lua_view.get_buffer()
         buf.connect("changed", self._on_custom_lua_changed)
         sw.add(self.custom_lua_view)
@@ -1789,6 +1815,22 @@ class DesignerWindow(Gtk.Window):
         self.custom_lua_code = buf.get_text(start, end, True)
         self._set_dirty()
         self._schedule_refresh()
+
+    def _on_custom_lua_theme_changed(self, combo):
+        sid = combo.get_active_id()
+        if not sid:
+            return
+        sm = GtkSource.StyleSchemeManager.get_default()
+        sch = sm.get_scheme(sid)
+        if sch:
+            self.custom_lua_view.get_buffer().set_style_scheme(sch)
+            state = _load_window_state()
+            state["custom_lua_theme"] = sid
+            try:
+                with open(STATE_FILE, "w") as f:
+                    json.dump(state, f)
+            except OSError:
+                pass
 
     def _refresh_custom_lua_tab(self):
         self._custom_lua_loading = True
