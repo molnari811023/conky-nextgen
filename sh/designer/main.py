@@ -1895,13 +1895,21 @@ class DesignerWindow(Gtk.Window):
             f"-- Conky Manager triplet: {basename}.conf + {lua_file} + {basename}.png",
             "",
             'local conf_dir = debug.getinfo(1, "S").source:match("@?(.*/)") or "./"',
+            "local function find_widget(name)",
+            "  local local_path = conf_dir .. name",
+            "  local f = io.open(local_path, 'r')",
+            "  if f then f:close(); return local_path end",
+            '  return "/usr/share/conky-nextgen/" .. name',
+            "end",
             "",
             "conky.config = {",
             "  background = true,",
+            "  output_backend = 'x11',",
             "  double_buffer = true,",
             "  use_xft = true,",
             "  font = 'Sans:size=10',",
             "  own_window = true,",
+            "  own_window_color = '#0000',",
             "  own_window_type = '{}',".format(s.get("own_window_type", "normal")),
             "  own_window_hints = '{}',".format(s.get("own_window_hints", "undecorated,below,sticky,skip_taskbar,skip_pager")),
             "  alignment = '{}',".format(s.get("alignment", "top_left")),
@@ -1923,7 +1931,7 @@ class DesignerWindow(Gtk.Window):
             "  border_inner_margin = 0,",
             "  border_outer_margin = 0,",
             "  border_width = 0,",
-            f"  lua_load = conf_dir .. '{lua_file}',",
+            f"  lua_load = find_widget('{lua_file}'),",
             "  lua_draw_hook_pre = 'conky_core_main',",
             "  lua_mouse_hook = 'conky_on_mouse',",
             "  lua_shutdown_hook = 'conky_cleanup',",
@@ -2337,8 +2345,8 @@ class DesignerWindow(Gtk.Window):
             base, self.conky_settings, lua_basename, self.weather_enabled
         )
         content = content.replace(
-            f"  lua_load = conf_dir .. '{lua_basename}',",
-            f"  lua_load = conf_dir .. '{lua_basename}' .. ' {LIVE_CLEAR_LUA}',",
+            f"  lua_load = find_widget('{lua_basename}'),",
+            f"  lua_load = find_widget('{lua_basename}') .. ' {LIVE_CLEAR_LUA}',",
         )
         preview_path = os.path.join(
             WORK_DIR, base + ".preview.conf"
