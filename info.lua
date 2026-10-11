@@ -313,7 +313,7 @@ draw[#draw + 1] = {
     y = 70,
     font = "Mono",
     size = 12,
-    text = "Repo updates:",
+    text = "Updates:",
 
 }
 
@@ -324,27 +324,6 @@ draw[#draw + 1] = {
     font = "Mono",
     size = 12,
     text = "${lua conky_updates_repo}",
-    align = "right",
-
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 10,
-    y = 85,
-    font = "Mono",
-    size = 12,
-    text = "Aur updates:",
-
-}
-
-draw[#draw + 1] = {
-    type = "text",
-    x = 330,
-    y = 85,
-    font = "Mono",
-    size = 12,
-    text = "${lua conky_updates_aur}",
     align = "right",
 
 }

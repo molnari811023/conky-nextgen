@@ -155,12 +155,12 @@ local updates_file = tmp_dir .. "updates.txt"
 
 function conky_updates_repo()
 	local s = read_file(updates_file)
-	local n = tonumber(s:match("^(%d+)"))
+	local n = tonumber(s and s:match("^(%d+)")) or 0
 	return tostring(n) .. " " .. conky_get_tr((n == 1) and "package" or "packages")
 end
 
 function conky_updates_aur()
 	local s = read_file(updates_file)
-	local n = tonumber(s:match("%s(%d+)$"))
+	local n = tonumber(s and s:match("%s(%d+)$")) or 0
 	return tostring(n) .. " " .. conky_get_tr((n == 1) and "package" or "packages")
 end

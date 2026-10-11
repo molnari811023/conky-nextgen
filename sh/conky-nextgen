@@ -71,7 +71,7 @@ cmd_start() {
         else
             local conf
             if conf=$(find_conf "$name"); then
-                nohup conky -c "$conf" >/dev/null 2>&1 &
+                setsid conky -c "$conf" >/dev/null 2>&1 &
                 sleep 0.2
                 local pids
                 pids=$(get_pids "$name" | tr '\n' ' ')
