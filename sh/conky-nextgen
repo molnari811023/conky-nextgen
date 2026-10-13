@@ -22,16 +22,16 @@ get_version() {
         echo "$CONKY_NEXTGEN_BUILD_VERSION"
         return
     fi
-    if [ -f "$SYSTEM_DIR/VERSION" ]; then
-        tr -d ' \r\n' < "$SYSTEM_DIR/VERSION"
-        return
-    fi
     if git -C "$BASE_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
         local base rev sha
         base=$(tr -d ' \r\n' < "$BASE_DIR/VERSION" 2>/dev/null || echo "1.1.0")
         rev=$(git -C "$BASE_DIR" rev-list --count HEAD 2>/dev/null || echo "0")
         sha=$(git -C "$BASE_DIR" rev-parse --short HEAD 2>/dev/null || echo "unknown")
         echo "${base}.r${rev}.g${sha} (git)"
+        return
+    fi
+    if [ -f "$SYSTEM_DIR/VERSION" ]; then
+        tr -d ' \r\n' < "$SYSTEM_DIR/VERSION"
         return
     fi
     if [ -f "$BASE_DIR/VERSION" ]; then
