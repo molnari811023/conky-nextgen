@@ -86,11 +86,33 @@ THEMES = {
 DEFAULT_THEME = "theme"
 _PADDING = 10
 
+local function ensure_daemon()
+    local p = io.popen("pgrep -f 'lyrics_daemon.lua' 2>/dev/null")
+    local pid = p and p:read("*l")
+    if p then p:close() end
+    if not pid or pid == "" then
+        local daemon_path = script_dir .. "lua/lyrics_daemon.lua"
+        local f = io.open(daemon_path, "r")
+        if f then
+            f:close()
+        else
+            daemon_path = "/usr/share/conky-nextgen/lua/lyrics_daemon.lua"
+        end
+        os.execute("nohup lua " .. daemon_path .. " >/dev/null 2>&1 &")
+    end
+end
+ensure_daemon()
+
+function conky_lyrics_update()
+    ensure_daemon()
+    return ""
+end
+
 draw[#draw + 1] = {
-    -- Only draw while something is playing (draw_me on both items)
+    -- Only draw while something is playing or paused
     draw_me = function()
-        local s = conky_lyrics_status()
-        return s ~= "" and s ~= "Stopped"
+        local s = conky_lyrics_status():lower()
+        return s ~= "" and s ~= "stopped"
     end,
 
     type = "background",
@@ -112,8 +134,8 @@ draw[#draw + 1] = {
     next = 2,
     align = "center",
     draw_me = function()
-        local s = conky_lyrics_status()
-        return s ~= "" and s ~= "Stopped"
+        local s = conky_lyrics_status():lower()
+        return s ~= "" and s ~= "stopped"
     end,
 }
 

@@ -14,3 +14,4 @@ pkg/src/
 pkg/pkg/
 pkg/conky/
 nextgen_version.txt
+*.orig

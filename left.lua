@@ -282,6 +282,8 @@ draw[#draw + 1] = {
     thickness = 2,
 }
 
+local is_arch = (io.open("/etc/arch-release", "r") ~= nil)
+
 draw[#draw + 1] = {
     type = "text",
     group = "updates",
@@ -289,7 +291,7 @@ draw[#draw + 1] = {
     y = 25,
     font = "Mono",
     size = 12,
-    text = "Repo :",
+    text = is_arch and "Repo :" or "APT :",
 }
 
 draw[#draw + 1] = {
@@ -299,7 +301,7 @@ draw[#draw + 1] = {
     y = 25,
     font = "Mono",
     size = 12,
-    text = conky_updates_repo(),
+    text = is_arch and conky_updates_repo() or conky_updates_apt(),
     align = "right",
 }
 
@@ -310,7 +312,7 @@ draw[#draw + 1] = {
     y = 40,
     font = "Mono",
     size = 12,
-    text = "Aur:",
+    text = is_arch and "AUR :" or "Security :",
 }
 
 draw[#draw + 1] = {
@@ -320,7 +322,7 @@ draw[#draw + 1] = {
     y = 40,
     font = "Mono",
     size = 12,
-    text = conky_updates_aur(),
+    text = is_arch and conky_updates_aur() or conky_updates_security(),
     align = "right",
 }
 

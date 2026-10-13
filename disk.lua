@@ -258,15 +258,6 @@ draw[#draw + 1] = {
 
 draw[#draw + 1] = {
     type = "text",
-    x = 10,
-    y = 25,
-    font = "Mono",
-    size = 12,
-    text = "Root:",
-}
-
-draw[#draw + 1] = {
-    type = "text",
     x = 170,
     y = 25,
     font = "Mono",

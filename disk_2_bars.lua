@@ -286,7 +286,7 @@ draw[#draw + 1] = {
     y = 58,
     font = "Mono",
     size = 12,
-    text = "${fs_used /home}/home${fs_size /home}",
+    text = "${fs_used /home}/${fs_size /home}",
     align = "center"
 }
 

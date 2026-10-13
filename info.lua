@@ -362,11 +362,18 @@ _MOUSE_ENABLED = true
 local UPDATES_CHECK_INTERVAL = 1800  -- seconds (30 min)
 local last_updates_check = 0
 
+local function find_sh(name)
+    local p = script_dir .. "sh/" .. name
+    local f = io.open(p, "r")
+    if f then f:close(); return p end
+    return "/usr/share/conky-nextgen/sh/" .. name
+end
+
 function conky_updates_check()
     local now = os.time()
     if now - last_updates_check > UPDATES_CHECK_INTERVAL then
         last_updates_check = now
-        os.execute(script_dir .. "sh/updates.sh >/dev/null 2>&1 &")
+        os.execute(find_sh("updates.sh") .. " >/dev/null 2>&1 &")
     end
     return ""
 end

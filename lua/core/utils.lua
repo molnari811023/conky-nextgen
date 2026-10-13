@@ -147,9 +147,9 @@ local function hex_to_rgb_components(col)
     if type(col) == "string" then
         val = tonumber(col:gsub("#", ""), 16)
     end
-    local r = ((val >> 16) & 0xFF) / 255
-    local g = ((val >> 8) & 0xFF) / 255
-    local b = (val & 0xFF) / 255
+    local r = (math.floor(val / 65536) % 256) / 255
+    local g = (math.floor(val / 256) % 256) / 255
+    local b = (val % 256) / 255
     _hex_cache[col] = { r, g, b }
     return r, g, b
 end

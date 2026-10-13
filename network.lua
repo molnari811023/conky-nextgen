@@ -212,7 +212,7 @@ draw[#draw + 1] = {
     align = "center",
     text = function()
         local iface = conky_wifi_interface()
-        return (iface ~= "") and iface or "niet gevonden"
+        return (iface ~= "") and iface or ((conky_get_tr and conky_get_tr("Not found")) or "N/A")
     end,
 }
 
@@ -261,7 +261,7 @@ draw[#draw + 1] = {
     align = "center",
     text = function()
         local iface = conky_ethernet_interface()
-        return (iface ~= "") and iface or "niet gevonden"
+        return (iface ~= "") and iface or ((conky_get_tr and conky_get_tr("Not found")) or "N/A")
     end,
 }
 

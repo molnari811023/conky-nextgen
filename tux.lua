@@ -175,13 +175,29 @@ draw[#draw + 1] = {
     radius = 12,
 }
 
+local is_arch = (io.open("/etc/arch-release", "r") ~= nil)
+local function find_img(name)
+    local p = script_dir .. "images/" .. name
+    local f = io.open(p, "r")
+    if f then f:close(); return p end
+    return "/usr/share/conky-nextgen/images/" .. name
+end
+
+local distro_logo = is_arch and find_img("archlinux-logo-dark.png") or find_img("ubuntu-logo-dark.png")
+local f_check = io.open(distro_logo, "r")
+if f_check then
+    f_check:close()
+else
+    distro_logo = find_img("archlinux-logo-dark.png")
+end
+
 draw[#draw + 1] = {
     type = "image",
     x = 20,
     y = 10,
     width = 48,
     height = 100,
-    path = "/home/willem/.conky/conky-nextgen/images/archlinux-logo-dark.png",
+    path = distro_logo,
 }
 
 draw[#draw + 1] = {
@@ -190,7 +206,7 @@ draw[#draw + 1] = {
     y = 130,
     width = 0,
     height = 200,
-    path = "/home/willem/.conky/conky-nextgen/images/tux.png",
+    path = find_img("tux.png"),
 }
 
 

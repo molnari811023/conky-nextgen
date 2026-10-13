@@ -59,6 +59,9 @@ cmd_start() {
     local targets=("$@")
     if [ ${#targets[@]} -eq 0 ] || [ "${targets[0]}" = "default" ]; then
         targets=("${DEFAULT_SUITE[@]}")
+        if command -v nvidia-smi &>/dev/null && nvidia-smi &>/dev/null; then
+            targets+=("nvidia")
+        fi
     fi
 
     echo "==> Starting Conky NextGen widgets..."
