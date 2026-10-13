@@ -132,7 +132,8 @@ warning; that is an environment limitation, not a Lua renderer failure.
 ├── pkg/                    PKGBUILD, package build scripts, and patches
 ├── sh/                     fetchers, CLI manager, and GTK Designer
 ├── tools/                  development-only utilities
-└── tmp/                    runtime cache; generated and git-ignored
+├── tmp/                    runtime cache; generated and git-ignored
+└── VERSION                 central semantic base version (e.g. 1.1.0)
 ```
 
 The 20 widget bundles are:
@@ -1765,12 +1766,27 @@ packages.
 | `conky-nextgen fetch [TARGET] [CITY]` | run `fetch_all.sh` (see "Fetchers") |
 | `conky-nextgen init [DIR]` | copy the system templates to `DIR` (default `~/.conky`) |
 | `conky-nextgen designer` | launch the GTK3 Designer |
+| `conky-nextgen version`, `-v`, `--version` | print framework version (package build version or git revision) |
 
 The default suite is `clock_cal`, `cpu`, `mem_swap`, `disk_2_bars`, `network`,
 `weather`, `info`, `top`, `now-playing`, `vnstat` and `google`. When
 `nvidia-smi` works, `nvidia` is appended automatically. Widget configs are
 looked up in `~/.conky`, `~/.config/conky`, the script's own directory, and
 `/usr/share/conky-nextgen`, in that order.
+
+##### Versioning architecture
+
+Framework versions are managed centrally through the `VERSION` file in the
+project root (e.g. `1.1.0`), alongside Git tags (`v1.1.0`). `conky-nextgen -v`
+resolves the version using this hierarchy:
+
+1. **Package build version:** Injected into `/usr/bin/conky-nextgen` by
+   `build_nextgen_deb.sh` or `build_nextgen_arch.sh` (`1.1.0.r<count>.g<sha>-1`).
+2. **Git development build:** When running from a git clone without an injected
+   build tag, `get_version()` queries `git rev-list --count HEAD` and
+   `git rev-parse --short HEAD` to report `1.1.0.r<count>.g<sha> (git)`.
+3. **System version file:** `/usr/share/conky-nextgen/VERSION`.
+4. **Fallback:** `VERSION` in the project root.
 
 **Shell functions:** script entry point only.
 
