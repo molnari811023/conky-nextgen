@@ -1,6 +1,6 @@
 pkgbase = conky-nextgen-git
 	pkgdesc = Modular Conky theme framework, widget manager, and GTK3 visual designer
-	pkgver = 1.0.0.r150.gb053d02
+	pkgver = 1.1.0.r163.g3ac40eb
 	pkgrel = 1
 	url = https://github.com/molnari811023/conky-nextgen
 	arch = any

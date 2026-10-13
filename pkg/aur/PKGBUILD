@@ -46,8 +46,10 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd "${srcdir}/${_pkgname}"
+  local base="1.1.0"
+  [ -f VERSION ] && base="$(tr -d ' \r\n' < VERSION)"
   git describe --long --tags --abbrev=7 2>/dev/null | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g' || \
-    printf "1.0.0.r%s.g%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    printf "%s.r%s.g%s" "$base" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
@@ -70,10 +72,12 @@ package() {
   [ -f nd.svg ] && cp -a nd.svg "${dest}/"
   [ -f NextGen.md ] && cp -a NextGen.md "${dest}/"
   [ -f README.md ] && cp -a README.md "${dest}/"
+  echo "${pkgver}-${pkgrel}" > "${dest}/VERSION"
 
   # Clean python byte-caches and dev artifacts
   find "${dest}" -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
   find "${dest}" -type f -name "*.pyc" -delete
+  find "${dest}" -type f \( -name "*.orig" -o -name "*~" \) -delete
 
   # Permissions
   find "${dest}" -type d -exec chmod 755 {} +
@@ -83,6 +87,7 @@ package() {
 
   # Install CLI tool
   install -Dm 755 sh/conky-nextgen "${pkgdir}/usr/bin/conky-nextgen"
+  sed -i "s/^CONKY_NEXTGEN_BUILD_VERSION=.*/CONKY_NEXTGEN_BUILD_VERSION=\"${pkgver}-${pkgrel}\"/" "${pkgdir}/usr/bin/conky-nextgen"
 
   # Install Designer wrapper
   cat << 'EOF' > "${pkgdir}/usr/bin/nextgen-designer"

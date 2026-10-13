@@ -10,9 +10,11 @@ STAGE_DIR="$SCRIPT_DIR/stage-nextgen"
 PKGNAME="conky-nextgen"
 
 echo "==> [1/5] Verziószám meghatározása..."
+BASE_VER="1.1.0"
+[ -f "$PROJECT_DIR/VERSION" ] && BASE_VER=$(tr -d ' \r\n' < "$PROJECT_DIR/VERSION")
 REV_COUNT=$(git -C "$PROJECT_DIR" rev-list --count HEAD 2>/dev/null || echo "150")
 SHORT_SHA=$(git -C "$PROJECT_DIR" rev-parse --short HEAD 2>/dev/null || echo "custom")
-VERSION="1.0.0.r${REV_COUNT}.g${SHORT_SHA}-1"
+VERSION="${BASE_VER}.r${REV_COUNT}.g${SHORT_SHA}-1"
 DEB_FILE="$SCRIPT_DIR/${PKGNAME}_${VERSION}_all.deb"
 
 echo "    Csomag: $PKGNAME"
@@ -42,6 +44,7 @@ cp -a "$PROJECT_DIR"/*.lua "$STAGE_DIR/usr/share/conky-nextgen/"
 [ -f "$PROJECT_DIR/nd.svg" ] && cp -a "$PROJECT_DIR/nd.svg" "$STAGE_DIR/usr/share/conky-nextgen/"
 [ -f "$PROJECT_DIR/NextGen.md" ] && cp -a "$PROJECT_DIR/NextGen.md" "$STAGE_DIR/usr/share/conky-nextgen/"
 [ -f "$PROJECT_DIR/README.md" ] && cp -a "$PROJECT_DIR/README.md" "$STAGE_DIR/usr/share/conky-nextgen/"
+echo "$VERSION" > "$STAGE_DIR/usr/share/conky-nextgen/VERSION"
 
 # Felesleges cache és ideiglenes fájlok takarítása
 find "$STAGE_DIR/usr/share/conky-nextgen" -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
@@ -58,6 +61,7 @@ mkdir -p "$STAGE_DIR/usr/share/man/man1"
 
 # /usr/bin CLI és Designer indítók
 install -m 755 "$PROJECT_DIR/sh/conky-nextgen" "$STAGE_DIR/usr/bin/conky-nextgen"
+sed -i "s/^CONKY_NEXTGEN_BUILD_VERSION=.*/CONKY_NEXTGEN_BUILD_VERSION=\"$VERSION\"/" "$STAGE_DIR/usr/bin/conky-nextgen"
 
 cat << 'EOF' > "$STAGE_DIR/usr/bin/nextgen-designer"
 #!/bin/sh
