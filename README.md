@@ -17,6 +17,19 @@ supports X11 and Wayland-capable Conky builds.
 > - **Ubuntu / Debian:** A pre-compiled stable `.deb` package is provided in the repository: [`pkg/conky-mng_1.25.2.r7.g6628aff-1_amd64.deb`](pkg/conky-mng_1.25.2.r7.g6628aff-1_amd64.deb).
 > - **Arch Linux:** Available via [`pkg/PKGBUILD`](pkg/PKGBUILD) / AUR (`conky-mng-git`).
 
+## Distribution Support: Ubuntu & Arch Linux / Manjaro
+
+Conky NextGen provides dual distribution intelligence that automatically adapts widgets to the host operating system without manual reconfiguration:
+
+| Feature / Metric | Ubuntu / Debian | Arch Linux / Manjaro |
+|---|---|---|
+| **Package Updates** (`left`, `info`) | APT total updates + Security updates (`conky_updates_apt`, `conky_updates_security`) | Official repository + AUR pending packages (`conky_updates_repo`, `conky_updates_aur`) |
+| **Package Count** | `dpkg-query` (`conky_packages_ubuntu`) | `pacman -Q` (`conky_packages_arch`) |
+| **Installation Date** | Earliest `dpkg.log` or `/etc/machine-id` | `pacman.log` |
+| **Distro Branding** (`tux`) | Ubuntu distributor logo (`images/ubuntu-logo-dark.png`) | Arch Linux logo (`images/archlinux-logo-dark.png`) |
+| **Update Dispatcher** (`sh/updates.sh`) | Automatically executes `fetch_updates_ubuntu.sh` | Automatically executes `fetch_updates.sh` |
+| **Hardware & GPU** | Native NVML via `conky-mng` + NVIDIA auto-detection in `conky-nextgen start default` | Native NVML / NvCtrl |
+
 ## Quick start
 
 ### Method 1: Git Clone (Recommended / Stable)
@@ -128,17 +141,23 @@ live preview without restarting the Conky process.
 
 ## Included widgets
 
-Every root-level `.conf` file starts the matching `.lua` widget. The current
-bundles are:
+Every root-level `.conf` file starts the matching `.lua` widget. The complete suite of 20 widgets includes:
 
-| Widget | Purpose |
-|---|---|
-| `clock_cal` | analog clock and calendar |
-| `cpu`, `mem_swap`, `disk`, `nvidia` | system, memory, storage, and GPU information |
-| `info`, `top`, `left` | system dashboards and multi-view layouts |
-| `weather` | current, hourly, and daily weather views |
-| `lyrics` | synchronized lyric display |
-| `widget` | Designer-managed general-purpose widget |
+| Widget | Purpose | Distribution Support |
+|---|---|---|
+| `clock_cal`, `clock_cal_combi` | analog clock and interactive multi-view calendar | Universal |
+| `cpu`, `mem_swap` | CPU usage, per-core metrics, RAM and Swap usage | Universal |
+| `disk`, `disk_2_bars` | storage usage, I/O rates, and NVMe temperatures | Universal |
+| `nvidia` | NVIDIA GPU temperature, VRAM usage, and NVML metrics | Universal (NVML) |
+| `info`, `left` | system dashboard, kernel, uptime, session, and package updates | Ubuntu (APT / Security) & Arch (Repo / AUR) |
+| `top` | interactive process monitor (top CPU vs top memory consumers) | Universal |
+| `network`, `wifi`, `vnstat` | network interface traffic, ping latency, session & monthly stats | Universal |
+| `weather` | multi-view weather (current conditions, hourly, 7-day forecast, air quality) | Universal |
+| `now-playing`, `lyrics` | media player tracker with synchronized live lyrics (Audacious, MPRIS) | Universal |
+| `tux` | Tux mascot with dynamic distribution branding | Ubuntu & Arch / Manjaro |
+| `visualizer` | audio visualizer (CAVA integration) | Universal |
+| `google` | interactive web/search bookmarks panel | Universal |
+| `widget` | Designer-managed general-purpose widget | Universal |
 
 ## Screenshots
 
@@ -207,15 +226,18 @@ stored in Git.
 | `bash sh/fetch_all.sh weather` | fetch weather only |
 | `bash sh/fetch_all.sh alerts` | fetch MeteoAlarm alerts |
 | `bash sh/fetch_all.sh map` | fetch weather maps |
-| `bash sh/fetch_all.sh nowplaying` | fetch media-player data |
+| `bash sh/fetch_all.sh nowplaying` | fetch media-player data (Audacious, MPRIS) |
 | `bash sh/fetch_all.sh network` | fetch ping and public-IP data |
 | `bash sh/fetch_all.sh google` | fetch optional Google data through `gog` |
-| `bash sh/fetch_updates.sh` | fetch the optional Arch update counter |
+| `bash sh/updates.sh` | universal update dispatcher (APT on Ubuntu, pacman/AUR on Arch) |
+| `bash sh/fetch_updates_ubuntu.sh` | fetch Ubuntu APT and Security update counts |
+| `bash sh/fetch_updates.sh` | fetch Arch Linux repo and AUR update counts |
+| `lua lua/lyrics_daemon.lua` | standalone synchronized lyrics synchronizer (Audacious / LRCLIB) |
 
 For periodic refreshes, use Bash explicitly in cron:
 
 ```cron
-0 * * * * /bin/bash /path/to/conky-nextgen/sh/fetch_all.sh && /bin/bash /path/to/conky-nextgen/sh/fetch_updates.sh
+0 * * * * /bin/bash /path/to/conky-nextgen/sh/fetch_all.sh && /bin/bash /path/to/conky-nextgen/sh/updates.sh
 ```
 
 ## Requirements
