@@ -80,7 +80,15 @@ local raw_bars = {}
 for i = 1, NUM_BARS do raw_bars[i] = 0 end
 
 local function read_bars()
-    local f = io.open(script_dir .. "tmp/cava_bars.txt", "r")
+    local path = (JSON_PATH or (script_dir .. "tmp/")) .. "cava_bars.txt"
+    local f = io.open(path, "r")
+    if not f then
+        f = io.open(script_dir .. "tmp/cava_bars.txt", "r")
+    end
+    if not f then
+        path = (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/cava_bars.txt"
+        f = io.open(path, "r")
+    end
     if not f then return end
     local line = f:read("*l")
     f:close()

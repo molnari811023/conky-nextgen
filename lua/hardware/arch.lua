@@ -33,13 +33,15 @@ local function get_updates_file()
 end
 
 function conky_updates_repo()
-	local s = read_file(get_updates_file())
-	local n = tonumber(s:match("^(%d+)"))
-	return tostring(n or 0) .. " " .. conky_get_tr((n == 1) and "package" or "packages")
+	local s = read_file(get_updates_file()) or ""
+	local n = tonumber(s:match("^(%d+)")) or 0
+	local word = (n == 1) and "package" or "packages"
+	return tostring(n) .. " " .. ((conky_get_tr and conky_get_tr(word)) or word)
 end
 
 function conky_updates_aur()
-	local s = read_file(get_updates_file())
-	local n = tonumber(s:match("%s(%d+)$"))
-	return tostring(n or 0) .. " " .. conky_get_tr((n == 1) and "package" or "packages")
+	local s = read_file(get_updates_file()) or ""
+	local n = tonumber(s:match("%s(%d+)$")) or 0
+	local word = (n == 1) and "package" or "packages"
+	return tostring(n) .. " " .. ((conky_get_tr and conky_get_tr(word)) or word)
 end

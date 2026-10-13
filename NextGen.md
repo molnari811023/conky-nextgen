@@ -14,7 +14,35 @@ widget carries its own paths, theme, profile, draw list, groups, views, and
 mouse bindings, so it can be copied and customized without a central runtime
 configuration.
 
+## Engine and platforms
+
+NextGen needs the **`conky-mng`** engine (Conky 1.25+ built with mouse events,
+Lua/Cairo/Imlib2/RSVG, NVML and Audacious support). Stock distribution builds
+such as Ubuntu's `conky-all` 1.22.x lack mouse events and are not supported.
+
+| Platform | Engine | NextGen | Status |
+|---|---|---|---|
+| Ubuntu / Debian | `conky-mng_*_amd64.deb` (`pkg/build_deb.sh`) | `conky-nextgen_*_all.deb` (`pkg/build_nextgen_deb.sh`) | developed and tested on Ubuntu 26.04 |
+| Arch Linux / Manjaro | `conky-mng` (`pkg/PKGBUILD`) | `conky-nextgen-git` (`pkg/aur/PKGBUILD`, `pkg/build_nextgen_arch.sh`) | the Arch code paths are kept, but the Arch package has not been re-tested on a live Arch system since the Ubuntu work |
+
+The framework is distribution-aware where the operating system matters:
+
+| Area | Ubuntu / Debian | Arch / Manjaro |
+|---|---|---|
+| update counter | `fetch_updates_ubuntu.sh` → `<total> <security>` | `fetch_updates.sh` → `<repo> <aur>` |
+| update labels (`left.lua`) | `APT` / `Security` | `Repo` / `AUR` |
+| Lua accessors | `hardware/ubuntu.lua` | `hardware/arch.lua` |
+| distribution logo (`tux.lua`) | `images/ubuntu-logo-dark.png` | `images/archlinux-logo-dark.png` |
+| detection | `apt` / `apt-get` present | `pacman` present, or `/etc/arch-release` |
+
+Everything else (CPU, memory, disks, network, weather, media, lyrics, NVIDIA)
+is distribution-independent.
+
 ## Quick start
+
+There are two ways to run NextGen.
+
+**From a git clone** (most direct; the cache lives in the clone):
 
 ```bash
 git clone git@github.com:molnari811023/conky-nextgen.git ~/.conky
@@ -30,13 +58,30 @@ conky -c clock_cal.conf
 python3 sh/designer/main.py
 ```
 
-`fetch_all.sh` and `fetch_updates.sh` are Bash scripts. Invoke them with
+**From the package** (templates in `/usr/share/conky-nextgen`, cache in
+`~/.conky/tmp`):
+
+```bash
+sudo apt install ./conky-nextgen_*_all.deb   # Ubuntu / Debian
+conky-nextgen fetch all                      # populate the cache
+conky-nextgen start default                  # default suite (+ nvidia when a GPU is present)
+conky-nextgen status
+conky-nextgen init ~/.conky                  # copy templates to edit them
+nextgen-designer                             # visual editor
+```
+
+The package also installs the `conky-nextgen` and `nextgen-designer`
+launchers, man pages, Bash completion, and the Designer desktop entry. See
+"`sh/conky-nextgen`" in the shell reference for every command.
+
+`fetch_all.sh` and the update scripts are Bash scripts. Invoke them with
 `bash`, not a generic `/bin/sh` wrapper.
 
-For a periodic refresh, use an explicit Bash cron entry:
+For a periodic refresh, use an explicit Bash cron entry (`fetch_all.sh` already
+runs `updates.sh`):
 
 ```cron
-0 * * * * /bin/bash /path/to/conky-nextgen/sh/fetch_all.sh && /bin/bash /path/to/conky-nextgen/sh/fetch_updates.sh
+0 * * * * /bin/bash /path/to/conky-nextgen/sh/fetch_all.sh
 ```
 
 ## Runtime requirements
@@ -45,14 +90,27 @@ The exact package names vary by distribution. The runtime needs:
 
 | Component | Required for |
 |---|---|
-| Conky with Lua/Cairo support | all widgets |
+| `conky-mng` (Conky 1.25+, Lua/Cairo/Imlib2/RSVG) | all widgets |
 | Lua bindings: `cairo`, `rsvg`, `imlib2`, `lfs`, `dkjson` | framework loader and renderers |
-| `curl`, `jq`, `python3` | common fetcher bootstrap |
+| system Lua with `lua-socket`, `lua-sec`, `dkjson`, `lfs` | `lyrics_daemon.lua` |
+| `curl`, `jq`, `python3`, `bc` | common fetcher bootstrap |
 | ImageMagick (`magick` or `convert`) | map images |
 | `ping` | network latency fetcher |
-| `playerctl`, `cmus-remote`, `mpc`, or `mocp` | now-playing data, depending on player |
+| `playerctl` (MPRIS), `audtool` (Audacious), `cmus-remote`, `mpc`, or `mocp` | now-playing data, depending on player |
+| `lm-sensors` | CPU, NVMe and fan temperatures |
+| `nvidia-smi` / NVIDIA driver | `nvidia` widget and its auto-start |
+| `vnstat` | `vnstat` widget |
+| `cava` | `visualizer` widget |
 | `gog` | optional Google dashboard data |
-| `pacman`, `checkupdates`, `vercmp` | optional Arch update counter |
+| `apt-check` (update-notifier) or `apt-get` | Ubuntu update counter |
+| `pacman`, `checkupdates`, `vercmp` | Arch update counter |
+| Python 3, PyGObject, GTK 3, GtkSourceView | Designer |
+
+The `conky-nextgen` Debian package depends on `conky-mng`, `lua-filesystem`,
+`lua-dkjson`, `lua-expat`, `lua-sec`, `lua-socket`, `python3`, `python3-gi`,
+`gir1.2-gtk-3.0`, GtkSourceView, `python3-pil`, `curl`, `jq`, `bc`,
+`lm-sensors`, `procps`, `psmisc` and `libcanberra-gtk3-module`, and recommends
+`playerctl`, `cava` and `vnstat`. Audacious itself is optional.
 
 The project is designed for X11 and Wayland-capable Conky builds. A terminal
 test environment without a compositor can emit an ARGB/pseudo-transparency
@@ -63,23 +121,42 @@ warning; that is an environment limitation, not a Lua renderer failure.
 ```text
 .
 ├── *.lua / *.conf          standalone widget bundles
+├── completion/             Bash completion for conky-nextgen
 ├── debug/                  renderer tests and diagnostics
 ├── icons/                  weather, moon, wind, and UI assets
+├── images/                 distribution logos and the Tux image
 ├── language/               gettext .po, .mo, and strings.pot files
 ├── lua/                    engine, renderers, and data accessors
+├── man/                    conky-nextgen(1) and nextgen-designer(1)
 ├── panel_systray/          Conky panel and systray helper configuration
-├── pkg/                    PKGBUILD, patches, and release package
-├── sh/                     fetchers and GTK Designer
+├── pkg/                    PKGBUILD, package build scripts, and patches
+├── sh/                     fetchers, CLI manager, and GTK Designer
 ├── tools/                  development-only utilities
 └── tmp/                    runtime cache; generated and git-ignored
 ```
 
-Current widget bundles include `clock_cal`, `cpu`, `disk`, `info`, `left`,
-`lyrics`, `mem_swap`, `nvidia`, `top`, `weather`, and `widget`. Each `.conf`
-selects a sibling `.lua` file through `lua_load`.
+The 20 widget bundles are:
+
+| Widget | Content |
+|---|---|
+| `clock_cal`, `clock_cal_combi` | analog clock and calendar |
+| `cpu`, `mem_swap` | CPU (with per-core view) and memory/swap |
+| `disk`, `disk_2_bars` | storage, I/O and NVMe temperature |
+| `nvidia` | NVIDIA GPU via NVML |
+| `info`, `left`, `top` | system dashboards, updates, battery, top processes |
+| `network`, `wifi`, `vnstat` | interface status, speed graphs, traffic statistics |
+| `weather` | current, hourly and daily weather |
+| `now-playing`, `lyrics`, `visualizer` | media metadata, synchronized lyrics, audio spectrum |
+| `google` | Google dashboard / bookmarks |
+| `tux` | Tux image with the host distribution logo |
+| `widget` | Designer-managed general-purpose widget |
+
+Each `.conf` selects a sibling `.lua` file through `lua_load`; if the file is
+not next to the config (for example a config copied to `~/.conky`), it falls
+back to `/usr/share/conky-nextgen/`.
 
 `tmp/` is runtime state, not source. Fetchers create and atomically replace
-cached JSON and image files there.
+cached JSON and image files there (see "Cache location").
 
 ## Widget model
 
@@ -165,6 +242,7 @@ The current dispatcher supports these renderer types:
 | `calendar` | month grid with week numbers and popup styling |
 | `arc` | horizon-style arc drawing |
 | `lyrics` | synchronized lyric lines |
+| `spectrum` | audio spectrum bars with peak-hold caps (not yet in the Designer schema) |
 
 The renderers are loaded for every module profile. A profile limits data
 modules, not the visual API.
@@ -211,7 +289,7 @@ Available profiles:
 |---|---|
 | `basic` | no extra data modules |
 | `weather` | weather, air quality, sun, moon, city, icons, alerts |
-| `system` | hardware, battery, DMI, MTP, network, sensors, USB |
+| `system` | hardware, battery, DMI, MTP, network, sensors, USB, and the distribution modules (`arch`, `ubuntu`) |
 | `media` | now playing and song text |
 | `panel` | system data used by the panel |
 | `google` | Google cache accessors |
@@ -250,16 +328,41 @@ User-Agent, HTTP, logging, and URL-encoding helpers.
 
 | File | Responsibility |
 |---|---|
-| `fetch_all.sh` | dispatcher for all fetch modules |
+| `fetch_all.sh` | dispatcher for all fetch modules (also runs `updates.sh`) |
 | `fetch_weather.sh` | city geocoding, Open-Meteo weather/air, MET Norway sun/moon |
 | `fetch_alerts.sh` | MeteoAlarm feed for the selected city country |
 | `fetch_maps.sh` | OSM, radar, temperature, and wind map composites |
-| `fetch_nowplaying.sh` | MPRIS/CMUS/MPD/MOC metadata and cover art |
+| `fetch_nowplaying.sh` | MPRIS (`playerctl`), Audacious (`audtool`), CMUS, MPD, MOC metadata and cover art |
 | `fetch_network.sh` | ping and public IP data |
 | `fetch_google.sh` | Gmail, Calendar, Tasks, Contacts, Drive, YouTube, and optional Meet data |
-| `fetch_updates.sh` | Arch repository and AUR update counts |
+| `updates.sh` | distribution dispatcher for the update counters |
+| `fetch_updates_ubuntu.sh` | Ubuntu / Debian APT and security update counts |
+| `fetch_updates.sh` | Arch / Manjaro repository and AUR update counts |
+| `vnstat.sh` | vnstat traffic summary for the `vnstat` widget |
+| `cava_visualizer.sh` | long-running `cava` frame writer for the `visualizer` widget |
 | `gog_open_mail.sh` | open a Gmail thread from its message id |
 | `conky_check.sh` | inspect running Conky and Designer process state |
+
+### Cache location
+
+Fetchers write to `$TMP_DIR`, chosen in this order:
+
+1. `$NEXTGEN_TMP_DIR`, when set;
+2. `<project>/tmp` when the project directory is writable and not under `/usr`
+   (a git clone in `~/.conky`);
+3. `~/.conky/tmp` otherwise (the packaged install under
+   `/usr/share/conky-nextgen`, which is read-only for users).
+
+When the cache is not already `~/.conky/tmp`, the weather, network,
+now-playing and update fetchers also copy their results there. Every widget
+Lua file sets `JSON_PATH` to `~/.conky/tmp/` when it is loaded from `/usr`, and
+the Lua data readers (`core.utils.read_file`, `weather.core`, `google.core`,
+`hardware.network`, `songtext`, and the `arch`/`ubuntu` update readers) fall
+back to `~/.conky/tmp/` when a file is not found in `JSON_PATH`.
+
+Widgets that trigger a fetch (`weather`, `now-playing`, `info`) locate the
+scripts with a `find_sh()` helper: `<widget dir>/sh/<name>` first, then
+`/usr/share/conky-nextgen/sh/<name>`.
 
 ### `fetch_all.sh` modes
 
@@ -271,15 +374,35 @@ bash sh/fetch_all.sh map 7
 bash sh/fetch_all.sh nowplaying
 bash sh/fetch_all.sh network
 bash sh/fetch_all.sh google
+bash sh/fetch_all.sh updates         # APT on Ubuntu, pacman/AUR on Arch
 bash sh/fetch_all.sh "New York"      # city shortcut for weather
 ```
 
 In `all` mode, weather, alerts, maps, and now-playing run sequentially.
-Google, ping, and public-IP fetches then run in parallel. The fetchers write
-temporary files first and rename successful results into `tmp/`.
+Google, ping, public-IP and the update counter then run in parallel. The
+fetchers write temporary files first and rename successful results into the
+cache directory. `sh/0_fetch_all.sh` is a symlink to `fetch_all.sh` kept for
+older widget configs.
 
-`fetch_updates.sh` is separate from `fetch_all.sh`; it is Arch-specific and
-writes `tmp/updates.txt` as `<repo-count> <aur-count>`.
+`updates.sh` picks `fetch_updates.sh` when `pacman` exists and
+`fetch_updates_ubuntu.sh` when `apt-get` or `apt` exists. Both write
+`updates.txt` with two numbers: `<repo> <aur>` on Arch, `<total> <security>`
+on Ubuntu.
+
+### Now-playing source selection
+
+`fetch_nowplaying.sh` works through the sources in this order:
+
+1. MPRIS through `playerctl` — every player is queried with `-p`; a `Playing`
+   player wins over a `Paused` one;
+2. Audacious through `audtool`, only while the status is not already
+   `Playing`;
+3. otherwise the first running of CMUS (`cmus-remote`), MPD (`mpc`) or MOC
+   (`mocp`).
+
+The result is `nowplaying.json` plus `album_art.png`. A streaming service such
+as Spotify is not required.
+
 
 Google fetching is optional. Configure `gog` authentication before enabling a
 Google widget; the script supports environment overrides for the account,
@@ -901,6 +1024,23 @@ lua/draw/rings.lua — Draws circular ring gauges in sector, smooth, dot, or pol
 
 - `draw_one_ring()`
 
+##### `lua/draw/spectrum.lua`
+
+lua/draw/spectrum.lua — Audio spectrum bars with eased levels and falling peak-hold caps
+
+Draws `num_bars` bottom-anchored bars inside the item box. `values` is a
+function returning one 0–100 number per bar (the `visualizer` widget feeds it
+from `tmp/cava_bars.txt`, written by `sh/cava_visualizer.sh`). Bar levels ease
+with `attack`/`release`, and each bar has an optional peak cap (`peak_hold`,
+`peak_decay`, `peak_cap_height`, `peak_color`). The colour ramp is set by
+`color_low`, `color_mid` and `color_high`. The renderer is registered in
+`lua/core/draw_core.lua` and loaded by `lua/require.lua`; it is not part of the
+Designer schema yet, so edit it in the widget Lua file directly.
+
+**Exported functions**
+
+- `draw_spectrum()`
+
 ##### `lua/draw/svg.lua`
 
 lua/draw/svg.lua — Renders SVG files via librsvg with tinting, rotation, and shape clipping
@@ -1155,6 +1295,41 @@ lua/weather/weather_translations.lua — Maps weather codes, wind directions, an
 
 #### Hardware data
 
+##### `lua/hardware/arch.lua`
+
+lua/hardware/arch.lua — Arch Linux / Manjaro metrics: pacman install date, package count, repository and AUR update counts.
+
+Reads `updates.txt` (`<repo> <aur>`, written by `sh/fetch_updates.sh`) from
+`JSON_PATH`, falling back to `~/.conky/tmp/updates.txt`.
+
+**Exported functions**
+
+- `conky_install_date_arch()`
+- `conky_packages_arch()`
+- `conky_updates_repo()`
+- `conky_updates_aur()`
+
+##### `lua/hardware/ubuntu.lua`
+
+lua/hardware/ubuntu.lua — Ubuntu / Debian metrics: dpkg install date, package count, release name, APT and security update counts.
+
+Reads `updates.txt` (`<total> <security>`, written by
+`sh/fetch_updates_ubuntu.sh`) from `JSON_PATH`, falling back to
+`~/.conky/tmp/updates.txt`. A missing file or a missing translation function
+degrades to `0 packages` instead of raising an error.
+
+**Exported functions**
+
+- `conky_install_date_ubuntu()`
+- `conky_packages_ubuntu()`
+- `conky_ubuntu_release()`
+- `conky_updates_apt()`
+- `conky_updates_security()`
+
+Both modules are loaded by the `system`, `panel` and `full` profiles; each one
+only defines the functions of its own distribution, so a widget picks the set
+that matches the host (for example `left.lua` tests `/etc/arch-release`).
+
 ##### `lua/hardware/battery.lua`
 
 lua/hardware/battery.lua — Battery and external-device charge monitoring via sysfs, UPower, and BlueZ/D-Bus.
@@ -1358,6 +1533,20 @@ lyrics.lua — synchronized lyrics widget
 
 lyrics_daemon.lua — pure-Lua lyrics fetcher + synchronizer (standalone)
 
+Runs outside Conky with the system Lua interpreter. Every second it reads the
+Audacious state through `audtool` (artist, title, status, position and length),
+fetches time-synced lyrics from LRCLIB once per track (`lua-sec`), and writes
+`lyrics.json` atomically. The output directory is `<project>/tmp/` when that is
+writable, otherwise `~/.conky/tmp/` (always the case for the packaged
+`/usr/share/conky-nextgen` install). A failed lyrics download is logged to
+stderr and the daemon keeps running instead of aborting.
+
+The root `lyrics.lua` widget starts the daemon itself (`ensure_daemon()` runs at
+load and again from `${lua conky_lyrics_update}` in `lyrics.conf`) and only
+draws while the reported status is not empty or `stopped` (compared
+case-insensitively, so `playing` and `paused` both show lyrics). Run it by hand
+with `lua lua/lyrics_daemon.lua` when debugging.
+
 **Exported functions:** module registration or local helpers only.
 
 ##### `lua/mouse_actions.lua`
@@ -1516,11 +1705,74 @@ tasklist.lua — taskbar for the bottom panel: open windows as icon+title slots
 
 #### `sh/fetch_updates.sh`
 
-!/bin/bash
+Arch Linux / Manjaro update counter. Counts pending official-repository
+updates (`checkupdates`) and AUR updates (AUR RPC compared with `vercmp`) and
+writes `<repo> <aur>` to `$TMP_DIR/updates.txt`.
 
 **Shell functions**
 
 - `require_cmds()`
+
+#### `sh/fetch_updates_ubuntu.sh`
+
+Ubuntu / Debian update counter. Uses `/usr/lib/update-notifier/apt-check` when
+present (output `<total> <security>`); otherwise it falls back to
+`apt-get -s upgrade` and reports the total with `0` security updates. The
+result is written to `$TMP_DIR/updates.txt` and mirrored to
+`~/.conky/tmp/updates.txt` when the tmp directory differs.
+
+**Shell functions:** script entry point only.
+
+#### `sh/updates.sh`
+
+Distribution dispatcher used by the widgets (for example `info.lua`). It runs
+`fetch_updates.sh` when `pacman` is available and `fetch_updates_ubuntu.sh`
+when `apt-get` or `apt` is available, so a widget never has to know which
+distribution it runs on.
+
+**Shell functions:** script entry point only.
+
+#### `sh/vnstat.sh`
+
+Writes `$TMP_DIR/vnstat.txt` for the `vnstat` widget. The interface is passed
+as `$1` (the network widget's active interface); without an argument, or with
+an interface vnstat does not monitor, it falls back to auto-detection. Needs
+`vnstat`, `jq`, `bc` and `awk`.
+
+**Shell functions:** script entry point only.
+
+#### `sh/cava_visualizer.sh`
+
+Long-running helper for the `visualizer` widget. Starts `cava` in raw ASCII
+mode and keeps only the latest frame in `$TMP_DIR/cava_bars.txt`. Unlike the
+one-shot fetchers it is started once and tracks its own PID.
+Usage: `cava_visualizer.sh start|stop|status`. Needs `cava`.
+
+**Shell functions:** script entry point only.
+
+#### `sh/conky-nextgen`
+
+The command-line widget manager installed as `/usr/bin/conky-nextgen` by the
+packages.
+
+| Command | Purpose |
+|---|---|
+| `conky-nextgen start [WIDGET...]` | start widgets; `start` or `start default` starts the default suite |
+| `conky-nextgen stop [WIDGET...]` | stop widgets; `stop all` stops every Conky process |
+| `conky-nextgen restart [WIDGET...]` | restart widgets |
+| `conky-nextgen status` | list running NextGen widgets and PIDs |
+| `conky-nextgen list` | list all available widgets and their state |
+| `conky-nextgen fetch [TARGET] [CITY]` | run `fetch_all.sh` (see "Fetchers") |
+| `conky-nextgen init [DIR]` | copy the system templates to `DIR` (default `~/.conky`) |
+| `conky-nextgen designer` | launch the GTK3 Designer |
+
+The default suite is `clock_cal`, `cpu`, `mem_swap`, `disk_2_bars`, `network`,
+`weather`, `info`, `top`, `now-playing`, `vnstat` and `google`. When
+`nvidia-smi` works, `nvidia` is appended automatically. Widget configs are
+looked up in `~/.conky`, `~/.config/conky`, the script's own directory, and
+`/usr/share/conky-nextgen`, in that order.
+
+**Shell functions:** script entry point only.
 
 #### `sh/fetch_weather.sh`
 

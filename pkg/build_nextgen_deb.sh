@@ -46,6 +46,7 @@ cp -a "$PROJECT_DIR"/*.lua "$STAGE_DIR/usr/share/conky-nextgen/"
 # Felesleges cache és ideiglenes fájlok takarítása
 find "$STAGE_DIR/usr/share/conky-nextgen" -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 find "$STAGE_DIR/usr/share/conky-nextgen" -type f -name "*.pyc" -delete
+find "$STAGE_DIR/usr/share/conky-nextgen" -type f \( -name "*.orig" -o -name "*~" \) -delete
 
 # Jogosultságok: mappák 755, fájlok 644, sh scriptek 755
 find "$STAGE_DIR/usr/share/conky-nextgen" -type d -exec chmod 755 {} +

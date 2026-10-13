@@ -207,7 +207,15 @@ draw[#draw + 1] = {
 -- throttled internally) — matching how weather/updates/now-playing
 -- already refresh themselves in this project.
 local function conky_vnstat_line(n)
-    local f = io.open(script_dir .. "tmp/vnstat.txt", "r")
+    local path = (JSON_PATH or (script_dir .. "tmp/")) .. "vnstat.txt"
+    local f = io.open(path, "r")
+    if not f then
+        f = io.open(script_dir .. "tmp/vnstat.txt", "r")
+    end
+    if not f then
+        path = (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/vnstat.txt"
+        f = io.open(path, "r")
+    end
     if not f then return "N/A" end
     local line
     for i = 1, n do
