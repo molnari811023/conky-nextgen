@@ -39,6 +39,7 @@ local GRAPH_DEFAULT = {
 	y = 0,
 	width = 100,
 	height = 40,
+	min = 0,
 	max = 100,
 	autoscale = false,
 	angle = 0,
@@ -75,6 +76,7 @@ function draw_graph(cr, m)
 	c.width = tonumber(c.width) or GRAPH_DEFAULT.width
 	c.height = tonumber(c.height) or GRAPH_DEFAULT.height
 	c.grid_steps = tonumber(c.grid_steps) or GRAPH_DEFAULT.grid_steps
+	c.min = tonumber(c.min) or GRAPH_DEFAULT.min
 	c.max = tonumber(c.max) or GRAPH_DEFAULT.max
 	c.line_width = tonumber(c.line_width) or GRAPH_DEFAULT.line_width
 
@@ -93,7 +95,7 @@ function draw_graph(cr, m)
 	if not graph_history[key] or #graph_history[key] ~= c.width then
 		graph_history[key] = {}
 		for i = 1, c.width do
-			graph_history[key][i] = 0
+			graph_history[key][i] = c.min
 		end
 	end
 	local hist = graph_history[key]
@@ -101,18 +103,27 @@ function draw_graph(cr, m)
 	local val = normalize_with_suffix(raw)
 	table.remove(hist, 1)
 	hist[#hist + 1] = val
+	local minv = c.min
 	local maxv = c.max
 	if c.autoscale then
-		maxv = 1
+		minv = hist[1] or 0
+		maxv = hist[1] or 1
 		for i = 1, #hist do
+			if hist[i] < minv then
+				minv = hist[i]
+			end
 			if hist[i] > maxv then
 				maxv = hist[i]
 			end
 		end
+		if minv > 0 then
+			minv = 0
+		end
 		maxv = maxv * 1.1
 	end
-	if not (maxv and maxv > 0) then
-		maxv = 1
+	local span = maxv - minv
+	if not (span and span > 0) then
+		span = 1
 	end
 	local x, y, w, h = c.x, c.y, c.width, c.height
 	local ang = c.angle or 0
@@ -152,8 +163,8 @@ function draw_graph(cr, m)
 	if c.graph_type == "line" then
 		cairo_set_line_width(cr, c.line_width)
 		for i = 1, w - 1 do
-			local v1 = hist[i] / maxv
-			local v2 = hist[i + 1] / maxv
+			local v1 = math.max(0, math.min(1, (hist[i] - minv) / span))
+			local v2 = math.max(0, math.min(1, (hist[i + 1] - minv) / span))
 			local r, g, b, a = get_color_from_list(c.fg, v2)
 			cairo_set_source_rgba(cr, r, g, b, a)
 			cairo_move_to(cr, x + i, y + h - v1 * h)
@@ -166,7 +177,7 @@ function draw_graph(cr, m)
 		-- Single path: bottom-left → each column top → bottom-right → close
 		cairo_move_to(cr, x, y + h)
 		for i = 1, w do
-			local v = hist[i] / maxv
+			local v = math.max(0, math.min(1, (hist[i] - minv) / span))
 			cairo_line_to(cr, x + i, y + h - v * h)
 		end
 		cairo_line_to(cr, x + w, y + h)

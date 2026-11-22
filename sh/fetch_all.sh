@@ -33,6 +33,8 @@ source "$_SCRIPT_DIR/fetch_maps.sh"
 source "$_SCRIPT_DIR/fetch_nowplaying.sh"
 source "$_SCRIPT_DIR/fetch_network.sh"
 source "$_SCRIPT_DIR/fetch_google.sh"
+source "$_SCRIPT_DIR/fetch_icloud.sh"
+source "$_SCRIPT_DIR/fetch_antigravity.sh"
 
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 	MODE="${1:-all}"
@@ -44,6 +46,8 @@ if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 		fetch_maps "${3:-7}"
 		fetch_nowplaying
 		fetch_google &
+		fetch_icloud &
+		fetch_antigravity &
 		fetch_ping &
 		fetch_ipinfo &
 		[ -f "$_SCRIPT_DIR/updates.sh" ] && "$_SCRIPT_DIR/updates.sh" &
@@ -57,6 +61,13 @@ if [ "${BASH_SOURCE[0]}" = "$0" ]; then
 		;;
 	google)
 		fetch_google
+		;;
+	icloud)
+		shift
+		fetch_icloud "$@"
+		;;
+	antigravity)
+		fetch_antigravity
 		;;
 	space)
 		;;

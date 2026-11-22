@@ -59,23 +59,26 @@ local MODULE_PROFILES = {
     system = {
         "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
         "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
-        "hardware.arch", "hardware.ubuntu",
+        "hardware.arch", "hardware.ubuntu", "hardware.iphone", "hardware.tether",
     },
     media = { "nowplaying", "songtext" },
     panel = {
         "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
         "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
-        "hardware.arch", "hardware.ubuntu",
+        "hardware.arch", "hardware.ubuntu", "hardware.iphone", "hardware.tether",
     },
     google = { "google.core", "google.data" },
+    icloud = { "icloud.core", "icloud.data" },
+    antigravity = { "antigravity.core", "antigravity.data" },
     full = {
         "weather.core", "weather.weather_data", "weather.sun", "weather.moon",
         "weather.airquality", "weather.city", "weather.weather_icons",
         "weather.weather_translations", "weather.alerts",
         "hardware.core", "hardware.battery", "hardware.dmi", "hardware.info",
         "hardware.mtp", "hardware.network", "hardware.sensors", "hardware.usb",
-        "hardware.arch", "hardware.ubuntu",
+        "hardware.arch", "hardware.ubuntu", "hardware.iphone", "hardware.tether",
         "nowplaying", "songtext", "google.core", "google.data",
+        "icloud.core", "icloud.data", "antigravity.core", "antigravity.data",
     },
 }
 

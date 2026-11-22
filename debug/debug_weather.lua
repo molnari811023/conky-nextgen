@@ -42,13 +42,18 @@ weather modules, then prints every accessor grouped by section.
 -- - Prints TOTAL elapsed time.
 --}}}
 
+lfs = require('lfs')
+
 local function get_root()
   local src = (debug.getinfo(1, 'S').source or arg[0]):match('@(.*)') or arg[0] or '.'
   local dir = src:match('^(.*[/\\])') or './'
-  local p = io.popen('readlink -f "'..dir..'../" 2>/dev/null')
-  local out = p and (p:read('*a') or ''):gsub('%s+$','') or dir..'../'
-  if p then p:close() end
-  return out
+  local cwd = lfs.currentdir()
+  if lfs.chdir(dir .. '..') then
+    local r = lfs.currentdir()
+    lfs.chdir(cwd)
+    return r
+  end
+  return cwd
 end
 local root = get_root()
 package.path = './?.lua;' .. package.path .. ';' .. root .. '/lua/?.lua;' .. root .. '/lua/core/?.lua;' .. root .. '/lua/hardware/?.lua;' .. root .. '/lua/weather/?.lua'
@@ -57,7 +62,6 @@ conky_parse = function(s) return s end
 conky_window = { width = 420, height = 1020 }
 conky_log = function() end
 
-lfs = require('lfs')
 script_dir      = root .. '/'
 JSON_PATH       = script_dir .. 'tmp/'
 ICON_BASE       = script_dir .. 'icons/'

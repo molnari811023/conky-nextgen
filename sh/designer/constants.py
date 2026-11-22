@@ -65,11 +65,11 @@ WEATHER_ICON_SETS = ["default", "metno", "weathermap", "wmo"]
 def weather_icon_block(icon_theme):
     """The weather-only icon path globals (emitted only when weather is on)."""
     return (
-        'local _lfs_ok, _lfs = pcall(require, "lfs")\n'
+        'local _lfs = require("lfs")\n'
         'local function _find_icons(sub)\n'
         '    local sub_dir = sub or ""\n'
         '    local local_p = script_dir .. "icons/" .. sub_dir\n'
-        '    if _lfs_ok and _lfs and _lfs.attributes(local_p, "mode") == "directory" then\n'
+        '    if _lfs.attributes(local_p, "mode") == "directory" then\n'
         '        return local_p\n'
         '    end\n'
         '    return "/usr/share/conky-nextgen/icons/" .. sub_dir\n'

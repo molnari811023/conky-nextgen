@@ -5,104 +5,72 @@
 --  Description: Modular Conky UI framework (Lua engine + Bash backend)
 --}}}
 --[[[
-lua/hardware/mtp.lua — MTP device detection and storage usage via KDE kmtpd or GVFS.
+lua/hardware/mtp.lua — MTP device detection via sysfs (/sys/bus/usb/devices) and GVFS (/run/user/<uid>/gvfs).
 ]]--
 --{{{
 -- ## MTP Module
 --
--- Detects MTP-connected Android (or similar) devices and reports storage
--- capacity and usage. On KDE Plasma the kmtpd D-Bus interface is used;
--- on other desktops GVFS (`gio info`) is the fallback. Results are cached
--- for 5 seconds.
+-- Detects MTP-connected devices directly from the filesystem without spawning
+-- external shell commands: scans `/sys/bus/usb/devices/` for USB interfaces
+-- advertising `"MTP"`, and checks `/run/user/<uid>/gvfs/` for `mtp:*` mounts.
+-- Results are cached for 5 seconds.
 --
 -- **Exposed/global functions:**
--- - `conky_mtp_data()` — returns `{count, devices}` table with per-device storage info
+-- - `conky_mtp_data()` — returns `{count, devices}` table with per-device info
 -- - `conky_mtp_count()` — number of connected MTP devices
 -- - `conky_mtp_perc(dev_idx, storage_idx)` — usage percentage for a specific storage volume
 --
 -- **Config/globals used:**
--- `XDG_CURRENT_DESKTOP` env var, `cached()`, `pread()`, `parse_num()`
+-- `cached()`, `read_file()`, `lfs`
 --}}}
 
-local function kde_mtp_info()
-	return cached("kde_mtp_info", 5, function()
-		local data = { count = 0, devices = {} }
-		local devs = pread("qdbus6 --literal org.kde.kiod6 /modules/kmtpd org.kde.kmtp.Daemon.listDevices 2>/dev/null")
-		if devs == "" then
-			return data
-		end
-		for dev in devs:gmatch("(/modules/kmtpd/device%d+)") do
-			data.count = data.count + 1
-			local name =
-				pread([[kioclient ls mtp:/ 2>/dev/null | grep -v "^\." | grep "[a-zA-Z0-9]" | head -n 1]]):gsub(
-					"[\r\n]+",
-					""
-				)
-			if name == "" then
-				name = "MTP Device"
-			end
-			local device = { name = name, storages = {} }
-			local storages_raw =
-				pread("qdbus6 --literal org.kde.kiod6 " .. dev .. " org.kde.kmtp.Device.listStorages 2>/dev/null")
-			for storage in storages_raw:gmatch("/modules/kmtpd/device%d+/(storage%d+)") do
-				if storage then
-					local base = dev .. "/" .. storage
-					local max = parse_num(
-						pread("qdbus6 org.kde.kiod6 " .. base .. " org.kde.kmtp.Storage.maxCapacity 2>/dev/null")
-					)
-					local free = parse_num(
-						pread("qdbus6 org.kde.kiod6 " .. base .. " org.kde.kmtp.Storage.freeSpaceInBytes 2>/dev/null")
-					)
-					local used = max - free
-					table.insert(device.storages, {
-						name = storage,
-						max = max,
-						used = used,
-						perc = (max > 0) and math.floor((used / max) * 100) or 0,
-					})
+function conky_mtp_data()
+	return cached("mtp_info", 5, function()
+		local devices = {}
+		local seen = {}
+
+		if lfs and lfs.attributes("/sys/bus/usb/devices", "mode") == "directory" then
+			for entry in lfs.dir("/sys/bus/usb/devices") do
+				local dev_id = entry:match("^([^:]+):%d+%.%d+$")
+				if dev_id and not seen[dev_id] then
+					local iface_desc = read_file("/sys/bus/usb/devices/" .. entry .. "/interface")
+					if iface_desc and iface_desc:lower():find("mtp") then
+						seen[dev_id] = true
+						local product = read_file("/sys/bus/usb/devices/" .. dev_id .. "/product")
+						local name = (product and product ~= "") and product or "MTP Device"
+						devices[#devices + 1] = {
+							name = name,
+							storages = {
+								{ name = "Internal", max = 0, used = 0, perc = 0 },
+							},
+						}
+					end
 				end
 			end
-			table.insert(data.devices, device)
 		end
-		return data
-	end)
-end
 
-local function gvfs_mtp_info()
-	return cached("gvfs_mtp_info", 5, function()
-		local uid = pread("id -u")
-		local base = "/run/user/" .. uid .. "/gvfs/"
-		local list = pread("ls " .. base .. " 2>/dev/null")
-		local devices = {}
-		for mtp in list:gmatch("[^\n]+") do
-			if mtp:match("^mtp:") then
-				local info = pread(
-					"timeout 2 gio info -a 'filesystem::size,filesystem::free' '" .. base .. mtp .. "' 2>/dev/null"
-				)
-				local total = tonumber(info:match("size:%s+(%d+)"))
-				local free = tonumber(info:match("free:%s+(%d+)"))
-				local used = total - free
-				table.insert(devices, {
-					name = mtp:gsub("mtp:host=", ""):gsub("_", " "),
-					storages = {
-						{
-							name = "Internal",
-							max = total,
-							used = used,
-							perc = (total > 0) and math.floor((used * 100) / total) or 0,
-						},
-					},
-				})
+		if #devices == 0 and lfs then
+			local uid = lfs.attributes("/proc/self", "uid")
+			if uid then
+				local base = "/run/user/" .. tostring(uid) .. "/gvfs"
+				if lfs.attributes(base, "mode") == "directory" then
+					for entry in lfs.dir(base) do
+						if entry:match("^mtp:") then
+							local name = entry:gsub("^mtp:host=", ""):gsub("_", " ")
+							devices[#devices + 1] = {
+								name = (name ~= "" and name or "MTP Device"),
+								storages = {
+									{ name = "Internal", max = 0, used = 0, perc = 0 },
+								},
+							}
+						end
+					end
+				end
 			end
 		end
+
 		return { count = #devices, devices = devices }
 	end)
-end
-
-function conky_mtp_data()
-	local desktop = (os.getenv("XDG_CURRENT_DESKTOP") or ""):lower()
-	local plasma = desktop:match("kde") or desktop:match("plasma")
-	return plasma and kde_mtp_info() or gvfs_mtp_info()
 end
 
 function conky_mtp_count()
@@ -115,5 +83,5 @@ function conky_mtp_perc(dev_idx, storage_idx)
 		return 0
 	end
 	local s = d.storages[tonumber(storage_idx) or 1]
-	return s and s.perc
+	return s and s.perc or 0
 end

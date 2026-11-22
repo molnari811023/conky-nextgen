@@ -11,16 +11,34 @@ lua/hardware/arch.lua — Arch Linux distribution-specific metrics: pacman insta
 -- 1. Arch installation date from pacman.log
 function conky_install_date_arch()
 	return cached("arch_inst_dt", 86400, function()
-		local dt = pread("head -n1 /var/log/pacman.log 2>/dev/null | cut -c 2-11")
-		return (dt and dt ~= "") and dt or "N/A"
+		local f = io.open("/var/log/pacman.log", "r")
+		if f then
+			local line = f:read("*l")
+			f:close()
+			local dt = line and line:match("^%[(%d%d%d%d%-%d%d%-%d%d)")
+			if dt and dt ~= "" then return dt end
+		end
+		if lfs then
+			local mtime = lfs.attributes("/etc/machine-id", "modification")
+			if mtime then return os.date("%Y-%m-%d", mtime) end
+		end
+		return "N/A"
 	end)
 end
 
--- 2. Installed pacman package count
+-- 2. Installed pacman package count (counted directly from /var/lib/pacman/local)
 function conky_packages_arch()
 	return cached("arch_pkgs", 60, function()
-		local count = pread("pacman -Q 2>/dev/null | wc -l")
-		return (count and count ~= "") and count:gsub("%s+", "") or "0"
+		if lfs and lfs.attributes("/var/lib/pacman/local", "mode") == "directory" then
+			local count = 0
+			for entry in lfs.dir("/var/lib/pacman/local") do
+				if entry ~= "." and entry ~= ".." and entry ~= "ALPM_DB_VERSION" then
+					count = count + 1
+				end
+			end
+			return tostring(count)
+		end
+		return "0"
 	end)
 end
 

@@ -86,11 +86,26 @@ THEMES = {
 DEFAULT_THEME = "theme"
 _PADDING = 10
 
+local function is_lyrics_daemon_running()
+    if lfs and lfs.attributes("/proc", "mode") == "directory" then
+        for entry in lfs.dir("/proc") do
+            if entry:match("^%d+$") then
+                local f = io.open("/proc/" .. entry .. "/cmdline", "r")
+                if f then
+                    local cmd = f:read("*a") or ""
+                    f:close()
+                    if cmd:find("lyrics_daemon%.lua") then
+                        return true
+                    end
+                end
+            end
+        end
+    end
+    return false
+end
+
 local function ensure_daemon()
-    local p = io.popen("pgrep -f 'lyrics_daemon.lua' 2>/dev/null")
-    local pid = p and p:read("*l")
-    if p then p:close() end
-    if not pid or pid == "" then
+    if not is_lyrics_daemon_running() then
         local daemon_path = script_dir .. "lua/lyrics_daemon.lua"
         local f = io.open(daemon_path, "r")
         if f then

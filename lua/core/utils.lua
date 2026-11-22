@@ -302,14 +302,14 @@ local function normalize_number(v)
     if type(v) == "number" then return v end
     if type(v) == "table" then return 0 end
     local s = tostring(v):gsub(",", ".")
-    return tonumber(s:match("([%d%.]+)")) or 0
+    return tonumber(s:match("(%-?[%d%.]+)")) or 0
 end
 
 function normalize_with_suffix(raw)
     if not raw then return 0 end
-    local s = tostring(raw):lower():gsub("%s+", "")
-    local num = normalize_number(s)
-    local suf = s:match("([kmg])$")
+    local raw_s = tostring(raw)
+    local num = normalize_number(raw_s)
+    local suf = raw_s:lower():match("[%d%.]([kmg])%s*$")
     if suf == "k" then return num * 1024 end
     if suf == "m" then return num * 1024 ^ 2 end
     if suf == "g" then return num * 1024 ^ 3 end
@@ -353,7 +353,7 @@ function read_file(path)
     if not f then return "" end
     local out = f:read("*a") or ""
     f:close()
-    return out:gsub("%s+$", "")
+    return (out:gsub("%s+$", ""))
 end
 
 -- ═══ REQUIRED AND OPTIONAL VALUES ═══

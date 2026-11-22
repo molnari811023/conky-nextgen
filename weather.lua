@@ -64,11 +64,11 @@ JSON_PATH      = script_dir:match("^/usr") and ((os.getenv("HOME") or "/tmp") ..
 
 draw = {}
 
-local _lfs_ok, _lfs = pcall(require, "lfs")
+local _lfs = require("lfs")
 local function _find_icons(sub)
     local sub_dir = sub or ""
     local local_p = script_dir .. "icons/" .. sub_dir
-    if _lfs_ok and _lfs and _lfs.attributes(local_p, "mode") == "directory" then
+    if _lfs.attributes(local_p, "mode") == "directory" then
         return local_p
     end
     return "/usr/share/conky-nextgen/icons/" .. sub_dir

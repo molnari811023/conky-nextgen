@@ -5,24 +5,20 @@
 --  Description: Modular Conky UI framework (Lua engine + Bash backend)
 --}}}
 --[[[
-lua/hardware/core.lua — Shared utilities: caching, sysfs readers, DMI access, sensor parsing, and update counters.
+lua/hardware/core.lua — Shared utilities: caching, sysfs readers, DMI access, and update counters.
 ]]--
 --{{{
 -- ## Core Utilities Module
 --
 -- Provides foundational helpers used by every other hardware module: a
 -- time-based cache (`cached`), sysfs/proc file readers (`read_file`,
--- `read_num`), DMI field lookup via `/sys/class/dmi/id/`, raw `sensors`
--- output parsing, a generic `pread` wrapper, and pacman update counters
--- read from a temp file.
+-- `read_num`), DMI field lookup via `/sys/class/dmi/id/`, and pacman update
+-- counters read from a temp file.
 --
 -- **Exposed/global functions:**
 -- - `parse_num(v)` — extracts the first numeric value from a string
 -- - `dmi(field)` — reads a DMI field from sysfs (cached)
--- - `get_sensor_val(pattern)` — matches a pattern against raw `sensors` output and returns a number
--- - `get_root_device(map, name)` — walks a parent map to find the root block device
 -- - `cached(key, interval, f)` — time-based memoization wrapper
--- - `pread(cmd)` — runs a shell command with a 10 s timeout, returns trimmed output
 -- - `read_num(path)` — reads a file and extracts the first integer
 -- - `conky_updates_repo()` — returns the number of pending repo packages
 -- - `conky_updates_aur()` — returns the number of pending AUR packages
@@ -86,30 +82,6 @@ function dmi(field)
 	end)
 end
 
--- Raw output of the `sensors` command, cached for 2 seconds.
-local function read_sensors_raw()
-	return cached("sensors_raw", 2, function()
-		return pread("env LANG=C sensors 2>/dev/null")
-	end)
-end
-
-function get_sensor_val(pattern)
-	local s = read_sensors_raw()
-	local v = s:match(pattern)
-	return tonumber(v)
-end
-
-function get_root_device(map, name)
-	local cur = map[name]
-	if not cur then
-		return nil
-	end
-	while cur.parent and map[cur.parent] do
-		cur = map[cur.parent]
-	end
-	return cur
-end
-
 cache = cache or {}
 
 function cached(key, interval, f)
@@ -123,25 +95,7 @@ function cached(key, interval, f)
 	return v
 end
 
-function pread(cmd)
-	local f = io.popen("timeout 10 " .. cmd)
-	if not f then
-		return ""
-	end
-	local out = f:read("*a") or ""
-	f:close()
-	return out:gsub("%s+$", "")
-end
-
 -- read_file() is defined in core/utils.lua (loaded before hardware)
-
-local function has_cmd(cmd)
-	local f = io.popen("command -v " .. cmd .. " 2>/dev/null")
-	if not f then return false end
-	local r = f:read("*l")
-	f:close()
-	return r ~= nil
-end
 
 function read_num(path)
 	local v = read_file(path)
@@ -150,17 +104,29 @@ end
 
 local source = debug.getinfo(1, "S").source:sub(2)
 local conky_dir = source:match("(.*/)") or "./"
-local tmp_dir = conky_dir .. "../../tmp/"
-local updates_file = tmp_dir .. "updates.txt"
+local fallback_updates_file = conky_dir .. "../../tmp/updates.txt"
+
+local function get_updates_file()
+	if JSON_PATH and JSON_PATH ~= "" then
+		local p = JSON_PATH .. "updates.txt"
+		if lfs and lfs.attributes(p, "mode") then
+			return p
+		end
+	end
+	if lfs and lfs.attributes(fallback_updates_file, "mode") then
+		return fallback_updates_file
+	end
+	return (os.getenv("HOME") or "/tmp") .. "/.conky/tmp/updates.txt"
+end
 
 function conky_updates_repo()
-	local s = read_file(updates_file)
+	local s = read_file(get_updates_file())
 	local n = tonumber(s and s:match("^(%d+)")) or 0
 	return tostring(n) .. " " .. conky_get_tr((n == 1) and "package" or "packages")
 end
 
 function conky_updates_aur()
-	local s = read_file(updates_file)
+	local s = read_file(get_updates_file())
 	local n = tonumber(s and s:match("%s(%d+)$")) or 0
 	return tostring(n) .. " " .. conky_get_tr((n == 1) and "package" or "packages")
 end

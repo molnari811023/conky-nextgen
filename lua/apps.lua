@@ -84,15 +84,23 @@ end
 -- Returns { basename = full_path }.
 local function collect_desktops(dir, out)
     out = out or {}
-    local p = io.popen('find "' .. dir .. '" -type f -name "*.desktop" 2>/dev/null')
-    if p then
-        for f in p:lines() do
-            local base = f:match("([^/]+)%.desktop$")
-            if base and not out[base] then
-                out[base] = f
+    local _lfs = lfs or require("lfs")
+    if _lfs.attributes(dir, "mode") ~= "directory" then
+        return out
+    end
+    for entry in _lfs.dir(dir) do
+        if entry ~= "." and entry ~= ".." then
+            local full = dir .. "/" .. entry
+            local mode = _lfs.attributes(full, "mode")
+            if mode == "directory" then
+                collect_desktops(full, out)
+            elseif mode == "file" then
+                local base = entry:match("^(.+)%.desktop$")
+                if base and not out[base] then
+                    out[base] = full
+                end
             end
         end
-        p:close()
     end
     return out
 end

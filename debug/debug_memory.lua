@@ -39,13 +39,18 @@ calls and flags sections that grew more than expected as potential leaks.
 -- - Prints TOTAL time for the final cache fill+clear loop.
 --}}}
 
+lfs = require('lfs')
+
 local function get_root()
   local src = (debug.getinfo(1, 'S').source or arg[0]):match('@(.*)') or arg[0] or '.'
   local dir = src:match('^(.*[/\\])') or './'
-  local p = io.popen('readlink -f "'..dir..'../" 2>/dev/null')
-  local out = p and (p:read('*a') or ''):gsub('%s+$','') or dir..'../'
-  if p then p:close() end
-  return out
+  local cwd = lfs.currentdir()
+  if lfs.chdir(dir .. '..') then
+    local r = lfs.currentdir()
+    lfs.chdir(cwd)
+    return r
+  end
+  return cwd
 end
 local root = get_root()
 package.path = './?.lua;' .. package.path .. ';' .. root .. '/lua/?.lua;' .. root .. '/lua/core/?.lua;' .. root .. '/lua/draw/?.lua;' .. root .. '/lua/hardware/?.lua;' .. root .. '/lua/weather/?.lua'
@@ -58,7 +63,6 @@ conky_surface = function() return nil end
 cairo_create = function() return {} end
 cairo_destroy = function() end
 
-lfs = require('lfs')
 -- Config globals — formerly from settings.lua / the top of widget.lua.
 -- widget.lua now also runs the Conky bootstrap (require("require") loads the
 -- Cairo draw modules), so it cannot be loaded here; set the paths directly.

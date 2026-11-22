@@ -93,23 +93,12 @@ end
 
 function conky_wifi_interface()
     return cached("wifi_iface", 3600, function()
-        if lfs then
+        if lfs and lfs.attributes("/sys/class/net", "mode") == "directory" then
             for iface in lfs.dir("/sys/class/net") do
                 if iface ~= "." and iface ~= ".." then
-                    local f = io.open("/sys/class/net/" .. iface .. "/wireless", "r")
-                    if f then
-                        f:close()
+                    if lfs.attributes("/sys/class/net/" .. iface .. "/wireless", "mode") == "directory" then
                         return iface
                     end
-                end
-            end
-        else
-            local list = pread("ls /sys/class/net 2>/dev/null")
-            for iface in list:gmatch("[^\n]+") do
-                local f = io.open("/sys/class/net/" .. iface .. "/wireless", "r")
-                if f then
-                    f:close()
-                    return iface
                 end
             end
         end
@@ -136,25 +125,12 @@ end
 
 function conky_ethernet_interface()
     return cached("eth_iface", 3600, function()
-        local list = {}
-        if lfs then
+        if lfs and lfs.attributes("/sys/class/net", "mode") == "directory" then
             for iface in lfs.dir("/sys/class/net") do
-                if iface ~= "." and iface ~= ".." then
-                    list[#list + 1] = iface
-                end
-            end
-        else
-            for iface in pread("ls /sys/class/net 2>/dev/null"):gmatch("[^\n]+") do
-                list[#list + 1] = iface
-            end
-        end
-        for _, iface in ipairs(list) do
-            if iface ~= "lo" then
-                local wf = io.open("/sys/class/net/" .. iface .. "/wireless", "r")
-                if wf then
-                    wf:close()
-                else
-                    return iface
+                if iface ~= "." and iface ~= ".." and iface ~= "lo" then
+                    if lfs.attributes("/sys/class/net/" .. iface .. "/wireless", "mode") == nil then
+                        return iface
+                    end
                 end
             end
         end

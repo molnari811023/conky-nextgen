@@ -15,3 +15,7 @@ pkg/pkg/
 pkg/conky/
 nextgen_version.txt
 *.orig
+*.tar.gz
+pkg/python-pyicloud/src/
+pkg/python-pyicloud/pkg/
+pkg/python-pyicloud/*.tar.gz

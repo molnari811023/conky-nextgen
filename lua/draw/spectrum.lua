@@ -93,8 +93,8 @@ function draw_spectrum(cr, opts)
     -- write anything back into opts.values itself (see header comment).
     local targets = {}
     if type(c.values) == "function" then
-        local ok, result = pcall(c.values)
-        if ok and type(result) == "table" then targets = result end
+        local result = c.values()
+        if type(result) == "table" then targets = result end
     end
 
     -- Per-item animation state: intentionally persisted ON opts, keyed

@@ -303,7 +303,7 @@ draw[#draw + 1] = {
 -- that don't exist on smaller CPUs, and conky exits entirely on the
 -- first out-of-range request (e.g. "requested CPU 9, but only 8
 -- available" on a 4-core/8-thread CPU).
-local NUM_CPUS = tonumber((pread("nproc"))) or 4
+local NUM_CPUS = conky_cpu_count()
 
 for i = 1, NUM_CPUS do
     local current_y = 10 + (i - 1) * 15

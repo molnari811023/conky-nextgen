@@ -36,6 +36,7 @@ local BAR_DEFAULT = {
 	x = 0,
 	width = 100,
 	height = 10,
+	min = 0,
 	max = 100,
 	angle = 0,
 	-- fg, bg: provided by the theme via apply_theme()
@@ -171,11 +172,13 @@ function conky_draw_bar_modules(cr, m)
 	end
 	local raw = draw_get_value(m)
 	local val = normalize_with_suffix(raw)
+	local minv = tonumber(m.min) or BAR_DEFAULT.min
 	local maxv = tonumber(m.max) or BAR_DEFAULT.max
-	if maxv <= 0 then
-		maxv = 1
+	local span = maxv - minv
+	if span <= 0 then
+		span = 1
 	end
-	local pct = math.max(0, math.min(1, val / maxv))
+	local pct = math.max(0, math.min(1, (val - minv) / span))
 	local y = m.y
 	local a = m.angle or 0
 	local mx = _bar_mx

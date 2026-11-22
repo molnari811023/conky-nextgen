@@ -183,7 +183,7 @@ draw[#draw + 1] = {
     y = 25,
     font = "Mono",
     size = 12,
-    text = "${execpi 7200 lsb_release -sd |tr -d '\"'}",
+    text = "${lua conky_os_name}",
     align = "right",
 }
 
@@ -246,7 +246,7 @@ draw[#draw + 1] = {
     y = 70,
     font = "Mono",
     size = 12,
-    text = "${execpi 3600 echo $DESKTOP_SESSION/$XDG_SESSION_TYPE}",
+    text = "${lua conky_desktop_session}",
     align = "right",
 }
 

@@ -5,14 +5,14 @@
 --  Description: Modular Conky UI framework (Lua engine + Bash backend)
 --}}}
 --[[[
-lua/hardware/usb.lua — Mounted USB block device detection and enumeration via lsblk.
+lua/hardware/usb.lua — Mounted USB block device detection and enumeration via /proc/mounts and /sys/class/block.
 ]]--
 --{{{
 -- ## USB Module
 --
--- Parses `lsblk` output to find block devices whose transport is USB and
--- that are mounted under a user media directory. Returns device model
--- names and mount points. Results are cached for 3 seconds.
+-- Reads `/proc/mounts` and `/sys/class/block/` symlinks to find block devices
+-- whose transport is USB and that are mounted under a user media directory.
+-- Returns device model names and mount points. Results are cached for 3 seconds.
 --
 -- **Exposed/global functions:**
 -- - `conky_usb_list()` — returns a sorted list of `{name, part, mount}` tables
@@ -22,8 +22,15 @@ lua/hardware/usb.lua — Mounted USB block device detection and enumeration via 
 -- - `conky_usb_mount(i)` — mount point of the i-th USB device
 --
 -- **Config/globals used:**
--- `cached()`, `pread()`, `starts_with()`, `get_root_device()` (all from core.lua), `os.getenv("USER")`
+-- `cached()`, `read_file()`, `starts_with()`, `lfs`, `os.getenv("USER")`
 --}}}
+
+local function unescape_mount_path(s)
+	return (s:gsub("\\(%d%d%d)", function(oct)
+		local n = tonumber(oct, 8)
+		return n and string.char(n) or oct
+	end))
+end
 
 function conky_usb_list()
 	return cached("usb_detect", 3, function()
@@ -34,39 +41,39 @@ function conky_usb_list()
 			"/media/" .. user .. "/",
 			"/media/",
 		}
-		local out = pread([[lsblk -P -o NAME,PKNAME,MODEL,MOUNTPOINT,TRAN 2>/dev/null]])
-		local map = {}
-		for line in out:gmatch("[^\n]+") do
-			local name = line:match('NAME="([^"]+)"')
-			if name then
-				map[name] = {
-					parent = line:match('PKNAME="([^"]*)"'),
-					model = line:match('MODEL="([^"]*)"'),
-					mount = line:match('MOUNTPOINT="([^"]*)"'),
-					tran = line:match('TRAN="([^"]*)"'),
-				}
-			end
+		local f = io.open("/proc/mounts", "r")
+		if not f then
+			return result
 		end
-		for name, entry in pairs(map) do
-			if entry.mount and entry.mount ~= "" then
+		local seen = {}
+		for line in f:lines() do
+			local part, raw_mount = line:match("^/dev/(%S+)%s+(%S+)")
+			if part and raw_mount and not seen[part] then
+				local mount = unescape_mount_path(raw_mount)
 				local is_media = false
 				for _, p in ipairs(prefixes) do
-					if starts_with(entry.mount, p) then
+					if starts_with(mount, p) then
 						is_media = true
 						break
 					end
 				end
-				if is_media then
-					local root = get_root_device(map, name)
-					if root and (root.tran == "usb" or entry.tran == "usb") then
-						local label = (root.model ~= "" and root.model or "USB Device")
+				if is_media and lfs then
+					local target = lfs.symlinkattributes("/sys/class/block/" .. part, "target")
+					if target and target:find("/usb") then
+						seen[part] = true
+						local disk = target:match("/block/([^/]+)/")
+							or target:match("/block/([^/]+)$")
+							or part
+						local model = read_file("/sys/class/block/" .. disk .. "/device/model")
+						local label = (model ~= "" and model or "USB Device")
 							:gsub("^%s+", "")
 							:gsub("%s+$", "")
-						table.insert(result, { name = label, part = name, mount = entry.mount })
+						table.insert(result, { name = label, part = part, mount = mount })
 					end
 				end
 			end
 		end
+		f:close()
 		table.sort(result, function(a, b)
 			return a.part < b.part
 		end)

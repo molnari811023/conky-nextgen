@@ -191,8 +191,8 @@ local STATUS_SYMBOL = {
 }
 
 local function np_has_track()
-    local ok, t = pcall(conky_nowplaying_title)
-    return ok and t ~= nil and t ~= ""
+    local t = conky_nowplaying_title()
+    return t ~= nil and t ~= ""
 end
 
 -- Helper: Splits a string into lines based on a maximum character limit per line

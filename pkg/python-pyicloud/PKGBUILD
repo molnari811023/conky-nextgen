@@ -1,0 +1,73 @@
+# Maintainer: István Molnár <molnari811023@gmail.com>
+# Upstream: https://github.com/timlaing/pyicloud
+
+pkgname=python-pyicloud
+_name=pyicloud
+pkgver=2026.11.2
+_srp_ver=1.0.22
+_tinyhtml_ver=1.3.0
+pkgrel=1
+pkgdesc="Python library and CLI to interact with Apple iCloud webservices (SRP6a + 2FA + Find My + CloudKit)"
+arch=('any')
+url="https://github.com/timlaing/pyicloud"
+license=('MIT')
+depends=(
+  'python'
+  'python-certifi'
+  'python-click'
+  'python-cryptography'
+  'python-fido2'
+  'python-keyring'
+  'python-keyrings-alt'
+  'python-protobuf'
+  'python-pydantic'
+  'python-requests'
+  'python-rich'
+  'python-six'
+  'python-typer'
+  'python-typing_extensions'
+  'python-tzlocal'
+)
+makedepends=(
+  'python-build'
+  'python-installer'
+  'python-setuptools'
+  'python-setuptools-scm'
+  'python-wheel'
+)
+provides=('python-pyicloud' 'python-srp' 'python-tinyhtml')
+conflicts=('python-pyicloud-git' 'python-srp' 'python-tinyhtml')
+replaces=('python-pyicloud-git')
+source=(
+  "https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz"
+  "https://files.pythonhosted.org/packages/source/s/srp/srp-${_srp_ver}.tar.gz"
+  "https://files.pythonhosted.org/packages/source/t/tinyhtml/tinyhtml-${_tinyhtml_ver}.tar.gz"
+)
+sha256sums=(
+  '4f3e6fe8a20d97c6c320bdf3abb7cc01f624b189992a7fa32e77318d891b760f'
+  'f330d0ec7387e2ac8577487b164963155d4a031bca6e2024f1b0930eb92baa5d'
+  '457f2683a22051ac48674e00d978f39098344546da7276a0aaef467380d3bb53'
+)
+
+build() {
+  cd "${srcdir}/srp-${_srp_ver}"
+  python -m build --wheel --no-isolation
+
+  cd "${srcdir}/tinyhtml-${_tinyhtml_ver}"
+  python -m build --wheel --no-isolation
+
+  cd "${srcdir}/${_name}-${pkgver}"
+  python -m build --wheel --no-isolation
+}
+
+package() {
+  cd "${srcdir}/srp-${_srp_ver}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+
+  cd "${srcdir}/tinyhtml-${_tinyhtml_ver}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+
+  cd "${srcdir}/${_name}-${pkgver}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

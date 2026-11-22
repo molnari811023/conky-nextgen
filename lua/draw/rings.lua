@@ -40,6 +40,7 @@ local RING_DEFAULT = {
 	sectors = 6,
 	mode = "ring",
 	sides = 6,
+	min = 0,
 	max = 100,
 	alarm_color = "#FF0000",
 	alarm_alpha = 1,
@@ -225,12 +226,14 @@ function draw_one_ring(cr, s0)
 	end
 	local raw = draw_get_value(s)
 	local val = normalize_with_suffix(raw)
-	local max = s.max or 100
+	local minv = tonumber(s.min) or 0
+	local max = tonumber(s.max) or 100
 	local ov = (val > max)
-	if max == 0 then
-		max = 1
+	local span = max - minv
+	if span <= 0 then
+		span = 1
 	end
-	local pct = math.max(0, math.min(1, val / max))
+	local pct = math.max(0, math.min(1, (val - minv) / span))
 	local dv = math.floor(pct * s.sectors + 0.5)
 	if ov then
 		dv = s.sectors

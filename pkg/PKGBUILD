@@ -2,7 +2,7 @@
 # Based on Arch Linux conky (1.22.3) and AUR conky-git PKGBUILDs
 
 pkgname=conky-mng
-pkgver=1.25.1.r4.gab873ce
+pkgver=1.26.0.r4.g8ddbf3b
 pkgrel=1
 pkgdesc='Light-weight system monitor for X, Wayland, and other things, too — with mouse events'
 arch=('x86_64')

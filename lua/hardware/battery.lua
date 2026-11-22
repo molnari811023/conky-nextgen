@@ -5,63 +5,66 @@
 --  Description: Modular Conky UI framework (Lua engine + Bash backend)
 --}}}
 --[[[
-lua/hardware/battery.lua — Battery and external-device charge monitoring via sysfs, UPower, and BlueZ/D-Bus.
+lua/hardware/battery.lua — Battery and external-device charge monitoring via sysfs (/sys/class/power_supply/).
 ]]--
 --{{{
 -- ## Battery Module
 --
--- Reads internal battery health from sysfs, and detects Bluetooth headset
--- and HID++ mouse battery levels via UPower or KDE Plasma's BlueZ D-Bus
--- interface. All queries are cached to avoid rapid repeated I/O.
+-- Reads internal battery state, remaining time, percentage, and health directly
+-- from `/sys/class/power_supply/BAT*`, filtering out peripheral batteries
+-- (`scope == "Device"`, such as `apple_mfi_fastcharge_*` or HID++ mice).
+-- External device batteries (HID++ mouse, Bluetooth headset/peripherals) are
+-- also read directly from `/sys/class/power_supply/` (`scope == "Device"`).
 --
 -- **Exposed/global functions:**
+-- - `conky_battery_path()` / `get_battery_path()` — returns sysfs path of the main system battery
+-- - `conky_battery_percent()` — returns internal battery capacity (0–100)
+-- - `conky_battery_status()` — returns translated battery status string
+-- - `conky_battery_time()` — returns formatted remaining charge/discharge time
 -- - `conky_battery_health_data()` — returns internal battery health as a percentage (0–100), or nil
--- - `conky_headset_info()` — returns `{name, pct}` table for a connected Bluetooth headset
--- - `conky_mouse_info()` — returns `{name, pct}` table for a HID++ mouse via UPower
--- - `conky_external_battery_list()` — combined list of headset and mouse battery entries
+-- - `conky_headset_info()` — returns `{name, pct}` table for a connected headset battery in sysfs
+-- - `conky_mouse_info()` — returns `{name, pct}` table for a connected mouse battery in sysfs
+-- - `conky_external_battery_list()` — list of connected peripheral batteries (`{name, pct}`)
 -- - `conky_external_battery_count()` — number of detected external battery devices
 -- - `conky_external_battery_name(i)` — name of the i-th external device
 -- - `conky_external_battery_charge(i)` — charge percentage of the i-th external device
 --}}}
 
-local function get_battery_path()
+local function is_system_battery(entry)
+	local base = "/sys/class/power_supply/" .. entry
+	local t = read_file(base .. "/type")
+	if not (t and t:find("Battery")) then
+		return false
+	end
+	local scope = read_file(base .. "/scope")
+	if scope and scope:find("Device") then
+		return false
+	end
+	return true
+end
+
+function get_battery_path()
 	return cached("main_battery_path", 3600, function()
-		if lfs then
+		local fallback
+		if lfs and lfs.attributes("/sys/class/power_supply", "mode") == "directory" then
 			for entry in lfs.dir("/sys/class/power_supply") do
-				if entry ~= "." and entry ~= ".." then
-					local t = read_file("/sys/class/power_supply/" .. entry .. "/type")
-					if t and t:find("Battery") then
+				if entry ~= "." and entry ~= ".." and is_system_battery(entry) then
+					if entry:match("^BAT") then
 						return "/sys/class/power_supply/" .. entry .. "/"
 					end
+					fallback = fallback or ("/sys/class/power_supply/" .. entry .. "/")
 				end
-			end
-		else
-			local h = io.popen("ls /sys/class/power_supply/")
-			if h then
-				for line in (h:read("*a") or ""):gmatch("[^\n]+") do
-					local t = read_file("/sys/class/power_supply/" .. line .. "/type")
-					if t and t:find("Battery") then
-						h:close()
-						return "/sys/class/power_supply/" .. line .. "/"
-					end
-				end
-				h:close()
 			end
 		end
-		return "/sys/class/power_supply/BAT0/"
+		return fallback or "/sys/class/power_supply/BAT0/"
 	end)
 end
 
-local function is_plasma()
-	return cached("is_plasma_env", 3600, function()
-		local xdg = (os.getenv("XDG_CURRENT_DESKTOP") or ""):lower()
-		if xdg:match("kde") or xdg:match("plasma") then
-			return true
-		end
-		if os.getenv("KDE_FULL_SESSION") == "true" then
-			return true
-		end
-		return pread("pgrep plasmashell") ~= ""
+conky_battery_path = get_battery_path
+
+function conky_battery_percent()
+	return cached("battery_percent", 5, function()
+		return read_num(get_battery_path() .. "capacity") or 0
 	end)
 end
 
@@ -81,9 +84,8 @@ end
 
 function conky_battery_status()
 	local s = cached("battery_status", 5, function()
-		return pread("acpi -b 2>/dev/null") or ""
+		return read_file(get_battery_path() .. "status") or ""
 	end)
-	s = s:match(":%s*([^,]+)") or ""
 	if s == "" then return "" end
 	local key
 	if s == "Full" then
@@ -101,75 +103,88 @@ function conky_battery_status()
 end
 
 function conky_battery_time()
-	local s = cached("battery_time", 5, function()
-		return pread("acpi -b 2>/dev/null") or ""
+	local sec = cached("battery_time_sec", 5, function()
+		local base = get_battery_path()
+		local st = read_file(base .. "status")
+		local now = read_num(base .. "charge_now") or read_num(base .. "energy_now")
+		local full = read_num(base .. "charge_full") or read_num(base .. "energy_full")
+		local rate = read_num(base .. "current_now") or read_num(base .. "power_now")
+		if now and rate and rate > 0 then
+			if st == "Discharging" then
+				return math.floor((now * 3600) / rate)
+			elseif st == "Charging" and full and full > now then
+				return math.floor(((full - now) * 3600) / rate)
+			end
+		end
+		return nil
 	end)
-	local h, m, s = s:match("(%d+):(%d+):(%d+)")
-	if not h then return "" end
+	if not sec or sec <= 0 then return "" end
+	local h = string.format("%02d", math.floor(sec / 3600))
+	local m = string.format("%02d", math.floor((sec % 3600) / 60))
+	local s = string.format("%02d", sec % 60)
 	return h .. conky_get_tr("hour_short")
 		.. " " .. m .. conky_get_tr("minute_short")
 		.. " " .. s .. conky_get_tr("second_short")
 end
 
-local function get_headset_plasma()
-	local dev = pread(
-		"dbus-send --system --dest=org.bluez --print-reply / org.freedesktop.DBus.ObjectManager.GetManagedObjects "
-			.. "| grep -oP '/org/bluez/hci0/dev_[A-F0-9_]+' | head -n 1"
-	)
-	if dev == "" then
-		return nil
-	end
-	local name = pread("qdbus6 --system org.bluez " .. dev .. " org.bluez.Device1.Name 2>/dev/null")
-	local batt = pread(
-		"dbus-send --system --print-reply --dest=org.bluez "
-			.. dev
-			.. " org.freedesktop.DBus.Properties.Get string:'org.bluez.Battery1' string:'Percentage' 2>/dev/null "
-			.. "| grep variant | awk '{print $3}'"
-	)
-	local pct = batt:match("(%d+)")
-	return pct and { name = (name ~= "" and name or "Headset"), pct = tonumber(pct) } or nil
+local function is_mouse_device(entry_lc, model_lc)
+	return entry_lc:find("hidpp") ~= nil
+		or entry_lc:find("mouse") ~= nil
+		or model_lc:find("mouse") ~= nil
+		or model_lc:find("mx ") ~= nil
+		or model_lc:find("deathadder") ~= nil
+		or model_lc:find("viper") ~= nil
+		or model_lc:find("basilisk") ~= nil
 end
 
-local function get_device_upower(filter)
-	local path = pread("upower -e | grep -i '" .. filter .. "' | head -n 1")
-	if path == "" then
-		return nil
-	end
-	local res = pread("upower -i " .. path)
-	local pct = res:match("percentage:%s+(%d+)%%")
-	local model = res:match("model:%s+(.-)\n") or filter
-	return pct and { name = model, pct = tonumber(pct) } or nil
+local function get_sysfs_device_batteries()
+	return cached("sysfs_device_batteries", 10, function()
+		local result = { all = {}, mouse = nil, headset = nil }
+		if not lfs or lfs.attributes("/sys/class/power_supply", "mode") ~= "directory" then
+			return result
+		end
+		local entries = {}
+		for entry in lfs.dir("/sys/class/power_supply") do
+			if entry ~= "." and entry ~= ".." and not entry:lower():find("apple_mfi") then
+				entries[#entries + 1] = entry
+			end
+		end
+		table.sort(entries)
+		for _, entry in ipairs(entries) do
+			local base = "/sys/class/power_supply/" .. entry .. "/"
+			local scope = read_file(base .. "scope")
+			local pct = read_num(base .. "capacity")
+			if scope == "Device" and pct then
+				local model = read_file(base .. "model_name")
+				local entry_lc = entry:lower()
+				local model_lc = (model or ""):lower()
+				local is_mouse = is_mouse_device(entry_lc, model_lc)
+				local item = {
+					name = (model ~= "" and model or (is_mouse and "Mouse" or "Headset")),
+					pct = pct,
+				}
+				result.all[#result.all + 1] = item
+				if is_mouse and not result.mouse then
+					result.mouse = item
+				elseif not is_mouse and not result.headset then
+					result.headset = item
+				end
+			end
+		end
+		return result
+	end)
 end
 
 function conky_headset_info()
-	return cached("headset_info", 10, function()
-		if is_plasma() then
-			local h = get_headset_plasma()
-			if h then
-				return h
-			end
-		end
-		return get_device_upower("headset\\|headphone")
-	end)
+	return get_sysfs_device_batteries().headset
 end
 
 function conky_mouse_info()
-	return cached("mouse_info", 10, function()
-		return get_device_upower("hidpp")
-	end)
+	return get_sysfs_device_batteries().mouse
 end
 
 function conky_external_battery_list()
-	local devices = {}
-	local m = conky_mouse_info()
-	if m then
-		table.insert(devices, m)
-	end
-	local h = conky_headset_info()
-	if h then
-		table.insert(devices, h)
-	end
-	return devices
+	return get_sysfs_device_batteries().all
 end
 
 function conky_external_battery_count()
