@@ -35,7 +35,7 @@ Conky NextGen provides dual distribution intelligence that automatically adapts 
 Conky NextGen extends system monitoring beyond desktop hardware, integrating mobile telemetry directly into your desktop environment.
 
 ### Apple iOS & iCloud Suite
-> **Status:** Backend telemetry & data engine 100% complete and verified; Cairo/Lua widget UI in final polish (`icloud.conf` / `icloud.lua`).
+> **Status:** Backend telemetry & data engine 100% complete and verified; Cairo/Lua widget UI in final polish (`apple.conf` / `apple.lua`).
 
 - **Live Find My GPS & Dynamic Maps:** Real-time device positioning via secure iCloud session with automated reverse geocoding (street, city, postal code) and dynamic OpenStreetMap 512×512 tile rendering (`tmp/iphone_map.png`) featuring a glowing radar beacon.
 - **Persistent Auth & Security:** Automated SRP6a and Apple 2FA token caching (`~/.local/share/conky-nextgen/pyicloud/`) requiring zero recurring browser logins.
@@ -224,8 +224,9 @@ Profiles choose data modules while every visual renderer remains available:
 | `media` | now-playing and song-text data |
 | `panel` | panel system data |
 | `google` | Google cache data |
-| `icloud` | Apple iCloud & iOS telemetry (Find My GPS, map tile, storage quota, battery, tethering) |
-| `full` | weather, system, media, and Google data |
+| `apple` | complete Apple suite (iPhone hardware, battery, tethering, AirPods, and iCloud Find My / quota) |
+| `icloud` | Apple iCloud data (Find My GPS, map tile, storage quota) |
+| `full` | weather, system, media, Google, and Apple suite data |
 
 Profiles can be combined, for example:
 

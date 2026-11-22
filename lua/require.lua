@@ -68,6 +68,9 @@ local MODULE_PROFILES = {
         "hardware.arch", "hardware.ubuntu", "hardware.iphone", "hardware.tether",
     },
     google = { "google.core", "google.data" },
+    apple = {
+        "hardware.iphone", "hardware.tether", "icloud.core", "icloud.data",
+    },
     icloud = { "icloud.core", "icloud.data" },
     antigravity = { "antigravity.core", "antigravity.data" },
     full = {
