@@ -35,8 +35,17 @@ makedepends=(
   'python-setuptools-scm'
   'python-wheel'
 )
-provides=('python-pyicloud' 'python-srp' 'python-tinyhtml')
-conflicts=('python-pyicloud-git' 'python-srp' 'python-tinyhtml')
+install=python-pyicloud.install
+provides=(
+  "python-pyicloud=${pkgver}"
+  "python-srp=${_srp_ver}"
+  "python-tinyhtml=${_tinyhtml_ver}"
+)
+conflicts=(
+  'python-pyicloud-git'
+  'python-srp'
+  'python-tinyhtml'
+)
 replaces=('python-pyicloud-git')
 source=(
   "https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz"

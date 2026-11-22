@@ -9,7 +9,7 @@ PROJECT_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 STAGE_DIR="$SCRIPT_DIR/stage-arch"
 PKGNAME="conky-nextgen-git"
 
-echo "==> [1/5] Verziószám meghatározása..."
+echo "==> [1/5] Determining version..."
 BASE_VER="1.1.0"
 [ -f "$PROJECT_DIR/VERSION" ] && BASE_VER=$(tr -d ' \r\n' < "$PROJECT_DIR/VERSION")
 REV_COUNT=$(git -C "$PROJECT_DIR" rev-list --count HEAD 2>/dev/null || echo "150")
@@ -17,10 +17,10 @@ SHORT_SHA=$(git -C "$PROJECT_DIR" rev-parse --short HEAD 2>/dev/null || echo "cu
 VERSION="${BASE_VER}.r${REV_COUNT}.g${SHORT_SHA}-1"
 PKG_FILE="$SCRIPT_DIR/${PKGNAME}-${VERSION}-any.pkg.tar.zst"
 
-echo "    Csomag: $PKGNAME"
-echo "    Verzió: $VERSION"
+echo "    Package: $PKGNAME"
+echo "    Version: $VERSION"
 
-echo "==> [2/5] Staging könyvtár felépítése..."
+echo "==> [2/5] Creating staging directory..."
 rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR/usr/share/conky-nextgen"
 mkdir -p "$STAGE_DIR/usr/bin"
@@ -28,7 +28,7 @@ mkdir -p "$STAGE_DIR/usr/share/applications"
 mkdir -p "$STAGE_DIR/usr/share/icons/hicolor/scalable/apps"
 mkdir -p "$STAGE_DIR/usr/share/man/man1"
 
-echo "==> [3/5] Fájlok másolása és jogosultságok beállítása..."
+echo "==> [3/5] Copying files and setting permissions..."
 cp -a "$PROJECT_DIR/lua" "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR/icons" "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR/images" "$STAGE_DIR/usr/share/conky-nextgen/"
@@ -53,18 +53,18 @@ find "$STAGE_DIR/usr/share/conky-nextgen" -type f -exec chmod 644 {} +
 find "$STAGE_DIR/usr/share/conky-nextgen/sh" -type f -name "*.sh" -exec chmod 755 {} +
 [ -f "$STAGE_DIR/usr/share/conky-nextgen/sh/designer/main.py" ] && chmod 755 "$STAGE_DIR/usr/share/conky-nextgen/sh/designer/main.py"
 
-# CLI indító
+# CLI executable
 install -m 755 "$PROJECT_DIR/sh/conky-nextgen" "$STAGE_DIR/usr/bin/conky-nextgen"
 sed -i "s/^CONKY_NEXTGEN_BUILD_VERSION=.*/CONKY_NEXTGEN_BUILD_VERSION=\"$VERSION\"/" "$STAGE_DIR/usr/bin/conky-nextgen"
 
-# Designer indító
+# Designer launcher
 cat << 'EOF' > "$STAGE_DIR/usr/bin/nextgen-designer"
 #!/bin/sh
 exec python3 /usr/share/conky-nextgen/sh/designer/main.py "$@"
 EOF
 chmod 755 "$STAGE_DIR/usr/bin/nextgen-designer"
 
-# Man oldalak
+# Man pages
 if [ -f "$PROJECT_DIR/man/conky-nextgen.1" ]; then
     gzip -9cn "$PROJECT_DIR/man/conky-nextgen.1" > "$STAGE_DIR/usr/share/man/man1/conky-nextgen.1.gz"
     chmod 644 "$STAGE_DIR/usr/share/man/man1/conky-nextgen.1.gz"
@@ -80,7 +80,7 @@ if [ -f "$PROJECT_DIR/completion/conky-nextgen" ]; then
     install -m 644 "$PROJECT_DIR/completion/conky-nextgen" "$STAGE_DIR/usr/share/bash-completion/completions/conky-nextgen"
 fi
 
-# Asztali ikon és .desktop
+# Desktop icon and .desktop entry
 cp -a "$PROJECT_DIR/nd.svg" "$STAGE_DIR/usr/share/icons/hicolor/scalable/apps/nd.svg"
 chmod 644 "$STAGE_DIR/usr/share/icons/hicolor/scalable/apps/nd.svg"
 
@@ -98,7 +98,7 @@ Keywords=conky;designer;widget;monitor;nextgen;
 EOF
 chmod 644 "$STAGE_DIR/usr/share/applications/nextgen-designer.desktop"
 
-echo "==> [4/5] Arch .PKGINFO létrehozása..."
+echo "==> [4/5] Generating Arch .PKGINFO..."
 INSTALLED_SIZE=$(du -sb "$STAGE_DIR" | cut -f1)
 BUILD_DATE=$(date +%s)
 
@@ -139,18 +139,25 @@ optdepend = cava: audio spectrum visualizer widget
 optdepend = vnstat: network bandwidth traffic tracker
 optdepend = playerctl: media player status and controls
 optdepend = pacman-contrib: Arch package updates monitor
+optdepend = python-pyicloud: Apple iCloud & Find My iOS live telemetry (bundles srp & tinyhtml)
+optdepend = googlefindmytools-git: Google Find My Device (Android) live telemetry
+optdepend = usbmuxd: iOS USB communication daemon for local cable telemetry
+optdepend = libimobiledevice: iOS USB device querying and battery telemetry
+install = .INSTALL
 EOF
 
-echo "==> [5/5] Arch .pkg.tar.zst csomag tömörítése..."
+# Install-time notice and conflict resolution guide
+cp "$SCRIPT_DIR/aur/conky-nextgen.install" "$STAGE_DIR/.INSTALL"
+
+echo "==> [5/5] Compressing Arch .pkg.tar.zst package..."
 (
     cd "$STAGE_DIR"
-    tar --zstd --owner=0 --group=0 --numeric-owner -cf "$PKG_FILE" .PKGINFO usr
+    tar --zstd --owner=0 --group=0 --numeric-owner -cf "$PKG_FILE" .PKGINFO .INSTALL usr
 )
 rm -rf "$STAGE_DIR"
 
 echo "=========================================================="
-echo " SIKERES ARCH CSOMAGOLÁS!"
-echo " Létrejött Arch csomag: $PKG_FILE"
-echo " Telepítés Arch / Manjaro alatt:"
-echo "   sudo pacman -U $PKG_FILE"
+echo " ARCH LINUX PACKAGE CREATED SUCCESSFULLY!"
+echo " Package file: $PKG_FILE"
+echo " Install with: sudo pacman -U $PKG_FILE"
 echo "=========================================================="

@@ -1,0 +1,119 @@
+# Maintainer: István Molnár <molnari811023@gmail.com>
+# Upstream: https://github.com/leonboe1/GoogleFindMyTools
+
+pkgname=googlefindmytools-git
+_pkgname=GoogleFindMyTools
+pkgver=r112.1eeaf90
+pkgrel=1
+pkgdesc="Framework for tracking and querying Google Find My Device (Spot & Nova E2EE API)"
+arch=('any')
+url="https://github.com/leonboe1/GoogleFindMyTools"
+license=('GPL-3.0-or-later')
+
+depends=(
+  'python'
+  'python-aiohttp'
+  'python-beautifulsoup4'
+  'python-cryptography'
+  'python-ecdsa'
+  'python-gpsoauth'
+  'python-h2'
+  'python-http-ece'
+  'python-httpx'
+  'python-protobuf'
+  'python-pycryptodomex'
+  'python-pyscrypt'
+  'python-pytz'
+  'python-requests'
+  'python-selenium'
+  'python-undetected-chromedriver'
+)
+
+makedepends=(
+  'git'
+)
+
+install=googlefindmytools-git.install
+provides=('googlefindmytools' 'python-googlefindmytools')
+conflicts=('googlefindmytools' 'python-googlefindmytools')
+
+source=("git+https://github.com/leonboe1/GoogleFindMyTools.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}/${_pkgname}"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
+}
+
+prepare() {
+  cd "${srcdir}/${_pkgname}"
+
+  # Store secrets.json in user's XDG config directory (~/.config/googlefindmytools/secrets.json)
+  # instead of hardcoding the read-only /usr/share directory.
+  python3 - << 'PYEOF'
+path = "Auth/token_cache.py"
+with open(path, "r", encoding="utf-8") as f:
+    content = f.read()
+
+old_func = """def _get_secrets_file():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(script_dir, SECRETS_FILE)"""
+
+new_func = """def _get_secrets_file():
+    config_dir = os.environ.get("XDG_CONFIG_HOME")
+    if not config_dir:
+        config_dir = os.path.expanduser("~/.config")
+    target_dir = os.path.join(config_dir, "googlefindmytools")
+    os.makedirs(target_dir, exist_ok=True)
+    return os.path.join(target_dir, SECRETS_FILE)"""
+
+if old_func in content:
+    content = content.replace(old_func, new_func)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+# Fix NoneType crash in fcmpushclient.stop() when stop() is called before start()
+fcm_path = "Auth/firebase_messaging/fcmpushclient.py"
+with open(fcm_path, "r", encoding="utf-8") as f:
+    fcm_content = f.read()
+
+old_lock = "        if (\n            self.stopping_lock\n            and self.stopping_lock.locked()"
+new_lock = "        if (\n            not self.stopping_lock\n            or self.stopping_lock.locked()"
+
+if old_lock in fcm_content:
+    fcm_content = fcm_content.replace(old_lock, new_lock)
+    with open(fcm_path, "w", encoding="utf-8") as f:
+        f.write(fcm_content)
+PYEOF
+}
+
+package() {
+  cd "${srcdir}/${_pkgname}"
+
+  local app_dir="${pkgdir}/usr/share/googlefindmytools"
+  mkdir -p "${app_dir}"
+
+  # Copy application modules and Python code
+  cp -r --no-preserve=ownership Auth DULT FMDNCrypto KeyBackup NovaApi ProtoDecoders SpotApi "${app_dir}/"
+  cp -r --no-preserve=ownership *.py requirements.txt "${app_dir}/"
+
+  # Install CLI wrapper scripts
+  mkdir -p "${pkgdir}/usr/bin"
+  cat > "${pkgdir}/usr/bin/googlefindmytools" << 'EOF'
+#!/bin/sh
+export PYTHONPATH="/usr/share/googlefindmytools:${PYTHONPATH}"
+exec /usr/bin/python3 /usr/share/googlefindmytools/main.py "$@"
+EOF
+  chmod 755 "${pkgdir}/usr/bin/googlefindmytools"
+  ln -sf googlefindmytools "${pkgdir}/usr/bin/googlefindmy"
+
+  # Register python site-packages path (.pth) so modules can be imported directly
+  local pyver=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
+  local pth_dir="${pkgdir}/usr/lib/python${pyver}/site-packages"
+  mkdir -p "${pth_dir}"
+  echo "/usr/share/googlefindmytools" > "${pth_dir}/googlefindmytools.pth"
+
+  # Install documentation and license
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  install -Dm644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
+}

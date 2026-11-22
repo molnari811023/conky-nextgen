@@ -36,8 +36,13 @@ optdepends=(
   'vnstat: network bandwidth traffic tracker'
   'playerctl: media player status and controls'
   'pacman-contrib: Arch package updates monitor'
+  'python-pyicloud: Apple iCloud & Find My iOS live telemetry (bundles srp & tinyhtml)'
+  'googlefindmytools-git: Google Find My Device (Android) live telemetry'
+  'usbmuxd: iOS USB communication daemon for local cable telemetry'
+  'libimobiledevice: iOS USB device querying and battery telemetry'
 )
 
+install=conky-nextgen.install
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 

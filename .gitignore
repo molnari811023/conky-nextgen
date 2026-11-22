@@ -19,3 +19,6 @@ nextgen_version.txt
 pkg/python-pyicloud/src/
 pkg/python-pyicloud/pkg/
 pkg/python-pyicloud/*.tar.gz
+pkg/**/src/
+pkg/**/pkg/
+pkg/**/GoogleFindMyTools/
