@@ -31,8 +31,10 @@ visible state (once per second) based on its optional draw_me condition.
 -- - `evaluate_draw_me` — collaborator that evaluates a draw_me condition
 --}}}
 
-GROUP_STATE       = GROUP_STATE or {}
-GROUP_REGISTRY    = GROUP_REGISTRY or {}
+GROUP_STATE          = GROUP_STATE or {}
+GROUP_REGISTRY       = GROUP_REGISTRY or {}
+GROUP_EXPANDED       = GROUP_EXPANDED or {}
+GROUP_MANUAL_OFFSETS = GROUP_MANUAL_OFFSETS or {}
 
 ------------------------------------------------------------
 -- GROUP REGISTRATION
@@ -43,6 +45,69 @@ function register_group(name)
     if GROUP_STATE[name] == nil then
         GROUP_STATE[name] = true
     end
+    if GROUP_EXPANDED[name] == nil then
+        GROUP_EXPANDED[name] = true
+    end
+end
+
+------------------------------------------------------------
+-- GROUP EXPAND / COLLAPSE
+------------------------------------------------------------
+
+function is_group_expanded(name)
+    if not name then return true end
+    return GROUP_EXPANDED[name] ~= false
+end
+
+function expand_group(name)
+    if not name then return end
+    GROUP_EXPANDED[name] = true
+end
+
+function collapse_group(name)
+    if not name then return end
+    GROUP_EXPANDED[name] = false
+end
+
+function toggle_group_expand(name)
+    if not name then return end
+    GROUP_EXPANDED[name] = not is_group_expanded(name)
+    return GROUP_EXPANDED[name]
+end
+
+------------------------------------------------------------
+-- GROUP MANUAL OFFSET & REORDERING
+------------------------------------------------------------
+
+function set_group_offset(name, dx, dy)
+    if not name then return end
+    local cur = GROUP_MANUAL_OFFSETS[name] or { x = 0, y = 0 }
+    GROUP_MANUAL_OFFSETS[name] = {
+        x = (cur.x or 0) + (dx or 0),
+        y = (cur.y or 0) + (dy or 0),
+    }
+end
+
+function reset_group_offset(name)
+    if not name then
+        GROUP_MANUAL_OFFSETS = {}
+    else
+        GROUP_MANUAL_OFFSETS[name] = nil
+    end
+end
+
+function reorder_group(name, delta_slots)
+    if not name or not _GROUPS or delta_slots == 0 then return false end
+    local idx = nil
+    for i, g in ipairs(_GROUPS) do
+        if g.name == name then idx = i; break end
+    end
+    if not idx then return false end
+    local target = math.max(1, math.min(#_GROUPS, idx + delta_slots))
+    if target == idx then return false end
+    local entry = table.remove(_GROUPS, idx)
+    table.insert(_GROUPS, target, entry)
+    return true
 end
 
 ------------------------------------------------------------

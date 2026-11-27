@@ -112,6 +112,13 @@ def generate_groups_lua(groups):
                 parts.append(f"draw_me = {dm}")
             else:
                 parts.append(f'draw_me = "{_lua_escape(str(dm))}"')
+        if g.get("draggable"):
+            parts.append("draggable = true")
+        if g.get("collapsed"):
+            parts.append("collapsed = true")
+        ch = g.get("collapsed_height")
+        if ch is not None and isinstance(ch, (int, float)) and ch > 0:
+            parts.append(f"collapsed_height = {int(ch)}")
         lines.append("    { " + ", ".join(parts) + " },")
     lines.append("}")
     return "\n".join(lines)

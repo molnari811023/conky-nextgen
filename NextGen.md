@@ -261,7 +261,13 @@ modules, not the visual API.
 ### Views, groups, and conditions
 
 `_VIEWS` defines named views. An item can use a single `view` or a table of
-views. `_GROUPS` define visibility groups and their view membership.
+views. `_GROUPS` define visibility groups and their view membership, plus
+optional interactive behavior:
+
+- `draggable = true`: allows dragging the group vertically to reorder `_GROUPS` live;
+- `collapsed = true` (or `expanded = false`): starts the group collapsed;
+- `collapsed_height = <px>`: height used when collapsed (default `36`);
+- items with `header = true` (or `y < collapsed_height`) remain visible when collapsed, while body items are hidden and subsequent groups reflow automatically.
 
 `draw_me` accepts:
 
@@ -276,9 +282,14 @@ stops rather than silently hiding the element.
 ### Mouse actions
 
 Mouse handling is enabled with `_MOUSE_ENABLED = true`. Draw items may carry
-a `click` action or a `click_view` target. Global mouse callbacks live in
-`lua/mouse_actions.lua`; hit testing and event dispatch live in
-`lua/core/mouse.lua`.
+`click`, `click_view`, `toggle_view`, `expand` (`true` or group name), and
+`drag` (`"group"` for live group reordering, `"group_free"` for free X/Y
+group offset, or a custom Lua callback receiving `dx`/`dy`/`total_dx`/`total_dy`
+and `drag_item`). When an item has both a click action and `drag`, dragging
+starts after a 4 px movement threshold. Global mouse callbacks (`switch_view`,
+`view_toggle`, `expand_toggle`, `on_toggle_expand`, `on_hover_group`,
+`on_leave_group`) live in `lua/mouse_actions.lua`; hit testing and event
+dispatch live in `lua/core/mouse.lua`.
 
 ## Module profiles
 

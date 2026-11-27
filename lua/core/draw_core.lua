@@ -132,7 +132,33 @@ function init_groups(group_list)
     for _, g in ipairs(group_list) do
         GROUP_VIEWS[g.name] = g.views or {}
         register_group(g.name)
+        if g.collapsed == true or g.expanded == false then
+            GROUP_EXPANDED[g.name] = false
+        elseif g.expanded == true then
+            GROUP_EXPANDED[g.name] = true
+        end
     end
+end
+
+local function get_group_collapsed_height(group_name)
+    if _GROUPS then
+        for _, g in ipairs(_GROUPS) do
+            if g.name == group_name and g.collapsed_height then
+                return g.collapsed_height
+            end
+        end
+    end
+    return 36
+end
+
+local function is_collapsed_header_item(item, collapsed_h)
+    if item.type == "background" or item.header == true or item.always_visible == true then
+        return true
+    end
+    if type(item.y) == "number" and item.y < (collapsed_h or 36) then
+        return true
+    end
+    return false
 end
 
 ------------------------------------------------------------
@@ -202,6 +228,9 @@ local function infer_item_height(item)
 end
 
 function compute_group_height(group_name, draw_list)
+    if is_group_expanded and not is_group_expanded(group_name) then
+        return get_group_collapsed_height(group_name)
+    end
     local max_y = 0
     for _, item in ipairs(draw_list) do
         if item.group == group_name then
@@ -235,8 +264,11 @@ local function compute_group_offsets(group_list, draw_list, padding)
         local name = g.name
 
         local visible = GROUP_STATE[name] ~= nil
+        local manual = (GROUP_MANUAL_OFFSETS and GROUP_MANUAL_OFFSETS[name]) or nil
+        local mx = (manual and manual.x) or 0
+        local my = (manual and manual.y) or 0
 
-        GROUP_OFFSETS[name] = { y = offset, visible = visible, height = 0 }
+        GROUP_OFFSETS[name] = { x = mx, y = offset + my, visible = visible, height = 0 }
 
         if visible then
             local h = compute_group_height(name, draw_list)
@@ -316,6 +348,10 @@ function conky_core_main()
 
         local gname = item.group
         if gname and GROUP_OFFSETS[gname] and not GROUP_OFFSETS[gname].visible then goto continue end
+        if gname and is_group_expanded and not is_group_expanded(gname) then
+            local ch = get_group_collapsed_height(gname)
+            if not is_collapsed_header_item(item, ch) then goto continue end
+        end
 
         -- APPLY THEME: gradient name → stops, missing colors
         apply_theme(item)
@@ -328,17 +364,27 @@ function conky_core_main()
             item.value = interpret_name(item.value)
         end
 
+        local group_offset_x = GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].x or 0
         local group_offset_y = GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].y or 0
 
         local saved_x, saved_y = item.x, item.y
+        local saved_h, saved_height = item.h, item.height
         if type(item.x) == "function" then item.x = item.x() end
         if type(item.y) == "function" then item.y = item.y() end
+        item.x = (item.x or 0) + group_offset_x
         item.y = (item.y or 0) + group_offset_y
+
+        if item.type == "background" and gname and is_group_expanded and not is_group_expanded(gname) then
+            local ch = GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].height or get_group_collapsed_height(gname)
+            item.h = ch
+            item.height = ch
+        end
 
         local fn = DRAW_DISPATCH[item.type]
         if fn then fn(cr, item) end
 
         item.x, item.y = saved_x, saved_y
+        item.h, item.height = saved_h, saved_height
 
         ::continue::
     end

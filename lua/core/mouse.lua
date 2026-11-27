@@ -73,6 +73,72 @@ local left_down_handled = false
 -- Active drag state: item being dragged + the item's drag function.
 local drag_item = nil
 local drag_fn = nil
+local drag_pending_item = nil
+local drag_pending_fn = nil
+local drag_start_x = 0
+local drag_start_y = 0
+local drag_last_x = 0
+local drag_last_y = 0
+
+local function is_group_draggable(group_name)
+    if not group_name or not _GROUPS then return false end
+    for _, g in ipairs(_GROUPS) do
+        if g.name == group_name and g.draggable == true then
+            return true
+        end
+    end
+    return false
+end
+
+local function resolve_drag_fn(item)
+    if not item then return nil end
+    if item.drag then return item.drag end
+    if item.type == "background" and is_group_draggable(item.group) then
+        return "group"
+    end
+    return nil
+end
+
+local function run_drag_action(fn, item, event)
+    if not fn then return end
+    event.drag_item = item
+    event.group = event.group or (item and item.group)
+    if fn == "group" then
+        local gname = item and item.group
+        if not gname or not _GROUPS or not GROUP_OFFSETS then return end
+        local idx = nil
+        for i, g in ipairs(_GROUPS) do
+            if g.name == gname then idx = i; break end
+        end
+        if not idx then return end
+        local ey = event.y or 0
+        if idx > 1 then
+            local prev_name = _GROUPS[idx - 1].name
+            local prev = GROUP_OFFSETS[prev_name]
+            if prev and prev.visible and ey < prev.y + (prev.height or 0) * 0.5 then
+                reorder_group(gname, -1)
+                return
+            end
+        end
+        if idx < #_GROUPS then
+            local next_name = _GROUPS[idx + 1].name
+            local nxt = GROUP_OFFSETS[next_name]
+            if nxt and nxt.visible and ey > nxt.y + (nxt.height or 0) * 0.5 then
+                reorder_group(gname, 1)
+                return
+            end
+        end
+    elseif fn == "group_free" then
+        local gname = item and item.group
+        if gname and set_group_offset then
+            set_group_offset(gname, event.dx or 0, event.dy or 0)
+        end
+    elseif type(fn) == "function" then
+        fn(event)
+    elseif type(fn) == "string" then
+        os.execute(fn)
+    end
+end
 
 local function log(msg)
     if dbg_file then
@@ -128,11 +194,12 @@ local function hit_test(ex, ey)
     for i = #draw, 1, -1 do
         local item = draw[i]
 
-        if item.click or item.click_view or item.drag or item.rclick or item.mclick or item.hover or item.leave then
+        if item.click or item.click_view or item.toggle_view or item.expand or resolve_drag_fn(item) or item.rclick or item.mclick or item.hover or item.leave then
             if not evaluate_draw_me(item.draw_me) then goto continue end
             if not draw_allowed(item.view, item.group) then goto continue end
 
             local gname = item.group
+            local gx = GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].x or 0
             local gy = GROUP_OFFSETS[gname] and GROUP_OFFSETS[gname].y or 0
 
             local function val(v, def)
@@ -140,7 +207,7 @@ local function hit_test(ex, ey)
                 return v ~= nil and v or def
             end
 
-            local ix = val(item.x, 0)
+            local ix = val(item.x, 0) + gx
             local iy = val(item.y, 0) + gy
             local iw = val(item.w, val(item.width, 100))
             local ih = val(item.h, val(item.height, 0))
@@ -198,7 +265,39 @@ end
 local function handle_left_click(event)
     local item = hit_test(event.x, event.y)
     if item then
-        if item.toggle_view then
+        local dfn = resolve_drag_fn(item)
+        local has_click = (item.toggle_view or item.click_view or item.expand or item.click) ~= nil
+
+        if dfn and not has_click then
+            drag_item = item
+            drag_fn = dfn
+            drag_start_x = event.x or 0
+            drag_start_y = event.y or 0
+            drag_last_x = drag_start_x
+            drag_last_y = drag_start_y
+            event.dx, event.dy, event.total_dx, event.total_dy = 0, 0, 0, 0
+            log("starting drag on item")
+            run_drag_action(drag_fn, drag_item, event)
+            return true
+        end
+
+        if dfn and has_click then
+            drag_pending_item = item
+            drag_pending_fn = dfn
+            drag_start_x = event.x or 0
+            drag_start_y = event.y or 0
+            drag_last_x = drag_start_x
+            drag_last_y = drag_start_y
+        end
+
+        if item.expand then
+            local target_group = (type(item.expand) == "string") and item.expand or item.group
+            if target_group and toggle_group_expand then
+                log("toggle group expand: " .. tostring(target_group))
+                toggle_group_expand(target_group)
+                return true
+            end
+        elseif item.toggle_view then
             local base = (_VIEWS and _VIEWS[1] and _VIEWS[1].name) or "main"
             local nextv = (current_view == item.toggle_view) and base or item.toggle_view
             log("toggle view to: " .. tostring(nextv))
@@ -209,14 +308,18 @@ local function handle_left_click(event)
             switch_view(item.click_view)
             return true
         elseif item.click then
+            if type(item.click) == "string" then
+                local eg = item.click:match("^expand:(.+)$")
+                if eg or item.click == "expand" then
+                    local tg = eg or item.group
+                    if tg and toggle_group_expand then
+                        toggle_group_expand(tg)
+                        return true
+                    end
+                end
+            end
             log("running click action")
             call_action(item.click, event)
-            return true
-        elseif item.drag then
-            drag_item = item
-            drag_fn = item.drag
-            log("starting drag on item")
-            call_action(drag_fn, event)
             return true
         end
     end
@@ -284,6 +387,8 @@ local function on_event(event)
         end
         drag_item = nil
         drag_fn = nil
+        drag_pending_item = nil
+        drag_pending_fn = nil
         if last_hovered_group then
             event.group = last_hovered_group
             call_action(MOUSE_HOVER_LEAVE_GROUP_ACTION, event)
@@ -303,9 +408,26 @@ local function on_event(event)
     -- mouse_move
     --------------------------------------------------------
     if event.type == "mouse_move" then
+        if not drag_item and drag_pending_item and drag_pending_fn then
+            local dist_x = math.abs((event.x or 0) - drag_start_x)
+            local dist_y = math.abs((event.y or 0) - drag_start_y)
+            if dist_x >= 4 or dist_y >= 4 then
+                drag_item = drag_pending_item
+                drag_fn = drag_pending_fn
+                drag_pending_item = nil
+                drag_pending_fn = nil
+                log("promoted pending drag on item")
+            end
+        end
         if drag_item and drag_fn then
-            log("drag move x=" .. tostring(event.x) .. " y=" .. tostring(event.y))
-            call_action(drag_fn, event)
+            local ex, ey = event.x or 0, event.y or 0
+            event.dx = ex - drag_last_x
+            event.dy = ey - drag_last_y
+            event.total_dx = ex - drag_start_x
+            event.total_dy = ey - drag_start_y
+            drag_last_x, drag_last_y = ex, ey
+            log("drag move x=" .. tostring(ex) .. " y=" .. tostring(ey))
+            run_drag_action(drag_fn, drag_item, event)
             return true
         end
         -- item-level hover/leave transitions; items may share a hover_group
@@ -393,6 +515,8 @@ local function on_event(event)
             end
             drag_item = nil
             drag_fn = nil
+            drag_pending_item = nil
+            drag_pending_fn = nil
             local handled = left_down_handled
             left_down_handled = false
             -- element already handled the left click (button_down) → do not fire globally

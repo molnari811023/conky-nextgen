@@ -97,6 +97,8 @@ Widgets support multiple views (e.g. \fImain\fR, \fIview_1\fR, \fIview_2\fR) wit
 \fBMOUSE_CLICK_LEFT = function() view_toggle("view_1") end\fR
 .fi
 .RE
+.SS Interactive Groups (Drag & Expand)
+Entries in \fB_GROUPS\fR support \fBdraggable = true\fR (drag cards vertically to reorder groups live), \fBcollapsed = true\fR, and \fBcollapsed_height = <px>\fR (default 36). Draw items can set \fBheader = true\fR (remain visible when collapsed), \fBexpand = true\fR (click to collapse/expand the group), and \fBdrag = "group"\fR or \fB"group_free"\fR.
 .SH CUSTOMIZING WIDGETS & DESKTOP INTEGRATION (WIN+D FIX)
 System widgets located under \fI/usr/share/conky-nextgen/\fR are read-only. To modify widget dimensions, screen alignments, or window behavior, copy the configuration to your user directory:
 .PP

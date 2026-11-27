@@ -64,3 +64,16 @@ function on_leave_group(event)
         restore_group_background(event.group)
     end
 end
+
+function expand_toggle(group_name)
+    if group_name and toggle_group_expand then
+        toggle_group_expand(group_name)
+    end
+end
+
+function on_toggle_expand(event)
+    local g = (event and event.group) or (event and event.item and event.item.group)
+    if g and toggle_group_expand then
+        toggle_group_expand(g)
+    end
+end

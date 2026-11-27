@@ -3787,6 +3787,62 @@ class DesignerWindow(Gtk.Window):
         views = grp.get("views", [])
         self._add_grp_prop_row("views", ", ".join(views) if views else "")
         self._add_grp_draw_me_row(grp)
+        self._add_grp_drag_expand_rows(grp)
+
+    def _add_grp_drag_expand_rows(self, grp):
+        """Group-level draggable and expand/collapse controls."""
+        hbox1 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
+        drag_cb = Gtk.CheckButton(label="Draggable (drag to reorder)")
+        drag_cb.set_active(bool(grp.get("draggable", False)))
+
+        coll_cb = Gtk.CheckButton(label="Start collapsed")
+        coll_cb.set_active(bool(grp.get("collapsed", False)))
+
+        def _on_flag(cb, key):
+            if self.selected_group_index is None:
+                return
+            if not (0 <= self.selected_group_index < len(self.groups)):
+                return
+            g = self.groups[self.selected_group_index]
+            if cb.get_active():
+                g[key] = True
+            else:
+                g.pop(key, None)
+            self._schedule_refresh()
+
+        drag_cb.connect("toggled", _on_flag, "draggable")
+        coll_cb.connect("toggled", _on_flag, "collapsed")
+        hbox1.pack_start(drag_cb, False, False, 0)
+        hbox1.pack_start(coll_cb, False, False, 0)
+        self.grp_prop_box.pack_start(hbox1, False, False, 0)
+
+        hbox2 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
+        lbl = Gtk.Label()
+        lbl.set_width_chars(14)
+        lbl.set_xalign(0)
+        lbl.set_markup("<small><b>collapsed_h</b></small>")
+        spin = Gtk.SpinButton.new_with_range(0, 500, 2)
+        spin.set_value(int(grp.get("collapsed_height") or 0))
+        spin.set_tooltip_text("Height (px) when collapsed (0 = default 36px)")
+
+        def _on_ch(sp):
+            if self.selected_group_index is None:
+                return
+            if not (0 <= self.selected_group_index < len(self.groups)):
+                return
+            g = self.groups[self.selected_group_index]
+            v = int(sp.get_value())
+            if v > 0:
+                g["collapsed_height"] = v
+            else:
+                g.pop("collapsed_height", None)
+            self._schedule_refresh()
+
+        spin.connect("value-changed", _on_ch)
+        hbox2.pack_start(lbl, False, False, 0)
+        hbox2.pack_start(spin, False, False, 0)
+        self.grp_prop_box.pack_start(hbox2, False, False, 0)
+        self.grp_prop_box.show_all()
 
     def _add_grp_draw_me_row(self, grp):
         """Group-level conditional drawing (draw_me) editor row."""
