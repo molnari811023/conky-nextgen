@@ -2383,3 +2383,45 @@ msgstr "Cover wird geladen"
 
 msgid "Loading Lyrics"
 msgstr "Liedtext wird geladen"
+
+msgid "Development"
+msgstr "Entwicklung"
+
+msgid "Education"
+msgstr "Bildung"
+
+msgid "Games"
+msgstr "Spiele"
+
+msgid "Graphics"
+msgstr "Grafik"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "Network"
+msgstr "Netzwerk"
+
+msgid "Office"
+msgstr "Büro"
+
+msgid "Science"
+msgstr "Wissenschaft"
+
+msgid "Utilities"
+msgstr "Zubehör"
+
+msgid "Shutdown"
+msgstr "Ausschalten"
+
+msgid "Reboot"
+msgstr "Neustart"
+
+msgid "Suspend"
+msgstr "Bereitschaft"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Lock"
+msgstr "Sperren"

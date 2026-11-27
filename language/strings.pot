@@ -1638,3 +1638,45 @@ msgid "Loading Cover"
 msgstr ""
 msgid "Loading Lyrics"
 msgstr ""
+
+msgid "Development"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Games"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "Multimedia"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Science"
+msgstr ""
+
+msgid "Utilities"
+msgstr ""
+
+msgid "Shutdown"
+msgstr ""
+
+msgid "Reboot"
+msgstr ""
+
+msgid "Suspend"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Lock"
+msgstr ""

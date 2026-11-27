@@ -2353,3 +2353,45 @@ msgstr "Wczytywanie okładki"
 
 msgid "Loading Lyrics"
 msgstr "Wczytywanie tekstu piosenki"
+
+msgid "Development"
+msgstr "Programowanie"
+
+msgid "Education"
+msgstr "Edukacja"
+
+msgid "Games"
+msgstr "Gry"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "Network"
+msgstr "Sieć"
+
+msgid "Office"
+msgstr "Biuro"
+
+msgid "Science"
+msgstr "Nauka"
+
+msgid "Utilities"
+msgstr "Akcesoria"
+
+msgid "Shutdown"
+msgstr "Wyłącz"
+
+msgid "Reboot"
+msgstr "Uruchom ponownie"
+
+msgid "Suspend"
+msgstr "Uśpij"
+
+msgid "Logout"
+msgstr "Wyloguj"
+
+msgid "Lock"
+msgstr "Zablokuj"

@@ -2383,3 +2383,45 @@ msgstr "Loading Cover"
 
 msgid "Loading Lyrics"
 msgstr "Loading Lyrics"
+
+msgid "Development"
+msgstr "Development"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "Games"
+msgstr "Games"
+
+msgid "Graphics"
+msgstr "Graphics"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "Network"
+msgstr "Network"
+
+msgid "Office"
+msgstr "Office"
+
+msgid "Science"
+msgstr "Science"
+
+msgid "Utilities"
+msgstr "Utilities"
+
+msgid "Shutdown"
+msgstr "Shutdown"
+
+msgid "Reboot"
+msgstr "Reboot"
+
+msgid "Suspend"
+msgstr "Suspend"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Lock"
+msgstr "Lock"

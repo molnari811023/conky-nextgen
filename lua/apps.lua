@@ -80,6 +80,34 @@ local function trim(s)
     return (s:gsub("^%s+", ""):gsub("%s+$", ""):gsub("\r$", ""))
 end
 
+-- Resolve active system locale codes (e.g. "hu_HU.UTF-8" -> full="hu_HU", lang="hu")
+local function get_locale_variants()
+    local raw = os.getenv("LC_ALL")
+    if not raw or raw == "" or raw == "C" or raw == "POSIX" then
+        raw = os.getenv("LC_MESSAGES")
+    end
+    if not raw or raw == "" or raw == "C" or raw == "POSIX" then
+        raw = os.getenv("LANG")
+    end
+    if not raw or raw == "" or raw == "C" or raw == "POSIX" then
+        return nil, nil
+    end
+    local mod = raw:match("(@[^%.]+)")
+    local base = raw:match("^([^%.@]+)")
+    if not base or base == "" then return nil, nil end
+    local lang = base:match("^([^_]+)")
+    local full = mod and (base .. mod) or base
+    return full, lang, mod and (lang .. mod) or nil
+end
+
+function apps_category_label(cat_id)
+    if not cat_id or cat_id == "" then return "" end
+    if conky_get_tr then
+        return conky_get_tr(cat_id)
+    end
+    return cat_id
+end
+
 -- Recursively collect every *.desktop basename that exists in dir.
 -- Returns { basename = full_path }.
 local function collect_desktops(dir, out)
@@ -132,14 +160,34 @@ local function parse_desktop(path)
     if entry.Type and entry.Type ~= "Application" then return nil end
     if not entry.Name or entry.Name == "" then return nil end
 
+    local loc_full, loc_lang, loc_lang_mod = get_locale_variants()
+    local localized_name = (loc_full and entry["Name[" .. loc_full .. "]"])
+        or (loc_lang_mod and entry["Name[" .. loc_lang_mod .. "]"])
+        or (loc_lang and entry["Name[" .. loc_lang .. "]"])
+        or entry.Name
+
+    local localized_generic = (loc_full and entry["GenericName[" .. loc_full .. "]"])
+        or (loc_lang_mod and entry["GenericName[" .. loc_lang_mod .. "]"])
+        or (loc_lang and entry["GenericName[" .. loc_lang .. "]"])
+        or entry.GenericName
+
+    local localized_comment = (loc_full and entry["Comment[" .. loc_full .. "]"])
+        or (loc_lang_mod and entry["Comment[" .. loc_lang_mod .. "]"])
+        or (loc_lang and entry["Comment[" .. loc_lang .. "]"])
+        or entry.Comment
+
     local app = {
-        name        = trim(entry.Name),
-        command     = trim(entry.Exec),
-        icon        = trim(entry.Icon),
-        startupwmclass = trim(entry.StartupWMClass),
-        terminal    = trim(entry.Terminal) == "true",
-        nodisplay   = trim(entry.NoDisplay) == "true" or trim(entry.Hidden) == "true",
-        desktop_file= path,
+        name             = trim(localized_name) or trim(entry.Name),
+        raw_name         = trim(entry.Name),
+        generic_name     = trim(localized_generic),
+        raw_generic_name = trim(entry.GenericName),
+        comment          = trim(localized_comment),
+        command          = trim(entry.Exec),
+        icon             = trim(entry.Icon),
+        startupwmclass   = trim(entry.StartupWMClass),
+        terminal         = trim(entry.Terminal) == "true",
+        nodisplay        = trim(entry.NoDisplay) == "true" or trim(entry.Hidden) == "true",
+        desktop_file     = path,
     }
 
     -- Categories: semicolon separated XDG list.
@@ -251,14 +299,43 @@ function apps_list(opts)
     return result
 end
 
---- Find a single application by its Name (case-insensitive).
+--- Format an application's display label according to mode:
+--   "name"         -> app.name (default, e.g. "Konsole")
+--   "generic"      -> app.generic_name if available, else app.name (e.g. "Terminál")
+--   "name_generic" -> "Name (GenericName)" (e.g. "Konsole (Terminál)")
+--   "generic_name" -> "GenericName (Name)" (e.g. "Terminál (Konsole)")
+function apps_display_name(app, mode)
+    if not app then return "" end
+    local n = app.name or app.raw_name or ""
+    local g = app.generic_name or ""
+    mode = mode or "name"
+    if mode == "generic" then
+        return (g ~= "" and g) or n
+    elseif mode == "name_generic" then
+        if g ~= "" and g:lower() ~= n:lower() and not n:lower():find(g:lower(), 1, true) then
+            return n .. " (" .. g .. ")"
+        end
+        return n
+    elseif mode == "generic_name" then
+        if g ~= "" and g:lower() ~= n:lower() and not n:lower():find(g:lower(), 1, true) then
+            return g .. " (" .. n .. ")"
+        end
+        return n
+    end
+    return n
+end
+
+--- Find a single application by its Name or GenericName (case-insensitive).
 -- @tparam string name the application name to look for
 -- @treturn table|nil the matching application entry, or nil
 function apps_find(name)
     if not name then return nil end
     local target = name:lower()
     for _, app in ipairs(apps_list()) do
-        if app.name and app.name:lower() == target then
+        if (app.name and app.name:lower() == target)
+            or (app.raw_name and app.raw_name:lower() == target)
+            or (app.generic_name and app.generic_name:lower() == target)
+            or (app.raw_generic_name and app.raw_generic_name:lower() == target) then
             return app
         end
     end

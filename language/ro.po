@@ -2383,3 +2383,45 @@ msgstr "Se încarcă coperta"
 
 msgid "Loading Lyrics"
 msgstr "Se încarcă versurile"
+
+msgid "Development"
+msgstr "Dezvoltare"
+
+msgid "Education"
+msgstr "Educație"
+
+msgid "Games"
+msgstr "Jocuri"
+
+msgid "Graphics"
+msgstr "Grafică"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "Network"
+msgstr "Rețea"
+
+msgid "Office"
+msgstr "Birou"
+
+msgid "Science"
+msgstr "Știință"
+
+msgid "Utilities"
+msgstr "Utilitare"
+
+msgid "Shutdown"
+msgstr "Oprire"
+
+msgid "Reboot"
+msgstr "Repornire"
+
+msgid "Suspend"
+msgstr "Suspendare"
+
+msgid "Logout"
+msgstr "Ieșire"
+
+msgid "Lock"
+msgstr "Blocare"

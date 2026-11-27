@@ -2383,3 +2383,45 @@ msgstr "جارٍ تحميل الغلاف"
 
 msgid "Loading Lyrics"
 msgstr "جارٍ تحميل الكلمات"
+
+msgid "Development"
+msgstr "التطوير"
+
+msgid "Education"
+msgstr "التعليم"
+
+msgid "Games"
+msgstr "الألعاب"
+
+msgid "Graphics"
+msgstr "الرسوميات"
+
+msgid "Multimedia"
+msgstr "الوسائط المتعددة"
+
+msgid "Network"
+msgstr "الشبكة"
+
+msgid "Office"
+msgstr "المكتب"
+
+msgid "Science"
+msgstr "العلوم"
+
+msgid "Utilities"
+msgstr "الملحقات"
+
+msgid "Shutdown"
+msgstr "إيقاف التشغيل"
+
+msgid "Reboot"
+msgstr "إعادة التشغيل"
+
+msgid "Suspend"
+msgstr "تعليق"
+
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+msgid "Lock"
+msgstr "قفل"

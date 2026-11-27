@@ -2383,3 +2383,45 @@ msgstr "Omslag laden"
 
 msgid "Loading Lyrics"
 msgstr "Songtekst laden"
+
+msgid "Development"
+msgstr "Ontwikkeling"
+
+msgid "Education"
+msgstr "Educatie"
+
+msgid "Games"
+msgstr "Spellen"
+
+msgid "Graphics"
+msgstr "Grafisch"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "Network"
+msgstr "Netwerk"
+
+msgid "Office"
+msgstr "Kantoor"
+
+msgid "Science"
+msgstr "Wetenschap"
+
+msgid "Utilities"
+msgstr "Hulpmiddelen"
+
+msgid "Shutdown"
+msgstr "Afsluiten"
+
+msgid "Reboot"
+msgstr "Herstarten"
+
+msgid "Suspend"
+msgstr "Slaapstand"
+
+msgid "Logout"
+msgstr "Afmelden"
+
+msgid "Lock"
+msgstr "Vergrendelen"

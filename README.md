@@ -30,6 +30,27 @@ Conky NextGen provides dual distribution intelligence that automatically adapts 
 | **Update Dispatcher** (`sh/updates.sh`) | Automatically executes `fetch_updates_ubuntu.sh` | Automatically executes `fetch_updates.sh` |
 | **Hardware & GPU** | Native NVML via `conky-mng` + NVIDIA auto-detection in `conky-nextgen start default` | Native NVML / NvCtrl |
 
+## Universal X11 & Wayland Desktop Panel (`panel_systray/`)
+
+A complete, lightweight desktop panel and system tray solution built on Conky NextGen and a single unified C helper binary (`panel_systray`), automatically switching between **X11** and **Wayland** at startup — verified across **Sway, Hyprland, Labwc, Openbox, and i3**:
+
+- **Start Button & Dynamic Start Menu (`start_menu.conf` / `start_menu.lua`):**
+  - Configurable Start button (`START_BTN_CFG`: custom icon or icon-theme name, live right-click toggle between icon-only and icon+label).
+  - Dynamically sized popup menu (`X × Y` computed from active XDG categories in `lua/apps.lua`), with hover/click category switching, mouse-wheel scrolling, and automatic close on pointer leave (`MOUSE_LEAVE_ACTION`).
+  - Full system-locale support for both XDG categories (via `translate.lua` `.mo` catalogs across 22 languages) and `.desktop` `Name` / `GenericName` modes (cycle live with right-click).
+  - Built-in localized **Session / Power bar** (*Lock, Logout, Suspend, Reboot, Shutdown*).
+- **Universal Tasklist (`tasklist.lua`):**
+  - Uses `wlr-foreign-toplevel-management-unstable-v1` on Wayland and `wmctrl` / `xprop` on X11.
+  - Vector SVG app icons resolved through `apps.lua` + `icon_theme.lua` (supports both `hicolor` and `breeze`/`breeze-dark` layouts), left-click activate/minimize toggle, and **middle-click window close**.
+- **Pure-Lua Battery Indicator (`battery.lua`):**
+  - Reads `/sys/class/power_supply/BAT*` directly via `lfs` (zero external process dependency, auto-hides on desktop PCs) with `breeze-dark` SVG icons, color-coded percentage, and click notification.
+- **Panel Clock & Calendar Popup (`clock.lua` / `calendar_popup.conf`):**
+  - Centered digital clock; first click opens the interactive calendar/analog-clock popup anchored above the clock, second click closes it (with today highlight and month/year selectors).
+- **Unified Systray & Native PipeWire Volume (`panel_systray.c`):**
+  - **Wayland:** Native `gtk-layer-shell` + `org.kde.StatusNotifierWatcher` + `StatusNotifierHost` (interoperates with external `kded6` watchers) + `libdbusmenu-gtk3` + `librsvg` + built-in PipeWire/PulseAudio volume SNI applet.
+  - **X11:** Native XEmbed (`_NET_SYSTEM_TRAY_S<screen>`) tray embedded directly into the Conky panel.
+  - Launch & stop scripts: `./panel_systray/start_panel.sh` and `./panel_systray/stop_panel.sh`.
+
 ## Mobile & Ecosystem Integration: Apple iOS & Google Android
 
 Conky NextGen extends system monitoring beyond desktop hardware, integrating mobile telemetry directly into your desktop environment.

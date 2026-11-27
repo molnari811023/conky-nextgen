@@ -2392,3 +2392,45 @@ msgstr "Indlæser cover"
 
 msgid "Loading Lyrics"
 msgstr "Indlæser sangtekst"
+
+msgid "Development"
+msgstr "Udvikling"
+
+msgid "Education"
+msgstr "Uddannelse"
+
+msgid "Games"
+msgstr "Spil"
+
+msgid "Graphics"
+msgstr "Grafik"
+
+msgid "Multimedia"
+msgstr "Multimedie"
+
+msgid "Network"
+msgstr "Netværk"
+
+msgid "Office"
+msgstr "Kontor"
+
+msgid "Science"
+msgstr "Videnskab"
+
+msgid "Utilities"
+msgstr "Tilbehør"
+
+msgid "Shutdown"
+msgstr "Sluk"
+
+msgid "Reboot"
+msgstr "Genstart"
+
+msgid "Suspend"
+msgstr "Hvile"
+
+msgid "Logout"
+msgstr "Log ud"
+
+msgid "Lock"
+msgstr "Lås"

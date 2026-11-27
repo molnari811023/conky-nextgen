@@ -2383,3 +2383,45 @@ msgstr "커버 불러오는 중"
 
 msgid "Loading Lyrics"
 msgstr "가사 불러오는 중"
+
+msgid "Development"
+msgstr "개발"
+
+msgid "Education"
+msgstr "교육"
+
+msgid "Games"
+msgstr "게임"
+
+msgid "Graphics"
+msgstr "그래픽"
+
+msgid "Multimedia"
+msgstr "멀티미디어"
+
+msgid "Network"
+msgstr "네트워크"
+
+msgid "Office"
+msgstr "오피스"
+
+msgid "Science"
+msgstr "과학"
+
+msgid "Utilities"
+msgstr "보조프로그램"
+
+msgid "Shutdown"
+msgstr "종료"
+
+msgid "Reboot"
+msgstr "다시 시작"
+
+msgid "Suspend"
+msgstr "절전"
+
+msgid "Logout"
+msgstr "로그아웃"
+
+msgid "Lock"
+msgstr "잠금"

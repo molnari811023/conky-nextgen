@@ -2353,3 +2353,45 @@ msgstr "Caricamento copertina"
 
 msgid "Loading Lyrics"
 msgstr "Caricamento testo"
+
+msgid "Development"
+msgstr "Sviluppo"
+
+msgid "Education"
+msgstr "Istruzione"
+
+msgid "Games"
+msgstr "Giochi"
+
+msgid "Graphics"
+msgstr "Grafica"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "Network"
+msgstr "Rete"
+
+msgid "Office"
+msgstr "Ufficio"
+
+msgid "Science"
+msgstr "Scienza"
+
+msgid "Utilities"
+msgstr "Accessori"
+
+msgid "Shutdown"
+msgstr "Spegni"
+
+msgid "Reboot"
+msgstr "Riavvia"
+
+msgid "Suspend"
+msgstr "Sospendi"
+
+msgid "Logout"
+msgstr "Esci"
+
+msgid "Lock"
+msgstr "Blocca"

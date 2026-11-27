@@ -2353,3 +2353,45 @@ msgstr "Kapak Yükleniyor"
 
 msgid "Loading Lyrics"
 msgstr "Şarkı Sözleri Yükleniyor"
+
+msgid "Development"
+msgstr "Geliştirme"
+
+msgid "Education"
+msgstr "Eğitim"
+
+msgid "Games"
+msgstr "Oyunlar"
+
+msgid "Graphics"
+msgstr "Grafik"
+
+msgid "Multimedia"
+msgstr "Çoklu Ortam"
+
+msgid "Network"
+msgstr "Ağ"
+
+msgid "Office"
+msgstr "Ofis"
+
+msgid "Science"
+msgstr "Bilim"
+
+msgid "Utilities"
+msgstr "Donatılar"
+
+msgid "Shutdown"
+msgstr "Kapat"
+
+msgid "Reboot"
+msgstr "Yeniden Başlat"
+
+msgid "Suspend"
+msgstr "Askıya Al"
+
+msgid "Logout"
+msgstr "Çıkış"
+
+msgid "Lock"
+msgstr "Kilitle"

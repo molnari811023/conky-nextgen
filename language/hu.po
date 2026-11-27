@@ -2416,3 +2416,45 @@ msgstr "Borító betöltése"
 
 msgid "Loading Lyrics"
 msgstr "Dalszöveg betöltése"
+
+msgid "Development"
+msgstr "Fejlesztés"
+
+msgid "Education"
+msgstr "Oktatás"
+
+msgid "Games"
+msgstr "Játékok"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Multimedia"
+msgstr "Multimédia"
+
+msgid "Network"
+msgstr "Hálózat"
+
+msgid "Office"
+msgstr "Iroda"
+
+msgid "Science"
+msgstr "Tudomány"
+
+msgid "Utilities"
+msgstr "Kellékek"
+
+msgid "Shutdown"
+msgstr "Leállítás"
+
+msgid "Reboot"
+msgstr "Újraindítás"
+
+msgid "Suspend"
+msgstr "Alvás"
+
+msgid "Logout"
+msgstr "Kilépés"
+
+msgid "Lock"
+msgstr "Zárolás"

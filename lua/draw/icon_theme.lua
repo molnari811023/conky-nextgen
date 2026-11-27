@@ -44,7 +44,7 @@ local ICON_SEARCH_PATHS = {
 
 local CONTEXT_PRIORITY = {
     "apps", "places", "devices", "status", "actions",
-    "categories", "emblems", "mimetypes", "panel", "emotes",
+    "categories", "emblems", "mimetypes", "panel", "emotes", "legacy",
 }
 
 local function file_exists(path)
@@ -126,10 +126,37 @@ local function parse_index_theme(theme_name)
     return result
 end
 
+local _detected_gtk_theme = nil
+local function detect_default_icon_theme()
+    if _detected_gtk_theme then return _detected_gtk_theme end
+    local gtk_ini = read_file(HOME .. "/.config/gtk-3.0/settings.ini")
+    if gtk_ini then
+        local t = gtk_ini:match("gtk%-icon%-theme%-name%s*=%s*([^\r\n]+)")
+        if t then
+            t = t:match("^%s*(.-)%s*$")
+            if t ~= "" and parse_index_theme(t).path then
+                _detected_gtk_theme = t
+                return t
+            end
+        end
+    end
+    for _, fallback in ipairs({ "breeze-dark", "breeze", "Papirus-Dark", "Papirus", "Adwaita", "hicolor" }) do
+        if parse_index_theme(fallback).path then
+            _detected_gtk_theme = fallback
+            return fallback
+        end
+    end
+    _detected_gtk_theme = "hicolor"
+    return _detected_gtk_theme
+end
+
 local function icon_resolve_impl(name, target_size, theme_name)
     if not name or name == "" then return nil end
     target_size = target_size or 48
-    theme_name = theme_name or XDG_ICON_THEME or "Papirus"
+    theme_name = theme_name or XDG_ICON_THEME
+    if not theme_name or not parse_index_theme(theme_name).path then
+        theme_name = detect_default_icon_theme()
+    end
 
     local cache_key = theme_name .. ":" .. name .. ":" .. tostring(target_size)
     if ICON_PATH_CACHE[cache_key] then
@@ -160,15 +187,33 @@ local function icon_resolve_impl(name, target_size, theme_name)
             return nil
         end
 
+        local function find_in_context_first(base_path, sz_str)
+            for _, ctx in ipairs(CONTEXT_PRIORITY) do
+                for _, ext in ipairs(exts) do
+                    local path = base_path .. ctx .. "/" .. sz_str .. "/" .. name .. ext
+                    if file_exists(path) then
+                        return path
+                    end
+                end
+            end
+            return nil
+        end
+
         -- walk the sizes from closest to farthest; some dirs exist but miss
         -- a given icon (e.g. 42x42 without com.mitchellh.ghostty), so keep
         -- trying the next closest size before falling back to scalable.
+        -- Checks hicolor/Adwaita (<size>x<size>/<ctx>), Breeze (<ctx>/<size>),
+        -- and Oxygen (base/<size>x<size>/<ctx>) layouts.
         for _, sz in ipairs(find_best_sizes(t.sizes, target_size)) do
             local found = find_in(t.path .. sz .. "x" .. sz)
+                or find_in_context_first(t.path, tostring(sz))
+                or find_in(t.path .. "base/" .. sz .. "x" .. sz)
             if found then return found end
         end
 
         local found = find_in(t.path .. "scalable")
+            or find_in_context_first(t.path, "scalable")
+            or find_in(t.path .. "base/scalable")
         if found then return found end
 
         return nil
@@ -185,6 +230,14 @@ local function icon_resolve_impl(name, target_size, theme_name)
         if result then
             cache_set(ICON_PATH_CACHE, cache_key, result, 512)
             return result
+        end
+    end
+
+    for _, ext in ipairs({ ".svg", ".png" }) do
+        local pixmap_path = "/usr/share/pixmaps/" .. name .. ext
+        if file_exists(pixmap_path) then
+            cache_set(ICON_PATH_CACHE, cache_key, pixmap_path, 512)
+            return pixmap_path
         end
     end
 

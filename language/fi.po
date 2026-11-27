@@ -2392,3 +2392,45 @@ msgstr "Ladataan kantta"
 
 msgid "Loading Lyrics"
 msgstr "Ladataan sanoituksia"
+
+msgid "Development"
+msgstr "Kehitys"
+
+msgid "Education"
+msgstr "Opetus"
+
+msgid "Games"
+msgstr "Pelit"
+
+msgid "Graphics"
+msgstr "Grafiikka"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "Network"
+msgstr "Verkko"
+
+msgid "Office"
+msgstr "Toimisto"
+
+msgid "Science"
+msgstr "Tiede"
+
+msgid "Utilities"
+msgstr "Apuohjelmat"
+
+msgid "Shutdown"
+msgstr "Sammuta"
+
+msgid "Reboot"
+msgstr "Käynnistä uudelleen"
+
+msgid "Suspend"
+msgstr "Valmiustila"
+
+msgid "Logout"
+msgstr "Kirjaudu ulos"
+
+msgid "Lock"
+msgstr "Lukitse"

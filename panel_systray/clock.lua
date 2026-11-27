@@ -14,10 +14,12 @@ CLOCK_CFG = {
     size      = 12,
     color     = { { 1, "#fcfcfc", 1 } },
     right_pad = 8,             -- padding from the panel's right edge
-    y_pad     = -1,            -- extra vertical nudge (positive = down)
+    y_pad     = 0,             -- extra vertical nudge (positive = down)
+    click_w   = 56,            -- clickable hitbox width around the clock
 }
 
 CLOCK_ITEM = CLOCK_ITEM or nil
+CLOCK_HIT_ITEM = CLOCK_HIT_ITEM or nil
 
 --- Right edge x for left-aligned text (panel width - padding).
 local function clock_right()
@@ -25,17 +27,38 @@ local function clock_right()
     return conky_window.width - CLOCK_CFG.right_pad
 end
 
---- Vertical baseline: centers the text inside the panel height.
+--- Vertical position: (panel_height - clock_size) / 2 centers the text in the panel.
 local function clock_y()
     if not conky_window then return 4 end
     local h = conky_window.height or 48
-    -- baseline where the glyph center sits in the middle of the panel
-    return math.floor(h / 2) + CLOCK_CFG.y_pad
+    local sz = CLOCK_CFG.size or 12
+    return math.floor((h - sz) / 2) + (CLOCK_CFG.y_pad or 0)
 end
 
 function clock_install()
     if not CLOCK_CFG.enabled then return nil end
     if CLOCK_ITEM then return CLOCK_ITEM end
+
+    local base_dir = script_dir or "/home/molnar/.conky/panel_systray/"
+    local click_cmd = base_dir .. "toggle_calendar.sh &"
+
+    -- Transparent clickable hitbox covering the right-aligned clock text
+    CLOCK_HIT_ITEM = {
+        type         = "background",
+        x            = function() return clock_right() - CLOCK_CFG.click_w end,
+        y            = 6,
+        w            = CLOCK_CFG.click_w + CLOCK_CFG.right_pad,
+        h            = 36,
+        radius       = 6,
+        bg           = { { 1, "#000000", 0 } },
+        border_width = 0,
+        click        = click_cmd,
+        draw_me      = function()
+            if not conky_window then return false end
+            return CLOCK_CFG.enabled
+        end,
+    }
+    draw[#draw + 1] = CLOCK_HIT_ITEM
 
     CLOCK_ITEM = {
         type  = "text",

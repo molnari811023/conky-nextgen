@@ -2380,3 +2380,45 @@ msgstr "カバー読み込み中"
 
 msgid "Loading Lyrics"
 msgstr "歌詞読み込み中"
+
+msgid "Development"
+msgstr "開発"
+
+msgid "Education"
+msgstr "教育"
+
+msgid "Games"
+msgstr "ゲーム"
+
+msgid "Graphics"
+msgstr "グラフィックス"
+
+msgid "Multimedia"
+msgstr "マルチメディア"
+
+msgid "Network"
+msgstr "ネットワーク"
+
+msgid "Office"
+msgstr "オフィス"
+
+msgid "Science"
+msgstr "科学"
+
+msgid "Utilities"
+msgstr "アクセサリ"
+
+msgid "Shutdown"
+msgstr "シャットダウン"
+
+msgid "Reboot"
+msgstr "再起動"
+
+msgid "Suspend"
+msgstr "スリープ"
+
+msgid "Logout"
+msgstr "ログアウト"
+
+msgid "Lock"
+msgstr "ロック"

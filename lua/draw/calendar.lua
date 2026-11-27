@@ -104,9 +104,10 @@ function draw_calendar(cr, opts)
 
 	-- month/year title: clickable halves (left = year popup, right = month popup)
 	local tw = measure_text(cr, c.font, c.size + 8, "bold", mn)
-	local title_top = y - 16
-	reg(center_x - tw / 2, title_top, tw / 2, 26, function() popup = "year"; year_base = nav_y end)
-	reg(center_x, title_top, tw / 2, 26, function() popup = "month" end)
+	local title_top = y
+	local title_h = math.max(28, rh)
+	reg(center_x - tw / 2, title_top, tw / 2, title_h, function() popup = "year"; year_base = nav_y end)
+	reg(center_x, title_top, tw / 2, title_h, function() popup = "month" end)
 
 	draw_text(cr, {
 		text = mn,
@@ -235,6 +236,20 @@ function draw_calendar(cr, opts)
 			end
 			local tdate = os.date("*t")
 			local is_today = inside and yw == tdate.year and mw == tdate.month and dw == tdate.day
+			if is_today then
+				local bx = x + weekcol + col * cw + 3
+				local by = y + rh * (row + 3) - math.floor((rh - c.size) / 2) + 2
+				local bw = cw - 6
+				local bh = rh - 4
+				cairo_save(cr)
+				rounded_rect_path(cr, bx, by, bw, bh, 6)
+				cairo_set_source_rgba(cr, 0.24, 0.68, 0.91, 0.25)
+				cairo_fill_preserve(cr)
+				cairo_set_source_rgba(cr, 0.24, 0.68, 0.91, 0.95)
+				cairo_set_line_width(cr, 1.5)
+				cairo_stroke(cr)
+				cairo_restore(cr)
+			end
 			local colr = is_today and c.color_today or (inside and c.color_days or c.color_outside)
 			local weight = is_today and "bold" or "normal"
 			draw_text(cr, {

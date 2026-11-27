@@ -39,32 +39,35 @@ concrete numbers.
 --}}}
 TASKLIST_CFG = {
     max_windows   = 24,
-    slot_width    = 168,
-    slot_height   = 26,
-    icon_size     = 44,
-    x_start       = 8,
-    y             = 4,
-    spacing       = 2,
-    panel_height  = 48,          -- panel height (icon-mode slot fills this)
+    slot_width    = 176,
+    slot_height   = 30,
+    icon_size     = 20,
+    x_start       = 106,
+    y             = 9,
+    spacing       = 6,
+    panel_height  = 48,
     font          = "Sans",
     font_size     = 11,
-    title_max     = 20,
+    title_max     = 19,
     icon_pos      = "left",     -- left|right
     -- display mode: "full" (icon+title), "icon" (icon only), "name" (title only)
-    mode          = "icon",
+    mode          = "full",
     fallback_icon = "application-default-icon",
-    -- per-field size override (wins over the defaults above):
-    --   size_override = { slot_width = 120, slot_height = 22,
-    --                     icon_size = 14, font_size = 10, title_max = 16 }
     size_override = nil,
     states = {
-        normal   = { bg = "#202326", fg = "#fcfcfc" },
-        focus    = { bg = "#3daee9", fg = "#1b1d1f" },
-        urgent   = { bg = "#ff626e", fg = "#1b1d1f" },
-        minimize = { bg = "#31363c", fg = "#a1a9b1" },
+        normal   = { bg = "#282c34", fg = "#eceff4", border = "#434c5e" },
+        focus    = { bg = "#1f425c", fg = "#ffffff", border = "#3daee9" },
+        urgent   = { bg = "#5c242b", fg = "#ffffff", border = "#ff626e" },
+        minimize = { bg = "#1c1f24", fg = "#7c838e", border = "#2e3440" },
     },
     class_exclude = {
         ["conky.panel_conky"] = true,
+        ["conky.start_menu_conky"] = true,
+        ["start_menu_conky.start_menu_conky"] = true,
+        ["start_menu_conky"] = true,
+        ["conky.calendar_popup_conky"] = true,
+        ["calendar_popup_conky.calendar_popup_conky"] = true,
+        ["calendar_popup_conky"] = true,
         ["conky.conky"] = true,
         ["panel_conky.panel_conky"] = true,
         ["panel_conky"] = true,
@@ -79,6 +82,7 @@ TASKLIST_CFG = {
 
 TASKLIST = { wins = {}, by_id = {}, focused = 0, ready = false }
 
+local IS_WAYLAND = (os.getenv("WAYLAND_DISPLAY") or "") ~= ""
 local TL_MAX   = TASKLIST_CFG.max_windows
 local TL_XS    = TASKLIST_CFG.x_start
 local TL_Y     = TASKLIST_CFG.y
@@ -197,6 +201,51 @@ function tasklist_update()
     if not changed() then return TASKLIST end
     if not draw or #draw == 0 then return TASKLIST end
 
+    if IS_WAYLAND then
+        local runtime_dir = os.getenv("XDG_RUNTIME_DIR") or "/tmp"
+        local tsv_path = runtime_dir .. "/conky_wayland_tasklist.tsv"
+        local f = io.open(tsv_path, "r")
+        local tab, by_id = {}, {}
+        local active = 0
+        if f then
+            for line in f:lines() do
+                local id_str, app_id, state_str, icon_png, title =
+                    line:match("^([^\t]+)\t([^\t]*)\t([^\t]*)\t([^\t]*)\t(.*)$")
+                local wid = tonumber(id_str)
+                if wid then
+                    local dummy_w = { win = wid, klass = app_id, title = trim(title) }
+                    if not is_excluded(dummy_w) then
+                        local is_act = (state_str == "focus")
+                        if is_act then active = wid end
+                        local entry = {
+                            win      = wid,
+                            title    = dummy_w.title,
+                            klass    = app_id,
+                            app      = apps_by_wmclass(app_id),
+                            icon_png = (icon_png ~= "" and icon_png or nil),
+                            state    = {
+                                HIDDEN = (state_str == "minimize"),
+                                URGENT = (state_str == "urgent"),
+                            },
+                            active   = is_act,
+                        }
+                        tab[#tab + 1] = entry
+                        by_id[wid] = entry
+                        if #tab >= TL_MAX then break end
+                    end
+                end
+            end
+            f:close()
+        end
+
+        TASKLIST.wins    = tab
+        TASKLIST.by_id   = by_id
+        TASKLIST.focused = active
+        TASKLIST.ready   = true
+        tasklist_paint()
+        return TASKLIST
+    end
+
     local wins = {}
     local p = io.popen("wmctrl -lx 2>/dev/null")
     if p then
@@ -260,21 +309,27 @@ function tasklist_paint()
     local is = eff_icon_size()
     local fs = eff_font_size()
     local sw, sh = eff_slot_size()
+    local xs = cfg_val("x_start", 12)
+    local ys = cfg_val("spacing", 6)
     for i = 1, TL_MAX do
         local s = TASKLIST.slots[i]
         if not s then break end
         local w = TASKLIST.wins[i]
-        local x = TL_XS + (i - 1) * (sw + TL_YS)
+        local x = xs + (i - 1) * (sw + ys)
         local st = w and slot_state(w) or "normal"
-        local y = (mode == "icon") and TL_Y + ((TASKLIST_CFG.panel_height or sh) - sh) / 2 or TL_Y
+        local ph = TASKLIST_CFG.panel_height or 48
+        local y = math.floor((ph - sh) / 2)
 
         s.bg.x   = x
         s.bg.y   = y
         s.bg.w   = sw
         s.bg.h   = sh
-        s.bg.bg  = { { 1, TASKLIST_CFG.states[st].bg, 1 } }
-        s.bg.radius = (mode == "icon") and sw / 2 or nil
-        s.bg.click = w and TL_CLICK_STR(w) or nil
+        s.bg.bg  = { { 1, TASKLIST_CFG.states[st].bg, (st == "minimize") and 0.65 or 0.92 } }
+        s.bg.border = { { 1, TASKLIST_CFG.states[st].border or "#3daee9", (st == "focus") and 0.95 or 0.55 } }
+        s.bg.border_width = (st == "focus") and 1.5 or 1.0
+        s.bg.radius = (mode == "icon") and sw / 2 or 6
+        s.bg.click  = w and TL_CLICK_STR(w) or nil
+        s.bg.mclick = w and TL_MCLICK_STR(w) or nil
 
         local icon_path = w and slot_icon(w) or nil
         local show_icon = (mode ~= "name") and icon_path
@@ -293,16 +348,20 @@ function tasklist_paint()
                 s.icon.x = x + 5
                 s.icon.y = iy
             end
-            s.icon.path = icon_path
-            s.icon.type = icon_path:match("%.svg$") and "svg" or "image"
-            s.icon.w    = is
-            s.icon.h    = is
-            s.icon.click = s.bg.click
+            s.icon.path   = icon_path
+            s.icon.type   = icon_path:match("%.svg$") and "svg" or "image"
+            s.icon.w      = is
+            s.icon.h      = is
+            s.icon.width  = is
+            s.icon.height = is
+            s.icon.click  = s.bg.click
+            s.icon.mclick = s.bg.mclick
         else
-            s.icon.path  = nil
-            s.icon.click = nil
-            s.icon.w     = 0
-            s.icon.h     = 0
+            s.icon.path   = nil
+            s.icon.click  = nil
+            s.icon.mclick = nil
+            s.icon.w      = 0
+            s.icon.h      = 0
         end
 
         if show_text then
@@ -319,16 +378,20 @@ function tasklist_paint()
             else
                 tx = x + 6
             end
-            s.text.x    = tx
-            s.text.y    = y + (sh - fs) / 2 - 1
-            s.text.font = TASKLIST_CFG.font
-            s.text.size = fs
-            s.text.text = title
-            s.text.color = { { 1, TASKLIST_CFG.states[st].fg, 1 } }
-            s.text.click = s.bg.click
+            s.text.x      = tx
+            s.text.y      = y + math.floor((sh - fs) / 2) - 1
+            s.text.font   = TASKLIST_CFG.font
+            s.text.size   = fs
+            s.text.weight = (st == "focus") and "bold" or "normal"
+            s.text.slant  = (st == "minimize") and "italic" or "normal"
+            s.text.text   = function() return title end
+            s.text.color  = { { 1, TASKLIST_CFG.states[st].fg, 1 } }
+            s.text.click  = s.bg.click
+            s.text.mclick = s.bg.mclick
         else
-            s.text.text  = nil
-            s.text.click = nil
+            s.text.text   = nil
+            s.text.click  = nil
+            s.text.mclick = nil
         end
     end
 end
@@ -404,32 +467,77 @@ function slot_icon(w)
         push(p:lower())
     end
 
-    -- Fallback icons
-    if TASKLIST_CFG.fallback_icon then
-        push(TASKLIST_CFG.fallback_icon)
+    local themes = { XDG_ICON_THEME or "Papirus", "breeze", "breeze-dark", "Adwaita", "AdwaitaLegacy", "oxygen", "hicolor" }
+    for _, tname in ipairs(themes) do
+        for _, name in ipairs(candidates) do
+            local path = icon_resolve(name, eff_icon_size(), tname)
+            if path then return path end
+        end
     end
-    push("application-default-icon")
-    push("application-x-executable")
-    push("application-x-generic")
 
-    for _, name in ipairs(candidates) do
-        local path = icon_resolve(name, eff_icon_size(), XDG_ICON_THEME or "Papirus")
-        if path then return path end
+    if w.icon_png and w.icon_png ~= "" then
+        local f = io.open(w.icon_png, "r")
+        if f then
+            f:close()
+            return w.icon_png
+        end
+    end
+
+    local fallbacks = {}
+    if TASKLIST_CFG.fallback_icon then
+        fallbacks[#fallbacks + 1] = TASKLIST_CFG.fallback_icon
+    end
+    fallbacks[#fallbacks + 1] = "application-default-icon"
+    fallbacks[#fallbacks + 1] = "application-x-executable"
+    fallbacks[#fallbacks + 1] = "application-x-generic"
+
+    for _, tname in ipairs(themes) do
+        for _, name in ipairs(fallbacks) do
+            local path = icon_resolve(name, eff_icon_size(), tname)
+            if path then return path end
+        end
     end
     return nil
+end
+
+--- UTF-8 safe string truncation so multi-byte characters (ő, ű, —) are never split mid-byte.
+local function utf8_truncate(str, max_chars)
+    if not str then return "" end
+    local count = 0
+    local byte_idx = 1
+    local len = #str
+    while byte_idx <= len do
+        count = count + 1
+        if count > max_chars then
+            return str:sub(1, byte_idx - 1) .. "…"
+        end
+        local c = str:byte(byte_idx)
+        if c < 0x80 then
+            byte_idx = byte_idx + 1
+        elseif c < 0xE0 then
+            byte_idx = byte_idx + 2
+        elseif c < 0xF0 then
+            byte_idx = byte_idx + 3
+        else
+            byte_idx = byte_idx + 4
+        end
+    end
+    return str
 end
 
 --- Window title, trimmed to the slot width.
 function slot_title(w)
     if not w then return "" end
     local t = w.title or ""
-    local maxc = eff_title_max()
-    if #t > maxc then t = t:sub(1, maxc - 1) .. "…" end
-    return t
+    return utf8_truncate(t, eff_title_max())
 end
 
---- Shell-safe wmctrl activate/minimize action for one window.
+--- Shell-safe wmctrl (X11) or panel_systray --click (Wayland) activate/minimize action.
 function TL_CLICK_STR(w)
+    if IS_WAYLAND then
+        local dir = script_dir or "/home/molnar/.conky/panel_systray/"
+        return string.format("%spanel_systray --click %d 1 &", dir, w.win)
+    end
     local win = string.format("0x%x", w.win)
     if w.state.HIDDEN then
         return "wmctrl -i -a " .. win
@@ -439,6 +547,15 @@ function TL_CLICK_STR(w)
         return "wmctrl -i -r " .. win .. " -b add,hidden"
     end
     return "wmctrl -i -a " .. win
+end
+
+--- Shell-safe middle-click close action (Wayland panel_systray --click <id> 2 or X11 wmctrl -i -c).
+function TL_MCLICK_STR(w)
+    if IS_WAYLAND then
+        local dir = script_dir or "/home/molnar/.conky/panel_systray/"
+        return string.format("%spanel_systray --click %d 2 &", dir, w.win)
+    end
+    return "wmctrl -i -c " .. string.format("0x%x", w.win)
 end
 
 --- Register the tasklist slot draw items into the global `draw` list.

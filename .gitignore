@@ -22,3 +22,5 @@ pkg/python-pyicloud/*.tar.gz
 pkg/**/src/
 pkg/**/pkg/
 pkg/**/GoogleFindMyTools/
+panel_systray_wayland_*/
+panel_systray_x11_backup/

@@ -2383,3 +2383,45 @@ msgstr "Chargement de la pochette"
 
 msgid "Loading Lyrics"
 msgstr "Chargement des paroles"
+
+msgid "Development"
+msgstr "Développement"
+
+msgid "Education"
+msgstr "Éducation"
+
+msgid "Games"
+msgstr "Jeux"
+
+msgid "Graphics"
+msgstr "Graphisme"
+
+msgid "Multimedia"
+msgstr "Multimédia"
+
+msgid "Network"
+msgstr "Réseau"
+
+msgid "Office"
+msgstr "Bureautique"
+
+msgid "Science"
+msgstr "Sciences"
+
+msgid "Utilities"
+msgstr "Accessoires"
+
+msgid "Shutdown"
+msgstr "Éteindre"
+
+msgid "Reboot"
+msgstr "Redémarrer"
+
+msgid "Suspend"
+msgstr "Veille"
+
+msgid "Logout"
+msgstr "Déconnexion"
+
+msgid "Lock"
+msgstr "Verrouiller"

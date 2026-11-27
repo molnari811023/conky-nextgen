@@ -65,13 +65,27 @@ if not STRINGS_MO_PATH then
     -- concern. widget.lua only provides script_dir.
     local lang_raw = os.getenv("LANG") or os.getenv("LC_ALL") or os.getenv("LC_MESSAGES") or "en"
     local lang_code = lang_raw:sub(1, 2):lower()
-    local lang_path = script_dir .. "language/" .. lang_code .. ".mo"
-    local f = io.open(lang_path, "rb")
-    if f then
-        f:close()
-        STRINGS_MO_PATH = lang_path
-    else
-        STRINGS_MO_PATH = script_dir .. "language/en.mo"
+    local candidates = {
+        script_dir .. "language/" .. lang_code .. ".mo",
+        script_dir .. "../language/" .. lang_code .. ".mo",
+    }
+    for _, cand in ipairs(candidates) do
+        local f = io.open(cand, "rb")
+        if f then
+            f:close()
+            STRINGS_MO_PATH = cand
+            break
+        end
+    end
+    if not STRINGS_MO_PATH then
+        local en_parent = script_dir .. "../language/en.mo"
+        local f = io.open(en_parent, "rb")
+        if f then
+            f:close()
+            STRINGS_MO_PATH = en_parent
+        else
+            STRINGS_MO_PATH = script_dir .. "language/en.mo"
+        end
     end
 end
 

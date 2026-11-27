@@ -2383,3 +2383,45 @@ msgstr "Загрузка обложки"
 
 msgid "Loading Lyrics"
 msgstr "Загрузка текста песни"
+
+msgid "Development"
+msgstr "Разработка"
+
+msgid "Education"
+msgstr "Образование"
+
+msgid "Games"
+msgstr "Игры"
+
+msgid "Graphics"
+msgstr "Графика"
+
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+msgid "Network"
+msgstr "Сеть"
+
+msgid "Office"
+msgstr "Офис"
+
+msgid "Science"
+msgstr "Наука"
+
+msgid "Utilities"
+msgstr "Стандартные"
+
+msgid "Shutdown"
+msgstr "Выключить"
+
+msgid "Reboot"
+msgstr "Перезагрузить"
+
+msgid "Suspend"
+msgstr "Сон"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Lock"
+msgstr "Блокировка"

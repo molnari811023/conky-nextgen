@@ -2383,3 +2383,45 @@ msgstr "Laddar cover"
 
 msgid "Loading Lyrics"
 msgstr "Laddar text"
+
+msgid "Development"
+msgstr "Utveckling"
+
+msgid "Education"
+msgstr "Utbildning"
+
+msgid "Games"
+msgstr "Spel"
+
+msgid "Graphics"
+msgstr "Grafik"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "Network"
+msgstr "Nätverk"
+
+msgid "Office"
+msgstr "Kontor"
+
+msgid "Science"
+msgstr "Vetenskap"
+
+msgid "Utilities"
+msgstr "Tillbehör"
+
+msgid "Shutdown"
+msgstr "Stäng av"
+
+msgid "Reboot"
+msgstr "Starta om"
+
+msgid "Suspend"
+msgstr "Viloläge"
+
+msgid "Logout"
+msgstr "Logga ut"
+
+msgid "Lock"
+msgstr "Lås"

@@ -2353,3 +2353,45 @@ msgstr "A carregar a capa"
 
 msgid "Loading Lyrics"
 msgstr "A carregar a letra"
+
+msgid "Development"
+msgstr "Desenvolvimento"
+
+msgid "Education"
+msgstr "Educação"
+
+msgid "Games"
+msgstr "Jogos"
+
+msgid "Graphics"
+msgstr "Gráficos"
+
+msgid "Multimedia"
+msgstr "Multimídia"
+
+msgid "Network"
+msgstr "Rede"
+
+msgid "Office"
+msgstr "Escritório"
+
+msgid "Science"
+msgstr "Ciência"
+
+msgid "Utilities"
+msgstr "Acessórios"
+
+msgid "Shutdown"
+msgstr "Desligar"
+
+msgid "Reboot"
+msgstr "Reiniciar"
+
+msgid "Suspend"
+msgstr "Suspender"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "Lock"
+msgstr "Bloquear"

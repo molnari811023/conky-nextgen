@@ -2383,3 +2383,45 @@ msgstr "Učitavanje omota"
 
 msgid "Loading Lyrics"
 msgstr "Učitavanje tekst pjesme"
+
+msgid "Development"
+msgstr "Razvoj"
+
+msgid "Education"
+msgstr "Obrazovanje"
+
+msgid "Games"
+msgstr "Igre"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Multimedia"
+msgstr "Multimedija"
+
+msgid "Network"
+msgstr "Mreža"
+
+msgid "Office"
+msgstr "Ured"
+
+msgid "Science"
+msgstr "Znanost"
+
+msgid "Utilities"
+msgstr "Pomagala"
+
+msgid "Shutdown"
+msgstr "Isključi"
+
+msgid "Reboot"
+msgstr "Ponovo pokreni"
+
+msgid "Suspend"
+msgstr "Spavanje"
+
+msgid "Logout"
+msgstr "Odjava"
+
+msgid "Lock"
+msgstr "Zaključaj"

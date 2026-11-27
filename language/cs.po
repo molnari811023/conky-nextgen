@@ -2392,3 +2392,45 @@ msgstr "Načítání obalu"
 
 msgid "Loading Lyrics"
 msgstr "Načítání textu písně"
+
+msgid "Development"
+msgstr "Vývoj"
+
+msgid "Education"
+msgstr "Vzdělávání"
+
+msgid "Games"
+msgstr "Hry"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Multimedia"
+msgstr "Multimédia"
+
+msgid "Network"
+msgstr "Síť"
+
+msgid "Office"
+msgstr "Kancelář"
+
+msgid "Science"
+msgstr "Věda"
+
+msgid "Utilities"
+msgstr "Příslušenství"
+
+msgid "Shutdown"
+msgstr "Vypnout"
+
+msgid "Reboot"
+msgstr "Restartovat"
+
+msgid "Suspend"
+msgstr "Uspat"
+
+msgid "Logout"
+msgstr "Odhlásit"
+
+msgid "Lock"
+msgstr "Zamknout"

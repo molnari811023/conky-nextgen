@@ -128,7 +128,7 @@ local function hit_test(ex, ey)
     for i = #draw, 1, -1 do
         local item = draw[i]
 
-        if item.click or item.click_view or item.drag or item.rclick or item.hover or item.leave then
+        if item.click or item.click_view or item.drag or item.rclick or item.mclick or item.hover or item.leave then
             if not evaluate_draw_me(item.draw_me) then goto continue end
             if not draw_allowed(item.view, item.group) then goto continue end
 
@@ -364,12 +364,19 @@ local function on_event(event)
             return left_down_handled
         end
 
-        -- other button → global action
+        -- other button → element rclick/mclick or global action
         if event.button == "right" then
             local ri = hit_test(event.x, event.y)
             if ri and ri.rclick then
                 log("running right-click on item")
                 call_action(ri.rclick, event)
+                return true
+            end
+        elseif event.button == "middle" then
+            local mi = hit_test(event.x, event.y)
+            if mi and mi.mclick then
+                log("running middle-click on item")
+                call_action(mi.mclick, event)
                 return true
             end
         end

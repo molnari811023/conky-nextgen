@@ -2383,3 +2383,45 @@ msgstr "正在加载封面"
 
 msgid "Loading Lyrics"
 msgstr "正在加载歌词"
+
+msgid "Development"
+msgstr "开发"
+
+msgid "Education"
+msgstr "教育"
+
+msgid "Games"
+msgstr "游戏"
+
+msgid "Graphics"
+msgstr "图形"
+
+msgid "Multimedia"
+msgstr "多媒体"
+
+msgid "Network"
+msgstr "网络"
+
+msgid "Office"
+msgstr "办公"
+
+msgid "Science"
+msgstr "科学"
+
+msgid "Utilities"
+msgstr "附件"
+
+msgid "Shutdown"
+msgstr "关机"
+
+msgid "Reboot"
+msgstr "重启"
+
+msgid "Suspend"
+msgstr "休眠"
+
+msgid "Logout"
+msgstr "注销"
+
+msgid "Lock"
+msgstr "锁定"
