@@ -23,6 +23,7 @@ echo "    Verzió: $VERSION"
 echo "==> [2/5] Staging könyvtár felépítése..."
 rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR/DEBIAN"
+chmod 755 "$STAGE_DIR/DEBIAN"
 mkdir -p "$STAGE_DIR/usr/share/conky-nextgen"
 mkdir -p "$STAGE_DIR/usr/bin"
 mkdir -p "$STAGE_DIR/usr/share/applications"
@@ -124,6 +125,7 @@ Description: NextGen Conky theme framework and GTK visual designer
  data fetchers, self-contained themed widgets, and a GTK3 visual Designer.
  It supports X11 and Wayland-capable Conky builds.
 EOF
+chmod 644 "$STAGE_DIR/DEBIAN/control"
 
 echo "==> [5/5] .deb csomag összeállítása..."
 dpkg-deb -Zzstd --root-owner-group --build "$STAGE_DIR" "$DEB_FILE"
