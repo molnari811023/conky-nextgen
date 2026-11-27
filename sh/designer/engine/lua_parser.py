@@ -224,6 +224,7 @@ def parse_settings(filepath):
         "width": 420,
         "height": 1020,
         "mouse_enabled": True,
+        "plasma_theme": False,
         "weather_enabled": False,
         "weather_icon_theme": "default",
         "xdg_icon_theme": "",
@@ -254,6 +255,10 @@ def parse_settings(filepath):
     if m: settings["height"] = int(m.group(1))
     m = re.search(r'_MOUSE_ENABLED\s*=\s*(true|false)', content)
     if m: settings["mouse_enabled"] = m.group(1) == "true"
+    m = re.search(r'_PLASMA_THEME\s*=\s*(true|false)', content)
+    if m: settings["plasma_theme"] = m.group(1) == "true"
+    if settings.get("theme") == "plasma":
+        settings["plasma_theme"] = True
     m = re.search(r'ICON_THEME\s*=\s*"(\w+)"', content)
     if m:
         settings["weather_enabled"] = True

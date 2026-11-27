@@ -60,7 +60,10 @@ end
 
 function apply_theme(item)
     if not item or not item.type then return end
-    local theme_name = item.theme or DEFAULT_THEME
+    local theme_name = item.theme
+    if not theme_name then
+        theme_name = (_PLASMA_THEME and THEMES["plasma"]) and "plasma" or DEFAULT_THEME
+    end
 
     local theme = THEMES[theme_name]
     if not theme then return end

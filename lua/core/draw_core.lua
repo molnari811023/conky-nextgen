@@ -267,6 +267,10 @@ function conky_core_main()
     local updates = tonumber(conky_parse("${updates}")) or 0
     if updates < 3 then return end
 
+    if (_PLASMA_THEME or DEFAULT_THEME == "plasma") and check_plasma_theme_update then
+        check_plasma_theme_update()
+    end
+
     if capture_poll then capture_poll() end
 
     local cs = conky_surface()

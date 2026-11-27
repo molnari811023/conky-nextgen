@@ -42,6 +42,160 @@ import os
 
 THEMES = {}
 DEFAULT_THEME = "theme"
+USE_PLASMA_THEME = False
+_PLASMA_MTIME = None
+_PLASMA_LOADED = False
+
+
+def _rgb_to_hex(val, default="#ffffff"):
+    parts = [p.strip() for p in val.split(",")]
+    if len(parts) < 3:
+        return default
+    try:
+        r, g, b = int(parts[0]), int(parts[1]), int(parts[2])
+        return f"#{r:02x}{g:02x}{b:02x}"
+    except ValueError:
+        return default
+
+
+def load_plasma_theme(force=False):
+    """Load KDE Plasma colors from ~/.config/kdeglobals using mtime caching."""
+    global _PLASMA_MTIME, _PLASMA_LOADED
+    path = os.path.expanduser("~/.config/kdeglobals")
+    try:
+        mtime = os.stat(path).st_mtime
+    except OSError:
+        mtime = None
+
+    if _PLASMA_LOADED and not force and mtime == _PLASMA_MTIME and "plasma" in THEMES:
+        return False
+
+    _PLASMA_MTIME = mtime
+    _PLASMA_LOADED = True
+
+    c = {
+        "bg_panel": "#262b30",
+        "bg_widget": "#1f2429",
+        "bg_alt": "#31363c",
+        "text_main": "#ffffff",
+        "text_dim": "#b3b3b3",
+        "accent": "#3d99f2",
+        "neutral": "#f67400",
+        "link": "#2980b9",
+        "positive": "#27ae60",
+        "negative": "#da4453",
+        "border": "#31363c",
+    }
+
+    if mtime is not None:
+        section = None
+        try:
+            with open(path, "r", encoding="utf-8", errors="replace") as f:
+                for raw in f:
+                    line = raw.strip()
+                    if line.startswith("[") and line.endswith("]"):
+                        section = line[1:-1]
+                    elif "=" in line:
+                        key, val = line.split("=", 1)
+                        if section == "Colors:Window":
+                            if key == "BackgroundNormal":
+                                c["bg_panel"] = _rgb_to_hex(val, c["bg_panel"])
+                            elif key == "BackgroundAlternate":
+                                c["border"] = _rgb_to_hex(val, c["border"])
+                            elif key == "ForegroundNormal":
+                                c["text_main"] = _rgb_to_hex(val, c["text_main"])
+                            elif key == "ForegroundInactive":
+                                c["text_dim"] = _rgb_to_hex(val, c["text_dim"])
+                        elif section == "Colors:View":
+                            if key == "BackgroundNormal":
+                                c["bg_widget"] = _rgb_to_hex(val, c["bg_widget"])
+                            elif key == "BackgroundAlternate":
+                                c["bg_alt"] = _rgb_to_hex(val, c["bg_alt"])
+                            elif key == "ForegroundNeutral":
+                                c["neutral"] = _rgb_to_hex(val, c["neutral"])
+                            elif key == "ForegroundLink":
+                                c["link"] = _rgb_to_hex(val, c["link"])
+                        elif section == "Colors:Selection":
+                            if key == "BackgroundNormal":
+                                c["accent"] = _rgb_to_hex(val, c["accent"])
+                        elif section == "Colors:Button":
+                            if key == "ForegroundPositive":
+                                c["positive"] = _rgb_to_hex(val, c["positive"])
+                            elif key == "ForegroundNegative":
+                                c["negative"] = _rgb_to_hex(val, c["negative"])
+        except OSError:
+            pass
+
+    THEMES["plasma"] = {
+        "palette": {
+            "bg_dark": c["bg_panel"],
+            "bg_mid": c["bg_widget"],
+            "bg_light": c["bg_alt"],
+            "fg": c["text_main"],
+            "fg_dim": c["text_dim"],
+            "blue": c["accent"],
+            "green": c["positive"],
+            "yellow": c["neutral"],
+            "red": c["negative"],
+            "link": c["link"],
+        },
+        "gradients": {
+            "text_value": [[1, c["positive"], 1]],
+            "bar_cpu": [[1, c["accent"], 1]],
+            "border_subtle": [[1, c["text_dim"], 0.6]],
+            "accent": [[1, c["accent"], 1]],
+            "positive": [[1, c["positive"], 1]],
+            "neutral": [[1, c["neutral"], 1]],
+            "negative": [[1, c["negative"], 1]],
+        },
+        "defaults": {
+            "background": {
+                "bg": [[1, c["bg_panel"], 0.9]],
+                "border": [[1, c["border"], 1]],
+                "border_width": 2,
+            },
+            "bar": {
+                "fg": [[1, c["accent"], 1]],
+                "bg": [[1, c["bg_alt"], 1]],
+            },
+            "line": {
+                "fg": [[1, c["text_dim"], 1]],
+            },
+            "graph": {
+                "fg": [[1, c["accent"], 1]],
+                "bg": [[1, c["bg_alt"], 1]],
+                "border": [[1, c["border"], 1]],
+                "grid_color": [[1, c["bg_widget"], 1]],
+            },
+            "ring": {
+                "fg": [[1, c["accent"], 1]],
+                "bg": [[1, c["bg_alt"], 1]],
+            },
+            "text": {
+                "color": [[1, c["text_main"], 1]],
+            },
+            "clock": {
+                "bg": [[1, c["bg_widget"], 1]],
+                "border": [[1, c["border"], 1]],
+                "tick_color": [[1, c["text_dim"], 1]],
+                "number_color": [[1, c["text_main"], 1]],
+                "hour_color": [[1, c["text_main"], 1]],
+                "minute_color": [[1, c["accent"], 1]],
+                "second_color": [[1, c["neutral"], 1]],
+                "left_color": [[1, c["accent"], 1]],
+            },
+            "calendar": {
+                "color_month": [[1, c["text_main"], 1]],
+                "color_weekdays": [[1, c["text_dim"], 1]],
+                "color_days": [[1, c["text_main"], 1]],
+                "color_today": [[1, c["accent"], 1]],
+                "color_outside": [[1, c["text_dim"], 0.5]],
+                "color_weeknums": [[1, c["accent"], 1]],
+                "color_popup": [[1, c["text_dim"], 1]],
+            },
+        },
+    }
+    return True
 
 
 def load_themes(filepath=None):
@@ -155,8 +309,14 @@ def apply_theme(item):
     if not item or "type" not in item:
         return
 
-    theme_name = item.get("theme") or DEFAULT_THEME
-    theme = THEMES.get(theme_name)
+    theme_name = item.get("theme")
+    if not theme_name:
+        if USE_PLASMA_THEME:
+            load_plasma_theme()
+            theme_name = "plasma"
+        else:
+            theme_name = DEFAULT_THEME
+    theme = THEMES.get(theme_name) or THEMES.get(DEFAULT_THEME)
     if not theme:
         return
 

@@ -158,6 +158,8 @@ class DesignerWindow(Gtk.Window):
         self.window_height = 1020
         self.mouse_actions = {name: "nil" for name, _ in MOUSE_ACTIONS}
         self.mouse_enabled = True
+        self.plasma_theme = False
+        self._plasma_loading = False
         self.weather_enabled = True
         self.weather_icon_theme = "default"
         self.xdg_icon_theme = ""
@@ -597,6 +599,12 @@ class DesignerWindow(Gtk.Window):
             "widget.lua on <b>Save</b>.</small>".format(THEME_NAME)
         )
         trow1.pack_start(theme_lbl, True, True, 0)
+
+        self.plasma_theme_check = Gtk.CheckButton(
+            label="Use KDE Plasma Theme (~/.config/kdeglobals, mtime auto-reload)"
+        )
+        self.plasma_theme_check.connect("toggled", self._on_plasma_theme_toggled)
+        theme_page.pack_start(self.plasma_theme_check, False, False, 0)
 
         self.theme_edit_info = Gtk.Label(label="")
         self.theme_edit_info.set_xalign(0)
@@ -1055,6 +1063,10 @@ class DesignerWindow(Gtk.Window):
                 if name not in self.mouse_actions:
                     self.mouse_actions[name] = "nil"
             self.mouse_enabled = s["mouse_enabled"]
+            self.plasma_theme = s.get("plasma_theme", False)
+            te.USE_PLASMA_THEME = self.plasma_theme
+            if self.plasma_theme:
+                te.load_plasma_theme()
             self.weather_enabled = s["weather_enabled"]
             self.weather_icon_theme = s["weather_icon_theme"] or "default"
             self.xdg_icon_theme = s["xdg_icon_theme"] or ""
@@ -1195,7 +1207,24 @@ class DesignerWindow(Gtk.Window):
             return {}
         return theme.setdefault("defaults", {})
 
+    def _on_plasma_theme_toggled(self, check):
+        if self._plasma_loading:
+            return
+        enabled = check.get_active()
+        if enabled != self.plasma_theme:
+            self.plasma_theme = enabled
+            te.USE_PLASMA_THEME = enabled
+            if enabled:
+                te.load_plasma_theme(force=True)
+            self._set_dirty()
+            self._schedule_refresh()
+
     def _theme_init(self):
+        self._plasma_loading = True
+        try:
+            self.plasma_theme_check.set_active(self.plasma_theme)
+        finally:
+            self._plasma_loading = False
         self._theme_editing = THEME_NAME
         if self._theme_sel_gradient not in (self._theme_gradients() or {}):
             self._theme_sel_gradient = None
@@ -4024,8 +4053,9 @@ class DesignerWindow(Gtk.Window):
         if self.xdg_icon_theme:
             lines.append(f'XDG_ICON_THEME = "{self.xdg_icon_theme}"\n')
         lines += [
-            tw.serialize_themes(te.THEMES),
+            tw.serialize_themes({k: v for k, v in te.THEMES.items() if k != "plasma"}),
             f'DEFAULT_THEME = "{THEME_NAME}"',
+            f"_PLASMA_THEME = {'true' if self.plasma_theme else 'false'}",
             "MODULE_PROFILE = { " + ", ".join(
                 f'"{profile}"' for profile in self.module_profiles
             ) + " }",

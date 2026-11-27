@@ -41,6 +41,7 @@ json = require("dkjson")
 
 -- ═══ CORE ═══
 require("core.theme_engine")
+require("core.plasma")
 require("core.translate")
 require("core.utils")
 require("core.draw_core")
