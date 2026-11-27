@@ -21,6 +21,9 @@ depends=(
   'python-gobject'
   'gtk3'
   'gtksourceview4'
+  'gtk-layer-shell'
+  'libdbusmenu-gtk3'
+  'librsvg'
   'python-pillow'
   'curl'
   'jq'
@@ -31,7 +34,10 @@ depends=(
   'libcanberra'
 )
 
+makedepends=('gcc' 'pkgconf' 'wayland')
+
 optdepends=(
+  'wmctrl: X11 tasklist support for the universal desktop panel'
   'cava: audio spectrum visualizer widget'
   'vnstat: network bandwidth traffic tracker'
   'playerctl: media player status and controls'
@@ -57,6 +63,11 @@ pkgver() {
     printf "%s.r%s.g%s" "$base" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+build() {
+  cd "${srcdir}/${_pkgname}/panel_systray"
+  make
+}
+
 package() {
   cd "${srcdir}/${_pkgname}"
 
@@ -68,7 +79,8 @@ package() {
   mkdir -p "${pkgdir}/usr/share/man/man1"
 
   # Core framework directories
-  cp -a lua icons images language sh "${dest}/"
+  cp -a lua icons images language sh panel_systray "${dest}/"
+  rm -f "${dest}/panel_systray/test_dock"
 
   # Root widgets, configs, and assets
   cp -a *.conf *.lua "${dest}/"
@@ -88,6 +100,8 @@ package() {
   find "${dest}" -type d -exec chmod 755 {} +
   find "${dest}" -type f -exec chmod 644 {} +
   find "${dest}/sh" -type f -name "*.sh" -exec chmod 755 {} +
+  find "${dest}/panel_systray" -type f -name "*.sh" -exec chmod 755 {} +
+  [ -f "${dest}/panel_systray/panel_systray" ] && chmod 755 "${dest}/panel_systray/panel_systray"
   [ -f "${dest}/sh/designer/main.py" ] && chmod 755 "${dest}/sh/designer/main.py"
 
   # Install CLI tool

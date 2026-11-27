@@ -34,6 +34,9 @@ cp -a "$PROJECT_DIR/icons" "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR/images" "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR/language" "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR/sh" "$STAGE_DIR/usr/share/conky-nextgen/"
+make -C "$PROJECT_DIR/panel_systray" >/dev/null
+cp -a "$PROJECT_DIR/panel_systray" "$STAGE_DIR/usr/share/conky-nextgen/"
+rm -f "$STAGE_DIR/usr/share/conky-nextgen/panel_systray/test_dock"
 
 cp -a "$PROJECT_DIR"/*.conf "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR"/*.lua "$STAGE_DIR/usr/share/conky-nextgen/"
@@ -51,6 +54,8 @@ find "$STAGE_DIR/usr/share/conky-nextgen" -type f \( -name "*.orig" -o -name "*~
 find "$STAGE_DIR/usr/share/conky-nextgen" -type d -exec chmod 755 {} +
 find "$STAGE_DIR/usr/share/conky-nextgen" -type f -exec chmod 644 {} +
 find "$STAGE_DIR/usr/share/conky-nextgen/sh" -type f -name "*.sh" -exec chmod 755 {} +
+find "$STAGE_DIR/usr/share/conky-nextgen/panel_systray" -type f -name "*.sh" -exec chmod 755 {} +
+[ -f "$STAGE_DIR/usr/share/conky-nextgen/panel_systray/panel_systray" ] && chmod 755 "$STAGE_DIR/usr/share/conky-nextgen/panel_systray/panel_systray"
 [ -f "$STAGE_DIR/usr/share/conky-nextgen/sh/designer/main.py" ] && chmod 755 "$STAGE_DIR/usr/share/conky-nextgen/sh/designer/main.py"
 
 # CLI executable
@@ -128,6 +133,9 @@ depend = python
 depend = python-gobject
 depend = gtk3
 depend = gtksourceview4
+depend = gtk-layer-shell
+depend = libdbusmenu-gtk3
+depend = librsvg
 depend = python-pillow
 depend = curl
 depend = jq
@@ -135,6 +143,7 @@ depend = bc
 depend = lm_sensors
 depend = procps-ng
 depend = psmisc
+optdepend = wmctrl: X11 tasklist support for the universal desktop panel
 optdepend = cava: audio spectrum visualizer widget
 optdepend = vnstat: network bandwidth traffic tracker
 optdepend = playerctl: media player status and controls

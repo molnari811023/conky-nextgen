@@ -35,6 +35,9 @@ cp -a "$PROJECT_DIR/icons" "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR/images" "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR/language" "$STAGE_DIR/usr/share/conky-nextgen/"
 cp -a "$PROJECT_DIR/sh" "$STAGE_DIR/usr/share/conky-nextgen/"
+make -C "$PROJECT_DIR/panel_systray" >/dev/null
+cp -a "$PROJECT_DIR/panel_systray" "$STAGE_DIR/usr/share/conky-nextgen/"
+rm -f "$STAGE_DIR/usr/share/conky-nextgen/panel_systray/test_dock"
 
 # Konfigurációk és gyökér widget fájlok
 cp -a "$PROJECT_DIR"/*.conf "$STAGE_DIR/usr/share/conky-nextgen/"
@@ -55,6 +58,8 @@ find "$STAGE_DIR/usr/share/conky-nextgen" -type f \( -name "*.orig" -o -name "*~
 find "$STAGE_DIR/usr/share/conky-nextgen" -type d -exec chmod 755 {} +
 find "$STAGE_DIR/usr/share/conky-nextgen" -type f -exec chmod 644 {} +
 find "$STAGE_DIR/usr/share/conky-nextgen/sh" -type f -name "*.sh" -exec chmod 755 {} +
+find "$STAGE_DIR/usr/share/conky-nextgen/panel_systray" -type f -name "*.sh" -exec chmod 755 {} +
+[ -f "$STAGE_DIR/usr/share/conky-nextgen/panel_systray/panel_systray" ] && chmod 755 "$STAGE_DIR/usr/share/conky-nextgen/panel_systray/panel_systray"
 [ -f "$STAGE_DIR/usr/share/conky-nextgen/sh/designer/main.py" ] && chmod 755 "$STAGE_DIR/usr/share/conky-nextgen/sh/designer/main.py"
 
 mkdir -p "$STAGE_DIR/usr/share/man/man1"
@@ -112,7 +117,7 @@ Priority: optional
 Architecture: all
 Maintainer: István Molnár <molnari811023@gmail.com>
 Depends: conky-mng, lua-filesystem, lua-dkjson, lua-expat, lua-sec, lua-socket, python3, python3-gi, gir1.2-gtk-3.0, gir1.2-gtksource-4 | gir1.2-gtksource-3.0, python3-pil, curl, jq, bc, lm-sensors, procps, psmisc, libcanberra-gtk3-module
-Recommends: playerctl, cava, vnstat
+Recommends: playerctl, cava, vnstat, wmctrl, libgtk-layer-shell0, libdbusmenu-gtk3-4, librsvg2-2
 Homepage: https://github.com/molnari811023/conky-nextgen
 Description: NextGen Conky theme framework and GTK visual designer
  Conky NextGen is a modular Conky framework with a Lua/Cairo renderer, Bash
