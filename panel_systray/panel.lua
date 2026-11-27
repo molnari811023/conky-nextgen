@@ -93,6 +93,9 @@ MODULE_PROFILE = "basic"
 require("require")
 require("apps")
 require("tasklist")
+require("audio")
+require("bluez")
+require("wifi")
 require("battery")
 require("clock")
 
@@ -179,6 +182,12 @@ end
 draw[#draw + 1] = start_text_item
 
 tasklist_install()
+
+audio_install()
+
+bluez_install()
+
+wifi_install()
 
 battery_install()
 

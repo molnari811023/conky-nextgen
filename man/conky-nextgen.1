@@ -253,6 +253,9 @@ Pure-Lua \fI/sys/class/power_supply/BAT*\fR monitor (no external \fIacpi\fR depe
 .B Clock & Calendar Popup \fR(\fIclock.lua\fR / \fIcalendar_popup.conf\fR)
 Centered digital clock; clicking toggles the interactive calendar and analog-clock popup anchored above the panel clock.
 .TP
+.B Wi-Fi, Bluetooth & Audio \fR(\fIwifi.lua\fR / \fIbluez.lua\fR / \fIaudio.lua\fR)
+Auto-detects \fBnmcli\fR/\fBiwctl\fR (\fIwifi_popup.conf\fR with scrollable network list, password prompt, and forget), \fBbluetoothctl\fR (\fIbt_popup.conf\fR with scrollable device list), and PipeWire \fBwpctl\fR/PulseAudio \fBpactl\fR (mouse-wheel volume +/-5%, left-click mute, right-click mixer).
+.TP
 .B Unified Systray & PipeWire Volume \fR(\fIpanel_systray\fR)
 On Wayland, hosts \fIgtk-layer-shell\fR + \fIorg.kde.StatusNotifierWatcher\fR / \fIStatusNotifierHost\fR + \fIlibdbusmenu-gtk3\fR + a built-in PipeWire/PulseAudio volume applet. On X11, embeds an XEmbed (\fI_NET_SYSTEM_TRAY_S<screen>\fR) tray directly inside the Conky panel.
 .SH OPTIONS

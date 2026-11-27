@@ -50,6 +50,12 @@ A complete, lightweight desktop panel and system tray solution built on Conky Ne
   - Reads `/sys/class/power_supply/BAT*` directly via `lfs` (zero external process dependency, auto-hides on desktop PCs) with `breeze-dark` SVG icons, color-coded percentage, and click notification.
 - **Panel Clock & Calendar Popup (`clock.lua` / `calendar_popup.conf`):**
   - Centered digital clock; first click opens the interactive calendar/analog-clock popup anchored above the clock, second click closes it (with today highlight and month/year selectors).
+- **Wi-Fi Indicator & Popup (`wifi.lua` / `wifi_popup.conf` / `wifi_backend.sh`):**
+  - Auto-detects **NetworkManager (`nmcli`)** and **`iwd` (`iwctl`)**; left-click opens a scrollable Wi-Fi popup (power toggle, scan, connect with `kdialog`/`zenity`/`rofi`/GTK3 password prompt, disconnect, right-click forget); right-click on the panel icon triggers a scan.
+- **Bluetooth Indicator & Popup (`bluez.lua` / `bt_popup.conf` / `bt_backend.sh`):**
+  - Uses **BlueZ (`bluetoothctl`)**; left-click opens a scrollable Bluetooth device list (power toggle, scan, connect/disconnect, right-click remove); right-click on the panel icon toggles Bluetooth power.
+- **Audio Volume Indicator (`audio.lua` / `audio_backend.sh`):**
+  - Auto-detects **PipeWire (`wpctl`)** and **PulseAudio (`pactl`)**; **mouse-wheel scroll** adjusts volume (+/-5%), left-click toggles mute, right-click opens the mixer (`pavucontrol`/`kmix`).
 - **Unified Systray & Native PipeWire Volume (`panel_systray.c`):**
   - **Wayland:** Native `gtk-layer-shell` + `org.kde.StatusNotifierWatcher` + `StatusNotifierHost` (interoperates with external `kded6` watchers) + `libdbusmenu-gtk3` + `librsvg` + built-in PipeWire/PulseAudio volume SNI applet.
   - **X11:** Native XEmbed (`_NET_SYSTEM_TRAY_S<screen>`) tray embedded directly into the Conky panel.

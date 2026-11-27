@@ -194,7 +194,7 @@ local function hit_test(ex, ey)
     for i = #draw, 1, -1 do
         local item = draw[i]
 
-        if item.click or item.click_view or item.toggle_view or item.expand or resolve_drag_fn(item) or item.rclick or item.mclick or item.hover or item.leave then
+        if item.click or item.click_view or item.toggle_view or item.expand or resolve_drag_fn(item) or item.rclick or item.mclick or item.scroll or item.scroll_up or item.scroll_down or item.hover or item.leave then
             if not evaluate_draw_me(item.draw_me) then goto continue end
             if not draw_allowed(item.view, item.group) then goto continue end
 
@@ -239,6 +239,25 @@ end
 local function handle_scroll(event)
     local dir = event.direction
     local mods = event.mods or {}
+
+    if not (mods.control or mods.shift or mods.alt) and event.x and event.y then
+        local si = hit_test(event.x, event.y)
+        if si then
+            if dir == "up" and si.scroll_up then
+                log("running item scroll_up")
+                call_action(si.scroll_up, event)
+                return true
+            elseif dir == "down" and si.scroll_down then
+                log("running item scroll_down")
+                call_action(si.scroll_down, event)
+                return true
+            elseif si.scroll then
+                log("running item scroll: " .. tostring(dir))
+                call_action(si.scroll, event)
+                return true
+            end
+        end
+    end
 
     if mods.control then
         if dir == "up"    then return call_action(MOUSE_CTRL_SCROLL_UP, event) end

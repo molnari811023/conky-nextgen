@@ -282,7 +282,8 @@ stops rather than silently hiding the element.
 ### Mouse actions
 
 Mouse handling is enabled with `_MOUSE_ENABLED = true`. Draw items may carry
-`click`, `click_view`, `toggle_view`, `expand` (`true` or group name), and
+`click`, `click_view`, `toggle_view`, `expand` (`true` or group name),
+`scroll` / `scroll_up` / `scroll_down` (item-level mouse-wheel callbacks), and
 `drag` (`"group"` for live group reordering, `"group_free"` for free X/Y
 group offset, or a custom Lua callback receiving `dx`/`dy`/`total_dx`/`total_dy`
 and `drag_item`). When an item has both a click action and `drag`, dragging
@@ -481,8 +482,12 @@ python3 sh/designer/tests/test_widget_schema.py
 automatically between Wayland (`own_window_type = 'panel'`) and X11
 (`own_window_type = 'override'` without `undecorated` so mouse events pass
 through on Openbox/i3). The panel bootstraps the standard engine and loads
-`apps`, `tasklist`, `battery`, and `clock` panel modules, plus a configurable
-Start button (`START_BTN_CFG`) that toggles `panel_systray/start_menu.conf`
+`apps`, `tasklist`, `audio`, `bluez`, `wifi`, `battery`, and `clock` panel
+modules, plus a configurable Start button (`START_BTN_CFG`) that toggles
+`panel_systray/start_menu.conf` (`wifi.lua` auto-detects `nmcli`/`iwd` with
+`wifi_popup.conf`, `bluez.lua` wraps `bluetoothctl` with `bt_popup.conf`, and
+`audio.lua` auto-detects PipeWire `wpctl`/PulseAudio `pactl` with scroll-wheel
+volume control).
 and a clickable clock hitbox that toggles `panel_systray/calendar_popup.conf`.
 
 `panel_systray/panel_systray.conf` is **not** a Conky config. It is the
