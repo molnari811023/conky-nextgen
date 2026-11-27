@@ -120,6 +120,25 @@ To install and test the Debian/Ubuntu package:
 sudo apt install ./pkg/conky-nextgen_1.0.0.*_all.deb
 ```
 
+### Method 3: Arch Linux `pacman` Repository (`[molnar-repo]`)
+
+Pre-built Arch Linux packages (`conky-nextgen-git`, `conky-mng`, `python-pyicloud`, `googlefindmytools-git`) are hosted in [`molnari811023/arch-repo`](https://github.com/molnari811023/arch-repo).
+
+Add the following to `/etc/pacman.conf`:
+
+```ini
+[molnar-repo]
+SigLevel = Optional TrustAll
+Server = https://molnari811023.github.io/arch-repo/$arch
+```
+
+Then sync and install:
+
+```bash
+sudo pacman -Sy
+sudo pacman -S conky-nextgen-git conky-mng python-pyicloud googlefindmytools-git
+```
+
 Once installed, it provides:
 - CLI widget manager: `conky-nextgen start [widget]`, `conky-nextgen stop`, `conky-nextgen list`, `conky-nextgen status`
 - Shell auto-completion: native Bash completion with Tab support for commands and widget names
