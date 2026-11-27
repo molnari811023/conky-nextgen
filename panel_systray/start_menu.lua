@@ -474,8 +474,24 @@ draw[#draw + 1] = {
     border_width = 0,
 }
 
+local LOCK_CMD = [[sh -c '
+if [ -n "$WAYLAND_DISPLAY" ]; then
+    if command -v hyprlock >/dev/null 2>&1 && [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then exec hyprlock;
+    elif command -v swaylock >/dev/null 2>&1; then exec swaylock -f -c 1d2022;
+    elif command -v gtklock >/dev/null 2>&1; then exec gtklock -d;
+    elif command -v waylock >/dev/null 2>&1; then exec waylock;
+    else loginctl lock-session; notify-send -a "Lock" "Screen Lock" "Install swaylock, hyprlock, or gtklock for Wayland" 2>/dev/null || true; fi
+else
+    if command -v i3lock >/dev/null 2>&1; then exec i3lock -c 1d2022;
+    elif command -v xflock4 >/dev/null 2>&1; then exec xflock4;
+    elif command -v slock >/dev/null 2>&1; then exec slock;
+    elif command -v dm-tool >/dev/null 2>&1; then exec dm-tool lock;
+    else loginctl lock-session; fi
+fi
+' >/dev/null 2>&1 &]]
+
 local SESSION_BTNS = {
-    { id = "Lock",     icon = "system-lock-screen", accent = "#3daee9", cmd = "(swaylock -f 2>/dev/null || loginctl lock-session) >/dev/null 2>&1 &" },
+    { id = "Lock",     icon = "system-lock-screen", accent = "#3daee9", cmd = LOCK_CMD },
     { id = "Logout",   icon = "system-log-out",     accent = "#f67400", cmd = "(swaymsg exit 2>/dev/null || hyprctl dispatch exit 2>/dev/null || loginctl terminate-session \"${XDG_SESSION_ID:-self}\") >/dev/null 2>&1 &" },
     { id = "Suspend",  icon = "system-suspend",     accent = "#27ae60", cmd = "systemctl suspend >/dev/null 2>&1 &" },
     { id = "Reboot",   icon = "system-reboot",      accent = "#f67400", cmd = "systemctl reboot >/dev/null 2>&1 &" },
