@@ -454,12 +454,20 @@ python3 sh/designer/tests/test_widget_schema.py
 ## Panel and systray
 
 `panel_systray/panel.conf` starts the Conky panel and loads
-`panel_systray/panel.lua`. The panel bootstraps the standard engine and then
-loads `apps`, `tasklist`, and `clock` panel modules.
+`panel_systray/panel.lua`, using `panel_systray/window_common.lua` to switch
+automatically between Wayland (`own_window_type = 'panel'`) and X11
+(`own_window_type = 'override'` without `undecorated` so mouse events pass
+through on Openbox/i3). The panel bootstraps the standard engine and loads
+`apps`, `tasklist`, `battery`, and `clock` panel modules, plus a configurable
+Start button (`START_BTN_CFG`) that toggles `panel_systray/start_menu.conf`
+and a clickable clock hitbox that toggles `panel_systray/calendar_popup.conf`.
 
 `panel_systray/panel_systray.conf` is **not** a Conky config. It is the
-key/value configuration consumed by the separate systray helper. Do not pass
-it to `conky -c`.
+key/value configuration consumed by the unified `panel_systray` C binary
+(Wayland SNI/DBusMenu + `wlr-foreign-toplevel` tasklist + PipeWire volume
+applet, or X11 XEmbed tray). Do not pass it to `conky -c`. Launch the full
+panel stack via `panel_systray/start_panel.sh` and stop it via
+`panel_systray/stop_panel.sh`.
 
 ## Localization
 
@@ -1600,9 +1608,17 @@ songtext.lua — synchronized lyrics data provider (support module)
 
 #### Panel modules
 
+##### `panel_systray/battery.lua`
+
+battery.lua — pure-Lua `/sys/class/power_supply/BAT*` indicator for the bottom panel (auto-hides when no battery is present)
+
+**Exported functions**
+
+- `battery_install()`
+
 ##### `panel_systray/clock.lua`
 
-clock.lua — digital clock text widget for the bottom panel
+clock.lua — digital clock text widget and calendar-popup click hitbox for the bottom panel
 
 **Exported functions**
 
@@ -1610,13 +1626,19 @@ clock.lua — digital clock text widget for the bottom panel
 
 ##### `panel_systray/panel.lua`
 
-panel.lua — bottom panel widget: full-width bar hosting the systray
+panel.lua — bottom panel widget: Start button, tasklist, battery, clock, and systray host
+
+**Exported functions:** module registration or local helpers only.
+
+##### `panel_systray/start_menu.lua`
+
+start_menu.lua — dynamically sized X×Y Start Menu popup driven by `lua/apps.lua` and `translate.lua`, with `Name`/`GenericName` label modes and a localized bottom Session/Power bar
 
 **Exported functions:** module registration or local helpers only.
 
 ##### `panel_systray/tasklist.lua`
 
-tasklist.lua — taskbar for the bottom panel: open windows as icon+title slots
+tasklist.lua — taskbar for the bottom panel: open windows as icon+title slots with left-click activate/minimize and middle-click close
 
 **Exported functions**
 
@@ -1627,7 +1649,16 @@ tasklist.lua — taskbar for the bottom panel: open windows as icon+title slots
 - `slot_icon()`
 - `slot_title()`
 - `TL_CLICK_STR()`
+- `TL_MCLICK_STR()`
 - `tasklist_install()`
+
+##### `panel_systray/window_common.lua`
+
+window_common.lua — shared Wayland / X11 `own_window_*` configuration helper used by `panel.conf`, `start_menu.conf`, and `calendar_popup.conf`
+
+**Exported functions**
+
+- `apply()`
 
 ### Shell backend reference
 

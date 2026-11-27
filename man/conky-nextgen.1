@@ -230,6 +230,26 @@ Synchronized song lyric reader displaying time-stamped LRC lyrics.
 .TP
 .B nvidia
 Hardware telemetry for systems equipped with dedicated NVIDIA graphics processors (utilization, VRAM, and thermal sensors).
+.SH UNIVERSAL X11 & WAYLAND PANEL (panel_systray)
+\fBconky-nextgen\fR includes a unified bottom desktop panel, application launcher, tasklist, battery monitor, clock/calendar popup, and system tray under \fI/usr/share/conky-nextgen/panel_systray/\fR (or \fI~/.conky/panel_systray/\fR), verified across \fBSway\fR, \fBHyprland\fR, \fBLabwc\fR, \fBOpenbox\fR, and \fBi3\fR:
+.TP
+.B start_panel.sh \fR/ \fBstop_panel.sh
+Launches or stops the full panel stack (\fIconky -c panel.conf\fR, the unified \fIpanel_systray\fR C helper, and \fInm-applet\fR). Automatically selects Wayland or X11 mode at startup via \fIwindow_common.lua\fR and \fIpanel_systray.c\fR.
+.TP
+.B Start Button & Dynamic Start Menu \fR(\fIstart_menu.conf\fR / \fIstart_menu.lua\fR)
+Configurable Start button (\fISTART_BTN_CFG\fR; right-click toggles icon-only vs. icon+label). Opens a dynamically sized popup (\fIX \(mu Y\fR computed from active XDG categories) with localized category and app names (\fIName\fR / \fIGenericName\fR modes cycled via right-click), mouse-wheel scrolling, auto-close on pointer leave, and a localized bottom Session bar (\fILock\fR, \fILogout\fR, \fISuspend\fR, \fIReboot\fR, \fIShutdown\fR).
+.TP
+.B Tasklist \fR(\fItasklist.lua\fR)
+Displays open windows with vector SVG application icons resolved via \fIapps.lua\fR and \fIicon_theme.lua\fR. Left-click activates or toggles minimize; middle-click closes the window. Uses \fIwlr-foreign-toplevel-management-unstable-v1\fR on Wayland and \fBwmctrl\fR(1)/\fBxprop\fR(1) on X11.
+.TP
+.B Battery Indicator \fR(\fIbattery.lua\fR)
+Pure-Lua \fI/sys/class/power_supply/BAT*\fR monitor (no external \fIacpi\fR dependency; auto-hides on desktop PCs) with \fIbreeze-dark\fR SVG icons and click notification.
+.TP
+.B Clock & Calendar Popup \fR(\fIclock.lua\fR / \fIcalendar_popup.conf\fR)
+Centered digital clock; clicking toggles the interactive calendar and analog-clock popup anchored above the panel clock.
+.TP
+.B Unified Systray & PipeWire Volume \fR(\fIpanel_systray\fR)
+On Wayland, hosts \fIgtk-layer-shell\fR + \fIorg.kde.StatusNotifierWatcher\fR / \fIStatusNotifierHost\fR + \fIlibdbusmenu-gtk3\fR + a built-in PipeWire/PulseAudio volume applet. On X11, embeds an XEmbed (\fI_NET_SYSTEM_TRAY_S<screen>\fR) tray directly inside the Conky panel.
 .SH OPTIONS
 .TP
 .BR \-h ", " \-\-help
@@ -287,6 +307,11 @@ Stop all running Conky widgets:
 Launch the graphical NextGen Designer:
 .RS
 .B conky-nextgen designer
+.RE
+.PP
+Start the universal X11 & Wayland desktop panel:
+.RS
+.B ~/.conky/panel_systray/start_panel.sh
 .RE
 .SH AUTHOR
 Created by Istv\('an Moln\('ar <molnari811023@gmail.com>.
