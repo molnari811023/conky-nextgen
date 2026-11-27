@@ -34,6 +34,10 @@ Conky NextGen provides dual distribution intelligence that automatically adapts 
 
 A complete, lightweight desktop panel and system tray solution built on Conky NextGen and a single unified C helper binary (`panel_systray`), automatically switching between **X11** and **Wayland** at startup — verified across **Sway, Hyprland, Labwc, Openbox, and i3**:
 
+![Universal X11 and Wayland Panel](screenshots/panel.png)
+
+![Dynamic Start Menu](screenshots/start_menu.png)
+
 - **Start Button & Dynamic Start Menu (`start_menu.conf` / `start_menu.lua`):**
   - Configurable Start button (`START_BTN_CFG`: custom icon or icon-theme name, live right-click toggle between icon-only and icon+label).
   - Dynamically sized popup menu (`X × Y` computed from active XDG categories in `lua/apps.lua`), with hover/click category switching, mouse-wheel scrolling, and automatic close on pointer leave (`MOUSE_LEAVE_ACTION`).
