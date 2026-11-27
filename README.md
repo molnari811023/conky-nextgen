@@ -56,6 +56,8 @@ A complete, lightweight desktop panel and system tray solution built on Conky Ne
   - Uses **BlueZ (`bluetoothctl`)**; left-click opens a scrollable Bluetooth device list (power toggle, scan, connect/disconnect, right-click remove); right-click on the panel icon toggles Bluetooth power.
 - **Audio Volume Indicator (`audio.lua` / `audio_backend.sh`):**
   - Auto-detects **PipeWire (`wpctl`)** and **PulseAudio (`pactl`)**; **mouse-wheel scroll** adjusts volume (+/-5%), left-click toggles mute, right-click opens the mixer (`pavucontrol`/`kmix`).
+- **Clipboard History Manager (`clipboard.lua` / `clip_popup.conf` / `clip_backend.sh`):**
+  - Works on both **Wayland (`wl-paste`/`wl-copy`)** and **X11 (`xclip`/`xsel`)**; records up to 30 losslessly encoded snippets, supports mouse-wheel scrolling, left-click restore to clipboard, right-click entry delete, and one-click `Clear`.
 - **Unified Systray & Native PipeWire Volume (`panel_systray.c`):**
   - **Wayland:** Native `gtk-layer-shell` + `org.kde.StatusNotifierWatcher` + `StatusNotifierHost` (interoperates with external `kded6` watchers) + `libdbusmenu-gtk3` + `librsvg` + built-in PipeWire/PulseAudio volume SNI applet.
   - **X11:** Native XEmbed (`_NET_SYSTEM_TRAY_S<screen>`) tray embedded directly into the Conky panel.

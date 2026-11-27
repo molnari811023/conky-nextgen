@@ -256,6 +256,9 @@ Centered digital clock; clicking toggles the interactive calendar and analog-clo
 .B Wi-Fi, Bluetooth & Audio \fR(\fIwifi.lua\fR / \fIbluez.lua\fR / \fIaudio.lua\fR)
 Auto-detects \fBnmcli\fR/\fBiwctl\fR (\fIwifi_popup.conf\fR with scrollable network list, password prompt, and forget), \fBbluetoothctl\fR (\fIbt_popup.conf\fR with scrollable device list), and PipeWire \fBwpctl\fR/PulseAudio \fBpactl\fR (mouse-wheel volume +/-5%, left-click mute, right-click mixer).
 .TP
+.B Clipboard History \fR(\fIclipboard.lua\fR / \fIclip_popup.conf\fR)
+Tracks clipboard history on both Wayland (\fBwl-paste\fR/\fBwl-copy\fR) and X11 (\fBxclip\fR/\fBxsel\fR); scrollable popup with left-click restore, right-click delete, and clear.
+.TP
 .B Unified Systray & PipeWire Volume \fR(\fIpanel_systray\fR)
 On Wayland, hosts \fIgtk-layer-shell\fR + \fIorg.kde.StatusNotifierWatcher\fR / \fIStatusNotifierHost\fR + \fIlibdbusmenu-gtk3\fR + a built-in PipeWire/PulseAudio volume applet. On X11, embeds an XEmbed (\fI_NET_SYSTEM_TRAY_S<screen>\fR) tray directly inside the Conky panel.
 .SH OPTIONS

@@ -482,9 +482,10 @@ python3 sh/designer/tests/test_widget_schema.py
 automatically between Wayland (`own_window_type = 'panel'`) and X11
 (`own_window_type = 'override'` without `undecorated` so mouse events pass
 through on Openbox/i3). The panel bootstraps the standard engine and loads
-`apps`, `tasklist`, `audio`, `bluez`, `wifi`, `battery`, and `clock` panel
+`apps`, `tasklist`, `clipboard`, `audio`, `bluez`, `wifi`, `battery`, and `clock` panel
 modules, plus a configurable Start button (`START_BTN_CFG`) that toggles
-`panel_systray/start_menu.conf` (`wifi.lua` auto-detects `nmcli`/`iwd` with
+`panel_systray/start_menu.conf` (`clipboard.lua` tracks history via
+`wl-clipboard`/`xclip`/`xsel` with `clip_popup.conf`, `wifi.lua` auto-detects `nmcli`/`iwd` with
 `wifi_popup.conf`, `bluez.lua` wraps `bluetoothctl` with `bt_popup.conf`, and
 `audio.lua` auto-detects PipeWire `wpctl`/PulseAudio `pactl` with scroll-wheel
 volume control).

@@ -93,6 +93,7 @@ MODULE_PROFILE = "basic"
 require("require")
 require("apps")
 require("tasklist")
+require("clipboard")
 require("audio")
 require("bluez")
 require("wifi")
@@ -182,6 +183,8 @@ end
 draw[#draw + 1] = start_text_item
 
 tasklist_install()
+
+clipboard_install()
 
 audio_install()
 
