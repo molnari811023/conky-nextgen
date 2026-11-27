@@ -182,6 +182,9 @@ Launches the \fBNextGen Designer\fR GTK3 visual editor.
 .B fetch \fR[\fITARGET\fR] [\fICITY\fR]
 Triggers background data collection scripts for weather, hardware metrics, network bandwidth, or media player metadata.
 .TP
+.B jobs \fR[\fISUBCMD\fR]
+Manages background job schedules and enable/disable flags in \fI~/.config/conky-nextgen/jobs.conf\fR (\fBstatus\fR, \fBlist\fR, \fBenable\fR, \fBdisable\fR, \fBset\fR, \fBrun\fR, \fBinstall-timer\fR, \fBuninstall-timer\fR, \fBinstall-cron\fR, \fBuninstall-cron\fR).
+.TP
 .B init \fR[\fIDIR\fR]
 Initializes user configuration directory by copying default template configurations from \fI/usr/share/conky-nextgen/\fR into \fI~/.conky/\fR (or the specified target directory).
 .SH AVAILABLE WIDGETS
@@ -266,7 +269,10 @@ System framework directory containing the shared Lua engine (\fIlua/\fR), icon s
 Default user configuration directory for customized \fI.conf\fR and \fI.lua\fR widget files.
 .TP
 .I ~/.config/conky-nextgen/
-Persistent user preferences, geocoding language choices, and user-agent settings.
+Persistent user preferences, geocoding language choices, background job schedules (\fIjobs.conf\fR), and user-agent settings.
+.TP
+.I ~/.config/kdeglobals
+Optional KDE Plasma color scheme read automatically via \fIlfs\fR \fImtime\fR tracking when \fB_PLASMA_THEME = true\fR (or \fBDEFAULT_THEME = "plasma"\fR).
 .TP
 .I ${XDG_RUNTIME_DIR:-/tmp}/conky-nextgen/
 Runtime in-memory temporary cache for fetched JSON metrics and weather forecasts.

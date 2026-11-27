@@ -271,6 +271,7 @@ Commands:
   list                List all available widgets and status
   designer            Launch the GTK3 NextGen Designer
   fetch [TARGET] [CITY] Fetch background data (weather, hardware, network)
+  jobs [SUBCMD]       Manage background jobs.conf, cron & systemd user timer
   init [DIR]          Initialize widget templates into user directory (~/.conky)
 
 Options:
@@ -305,6 +306,9 @@ case "$ACTION" in
         ;;
     fetch)
         cmd_fetch "$@"
+        ;;
+    jobs)
+        exec "$SCRIPT_DIR/jobs.sh" "$@"
         ;;
     init)
         cmd_init "$@"

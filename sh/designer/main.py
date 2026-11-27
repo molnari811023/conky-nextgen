@@ -876,6 +876,89 @@ class DesignerWindow(Gtk.Window):
         )
         wi_page.pack_start(wi_info, False, False, 0)
 
+        # ── Tab 10: Background Jobs (jobs.conf / cron / systemd timer) ──
+        jobs_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        jobs_page.set_margin_start(8)
+        jobs_page.set_margin_end(8)
+        jobs_page.set_margin_top(8)
+        notebook.append_page(jobs_page, Gtk.Label(label="Jobs"))
+
+        jobs_info = Gtk.Label(label="")
+        jobs_info.set_xalign(0)
+        jobs_info.set_line_wrap(True)
+        jobs_info.set_max_width_chars(96)
+        jobs_info.set_markup(
+            "<small>Background fetchers configured in "
+            "<tt>~/.config/conky-nextgen/jobs.conf</tt>. Toggle individual "
+            "jobs or intervals below — changes take effect immediately.</small>"
+        )
+        jobs_page.pack_start(jobs_info, False, False, 0)
+
+        self.jobs_status_lbl = Gtk.Label(label="")
+        self.jobs_status_lbl.set_xalign(0)
+        jobs_page.pack_start(self.jobs_status_lbl, False, False, 0)
+
+        jobs_btn_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
+        for label, subcmd in (
+            ("Install Timer", "install-timer"),
+            ("Remove Timer", "uninstall-timer"),
+            ("Install Cron", "install-cron"),
+            ("Remove Cron", "uninstall-cron"),
+            ("Run Now", "run"),
+        ):
+            btn = Gtk.Button(label=label)
+            btn.connect("clicked", self._on_jobs_action_clicked, subcmd)
+            jobs_btn_row.pack_start(btn, False, False, 0)
+        jobs_page.pack_start(jobs_btn_row, False, False, 0)
+
+        city_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        city_row.pack_start(Gtk.Label(label="Weather city:"), False, False, 0)
+        self.jobs_city_entry = Gtk.Entry()
+        self.jobs_city_entry.set_width_chars(20)
+        self.jobs_city_entry.connect("changed", self._on_jobs_changed)
+        city_row.pack_start(self.jobs_city_entry, False, False, 0)
+        jobs_page.pack_start(city_row, False, False, 0)
+
+        jobs_sw = Gtk.ScrolledWindow()
+        jobs_sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        jobs_page.pack_start(jobs_sw, True, True, 0)
+
+        jobs_grid = Gtk.Grid(column_spacing=12, row_spacing=4)
+        jobs_grid.set_margin_top(4)
+        jobs_sw.add(jobs_grid)
+
+        self._jobs_loading = False
+        self._job_widgets = {}
+        job_defs = (
+            ("weather",     "Weather forecast (fetch_weather.sh)",         True,  "15m"),
+            ("alerts",      "Weather alerts (fetch_alerts.sh)",            True,  "15m"),
+            ("map",         "Weather radar / map (fetch_maps.sh)",         True,  "30m"),
+            ("network",     "Network ping & IP info (fetch_network.sh)",   True,  "2m"),
+            ("nowplaying",  "Media now-playing (fetch_nowplaying.sh)",     True,  "1m"),
+            ("updates",     "System package updates (updates.sh)",         True,  "60m"),
+            ("vnstat",      "Bandwidth statistics (vnstat.sh)",            True,  "15m"),
+            ("google",      "Google / Gmail / Calendar (fetch_google.sh)", False, "10m"),
+            ("icloud",      "Apple iCloud / Find My (fetch_icloud.sh)",    False, "15m"),
+            ("antigravity", "Antigravity AI telemetry (fetch_antigravity.sh)", False, "5m"),
+        )
+        interval_opts = ("1m", "2m", "5m", "10m", "15m", "30m", "60m", "2h", "6h", "12h")
+        for row_idx, (jkey, jdesc, def_on, def_iv) in enumerate(job_defs):
+            cb = Gtk.CheckButton(label=f"{jkey} — {jdesc}")
+            cb.set_active(def_on)
+            cb.connect("toggled", self._on_jobs_changed)
+            jobs_grid.attach(cb, 0, row_idx, 1, 1)
+
+            combo = Gtk.ComboBoxText()
+            for opt in interval_opts:
+                combo.append(opt, opt)
+            combo.set_active_id(def_iv)
+            combo.connect("changed", self._on_jobs_changed)
+            jobs_grid.attach(combo, 1, row_idx, 1, 1)
+
+            self._job_widgets[jkey] = (cb, combo, def_on, def_iv)
+
+        self._load_jobs_conf()
+
         # ── DIRTY TRACKING ──
 
     def _set_dirty(self):
@@ -1869,6 +1952,125 @@ class DesignerWindow(Gtk.Window):
             buf.set_text(self.custom_lua_code)
         finally:
             self._custom_lua_loading = False
+
+    # ── BACKGROUND JOBS TAB (jobs.conf) ──
+
+    @staticmethod
+    def _jobs_conf_path():
+        cfg = os.environ.get("XDG_CONFIG_HOME") or os.path.expanduser("~/.config")
+        return os.path.join(cfg, "conky-nextgen", "jobs.conf")
+
+    @staticmethod
+    def _jobs_script_path():
+        local = os.path.join(CONKY_DIR, "sh", "jobs.sh")
+        if os.path.isfile(local):
+            return local
+        return "/usr/share/conky-nextgen/sh/jobs.sh"
+
+    def _refresh_jobs_status(self):
+        timer_state = "inactive"
+        try:
+            r = subprocess.run(
+                ["systemctl", "--user", "is-active", "conky-nextgen-jobs.timer"],
+                capture_output=True, text=True, timeout=2
+            )
+            if r.stdout.strip():
+                timer_state = r.stdout.strip()
+        except Exception:
+            pass
+
+        cron_state = "not installed"
+        try:
+            r = subprocess.run(["crontab", "-l"], capture_output=True, text=True, timeout=2)
+            if "# >>> conky-nextgen-jobs" in r.stdout:
+                cron_state = "installed"
+        except Exception:
+            cron_state = "unavailable"
+
+        self.jobs_status_lbl.set_markup(
+            f"<small><b>Systemd timer:</b> {timer_state}  ·  "
+            f"<b>User crontab:</b> {cron_state}</small>"
+        )
+
+    def _load_jobs_conf(self):
+        self._jobs_loading = True
+        try:
+            path = self._jobs_conf_path()
+            city = "Vienna"
+            entries = {}
+            if os.path.isfile(path):
+                with open(path, "r", encoding="utf-8", errors="replace") as f:
+                    for raw in f:
+                        line = raw.strip()
+                        if not line or line.startswith("#") or "=" not in line:
+                            continue
+                        k, v = line.split("=", 1)
+                        k = k.strip()
+                        v = v.strip()
+                        if k == "CITY":
+                            city = v or "Vienna"
+                        elif ":" in v:
+                            en_s, iv = v.split(":", 1)
+                            entries[k] = (en_s.strip() == "1", iv.strip())
+                        else:
+                            entries[k] = (v == "1", "15m")
+
+            self.jobs_city_entry.set_text(city)
+            for jkey, (cb, combo, def_on, def_iv) in self._job_widgets.items():
+                on, iv = entries.get(jkey, (def_on, def_iv))
+                cb.set_active(on)
+                if not combo.set_active_id(iv):
+                    combo.append(iv, iv)
+                    combo.set_active_id(iv)
+
+            if not os.path.isfile(path):
+                self._save_jobs_conf()
+            self._refresh_jobs_status()
+        finally:
+            self._jobs_loading = False
+
+    def _save_jobs_conf(self):
+        path = self._jobs_conf_path()
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        city = self.jobs_city_entry.get_text().strip() or "Vienna"
+        lines = [
+            "# Conky NextGen Background Jobs Configuration",
+            "# Format: <job>=<0|1>:<interval>  (e.g. 1m, 5m, 15m, 30m, 60m, 2h)",
+            f"CITY={city}",
+        ]
+        for jkey, (cb, combo, _def_on, def_iv) in self._job_widgets.items():
+            en = "1" if cb.get_active() else "0"
+            iv = combo.get_active_id() or def_iv
+            lines.append(f"{jkey}={en}:{iv}")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+
+    def _on_jobs_changed(self, *_):
+        if self._jobs_loading:
+            return
+        self._save_jobs_conf()
+        self.status.set_text("Saved ~/.config/conky-nextgen/jobs.conf")
+
+    def _on_jobs_action_clicked(self, _btn, subcmd):
+        script = self._jobs_script_path()
+        if not os.path.isfile(script):
+            self.status.set_text(f"jobs.sh not found: {script}")
+            return
+        self._save_jobs_conf()
+        if subcmd == "run":
+            subprocess.Popen(["bash", script, "run", "--force"])
+            self.status.set_text("Running enabled background jobs...")
+            return
+        try:
+            r = subprocess.run(
+                ["bash", script, subcmd],
+                capture_output=True, text=True, timeout=10
+            )
+            msg = (r.stdout or r.stderr or "").strip().splitlines()
+            self.status.set_text(msg[-1] if msg else f"jobs {subcmd} finished")
+        except Exception as exc:
+            self.status.set_text(f"jobs {subcmd} error: {exc}")
+        self._refresh_jobs_status()
 
     # ── WEATHER & ICONS TAB ──
 

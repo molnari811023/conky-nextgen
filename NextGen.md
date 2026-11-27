@@ -220,6 +220,16 @@ For example:
 fg = { { 0, "#3daee9", 1 }, { 1, "#bb9af7", 1 } }
 ```
 
+#### KDE Plasma theme integration (`lua/core/plasma.lua`)
+
+Widgets can optionally follow the live KDE Plasma color scheme from
+`~/.config/kdeglobals` by setting `_PLASMA_THEME = true` (or
+`DEFAULT_THEME = "plasma"`). `lua/core/plasma.lua` uses pure Lua and
+LuaFileSystem (`lfs.attributes(path, "modification")`) `mtime` tracking so
+`kdeglobals` is only re-parsed when its modification timestamp changes. It
+populates `PLASMA` (normalized `[0,1]` RGBA tables), `PLASMA_HEX` (`#rrggbb`
+strings), and `THEMES.plasma` (palette, gradients, and per-type defaults).
+
 ### Draw items
 
 Every item is a table added to `draw`. Common fields are `type`, position,
@@ -429,6 +439,8 @@ Key Designer capabilities:
 
 - add, reorder, edit, and delete draw items;
 - edit groups, views, mouse bindings, themes, gradients, and Conky settings;
+- toggle **Use KDE Plasma Theme** on the Theme tab (`_PLASMA_THEME = true/false`, live previewed via `mtime`-cached `~/.config/kdeglobals` loading);
+- manage background fetcher schedules and enable/disable toggles on the **Jobs** tab (`~/.config/conky-nextgen/jobs.conf`, `sh/jobs.sh`, `systemd --user` timer, and `crontab` integration);
 - choose one or more module profiles from the Profile menu;
 - preview live through managed Conky processes;
 - generate widget `.lua` and `.conf` files;
