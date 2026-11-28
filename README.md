@@ -253,6 +253,17 @@ Every root-level `.conf` file starts the matching `.lua` widget. The complete su
 
 ![Designer](screenshots/designer.png)
 
+## Engine Highlights: Plasma Theme, Interactive Groups & Jobs
+
+- **KDE Plasma Live Theme Sync (`lua/core/plasma.lua`):**
+  - Set `_PLASMA_THEME = true` (or `DEFAULT_THEME = "plasma"`) to follow your live `~/.config/kdeglobals` color scheme automatically.
+  - Uses pure Lua + LuaFileSystem (`lfs.attributes(path, "modification")`) `mtime` tracking so the file is only re-parsed when modified, exposing `PLASMA`, `PLASMA_HEX`, and `THEMES.plasma`.
+- **Interactive Groups (`drag`, `expand` & `scroll`):**
+  - `_GROUPS` entries support `draggable = true` (drag cards vertically to reorder live), `collapsed = true`, and `collapsed_height` (with `header = true` items kept visible and automatic reflow).
+  - `lua/core/mouse.lua` supports `expand`, `drag` (`"group"` / `"group_free"` / custom callback with `dx`/`dy`), and item-level `scroll` / `scroll_up` / `scroll_down`.
+- **Background Jobs Scheduler (`~/.config/conky-nextgen/jobs.conf` & `sh/jobs.sh`):**
+  - Toggle individual background fetchers (`weather`, `alerts`, `map`, `network`, `nowplaying`, `updates`, `vnstat`, `google`, `icloud`, `antigravity`) and intervals via `conky-nextgen jobs` (`status`, `enable`, `disable`, `set`, `install-timer`, `install-cron`) or the Designer **Jobs** tab.
+
 ## Designer
 
 Run the GTK3 Designer with:
@@ -262,7 +273,9 @@ python3 sh/designer/main.py
 ```
 
 It edits `widget.lua` and `widget.conf`, provides a live Conky preview, and
-includes widget, theme, view, group, mouse, weather, and Conky configuration
+includes widget, theme (including the **Use KDE Plasma Theme** toggle), view,
+group (`draggable`, `collapsed`, `collapsed_height`), mouse, weather, **Jobs**
+(`jobs.conf` + `systemd --user` timer / `crontab`), and Conky configuration
 controls. Module profiles are fixed checkboxes in the left-side **Profile**
 panel, so selecting them does not cover any other control.
 
